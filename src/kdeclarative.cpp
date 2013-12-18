@@ -49,7 +49,6 @@ KDeclarative::~KDeclarative()
     delete d;
 }
 
-
 void KDeclarative::setDeclarativeEngine(QQmlEngine *engine)
 {
     if (d->declarativeEngine.data() == engine) {
@@ -78,7 +77,6 @@ void KDeclarative::setupBindings()
     d->declarativeEngine.data()->setNetworkAccessManagerFactory(0);
     delete factory;
     d->declarativeEngine.data()->setNetworkAccessManagerFactory(new KIOAccessManagerFactory());
-
 
     /*Create a context object for the root qml context.
       in this way we can register global functions, in this case the i18n() family*/

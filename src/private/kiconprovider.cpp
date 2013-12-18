@@ -26,7 +26,7 @@
 #include <kiconeffect.h>
 
 KIconProvider::KIconProvider()
-  : QQuickImageProvider(QQuickImageProvider::Pixmap)
+    : QQuickImageProvider(QQuickImageProvider::Pixmap)
 {
 }
 

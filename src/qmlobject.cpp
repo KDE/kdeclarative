@@ -30,10 +30,8 @@
 #include <qdebug.h>
 #include <kdeclarative.h>
 
-
 //#include "packageaccessmanagerfactory.h"
 //#include "private/declarative/dataenginebindings_p.h"
-
 
 class QmlObjectIncubator : public QQmlIncubator
 {
@@ -80,13 +78,12 @@ public:
     void preferredWidthChanged();
     void preferredHeightChanged();
 
-
     QmlObject *q;
 
     QUrl source;
-    QQmlEngine* engine;
+    QQmlEngine *engine;
     QmlObjectIncubator incubator;
-    QQmlComponent* component;
+    QQmlComponent *component;
     QPointer<QObject> root;
     QTimer *executionEndTimer;
     bool delay : 1;
@@ -95,11 +92,11 @@ public:
 void QmlObjectPrivate::errorPrint(QQmlComponent *component)
 {
     QString errorStr = QStringLiteral("Error loading QML file.\n");
-    if(component->isError()){
+    if (component->isError()) {
         QList<QQmlError> errors = component->errors();
         foreach (const QQmlError &error, errors) {
-            errorStr += (error.line()>0?QString(QString::number(error.line()) + QLatin1String(": ")):QLatin1String(""))
-                + error.description() + QLatin1Char('\n');
+            errorStr += (error.line() > 0 ? QString(QString::number(error.line()) + QLatin1String(": ")) : QLatin1String(""))
+                        + error.description() + QLatin1Char('\n');
         }
     }
     qWarning() << component->url().toString() << '\n' << errorStr;
@@ -181,7 +178,7 @@ bool QmlObject::isInitializationDelayed() const
     return d->delay;
 }
 
-QQmlEngine* QmlObject::engine()
+QQmlEngine *QmlObject::engine()
 {
     return d->engine;
 }
@@ -252,6 +249,5 @@ QObject *QmlObject::createObjectFromSource(const QUrl &source, const QVariantHas
         return 0;
     }
 }
-
 
 #include "moc_qmlobject.cpp"

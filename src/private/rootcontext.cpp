@@ -24,7 +24,7 @@
 #include <klocalizedstring.h>
 
 RootContext::RootContext(QObject *parent)
-  : QObject(parent)
+    : QObject(parent)
 {
 }
 
@@ -74,7 +74,6 @@ QString RootContext::i18n(const QString &message, const QString &param1, const Q
 
     return trMessage.toString();
 }
-
 
 QString RootContext::i18nc(const QString &context, const QString &message, const QString &param1, const QString &param2, const QString &param3, const QString &param4, const QString &param5, const QString &param6, const QString &param7, const QString &param8, const QString &param9, const QString &param10) const
 {

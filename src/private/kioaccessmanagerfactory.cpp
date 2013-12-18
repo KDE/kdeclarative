@@ -21,7 +21,7 @@
 #include <kio/accessmanager.h>
 
 KIOAccessManagerFactory::KIOAccessManagerFactory()
-   : QQmlNetworkAccessManagerFactory()
+    : QQmlNetworkAccessManagerFactory()
 {
 }
 
@@ -33,5 +33,4 @@ QNetworkAccessManager *KIOAccessManagerFactory::create(QObject *parent)
 {
     return new KIO::AccessManager(parent);
 }
-
 

@@ -28,10 +28,8 @@
 #include <QGuiApplication>
 #include <QScreen>
 
-
 class QQmlEngine;
 class QQmlComponent;
-
 
 class QmlObjectIncubationController : public QObject, public QQmlIncubationController
 {
@@ -67,7 +65,10 @@ public Q_SLOTS:
         }
     }
 
-    void animationStopped() { incubate(); }
+    void animationStopped()
+    {
+        incubate();
+    }
 
 protected:
     virtual void incubatingObjectCountChanged(int count)
@@ -79,6 +80,5 @@ protected:
 private:
     int m_incubation_time;
 };
-
 
 #endif // multiple inclusion guard

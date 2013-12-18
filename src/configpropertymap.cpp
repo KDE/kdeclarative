@@ -23,7 +23,6 @@
 
 #include <kcoreconfigskeleton.h>
 
-
 ConfigPropertyMap::ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *parent)
     : QQmlPropertyMap(parent),
       m_config(config)
@@ -79,6 +78,4 @@ void ConfigPropertyMap::writeConfigValue(const QString &key, const QVariant &val
 }
 
 #include "moc_configpropertymap.cpp"
-
-
 

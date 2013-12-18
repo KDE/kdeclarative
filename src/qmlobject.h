@@ -53,7 +53,7 @@ class KDECLARATIVE_EXPORT QmlObject : public QObject
 
     Q_PROPERTY(QUrl source READ source WRITE setSource)
     Q_PROPERTY(bool initializationDelayed READ isInitializationDelayed WRITE setInitializationDelayed)
-    Q_PROPERTY(QObject * rootObject READ rootObject)
+    Q_PROPERTY(QObject *rootObject READ rootObject)
 
 public:
 
@@ -85,13 +85,13 @@ public:
      * The initialization will either be completed automatically asyncronously
      * or explicitly by calling completeInitialization()
      *
-     * @param delay if true the initialization of the QML file will be delayed 
+     * @param delay if true the initialization of the QML file will be delayed
      *              at the end of the event loop
      */
     void setInitializationDelayed(const bool delay);
 
     /**
-     * @return true if the initialization of the QML file will be delayed 
+     * @return true if the initialization of the QML file will be delayed
      *              at the end of the event loop
      */
     bool isInitializationDelayed() const;
@@ -99,7 +99,7 @@ public:
     /**
      * @return the declarative engine that runs the qml file assigned to this widget.
      */
-    QQmlEngine* engine();
+    QQmlEngine *engine();
 
     /**
      * @return the root object of the declarative object tree
@@ -114,9 +114,9 @@ public:
     /**
      * Creates and returns an object based on the provided url to a Qml file
      * with the same QQmlEngine and the same root context as the amin object,
-     * that will be the parent of the newly created object 
+     * that will be the parent of the newly created object
      * @param source url where the QML file is located
-     * @param initialProperties optional properties that will be set on 
+     * @param initialProperties optional properties that will be set on
      *             the object when created (and before Component.onCompleted
      *             gets emitted
      */
@@ -126,7 +126,7 @@ public Q_SLOTS:
     /**
      * Finishes the process of initialization.
      * If isInitializationDelayed() is false, calling this will have no effect.
-     * @param initialProperties optional properties that will be set on 
+     * @param initialProperties optional properties that will be set on
      *             the object when created (and before Component.onCompleted
      *             gets emitted
      */
@@ -140,10 +140,9 @@ Q_SIGNALS:
 
 private:
     friend class QmlObjectPrivate;
-    QmlObjectPrivate * const d;
+    QmlObjectPrivate *const d;
 
     Q_PRIVATE_SLOT(d, void scheduleExecutionEnd())
 };
-
 
 #endif // multiple inclusion guard

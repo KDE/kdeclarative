@@ -23,7 +23,6 @@
 
 #include <kdeclarative/kdeclarative.h>
 
-
 #include <QtTest/qtestcase.h>
 
 int main(int argc, char *argv[])

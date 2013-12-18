@@ -22,7 +22,6 @@
 
 #include <QtQuick/QQuickImageProvider>
 
-
 class KIconProvider : public QQuickImageProvider
 {
 
