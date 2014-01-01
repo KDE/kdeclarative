@@ -1,15 +1,3 @@
-set(KDeclarative_LIB_HEADERS
-    kdeclarative.h
-    qmlobject.h
-    configpropertymap.h
-)
-
-foreach(_KDECLARATIVE_HEADER ${KDeclarative_LIB_HEADERS})
-  set(HEADER_NAME ${KDeclarative_BINARY_DIR}/kdeclarative/${_KDECLARATIVE_HEADER})
-  if (NOT EXISTS ${HEADER_NAME})
-    file(WRITE ${HEADER_NAME} "#include \"${CMAKE_CURRENT_SOURCE_DIR}/${_KDECLARATIVE_HEADER}\"\n")
-  endif()
-endforeach()
 
 set(kdeclarative_SRCS
   configpropertymap.cpp
@@ -24,6 +12,9 @@ set(kdeclarative_SRCS
 add_library(KF5Declarative ${kdeclarative_SRCS})
 generate_export_header(KF5Declarative EXPORT_FILE_NAME ${KDeclarative_BINARY_DIR}/kdeclarative/kdeclarative_export.h BASE_NAME KDeclarative)
 add_library(KF5::Declarative ALIAS KF5Declarative)
+
+# Apps must include <KDeclarative/File> or <kdeclarative/file.h>
+target_include_directories(KF5Declarative INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}>")
 
 target_link_libraries(KF5Declarative
   PUBLIC
@@ -44,6 +35,16 @@ set_target_properties(KF5Declarative
 )
 
 # Install files
+ecm_generate_headers(
+  KDeclarative
+  QmlObject
+  ConfigPropertyMap
+
+  MODULE_NAME KDeclarative
+  REQUIRED_HEADERS KDeclarative_HEADERS
+)
+install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KDeclarative DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
+
 install(TARGETS KF5Declarative
   EXPORT KF5DeclarativeTargets
   ${INSTALL_TARGETS_DEFAULT_ARGS}
@@ -51,7 +52,7 @@ install(TARGETS KF5Declarative
 
 install(FILES
   ${KDeclarative_BINARY_DIR}/kdeclarative/kdeclarative_export.h
-  ${KDeclarative_LIB_HEADERS}
+  ${KDeclarative_HEADERS}
   DESTINATION ${INCLUDE_INSTALL_DIR}/kdeclarative
   COMPONENT Devel
 )
