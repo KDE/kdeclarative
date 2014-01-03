@@ -14,7 +14,7 @@ generate_export_header(KF5Declarative EXPORT_FILE_NAME ${KDeclarative_BINARY_DIR
 add_library(KF5::Declarative ALIAS KF5Declarative)
 
 # Apps must include <KDeclarative/File> or <kdeclarative/file.h>
-target_include_directories(KF5Declarative INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}>")
+target_include_directories(KF5Declarative INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}>/KDeclarative")
 
 target_link_libraries(KF5Declarative
   PUBLIC
@@ -41,6 +41,7 @@ ecm_generate_headers(
   ConfigPropertyMap
 
   MODULE_NAME KDeclarative
+  PREFIX KDeclarative
   REQUIRED_HEADERS KDeclarative_HEADERS
 )
 install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KDeclarative DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
@@ -53,6 +54,6 @@ install(TARGETS KF5Declarative
 install(FILES
   ${KDeclarative_BINARY_DIR}/kdeclarative/kdeclarative_export.h
   ${KDeclarative_HEADERS}
-  DESTINATION ${INCLUDE_INSTALL_DIR}/kdeclarative
+  DESTINATION ${INCLUDE_INSTALL_DIR}/KDeclarative/kdeclarative
   COMPONENT Devel
 )
