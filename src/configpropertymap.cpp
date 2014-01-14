@@ -23,6 +23,8 @@
 
 #include <kcoreconfigskeleton.h>
 
+namespace KDeclarative {
+
 ConfigPropertyMap::ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *parent)
     : QQmlPropertyMap(parent),
       m_config(config)
@@ -75,6 +77,8 @@ void ConfigPropertyMap::writeConfigValue(const QString &key, const QVariant &val
         m_config.data()->writeConfig();
         m_config.data()->blockSignals(false);
     }
+}
+
 }
 
 #include "moc_configpropertymap.cpp"

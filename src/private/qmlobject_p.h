@@ -31,6 +31,8 @@
 class QQmlEngine;
 class QQmlComponent;
 
+namespace KDeclarative {
+
 class QmlObjectIncubationController : public QObject, public QQmlIncubationController
 {
     Q_OBJECT
@@ -80,5 +82,7 @@ protected:
 private:
     int m_incubation_time;
 };
+
+}
 
 #endif // multiple inclusion guard

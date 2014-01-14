@@ -24,6 +24,8 @@
 
 #include <QtCore/QPointer>
 
+namespace KDeclarative {
+
 class KDeclarativePrivate
 {
 public:
@@ -32,5 +34,7 @@ public:
     QPointer<QQmlEngine> declarativeEngine;
     bool initialized;
 };
+
+}
 
 #endif

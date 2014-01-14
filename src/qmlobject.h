@@ -32,6 +32,8 @@
 class QQmlEngine;
 class QQmlComponent;
 
+namespace KDeclarative {
+
 class QmlObjectPrivate;
 
 /**
@@ -144,5 +146,7 @@ private:
 
     Q_PRIVATE_SLOT(d, void scheduleExecutionEnd())
 };
+
+}
 
 #endif // multiple inclusion guard

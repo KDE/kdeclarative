@@ -27,6 +27,8 @@ class KCoreConfigSkeleton;
 
 #include <kdeclarative/kdeclarative_export.h>
 
+namespace KDeclarative {
+
 class KDECLARATIVE_EXPORT ConfigPropertyMap : public QQmlPropertyMap
 {
     Q_OBJECT
@@ -43,5 +45,7 @@ private Q_SLOTS:
 private:
     QPointer<KCoreConfigSkeleton> m_config;
 };
+
+}
 
 #endif

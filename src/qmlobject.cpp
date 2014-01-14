@@ -33,6 +33,8 @@
 //#include "packageaccessmanagerfactory.h"
 //#include "private/declarative/dataenginebindings_p.h"
 
+namespace KDeclarative {
+
 class QmlObjectIncubator : public QQmlIncubator
 {
 public:
@@ -248,6 +250,8 @@ QObject *QmlObject::createObjectFromSource(const QUrl &source, const QVariantHas
         delete object;
         return 0;
     }
+}
+
 }
 
 #include "moc_qmlobject.cpp"

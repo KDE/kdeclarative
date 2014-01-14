@@ -34,6 +34,8 @@
 #include <kconfiggroup.h>
 #include <ksharedconfig.h>
 
+namespace KDeclarative {
+
 KDeclarativePrivate::KDeclarativePrivate()
     : initialized(false)
 {
@@ -143,3 +145,4 @@ QStringList KDeclarative::runtimePlatform()
     return *runtimePlatform;
 }
 
+}

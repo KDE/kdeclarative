@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     context->setContextProperty(QStringLiteral("backgroundColor"),
                                 QColor(Qt::yellow));
 
-    KDeclarative kdeclarative;
+    KDeclarative::KDeclarative kdeclarative;
     kdeclarative.setDeclarativeEngine(view.engine());
     kdeclarative.initialize();
     //binds things like kconfig and icons

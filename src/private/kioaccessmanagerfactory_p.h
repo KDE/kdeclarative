@@ -22,7 +22,7 @@
 
 #include <QQmlNetworkAccessManagerFactory>
 
-class AppletAuthorization;
+namespace KDeclarative {
 
 class KIOAccessManagerFactory : public QQmlNetworkAccessManagerFactory
 {
@@ -31,5 +31,7 @@ public:
     ~KIOAccessManagerFactory();
     QNetworkAccessManager *create(QObject *parent);
 };
+
+}
 
 #endif

@@ -25,6 +25,8 @@
 #include <kiconloader.h>
 #include <kiconeffect.h>
 
+namespace KDeclarative {
+
 KIconProvider::KIconProvider()
     : QQuickImageProvider(QQuickImageProvider::Pixmap)
 {
@@ -66,5 +68,7 @@ QPixmap KIconProvider::requestPixmap(const QString &id, QSize *size, const QSize
     }
 
     return pixmap;
+}
+
 }
 

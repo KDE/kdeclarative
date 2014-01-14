@@ -29,6 +29,8 @@
 class QQmlEngine;
 class QScriptEngine;
 
+namespace KDeclarative {
+
 class KDeclarativePrivate;
 
 class KDECLARATIVE_EXPORT KDeclarative
@@ -75,5 +77,7 @@ public:
 private:
     KDeclarativePrivate *const d;
 };
+
+}
 
 #endif

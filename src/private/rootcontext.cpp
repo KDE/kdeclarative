@@ -23,6 +23,8 @@
 
 #include <klocalizedstring.h>
 
+namespace KDeclarative {
+
 RootContext::RootContext(QObject *parent)
     : QObject(parent)
 {
@@ -214,6 +216,8 @@ QString RootContext::i18ncp(const QString &context, const QString &singular, con
     }
 
     return trMessage.toString();
+}
+
 }
 
 #include <moc_rootcontext_p.cpp>
