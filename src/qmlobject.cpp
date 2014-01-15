@@ -23,6 +23,7 @@
 #include <QQmlComponent>
 #include <QQmlEngine>
 #include <QQmlContext>
+#include <QQuickItem>
 #include <QQmlIncubator>
 #include <QTimer>
 #include <QPointer>
@@ -241,7 +242,12 @@ QObject *QmlObject::createObjectFromSource(const QUrl &source, const QVariantHas
     if (!component->isError() && d->root && object) {
         //memory management
         component->setParent(object);
-        object->setProperty("parent", QVariant::fromValue(d->root.data()));
+        if (qobject_cast<QQuickItem *>(d->root.data())) {
+            object->setProperty("parent", QVariant::fromValue(d->root.data()));
+        } else {
+            object->setParent(d->root.data());
+        }
+        
         return object;
 
     } else {
