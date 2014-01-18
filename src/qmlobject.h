@@ -124,6 +124,17 @@ public:
      */
     QObject *createObjectFromSource(const QUrl &source, const QVariantHash &initialProperties = QVariantHash());
 
+    /**
+     * Creates and returns an object based on the provided QQmlComponent
+     * with the same QQmlEngine and the same root context as the amin object,
+     * that will be the parent of the newly created object
+     * @param component the component we want to instantiate
+     * @param initialProperties optional properties that will be set on
+     *             the object when created (and before Component.onCompleted
+     *             gets emitted
+     */
+    QObject *createObjectFromComponent(QQmlComponent *component, const QVariantHash &initialProperties = QVariantHash());
+
 public Q_SLOTS:
     /**
      * Finishes the process of initialization.

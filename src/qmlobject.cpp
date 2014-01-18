@@ -232,6 +232,12 @@ QObject *QmlObject::createObjectFromSource(const QUrl &source, const QVariantHas
 {
     QQmlComponent *component = new QQmlComponent(d->engine, this);
     component->loadUrl(source);
+
+    return createObjectFromComponent(component, initialProperties);
+}
+
+QObject *QmlObject::createObjectFromComponent(QQmlComponent *component, const QVariantHash &initialProperties)
+{
     d->incubator.m_initialProperties = initialProperties;
     component->create(d->incubator, d->engine->rootContext());
     while (!d->incubator.isReady() && d->incubator.status() != QQmlIncubator::Error) {
@@ -247,7 +253,7 @@ QObject *QmlObject::createObjectFromSource(const QUrl &source, const QVariantHas
         } else {
             object->setParent(d->root.data());
         }
-        
+
         return object;
 
     } else {
