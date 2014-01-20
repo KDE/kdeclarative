@@ -65,6 +65,13 @@ public:
      * @param parent the parent of this object
      */
     explicit QmlObject(QObject *parent = 0);
+
+    /**
+     * Constructs a new QmlObject
+     *
+     * @param engine a QQmlEngine we want to use
+     * @param parent the parent of this object
+     */
     explicit QmlObject(QQmlEngine *engine, QObject *parent = 0);
     ~QmlObject();
 
