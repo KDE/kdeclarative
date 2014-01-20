@@ -148,7 +148,18 @@ QmlObject::QmlObject(QObject *parent)
 {
     d->engine = new QQmlEngine(this);
     d->engine->setIncubationController(new QmlObjectIncubationController(0));
-    //d->engine->setNetworkAccessManagerFactory(new PackageAccessManagerFactory());
+}
+
+QmlObject::QmlObject(QQmlEngine *engine, QObject *parent)
+    : QObject(parent),
+      d(new QmlObjectPrivate(this))
+{
+    if (engine) {
+        d->engine = engine;
+    } else {
+        d->engine = new QQmlEngine(this);
+        d->engine->setIncubationController(new QmlObjectIncubationController(0));
+    }
 }
 
 QmlObject::~QmlObject()
@@ -245,7 +256,7 @@ QObject *QmlObject::createObjectFromComponent(QQmlComponent *component, const QV
     }
     QObject *object = d->incubator.object();
 
-    if (!component->isError() && d->root && object) {
+    if (!component->isError() && object) {
         //memory management
         component->setParent(object);
         if (qobject_cast<QQuickItem *>(d->root.data())) {
