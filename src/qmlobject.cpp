@@ -239,18 +239,18 @@ void QmlObject::completeInitialization(const QVariantHash &initialProperties)
     emit finished();
 }
 
-QObject *QmlObject::createObjectFromSource(const QUrl &source, const QVariantHash &initialProperties)
+QObject *QmlObject::createObjectFromSource(const QUrl &source, QQmlContext *context, const QVariantHash &initialProperties)
 {
     QQmlComponent *component = new QQmlComponent(d->engine, this);
     component->loadUrl(source);
 
-    return createObjectFromComponent(component, initialProperties);
+    return createObjectFromComponent(component, context, initialProperties);
 }
 
-QObject *QmlObject::createObjectFromComponent(QQmlComponent *component, const QVariantHash &initialProperties)
+QObject *QmlObject::createObjectFromComponent(QQmlComponent *component, QQmlContext *context, const QVariantHash &initialProperties)
 {
     d->incubator.m_initialProperties = initialProperties;
-    component->create(d->incubator, d->engine->rootContext());
+    component->create(d->incubator, context ? context : d->engine->rootContext());
     while (!d->incubator.isReady() && d->incubator.status() != QQmlIncubator::Error) {
         QCoreApplication::processEvents(QEventLoop::AllEvents, 50);
     }

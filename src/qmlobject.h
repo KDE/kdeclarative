@@ -31,6 +31,7 @@
 
 class QQmlEngine;
 class QQmlComponent;
+class QQmlContext;
 
 namespace KDeclarative {
 
@@ -126,22 +127,26 @@ public:
      * with the same QQmlEngine and the same root context as the amin object,
      * that will be the parent of the newly created object
      * @param source url where the QML file is located
+     * @param context The QQmlContext in which we will create the object,
+     *             if 0 it will use the engine's root context
      * @param initialProperties optional properties that will be set on
      *             the object when created (and before Component.onCompleted
      *             gets emitted
      */
-    QObject *createObjectFromSource(const QUrl &source, const QVariantHash &initialProperties = QVariantHash());
+    QObject *createObjectFromSource(const QUrl &source, QQmlContext *context = 0, const QVariantHash &initialProperties = QVariantHash());
 
     /**
      * Creates and returns an object based on the provided QQmlComponent
      * with the same QQmlEngine and the same root context as the amin object,
      * that will be the parent of the newly created object
      * @param component the component we want to instantiate
+     * @param context The QQmlContext in which we will create the object,
+     *             if 0 it will use the engine's root context
      * @param initialProperties optional properties that will be set on
      *             the object when created (and before Component.onCompleted
      *             gets emitted
      */
-    QObject *createObjectFromComponent(QQmlComponent *component, const QVariantHash &initialProperties = QVariantHash());
+    QObject *createObjectFromComponent(QQmlComponent *component, QQmlContext *context = 0, const QVariantHash &initialProperties = QVariantHash());
 
 public Q_SLOTS:
     /**
