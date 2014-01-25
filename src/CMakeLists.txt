@@ -57,3 +57,7 @@ install(FILES
   DESTINATION ${INCLUDE_INSTALL_DIR}/KDeclarative/kdeclarative
   COMPONENT Devel
 )
+
+include(ECMGeneratePriFile)
+ecm_generate_pri_file(BASE_NAME KDeclarative LIB_NAME KF5Declarative DEPS "qml" FILENAME_VAR PRI_FILENAME)
+install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
