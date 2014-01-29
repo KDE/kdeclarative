@@ -27,7 +27,6 @@
 #include <QStringList>
 
 class QQmlEngine;
-class QScriptEngine;
 
 namespace KDeclarative {
 
