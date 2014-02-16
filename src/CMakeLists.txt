@@ -35,16 +35,16 @@ set_target_properties(KF5Declarative
 )
 
 # Install files
-ecm_generate_headers(
+ecm_generate_headers(KDeclarative_CamelCase_HEADERS
+  HEADER_NAMES
   KDeclarative
   QmlObject
   ConfigPropertyMap
 
-  MODULE_NAME KDeclarative
   PREFIX KDeclarative
   REQUIRED_HEADERS KDeclarative_HEADERS
 )
-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KDeclarative DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
+install(FILES ${KDeclarative_CamelCase_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/KDeclarative/KDeclarative COMPONENT Devel)
 
 install(TARGETS KF5Declarative
   EXPORT KF5DeclarativeTargets
