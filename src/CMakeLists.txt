@@ -41,6 +41,7 @@ ecm_generate_headers(KDeclarative_CamelCase_HEADERS
   QmlObject
   ConfigPropertyMap
 
+  PREFIX KDeclarative
   REQUIRED_HEADERS KDeclarative_HEADERS
 )
 install(FILES ${KDeclarative_CamelCase_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/KDeclarative/KDeclarative COMPONENT Devel)
