@@ -26,7 +26,7 @@ target_link_libraries(KF5Declarative
     KF5::KIOWidgets     #KIO::AccessManager
     KF5::IconThemes #KIconProvider
 )
-target_include_directories(KF5Declarative PUBLIC "$<BUILD_INTERFACE:${KDeclarative_BINARY_DIR}>")
+target_include_directories(KF5Declarative PUBLIC "$<BUILD_INTERFACE:${KDeclarative_BINARY_DIR};${CMAKE_CURRENT_BINARY_DIR}>")
 
 set_target_properties(KF5Declarative
   PROPERTIES VERSION ${KDECLARATIVE_VERSION_STRING}
@@ -41,7 +41,6 @@ ecm_generate_headers(KDeclarative_CamelCase_HEADERS
   QmlObject
   ConfigPropertyMap
 
-  PREFIX KDeclarative
   REQUIRED_HEADERS KDeclarative_HEADERS
 )
 install(FILES ${KDeclarative_CamelCase_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/KDeclarative/KDeclarative COMPONENT Devel)
