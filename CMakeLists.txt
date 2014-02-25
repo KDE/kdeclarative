@@ -36,7 +36,7 @@ ecm_setup_version(
   VARIABLE_PREFIX KDECLARATIVE
   VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kdeclarative_version.h"
   PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5DeclarativeConfigVersion.cmake"
-)
+  SOVERSION 5)
 
 # Subdirectories
 add_subdirectory(src)
