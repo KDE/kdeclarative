@@ -38,7 +38,16 @@ public:
     explicit KDeclarative();
     ~KDeclarative();
 
-    void initialize();
+#ifndef KDECLARATIVE_NO_DEPRECATE
+    /**
+     * @deprecated
+     */
+    KDECLARATIVE_DEPRECATED void initialize();
+#endif
+
+    /**
+     * Call this after setDeclarativeEngine to set the i18n global functions, the runtime platform, etc
+     */
     void setupBindings();
 
     void setDeclarativeEngine(QQmlEngine *engine);

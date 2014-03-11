@@ -120,7 +120,7 @@ void QmlObjectPrivate::execute(const QUrl &source)
 
     KDeclarative kdeclarative;
     kdeclarative.setDeclarativeEngine(engine);
-    kdeclarative.initialize();
+
     //binds things like kconfig and icons
     kdeclarative.setupBindings();
 

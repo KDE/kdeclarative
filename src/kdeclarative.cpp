@@ -65,12 +65,14 @@ QQmlEngine *KDeclarative::declarativeEngine() const
     return d->declarativeEngine.data();
 }
 
+#ifndef KDECLARATIVE_NO_DEPRECATED
 void KDeclarative::initialize()
 {
     //FIXME: remove this or find a similar hack for qml2
 
     d->initialized = true;
 }
+#endif
 
 void KDeclarative::setupBindings()
 {
