@@ -87,13 +87,12 @@ void KDeclarative::setupBindings()
     RootContext *contextObj = new RootContext(d->declarativeEngine.data());
     d->declarativeEngine.data()->rootContext()->setContextObject(contextObj);
 
-    /*tell the engine to search for import in the kde4 plugin dirs.
-    addImportPath adds the path at the beginning, so to honour user's
-    paths we need to traverse the list in reverse order*/
-
+    /* Tell the engine to search for platform-specific imports first
+       (so it will "win" in import name resolution).
+       addImportPath adds the path at the beginning, so to honour user's
+       paths we need to traverse the list in reverse order */
     const QStringList pluginPathList = d->declarativeEngine.data()->importPathList();
 
-    //add platformqml stuff before the others, so it will "win" in import name resolution
     const QString target = componentsTarget();
     if (target != defaultComponentsTarget()) {
         const QStringList paths = pluginPathList;
