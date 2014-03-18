@@ -14,7 +14,6 @@ target_link_libraries(draganddropplugin
         Qt5::Quick
         Qt5::Qml
         Qt5::Gui
-        Qt5::Widgets
 )
 
 install(TARGETS draganddropplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/draganddrop)

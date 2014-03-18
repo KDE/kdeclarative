@@ -26,10 +26,11 @@
 
 #include <QDrag>
 #include <QIcon>
+#include <QGuiApplication>
+#include <QStyleHints>
 #include <QMimeData>
 #include <QMouseEvent>
 #include <QPainter>
-#include <QApplication>
 #include <QQmlContext>
 #include <QQuickWindow>
 
@@ -50,7 +51,7 @@ DeclarativeDragArea::DeclarativeDragArea(QQuickItem *parent)
     m_defaultAction(Qt::MoveAction),
     m_data(new DeclarativeMimeData())    // m_data is owned by us, and we shouldn't pass it to Qt directly as it will automatically delete it after the drag and drop.
 {
-    m_startDragDistance = QApplication::startDragDistance();
+    m_startDragDistance = QGuiApplication::styleHints()->startDragDistance();
     setAcceptedMouseButtons(Qt::LeftButton);
 //     setFiltersChildEvents(true);
     setFlag(ItemAcceptsDrops, m_enabled);
