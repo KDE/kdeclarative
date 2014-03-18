@@ -20,7 +20,8 @@
 
 #include "mouseeventlistener.h"
 
-#include <QApplication>
+#include <QGuiApplication>
+#include <QStyleHints>
 #include <QEvent>
 #include <QMouseEvent>
 #include <QTimer>
@@ -282,7 +283,7 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
 
         emit released(&dme);
 
-        if (QPointF(me->pos() - buttonDownPos(me->button())).manhattanLength() <= QApplication::startDragDistance() && m_pressAndHoldTimer->isActive()) {
+        if (QPointF(me->pos() - buttonDownPos(me->button())).manhattanLength() <= QGuiApplication::styleHints()->startDragDistance() && m_pressAndHoldTimer->isActive()) {
             emit clicked(&dme);
             m_pressAndHoldTimer->stop();
         }

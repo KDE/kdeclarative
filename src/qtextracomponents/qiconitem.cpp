@@ -19,8 +19,6 @@
 
 #include "qiconitem.h"
 
-#include <kiconloader.h>
-#include <kiconeffect.h>
 
 #include <QIcon>
 #include <QPainter>
@@ -74,12 +72,12 @@ void QIconItem::setState(QIconItem::State state)
 
 int QIconItem::implicitWidth() const
 {
-    return KIconLoader::global()->currentSize(KIconLoader::Desktop);
+    return 32;
 }
 
 int QIconItem::implicitHeight() const
 {
-    return KIconLoader::global()->currentSize(KIconLoader::Desktop);
+    return 32;
 }
 
 void QIconItem::setSmooth(const bool smooth)
@@ -108,12 +106,10 @@ void QIconItem::paint(QPainter *painter)
     painter->setRenderHint(QPainter::SmoothPixmapTransform, m_smooth);
 
     if (m_state == ActiveState) {
-        QPixmap result = m_icon.pixmap(boundingRect().size().toSize());
-        result = KIconLoader::global()->iconEffect()->apply(result, KIconLoader::Desktop, KIconLoader::ActiveState);
+        QPixmap result = m_icon.pixmap(boundingRect().size().toSize(), QIcon::Active);
         painter->drawPixmap(0, 0, result);
     } else if (m_state == QIconItem::DisabledState) {
-        QPixmap result = m_icon.pixmap(boundingRect().size().toSize());
-        result = KIconLoader::global()->iconEffect()->apply(result, KIconLoader::Desktop, KIconLoader::DisabledState);
+        QPixmap result = m_icon.pixmap(boundingRect().size().toSize(), QIcon::Disabled);
         painter->drawPixmap(0, 0, result);
     } else {
         m_icon.paint(painter, boundingRect().toRect(), Qt::AlignCenter, QIcon::Normal);
