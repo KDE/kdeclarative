@@ -1,7 +1,5 @@
 project(qtextracomponents)
 
-add_subdirectory(tests)
-
 set(qtextracomponents_SRCS
     qtextracomponentsplugin.cpp
     qpixmapitem.cpp

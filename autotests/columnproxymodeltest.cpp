@@ -16,9 +16,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301  USA
  */
-#include <../tests/columnproxymodeltest.h>
-#include <columnproxymodel.h>
-#include <../../core/tests/modeltest.h>
+#include "columnproxymodeltest.h"
+#include "../src/qtextracomponents/columnproxymodel.h"
+#include "modeltest.h"
 #include <qtest.h>
 #include <QSignalSpy>
 #include <QStandardItemModel>
