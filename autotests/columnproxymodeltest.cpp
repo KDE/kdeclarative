@@ -17,7 +17,7 @@
  * 02110-1301  USA
  */
 #include "columnproxymodeltest.h"
-#include "../src/qtextracomponents/columnproxymodel.h"
+#include "../src/qmlcontrols/qtextracomponents/columnproxymodel.h"
 #include "modeltest.h"
 #include <qtest.h>
 #include <QSignalSpy>
