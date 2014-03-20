@@ -1,6 +1,3 @@
-if(KF5KIO_FOUND)
-    add_subdirectory(dirmodel)
-endif()
 
 add_subdirectory(draganddrop)
 add_subdirectory(qtextracomponents)

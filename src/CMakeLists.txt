@@ -1,2 +1,5 @@
+if(KF5Config_FOUND AND KF5I18n_FOUND AND KF5IconThemes_FOUND AND KF5KIO_FOUND)
+    add_subdirectory(kdeclarative)
+endif()
 
-add_subdirectory(libkdeclarative)
+add_subdirectory(qmlcontrols)

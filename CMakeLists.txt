@@ -17,11 +17,30 @@ include(KDECMakeSettings)
 if("${CMAKE_BINARY_DIR}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
   # Required KF5 frameworks to build this framework
   # For example:
-  find_package(KF5Config ${KF5_VERSION} REQUIRED)
-  find_package(KF5I18n ${KF5_VERSION} REQUIRED)
-  find_package(KF5IconThemes ${KF5_VERSION} REQUIRED)
-  find_package(KF5KIO ${KF5_VERSION} REQUIRED)
+  find_package(KF5Config ${KF5_VERSION})
+  
+  find_package(KF5I18n ${KF5_VERSION})
+  find_package(KF5IconThemes ${KF5_VERSION})
+  find_package(KF5KIO ${KF5_VERSION})
+
+  find_package(KF5WidgetsAddons ${KF5_VERSION})
+  find_package(KF5WindowSystem ${KF5_VERSION})
+  find_package(KF5GlobalAccel ${KF5_VERSION})
+
+  find_package(KF5GuiAddons ${KF5_VERSION})
 endif()
+
+#########################################################################
+
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
+
+#add_definitions(-Wno-deprecated)
+add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
+add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
+
+remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FROM_BYTEARRAY -DQT_NO_KEYWORDS)
+
+
 
 # Includes
 include(FeatureSummary)
@@ -39,8 +58,11 @@ ecm_setup_version(
   SOVERSION 5)
 
 # Subdirectories
+add_subdirectory(autotests)
 add_subdirectory(src)
-add_subdirectory(tests)
+if(KF5Config_FOUND AND KF5I18n_FOUND AND KF5IconThemes_FOUND AND KF5KIO_FOUND)
+    add_subdirectory(tests)
+endif()
 
 # Create a Config.cmake and a ConfigVersion.cmake file and install them
 set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5Declarative")
@@ -63,6 +85,7 @@ install(EXPORT
   DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
   FILE KF5DeclarativeTargets.cmake
   NAMESPACE KF5::
+  COMPONENT Devel
 )
 
 install(FILES
@@ -74,3 +97,16 @@ install(FILES
 if ("${CMAKE_BINARY_DIR}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
   feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 endif()
+
+if(KF5Config_FOUND AND KF5I18n_FOUND AND KF5IconThemes_FOUND AND KF5KIO_FOUND)
+  message("Dependencies for libkdeclarative found: it will be built")
+else()
+  message("In order to build libkdeclarative you need KF5Config, KF5I18n, KF5IconThemes and KF5KIO")
+endif()
+
+if(KF5I18n_FOUND AND KF5WidgetsAddons_FOUND AND KF5WindowSystem_FOUND AND KF5GlobalAccel_FOUND AND KF5KIO_FOUND AND KF5GuiAddons_FOUND)
+  message("Dependencies for KQuickControls found: it will be built")
+else()
+  message("In order to build KQuickControls you need KF5I18n, KF5WidgetsAddons, KF5WindowSystem, KF5GlobalAccel, KF5KIO and KF5GuiAddons")
+endif()
+
