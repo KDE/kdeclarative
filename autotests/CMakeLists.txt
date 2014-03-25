@@ -6,7 +6,7 @@ find_package(Qt5Test REQUIRED)
 
 add_executable(fullmodelaccesstest
     columnproxymodeltest.cpp
-    ../src/qmlcontrols/qtextracomponents/columnproxymodel.cpp
+    ../src/qmlcontrols/kquickcontrolsaddons/columnproxymodel.cpp
     modeltest.cpp
 )
 target_link_libraries(fullmodelaccesstest

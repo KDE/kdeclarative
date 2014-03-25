@@ -25,7 +25,7 @@
 #include <QQmlExtensionPlugin>
 
 
-class QtExtraComponentsPlugin : public QQmlExtensionPlugin
+class KQuickControlsAddonsPlugin : public QQmlExtensionPlugin
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")

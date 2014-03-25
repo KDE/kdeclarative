@@ -19,7 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "qtextracomponentsplugin.h"
+#include "kquickcontrolsaddonsplugin.h"
 
 #include <QtQml>
 #include <QDebug>
@@ -32,9 +32,9 @@
 #include "clipboard.h"
 #include "mimedatabase.h"
 
-void QtExtraComponentsPlugin::registerTypes(const char *uri)
+void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
 {
-    Q_ASSERT(uri == QLatin1String("org.kde.qtextracomponents"));
+    Q_ASSERT(uri == QLatin1String("org.kde.kquickcontrolsaddons"));
 
     qmlRegisterType<QPixmapItem>(uri, 2, 0, "QPixmapItem");
     qmlRegisterType<QImageItem>(uri, 2, 0, "QImageItem");
@@ -49,5 +49,5 @@ void QtExtraComponentsPlugin::registerTypes(const char *uri)
 }
 
 
-#include "qtextracomponentsplugin.moc"
+#include "kquickcontrolsaddonsplugin.moc"
 
