@@ -6,3 +6,6 @@ if(KF5I18n_FOUND AND KF5Config_FOUND AND KF5WidgetsAddons_FOUND AND KF5WindowSys
     add_subdirectory(kquickcontrols)
 endif()
 
+if(KF5CoreAddons_FOUND)
+    add_subdirectory(kcoreaddons)
+endif()

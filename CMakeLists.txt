@@ -26,7 +26,7 @@ if("${CMAKE_BINARY_DIR}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
   find_package(KF5WidgetsAddons ${KF5_VERSION})
   find_package(KF5WindowSystem ${KF5_VERSION})
   find_package(KF5GlobalAccel ${KF5_VERSION})
-
+  find_package(KF5CoreAddons ${KF5_VERSION})
   find_package(KF5GuiAddons ${KF5_VERSION})
 endif()
 
@@ -108,5 +108,11 @@ if(KF5I18n_FOUND AND KF5WidgetsAddons_FOUND AND KF5WindowSystem_FOUND AND KF5Glo
   message("Dependencies for KQuickControls found: it will be built")
 else()
   message("In order to build KQuickControls you need KF5I18n, KF5WidgetsAddons, KF5WindowSystem, KF5GlobalAccel, KF5KIO and KF5GuiAddons")
+endif()
+
+if(KF5CoreAddons_FOUND)
+  message("Dependencies for KCoreAddons QML bindings found; it will be built")
+else()
+  message("In order to build KCoreAddons QML bindings you need KCoreAddons")
 endif()
 
