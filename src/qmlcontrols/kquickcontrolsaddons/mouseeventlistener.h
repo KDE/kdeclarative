@@ -151,6 +151,11 @@ class MouseEventListener : public QQuickItem
 
     Q_PROPERTY(Qt::MouseButtons acceptedButtons READ acceptedButtons WRITE setAcceptedButtons NOTIFY acceptedButtonsChanged)
 
+    /**
+     * True if the mouse is pressed in the item or any of its children
+     */
+    Q_PROPERTY(bool pressed READ isPressed NOTIFY pressedChanged)
+
 public:
     MouseEventListener(QQuickItem *parent=0);
     ~MouseEventListener();
@@ -158,6 +163,7 @@ public:
     bool containsMouse() const;
     void setHoverEnabled(bool enable);
     bool hoverEnabled() const;
+    bool isPressed() const;
 
     Qt::MouseButtons acceptedButtons() const;
     void setAcceptedButtons(Qt::MouseButtons buttons);
@@ -182,6 +188,7 @@ Q_SIGNALS:
     void containsMouseChanged(bool containsMouseChanged);
     void hoverEnabledChanged(bool hoverEnabled);
     void acceptedButtonsChanged();
+    void pressedChanged();
 
 private Q_SLOTS:
     void handlePressAndHold();

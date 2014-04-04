@@ -85,6 +85,11 @@ bool MouseEventListener::hoverEnabled() const
     return acceptHoverEvents();
 }
 
+bool MouseEventListener::isPressed() const
+{
+    return m_pressed;
+}
+
 void MouseEventListener::hoverEnterEvent(QHoverEvent *event)
 {
     Q_UNUSED(event);
@@ -144,6 +149,7 @@ void MouseEventListener::mousePressEvent(QMouseEvent *me)
     }
     emit pressed(&dme);
     m_pressed = true;
+    emit pressedChanged();
 
     m_pressAndHoldTimer->start(PressAndHoldDelay);
 }
@@ -169,6 +175,7 @@ void MouseEventListener::mouseReleaseEvent(QMouseEvent *me)
     KDeclarativeMouseEvent dme(me->pos().x(), me->pos().y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()));
     m_pressed = false;
     emit released(&dme);
+    emit pressedChanged();
 
     if (boundingRect().contains(me->pos()) && m_pressAndHoldTimer->isActive()) {
         emit clicked(&dme);
@@ -230,6 +237,7 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
         m_buttonDownPos[me->button()] = me->pos();
         emit pressed(&dme);
         m_pressed = true;
+        emit pressedChanged();
 
         m_pressAndHoldTimer->start(PressAndHoldDelay);
         break;
@@ -282,6 +290,7 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
         m_pressed = false;
 
         emit released(&dme);
+        emit pressedChanged();
 
         if (QPointF(me->pos() - buttonDownPos(me->button())).manhattanLength() <= QGuiApplication::styleHints()->startDragDistance() && m_pressAndHoldTimer->isActive()) {
             emit clicked(&dme);
