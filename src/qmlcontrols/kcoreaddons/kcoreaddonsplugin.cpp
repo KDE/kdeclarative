@@ -29,4 +29,5 @@ void KCoreAddonsPlugin::registerTypes(const char *uri)
     Q_ASSERT(uri == QLatin1String("org.kde.kcoreaddons"));
 
     qmlRegisterType<Formats>(uri, 1, 0, "Formats");
+    qRegisterMetaType<QLocale::FormatType>();
 }
