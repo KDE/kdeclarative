@@ -27,67 +27,77 @@ namespace KDeclarative {
 
 class ConfigPropertyMapPrivate {
 public:
-    
+    ConfigPropertyMapPrivate(ConfigPropertyMap *map)
+        : q(map)
+    {
+    }
 
+    void loadConfig();
+    void writeConfig();
+    void writeConfigValue(const QString &key, const QVariant &value);
+
+    ConfigPropertyMap *q;
     QPointer<KCoreConfigSkeleton> config;
 };
 
 ConfigPropertyMap::ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *parent)
     : QQmlPropertyMap(parent),
-      d(new ConfigPropertyMapPrivate)
+      d(new ConfigPropertyMapPrivate(this))
 {
     d->config = config;
-    connect(config, &KCoreConfigSkeleton::configChanged,
-            this, &ConfigPropertyMap::loadConfig);
-    connect(this, &ConfigPropertyMap::valueChanged,
-            this, &ConfigPropertyMap::writeConfigValue);
 
-    loadConfig();
+    //FIXME: find a prettier way to connect without lambdas
+    connect(config, &KCoreConfigSkeleton::configChanged,
+            [=](){d->loadConfig();});
+    connect(this, &ConfigPropertyMap::valueChanged,
+            [=](const QString &key, const QVariant &value){d->writeConfigValue(key, value);});
+
+    d->loadConfig();
 }
 
 ConfigPropertyMap::~ConfigPropertyMap()
 {
-    writeConfig();
+    d->writeConfig();
     delete d;
 }
 
-void ConfigPropertyMap::loadConfig()
+void ConfigPropertyMapPrivate::loadConfig()
 {
-    if (!d->config) {
+    if (!config) {
         return;
     }
 
-    foreach (KConfigSkeletonItem *item, d->config.data()->items()) {
-        insert(item->key(), item->property());
+    foreach (KConfigSkeletonItem *item, config.data()->items()) {
+        q->insert(item->key(), item->property());
     }
 }
 
-void ConfigPropertyMap::writeConfig()
+void ConfigPropertyMapPrivate::writeConfig()
 {
-    if (!d->config) {
+    if (!config) {
         return;
     }
 
-    foreach (KConfigSkeletonItem *item, d->config.data()->items()) {
-        item->setProperty(value(item->key()));
+    foreach (KConfigSkeletonItem *item, config.data()->items()) {
+        item->setProperty(q->value(item->key()));
     }
 
-    d->config.data()->blockSignals(true);
-    d->config.data()->writeConfig();
-    d->config.data()->blockSignals(false);
+    config.data()->blockSignals(true);
+    config.data()->save();
+    config.data()->blockSignals(false);
 }
 
-void ConfigPropertyMap::writeConfigValue(const QString &key, const QVariant &value)
+void ConfigPropertyMapPrivate::writeConfigValue(const QString &key, const QVariant &value)
 {
-    KConfigSkeletonItem *item = d->config.data()->findItem(key);
+    KConfigSkeletonItem *item = config.data()->findItem(key);
     if (item) {
         item->setProperty(value);
-        d->config.data()->blockSignals(true);
-        d->config.data()->save();
+        config.data()->blockSignals(true);
+        config.data()->save();
         //why read? read will update KConfigSkeletonItem::mLoadedValue,
         //allowing a write operation to be performed next time
-        d->config.data()->read();
-        d->config.data()->blockSignals(false);
+        config.data()->read();
+        config.data()->blockSignals(false);
     }
 }
 

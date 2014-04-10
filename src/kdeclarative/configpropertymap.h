@@ -39,13 +39,11 @@ public:
     ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *parent = 0);
     ~ConfigPropertyMap();
 
-private Q_SLOTS:
-    void loadConfig();
-    void writeConfig();
-    void writeConfigValue(const QString &key, const QVariant &value);
-
 private:
     ConfigPropertyMapPrivate *const d;
+
+    Q_PRIVATE_SLOT(d, void loadConfig())
+    Q_PRIVATE_SLOT(d, void writeConfigValue(const QString &key, const QVariant &value))
 };
 
 }
