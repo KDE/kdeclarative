@@ -29,6 +29,8 @@ class KCoreConfigSkeleton;
 
 namespace KDeclarative {
 
+class ConfigPropertyMapPrivate;
+
 class KDECLARATIVE_EXPORT ConfigPropertyMap : public QQmlPropertyMap
 {
     Q_OBJECT
@@ -43,7 +45,7 @@ private Q_SLOTS:
     void writeConfigValue(const QString &key, const QVariant &value);
 
 private:
-    QPointer<KCoreConfigSkeleton> m_config;
+    ConfigPropertyMapPrivate *const d;
 };
 
 }

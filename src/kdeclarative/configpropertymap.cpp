@@ -25,10 +25,18 @@
 
 namespace KDeclarative {
 
+class ConfigPropertyMapPrivate {
+public:
+    
+
+    QPointer<KCoreConfigSkeleton> config;
+};
+
 ConfigPropertyMap::ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *parent)
     : QQmlPropertyMap(parent),
-      m_config(config)
+      d(new ConfigPropertyMapPrivate)
 {
+    d->config = config;
     connect(config, &KCoreConfigSkeleton::configChanged,
             this, &ConfigPropertyMap::loadConfig);
     connect(this, &ConfigPropertyMap::valueChanged,
@@ -40,42 +48,43 @@ ConfigPropertyMap::ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *paren
 ConfigPropertyMap::~ConfigPropertyMap()
 {
     writeConfig();
+    delete d;
 }
 
 void ConfigPropertyMap::loadConfig()
 {
-    if (!m_config) {
+    if (!d->config) {
         return;
     }
 
-    foreach (KConfigSkeletonItem *item, m_config.data()->items()) {
+    foreach (KConfigSkeletonItem *item, d->config.data()->items()) {
         insert(item->key(), item->property());
     }
 }
 
 void ConfigPropertyMap::writeConfig()
 {
-    if (!m_config) {
+    if (!d->config) {
         return;
     }
 
-    foreach (KConfigSkeletonItem *item, m_config.data()->items()) {
+    foreach (KConfigSkeletonItem *item, d->config.data()->items()) {
         item->setProperty(value(item->key()));
     }
 
-    m_config.data()->blockSignals(true);
-    m_config.data()->writeConfig();
-    m_config.data()->blockSignals(false);
+    d->config.data()->blockSignals(true);
+    d->config.data()->writeConfig();
+    d->config.data()->blockSignals(false);
 }
 
 void ConfigPropertyMap::writeConfigValue(const QString &key, const QVariant &value)
 {
-    KConfigSkeletonItem *item = m_config.data()->findItem(key);
+    KConfigSkeletonItem *item = d->config.data()->findItem(key);
     if (item) {
         item->setProperty(value);
-        m_config.data()->blockSignals(true);
-        m_config.data()->writeConfig();
-        m_config.data()->blockSignals(false);
+        d->config.data()->blockSignals(true);
+        d->config.data()->writeConfig();
+        d->config.data()->blockSignals(false);
     }
 }
 
