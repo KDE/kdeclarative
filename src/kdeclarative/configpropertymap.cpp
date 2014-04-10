@@ -83,7 +83,10 @@ void ConfigPropertyMap::writeConfigValue(const QString &key, const QVariant &val
     if (item) {
         item->setProperty(value);
         d->config.data()->blockSignals(true);
-        d->config.data()->writeConfig();
+        d->config.data()->save();
+        //why read? read will update KConfigSkeletonItem::mLoadedValue,
+        //allowing a write operation to be performed next time
+        d->config.data()->read();
         d->config.data()->blockSignals(false);
     }
 }
