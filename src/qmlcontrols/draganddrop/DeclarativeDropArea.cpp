@@ -30,7 +30,9 @@
 
 DeclarativeDropArea::DeclarativeDropArea(QQuickItem *parent)
     : QQuickItem(parent),
-    m_enabled(true)
+      m_enabled(true),
+      m_preventStealing(false),
+      m_temporaryInhibition(false)
 {
     setFlag(ItemAcceptsDrops, m_enabled);
     setFlag(ItemHasContents, m_enabled);
@@ -38,16 +40,46 @@ DeclarativeDropArea::DeclarativeDropArea(QQuickItem *parent)
 
 }
 
+void DeclarativeDropArea::temporaryInhibitParent(bool inhibit)
+{
+    QQuickItem *candidate = parentItem();
+
+    while (candidate) {
+        if (DeclarativeDropArea *da = qobject_cast<DeclarativeDropArea *>(candidate)) {
+            da->m_temporaryInhibition = inhibit;
+            if (inhibit) {
+                emit da->dragLeaveEvent(0);
+            }
+        }
+        candidate = candidate->parentItem();
+    }
+}
+
 void DeclarativeDropArea::dragEnterEvent(QDragEnterEvent *event)
 {
+    if (!m_enabled || m_temporaryInhibition) {
+        return;
+    }
+
     DeclarativeDragDropEvent dde(event, this);
     qDebug() << "enter.";
     event->accept();
+
+    if (m_preventStealing) {
+        temporaryInhibitParent(true);
+    }
+
     emit dragEnter(&dde);
 }
 
 void DeclarativeDropArea::dragLeaveEvent(QDragLeaveEvent *event)
 {
+    QQuickItem *candidate = parentItem();
+
+    //do it anyways, in the unlikely case m_preventStealing
+    //was changed while drag
+    temporaryInhibitParent(false);
+
     DeclarativeDragDropEvent dde(event, this);
     qDebug() << "leave.";
     emit dragLeave(&dde);
@@ -55,6 +87,10 @@ void DeclarativeDropArea::dragLeaveEvent(QDragLeaveEvent *event)
 
 void DeclarativeDropArea::dragMoveEvent(QDragMoveEvent *event)
 {
+    if (!m_enabled || m_temporaryInhibition) {
+        return;
+    }
+
     DeclarativeDragDropEvent dde(event, this);
     //qDebug() << "move.";
     event->accept();
@@ -63,6 +99,15 @@ void DeclarativeDropArea::dragMoveEvent(QDragMoveEvent *event)
 
 void DeclarativeDropArea::dropEvent(QDropEvent *event)
 {
+    //do it anyways, in the unlikely case m_preventStealing
+    //was changed while drag, do it after a loop,
+    //so the parent dropevent doesn't get delivered
+    metaObject()->invokeMethod(this, "temporaryInhibitParent", Qt::QueuedConnection, Q_ARG(bool, false));
+
+    if (!m_enabled || m_temporaryInhibition) {
+        return;
+    }
+
     DeclarativeDragDropEvent dde(event, this);
     qDebug() << "Drop.";
     emit drop(&dde);
@@ -83,4 +128,19 @@ void DeclarativeDropArea::setEnabled(bool enabled)
     setAcceptHoverEvents(m_enabled);
     setFlag(ItemAcceptsDrops, m_enabled);
     emit enabledChanged();
+}
+
+bool DeclarativeDropArea::preventStealing() const
+{
+    return m_preventStealing;
+}
+
+void DeclarativeDropArea::setPreventStealing(bool prevent)
+{
+    if (prevent == m_preventStealing) {
+        return;
+    }
+
+    m_preventStealing = prevent;
+    emit preventStealingChanged();
 }
