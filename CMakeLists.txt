@@ -18,7 +18,7 @@ if("${CMAKE_BINARY_DIR}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
   # Required KF5 frameworks to build this framework
   # For example:
   find_package(KF5Config ${KF5_VERSION})
-  
+
   find_package(KF5I18n ${KF5_VERSION})
   find_package(KF5IconThemes ${KF5_VERSION})
   find_package(KF5KIO ${KF5_VERSION})
@@ -58,6 +58,7 @@ ecm_setup_version(
   SOVERSION 5)
 
 # Subdirectories
+add_definitions(-DTRANSLATION_DOMAIN=\"kdeclarative5\")
 add_subdirectory(autotests)
 add_subdirectory(src)
 if(KF5Config_FOUND AND KF5I18n_FOUND AND KF5IconThemes_FOUND AND KF5KIO_FOUND)

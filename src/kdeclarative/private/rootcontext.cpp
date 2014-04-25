@@ -17,6 +17,9 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+// Undefine this because we don't want our i18n*() method names to be turned into i18nd*()
+#undef TRANSLATION_DOMAIN
+
 #include "rootcontext_p.h"
 
 #include <QDebug>
