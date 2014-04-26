@@ -7,7 +7,8 @@ find_package(ECM 0.0.12 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 set(REQUIRED_QT_VERSION "5.2.0")
-set(KF5_VERSION "4.98.0")
+set(KF5_VERSION "4.98.0") # handled by release scripts # handled by release scripts
+set(KF5_DEP_VERSION "4.98.0") # handled by release scripts
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} NO_MODULE REQUIRED Qml Quick Gui)
 include(KDEInstallDirs)
@@ -17,17 +18,17 @@ include(KDECMakeSettings)
 if("${CMAKE_BINARY_DIR}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
   # Required KF5 frameworks to build this framework
   # For example:
-  find_package(KF5Config ${KF5_VERSION})
+  find_package(KF5Config ${KF5_DEP_VERSION})
 
-  find_package(KF5I18n ${KF5_VERSION})
-  find_package(KF5IconThemes ${KF5_VERSION})
-  find_package(KF5KIO ${KF5_VERSION})
+  find_package(KF5I18n ${KF5_DEP_VERSION})
+  find_package(KF5IconThemes ${KF5_DEP_VERSION})
+  find_package(KF5KIO ${KF5_DEP_VERSION})
 
-  find_package(KF5WidgetsAddons ${KF5_VERSION})
-  find_package(KF5WindowSystem ${KF5_VERSION})
-  find_package(KF5GlobalAccel ${KF5_VERSION})
-  find_package(KF5CoreAddons ${KF5_VERSION})
-  find_package(KF5GuiAddons ${KF5_VERSION})
+  find_package(KF5WidgetsAddons ${KF5_DEP_VERSION})
+  find_package(KF5WindowSystem ${KF5_DEP_VERSION})
+  find_package(KF5GlobalAccel ${KF5_DEP_VERSION})
+  find_package(KF5CoreAddons ${KF5_DEP_VERSION})
+  find_package(KF5GuiAddons ${KF5_DEP_VERSION})
 endif()
 
 #########################################################################
