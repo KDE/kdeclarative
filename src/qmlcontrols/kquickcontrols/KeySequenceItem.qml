@@ -19,6 +19,11 @@ RowLayout {
         }
     }
 
+    KQuickControlsPrivate.TranslationContext {
+        id: _tr
+        domain: "kdeclarative5"
+    }
+
     Button
     {
         id: mainButton
@@ -30,7 +35,7 @@ RowLayout {
         focus: checked
 
         text: _helper.shortcutDisplay
-        tooltip: i18n("Click on the button, then enter the shortcut like you would in the program.\nExample for Ctrl+A: hold the Ctrl key and press A.")
+        tooltip: _tr.i18n("Click on the button, then enter the shortcut like you would in the program.\nExample for Ctrl+A: hold the Ctrl key and press A.")
 
         onCheckedChanged: {
             if (checked) {

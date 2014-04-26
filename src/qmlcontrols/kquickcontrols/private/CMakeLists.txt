@@ -3,6 +3,7 @@ project(kquickcontrolsprivate)
 set(kquickcontrolsprivate_SRCS
     kquickcontrolsprivateplugin.cpp
     keysequencehelper.cpp
+    translationcontext.cpp
 )
 
 add_library(kquickcontrolsprivateplugin SHARED ${kquickcontrolsprivate_SRCS})

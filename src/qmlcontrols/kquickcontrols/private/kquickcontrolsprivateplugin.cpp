@@ -22,10 +22,12 @@
 #include <QtQml>
 
 #include "keysequencehelper.h"
+#include "translationcontext.h"
 
 void KQuickControlsPrivatePlugin::registerTypes(const char *uri)
 {
     Q_ASSERT(uri == QLatin1String("org.kde.private.kquickcontrols"));
     qmlRegisterType<KeySequenceHelper>(uri, 2, 0, "KeySequenceHelper");
+    qmlRegisterType<TranslationContext>(uri, 2, 0, "TranslationContext");
 }
 
