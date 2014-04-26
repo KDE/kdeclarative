@@ -26,8 +26,8 @@
 
 #include <klocalizedstring.h>
 
-TranslationContext::TranslationContext(QObject* parent):
-    QObject()
+TranslationContext::TranslationContext(QObject* parent)
+    : QObject(parent)
 {
 }
 
