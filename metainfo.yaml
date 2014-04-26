@@ -1,1 +1,10 @@
+maintainer: mart
+description: Provides integration of QML and KDE Frameworks
 tier: 3
+type: functional
+platforms:
+    - name: All
+      note: The supported remote Urls depends from what runtime kio slaves plugins are installed
+portingAid: false
+deprecated: false
+release: true
