@@ -172,7 +172,6 @@ QmlObject::~QmlObject()
 
 void QmlObject::setSource(const QUrl &source)
 {
-    qDebug() << "Opening" << source;
     d->source = source;
     d->execute(source);
 }
@@ -231,10 +230,6 @@ void QmlObject::completeInitialization(const QVariantHash &initialProperties)
     if (!d->root) {
         d->errorPrint(d->component);
     }
-
-#ifndef NDEBUG
-    qDebug() << "Execution of QML done!";
-#endif
 
     emit finished();
 }
