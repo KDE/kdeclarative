@@ -254,10 +254,13 @@ QObject *QmlObject::createObjectFromComponent(QQmlComponent *component, QQmlCont
     if (!component->isError() && object) {
         //memory management
         component->setParent(object);
-        if (qobject_cast<QQuickItem *>(d->root.data())) {
-            object->setProperty("parent", QVariant::fromValue(d->root.data()));
-        } else {
-            object->setParent(d->root.data());
+        //reparent to root object if wasn't specified otherwise by initialProperties
+        if (!initialProperties.contains("parent")) {
+            if (qobject_cast<QQuickItem *>(d->root.data())) {
+                object->setProperty("parent", QVariant::fromValue(d->root.data()));
+            } else {
+                object->setParent(d->root.data());
+            }
         }
 
         return object;
