@@ -68,7 +68,7 @@ public:
 
     ~QmlObjectPrivate()
     {
-        delete root.data();
+        delete incubator.object();
     }
 
     void errorPrint(QQmlComponent *component);
@@ -87,7 +87,6 @@ public:
     QQmlEngine *engine;
     QmlObjectIncubator incubator;
     QQmlComponent *component;
-    QPointer<QObject> root;
     QTimer *executionEndTimer;
     bool delay : 1;
 };
@@ -116,7 +115,7 @@ void QmlObjectPrivate::execute(const QUrl &source)
 
     delete component;
     component = new QQmlComponent(engine, q);
-    delete root.data();
+    delete incubator.object();
 
     KDeclarative kdeclarative;
     kdeclarative.setDeclarativeEngine(engine);
@@ -198,7 +197,7 @@ QQmlEngine *QmlObject::engine()
 
 QObject *QmlObject::rootObject() const
 {
-    return d->root.data();
+    return d->incubator.object();
 }
 
 QQmlComponent *QmlObject::mainComponent() const
@@ -209,7 +208,7 @@ QQmlComponent *QmlObject::mainComponent() const
 void QmlObject::completeInitialization(const QVariantHash &initialProperties)
 {
     d->executionEndTimer->stop();
-    if (d->root) {
+    if (d->incubator.object()) {
         return;
     }
     if (d->component->status() != QQmlComponent::Ready || d->component->isError()) {
@@ -224,10 +223,7 @@ void QmlObject::completeInitialization(const QVariantHash &initialProperties)
         QCoreApplication::processEvents(QEventLoop::AllEvents, 50);
     }
 
-    d->root = d->incubator.object();
-    //d->root = d->component->create();
-
-    if (!d->root) {
+    if (!d->incubator.object()) {
         d->errorPrint(d->component);
     }
 
@@ -244,22 +240,23 @@ QObject *QmlObject::createObjectFromSource(const QUrl &source, QQmlContext *cont
 
 QObject *QmlObject::createObjectFromComponent(QQmlComponent *component, QQmlContext *context, const QVariantHash &initialProperties)
 {
-    d->incubator.m_initialProperties = initialProperties;
-    component->create(d->incubator, context ? context : d->engine->rootContext());
-    while (!d->incubator.isReady() && d->incubator.status() != QQmlIncubator::Error) {
+    QmlObjectIncubator incubator;
+    incubator.m_initialProperties = initialProperties;
+    component->create(incubator, context ? context : d->engine->rootContext());
+    while (!incubator.isReady() && incubator.status() != QQmlIncubator::Error) {
         QCoreApplication::processEvents(QEventLoop::AllEvents, 50);
     }
-    QObject *object = d->incubator.object();
+    QObject *object = incubator.object();
 
     if (!component->isError() && object) {
         //memory management
         component->setParent(object);
         //reparent to root object if wasn't specified otherwise by initialProperties
         if (!initialProperties.contains("parent")) {
-            if (qobject_cast<QQuickItem *>(d->root.data())) {
-                object->setProperty("parent", QVariant::fromValue(d->root.data()));
+            if (qobject_cast<QQuickItem *>(rootObject())) {
+                object->setProperty("parent", QVariant::fromValue(rootObject()));
             } else {
-                object->setParent(d->root.data());
+                object->setParent(rootObject());
             }
         }
 
