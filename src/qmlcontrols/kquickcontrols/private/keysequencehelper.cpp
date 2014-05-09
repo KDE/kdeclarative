@@ -276,7 +276,7 @@ bool KeySequenceHelperPrivate::conflictWithGlobalShortcuts(const QKeySequence &k
         QString message = i18n("The F12 key is reserved on Windows, so cannot be used for a global shortcut.\n"
                                "Please choose another one.");
 
-        KMessageBox::sorry(q, message, title);
+        KMessageBox::sorry(0, message, title);
         return false;
     }
 #endif
