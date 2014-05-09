@@ -1,18 +1,12 @@
 INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/..")
 
-include(ECMMarkAsTest)
+include(ECMAddTests)
 
 find_package(Qt5Test REQUIRED)
 
-add_executable(fullmodelaccesstest
-    columnproxymodeltest.cpp
+ecm_add_test(columnproxymodeltest.cpp
     ../src/qmlcontrols/kquickcontrolsaddons/columnproxymodel.cpp
     modeltest.cpp
-)
-target_link_libraries(fullmodelaccesstest
-    Qt5::Gui
-    Qt5::Test
-    )
+    TEST_NAME fullmodelaccesstest
+    LINK_LIBRARIES Qt5::Gui Qt5::Test)
 
-add_test(fullmodelaccesstest fullmodelaccesstest)
-ecm_mark_as_test(fullmodelaccesstest)
