@@ -264,7 +264,6 @@ QObject *QmlObject::createObjectFromComponent(QQmlComponent *component, QQmlCont
 
     } else {
         d->errorPrint(component);
-        delete component;
         delete object;
         return 0;
     }
