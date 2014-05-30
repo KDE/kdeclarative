@@ -70,6 +70,12 @@ public:
     static QStringList runtimePlatform();
 
     /**
+     * Sets the runtime platform from now on, globally to the process.
+     * Already loaded QML components won't be affected
+     */
+    static void setRuntimePlatform(const QStringList &platform);
+
+    /**
      * @return the QML components target, based on the runtime platform. e.g. touch or desktop
      * @since 4.10
      */

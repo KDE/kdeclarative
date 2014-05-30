@@ -33,6 +33,7 @@ public:
 
     QPointer<QQmlEngine> declarativeEngine;
     bool initialized;
+    static QStringList s_runtimaPlatform;
 };
 
 }
