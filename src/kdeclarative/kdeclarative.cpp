@@ -36,7 +36,7 @@
 
 namespace KDeclarative {
 
-QStringList KDeclarativePrivate::s_runtimaPlatform;
+QStringList KDeclarativePrivate::s_runtimePlatform;
 
 KDeclarativePrivate::KDeclarativePrivate()
     : initialized(false)
@@ -135,21 +135,21 @@ QString KDeclarative::componentsTarget()
 
 QStringList KDeclarative::runtimePlatform()
 {
-    if (KDeclarativePrivate::s_runtimaPlatform.isEmpty()) {
+    if (KDeclarativePrivate::s_runtimePlatform.isEmpty()) {
         const QString env = QString::fromLocal8Bit(getenv("PLASMA_PLATFORM"));
-        KDeclarativePrivate::s_runtimaPlatform = QStringList(env.split(QLatin1Char(':'), QString::SkipEmptyParts));
-        if (KDeclarativePrivate::s_runtimaPlatform.isEmpty()) {
+        KDeclarativePrivate::s_runtimePlatform = QStringList(env.split(QLatin1Char(':'), QString::SkipEmptyParts));
+        if (KDeclarativePrivate::s_runtimePlatform.isEmpty()) {
             KConfigGroup cg(KSharedConfig::openConfig(), "General");
-            KDeclarativePrivate::s_runtimaPlatform = cg.readEntry(QStringLiteral("runtimePlatform"), KDeclarativePrivate::s_runtimaPlatform);
+            KDeclarativePrivate::s_runtimePlatform = cg.readEntry(QStringLiteral("runtimePlatform"), KDeclarativePrivate::s_runtimePlatform);
         }
     }
 
-    return KDeclarativePrivate::s_runtimaPlatform;
+    return KDeclarativePrivate::s_runtimePlatform;
 }
 
 void KDeclarative::setRuntimePlatform(const QStringList &platform)
 {
-    KDeclarativePrivate::s_runtimaPlatform = platform;
+    KDeclarativePrivate::s_runtimePlatform = platform;
 }
 
 }
