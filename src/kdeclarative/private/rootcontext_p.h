@@ -27,6 +27,7 @@ namespace KDeclarative {
 class RootContext : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString translationDomain MEMBER m_translationDomain NOTIFY translationDomainChanged)
 
 public:
     RootContext(QObject *parent = 0);
@@ -39,6 +40,20 @@ public:
     Q_INVOKABLE QString i18np(const QString &singular, const QString &plural, const QString &param1 = QString(), const QString &param2 = QString(), const QString &param3 = QString(), const QString &param4 = QString(), const QString &param5 = QString(), const QString &param6 = QString(), const QString &param7 = QString(), const QString &param8 = QString(), const QString &param9 = QString(), const QString &param10 = QString()) const;
 
     Q_INVOKABLE QString i18ncp(const QString &context, const QString &singular, const QString &plural, const QString &param1 = QString(), const QString &param2 = QString(), const QString &param3 = QString(), const QString &param4 = QString(), const QString &param5 = QString(), const QString &param6 = QString(), const QString &param7 = QString(), const QString &param8 = QString(), const QString &param9 = QString(), const QString &param10 = QString()) const;
+
+    Q_INVOKABLE QString i18nd(const QString &domain, const QString &message, const QString &param1 = QString(), const QString &param2 = QString(), const QString &param3 = QString(), const QString &param4 = QString(), const QString &param5 = QString(), const QString &param6 = QString(), const QString &param7 = QString(), const QString &param8 = QString(), const QString &param9 = QString(), const QString &param10 = QString()) const;
+
+    Q_INVOKABLE QString i18ndc(const QString &domain, const QString &context, const QString &message, const QString &param1 = QString(), const QString &param2 = QString(), const QString &param3 = QString(), const QString &param4 = QString(), const QString &param5 = QString(), const QString &param6 = QString(), const QString &param7 = QString(), const QString &param8 = QString(), const QString &param9 = QString(), const QString &param10 = QString()) const;
+
+    Q_INVOKABLE QString i18ndp(const QString &domain, const QString &singular, const QString &plural, const QString &param1 = QString(), const QString &param2 = QString(), const QString &param3 = QString(), const QString &param4 = QString(), const QString &param5 = QString(), const QString &param6 = QString(), const QString &param7 = QString(), const QString &param8 = QString(), const QString &param9 = QString(), const QString &param10 = QString()) const;
+
+    Q_INVOKABLE QString i18ndcp(const QString &domain, const QString &context, const QString &singular, const QString &plural, const QString &param1 = QString(), const QString &param2 = QString(), const QString &param3 = QString(), const QString &param4 = QString(), const QString &param5 = QString(), const QString &param6 = QString(), const QString &param7 = QString(), const QString &param8 = QString(), const QString &param9 = QString(), const QString &param10 = QString()) const;
+
+Q_SIGNALS:
+    void translationDomainChanged(const QString&);
+
+private:
+    QString m_translationDomain;
 };
 
 }

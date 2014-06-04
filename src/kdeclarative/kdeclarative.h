@@ -54,6 +54,24 @@ public:
     QQmlEngine *declarativeEngine() const;
 
     /**
+     * Call this method before calling setupBindings to install a translation domain for all
+     * i18n global functions. If a translation domain is set all i18n calls delegate to the
+     * matching i18nd calls with the provided translation domain.
+     *
+     * The translationDomain affects all i18n calls including those from imports. Because of
+     * that modules intended to be used as imports should prefer the i18nd variants and set
+     * the translation domain explicitly in each call.
+     *
+     * This method is only required if your declarative usage is inside a library. If it's
+     * in an application there is no need to set the translation domain as the application's
+     * domain can be used.
+     *
+     * @param translationDomain The translation domain to be used for i18n calls.
+     * @since 5.0
+     */
+    void setTranslationDomain(const QString &translationDomain);
+
+    /**
      * This method must be called very early at startup time to ensure the
      * QQuickDebugger is enabled. Ideally it should be called in main(),
      * after command-line options are defined.

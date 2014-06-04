@@ -89,6 +89,10 @@ void KDeclarative::setupBindings()
     RootContext *contextObj = new RootContext(d->declarativeEngine.data());
     d->declarativeEngine.data()->rootContext()->setContextObject(contextObj);
 
+    if (!d->translationDomain.isNull()) {
+        contextObj->setProperty("translationDomain", d->translationDomain);
+    }
+
     /* Tell the engine to search for platform-specific imports first
        (so it will "win" in import name resolution).
        addImportPath adds the path at the beginning, so to honour user's
@@ -109,6 +113,11 @@ void KDeclarative::setupBindings()
 
     // setup ImageProvider for KDE icons
     d->declarativeEngine.data()->addImageProvider(QString(QStringLiteral("icon")), new KIconProvider);
+}
+
+void KDeclarative::setTranslationDomain(const QString &translationDomain)
+{
+    d->translationDomain = translationDomain;
 }
 
 void KDeclarative::setupQmlJsDebugger()

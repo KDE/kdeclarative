@@ -44,7 +44,12 @@ QString RootContext::i18n(const QString &message, const QString &param1, const Q
         return QString();
     }
 
-    KLocalizedString trMessage = ki18n(message.toUtf8().constData());
+    KLocalizedString trMessage;
+    if (!m_translationDomain.isNull()) {
+        trMessage = ki18nd(m_translationDomain.toUtf8().constData(), message.toUtf8().constData());
+    } else {
+        trMessage = ki18n(message.toUtf8().constData());
+    }
 
     if (!param1.isNull()) {
         trMessage = trMessage.subs(param1);
@@ -87,7 +92,12 @@ QString RootContext::i18nc(const QString &context, const QString &message, const
         return QString();
     }
 
-    KLocalizedString trMessage = ki18nc(context.toUtf8().constData(), message.toUtf8().constData());
+    KLocalizedString trMessage;
+    if (!m_translationDomain.isNull()) {
+        trMessage = ki18ndc(m_translationDomain.toUtf8().constData(), context.toUtf8().constData(), message.toUtf8().constData());
+    } else {
+        trMessage = ki18nc(context.toUtf8().constData(), message.toUtf8().constData());
+    }
 
     if (!param1.isNull()) {
         trMessage = trMessage.subs(param1);
@@ -130,7 +140,12 @@ QString RootContext::i18np(const QString &singular, const QString &plural, const
         return QString();
     }
 
-    KLocalizedString trMessage = ki18np(singular.toUtf8().constData(), plural.toUtf8().constData());
+    KLocalizedString trMessage;
+    if (!m_translationDomain.isNull()) {
+        trMessage = ki18ndp(m_translationDomain.toUtf8().constData(), singular.toUtf8().constData(), plural.toUtf8().constData());
+    } else {
+        trMessage = ki18np(singular.toUtf8().constData(), plural.toUtf8().constData());
+    }
 
     if (!param1.isNull()) {
         bool ok;
@@ -179,7 +194,196 @@ QString RootContext::i18ncp(const QString &context, const QString &singular, con
         return QString();
     }
 
-    KLocalizedString trMessage = ki18ncp(context.toUtf8().constData(), singular.toUtf8().constData(), plural.toUtf8().constData());
+    KLocalizedString trMessage;
+    if (!m_translationDomain.isNull()) {
+        trMessage = ki18ndcp(m_translationDomain.toUtf8().constData(), context.toUtf8().constData(), singular.toUtf8().constData(), plural.toUtf8().constData());
+    } else {
+        trMessage = ki18ncp(context.toUtf8().constData(), singular.toUtf8().constData(), plural.toUtf8().constData());
+    }
+
+    if (!param1.isNull()) {
+        bool ok;
+        int num = param1.toInt(&ok);
+        if (ok) {
+            trMessage = trMessage.subs(num);
+        } else {
+            trMessage = trMessage.subs(param1);
+        }
+    }
+    if (!param2.isNull()) {
+        trMessage = trMessage.subs(param2);
+    }
+    if (!param3.isNull()) {
+        trMessage = trMessage.subs(param3);
+    }
+    if (!param4.isNull()) {
+        trMessage = trMessage.subs(param4);
+    }
+    if (!param5.isNull()) {
+        trMessage = trMessage.subs(param5);
+    }
+    if (!param6.isNull()) {
+        trMessage = trMessage.subs(param6);
+    }
+    if (!param7.isNull()) {
+        trMessage = trMessage.subs(param7);
+    }
+    if (!param8.isNull()) {
+        trMessage = trMessage.subs(param8);
+    }
+    if (!param9.isNull()) {
+        trMessage = trMessage.subs(param9);
+    }
+    if (!param10.isNull()) {
+        trMessage = trMessage.subs(param10);
+    }
+
+    return trMessage.toString();
+}
+
+QString RootContext::i18nd(const QString &domain, const QString &message, const QString &param1, const QString &param2, const QString &param3, const QString &param4, const QString &param5, const QString &param6, const QString &param7, const QString &param8, const QString &param9, const QString &param10) const
+{
+    if (domain.isNull() || message.isNull()) {
+        qWarning() << "i18nd() needs at least two parameters";
+        return QString();
+    }
+
+    KLocalizedString trMessage = ki18nd(domain.toUtf8().constData(), message.toUtf8().constData());
+
+    if (!param1.isNull()) {
+        trMessage = trMessage.subs(param1);
+    }
+    if (!param2.isNull()) {
+        trMessage = trMessage.subs(param2);
+    }
+    if (!param3.isNull()) {
+        trMessage = trMessage.subs(param3);
+    }
+    if (!param4.isNull()) {
+        trMessage = trMessage.subs(param4);
+    }
+    if (!param5.isNull()) {
+        trMessage = trMessage.subs(param5);
+    }
+    if (!param6.isNull()) {
+        trMessage = trMessage.subs(param6);
+    }
+    if (!param7.isNull()) {
+        trMessage = trMessage.subs(param7);
+    }
+    if (!param8.isNull()) {
+        trMessage = trMessage.subs(param8);
+    }
+    if (!param9.isNull()) {
+        trMessage = trMessage.subs(param9);
+    }
+    if (!param10.isNull()) {
+        trMessage = trMessage.subs(param10);
+    }
+
+    return trMessage.toString();
+}
+
+QString RootContext::i18ndc(const QString &domain, const QString &context, const QString &message, const QString &param1, const QString &param2, const QString &param3, const QString &param4, const QString &param5, const QString &param6, const QString &param7, const QString &param8, const QString &param9, const QString &param10) const
+{
+    if (domain.isNull() || context.isNull() || message.isNull()) {
+        qWarning() << "i18ndc() needs at least three arguments";
+        return QString();
+    }
+
+    KLocalizedString trMessage = ki18ndc(domain.toUtf8().constData(), context.toUtf8().constData(), message.toUtf8().constData());
+
+    if (!param1.isNull()) {
+        trMessage = trMessage.subs(param1);
+    }
+    if (!param2.isNull()) {
+        trMessage = trMessage.subs(param2);
+    }
+    if (!param3.isNull()) {
+        trMessage = trMessage.subs(param3);
+    }
+    if (!param4.isNull()) {
+        trMessage = trMessage.subs(param4);
+    }
+    if (!param5.isNull()) {
+        trMessage = trMessage.subs(param5);
+    }
+    if (!param6.isNull()) {
+        trMessage = trMessage.subs(param6);
+    }
+    if (!param7.isNull()) {
+        trMessage = trMessage.subs(param7);
+    }
+    if (!param8.isNull()) {
+        trMessage = trMessage.subs(param8);
+    }
+    if (!param9.isNull()) {
+        trMessage = trMessage.subs(param9);
+    }
+    if (!param10.isNull()) {
+        trMessage = trMessage.subs(param10);
+    }
+
+    return trMessage.toString();
+}
+
+QString RootContext::i18ndp(const QString &domain, const QString &singular, const QString &plural, const QString &param1, const QString &param2, const QString &param3, const QString &param4, const QString &param5, const QString &param6, const QString &param7, const QString &param8, const QString &param9, const QString &param10) const
+{
+    if (domain.isNull() || singular.isNull() || plural.isNull()) {
+        qWarning() << "i18ndp() needs at least three arguments";
+        return QString();
+    }
+
+    KLocalizedString trMessage = ki18ndp(domain.toUtf8().constData(), singular.toUtf8().constData(), plural.toUtf8().constData());
+
+    if (!param1.isNull()) {
+        bool ok;
+        int num = param1.toInt(&ok);
+        if (ok) {
+            trMessage = trMessage.subs(num);
+        } else {
+            trMessage = trMessage.subs(param1);
+        }
+    }
+    if (!param2.isNull()) {
+        trMessage = trMessage.subs(param2);
+    }
+    if (!param3.isNull()) {
+        trMessage = trMessage.subs(param3);
+    }
+    if (!param4.isNull()) {
+        trMessage = trMessage.subs(param4);
+    }
+    if (!param5.isNull()) {
+        trMessage = trMessage.subs(param5);
+    }
+    if (!param6.isNull()) {
+        trMessage = trMessage.subs(param6);
+    }
+    if (!param7.isNull()) {
+        trMessage = trMessage.subs(param7);
+    }
+    if (!param8.isNull()) {
+        trMessage = trMessage.subs(param8);
+    }
+    if (!param9.isNull()) {
+        trMessage = trMessage.subs(param9);
+    }
+    if (!param10.isNull()) {
+        trMessage = trMessage.subs(param10);
+    }
+
+    return trMessage.toString();
+}
+
+QString RootContext::i18ndcp(const QString &domain, const QString &context, const QString &singular, const QString &plural, const QString &param1, const QString &param2, const QString &param3, const QString &param4, const QString &param5, const QString &param6, const QString &param7, const QString &param8, const QString &param9, const QString &param10) const
+{
+    if (domain.isNull() || context.isNull() || singular.isNull() || plural.isNull()) {
+        qWarning() << "i18ndcp() needs at least four arguments";
+        return QString();
+    }
+
+    KLocalizedString trMessage = ki18ndcp(domain.toUtf8().constData(), context.toUtf8().constData(), singular.toUtf8().constData(), plural.toUtf8().constData());
 
     if (!param1.isNull()) {
         bool ok;

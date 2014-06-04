@@ -33,6 +33,7 @@ public:
 
     QPointer<QQmlEngine> declarativeEngine;
     bool initialized;
+    QString translationDomain;
     static QStringList s_runtimePlatform;
 };
 
