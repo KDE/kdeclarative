@@ -1,5 +1,6 @@
 /*
  * Copyright 2014  Bhushan Shah <bhush94@gmail.com>
+ * Copyright 2014  David Edmundson <davidedmundson@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -24,10 +25,18 @@
 
 #include "formats.h"
 
+static QObject *formats_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
+{
+    Q_UNUSED(engine)
+    Q_UNUSED(scriptEngine)
+
+    return new Formats();
+}
+
 void KCoreAddonsPlugin::registerTypes(const char *uri)
 {
     Q_ASSERT(uri == QLatin1String("org.kde.kcoreaddons"));
 
-    qmlRegisterType<Formats>(uri, 1, 0, "Formats");
+    qmlRegisterSingletonType<Formats>(uri, 1, 0, "Format", formats_singletontype_provider);
     qRegisterMetaType<QLocale::FormatType>();
 }
