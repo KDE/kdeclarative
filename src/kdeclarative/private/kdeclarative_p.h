@@ -21,6 +21,7 @@
 #define KDECLARATIVE_P_H
 
 #include "kdeclarative.h"
+#include "rootcontext_p.h"
 
 #include <QtCore/QPointer>
 
@@ -35,6 +36,7 @@ public:
     bool initialized;
     QString translationDomain;
     static QStringList s_runtimePlatform;
+    RootContext *contextObj;
 };
 
 }

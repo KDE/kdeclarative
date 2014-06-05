@@ -39,7 +39,8 @@ namespace KDeclarative {
 QStringList KDeclarativePrivate::s_runtimePlatform;
 
 KDeclarativePrivate::KDeclarativePrivate()
-    : initialized(false)
+    : initialized(false),
+      contextObj(0)
 {
 }
 
@@ -86,11 +87,13 @@ void KDeclarative::setupBindings()
 
     /*Create a context object for the root qml context.
       in this way we can register global functions, in this case the i18n() family*/
-    RootContext *contextObj = new RootContext(d->declarativeEngine.data());
-    d->declarativeEngine.data()->rootContext()->setContextObject(contextObj);
+    if (!d->contextObj) {
+        d->contextObj = new RootContext(d->declarativeEngine.data());
+    }
+    d->declarativeEngine.data()->rootContext()->setContextObject(d->contextObj);
 
     if (!d->translationDomain.isNull()) {
-        contextObj->setProperty("translationDomain", d->translationDomain);
+        d->contextObj->setProperty("translationDomain", d->translationDomain);
     }
 
     /* Tell the engine to search for platform-specific imports first
@@ -118,6 +121,9 @@ void KDeclarative::setupBindings()
 void KDeclarative::setTranslationDomain(const QString &translationDomain)
 {
     d->translationDomain = translationDomain;
+    if (d->contextObj) {
+        d->contextObj->setProperty("translationDomain", d->translationDomain);
+    }
 }
 
 QString KDeclarative::translationDomain() const
