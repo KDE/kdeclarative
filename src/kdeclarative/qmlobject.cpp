@@ -60,10 +60,6 @@ public:
           component(0),
           delay(false)
     {
-        kdeclarative.setDeclarativeEngine(engine);
-        //binds things like kconfig and icons
-        kdeclarative.setupBindings();
-
         executionEndTimer = new QTimer(q);
         executionEndTimer->setInterval(0);
         executionEndTimer->setSingleShot(true);
@@ -145,6 +141,9 @@ QmlObject::QmlObject(QObject *parent)
       d(new QmlObjectPrivate(this))
 {
     d->engine = new QQmlEngine(this);
+    d->kdeclarative.setDeclarativeEngine(d->engine);
+    //binds things like kconfig and icons
+    d->kdeclarative.setupBindings();
     d->engine->setIncubationController(new QmlObjectIncubationController(0));
 }
 
@@ -158,6 +157,9 @@ QmlObject::QmlObject(QQmlEngine *engine, QObject *parent)
         d->engine = new QQmlEngine(this);
         d->engine->setIncubationController(new QmlObjectIncubationController(0));
     }
+    d->kdeclarative.setDeclarativeEngine(d->engine);
+    //binds things like kconfig and icons
+    d->kdeclarative.setupBindings();
 }
 
 QmlObject::~QmlObject()
