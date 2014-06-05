@@ -36,7 +36,7 @@ public:
     bool initialized;
     QString translationDomain;
     static QStringList s_runtimePlatform;
-    RootContext *contextObj;
+    QPointer<RootContext> contextObj;
 };
 
 }
