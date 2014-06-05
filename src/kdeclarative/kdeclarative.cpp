@@ -120,6 +120,11 @@ void KDeclarative::setTranslationDomain(const QString &translationDomain)
     d->translationDomain = translationDomain;
 }
 
+QString KDeclarative::translationDomain() const
+{
+    return d->translationDomain;
+}
+
 void KDeclarative::setupQmlJsDebugger()
 {
     if (QCoreApplication::arguments().contains(QLatin1String("-qmljsdebugger"))) {

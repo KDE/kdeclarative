@@ -60,6 +60,10 @@ public:
           component(0),
           delay(false)
     {
+        kdeclarative.setDeclarativeEngine(engine);
+        //binds things like kconfig and icons
+        kdeclarative.setupBindings();
+
         executionEndTimer = new QTimer(q);
         executionEndTimer->setInterval(0);
         executionEndTimer->setSingleShot(true);
@@ -88,6 +92,7 @@ public:
     QmlObjectIncubator incubator;
     QQmlComponent *component;
     QTimer *executionEndTimer;
+    KDeclarative kdeclarative;
     bool delay : 1;
 };
 
@@ -116,12 +121,6 @@ void QmlObjectPrivate::execute(const QUrl &source)
     delete component;
     component = new QQmlComponent(engine, q);
     delete incubator.object();
-
-    KDeclarative kdeclarative;
-    kdeclarative.setDeclarativeEngine(engine);
-
-    //binds things like kconfig and icons
-    kdeclarative.setupBindings();
 
     component->loadUrl(source);
 
@@ -167,6 +166,16 @@ QmlObject::~QmlObject()
 //    d->engine->setNetworkAccessManagerFactory(0);
 //    delete factory;
     delete d;
+}
+
+void QmlObject::setTranslationDomain(const QString &translationDomain)
+{
+    d->kdeclarative.setTranslationDomain(translationDomain);
+}
+
+QString QmlObject::translationDomain() const
+{
+    return d->kdeclarative.translationDomain();
 }
 
 void QmlObject::setSource(const QUrl &source)

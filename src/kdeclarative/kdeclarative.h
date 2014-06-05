@@ -72,6 +72,12 @@ public:
     void setTranslationDomain(const QString &translationDomain);
 
     /**
+     * @return the translation domain for the i18n calls done in this QML engine
+     * @since 5.0
+     */
+    QString translationDomain() const;
+
+    /**
      * This method must be called very early at startup time to ensure the
      * QQuickDebugger is enabled. Ideally it should be called in main(),
      * after command-line options are defined.
