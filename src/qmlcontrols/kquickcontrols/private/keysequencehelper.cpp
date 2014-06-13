@@ -488,6 +488,10 @@ void KeySequenceHelper::keyReleased(int key, int modifiers)
 //static
 QKeySequence KeySequenceHelperPrivate::appendToSequence(const QKeySequence &seq, int keyQt)
 {
+    if (seq.matches(keyQt) != QKeySequence::NoMatch) {
+        return seq;
+    }
+
     switch (seq.count()) {
     case 0:
         return QKeySequence(keyQt);
