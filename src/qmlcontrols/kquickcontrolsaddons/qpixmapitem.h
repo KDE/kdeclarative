@@ -26,7 +26,7 @@ class QPixmapItem : public QQuickPaintedItem
 {
     Q_OBJECT
 
-    Q_PROPERTY(QPixmap pixmap READ pixmap WRITE setPixmap NOTIFY pixmapChanged)
+    Q_PROPERTY(QPixmap pixmap READ pixmap WRITE setPixmap NOTIFY pixmapChanged RESET resetPixmap)
     Q_PROPERTY(bool smooth READ smooth WRITE setSmooth)
     Q_PROPERTY(int nativeWidth READ nativeWidth NOTIFY nativeWidthChanged)
     Q_PROPERTY(int nativeHeight READ nativeHeight NOTIFY nativeHeightChanged)
@@ -49,6 +49,7 @@ public:
 
     void setPixmap(const QPixmap &pixmap);
     QPixmap pixmap() const;
+    void resetPixmap();
 
     void setSmooth(const bool smooth);
     bool smooth() const;

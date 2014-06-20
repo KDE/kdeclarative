@@ -26,7 +26,7 @@ class QImageItem : public QQuickPaintedItem
 {
     Q_OBJECT
 
-    Q_PROPERTY(QImage image READ image WRITE setImage NOTIFY imageChanged)
+    Q_PROPERTY(QImage image READ image WRITE setImage NOTIFY imageChanged RESET resetImage)
     Q_PROPERTY(bool smooth READ smooth WRITE setSmooth)
     Q_PROPERTY(int nativeWidth READ nativeWidth NOTIFY nativeWidthChanged)
     Q_PROPERTY(int nativeHeight READ nativeHeight NOTIFY nativeHeightChanged)
@@ -49,6 +49,7 @@ public:
 
     void setImage(const QImage &image);
     QImage image() const;
+    void resetImage();
 
     void setSmooth(const bool smooth);
     bool smooth() const;

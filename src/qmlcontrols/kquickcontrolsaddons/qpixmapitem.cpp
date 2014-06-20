@@ -53,6 +53,11 @@ QPixmap QPixmapItem::pixmap() const
     return m_pixmap;
 }
 
+void QPixmapItem::resetPixmap()
+{
+    setPixmap(QPixmap());
+}
+
 void QPixmapItem::setSmooth(const bool smooth)
 {
     if (smooth == m_smooth) {

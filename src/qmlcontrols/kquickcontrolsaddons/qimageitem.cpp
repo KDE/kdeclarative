@@ -53,6 +53,11 @@ QImage QImageItem::image() const
     return m_image;
 }
 
+void QImageItem::resetImage()
+{
+    setImage(QImage());
+}
+
 void QImageItem::setSmooth(const bool smooth)
 {
     if (smooth == m_smooth) {
