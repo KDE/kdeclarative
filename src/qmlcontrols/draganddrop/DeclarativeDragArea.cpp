@@ -203,11 +203,13 @@ void DeclarativeDragArea::mousePressEvent(QMouseEvent* event)
 {
     m_buttonDownPos = event->screenPos();
     m_draggingJustStarted = true;
+    setKeepMouseGrab(true);
 }
 
 void DeclarativeDragArea::mouseReleaseEvent(QMouseEvent* event)
 {
     m_draggingJustStarted = false;
+    setKeepMouseGrab(false);
 }
 
 void DeclarativeDragArea::mouseMoveEvent(QMouseEvent *event)
@@ -300,6 +302,7 @@ void DeclarativeDragArea::mouseMoveEvent(QMouseEvent *event)
         emit dragStarted();
 
         Qt::DropAction action = drag->exec(m_supportedActions, m_defaultAction);
+        setKeepMouseGrab(false);
         emit drop(action);
     }
 }
