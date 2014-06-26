@@ -210,6 +210,7 @@ void DeclarativeDragArea::mouseReleaseEvent(QMouseEvent* event)
 {
     m_draggingJustStarted = false;
     setKeepMouseGrab(false);
+    ungrabMouse();
 }
 
 void DeclarativeDragArea::mouseMoveEvent(QMouseEvent *event)
@@ -221,6 +222,7 @@ void DeclarativeDragArea::mouseMoveEvent(QMouseEvent *event)
     }
 
     if (m_draggingJustStarted) {
+        grabMouse();
         m_draggingJustStarted = false;
         //qDebug() << "************ DDDD new QDrag" << objectName();
         QDrag *drag = new QDrag(parent());
@@ -304,6 +306,7 @@ void DeclarativeDragArea::mouseMoveEvent(QMouseEvent *event)
         Qt::DropAction action = drag->exec(m_supportedActions, m_defaultAction);
         setKeepMouseGrab(false);
         emit drop(action);
+        ungrabMouse();
     }
 }
 
