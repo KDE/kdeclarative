@@ -3,6 +3,7 @@ project(kcoreaddons)
 set(kcoreaddonsplugin_SRCS
     kcoreaddonsplugin.cpp
     formats.cpp
+    kuserproxy.cpp
     )
 
 add_library(kcoreaddonsplugin SHARED ${kcoreaddonsplugin_SRCS})

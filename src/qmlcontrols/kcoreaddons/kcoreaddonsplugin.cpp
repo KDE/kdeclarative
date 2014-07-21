@@ -24,6 +24,7 @@
 #include <QtQml>
 
 #include "formats.h"
+#include "kuserproxy.h"
 
 static QObject *formats_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
@@ -39,4 +40,6 @@ void KCoreAddonsPlugin::registerTypes(const char *uri)
 
     qmlRegisterSingletonType<Formats>(uri, 1, 0, "Format", formats_singletontype_provider);
     qRegisterMetaType<QLocale::FormatType>();
+
+    qmlRegisterType<KUserProxy>(uri, 1, 0, "KUser");
 }
