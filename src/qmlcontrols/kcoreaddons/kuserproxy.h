@@ -45,7 +45,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
         Image {
             id: faceIcon
-            source: kuser.faceIconPath
+            source: kuser.faceIconUrl
             [...]
         }
 
@@ -65,7 +65,7 @@ class KUserProxy : public QObject
 
     Q_PROPERTY(QString fullName READ fullName NOTIFY nameChanged)
     Q_PROPERTY(QString loginName READ loginName NOTIFY nameChanged)
-    Q_PROPERTY(QString faceIconPath READ faceIconPath NOTIFY faceIconPathChanged)
+    Q_PROPERTY(QUrl faceIconUrl READ faceIconUrl NOTIFY faceIconUrlChanged)
     Q_PROPERTY(QString os READ os CONSTANT)
     Q_PROPERTY(QString host READ host CONSTANT)
 
@@ -91,7 +91,7 @@ public:
      * @return the url of the user's configured image (including file:/)
      * @see nameChanged
      */
-    QString faceIconPath() const;
+    QUrl faceIconUrl() const;
 
     /**
      * @return pretty name indicating operating system and version
@@ -116,7 +116,7 @@ Q_SIGNALS:
      * signal that the user image changed
      * @see faceIconPath
      */
-    void faceIconPathChanged();
+    void faceIconUrlChanged();
 
 private:
     void update(const QString &path);

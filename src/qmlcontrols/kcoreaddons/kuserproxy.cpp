@@ -23,6 +23,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "kuserproxy.h"
 #include <QFile>
+#include <QHostInfo>
 #include <QTextStream>
 #include <QUrl>
 
@@ -51,20 +52,21 @@ KUserProxy::~KUserProxy()
 
 void KUserProxy::update(const QString &path)
 {
-        if (path == m_user.faceIconPath()) {
-            // we need to force updates, even when the path doesn't change,
-            // but the underlying image does. Change path temporarily, to
-            // make the Image reload.
-            // Needs cache: false in the Image item to actually reload
-            m_temporaryEmptyFaceIconPath = true;
-            emit faceIconPathChanged();
-            m_temporaryEmptyFaceIconPath = false;
-            emit faceIconPathChanged();
-        } else if (path == etcPasswd) {
-            m_user = KUser();
-            emit nameChanged();
-        }
+    if (path == m_user.faceIconPath()) {
+        // we need to force updates, even when the path doesn't change,
+        // but the underlying image does. Change path temporarily, to
+        // make the Image reload.
+        // Needs cache: false in the Image item to actually reload
+        m_temporaryEmptyFaceIconPath = true;
+        emit faceIconUrlChanged();
+        m_temporaryEmptyFaceIconPath = false;
+        emit faceIconUrlChanged();
+    } else if (path == etcPasswd) {
+        m_user = KUser();
+        emit nameChanged();
     }
+}
+
 QString KUserProxy::fullName() const
 {
     QString fullName = m_user.property(KUser::FullName).toString();
@@ -79,18 +81,18 @@ QString KUserProxy::loginName() const
     return m_user.loginName();
 }
 
-QString KUserProxy::faceIconPath() const
+QUrl KUserProxy::faceIconUrl() const
 {
     if (m_temporaryEmptyFaceIconPath) {
-        return QString();
+        return QUrl();
     }
     const QString u = m_user.faceIconPath();
     const QFile f(u);
     if (f.exists(u)) {
         // We need to return a file URL, not a simple path
-        return QUrl::fromLocalFile(u).toString();
+        return QUrl::fromLocalFile(u);
     }
-    return QString();
+    return QUrl();
 }
 
 QString KUserProxy::os()
@@ -116,7 +118,6 @@ QString KUserProxy::os()
                     }
                 }
             }
-            osfile.close();
         }
     }
     return m_os;
@@ -124,11 +125,6 @@ QString KUserProxy::os()
 
 QString KUserProxy::host() const
 {
-    char hostname[256];
-    hostname[0] = '\0';
-    if (!gethostname(hostname, sizeof(hostname))) {
-        hostname[sizeof(hostname)-1] = '\0';
-    }
-    return QString(hostname);
+    return QHostInfo::localHostName();
 }
 
