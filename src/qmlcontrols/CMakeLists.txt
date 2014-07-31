@@ -9,3 +9,8 @@ endif()
 if(KF5CoreAddons_FOUND)
     add_subdirectory(kcoreaddons)
 endif()
+
+
+if(KF5KIO_FOUND)
+    add_subdirectory(kioplugin)
+endif()
