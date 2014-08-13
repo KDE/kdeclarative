@@ -8,3 +8,7 @@ platforms:
 portingAid: false
 deprecated: false
 release: true
+libraries:
+ - qmake: KDeclarative
+   cmake: "KF5::Declarative"
+cmakename: KF5Declarative
