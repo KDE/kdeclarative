@@ -152,6 +152,12 @@ class MouseEventListener : public QQuickItem
     Q_PROPERTY(Qt::MouseButtons acceptedButtons READ acceptedButtons WRITE setAcceptedButtons NOTIFY acceptedButtonsChanged)
 
     /**
+     * This property holds the cursor shape for this mouse area.
+     * Note that on platforms that do not display a mouse cursor this may have no effect.
+     */
+    Q_PROPERTY(Qt::CursorShape cursorShape READ cursorShape WRITE setCursorShape RESET unsetCursor NOTIFY cursorShapeChanged)
+
+    /**
      * True if the mouse is pressed in the item or any of its children
      */
     Q_PROPERTY(bool pressed READ isPressed NOTIFY pressedChanged)
@@ -167,6 +173,9 @@ public:
 
     Qt::MouseButtons acceptedButtons() const;
     void setAcceptedButtons(Qt::MouseButtons buttons);
+
+    Qt::CursorShape cursorShape() const;
+    void setCursorShape(Qt::CursorShape shape);
 
 protected:
     void hoverEnterEvent(QHoverEvent *event);
@@ -188,6 +197,7 @@ Q_SIGNALS:
     void containsMouseChanged(bool containsMouseChanged);
     void hoverEnabledChanged(bool hoverEnabled);
     void acceptedButtonsChanged();
+    void cursorShapeChanged();
     void pressedChanged();
 
 private Q_SLOTS:

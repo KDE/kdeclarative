@@ -60,6 +60,22 @@ Qt::MouseButtons MouseEventListener::acceptedButtons() const
     return m_acceptedButtons;
 }
 
+Qt::CursorShape MouseEventListener::cursorShape() const
+{
+    return cursor().shape();
+}
+
+void MouseEventListener::setCursorShape(Qt::CursorShape shape)
+{
+    if (cursor().shape() == shape) {
+        return;
+    }
+
+    setCursor(shape);
+
+    emit cursorShapeChanged();
+}
+
 void MouseEventListener::setAcceptedButtons(Qt::MouseButtons buttons)
 {
     if (buttons == m_acceptedButtons) {
