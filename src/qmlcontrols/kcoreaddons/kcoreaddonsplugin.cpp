@@ -26,6 +26,8 @@
 #include "formats.h"
 #include "kuserproxy.h"
 
+#include <KFormat>
+
 static QObject *formats_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
     Q_UNUSED(engine)
@@ -40,6 +42,8 @@ void KCoreAddonsPlugin::registerTypes(const char *uri)
 
     qmlRegisterSingletonType<Formats>(uri, 1, 0, "Format", formats_singletontype_provider);
     qRegisterMetaType<QLocale::FormatType>();
+
+    qmlRegisterUncreatableType<KFormat>(uri, 1, 0, "FormatTypes", "");
 
     qmlRegisterType<KUserProxy>(uri, 1, 0, "KUser");
 }

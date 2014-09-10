@@ -40,7 +40,9 @@ class Formats : public QObject
 	 * Given a number of milliseconds, converts that to a string containing
 	 * the localized equivalent, e.g. 1:23:45
 	 */
-	Q_INVOKABLE QString formatDuration(quint64 msecs) const;
+    Q_INVOKABLE QString formatDuration(quint64 msecs, KFormat::DurationFormatOptions options = KFormat::DefaultDuration) const;
+
+    Q_DECLARE_FLAGS(DurationFormatOptions, KFormat::DurationFormatOption)
 
 	/**
 	 * Given a number of milliseconds, converts that to a string containing

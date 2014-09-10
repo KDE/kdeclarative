@@ -31,9 +31,9 @@ QString Formats::formatByteSize(double size, int precision) const
     return m_format.formatByteSize(size, precision);
 }
 
-QString Formats::formatDuration(quint64 msecs) const
+QString Formats::formatDuration(quint64 msecs, KFormat::DurationFormatOptions options) const
 {
-    return m_format.formatDuration(msecs);
+    return m_format.formatDuration(msecs, options);
 }
 
 QString Formats::formatDecimalDuration(quint64 msecs, int decimalPlaces) const
