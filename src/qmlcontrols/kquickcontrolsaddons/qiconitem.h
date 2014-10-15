@@ -20,11 +20,10 @@
 #define QICONITEM_H
 
 #include <QIcon>
-#include <QQuickPaintedItem>
-#include <QPixmap>
+#include <QQuickItem>
 #include <QVariant>
 
-class QIconItem : public QQuickPaintedItem
+class QIconItem : public QQuickItem
 {
     Q_OBJECT
 
@@ -59,7 +58,7 @@ public:
     void setSmooth(const bool smooth);
     bool smooth() const;
 
-    void paint(QPainter *painter);
+    virtual QSGNode* updatePaintNode(QSGNode* node, UpdatePaintNodeData* data) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     void stateChanged(State state);
@@ -68,6 +67,7 @@ private:
     QIcon m_icon;
     bool m_smooth;
     State m_state;
+    bool m_changed;
 };
 
 #endif

@@ -17,7 +17,8 @@ target_link_libraries(kquickcontrolsaddonsplugin
         Qt5::Core
         Qt5::Quick
         Qt5::Qml
-        Qt5::Gui)
+        Qt5::Gui
+        KF5::QuickAddons)
 
 install(TARGETS kquickcontrolsaddonsplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/kquickcontrolsaddons)
 
