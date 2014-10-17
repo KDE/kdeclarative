@@ -134,3 +134,11 @@ QSGNode* QIconItem::updatePaintNode(QSGNode* node, QQuickItem::UpdatePaintNodeDa
 
     return node;
 }
+
+void QIconItem::geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry)
+{
+    if (newGeometry.size() != oldGeometry.size()) {
+        m_changed = true;
+        update();
+    }
+}

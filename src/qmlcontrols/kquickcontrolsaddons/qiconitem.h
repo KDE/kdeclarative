@@ -63,6 +63,9 @@ public:
 Q_SIGNALS:
     void stateChanged(State state);
 
+protected:
+    void geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry) Q_DECL_OVERRIDE;
+
 private:
     QIcon m_icon;
     bool m_smooth;
