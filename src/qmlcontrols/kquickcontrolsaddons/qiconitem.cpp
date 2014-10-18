@@ -141,4 +141,5 @@ void QIconItem::geometryChanged(const QRectF &newGeometry, const QRectF &oldGeom
         m_changed = true;
         update();
     }
+    QQuickItem::geometryChanged(newGeometry, oldGeometry);
 }
