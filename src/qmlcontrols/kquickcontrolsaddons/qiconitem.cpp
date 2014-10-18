@@ -104,7 +104,7 @@ bool QIconItem::smooth() const
 
 QSGNode* QIconItem::updatePaintNode(QSGNode* node, QQuickItem::UpdatePaintNodeData* /*data*/)
 {
-    if (m_changed) {
+    if (m_changed || node == 0) {
         m_changed = false;
 
         ManagedTextureNode* mNode = dynamic_cast<ManagedTextureNode*>(node);
