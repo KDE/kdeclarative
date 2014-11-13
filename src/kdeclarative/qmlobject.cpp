@@ -230,9 +230,7 @@ void QmlObject::completeInitialization(const QVariantHash &initialProperties)
     d->incubator.m_initialProperties = initialProperties;
     d->component->create(d->incubator);
 
-    while (!d->incubator.isReady() && d->incubator.status() != QQmlIncubator::Error) {
-        QCoreApplication::processEvents(QEventLoop::ExcludeUserInputEvents, 50);
-    }
+    d->incubator.forceCompletion();
 
     if (!d->incubator.object()) {
         d->errorPrint(d->component);
@@ -254,9 +252,8 @@ QObject *QmlObject::createObjectFromComponent(QQmlComponent *component, QQmlCont
     QmlObjectIncubator incubator;
     incubator.m_initialProperties = initialProperties;
     component->create(incubator, context ? context : d->engine->rootContext());
-    while (!incubator.isReady() && incubator.status() != QQmlIncubator::Error) {
-        QCoreApplication::processEvents(QEventLoop::ExcludeUserInputEvents, 50);
-    }
+    incubator.forceCompletion();
+  
     QObject *object = incubator.object();
 
     if (!component->isError() && object) {
