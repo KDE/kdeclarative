@@ -46,6 +46,7 @@ class ColumnProxyModel : public QAbstractListModel
         virtual QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
         virtual int rowCount(const QModelIndex& parent = QModelIndex()) const;
         virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
+        virtual QHash<int, QByteArray> roleNames() const Q_DECL_OVERRIDE;
 
     Q_SIGNALS:
         void rootIndexChanged();

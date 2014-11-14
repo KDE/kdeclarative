@@ -64,7 +64,6 @@ void ColumnProxyModel::setSourceModel(QAbstractItemModel* sourceModel)
     }
     m_sourceModel = sourceModel;
     if(m_sourceModel) {
-        setRoleNames(m_sourceModel->roleNames());
         connect(m_sourceModel, SIGNAL(destroyed(QObject*)),
                 this, SLOT(sourceDestroyed(QObject*)));
         
@@ -230,6 +229,11 @@ void ColumnProxyModel::considerRowsRemoved(const QModelIndex& parent, int , int 
     if(parent==m_index) {
         endInsertRows();
     }
+}
+
+QHash<int, QByteArray> ColumnProxyModel::roleNames() const
+{
+    return m_sourceModel ? m_sourceModel->roleNames() : QHash<int, QByteArray>();
 }
 
 #include "columnproxymodel.moc"
