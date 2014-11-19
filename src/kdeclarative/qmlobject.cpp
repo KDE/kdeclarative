@@ -209,6 +209,10 @@ QQmlEngine *QmlObject::engine()
 
 QObject *QmlObject::rootObject() const
 {
+    if (d->incubator.status() == QQmlIncubator::Loading) {
+        qWarning() << "Trying to use rootObject before initialization is completed, whilst using setInitializationDelayed. Forcing completion";
+        d->incubator.forceCompletion();
+    }
     return d->incubator.object();
 }
 
