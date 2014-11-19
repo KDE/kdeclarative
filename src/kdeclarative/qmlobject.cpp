@@ -80,6 +80,7 @@ public:
     void maximumHeightChanged();
     void preferredWidthChanged();
     void preferredHeightChanged();
+    void checkInitializationCompleted();
 
     QmlObject *q;
 
@@ -216,6 +217,20 @@ QQmlComponent *QmlObject::mainComponent() const
     return d->component;
 }
 
+void QmlObjectPrivate::checkInitializationCompleted()
+{
+    if (!incubator.isReady() && incubator.status() != QQmlIncubator::Error) {
+        QTimer::singleShot(0, q, SLOT(checkInitializationCompleted()));
+        return;
+    }
+
+    if (!incubator.object()) {
+        errorPrint(component);
+    }
+
+    emit q->finished();
+}
+
 void QmlObject::completeInitialization(const QVariantHash &initialProperties)
 {
     d->executionEndTimer->stop();
@@ -230,13 +245,16 @@ void QmlObject::completeInitialization(const QVariantHash &initialProperties)
     d->incubator.m_initialProperties = initialProperties;
     d->component->create(d->incubator);
 
-    d->incubator.forceCompletion();
+    if (d->delay) {
+        d->checkInitializationCompleted();
+    } else {
+        d->incubator.forceCompletion();
 
-    if (!d->incubator.object()) {
-        d->errorPrint(d->component);
+        if (!d->incubator.object()) {
+            d->errorPrint(d->component);
+        }
+        emit finished();
     }
-
-    emit finished();
 }
 
 QObject *QmlObject::createObjectFromSource(const QUrl &source, QQmlContext *context, const QVariantHash &initialProperties)

@@ -194,6 +194,7 @@ private:
     QmlObjectPrivate *const d;
 
     Q_PRIVATE_SLOT(d, void scheduleExecutionEnd())
+    Q_PRIVATE_SLOT(d, void checkInitializationCompleted())
 };
 
 }
