@@ -18,7 +18,6 @@
  */
 
 #include "imagetexturescache.h"
-#include <QQuickWindow>
 #include <QSGTexture>
 #include <QDebug>
 
@@ -38,10 +37,11 @@ ImageTexturesCache::~ImageTexturesCache()
 {
 }
 
-QSharedPointer<QSGTexture> ImageTexturesCache::loadTexture(QQuickWindow *window, const QImage &image)
+QSharedPointer<QSGTexture> ImageTexturesCache::loadTexture(QQuickWindow *window, const QImage &image, QQuickWindow::CreateTextureOptions options)
 {
     qint64 id = image.cacheKey();
     QSharedPointer<QSGTexture> texture = d->cache.value(id).value(window).toStrongRef();
+
     if (!texture) {
         auto cleanAndDelete = [this, window, id](QSGTexture* texture) {
             QHash<QWindow*, QWeakPointer<QSGTexture> >& textures = (d->cache)[id];
@@ -50,8 +50,15 @@ QSharedPointer<QSGTexture> ImageTexturesCache::loadTexture(QQuickWindow *window,
                 d->cache.remove(id);
             delete texture;
         };
-        texture = QSharedPointer<QSGTexture>(window->createTextureFromImage(image), cleanAndDelete);
+        texture = QSharedPointer<QSGTexture>(window->createTextureFromImage(image, options), cleanAndDelete);
         (d->cache)[id][window] = texture.toWeakRef();
     }
+
+    //if we have a cache in an atlas but our request cannot use an atlassed texture
+    //return a non atlassed copy
+    if (!(options & QQuickWindow::TextureCanUseAtlas) && texture->isAtlasTexture()) {
+        texture = QSharedPointer<QSGTexture>(texture->removedFromAtlas());
+    }
+
     return texture;
 }

@@ -21,10 +21,11 @@
 #define IMAGETEXTURESCACHE_H
 
 #include <QSharedPointer>
+#include <QQuickWindow>
+
 #include "quickaddons_export.h"
 
 class QImage;
-class QQuickWindow;
 class QSGTexture;
 class ImageTexturesCachePrivate;
 
@@ -48,9 +49,9 @@ public:
      * @returns the texture for a given @p window and @p image.
      *
      * If an @p image id is the same as one already provided before, we won't create
-     * a new texture and we'll copy one previously created.
+     * a new texture and return a shared pointer to the existing texture.
      */
-    QSharedPointer<QSGTexture> loadTexture(QQuickWindow *window, const QImage &image);
+    QSharedPointer<QSGTexture> loadTexture(QQuickWindow *window, const QImage &image, QQuickWindow::CreateTextureOptions options = 0);
 
 private:
     QScopedPointer<ImageTexturesCachePrivate> d;
