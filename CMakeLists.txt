@@ -3,12 +3,12 @@ cmake_minimum_required(VERSION 2.8.12)
 project(KDeclarative)
 
 # Dependencies
-find_package(ECM 1.5.0 REQUIRED NO_MODULE)
+find_package(ECM 1.6.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 set(REQUIRED_QT_VERSION "5.2.0")
 set(KF5_VERSION "5.6.0") # handled by release scripts
-set(KF5_DEP_VERSION "5.5.0") # handled by release scripts
+set(KF5_DEP_VERSION "5.6.0") # handled by release scripts
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} NO_MODULE REQUIRED Qml Quick Gui)
 include(KDEInstallDirs)
