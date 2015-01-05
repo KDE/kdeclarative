@@ -15,7 +15,14 @@ include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings)
 include(KDECMakeSettings)
 
-find_package(KF5 ${KF5_DEP_VERSION} COMPONENTS Config I18n IconThemes KIO WidgetsAddons WindowSystem GlobalAccel GuiAddons)
+find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5I18n ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5IconThemes ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5KIO ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5WidgetsAddons ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5WindowSystem ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5GlobalAccel ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5GuiAddons ${KF5_DEP_VERSION} REQUIRED)
 
 #########################################################################
 
