@@ -3,7 +3,7 @@ generate_export_header(KF5QuickAddons EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DI
 add_library(KF5::QuickAddons ALIAS KF5QuickAddons)
 
 # Apps must include <QuickAddons/File> or <quickaddons/file.h>
-target_include_directories(KF5QuickAddons INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}/KDeclarative>")
+target_include_directories(KF5QuickAddons INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KDeclarative>")
 
 target_link_libraries(KF5QuickAddons
   PUBLIC
@@ -32,7 +32,7 @@ ecm_generate_headers(QuickAddons_CamelCase_HEADERS
   PREFIX QuickAddons
   REQUIRED_HEADERS QuickAddons_HEADERS
 )
-install(FILES ${QuickAddons_CamelCase_HEADERS} DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KDeclarative/QuickAddons COMPONENT Devel)
+install(FILES ${QuickAddons_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KDeclarative/QuickAddons COMPONENT Devel)
 
 install(TARGETS KF5QuickAddons
   EXPORT KF5DeclarativeTargets
@@ -42,10 +42,10 @@ install(TARGETS KF5QuickAddons
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/quickaddons_export.h
   ${QuickAddons_HEADERS}
-  DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KDeclarative/quickaddons
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KDeclarative/quickaddons
   COMPONENT Devel
 )
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME QuickAddons LIB_NAME KF5QuickAddons DEPS "qml" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KF5_INCLUDE_INSTALL_DIR}/QuickAddons)
+ecm_generate_pri_file(BASE_NAME QuickAddons LIB_NAME KF5QuickAddons DEPS "qml" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/QuickAddons)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})

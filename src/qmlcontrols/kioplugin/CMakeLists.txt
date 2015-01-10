@@ -12,7 +12,7 @@ target_link_libraries(kio
         KF5::KIOWidgets
 )
 
-install(TARGETS kio DESTINATION ${QML_INSTALL_DIR}/org/kde/kio)
+install(TARGETS kio DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kio)
 
-install(FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/kio)
+install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kio)
 

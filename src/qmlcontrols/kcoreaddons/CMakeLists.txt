@@ -14,7 +14,7 @@ target_link_libraries(kcoreaddonsplugin
         KF5::CoreAddons
 )
 
-install(TARGETS kcoreaddonsplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/kcoreaddons)
+install(TARGETS kcoreaddonsplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kcoreaddons)
 
-install(FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/kcoreaddons)
+install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kcoreaddons)
 
