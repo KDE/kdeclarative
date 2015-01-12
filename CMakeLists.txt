@@ -56,11 +56,6 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kdeclarative5\")
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
     ki18n_install(po)
 endif()
-add_subdirectory(autotests)
-add_subdirectory(src)
-if(KF5Config_FOUND AND KF5I18n_FOUND AND KF5IconThemes_FOUND AND KF5KIO_FOUND)
-    add_subdirectory(tests)
-endif()
 
 if (NOT WIN32)
 find_package(epoxy)
@@ -69,6 +64,12 @@ set_package_properties(epoxy PROPERTIES DESCRIPTION "libepoxy"
                        TYPE REQUIRED
                        PURPOSE "OpenGL dispatch library"
                       )
+endif()
+
+add_subdirectory(autotests)
+add_subdirectory(src)
+if(KF5Config_FOUND AND KF5I18n_FOUND AND KF5IconThemes_FOUND AND KF5KIO_FOUND)
+    add_subdirectory(tests)
 endif()
 
 # Create a Config.cmake and a ConfigVersion.cmake file and install them

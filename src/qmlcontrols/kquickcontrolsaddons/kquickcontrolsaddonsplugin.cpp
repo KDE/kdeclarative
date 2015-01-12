@@ -31,7 +31,10 @@
 #include "columnproxymodel.h"
 #include "clipboard.h"
 #include "mimedatabase.h"
+
+#ifndef Q_OS_WIN
 #include "plotter.h"
+#endif
 
 void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
 {
