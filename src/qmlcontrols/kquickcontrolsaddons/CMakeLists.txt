@@ -11,6 +11,11 @@ set(kquickcontrolsaddons_SRCS
     mimedatabase.cpp
 )
 
+if (NOT WIN32)
+    set(kquickcontrolsaddons_SRCS ${kquickcontrolsaddons_SRCS} plotter.cpp)
+    set(KQUICKCONTROLSADDONS_EXTRA_LIBS ${epoxy_LIBRARY})
+endif()
+
 add_library(kquickcontrolsaddonsplugin SHARED ${kquickcontrolsaddons_SRCS})
 
 target_link_libraries(kquickcontrolsaddonsplugin
@@ -18,7 +23,8 @@ target_link_libraries(kquickcontrolsaddonsplugin
         Qt5::Quick
         Qt5::Qml
         Qt5::Gui
-        KF5::QuickAddons)
+        KF5::QuickAddons
+        ${KQUICKCONTROLSADDONS_EXTRA_LIBS})
 
 install(TARGETS kquickcontrolsaddonsplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kquickcontrolsaddons)
 

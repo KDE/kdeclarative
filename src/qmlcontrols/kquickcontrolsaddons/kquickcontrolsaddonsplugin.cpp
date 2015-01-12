@@ -31,6 +31,7 @@
 #include "columnproxymodel.h"
 #include "clipboard.h"
 #include "mimedatabase.h"
+#include "plotter.h"
 
 void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
 {
@@ -43,6 +44,12 @@ void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
     qmlRegisterType<ColumnProxyModel>(uri, 2, 0, "ColumnProxyModel");
     qmlRegisterType<Clipboard>(uri, 2, 0, "Clipboard");
     qmlRegisterType<MimeDatabase>(uri, 2, 0, "MimeDatabase");
+
+//TODO: make this work under Windows
+#ifndef Q_OS_WIN
+    qmlRegisterType<PlotData>(uri, 2, 0, "PlotData");
+    qmlRegisterType<Plotter>(uri, 2, 0, "Plotter");
+#endif
 
     qmlRegisterType<QAbstractItemModel>();
     qRegisterMetaType<QModelIndex>("QModelIndex");

@@ -4,7 +4,7 @@ project(KDeclarative)
 
 # Dependencies
 find_package(ECM 1.6.0 REQUIRED NO_MODULE)
-set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 set(REQUIRED_QT_VERSION "5.2.0")
 set(KF5_VERSION "5.7.0") # handled by release scripts
@@ -60,6 +60,15 @@ add_subdirectory(autotests)
 add_subdirectory(src)
 if(KF5Config_FOUND AND KF5I18n_FOUND AND KF5IconThemes_FOUND AND KF5KIO_FOUND)
     add_subdirectory(tests)
+endif()
+
+if (NOT WIN32)
+find_package(epoxy)
+set_package_properties(epoxy PROPERTIES DESCRIPTION "libepoxy"
+                       URL "http://github.com/anholt/libepoxy"
+                       TYPE REQUIRED
+                       PURPOSE "OpenGL dispatch library"
+                      )
 endif()
 
 # Create a Config.cmake and a ConfigVersion.cmake file and install them
