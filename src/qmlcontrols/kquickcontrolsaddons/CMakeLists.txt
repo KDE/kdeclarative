@@ -14,6 +14,7 @@ set(kquickcontrolsaddons_SRCS
 if (NOT WIN32)
     set(kquickcontrolsaddons_SRCS ${kquickcontrolsaddons_SRCS} plotter.cpp)
     set(KQUICKCONTROLSADDONS_EXTRA_LIBS ${epoxy_LIBRARY})
+    include_directories(${epoxy_INCLUDE_DIR})
 endif()
 
 add_library(kquickcontrolsaddonsplugin SHARED ${kquickcontrolsaddons_SRCS})
