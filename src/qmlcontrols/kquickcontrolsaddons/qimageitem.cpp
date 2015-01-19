@@ -156,4 +156,3 @@ bool QImageItem::isNull() const
     return m_image.isNull();
 }
 
-#include "qimageitem.moc"

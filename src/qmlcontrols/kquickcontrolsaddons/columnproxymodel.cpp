@@ -236,4 +236,3 @@ QHash<int, QByteArray> ColumnProxyModel::roleNames() const
     return m_sourceModel ? m_sourceModel->roleNames() : QHash<int, QByteArray>();
 }
 
-#include "columnproxymodel.moc"

@@ -791,4 +791,3 @@ void Plotter::normalizeData()
     }
 }
 
-#include "plotter.moc"

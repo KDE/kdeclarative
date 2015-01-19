@@ -345,5 +345,4 @@ QScreen* MouseEventListener::screenForGlobalPos(const QPoint& globalPos)
 }
 
 
-#include "mouseeventlistener.moc"
 

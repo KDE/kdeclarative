@@ -59,5 +59,4 @@ void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
 }
 
 
-#include "kquickcontrolsaddonsplugin.moc"
 
