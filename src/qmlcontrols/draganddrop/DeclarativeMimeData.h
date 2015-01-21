@@ -66,7 +66,7 @@ class DeclarativeMimeData : public QMimeData
     //TODO: Image property
 
 public:
-    DeclarativeMimeData() : QMimeData() {}
+    DeclarativeMimeData();
     DeclarativeMimeData(const QMimeData* copy);
 
     QUrl url() const;
@@ -84,7 +84,7 @@ public:
     QQuickItem* source() const;
     void setSource(QQuickItem* source);
 
-    
+
     /*
     QString text() const;                //TODO: Reimplement this to issue the onChanged signals
     void setText(const QString &text);

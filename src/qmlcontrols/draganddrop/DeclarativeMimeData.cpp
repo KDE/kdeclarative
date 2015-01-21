@@ -29,6 +29,11 @@
     This is a wrapper class around QMimeData, with a few extensions to provide better support for in-qml drag & drops.
 */
 
+DeclarativeMimeData::DeclarativeMimeData()
+    : QMimeData(),
+    m_source(0)
+{}
+
 /*!
     \internal
     \class DeclarativeMimeData
@@ -57,7 +62,6 @@ DeclarativeMimeData::DeclarativeMimeData(const QMimeData* copy)
         this->setSource(declarativeMimeData->source());
     }
 }
-
 
 /*!
     \qmlproperty url MimeData::url
