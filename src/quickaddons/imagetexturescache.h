@@ -51,7 +51,10 @@ public:
      * If an @p image id is the same as one already provided before, we won't create
      * a new texture and return a shared pointer to the existing texture.
      */
-    QSharedPointer<QSGTexture> loadTexture(QQuickWindow *window, const QImage &image, QQuickWindow::CreateTextureOptions options = 0);
+    QSharedPointer<QSGTexture> loadTexture(QQuickWindow *window, const QImage &image, QQuickWindow::CreateTextureOptions options);
+
+    QSharedPointer<QSGTexture> loadTexture(QQuickWindow *window, const QImage &image);
+
 
 private:
     QScopedPointer<ImageTexturesCachePrivate> d;

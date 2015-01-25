@@ -62,3 +62,8 @@ QSharedPointer<QSGTexture> ImageTexturesCache::loadTexture(QQuickWindow *window,
 
     return texture;
 }
+
+QSharedPointer<QSGTexture> ImageTexturesCache::loadTexture(QQuickWindow *window, const QImage &image)
+{
+    return loadTexture(window, image, 0);
+}
