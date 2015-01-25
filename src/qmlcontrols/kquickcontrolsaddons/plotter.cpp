@@ -90,7 +90,7 @@ qreal PlotData::min() const
 
 void PlotData::setSampleSize(int size)
 {
-    if (m_sampleSize != size) {
+    if (m_sampleSize == size) {
         return;
     }
 
@@ -302,7 +302,7 @@ int Plotter::sampleSize() const
 
 void Plotter::setSampleSize(int size)
 {
-    if (m_sampleSize != size) {
+    if (m_sampleSize == size) {
         return;
     }
 
