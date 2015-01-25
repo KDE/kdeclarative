@@ -3,6 +3,7 @@
  *
  * Copyright © 2014 Fredrik Höglund <fredrik@kde.org>
  * Copyright © 2014 Marco Martin <mart@kde.org>
+ * Copyright © 2015 David Edmundson <davidedmundson@kde.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -709,6 +710,9 @@ void Plotter::geometryChanged(const QRectF &newGeometry, const QRectF &oldGeomet
 
 void Plotter::normalizeData()
 {
+    if (m_plotData.isEmpty()) {
+        return;
+    }
     //normalize data
     m_max = std::numeric_limits<qreal>::min();
     m_min = std::numeric_limits<qreal>::max();
