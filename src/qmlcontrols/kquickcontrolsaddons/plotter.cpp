@@ -96,11 +96,13 @@ void PlotData::setSampleSize(int size)
 
     m_values.reserve(size);
     if (m_values.size() > size) {
-        for (int i = 0; i < (m_values.size() - size); ++i) {
+        const int numberToRemove = (m_values.size() - size);
+        for (int i = 0; i < numberToRemove; ++i) {
             m_values.removeFirst();
         }
     } else if (m_values.size() < size) {
-        for (int i = 0; i < (size - m_values.size()); ++i) {
+        const int numberToAdd = (size - m_values.size());
+        for (int i = 0; i < numberToAdd; ++i) {
             m_values.prepend(0.0);
         }
     }
