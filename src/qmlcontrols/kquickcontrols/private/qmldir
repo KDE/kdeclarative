@@ -2,4 +2,3 @@ module org.kde.private.kquickcontrols
 plugin kquickcontrolsprivateplugin
 
 ShortcutButton 2.0 ShortcutButton.qml
-TextMenu 2.0 TextMenu.qml
