@@ -164,6 +164,7 @@ public:
     static PlotData *dataSet_at(QQmlListProperty<PlotData> *list, int pos);
     static void dataSet_clear(QQmlListProperty<PlotData> *list);
 
+    Q_INVOKABLE void addSample(qreal value);
     Q_INVOKABLE void addSample(const QList<qreal> &value);
 
 protected:

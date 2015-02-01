@@ -370,6 +370,16 @@ QColor Plotter::gridColor() const
     return m_gridColor;
 }
 
+void Plotter::addSample(qreal value)
+{
+    if (m_plotData.count() != 1) {
+        qWarning() << "Must add a new value per data set, pass an array of values instead";
+        return;
+    }
+
+    addSample(QList<qreal>() << value);
+}
+
 void Plotter::addSample(const QList<qreal> &value)
 {
     if (value.count() != m_plotData.count()) {
