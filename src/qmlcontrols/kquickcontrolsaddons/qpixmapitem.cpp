@@ -150,7 +150,7 @@ int QPixmapItem::paintedHeight() const
         return 0;
     }
 
-    return m_paintedRect.width();
+    return m_paintedRect.height();
 }
 
 void QPixmapItem::updatePaintedRect()
