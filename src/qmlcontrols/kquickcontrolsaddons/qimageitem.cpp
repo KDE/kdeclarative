@@ -201,3 +201,9 @@ void QImageItem::updatePaintedRect()
         emit paintedWidthChanged();
     }
 }
+
+void QImageItem::geometryChanged(const QRectF& newGeometry, const QRectF& oldGeometry)
+{
+    QQuickPaintedItem::geometryChanged(newGeometry, oldGeometry);
+    updatePaintedRect();
+}

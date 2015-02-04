@@ -29,7 +29,7 @@ QPixmapItem::QPixmapItem(QQuickItem *parent)
       m_fillMode(QPixmapItem::Stretch)
 {
     setFlag(ItemHasContents, true);
-    connect(this, &QPixmapItem::geometryChanged, this, &QPixmapItem::updatePaintedRect);
+
 }
 
 
@@ -203,3 +203,10 @@ void QPixmapItem::updatePaintedRect()
         emit paintedWidthChanged();
     }
 }
+
+void QPixmapItem::geometryChanged(const QRectF& newGeometry, const QRectF& oldGeometry)
+{
+    QQuickPaintedItem::geometryChanged(newGeometry, oldGeometry);
+    updatePaintedRect();
+}
+

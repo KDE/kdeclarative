@@ -79,6 +79,9 @@ Q_SIGNALS:
     void paintedWidthChanged();
     void paintedHeightChanged();
 
+protected:
+    void geometryChanged(const QRectF & newGeometry, const QRectF & oldGeometry);
+
 private:
     QPixmap m_pixmap;
     bool m_smooth;
