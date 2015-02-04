@@ -1,5 +1,6 @@
 /*
  *   Copyright 2011 Marco Martin <mart@kde.org>
+ *   Copyright 2015 Luca Beltrame <lbeltrame@kde.org>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -28,6 +29,7 @@ QPixmapItem::QPixmapItem(QQuickItem *parent)
       m_fillMode(QPixmapItem::Stretch)
 {
     setFlag(ItemHasContents, true);
+    connect(this, &QPixmapItem::geometryChanged, this, &QPixmapItem::updatePaintedRect);
 }
 
 
@@ -39,6 +41,7 @@ void QPixmapItem::setPixmap(const QPixmap &pixmap)
 {
     bool oldPixmapNull = m_pixmap.isNull();
     m_pixmap = pixmap;
+    updatePaintedRect();
     update();
     emit nativeWidthChanged();
     emit nativeHeightChanged();
@@ -94,8 +97,10 @@ void QPixmapItem::setFillMode(QPixmapItem::FillMode mode)
     }
 
     m_fillMode = mode;
+    updatePaintedRect();
     update();
     emit fillModeChanged();
+
 }
 
 void QPixmapItem::paint(QPainter *painter)
@@ -107,8 +112,58 @@ void QPixmapItem::paint(QPainter *painter)
     painter->setRenderHint(QPainter::Antialiasing, m_smooth);
     painter->setRenderHint(QPainter::SmoothPixmapTransform, m_smooth);
 
+    if (m_fillMode == TileVertically) {
+        painter->scale(width()/(qreal)m_pixmap.width(), 1);
+    }
+
+    if (m_fillMode == TileHorizontally) {
+        painter->scale(1, height()/(qreal)m_pixmap.height());
+    }
+
+    if (m_fillMode >= Tile) {
+        painter->drawTiledPixmap(m_paintedRect, m_pixmap);
+    } else {
+        painter->drawPixmap(m_paintedRect, m_pixmap, m_pixmap.rect());
+    }
+
+    painter->restore();
+}
+
+bool QPixmapItem::isNull() const
+{
+    return m_pixmap.isNull();
+}
+
+
+int QPixmapItem::paintedWidth() const
+{
+    if (m_pixmap.isNull()) {
+        return 0;
+    }
+
+    return m_paintedRect.width();
+}
+
+int QPixmapItem::paintedHeight() const
+{
+    if (m_pixmap.isNull()) {
+        return 0;
+    }
+
+    return m_paintedRect.width();
+}
+
+void QPixmapItem::updatePaintedRect()
+{
+
+    if (m_pixmap.isNull()) {
+        return;
+    }
+
     QRect sourceRect = m_pixmap.rect();
+
     QRect destRect;
+
     switch (m_fillMode) {
     case PreserveAspectFit: {
         QSize scaled = m_pixmap.size();
@@ -127,13 +182,11 @@ void QPixmapItem::paint(QPainter *painter)
         break;
     }
     case TileVertically: {
-        painter->scale(width()/(qreal)m_pixmap.width(), 1);
         destRect = boundingRect().toRect();
         destRect.setWidth(destRect.width() / (width()/(qreal)m_pixmap.width()));
         break;
     }
     case TileHorizontally: {
-        painter->scale(1, height()/(qreal)m_pixmap.height());
         destRect = boundingRect().toRect();
         destRect.setHeight(destRect.height() / (height()/(qreal)m_pixmap.height()));
         break;
@@ -144,17 +197,9 @@ void QPixmapItem::paint(QPainter *painter)
         destRect = boundingRect().toRect();
     }
 
-    if (m_fillMode >= Tile) {
-        painter->drawTiledPixmap(destRect, m_pixmap);
-    } else {
-        painter->drawPixmap(destRect, m_pixmap, m_pixmap.rect());
+    if (destRect != sourceRect) {
+        m_paintedRect = destRect;
+        emit paintedHeightChanged();
+        emit paintedWidthChanged();
     }
-
-    painter->restore();
 }
-
-bool QPixmapItem::isNull() const
-{
-    return m_pixmap.isNull();
-}
-
