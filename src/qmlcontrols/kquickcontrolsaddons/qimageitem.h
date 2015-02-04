@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright 2011 Marco Martin <mart@kde.org>                            *
+ *   Copyright 2015 Luca Beltrame <lbeltrame@kde.org>                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -30,6 +31,8 @@ class QImageItem : public QQuickPaintedItem
     Q_PROPERTY(bool smooth READ smooth WRITE setSmooth)
     Q_PROPERTY(int nativeWidth READ nativeWidth NOTIFY nativeWidthChanged)
     Q_PROPERTY(int nativeHeight READ nativeHeight NOTIFY nativeHeightChanged)
+    Q_PROPERTY(int paintedWidth READ paintedWidth NOTIFY paintedWidthChanged)
+    Q_PROPERTY(int paintedHeight READ paintedHeight NOTIFY paintedHeightChanged)
     Q_PROPERTY(FillMode fillMode READ fillMode WRITE setFillMode NOTIFY fillModeChanged)
     Q_PROPERTY(bool null READ isNull NOTIFY nullChanged)
     Q_ENUMS(FillMode)
@@ -57,6 +60,9 @@ public:
     int nativeWidth() const;
     int nativeHeight() const;
 
+    int paintedWidth() const;
+    int paintedHeight() const;
+
     FillMode fillMode() const;
     void setFillMode(FillMode mode);
 
@@ -70,11 +76,18 @@ Q_SIGNALS:
     void fillModeChanged();
     void imageChanged();
     void nullChanged();
+    void paintedWidthChanged();
+    void paintedHeightChanged();
 
 private:
     QImage m_image;
     bool m_smooth;
     FillMode m_fillMode;
+    QRect m_paintedRect;
+
+private Q_SLOTS:
+    void updatePaintedRect();
+
 };
 
 #endif
