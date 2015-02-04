@@ -29,7 +29,6 @@ QImageItem::QImageItem(QQuickItem *parent)
       m_fillMode(QImageItem::Stretch)
 {
     setFlag(ItemHasContents, true);
-    connect(this, &QImageItem::geometryChanged, this, &QImageItem::updatePaintedRect);
 }
 
 
