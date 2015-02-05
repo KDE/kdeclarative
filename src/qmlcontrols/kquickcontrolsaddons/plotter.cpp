@@ -550,7 +550,7 @@ void Plotter::render()
 
     QVector<QVector2D> vertices;
     for (int i = 0; i < lineCount; i++)
-        vertices << QVector2D(0, i * 20+0.5) << QVector2D(width(), i * 20+0.5);
+        vertices << QVector2D(0, i * 20) << QVector2D(width(), i * 20);
 
     // Tessellate
     float min = height();
@@ -560,27 +560,30 @@ void Plotter::render()
 
     //encase all m_plotData access in a mutex, since rendering is usually done in another thread
     m_mutex.lock();
+    int roundedHeight = std::lround(height());
+    int roundedWidth = std::lround(width());
+
     for (auto data : m_plotData) {
         // Interpolate the data set
-        const QPainterPath path = interpolate(data->m_normalizedValues, 0, width());
+        const QPainterPath path = interpolate(data->m_normalizedValues, 0, roundedWidth);
 
         // Flatten the path
         const QList<QPolygonF> polygons = path.toSubpathPolygons();
 
         for (const QPolygonF &p : polygons) {
             verticesCounts[data].first = 0;
-            vertices << QVector2D(p.first().x(), height());
+            vertices << QVector2D(p.first().x(), roundedHeight);
 
             for (int i = 0; i < p.count()-1; i++) {
-                min = qMin<float>(min, height() - p[i].y());
-                vertices << QVector2D(p[i].x(), height() - p[i].y());
-                vertices << QVector2D((p[i].x() + p[i+1].x()) / 2.0, height());
+                min = qMin<float>(min, roundedHeight - p[i].y());
+                vertices << QVector2D(p[i].x(), roundedHeight - p[i].y());
+                vertices << QVector2D((p[i].x() + p[i+1].x()) / 2.0, roundedHeight);
                 verticesCounts[data].first += 2;
             }
 
-            min = qMin<float>(min, height() - p.last().y());
-            vertices << QVector2D(p.last().x(), height() - p.last().y());
-            vertices << QVector2D(p.last().x(), height());
+            min = qMin<float>(min, roundedHeight - p.last().y());
+            vertices << QVector2D(p.last().x(), roundedHeight - p.last().y());
+            vertices << QVector2D(p.last().x(), roundedHeight);
             verticesCounts[data].first += 3;
         }
 
@@ -588,17 +591,20 @@ void Plotter::render()
             verticesCounts[data].second = 0;
 
             for (int i = 0; i < p.count()-1; i++) {
-                min = qMin<float>(min, height() - p[i].y());
-                vertices << QVector2D(p[i].x(), height() - p[i].y());
+                min = qMin<float>(min, roundedHeight - p[i].y());
+                vertices << QVector2D(p[i].x(), roundedHeight - p[i].y());
                 verticesCounts[data].second += 1;
             }
 
-            vertices << QVector2D(p.last().x(), height() - p.last().y());
+            vertices << QVector2D(p.last().x(), roundedHeight - p.last().y());
             verticesCounts[data].second += 1;
-            min = qMin<float>(min, height() - p.last().y());
+            min = qMin<float>(min, roundedHeight - p.last().y());
         }
     }
     m_mutex.unlock();
+
+    //s single line as base for the graph and divide between multiple stacked ones
+    vertices << QVector2D(0, std::lround(height()-1)) << QVector2D(width(), std::lround(height()-1));
 
     // Upload vertices
     GLuint vbo;
@@ -655,6 +661,10 @@ void Plotter::render()
     m_mutex.unlock();
 
     glDisable(GL_BLEND);
+
+    s_program->setUniformValue(u_color1, m_gridColor);
+    s_program->setUniformValue(u_color2, m_gridColor);
+    glDrawArrays(GL_LINES, vertices.count()-2, 2);
 
     if (m_haveMSAA && m_haveFramebufferBlit) {
         // Resolve the MSAA buffer
@@ -752,12 +762,15 @@ QSGNode *Plotter::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *updateP
     }
 
     if (n->texture()->textureSize() != boundingRect().size()) {
-        static_cast<PlotTexture *>(n->texture())->recreate(boundingRect().size().toSize());
+        //we need a size always equal or smaller, size.toSize() won't do
+        static_cast<PlotTexture *>(n->texture())->recreate(QSize(std::lround(boundingRect().size().width()), std::lround(boundingRect().size().height())));
         m_matrix = QMatrix4x4();
-        m_matrix.ortho(0, width(), 0, height(), -1, 1);
+        m_matrix.ortho(0, std::lround(width()), 0, std::lround(height()), -1, 1);
     }
 
-    n->setRect(boundingRect());
+    n->setRect(QRect(QPoint(0,0),
+                     QSize(std::lround(boundingRect().size().width()),
+                           std::lround(boundingRect().size().height()))));
     return n;
 }
 
