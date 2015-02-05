@@ -359,7 +359,11 @@ void Plotter::setAutoRange(bool autoRange)
 
 qreal Plotter::rangeMax() const
 {
-    return m_rangeMax;
+    if (m_autoRange) {
+        return m_max;
+    } else {
+        return m_rangeMax;
+    }
 }
 
 void Plotter::setRangeMax(qreal max)
@@ -377,7 +381,11 @@ void Plotter::setRangeMax(qreal max)
 
 qreal Plotter::rangeMin() const
 {
-    return m_rangeMin;
+    if (m_autoRange) {
+        return m_min;
+    } else {
+        return m_rangeMin;
+    }
 }
 
 void Plotter::setRangeMin(qreal min)
@@ -825,13 +833,11 @@ void Plotter::normalizeData()
     m_mutex.unlock();
 
     if (m_autoRange || m_rangeMax > m_rangeMin) {
-        if (m_autoRange) {
-            m_rangeMax = adjustedMax;
-            m_rangeMin = adjustedMin;
-        } else {
+        if (!m_autoRange) {
             adjustedMax = m_rangeMax;
             adjustedMin = m_rangeMin;
         }
+
         //leave some empty space (of a line) top and bottom
         adjustedMax += height()/20;
         adjustedMin -= height()/20;
