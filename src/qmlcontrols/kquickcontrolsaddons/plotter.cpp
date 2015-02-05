@@ -276,6 +276,8 @@ Plotter::Plotter(QQuickItem *parent)
     : QQuickItem(parent),
       m_min(0),
       m_max(0),
+      m_rangeMax(0),
+      m_rangeMin(0),
       m_sampleSize(s_defaultSampleSize),
       m_stacked(true),
       m_autoRange(true)
@@ -351,6 +353,43 @@ void Plotter::setAutoRange(bool autoRange)
     m_autoRange = autoRange;
 
     emit autoRangeChanged();
+    normalizeData();
+    update();
+}
+
+qreal Plotter::rangeMax() const
+{
+    return m_rangeMax;
+}
+
+void Plotter::setRangeMax(qreal max)
+{
+    if (m_rangeMax == max) {
+        return;
+    }
+
+    m_rangeMax = max;
+
+    emit rangeMaxChanged();
+    normalizeData();
+    update();
+}
+
+qreal Plotter::rangeMin() const
+{
+    return m_rangeMin;
+}
+
+void Plotter::setRangeMin(qreal min)
+{
+    if (m_rangeMin == min) {
+        return;
+    }
+
+    m_rangeMin = min;
+
+    emit rangeMinChanged();
+    normalizeData();
     update();
 }
 
@@ -785,7 +824,14 @@ void Plotter::normalizeData()
     }
     m_mutex.unlock();
 
-    if (m_autoRange) {
+    if (m_autoRange || m_rangeMax > m_rangeMin) {
+        if (m_autoRange) {
+            m_rangeMax = adjustedMax;
+            m_rangeMin = adjustedMin;
+        } else {
+            adjustedMax = m_rangeMax;
+            adjustedMin = m_rangeMin;
+        }
         //leave some empty space (of a line) top and bottom
         adjustedMax += height()/20;
         adjustedMin -= height()/20;

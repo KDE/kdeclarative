@@ -133,6 +133,18 @@ class Plotter : public QQuickItem
     Q_PROPERTY(bool autoRange READ isAutoRange WRITE setAutoRange NOTIFY autoRangeChanged)
 
     /**
+     * Always represents the values scaled between this and rangeMin
+     * If autoRange is true, this property just holds the minimum value
+     */
+    Q_PROPERTY(qreal rangeMax READ rangeMax WRITE setRangeMax NOTIFY rangeMaxChanged)
+
+    /**
+     * Always represents the values scaled between this and rangeMax
+     * If autoRange is true, this property just holds the maximum value
+     */
+    Q_PROPERTY(qreal rangeMin READ rangeMin WRITE setRangeMin NOTIFY rangeMinChanged)
+
+    /**
      * Color of the grid lines
      */
     Q_PROPERTY(QColor gridColor READ gridColor WRITE setGridColor NOTIFY gridColorChanged)
@@ -154,6 +166,12 @@ public:
 
     bool isAutoRange() const;
     void setAutoRange(bool autorange);
+
+    qreal rangeMax() const;
+    void setRangeMax(qreal max);
+
+    qreal rangeMin() const;
+    void setRangeMin(qreal min);
 
     void setGridColor(const QColor &color);
     QColor gridColor() const;
@@ -181,6 +199,8 @@ Q_SIGNALS:
     void sampleSizeChanged();
     void stackedChanged();
     void autoRangeChanged();
+    void rangeMaxChanged();
+    void rangeMinChanged();
     void gridColorChanged();
 
 private Q_SLOTS:
@@ -193,6 +213,8 @@ private:
     QSGSimpleTextureNode *m_node = nullptr;
     qreal m_min;
     qreal m_max;
+    qreal m_rangeMax;
+    qreal m_rangeMin;
     int m_sampleSize;
     bool m_stacked;
     bool m_autoRange;

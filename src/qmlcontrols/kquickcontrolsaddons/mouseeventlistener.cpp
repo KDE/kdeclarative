@@ -109,7 +109,7 @@ bool MouseEventListener::isPressed() const
 void MouseEventListener::hoverEnterEvent(QHoverEvent *event)
 {
     Q_UNUSED(event);
-
+qWarning()<<"KKKKKKKKKKKKK"<<event;
     m_containsMouse = true;
     emit containsMouseChanged(true);
 }
