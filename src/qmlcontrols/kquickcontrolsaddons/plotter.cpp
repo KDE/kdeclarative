@@ -560,8 +560,8 @@ void Plotter::render()
 
     //encase all m_plotData access in a mutex, since rendering is usually done in another thread
     m_mutex.lock();
-    int roundedHeight = std::lround(height());
-    int roundedWidth = std::lround(width());
+    int roundedHeight = qRound(height());
+    int roundedWidth = qRound(width());
 
     for (auto data : m_plotData) {
         // Interpolate the data set
@@ -604,7 +604,7 @@ void Plotter::render()
     m_mutex.unlock();
 
     //s single line as base for the graph and divide between multiple stacked ones
-    vertices << QVector2D(0, std::lround(height()-1)) << QVector2D(width(), std::lround(height()-1));
+    vertices << QVector2D(0, qRound(height()-1)) << QVector2D(width(), qRound(height()-1));
 
     // Upload vertices
     GLuint vbo;
@@ -763,14 +763,14 @@ QSGNode *Plotter::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *updateP
 
     if (n->texture()->textureSize() != boundingRect().size()) {
         //we need a size always equal or smaller, size.toSize() won't do
-        static_cast<PlotTexture *>(n->texture())->recreate(QSize(std::lround(boundingRect().size().width()), std::lround(boundingRect().size().height())));
+        static_cast<PlotTexture *>(n->texture())->recreate(QSize(qRound(boundingRect().size().width()), qRound(boundingRect().size().height())));
         m_matrix = QMatrix4x4();
-        m_matrix.ortho(0, std::lround(width()), 0, std::lround(height()), -1, 1);
+        m_matrix.ortho(0, qRound(width()), 0, qRound(height()), -1, 1);
     }
 
     n->setRect(QRect(QPoint(0,0),
-                     QSize(std::lround(boundingRect().size().width()),
-                           std::lround(boundingRect().size().height()))));
+                     QSize(qRound(boundingRect().size().width()),
+                           qRound(boundingRect().size().height()))));
     return n;
 }
 
