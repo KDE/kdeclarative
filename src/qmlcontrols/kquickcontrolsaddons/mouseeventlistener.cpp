@@ -29,8 +29,6 @@
 #include <QScreen>
 #include <QDebug>
 
-static const int PressAndHoldDelay = 800;
-
 MouseEventListener::MouseEventListener(QQuickItem *parent)
     : QQuickItem(parent),
     m_pressed(false),
@@ -172,7 +170,7 @@ void MouseEventListener::mousePressEvent(QMouseEvent *me)
     m_pressed = true;
     emit pressedChanged();
 
-    m_pressAndHoldTimer->start(PressAndHoldDelay);
+    m_pressAndHoldTimer->start(QGuiApplication::styleHints()->mousePressAndHoldInterval());
 }
 
 void MouseEventListener::mouseMoveEvent(QMouseEvent *me)
