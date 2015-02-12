@@ -344,5 +344,26 @@ QScreen* MouseEventListener::screenForGlobalPos(const QPoint& globalPos)
     return 0;
 }
 
+void MouseEventListener::mouseUngrabEvent()
+{
+    handleUngrab();
 
+    QQuickItem::mouseUngrabEvent();
+}
 
+void MouseEventListener::touchUngrabEvent()
+{
+    handleUngrab();
+
+    QQuickItem::touchUngrabEvent();
+}
+
+void MouseEventListener::handleUngrab()
+{
+    m_pressAndHoldTimer->stop();
+
+    m_pressed = false;
+    emit pressedChanged();
+
+    emit canceled();
+}

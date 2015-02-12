@@ -186,6 +186,8 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event);
     void wheelEvent(QWheelEvent *event);
     bool childMouseEventFilter(QQuickItem *item, QEvent *event);
+    void mouseUngrabEvent();
+    void touchUngrabEvent();
 
 Q_SIGNALS:
     void pressed(KDeclarativeMouseEvent *mouse);
@@ -199,9 +201,11 @@ Q_SIGNALS:
     void acceptedButtonsChanged();
     void cursorShapeChanged();
     void pressedChanged();
+    void canceled();
 
 private Q_SLOTS:
     void handlePressAndHold();
+    void handleUngrab();
 
 private:
     static QScreen* screenForGlobalPos(const QPoint &globalPos);
