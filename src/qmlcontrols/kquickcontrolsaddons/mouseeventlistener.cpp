@@ -258,7 +258,7 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
         m_pressed = true;
         emit pressedChanged();
 
-        m_pressAndHoldTimer->start(PressAndHoldDelay);
+        m_pressAndHoldTimer->start(QGuiApplication::styleHints()->mousePressAndHoldInterval());
         break;
     }
     case QEvent::HoverMove: {
