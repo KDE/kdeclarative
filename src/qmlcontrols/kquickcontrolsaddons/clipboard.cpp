@@ -100,7 +100,7 @@ void Clipboard::setContent(const QVariant &content)
                 bool wasUrlList = true;
                 foreach (const QVariant& url, list) {
                     if (url.type() != QVariant::Url) {
-                        wasUrlList = true;
+                        wasUrlList = false;
                         break;
                     }
                     urls += url.toUrl();
