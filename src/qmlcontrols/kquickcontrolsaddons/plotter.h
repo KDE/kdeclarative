@@ -23,6 +23,14 @@
 #ifndef PLASMA_PLOTTER_H
 #define PLASMA_PLOTTER_H
 
+
+#include <epoxy/gl.h>
+//This to prevent a redefinition of GLdouble by qopengl.h
+#include <QtGlobal>
+#if QT_VERSION < QT_VERSION_CHECK(5, 4, 0)
+#define GLdouble GLdouble
+#endif
+
 #include <QSGTexture>
 #include <QSGSimpleTextureNode>
 #include <QQuickItem>

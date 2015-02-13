@@ -21,7 +21,6 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#include <epoxy/gl.h>
 #include "plotter.h"
 
 #include <QGuiApplication>
