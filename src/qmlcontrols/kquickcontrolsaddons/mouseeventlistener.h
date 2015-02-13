@@ -178,16 +178,16 @@ public:
     void setCursorShape(Qt::CursorShape shape);
 
 protected:
-    void hoverEnterEvent(QHoverEvent *event);
-    void hoverLeaveEvent(QHoverEvent *event);
-    void hoverMoveEvent(QHoverEvent * event);
-    void mousePressEvent(QMouseEvent *event);
-    void mouseMoveEvent(QMouseEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);
-    void wheelEvent(QWheelEvent *event);
-    bool childMouseEventFilter(QQuickItem *item, QEvent *event);
-    void mouseUngrabEvent();
-    void touchUngrabEvent();
+    void hoverEnterEvent(QHoverEvent *event) Q_DECL_OVERRIDE;
+    void hoverLeaveEvent(QHoverEvent *event) Q_DECL_OVERRIDE;
+    void hoverMoveEvent(QHoverEvent * event) Q_DECL_OVERRIDE;
+    void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void wheelEvent(QWheelEvent *event) Q_DECL_OVERRIDE;
+    bool childMouseEventFilter(QQuickItem *item, QEvent *event) Q_DECL_OVERRIDE;
+    void mouseUngrabEvent() Q_DECL_OVERRIDE;
+    void touchUngrabEvent() Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     void pressed(KDeclarativeMouseEvent *mouse);

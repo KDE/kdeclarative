@@ -29,7 +29,7 @@ class KIOAccessManagerFactory : public QQmlNetworkAccessManagerFactory
 public:
     KIOAccessManagerFactory();
     ~KIOAccessManagerFactory();
-    QNetworkAccessManager *create(QObject *parent);
+    QNetworkAccessManager *create(QObject *parent) Q_DECL_OVERRIDE;
 };
 
 }

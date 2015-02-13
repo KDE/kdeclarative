@@ -43,9 +43,9 @@ class ColumnProxyModel : public QAbstractListModel
         Q_SCRIPTABLE static QModelIndex indexFromModel(QAbstractItemModel* model, int row, int column=0, const QModelIndex& parent=QModelIndex());
         Q_SCRIPTABLE QModelIndex indexAt(int row, const QModelIndex& parent = QModelIndex()) const;
 
-        virtual QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
-        virtual int rowCount(const QModelIndex& parent = QModelIndex()) const;
-        virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
+        QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
+        int rowCount(const QModelIndex& parent = QModelIndex()) const Q_DECL_OVERRIDE;
+        QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
         virtual QHash<int, QByteArray> roleNames() const Q_DECL_OVERRIDE;
 
     Q_SIGNALS:

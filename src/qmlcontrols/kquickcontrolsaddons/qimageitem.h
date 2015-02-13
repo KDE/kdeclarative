@@ -66,7 +66,7 @@ public:
     FillMode fillMode() const;
     void setFillMode(FillMode mode);
 
-    void paint(QPainter *painter);
+    void paint(QPainter *painter) Q_DECL_OVERRIDE;
 
     bool isNull() const;
 
@@ -80,7 +80,7 @@ Q_SIGNALS:
     void paintedHeightChanged();
 
 protected:
-    void geometryChanged(const QRectF & newGeometry, const QRectF & oldGeometry);
+    void geometryChanged(const QRectF & newGeometry, const QRectF & oldGeometry) Q_DECL_OVERRIDE;
 
 private:
     QImage m_image;

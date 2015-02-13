@@ -47,7 +47,7 @@ public:
     }
 
 protected:
-    virtual bool event(QEvent *e)
+    bool event(QEvent *e) Q_DECL_OVERRIDE
     {
         if (e->type() == QEvent::User) {
             incubate();
@@ -73,7 +73,7 @@ public Q_SLOTS:
     }
 
 protected:
-    virtual void incubatingObjectCountChanged(int count)
+    void incubatingObjectCountChanged(int count) Q_DECL_OVERRIDE
     {
         if (count) {
             QCoreApplication::postEvent(this, new QEvent(QEvent::User));
