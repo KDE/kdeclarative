@@ -48,11 +48,16 @@ QUrl MimeDataWrapper::url() const
     return QUrl();
 }
 
-QVariantList MimeDataWrapper::urls() const
+bool MimeDataWrapper::hasUrls() const
 {
-    QVariantList varUrls;
+    return m_data->hasUrls();
+}
+
+QJsonArray MimeDataWrapper::urls() const
+{
+    QJsonArray varUrls;
     foreach (const QUrl &url, m_data->urls()) {
-        varUrls << url;
+        varUrls.append(url.toString());
     }
     return varUrls;
 }

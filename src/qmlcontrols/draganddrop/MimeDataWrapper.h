@@ -25,6 +25,7 @@
 
 #include <QObject>
 #include <QString>
+#include <QJsonArray>
 
 class QMimeData;
 class QObject;
@@ -56,7 +57,7 @@ class MimeDataWrapper : public QObject
      * A list of URLs contained within the MIME data object.
      * URLs correspond to the MIME type text/uri-list.
      */
-    Q_PROPERTY(QVariantList urls READ urls CONSTANT)
+    Q_PROPERTY(QJsonArray urls READ urls CONSTANT)
 
     /**
      * A color if the data stored in the object represents a color (MIME type application/x-color); otherwise QVariant().
@@ -73,13 +74,19 @@ class MimeDataWrapper : public QObject
      */
     Q_PROPERTY(QStringList formats READ formats CONSTANT)
 
+    /**
+     * @sa QMimeData::hasUrls
+     */
+    Q_PROPERTY(bool hasUrls READ hasUrls CONSTANT)
+
 public:
     MimeDataWrapper(const QMimeData* data, QObject* parent);
 
     QString text() const;
     QString html() const;
     QUrl url() const;
-    QVariantList urls() const;
+    QJsonArray urls() const;
+    bool hasUrls() const;
     QVariant color() const;
     QStringList formats() const;
     QVariant source() const;
