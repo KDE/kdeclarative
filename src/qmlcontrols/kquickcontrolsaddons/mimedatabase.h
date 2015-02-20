@@ -29,8 +29,8 @@ class MimeDatabase : public QObject
     public:
         MimeDatabase(QObject* parent = 0);
 
-        Q_SCRIPTABLE QVariantMap mimeTypeForUrl(const QUrl & url) const;
-        Q_SCRIPTABLE QVariantMap mimeTypeForName(const QString & name) const;
+        Q_SCRIPTABLE QJsonObject mimeTypeForUrl(const QUrl & url) const;
+        Q_SCRIPTABLE QJsonObject mimeTypeForName(const QString & name) const;
 
     private:
         QMimeDatabase m_db;

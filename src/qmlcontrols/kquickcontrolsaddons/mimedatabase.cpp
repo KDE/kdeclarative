@@ -18,11 +18,16 @@
  */
 
 #include "mimedatabase.h"
-#include <QVariantMap>
+#include <QJsonObject>
+#include <QDebug>
 
-static QVariantMap mimetypeToVariant(const QMimeType& type)
+static QJsonObject mimetypeToJsonObject(const QMimeType& type)
 {
-    QVariantMap ret;
+    if (!type.isValid()) {
+        qWarning() << "trying to export an invalid type";
+        return QJsonObject();
+    }
+    QJsonObject ret;
     ret["name"] = type.name();
     ret["iconName"] = type.iconName();
     return ret;
@@ -33,12 +38,17 @@ MimeDatabase::MimeDatabase(QObject* parent)
 {
 }
 
-QVariantMap MimeDatabase::mimeTypeForUrl(const QUrl& url) const
+QJsonObject MimeDatabase::mimeTypeForUrl(const QUrl& url) const
 {
-    return mimetypeToVariant(m_db.mimeTypeForUrl(url));
+    return mimetypeToJsonObject(m_db.mimeTypeForUrl(url));
 }
 
-QVariantMap MimeDatabase::mimeTypeForName(const QString& name) const
+QJsonObject MimeDatabase::mimeTypeForName(const QString& name) const
 {
-    return mimetypeToVariant(m_db.mimeTypeForName(name));
+    QMimeType type = m_db.mimeTypeForName(name);
+    if (!type.isValid()) {
+        qWarning() << "wrong mime name" << name << m_db.allMimeTypes();
+        return QJsonObject();
+    }
+    return mimetypeToJsonObject(type);
 }
