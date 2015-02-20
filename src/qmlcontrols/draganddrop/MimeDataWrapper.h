@@ -71,6 +71,8 @@ class MimeDataWrapper : public QObject
 
     /**
      * Mimetypes provided by the mime data instance
+     *
+     * @sa QMimeData::formats
      */
     Q_PROPERTY(QStringList formats READ formats CONSTANT)
 

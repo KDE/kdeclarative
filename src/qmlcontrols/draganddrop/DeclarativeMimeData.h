@@ -65,6 +65,9 @@ class DeclarativeMimeData : public QMimeData
     Q_PROPERTY(QQuickItem* source READ source WRITE setSource NOTIFY sourceChanged)
     //TODO: Image property
 
+    /**
+     * @sa QMimeData::formats
+     */
     Q_PROPERTY(QStringList formats READ formats)
 public:
     DeclarativeMimeData();
