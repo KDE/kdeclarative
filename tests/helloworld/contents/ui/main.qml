@@ -18,18 +18,17 @@
  */
 
 import QtQuick 2.0
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import QtQuick.Controls 1.3
 
-Item {
+Rectangle {
     width: 300
     height: 100
 
     Column {
-        PlasmaComponents.Label {
+        Label {
             text: i18n("Hello world")
         }
-        PlasmaComponents.Label {
+        Label {
             text: application.startupArguments.join(" ")
         }    
     }
