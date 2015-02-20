@@ -31,6 +31,7 @@
 #include <QQmlExpression>
 #include <QQmlProperty>
 #include <kdeclarative/qmlobject.h>
+#include <KAboutData>
 
 #include "view.h"
 
@@ -67,6 +68,18 @@ int main(int argc, char **argv)
     obj->loadPackage(packagePath);
     obj->engine()->rootContext()->setContextProperty("commandlineArguments", parser.positionalArguments());
     obj->completeInitialization();
+
+    if (!obj->package().metadata().isValid()) {
+        return -1;
+    }
+
+    KPluginMetaData data = obj->package().metadata();
+    // About data
+    KAboutData aboutData(data.pluginId(), data.name(), data.version(), data.description(), KAboutLicense::byKeyword(data.license()).key());
+
+    for (auto author : data.authors()) {
+        aboutData.addAuthor(author.name(), author.task(), author.emailAddress(), author.webAddress(), author.ocsUsername());
+    }
 
     //The root is not a window?
     //have to use a normal QQuickWindow since the root item is already created
