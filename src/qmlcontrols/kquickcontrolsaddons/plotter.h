@@ -157,6 +157,15 @@ class Plotter : public QQuickItem
      */
     Q_PROPERTY(QColor gridColor READ gridColor WRITE setGridColor NOTIFY gridColorChanged)
 
+
+    /**
+     * The number of horizontal lines drawn across the view between 0 and rangeMax at the top of the plotter at rangeMax
+     * This does not include the bottom line
+     *
+     * The default value is 5
+     */
+    Q_PROPERTY(int horizontalGridLineCount READ horizontalGridLineCount WRITE setHorizontalGridLineCount NOTIFY horizontalGridLineCountChanged)
+
     //Q_CLASSINFO("DefaultProperty", "dataSets")
 
 public:
@@ -180,6 +189,9 @@ public:
 
     qreal rangeMin() const;
     void setRangeMin(qreal min);
+
+    void setHorizontalGridLineCount(int count);
+    int horizontalGridLineCount();
 
     void setGridColor(const QColor &color);
     QColor gridColor() const;
@@ -210,6 +222,7 @@ Q_SIGNALS:
     void rangeMaxChanged();
     void rangeMinChanged();
     void gridColorChanged();
+    void horizontalGridLineCountChanged();
 
 private Q_SLOTS:
     void render();
@@ -235,6 +248,7 @@ private:
     bool m_haveInternalFormatQuery;
     GLenum m_internalFormat;
     int m_samples;
+    int m_horizontalLineCount;
     QPointer <QQuickWindow> m_window;
     QMutex m_mutex;
 

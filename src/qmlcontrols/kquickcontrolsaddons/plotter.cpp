@@ -278,6 +278,7 @@ Plotter::Plotter(QQuickItem *parent)
       m_rangeMax(0),
       m_rangeMin(0),
       m_sampleSize(s_defaultSampleSize),
+      m_horizontalLineCount(5),
       m_stacked(true),
       m_autoRange(true)
 {
@@ -416,6 +417,22 @@ QColor Plotter::gridColor() const
     return m_gridColor;
 }
 
+int Plotter::horizontalGridLineCount()
+{
+    return m_horizontalLineCount;
+}
+
+void Plotter::setHorizontalGridLineCount(int count)
+{
+    if (m_horizontalLineCount == count) {
+        return;
+    }
+
+    m_horizontalLineCount = count;
+    emit horizontalGridLineCountChanged();
+}
+
+
 void Plotter::addSample(qreal value)
 {
     if (m_plotData.count() != 1) {
@@ -549,11 +566,18 @@ void Plotter::render()
     glClear(GL_COLOR_BUFFER_BIT);
 
     // Add horizontal lines
-    int lineCount = height() / 20 + 1;
+    qreal lineSpacing = height() / m_horizontalLineCount;
 
     QVector<QVector2D> vertices;
-    for (int i = 0; i < lineCount; i++)
-        vertices << QVector2D(0, i * 20) << QVector2D(width(), i * 20);
+
+    //don't draw the bottom line that will come later
+    for (int i = 0; i < m_horizontalLineCount; i++) {
+        int lineY = ceil(i * lineSpacing)+1; //floor +1 makes the entry at point 0 on pixel 1
+        vertices << QVector2D(0, lineY) << QVector2D(width(), lineY);
+    }
+    //bottom line
+    vertices << QVector2D(0, height()-1) << QVector2D(width(), height()-1);
+
 
     // Tessellate
     float min = height();
@@ -606,9 +630,6 @@ void Plotter::render()
     }
     m_mutex.unlock();
 
-    //s single line as base for the graph and divide between multiple stacked ones
-    vertices << QVector2D(0, qRound(height()-1)) << QVector2D(width(), qRound(height()-1));
-
     // Upload vertices
     GLuint vbo;
     glGenBuffers(1, &vbo);
@@ -634,7 +655,7 @@ void Plotter::render()
     s_program->setUniformValue(u_color1, color1);
     s_program->setUniformValue(u_color2, color2);
 
-    glDrawArrays(GL_LINES, 0, lineCount * 2);
+    glDrawArrays(GL_LINES, 0, (m_horizontalLineCount+1) * 2 );
 
     // Enable alpha blending
     glEnable(GL_BLEND);
@@ -651,13 +672,14 @@ void Plotter::render()
         s_program->setUniformValue(u_color1, data->color());
         s_program->setUniformValue(u_color2, color2);
 
-        glDrawArrays(GL_TRIANGLE_STRIP, lineCount * 2 + oldCount.first + oldCount.second, verticesCounts[data].first);
+        //+2 is for the bottom line
+        glDrawArrays(GL_TRIANGLE_STRIP, m_horizontalLineCount*2 + 2 + oldCount.first + oldCount.second, verticesCounts[data].first);
 
         oldCount.first += verticesCounts[data].first;
 
         s_program->setUniformValue(u_color1, data->color());
         s_program->setUniformValue(u_color2, data->color());
-        glDrawArrays(GL_LINE_STRIP, lineCount * 2 + oldCount.first + oldCount.second, verticesCounts[data].second);
+        glDrawArrays(GL_LINE_STRIP, m_horizontalLineCount*2 + 2 + oldCount.first + oldCount.second, verticesCounts[data].second);
 
         oldCount.second += verticesCounts[data].second;
     }
@@ -848,15 +870,13 @@ void Plotter::normalizeData()
     }
     m_mutex.unlock();
 
+
     if (m_autoRange || m_rangeMax > m_rangeMin) {
         if (!m_autoRange) {
             adjustedMax = m_rangeMax;
             adjustedMin = m_rangeMin;
         }
 
-        //leave some empty space (of a line) top and bottom
-        adjustedMax += height()/20;
-        adjustedMin -= height()/20;
         qreal adjust;
         //this should never happen, remove?
         if (qFuzzyCompare(adjustedMax - adjustedMin, 0)) {
@@ -864,6 +884,7 @@ void Plotter::normalizeData()
         } else {
             adjust = (height() / (adjustedMax - adjustedMin));
         }
+
         //normalizebased on global max and min
         m_mutex.lock();
         for (auto data : m_plotData) {

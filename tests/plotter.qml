@@ -1,7 +1,7 @@
 /*
  *   Copyright 2015 by Marco Martin <mart@kde.org>
  *   Copyright 2015 by David Edmundson <davidedmundson@kde.org>
- * 
+ *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
  *   published by the Free Software Foundation; either version 2, or
@@ -33,6 +33,7 @@ Item {
         anchors.margins: 0
         stacked: stackedButton.checked
         autoRange: autoRangeButton.checked
+        horizontalGridLineCount: linesSpinner.value
 
         dataSets: [
             PlotData {
@@ -69,6 +70,12 @@ Item {
             text: "Auto Range"
             checkable: true
             checked: true
+        }
+
+        SpinBox {
+            id: linesSpinner
+            value: 5
+            minimumValue: 0
         }
     }
 }
