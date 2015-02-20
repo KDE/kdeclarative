@@ -208,6 +208,7 @@ void DeclarativeDragArea::mousePressEvent(QMouseEvent* event)
 
 void DeclarativeDragArea::mouseReleaseEvent(QMouseEvent* event)
 {
+    Q_UNUSED(event);
     m_draggingJustStarted = false;
     setKeepMouseGrab(false);
     ungrabMouse();
