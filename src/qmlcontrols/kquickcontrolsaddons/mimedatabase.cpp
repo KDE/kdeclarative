@@ -47,7 +47,7 @@ QJsonObject MimeDatabase::mimeTypeForName(const QString& name) const
 {
     QMimeType type = m_db.mimeTypeForName(name);
     if (!type.isValid()) {
-        qWarning() << "wrong mime name" << name << m_db.allMimeTypes();
+        qWarning() << "wrong mime name" << name;
         return QJsonObject();
     }
     return mimetypeToJsonObject(type);
