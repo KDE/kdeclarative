@@ -158,3 +158,8 @@ void DeclarativeMimeData::setSource(QQuickItem* source)
         emit sourceChanged();
     }
 }
+
+QByteArray DeclarativeMimeData::getDataAsByteArray(const QString& format)
+{
+    return data(format);
+}

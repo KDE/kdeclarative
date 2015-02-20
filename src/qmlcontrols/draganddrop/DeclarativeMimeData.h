@@ -85,6 +85,7 @@ public:
     QQuickItem* source() const;
     void setSource(QQuickItem* source);
 
+    Q_INVOKABLE QByteArray getDataAsByteArray(const QString& format);
 
     /*
     QString text() const;                //TODO: Reimplement this to issue the onChanged signals
