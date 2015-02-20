@@ -26,8 +26,6 @@
 
 #include <QMimeData>
 
-#include <QDebug>
-
 DeclarativeDropArea::DeclarativeDropArea(QQuickItem *parent)
     : QQuickItem(parent),
       m_enabled(true),
@@ -63,7 +61,6 @@ void DeclarativeDropArea::dragEnterEvent(QDragEnterEvent *event)
     }
 
     DeclarativeDragDropEvent dde(event, this);
-    qDebug() << "enter.";
     event->accept();
 
     if (m_preventStealing) {
@@ -83,7 +80,6 @@ void DeclarativeDropArea::dragLeaveEvent(QDragLeaveEvent *event)
     temporaryInhibitParent(false);
 
     DeclarativeDragDropEvent dde(event, this);
-    qDebug() << "leave.";
     emit dragLeave(&dde);
     setContainsDrag(false);
 }
@@ -95,7 +91,6 @@ void DeclarativeDropArea::dragMoveEvent(QDragMoveEvent *event)
     }
 
     DeclarativeDragDropEvent dde(event, this);
-    //qDebug() << "move.";
     event->accept();
     emit dragMove(&dde);
 }
@@ -112,7 +107,6 @@ void DeclarativeDropArea::dropEvent(QDropEvent *event)
     }
 
     DeclarativeDragDropEvent dde(event, this);
-    qDebug() << "Drop.";
     emit drop(&dde);
     setContainsDrag(false);
 }
