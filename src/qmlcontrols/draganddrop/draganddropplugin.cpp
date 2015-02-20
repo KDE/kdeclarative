@@ -28,6 +28,7 @@
 #include "DeclarativeDragDropEvent.h"
 #include "DeclarativeDropArea.h"
 #include "DeclarativeMimeData.h"
+#include "MimeDataWrapper.h"
 
 void DragAndDropPlugin::registerTypes(const char *uri)
 {
@@ -38,4 +39,5 @@ void DragAndDropPlugin::registerTypes(const char *uri)
     qmlRegisterType<QMimeData>();
     qmlRegisterUncreatableType<DeclarativeMimeData>(uri, 2, 0, "MimeData", "MimeData cannot be created from QML.");
     qmlRegisterUncreatableType<DeclarativeDragDropEvent>(uri, 2, 0, "DragDropEvent", "DragDropEvent cannot be created from QML.");
+    qmlRegisterUncreatableType<MimeDataWrapper>(uri, 2, 0, "MimeDataWrapper", "DragDropEvent cannot be created from QML.");
 }

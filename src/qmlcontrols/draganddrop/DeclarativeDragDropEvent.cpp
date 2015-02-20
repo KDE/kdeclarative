@@ -23,6 +23,7 @@
 */
 
 #include "DeclarativeDragDropEvent.h"
+#include "MimeDataWrapper.h"
 
 DeclarativeDragDropEvent::DeclarativeDragDropEvent(QDropEvent* e, DeclarativeDropArea* parent) :
     QObject(parent),
@@ -30,10 +31,9 @@ DeclarativeDragDropEvent::DeclarativeDragDropEvent(QDropEvent* e, DeclarativeDro
     m_y(e->pos().y()),
     m_buttons(e->mouseButtons()),
     m_modifiers(e->keyboardModifiers()),
-    m_data(e->mimeData()),
+    m_data(Q_NULLPTR),
     m_event(e)
 {
-    Q_UNUSED(e)
 }
 
 DeclarativeDragDropEvent::DeclarativeDragDropEvent(QDragLeaveEvent* e, DeclarativeDropArea* parent) :
@@ -42,7 +42,7 @@ DeclarativeDragDropEvent::DeclarativeDragDropEvent(QDragLeaveEvent* e, Declarati
     m_y(0),
     m_buttons(Qt::NoButton),
     m_modifiers(Qt::NoModifier),
-    //m_data(e->mimeData()),
+    m_data(Q_NULLPTR),
     m_event(0)
 {
     Q_UNUSED(e);
@@ -51,6 +51,14 @@ DeclarativeDragDropEvent::DeclarativeDragDropEvent(QDragLeaveEvent* e, Declarati
 void DeclarativeDragDropEvent::accept(int action)
 {
     m_event->setDropAction( (Qt::DropAction) action );
-    qDebug() << "-----> Accepting event: " << this << m_data.urls() << m_data.text() << m_data.html() << ( m_data.hasColor() ? m_data.color().name() : " no color");
+//     qDebug() << "-----> Accepting event: " << this << m_data.urls() << m_data.text() << m_data.html() << ( m_data.hasColor() ? m_data.color().name() : " no color");
     m_event->accept();
+}
+
+MimeDataWrapper* DeclarativeDragDropEvent::mimeData()
+{
+    if (!m_data) {
+        m_data = new MimeDataWrapper(m_event->mimeData(), this);
+    }
+    return m_data;
 }

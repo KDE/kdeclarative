@@ -6,7 +6,8 @@ set(declarativedragdrop_SRCS
     DeclarativeDragDropEvent.cpp
     DeclarativeDropArea.cpp
     DeclarativeMimeData.cpp
-    )
+    MimeDataWrapper.cpp
+)
 
 add_library(draganddropplugin SHARED ${declarativedragdrop_SRCS})
 target_link_libraries(draganddropplugin
