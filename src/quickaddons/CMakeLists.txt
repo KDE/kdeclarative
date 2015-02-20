@@ -33,6 +33,7 @@ ecm_generate_headers(QuickAddons_CamelCase_HEADERS
   HEADER_NAMES
   ImageTexturesCache
   ManagedTextureNode
+  KPackageView
 
   PREFIX QuickAddons
   REQUIRED_HEADERS QuickAddons_HEADERS

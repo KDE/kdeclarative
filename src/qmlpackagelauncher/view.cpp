@@ -1,5 +1,5 @@
 /*
- *   Copyright 2015 Marco Martin <mart@kde.org>
+ *   Copyright 2014 Marco Martin <mart@kde.org>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -17,34 +17,23 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "view.h"
 
-#ifndef KPACKAGEVIEW_H
-#define KPACKAGEVIEW_H
 
-#include <QQuickView>
+View::View(const QString &packageName, const QStringList &arguments, QWindow *parent)
+    : KPackageView(packageName, parent),
+      m_startupArguments(arguments)
+{
+}
 
-#include <KPackage/Package>
 
-#include "quickaddons_export.h"
+View::~View()
+{
+}
 
-class KPackageViewPrivate;
+QStringList View::startupArguments() const
+{
+    return m_startupArguments;
+}
 
-class QUICKADDONS_EXPORT KPackageView : public QQuickView {
-    Q_OBJECT
-
-public:
-    KPackageView(const KPackage::Package &package, QWindow *parent = 0);
-    KPackageView(const QString &packageName, QWindow *parent = 0);
-    virtual ~KPackageView();
-    void init();
-
-    KPackage::Package package() const;
-
-protected:
-    void showEvent(QShowEvent *event);
-
-private:
-    KPackageViewPrivate *const d;
-};
-
-#endif // VIEW_H
+#include "view.moc"

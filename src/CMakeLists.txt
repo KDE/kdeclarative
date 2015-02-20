@@ -4,3 +4,4 @@ endif()
 
 add_subdirectory(quickaddons)
 add_subdirectory(qmlcontrols)
+add_subdirectory(qmlpackagelauncher)

@@ -37,6 +37,7 @@ public:
     {}
 
     KPackage::Package package;
+    QString packageName;
 };
 
 KPackageView::KPackageView(const KPackage::Package &package, QWindow *parent)
@@ -63,13 +64,25 @@ KPackageView::KPackageView(const QString &packageName, QWindow *parent)
     : QQuickView(parent),
       d(new KPackageViewPrivate)
 {
+    d->packageName = packageName;
+}
 
+KPackageView::~KPackageView()
+{
+    delete d;
+}
+
+void KPackageView::init()
+{
     KDeclarative::KDeclarative kdeclarative;
     kdeclarative.setDeclarativeEngine(engine());
     kdeclarative.setupBindings();
 
-    d->package = KPackage::PackageLoader::self()->loadPackage("KPackage/GenericQML");
-    d->package.setPath(packageName);
+    if (!d->package.isValid()) {
+        d->package = KPackage::PackageLoader::self()->loadPackage("KPackage/GenericQML");
+        d->package.setPath(d->packageName);
+    }
+
     if (d->package.isValid() && d->package.metadata().isValid()) {
         setTitle(d->package.metadata().name());
         setIcon(QIcon::fromTheme(d->package.metadata().iconName()));
@@ -81,9 +94,10 @@ KPackageView::KPackageView(const QString &packageName, QWindow *parent)
     setResizeMode(QQuickView::SizeRootObjectToView);
 }
 
-KPackageView::~KPackageView()
+void KPackageView::showEvent(QShowEvent *event)
 {
-    delete d;
+    init();
+    QQuickView::showEvent(event);
 }
 
 KPackage::Package KPackageView::package() const

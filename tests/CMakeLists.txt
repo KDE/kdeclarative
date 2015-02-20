@@ -16,3 +16,6 @@ target_link_libraries(kdeclarativetest
    Qt5::Test
    KF5::Declarative
 )
+
+kpackage_install_package(helloworld org.kde.example.helloworld genericqml)
+

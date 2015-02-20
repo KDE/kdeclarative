@@ -18,33 +18,23 @@
  */
 
 
-#ifndef KPACKAGEVIEW_H
-#define KPACKAGEVIEW_H
+#ifndef VIEW_H
+#define VIEW_H
 
-#include <QQuickView>
+#include <quickaddons/kpackageview.h>
 
-#include <KPackage/Package>
-
-#include "quickaddons_export.h"
-
-class KPackageViewPrivate;
-
-class QUICKADDONS_EXPORT KPackageView : public QQuickView {
+class View : public KPackageView {
     Q_OBJECT
+    Q_PROPERTY(QStringList startupArguments READ startupArguments CONSTANT)
 
 public:
-    KPackageView(const KPackage::Package &package, QWindow *parent = 0);
-    KPackageView(const QString &packageName, QWindow *parent = 0);
-    virtual ~KPackageView();
-    void init();
+    View(const QString &packageName, const QStringList &arguments, QWindow *parent = 0);
+    virtual ~View();
 
-    KPackage::Package package() const;
-
-protected:
-    void showEvent(QShowEvent *event);
+    QStringList startupArguments() const;
 
 private:
-    KPackageViewPrivate *const d;
+    QStringList m_startupArguments;
 };
 
 #endif // VIEW_H
