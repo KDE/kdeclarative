@@ -32,7 +32,8 @@ DeclarativeDropArea::DeclarativeDropArea(QQuickItem *parent)
     : QQuickItem(parent),
       m_enabled(true),
       m_preventStealing(false),
-      m_temporaryInhibition(false)
+      m_temporaryInhibition(false),
+      m_containsDrag(false)
 {
     setFlag(ItemAcceptsDrops, m_enabled);
     setFlag(ItemHasContents, m_enabled);
@@ -70,6 +71,7 @@ void DeclarativeDropArea::dragEnterEvent(QDragEnterEvent *event)
     }
 
     emit dragEnter(&dde);
+    setContainsDrag(true);
 }
 
 void DeclarativeDropArea::dragLeaveEvent(QDragLeaveEvent *event)
@@ -83,6 +85,7 @@ void DeclarativeDropArea::dragLeaveEvent(QDragLeaveEvent *event)
     DeclarativeDragDropEvent dde(event, this);
     qDebug() << "leave.";
     emit dragLeave(&dde);
+    setContainsDrag(false);
 }
 
 void DeclarativeDropArea::dragMoveEvent(QDragMoveEvent *event)
@@ -111,6 +114,7 @@ void DeclarativeDropArea::dropEvent(QDropEvent *event)
     DeclarativeDragDropEvent dde(event, this);
     qDebug() << "Drop.";
     emit drop(&dde);
+    setContainsDrag(false);
 }
 
 bool DeclarativeDropArea::isEnabled() const
@@ -143,4 +147,17 @@ void DeclarativeDropArea::setPreventStealing(bool prevent)
 
     m_preventStealing = prevent;
     emit preventStealingChanged();
+}
+
+void DeclarativeDropArea::setContainsDrag(bool dragging)
+{
+    if (m_containsDrag != dragging) {
+        m_containsDrag = dragging;
+        Q_EMIT containsDragChanged(m_containsDrag);
+    }
+}
+
+bool DeclarativeDropArea::containsDrag() const
+{
+    return m_containsDrag;
 }

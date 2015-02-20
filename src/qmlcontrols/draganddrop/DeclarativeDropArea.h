@@ -42,6 +42,8 @@ class DeclarativeDropArea : public QQuickItem
      */
     Q_PROPERTY(bool preventStealing READ preventStealing WRITE setPreventStealing NOTIFY preventStealingChanged)
 
+    Q_PROPERTY(bool containsDrag READ containsDrag NOTIFY containsDragChanged )
+
 public:
     DeclarativeDropArea(QQuickItem *parent=0);
     bool isEnabled() const;
@@ -49,6 +51,7 @@ public:
 
     bool preventStealing() const;
     void setPreventStealing(bool prevent);
+    bool containsDrag() const;
 
 Q_SIGNALS:
     /**
@@ -84,6 +87,8 @@ Q_SIGNALS:
 
     void preventStealingChanged();
 
+    void containsDragChanged(bool contained);
+
 protected:
     void dragEnterEvent(QDragEnterEvent *event) Q_DECL_OVERRIDE;
     void dragLeaveEvent(QDragLeaveEvent *event) Q_DECL_OVERRIDE;
@@ -94,9 +99,12 @@ private Q_SLOTS:
     void temporaryInhibitParent(bool inhibit);
 
 private:
+    void setContainsDrag(bool dragging);
+
     bool m_enabled : 1;
     bool m_preventStealing : 1;
     bool m_temporaryInhibition : 1;
+    bool m_containsDrag : 1;
 };
 
 #endif
