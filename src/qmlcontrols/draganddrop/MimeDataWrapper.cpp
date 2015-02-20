@@ -86,3 +86,8 @@ QVariant MimeDataWrapper::source() const
 //     In case it comes from a DeclarativeMimeData
     return m_data->property("source");
 }
+
+QMimeData* MimeDataWrapper::mimeData() const
+{
+    return const_cast<QMimeData*>(m_data);
+}

@@ -81,6 +81,11 @@ class MimeDataWrapper : public QObject
      */
     Q_PROPERTY(bool hasUrls READ hasUrls CONSTANT)
 
+    /**
+     * @returns the wrapped object
+     */
+    Q_PROPERTY(QMimeData* mimeData READ mimeData CONSTANT)
+
 public:
     MimeDataWrapper(const QMimeData* data, QObject* parent);
 
@@ -92,6 +97,7 @@ public:
     QVariant color() const;
     QStringList formats() const;
     QVariant source() const;
+    QMimeData* mimeData() const;
 
     Q_INVOKABLE QByteArray getDataAsByteArray(const QString& format);
 
