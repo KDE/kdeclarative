@@ -22,11 +22,14 @@
 #include <klocalizedstring.h>
 #include <qcommandlineparser.h>
 #include <qcommandlineoption.h>
+#include <QQuickItem>
 
 #include <kpackage/package.h>
 #include <kpackage/packageloader.h>
 #include <QQmlContext>
 #include <QQmlEngine>
+#include <QQmlExpression>
+#include <QQmlProperty>
 #include <kdeclarative/qmlobject.h>
 
 #include "view.h"
@@ -57,14 +60,35 @@ int main(int argc, char **argv)
         parser.showHelp(1);
     }
 
+    //usually we have an ApplicationWindow here, so we do not need to create a window by ourselves
     KDeclarative::QmlObject *obj = new KDeclarative::QmlObject();
     obj->setTranslationDomain(packagePath);
     obj->setInitializationDelayed(true);
     obj->loadPackage(packagePath);
     obj->engine()->rootContext()->setContextProperty("commandlineArguments", parser.positionalArguments());
-  /*  View view(packagePath, parser.positionalArguments());
-    view.rootContext()->setContextProperty("application", &view);
-    view.show();*/
+    obj->completeInitialization();
+
+    //The root is not a window?
+    //have to use a normal QQuickWindow since the root item is already created
+    QQuickItem *item = qobject_cast<QQuickItem *>(obj->rootObject());
+    QWindow *window = qobject_cast<QWindow *>(obj->rootObject());
+    if (item) {
+        QQuickWindow view;
+        item->setParentItem(view.contentItem());
+        view.resize(item->width(), item->height());
+        //set anchors
+        QQmlExpression expr(obj->engine()->rootContext(), obj->rootObject(), "parent");
+        QQmlProperty prop(obj->rootObject(), "anchors.fill");
+        prop.write(expr.evaluate());
+        view.setTitle(obj->package().metadata().name());
+        view.setIcon(QIcon::fromTheme(obj->package().metadata().iconName()));
+
+        view.show();
+        return app.exec();
+    } else if (window) {
+        window->setTitle(obj->package().metadata().name());
+        window->setIcon(QIcon::fromTheme(obj->package().metadata().iconName()));
+    }
 
     return app.exec();
 }
