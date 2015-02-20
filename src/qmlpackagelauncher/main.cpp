@@ -26,6 +26,8 @@
 #include <kpackage/package.h>
 #include <kpackage/packageloader.h>
 #include <QQmlContext>
+#include <QQmlEngine>
+#include <kdeclarative/qmlobject.h>
 
 #include "view.h"
 
@@ -55,9 +57,14 @@ int main(int argc, char **argv)
         parser.showHelp(1);
     }
 
-    View view(packagePath, parser.positionalArguments());
+    KDeclarative::QmlObject *obj = new KDeclarative::QmlObject();
+    obj->setTranslationDomain(packagePath);
+    obj->setInitializationDelayed(true);
+    obj->loadPackage(packagePath);
+    obj->engine()->rootContext()->setContextProperty("commandlineArguments", parser.positionalArguments());
+  /*  View view(packagePath, parser.positionalArguments());
     view.rootContext()->setContextProperty("application", &view);
-    view.show();
+    view.show();*/
 
     return app.exec();
 }

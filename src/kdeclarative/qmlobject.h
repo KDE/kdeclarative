@@ -27,6 +27,7 @@
 #include <QGuiApplication>
 #include <QScreen>
 
+#include <KPackage/Package>
 #include <kdeclarative/kdeclarative_export.h>
 
 class QQmlEngine;
@@ -112,6 +113,28 @@ public:
      * @return the absolute path of the current QML file
      */
     QUrl source() const;
+
+    /**
+     * Load the package called packageName, then loads the
+     * mainscript file for that package
+     *
+     * @param packageName the plugin name of the package
+     */
+    void loadPackage(const QString &packageName);
+
+    /**
+     * Sets a package, then loads the
+     * mainscript file for that package
+     *
+     * @param package the package we want to use to provide QML
+     *         files to this QML object
+     */
+    void setPakcage(const KPackage::Package &package);
+
+    /**
+     * @return the optional package, if any 
+     */
+    KPackage::Package package() const;
 
     /**
      * Sets whether the execution of the QML file has to be delayed later in the event loop. It has to be called before setQmlPath().
