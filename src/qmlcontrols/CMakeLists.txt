@@ -14,3 +14,7 @@ endif()
 if(KF5KIO_FOUND)
     add_subdirectory(kioplugin)
 endif()
+
+if (KF5WindowSystem_FOUND)
+    add_subdirectory(kwindowsystemplugin)
+endif()
