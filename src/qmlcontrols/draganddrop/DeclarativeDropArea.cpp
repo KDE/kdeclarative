@@ -73,8 +73,6 @@ void DeclarativeDropArea::dragEnterEvent(QDragEnterEvent *event)
 
 void DeclarativeDropArea::dragLeaveEvent(QDragLeaveEvent *event)
 {
-    QQuickItem *candidate = parentItem();
-
     //do it anyways, in the unlikely case m_preventStealing
     //was changed while drag
     temporaryInhibitParent(false);
