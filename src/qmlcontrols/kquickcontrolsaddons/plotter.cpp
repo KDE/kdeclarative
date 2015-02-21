@@ -46,6 +46,8 @@
 
 #include <QuickAddons/ManagedTextureNode>
 
+#include <math.h>
+
 //completely arbitrary
 static int s_defaultSampleSize = 40;
 
