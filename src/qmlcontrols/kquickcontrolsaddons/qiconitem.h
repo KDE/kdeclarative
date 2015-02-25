@@ -58,7 +58,7 @@ public:
     void setSmooth(const bool smooth);
     bool smooth() const;
 
-    virtual QSGNode* updatePaintNode(QSGNode* node, UpdatePaintNodeData* data) Q_DECL_OVERRIDE;
+    QSGNode* updatePaintNode(QSGNode* node, UpdatePaintNodeData* data) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     void stateChanged(State state);
