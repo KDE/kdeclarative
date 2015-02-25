@@ -2,7 +2,6 @@
 
 set(qmlpackagelauncher_SRCS
     main.cpp
-    view.cpp
 )
 
 add_executable(qmlpackagelauncher ${qmlpackagelauncher_SRCS})

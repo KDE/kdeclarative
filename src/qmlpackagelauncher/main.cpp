@@ -30,10 +30,9 @@
 #include <QQmlEngine>
 #include <QQmlExpression>
 #include <QQmlProperty>
+#include <QQuickWindow>
 #include <kdeclarative/qmlobject.h>
 #include <KAboutData>
-
-#include "view.h"
 
 int main(int argc, char **argv)
 {
