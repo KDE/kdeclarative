@@ -23,7 +23,7 @@
 */
 
 #include "DeclarativeDragDropEvent.h"
-#include "MimeDataWrapper.h"
+#include "DeclarativeMimeData.h"
 
 DeclarativeDragDropEvent::DeclarativeDragDropEvent(QDropEvent* e, DeclarativeDropArea* parent) :
     QObject(parent),
@@ -55,10 +55,12 @@ void DeclarativeDragDropEvent::accept(int action)
     m_event->accept();
 }
 
-MimeDataWrapper* DeclarativeDragDropEvent::mimeData()
+DeclarativeMimeData* DeclarativeDragDropEvent::mimeData()
 {
     if (!m_data) {
-        m_data = new MimeDataWrapper(m_event->mimeData(), this);
+//         TODO This should be using MimeDataWrapper eventually, although this is an API break,
+//         so will need to be done carefully.
+        m_data = new DeclarativeMimeData(m_event->mimeData());
     }
     return m_data;
 }

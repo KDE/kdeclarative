@@ -27,7 +27,7 @@
 #include <QObject>
 #include "DeclarativeDropArea.h"
 
-class MimeDataWrapper;
+class DeclarativeMimeData;
 
 class DeclarativeDragDropEvent : public QObject
 {
@@ -70,9 +70,9 @@ class DeclarativeDragDropEvent : public QObject
 
     /**
      * The mime data of this operation
-     * @see MimeDataWrapper
+     * @see DeclarativeMimeData
      */
-    Q_PROPERTY(MimeDataWrapper* mimeData READ mimeData)
+    Q_PROPERTY(DeclarativeMimeData* mimeData READ mimeData)
 
     /**
      * The possible different kind of action that can be done in the drop, is a combination of:
@@ -102,7 +102,7 @@ public:
     int y() const { return m_y; }
     int buttons() const { return m_buttons; }
     int modifiers() const { return m_modifiers; }
-    MimeDataWrapper* mimeData();
+    DeclarativeMimeData* mimeData();
     Qt::DropAction proposedAction() const { return m_event->proposedAction(); }
     Qt::DropActions possibleActions() const { return m_event->possibleActions(); }
 
@@ -114,7 +114,7 @@ private:
     int m_y;
     Qt::MouseButtons m_buttons;
     Qt::KeyboardModifiers m_modifiers;
-    MimeDataWrapper* m_data;
+    DeclarativeMimeData* m_data;
     QDropEvent* m_event;
 };
 
