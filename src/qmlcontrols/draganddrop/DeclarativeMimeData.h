@@ -63,6 +63,9 @@ class DeclarativeMimeData : public QMimeData
      * The graphical item on the scene that started the drag event. It may be null.
      */
     Q_PROPERTY(QQuickItem* source READ source WRITE setSource NOTIFY sourceChanged)
+
+    /** @see QMimeData::hasUrls */
+    Q_PROPERTY(bool hasUrls READ hasUrls NOTIFY urlsChanged)
     //TODO: Image property
 
     /**
