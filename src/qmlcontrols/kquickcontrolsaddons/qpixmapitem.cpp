@@ -160,7 +160,7 @@ void QPixmapItem::updatePaintedRect()
         return;
     }
 
-    QRect sourceRect = m_pixmap.rect();
+    QRect sourceRect = m_paintedRect;
 
     QRect destRect;
 

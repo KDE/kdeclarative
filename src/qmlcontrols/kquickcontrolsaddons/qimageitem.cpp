@@ -157,7 +157,7 @@ void QImageItem::updatePaintedRect()
         return;
     }
 
-    QRect sourceRect = m_image.rect();
+    QRect sourceRect = m_paintedRect;
 
     QRect destRect;
 
