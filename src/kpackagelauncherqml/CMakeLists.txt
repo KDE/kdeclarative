@@ -11,6 +11,7 @@ add_executable(kpackagelauncherqml ${kpackagelauncherqml_SRCS})
 target_link_libraries(kpackagelauncherqml
  Qt5::Gui
  Qt5::Quick
+ Qt5::Widgets #needs a qapplication for the Desktop QtControlsStyle
  KF5::Declarative
  KF5::I18n
  KF5::Package

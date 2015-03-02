@@ -17,7 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include <QGuiApplication>
+#include <QApplication>
 
 #include <klocalizedstring.h>
 #include <qcommandlineparser.h>
@@ -37,7 +37,7 @@
 int main(int argc, char **argv)
 {
     QCommandLineParser parser;
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
 
     const QString description = i18n("KPackage QML application shell");
     const char version[] = "0.1";
