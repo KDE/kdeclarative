@@ -16,3 +16,13 @@ target_link_libraries(kdeclarativetest
    Qt5::Test
    KF5::Declarative
 )
+
+
+
+add_executable(qimageitemtest qimageitemtest.cpp)
+
+ecm_mark_as_test(qimageitemtest)
+target_link_libraries(qimageitemtest
+   Qt5::Quick
+   Qt5::Test
+)
