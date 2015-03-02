@@ -28,6 +28,7 @@
 #include <QColor>
 #include <QUrl>
 #include <QQuickItem>
+#include <QJsonArray>
 
 class DeclarativeMimeData : public QMimeData
 {
@@ -52,7 +53,7 @@ class DeclarativeMimeData : public QMimeData
      * A list of URLs contained within the MIME data object.
      * URLs correspond to the MIME type text/uri-list.
      */
-    Q_PROPERTY(QVariantList urls READ urls WRITE setUrls NOTIFY urlsChanged)
+    Q_PROPERTY(QJsonArray urls READ urls WRITE setUrls NOTIFY urlsChanged)
 
     /**
      * A color if the data stored in the object represents a color (MIME type application/x-color); otherwise QColor().
@@ -79,8 +80,8 @@ public:
     QUrl url() const;
     void setUrl(const QUrl &url);
 
-    QVariantList urls() const;
-    void setUrls(const QVariantList &urls);
+    QJsonArray urls() const;
+    void setUrls(const QJsonArray &urls);
 
     QColor color() const;
     void setColor(const QColor &color);

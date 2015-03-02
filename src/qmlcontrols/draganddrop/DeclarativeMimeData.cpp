@@ -87,16 +87,16 @@ void DeclarativeMimeData::setUrl(const QUrl &url)
     emit urlChanged();
 }
 
-QVariantList DeclarativeMimeData::urls() const
+QJsonArray DeclarativeMimeData::urls() const
 {
-    QVariantList varUrls;
+    QJsonArray varUrls;
     foreach (const QUrl &url, QMimeData::urls()) {
-        varUrls << url;
+        varUrls << url.toString();
     }
     return varUrls;
 }
 
-void DeclarativeMimeData::setUrls(const QVariantList &urls)
+void DeclarativeMimeData::setUrls(const QJsonArray &urls)
 {
     QList<QUrl> urlList;
     foreach (const QVariant &varUrl, urls) {
