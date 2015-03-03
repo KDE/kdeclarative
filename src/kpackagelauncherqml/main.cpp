@@ -80,6 +80,8 @@ int main(int argc, char **argv)
         aboutData.addAuthor(author.name(), author.task(), author.emailAddress(), author.webAddress(), author.ocsUsername());
     }
 
+    KAboutData::setApplicationData(aboutData);
+
     //The root is not a window?
     //have to use a normal QQuickWindow since the root item is already created
     QQuickItem *item = qobject_cast<QQuickItem *>(obj.rootObject());
