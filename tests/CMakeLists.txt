@@ -18,4 +18,5 @@ target_link_libraries(kdeclarativetest
 )
 
 kpackage_install_package(helloworld org.kde.example.helloworld genericqml)
+kpackage_install_package(helloworldnowindow org.kde.example.helloworldnowindow genericqml)
 
