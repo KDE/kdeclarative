@@ -201,7 +201,7 @@ void QmlObject::loadPackage(const QString &packageName)
     setSource(QUrl::fromLocalFile(d->package.filePath("mainscript")));
 }
 
-void QmlObject::setPakcage(const KPackage::Package &package)
+void QmlObject::setPackage(const KPackage::Package &package)
 {
     d->package = package;
     setSource(QUrl::fromLocalFile(package.filePath("mainscript")));

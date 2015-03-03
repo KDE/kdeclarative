@@ -129,7 +129,7 @@ public:
      * @param package the package we want to use to provide QML
      *         files to this QML object
      */
-    void setPakcage(const KPackage::Package &package);
+    void setPackage(const KPackage::Package &package);
 
     /**
      * @return the optional package, if any 
