@@ -61,18 +61,18 @@ int main(int argc, char **argv)
     }
 
     //usually we have an ApplicationWindow here, so we do not need to create a window by ourselves
-    KDeclarative::QmlObject *obj = new KDeclarative::QmlObject();
-    obj->setTranslationDomain(packagePath);
-    obj->setInitializationDelayed(true);
-    obj->loadPackage(packagePath);
-    obj->engine()->rootContext()->setContextProperty("commandlineArguments", parser.positionalArguments());
-    obj->completeInitialization();
+    KDeclarative::QmlObject obj;
+    obj.setTranslationDomain(packagePath);
+    obj.setInitializationDelayed(true);
+    obj.loadPackage(packagePath);
+    obj.engine()->rootContext()->setContextProperty("commandlineArguments", parser.positionalArguments());
+    obj.completeInitialization();
 
-    if (!obj->package().metadata().isValid()) {
+    if (!obj.package().metadata().isValid()) {
         return -1;
     }
 
-    KPluginMetaData data = obj->package().metadata();
+    KPluginMetaData data = obj.package().metadata();
     // About data
     KAboutData aboutData(data.pluginId(), data.name(), data.version(), data.description(), KAboutLicense::byKeyword(data.license()).key());
 
@@ -82,24 +82,32 @@ int main(int argc, char **argv)
 
     //The root is not a window?
     //have to use a normal QQuickWindow since the root item is already created
-    QQuickItem *item = qobject_cast<QQuickItem *>(obj->rootObject());
-    QWindow *window = qobject_cast<QWindow *>(obj->rootObject());
+    QQuickItem *item = qobject_cast<QQuickItem *>(obj.rootObject());
+    QWindow *window = qobject_cast<QWindow *>(obj.rootObject());
     if (item) {
         QQuickWindow view;
         item->setParentItem(view.contentItem());
-        view.resize(item->width(), item->height());
+        if (item->implicitWidth() > 0 && item->implicitHeight() > 0) {
+            view.resize(item->implicitWidth(), item->implicitHeight());
+        } else {
+            view.resize(item->width(), item->height());
+        }
+
         //set anchors
-        QQmlExpression expr(obj->engine()->rootContext(), obj->rootObject(), "parent");
-        QQmlProperty prop(obj->rootObject(), "anchors.fill");
+        QQmlExpression expr(obj.engine()->rootContext(), obj.rootObject(), "parent");
+        QQmlProperty prop(obj.rootObject(), "anchors.fill");
         prop.write(expr.evaluate());
-        view.setTitle(obj->package().metadata().name());
-        view.setIcon(QIcon::fromTheme(obj->package().metadata().iconName()));
+        view.setTitle(obj.package().metadata().name());
+        view.setIcon(QIcon::fromTheme(obj.package().metadata().iconName()));
 
         view.show();
         return app.exec();
     } else if (window) {
-        window->setTitle(obj->package().metadata().name());
-        window->setIcon(QIcon::fromTheme(obj->package().metadata().iconName()));
+        window->setTitle(obj.package().metadata().name());
+        window->setIcon(QIcon::fromTheme(obj.package().metadata().iconName()));
+    } else {
+        qWarning() << "The root Qml Item should be either a kind of window or a QQuickItem";
+        return 1;
     }
 
     return app.exec();
