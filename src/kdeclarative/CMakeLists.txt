@@ -19,6 +19,7 @@ target_include_directories(KF5Declarative INTERFACE "$<INSTALL_INTERFACE:${KDE_I
 target_link_libraries(KF5Declarative
   PUBLIC
     Qt5::Qml
+    KF5::Package
   PRIVATE
     Qt5::Quick  #QQuickImageProvider
     KF5::ConfigCore # KCoreConfigSkeleton, in ConfigPropertyMap

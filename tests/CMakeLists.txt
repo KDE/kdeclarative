@@ -18,7 +18,6 @@ target_link_libraries(kdeclarativetest
 )
 
 
-
 add_executable(qimageitemtest qimageitemtest.cpp)
 
 ecm_mark_as_test(qimageitemtest)
@@ -26,3 +25,7 @@ target_link_libraries(qimageitemtest
    Qt5::Quick
    Qt5::Test
 )
+
+kpackage_install_package(helloworld org.kde.example.helloworld genericqml)
+kpackage_install_package(helloworldnowindow org.kde.example.helloworldnowindow genericqml)
+

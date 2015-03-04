@@ -30,6 +30,7 @@
 
 #include <qdebug.h>
 #include <kdeclarative.h>
+#include <KPackage/PackageLoader>
 
 //#include "packageaccessmanagerfactory.h"
 //#include "private/declarative/dataenginebindings_p.h"
@@ -90,6 +91,7 @@ public:
     QQmlComponent *component;
     QTimer *executionEndTimer;
     KDeclarative kdeclarative;
+    KPackage::Package package;
     bool delay : 1;
 };
 
@@ -190,6 +192,24 @@ void QmlObject::setSource(const QUrl &source)
 QUrl QmlObject::source() const
 {
     return d->source;
+}
+
+void QmlObject::loadPackage(const QString &packageName)
+{
+    d->package = KPackage::PackageLoader::self()->loadPackage("KPackage/GenericQML");
+    d->package.setPath(packageName);
+    setSource(QUrl::fromLocalFile(d->package.filePath("mainscript")));
+}
+
+void QmlObject::setPackage(const KPackage::Package &package)
+{
+    d->package = package;
+    setSource(QUrl::fromLocalFile(package.filePath("mainscript")));
+}
+
+KPackage::Package QmlObject::package() const
+{
+    return d->package;
 }
 
 void QmlObject::setInitializationDelayed(const bool delay)
