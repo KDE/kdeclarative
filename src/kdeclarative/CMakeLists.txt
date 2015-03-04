@@ -18,11 +18,11 @@ target_include_directories(KF5Declarative INTERFACE "$<INSTALL_INTERFACE:${KDE_I
 
 target_link_libraries(KF5Declarative
   PUBLIC
+    KF5::ConfigCore # KCoreConfigSkeleton, in ConfigPropertyMap
     Qt5::Qml
     KF5::Package
   PRIVATE
     Qt5::Quick  #QQuickImageProvider
-    KF5::ConfigCore # KCoreConfigSkeleton, in ConfigPropertyMap
     KF5::I18n       #i18n bindings
     KF5::KIOWidgets     #KIO::AccessManager
     KF5::IconThemes #KIconProvider
