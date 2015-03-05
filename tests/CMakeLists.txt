@@ -26,6 +26,8 @@ target_link_libraries(qimageitemtest
    Qt5::Test
 )
 
-kpackage_install_package(helloworld org.kde.example.helloworld genericqml)
-kpackage_install_package(helloworldnowindow org.kde.example.helloworldnowindow genericqml)
+if (BUILD_EXAMPLES)
+    kpackage_install_package(helloworld org.kde.example.helloworld genericqml)
+    kpackage_install_package(helloworldnowindow org.kde.example.helloworldnowindow genericqml)
+endif()
 

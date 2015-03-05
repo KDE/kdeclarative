@@ -44,6 +44,8 @@ include(ECMSetupVersion)
 include(ECMGenerateHeaders)
 include(ECMPackageConfigHelpers)
 
+option(BUILD_EXAMPLES "Build and install examples." OFF)
+
 # ECM setup
 ecm_setup_version(
   ${KF5_VERSION}
