@@ -1,6 +1,7 @@
 add_library(KF5QuickAddons
             imagetexturescache.cpp
-            managedtexturenode.cpp)
+            managedtexturenode.cpp
+            configmodule.cpp)
 generate_export_header(KF5QuickAddons EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/quickaddons_export.h BASE_NAME QuickAddons)
 add_library(KF5::QuickAddons ALIAS KF5QuickAddons)
 
@@ -16,6 +17,7 @@ target_link_libraries(KF5QuickAddons
     KF5::I18n       #i18n bindings
     KF5::KIOWidgets     #KIO::AccessManager
     KF5::IconThemes #KIconProvider
+    KF5::Auth
 )
 target_include_directories(KF5QuickAddons PUBLIC "$<BUILD_INTERFACE:${QuickAddons_BINARY_DIR}/../;${CMAKE_CURRENT_BINARY_DIR}/../>")
 
