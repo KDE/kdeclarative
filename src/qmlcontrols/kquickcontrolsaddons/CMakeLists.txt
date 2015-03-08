@@ -9,6 +9,7 @@ set(kquickcontrolsaddons_SRCS
     columnproxymodel.cpp
     clipboard.cpp
     mimedatabase.cpp
+    kcmshell.cpp
 )
 
 if (NOT WIN32)
