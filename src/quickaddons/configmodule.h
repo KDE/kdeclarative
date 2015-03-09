@@ -103,6 +103,10 @@ class QUICKADDONS_EXPORT ConfigModule : public QObject
     Q_PROPERTY(Buttons buttons READ buttons WRITE setButtons NOTIFY buttonsChanged)
     Q_PROPERTY(bool needsSave READ needsSave WRITE setNeedsSave NOTIFY needsSaveChanged)
     Q_PROPERTY(QString quickHelp READ quickHelp WRITE setQuickHelp NOTIFY quickHelpChanged)
+    Q_PROPERTY(QString rootOnlyMessage READ rootOnlyMessage WRITE setRootOnlyMessage NOTIFY rootOnlyMessageChanged)
+    Q_PROPERTY(bool useRootOnlyMessage READ useRootOnlyMessage WRITE setUseRootOnlyMessage NOTIFY useRootOnlyMessageChanged)
+    Q_PROPERTY(bool needsAuthorization READ needsAuthorization WRITE setNeedsAuthorization NOTIFY needsAuthorizationChanged)
+    Q_PROPERTY(QString exportText READ exportText WRITE setExportText NOTIFY exportTextChanged)
 
 public:
 
