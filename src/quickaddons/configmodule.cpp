@@ -48,7 +48,9 @@ namespace KDeclarative {
 class ConfigModulePrivate
 {
 public:
-    ConfigModulePrivate():
+    ConfigModulePrivate(ConfigModule *module):
+        _q(module),
+        _qmlObject(Q_NULLPTR),
         _buttons(ConfigModule::Help | ConfigModule::Default | ConfigModule::Apply),
         _about(0),
         _useRootOnlyMessage(false),
@@ -59,6 +61,7 @@ public:
 
     void authStatusChanged(int status);
 
+    ConfigModule *_q;
     QmlObject *_qmlObject;
     ConfigModule::Buttons _buttons;
     const KAboutData *_about;
@@ -73,13 +76,13 @@ public:
 };
 
 ConfigModule::ConfigModule(const KAboutData *aboutData, QObject *parent, const QVariantList &)
-    : QObject(parent), d(new ConfigModulePrivate)
+    : QObject(parent), d(new ConfigModulePrivate(this))
 {
     setAboutData(aboutData);
 }
 
 ConfigModule::ConfigModule(QObject *parent, const QVariantList &)
-    : QObject(parent), d(new ConfigModulePrivate)
+    : QObject(parent), d(new ConfigModulePrivate(this))
 {
 }
 
@@ -108,7 +111,7 @@ ConfigModule::Buttons ConfigModule::buttons() const
     return d->_buttons;
 }
 
-void ConfigModule::setButtons(Buttons buttons)
+void ConfigModule::setButtons(const KDeclarative::ConfigModule::Buttons buttons)
 {
     if (d->_buttons == buttons) {
         return;

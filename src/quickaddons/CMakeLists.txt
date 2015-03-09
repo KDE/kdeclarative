@@ -11,6 +11,7 @@ target_include_directories(KF5QuickAddons INTERFACE "$<INSTALL_INTERFACE:${KDE_I
 target_link_libraries(KF5QuickAddons
   PUBLIC
     Qt5::Qml
+    KF5::CoreAddons
   PRIVATE
     Qt5::Quick  #QQuickImageProvider
     KF5::ConfigCore # KCoreConfigSkeleton, in ConfigPropertyMap

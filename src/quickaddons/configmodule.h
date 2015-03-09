@@ -100,8 +100,9 @@ class QUICKADDONS_EXPORT ConfigModule : public QObject
 {
     Q_OBJECT
 
+    Q_FLAGS(Buttons)
     Q_PROPERTY(QQuickItem *mainUi READ mainUi CONSTANT)
-    Q_PROPERTY(Buttons buttons READ buttons WRITE setButtons NOTIFY buttonsChanged)
+    Q_PROPERTY(KDeclarative::ConfigModule::Buttons buttons READ buttons WRITE setButtons NOTIFY buttonsChanged)
     Q_PROPERTY(bool needsSave READ needsSave WRITE setNeedsSave NOTIFY needsSaveChanged)
     Q_PROPERTY(QString quickHelp READ quickHelp WRITE setQuickHelp NOTIFY quickHelpChanged)
     Q_PROPERTY(QString rootOnlyMessage READ rootOnlyMessage WRITE setRootOnlyMessage NOTIFY rootOnlyMessageChanged)
@@ -157,7 +158,7 @@ public:
      *
      * @returns the KAboutData for this module
      */
-    virtual const KAboutData *aboutData() const;
+    const KAboutData *aboutData() const;
 
     /**
      * This sets the KAboutData returned by aboutData()
@@ -240,7 +241,7 @@ public:
      *
      * @see ConfigModule::buttons
      */
-    void setButtons(Buttons btn);
+    void setButtons(const Buttons btn);
 
     /**
      * Indicate which buttons will be used.
@@ -450,9 +451,9 @@ private:
     ConfigModulePrivate *const d;
 };
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(ConfigModule::Buttons)
-
 }
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(KDeclarative::ConfigModule::Buttons)
 
 #endif //ConfigModule_H
 
