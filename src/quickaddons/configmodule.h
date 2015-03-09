@@ -37,6 +37,7 @@
 class QStringList;
 class KAboutData;
 class QQuickItem;
+class QQmlEngine;
 
 namespace KDeclarative {
 
@@ -183,6 +184,11 @@ public:
      */
     KAuth::Action authAction() const;
 
+
+    /**
+     * @deturn the qml engine that built the main config UI
+     */
+    QQmlEngine *engine() const;
 
 //QML property accessors
 

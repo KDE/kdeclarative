@@ -33,6 +33,7 @@
 #include <QQmlEngine>
 #include <QQmlContext>
 #include <QQuickItem>
+#include <QQmlEngine>
 
 #include <kaboutdata.h>
 #include <klocalizedstring.h>
@@ -160,6 +161,11 @@ void ConfigModule::setAuthAction(const KAuth::Action &action)
 KAuth::Action ConfigModule::authAction() const
 {
     return d->_authAction;
+}
+
+QQmlEngine *ConfigModule::engine() const
+{
+    return d->_qmlObject->engine();
 }
 
 void ConfigModule::authStatusChanged(KAuth::Action::AuthStatus status)
