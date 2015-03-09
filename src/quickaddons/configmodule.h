@@ -36,6 +36,7 @@
 
 class QStringList;
 class KAboutData;
+class QQuickItem;
 
 namespace KDeclarative {
 
@@ -98,6 +99,7 @@ class QUICKADDONS_EXPORT ConfigModule : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY(QQuickItem *mainUi READ mainUi CONSTANT)
     Q_PROPERTY(Buttons buttons READ buttons WRITE setButtons NOTIFY buttonsChanged)
     Q_PROPERTY(bool needsSave READ needsSave WRITE setNeedsSave NOTIFY needsSaveChanged)
     Q_PROPERTY(QString quickHelp READ quickHelp WRITE setQuickHelp NOTIFY quickHelpChanged)
@@ -181,6 +183,13 @@ public:
 //QML property accessors
 
     /**
+     * @return The main UI for this configuration module. It's a QQuickItem coming from
+     * the QML package named the same as the KAboutData's component name for
+     * this config module
+     */
+    QQuickItem *mainUi();
+
+    /**
      * Sets the quick help.
      */
     void setQuickHelp(const QString &help);
@@ -243,7 +252,7 @@ public:
      * @see ConfigModule::rootOnlyMessage
      */
     void setRootOnlyMessage(const QString &message);
-    
+
     /**
      * Get the RootOnly message for this module.
      *

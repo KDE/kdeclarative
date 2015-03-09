@@ -29,10 +29,18 @@
 #include <QLayout>
 #include <QTimer>
 #include <QDebug>
+#include <QUrl>
+#include <QQmlEngine>
+#include <QQmlContext>
+#include <QQuickItem>
 
 #include <kaboutdata.h>
 #include <klocalizedstring.h>
 #include <kauthexecutejob.h>
+#include <kdeclarative/qmlobject.h>
+
+#include <KPackage/Package>
+#include <KPackage/PackageLoader>
 
 namespace KDeclarative {
 
@@ -50,6 +58,7 @@ public:
 
     void authStatusChanged(int status);
 
+    QmlObject *_qmlObject;
     ConfigModule::Buttons _buttons;
     const KAboutData *_about;
     QString _rootOnlyMessage;
@@ -71,6 +80,26 @@ ConfigModule::ConfigModule(const KAboutData *aboutData, QObject *parent, const Q
 ConfigModule::ConfigModule(QObject *parent, const QVariantList &)
     : QObject(parent), d(new ConfigModulePrivate)
 {
+}
+
+QQuickItem *ConfigModule::mainUi()
+{
+    if (d->_qmlObject) {
+        return qobject_cast<QQuickItem *>(d->_qmlObject->rootObject());
+    }
+    d->_qmlObject = new KDeclarative::QmlObject(this);
+    d->_qmlObject->setTranslationDomain(aboutData()->componentName());
+    d->_qmlObject->setInitializationDelayed(true);
+
+    KPackage::Package package = KPackage::PackageLoader::self()->loadPackage("KPackage/GenericQML");
+    package.setDefaultPackageRoot("kpackage/kcms");
+    package.setPath(aboutData()->componentName());
+
+    d->_qmlObject->setSource(QUrl::fromLocalFile(package.filePath("mainscript")));
+    d->_qmlObject->engine()->rootContext()->setContextProperty("kcm", this);
+    d->_qmlObject->completeInitialization();
+
+    return qobject_cast<QQuickItem *>(d->_qmlObject->rootObject());
 }
 
 ConfigModule::Buttons ConfigModule::buttons() const
