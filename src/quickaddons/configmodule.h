@@ -33,6 +33,7 @@
 
 #include <QVariant>
 #include <QObject>
+#include <QtQml>
 
 class QStringList;
 class KAboutData;
@@ -338,6 +339,8 @@ public:
      */
     void setExportText(const QString &);
 
+    static ConfigModule *qmlAttachedProperties(QObject *object);
+
 public Q_SLOTS:
     /**
      * Load the configuration data into the module.
@@ -458,6 +461,7 @@ private:
 }
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(KDeclarative::ConfigModule::Buttons)
+QML_DECLARE_TYPEINFO(KDeclarative::ConfigModule, QML_HAS_ATTACHED_PROPERTIES)
 
 #endif //ConfigModule_H
 

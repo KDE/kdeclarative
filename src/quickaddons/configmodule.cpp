@@ -57,7 +57,10 @@ public:
         _needsAuthorization(false),
         _needsSave(false),
         _authAction()
-    { }
+    {
+        qmlRegisterUncreatableType<ConfigModule>("org.kde.kcm", 1, 0, "KCM",
+            QLatin1String("Do not create objects of type KCM"));
+    }
 
     void authStatusChanged(int status);
 
@@ -73,7 +76,12 @@ public:
     bool _needsAuthorization : 1;
     bool _needsSave  :1;
     KAuth::Action _authAction;
+
+    static QHash<QObject *, ConfigModule *> s_rootObjects;
 };
+
+QHash<QObject *, ConfigModule *> ConfigModulePrivate::s_rootObjects = QHash<QObject *, ConfigModule *>();
+
 
 ConfigModule::ConfigModule(const KAboutData *aboutData, QObject *parent, const QVariantList &)
     : QObject(parent), d(new ConfigModulePrivate(this))
@@ -86,12 +94,35 @@ ConfigModule::ConfigModule(QObject *parent, const QVariantList &)
 {
 }
 
+ConfigModule::~ConfigModule()
+{
+    ConfigModulePrivate::s_rootObjects.remove(d->_qmlObject->engine());
+
+    delete d->_qmlObject;
+    delete d->_about;
+    delete d;
+}
+
+
+
+ConfigModule *ConfigModule::qmlAttachedProperties(QObject *object)
+{
+    //at the moment of the attached object creation, the root item is the only one that hasn't a parent
+    //only way to avoid creation of this attached for everybody but the root item
+    if (!object->parent() && ConfigModulePrivate::s_rootObjects.contains(QtQml::qmlEngine(object))) {
+        return ConfigModulePrivate::s_rootObjects.value(QtQml::qmlEngine(object));
+    } else {
+        return 0;
+    }
+}
+
 QQuickItem *ConfigModule::mainUi()
 {
     if (d->_qmlObject) {
         return qobject_cast<QQuickItem *>(d->_qmlObject->rootObject());
     }
     d->_qmlObject = new KDeclarative::QmlObject(this);
+    ConfigModulePrivate::s_rootObjects[d->_qmlObject->engine()] = this;
     d->_qmlObject->setTranslationDomain(aboutData()->componentName());
     d->_qmlObject->setInitializationDelayed(true);
 
@@ -192,12 +223,6 @@ void ConfigModule::authStatusChanged(KAuth::Action::AuthStatus status)
     }
 
     qDebug() << useRootOnlyMessage();
-}
-
-ConfigModule::~ConfigModule()
-{
-    delete d->_about;
-    delete d;
 }
 
 void ConfigModule::load()
