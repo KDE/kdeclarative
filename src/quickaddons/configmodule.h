@@ -392,6 +392,11 @@ public Q_SLOTS:
 
 Q_SIGNALS:
 
+    /**
+     * The auth action has changed: this signal will relay it to the actual KCM
+     */
+    void authActionChanged();
+
     //QML NOTIFY signaling
     /**
      * Buttons to display changed.

@@ -149,6 +149,9 @@ bool ConfigModule::needsAuthorization() const
 
 void ConfigModule::setAuthAction(const KAuth::Action &action)
 {
+    if (d->_authAction == action) {
+        return;
+    }
     if (!d->_authAction.isValid()) {
         qWarning() << "Auth action" << action.name() << "is invalid";
         d->_needsAuthorization = false;
@@ -159,6 +162,7 @@ void ConfigModule::setAuthAction(const KAuth::Action &action)
 //FIXME
 //    d->_authAction.setParentWidget(this);
     authStatusChanged(d->_authAction.status());
+    emit authActionChanged();
 }
 
 KAuth::Action ConfigModule::authAction() const
