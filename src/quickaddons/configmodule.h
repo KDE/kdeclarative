@@ -94,7 +94,6 @@ class ConfigModulePrivate;
  * See http://techbase.kde.org/Development/Tutorials/KCM_HowTo
  * for more detailed documentation.
  *
- * @author Matthias Hoelzer-Kluepfel <hoelzer@kde.org>
  */
 class QUICKADDONS_EXPORT ConfigModule : public QObject
 {
