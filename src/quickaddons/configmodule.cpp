@@ -58,8 +58,8 @@ public:
         _needsSave(false),
         _authAction()
     {
-        qmlRegisterUncreatableType<ConfigModule>("org.kde.kcm", 1, 0, "KCM",
-            QLatin1String("Do not create objects of type KCM"));
+        qmlRegisterUncreatableType<ConfigModule>("org.kde.kcm", 1, 0, "ConfigModule",
+            QLatin1String("Do not create objects of type ConfigModule"));
     }
 
     void authStatusChanged(int status);
@@ -130,11 +130,16 @@ QQuickItem *ConfigModule::mainUi()
     package.setDefaultPackageRoot("kpackage/kcms");
     package.setPath(aboutData()->componentName());
 
-    d->_qmlObject->setSource(QUrl::fromLocalFile(package.filePath("mainscript")));
-    d->_qmlObject->engine()->rootContext()->setContextProperty("kcm", this);
-    d->_qmlObject->completeInitialization();
+    if (!package.filePath("mainscript").isEmpty()) {
+        d->_qmlObject->setSource(QUrl::fromLocalFile(package.filePath("mainscript")));
+        d->_qmlObject->engine()->rootContext()->setContextProperty("kcm", this);
+        d->_qmlObject->completeInitialization();
 
-    return qobject_cast<QQuickItem *>(d->_qmlObject->rootObject());
+        return qobject_cast<QQuickItem *>(d->_qmlObject->rootObject());
+    } else {
+        qWarning() << "Error loading the module" << aboutData()->componentName() << ": no QML file provided";
+        return 0;
+    }
 }
 
 ConfigModule::Buttons ConfigModule::buttons() const

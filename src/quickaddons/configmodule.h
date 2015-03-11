@@ -57,8 +57,9 @@ class ConfigModulePrivate;
  * are provided by the control center and must not concern
  * the module author.
  *
- * To write a config module, you have to create a library
- * that contains a factory function like the following:
+ * To write a config module, you have to create a C++ library
+ * and an accompaining QML user interface.
+ * The library must contain a factory function like the following:
  *
  * \code
  * #include <KPluginFactory>
@@ -80,6 +81,41 @@ class ConfigModulePrivate;
  *   .
  *   .
  *   .
+ * }
+ * \endcode
+ *
+ * The QML part must be in the KPackage format, installed under share/kpackage/kcms.
+ * @see KPackage::Package
+ * The package must have the same name as the KAboutData componentName, to be installed
+ * by CMake with the command:
+ * kpackage_install_package(package kcm_componentName kcms)
+ * given "package" is the subdirectory in the source tree where the package sources are
+ * located, and "kcm_componentName" is the componentname passed to the KAboutData in the
+ * C++ part.
+ * The main config dialog UI will be the file
+ * ui/main.qml from the package (or what X-KPackage-MainScript value is in the
+ * package metadata desktop file).
+ *
+ * The QML part can access all the properties of ConfigModule (together with the properties
+ * defined in its subclass) by accessing to the global object "kcm", or with the
+ * import of "org.kde.kcm 1.0" the ConfigModule attached property.
+ *
+ * \code
+ * import QtQuick 2.1
+ * import QtQuick.Controls 1.0 as QtControls
+ * import org.kde.kcm 1.0
+ * import org.kde.plasma.core 2.0 as PlasmaCore
+ *
+ * Item {
+ *     //implicitWidth and implicitHeight will be used as initial size
+ *     //when loaded in kcmshell5
+ *     implicitWidth: units.gridUnit * 20
+ *     implicitHeight: units.gridUnit * 20
+ *
+ *     ConfigModule.buttons: ConfigModule.Help|ConfigModule.Apply
+ *     Label {
+ *         text: kcm.needsSave
+ *     }
  * }
  * \endcode
  *
@@ -370,11 +406,6 @@ public Q_SLOTS:
      *
      * save is called when the user clicks "Apply" or "Ok".
      *
-     * If you use KConfigXT, saving is taken care off automatically and
-     * you do not need to load manually. However, if you for some reason reimplement it and
-     * also are using KConfigXT, you must call this function, otherwise the saving of KConfigXT
-     * options will not work. Call it at the very end of your reimplementation, to avoid
-     * changed() signals getting emitted when you modify widgets.
      */
     virtual void save();
 
@@ -383,11 +414,6 @@ public Q_SLOTS:
      *
      * This method is called when the user clicks the "Default"
      * button. It should set the display to useful values.
-     *
-     * If you use KConfigXT, you do not have to reimplement this function since
-     * the fetching and settings of default values is done automatically. However, if you
-     * reimplement and also are using KConfigXT, remember to call the base function at the
-     * very end of your reimplementation.
      */
     virtual void defaults();
 

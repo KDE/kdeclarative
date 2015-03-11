@@ -12,6 +12,7 @@ target_link_libraries(KF5QuickAddons
   PUBLIC
     Qt5::Qml
     KF5::CoreAddons
+    KF5::Auth
   PRIVATE
     Qt5::Quick  #QQuickImageProvider
     KF5::ConfigCore # KCoreConfigSkeleton, in ConfigPropertyMap
@@ -19,7 +20,6 @@ target_link_libraries(KF5QuickAddons
     KF5::KIOWidgets     #KIO::AccessManager
     KF5::IconThemes #KIconProvider
     KF5::Declarative #QmlObject
-    KF5::Auth
 )
 target_include_directories(KF5QuickAddons PUBLIC "$<BUILD_INTERFACE:${QuickAddons_BINARY_DIR}/../;${CMAKE_CURRENT_BINARY_DIR}/../>")
 
