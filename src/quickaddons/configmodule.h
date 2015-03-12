@@ -144,7 +144,6 @@ class QUICKADDONS_EXPORT ConfigModule : public QObject
     Q_PROPERTY(QString rootOnlyMessage READ rootOnlyMessage WRITE setRootOnlyMessage NOTIFY rootOnlyMessageChanged)
     Q_PROPERTY(bool useRootOnlyMessage READ useRootOnlyMessage WRITE setUseRootOnlyMessage NOTIFY useRootOnlyMessageChanged)
     Q_PROPERTY(bool needsAuthorization READ needsAuthorization WRITE setNeedsAuthorization NOTIFY needsAuthorizationChanged)
-    Q_PROPERTY(QString exportText READ exportText WRITE setExportText NOTIFY exportTextChanged)
 
 public:
 
@@ -364,17 +363,6 @@ public:
      */
     bool needsAuthorization() const;
 
-
-    /**
-     * Returns the value set by setExportText();
-     */
-    QString exportText() const;
-
-    /**
-     * Sets the export QString value, used for exporting data.
-     */
-    void setExportText(const QString &);
-
     static ConfigModule *qmlAttachedProperties(QObject *object);
 
 public Q_SLOTS:
@@ -467,11 +455,6 @@ Q_SIGNALS:
      * Emits this signal whenever the the root only message gets used or discarded.
      */
     void useRootOnlyMessageChanged();
-
-    /**
-     * Emits this signal whenever the module's export text changes.
-     */
-    void exportTextChanged();
 
 protected Q_SLOTS:
 

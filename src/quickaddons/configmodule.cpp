@@ -70,7 +70,6 @@ public:
     const KAboutData *_about;
     QString _rootOnlyMessage;
     QString _quickHelp;
-    QString m_ExportText;
     bool _useRootOnlyMessage : 1;
 
     bool _needsAuthorization : 1;
@@ -286,21 +285,6 @@ void ConfigModule::setUseRootOnlyMessage(bool on)
 bool ConfigModule::useRootOnlyMessage() const
 {
     return d->_useRootOnlyMessage;
-}
-
-QString ConfigModule::exportText() const
-{
-    return d->m_ExportText;
-}
-
-void ConfigModule::setExportText(const QString &text)
-{
-    if (d->m_ExportText == text) {
-        return;
-    }
-
-    d->m_ExportText = text;
-    emit exportTextChanged();
 }
 
 void ConfigModule::setQuickHelp(const QString &help)
