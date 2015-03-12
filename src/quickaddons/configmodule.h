@@ -29,8 +29,6 @@
 
 #include "quickaddons_export.h"
 
-#include <kauthaction.h>
-
 #include <QVariant>
 #include <QObject>
 #include <QtQml>
@@ -211,14 +209,14 @@ public:
      *
      * @param action the action that will be used by this ConfigModule
      */
-    void setAuthAction(const KAuth::Action &action);
+    void setAuthActionName(const QString &action);
 
     /**
-     * Returns the action previously set with setAuthAction(). By default its an invalid action.
+     * Returns the action previously set with setAuthActionName(). By default its an invalid action.
      *
      * @return The action that has to be authorized to execute the save() method.
      */
-    KAuth::Action authAction() const;
+    QString authActionName() const;
 
 
     /**
@@ -343,21 +341,21 @@ public:
      * The module can set this property to @c true if it requires authorization.
      * It will still have to execute the action itself using the KAuth library, so
      * this method is not technically needed to perform the action, but
-     * using this and/or the setAuthAction() method will ensure that hosting
+     * using this and/or the setAuthActionName() method will ensure that hosting
      * applications like System Settings or kcmshell behave correctly.
      *
      * Called with @c true, this method will set the action to  "org.kde.kcontrol.name.save" where
      * "name" is aboutData()->appName() return value. This default action won't be set if
      * the aboutData() object is not valid.
      *
-     * Note that called with @c false, this method will reset the action name set with setAuthAction().
+     * Note that called with @c false, this method will reset the action name set with setAuthActionName().
      *
      * @param needsAuth Tells if the module's save() method requires authorization to be executed.
      */
     void setNeedsAuthorization(bool needsAuth);
 
     /**
-     * Returns the value previously set with setNeedsAuthorization() or setAuthAction(). By default it's @c false.
+     * Returns the value previously set with setNeedsAuthorization() or setAuthActionName(). By default it's @c false.
      *
      * @return @c true if the module's save() method requires authorization, @c false otherwise
      */
@@ -409,9 +407,9 @@ public Q_SLOTS:
 Q_SIGNALS:
 
     /**
-     * The auth action has changed: this signal will relay it to the actual KCM
+     * The auth action name has changed: this signal will relay it to the actual KCM
      */
-    void authActionChanged();
+    void authActionNameChanged();
 
     //QML NOTIFY signaling
     /**
@@ -455,13 +453,6 @@ Q_SIGNALS:
      * Emits this signal whenever the the root only message gets used or discarded.
      */
     void useRootOnlyMessageChanged();
-
-protected Q_SLOTS:
-
-    /**
-     * The status of the auth action, if one, has changed
-     */
-    void authStatusChanged(KAuth::Action::AuthStatus status);
 
 private:
     ConfigModulePrivate *const d;

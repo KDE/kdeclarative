@@ -12,7 +12,6 @@ target_link_libraries(KF5QuickAddons
   PUBLIC
     Qt5::Qml
     KF5::CoreAddons
-    KF5::Auth
   PRIVATE
     Qt5::Quick  #QQuickImageProvider
     KF5::ConfigCore # KCoreConfigSkeleton, in ConfigPropertyMap

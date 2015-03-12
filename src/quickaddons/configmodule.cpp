@@ -37,7 +37,6 @@
 
 #include <kaboutdata.h>
 #include <klocalizedstring.h>
-#include <kauthexecutejob.h>
 #include <kdeclarative/qmlobject.h>
 
 #include <KPackage/Package>
@@ -55,8 +54,7 @@ public:
         _about(0),
         _useRootOnlyMessage(false),
         _needsAuthorization(false),
-        _needsSave(false),
-        _authAction()
+        _needsSave(false)
     {
         qmlRegisterUncreatableType<ConfigModule>("org.kde.kcm", 1, 0, "ConfigModule",
             QLatin1String("Do not create objects of type ConfigModule"));
@@ -74,7 +72,7 @@ public:
 
     bool _needsAuthorization : 1;
     bool _needsSave  :1;
-    KAuth::Action _authAction;
+    QString _authActionName;
 
     static QHash<QObject *, ConfigModule *> s_rootObjects;
 };
@@ -164,17 +162,15 @@ void ConfigModule::setNeedsAuthorization(bool needsAuth)
 
     d->_needsAuthorization = needsAuth;
     if (needsAuth && d->_about) {
-        d->_authAction = KAuth::Action(QString("org.kde.kcontrol." + d->_about->componentName() + ".save"));
-        d->_needsAuthorization = d->_authAction.isValid();
-        d->_authAction.setHelperId("org.kde.kcontrol." + d->_about->componentName());
-//FIXME
-//        d->_authAction.setParentWidget(this);
-        authStatusChanged(d->_authAction.status());
+        d->_authActionName = QString("org.kde.kcontrol." + d->_about->componentName() + ".save");
+        d->_needsAuthorization = true;
+
     } else {
-        d->_authAction = KAuth::Action();
+        d->_authActionName = QString();
     }
 
     emit needsAuthorizationChanged();
+    emit authActionNameChanged();
 }
 
 bool ConfigModule::needsAuthorization() const
@@ -182,51 +178,27 @@ bool ConfigModule::needsAuthorization() const
     return d->_needsAuthorization;
 }
 
-void ConfigModule::setAuthAction(const KAuth::Action &action)
+void ConfigModule::setAuthActionName(const QString &name)
 {
-    if (d->_authAction == action) {
+    if (d->_authActionName == name) {
         return;
     }
-    if (!d->_authAction.isValid()) {
-        qWarning() << "Auth action" << action.name() << "is invalid";
-        d->_needsAuthorization = false;
-        return;
-    }
-    d->_authAction = action;
+
+    d->_authActionName = name;
     d->_needsAuthorization = true;
-//FIXME
-//    d->_authAction.setParentWidget(this);
-    authStatusChanged(d->_authAction.status());
-    emit authActionChanged();
+
+    emit needsAuthorizationChanged();
+    emit authActionNameChanged();
 }
 
-KAuth::Action ConfigModule::authAction() const
+QString ConfigModule::authActionName() const
 {
-    return d->_authAction;
+    return d->_authActionName;
 }
 
 QQmlEngine *ConfigModule::engine() const
 {
     return d->_qmlObject->engine();
-}
-
-void ConfigModule::authStatusChanged(KAuth::Action::AuthStatus status)
-{
-    switch (status) {
-    case KAuth::Action::AuthorizedStatus:
-        setUseRootOnlyMessage(false);
-        break;
-    case KAuth::Action::AuthRequiredStatus:
-        setUseRootOnlyMessage(true);
-        setRootOnlyMessage(i18n("You will be asked to authenticate before saving"));
-        break;
-    default:
-        setUseRootOnlyMessage(true);
-        setRootOnlyMessage(i18n("You are not allowed to save the configuration"));
-        break;
-    }
-
-    qDebug() << useRootOnlyMessage();
 }
 
 void ConfigModule::load()
