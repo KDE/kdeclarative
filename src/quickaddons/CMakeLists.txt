@@ -29,16 +29,28 @@ set_target_properties(KF5QuickAddons
 )
 
 # Install files
+#those are deprecated, offered just for compatibility
 ecm_generate_headers(QuickAddons_CamelCase_HEADERS
   HEADER_NAMES
   ImageTexturesCache
   ManagedTextureNode
-  ConfigModule
 
   PREFIX QuickAddons
   REQUIRED_HEADERS QuickAddons_HEADERS
 )
 install(FILES ${QuickAddons_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KDeclarative/QuickAddons COMPONENT Devel)
+
+# Install files
+ecm_generate_headers(KQuickAddons_CamelCase_HEADERS
+  HEADER_NAMES
+  ImageTexturesCache
+  ManagedTextureNode
+  ConfigModule
+
+  PREFIX KQuickAddons
+  REQUIRED_HEADERS KQuickAddons_HEADERS
+)
+install(FILES ${KQuickAddons_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KDeclarative/KQuickAddons COMPONENT Devel)
 
 install(TARGETS KF5QuickAddons
   EXPORT KF5DeclarativeTargets
@@ -49,6 +61,13 @@ install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/quickaddons_export.h
   ${QuickAddons_HEADERS}
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KDeclarative/quickaddons
+  COMPONENT Devel
+)
+
+install(FILES
+  ${CMAKE_CURRENT_BINARY_DIR}/quickaddons_export.h
+  ${KQuickAddons_HEADERS}
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KDeclarative/kquickaddons
   COMPONENT Devel
 )
 

@@ -42,7 +42,7 @@
 #include <KPackage/Package>
 #include <KPackage/PackageLoader>
 
-namespace KDeclarative {
+namespace KQuickAddons {
 
 class ConfigModulePrivate
 {
@@ -63,7 +63,7 @@ public:
     void authStatusChanged(int status);
 
     ConfigModule *_q;
-    QmlObject *_qmlObject;
+    KDeclarative::QmlObject *_qmlObject;
     ConfigModule::Buttons _buttons;
     const KAboutData *_about;
     QString _rootOnlyMessage;
@@ -144,7 +144,7 @@ ConfigModule::Buttons ConfigModule::buttons() const
     return d->_buttons;
 }
 
-void ConfigModule::setButtons(const KDeclarative::ConfigModule::Buttons buttons)
+void ConfigModule::setButtons(const KQuickAddons::ConfigModule::Buttons buttons)
 {
     if (d->_buttons == buttons) {
         return;

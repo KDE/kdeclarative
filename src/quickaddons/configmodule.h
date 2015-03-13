@@ -38,7 +38,7 @@ class KAboutData;
 class QQuickItem;
 class QQmlEngine;
 
-namespace KDeclarative {
+namespace KQuickAddons {
 
 class ConfigModulePrivate;
 
@@ -136,7 +136,7 @@ class QUICKADDONS_EXPORT ConfigModule : public QObject
 
     Q_FLAGS(Buttons)
     Q_PROPERTY(QQuickItem *mainUi READ mainUi CONSTANT)
-    Q_PROPERTY(KDeclarative::ConfigModule::Buttons buttons READ buttons WRITE setButtons NOTIFY buttonsChanged)
+    Q_PROPERTY(KQuickAddons::ConfigModule::Buttons buttons READ buttons WRITE setButtons NOTIFY buttonsChanged)
     Q_PROPERTY(bool needsSave READ needsSave WRITE setNeedsSave NOTIFY needsSaveChanged)
     Q_PROPERTY(QString quickHelp READ quickHelp WRITE setQuickHelp NOTIFY quickHelpChanged)
     Q_PROPERTY(QString rootOnlyMessage READ rootOnlyMessage WRITE setRootOnlyMessage NOTIFY rootOnlyMessageChanged)
@@ -156,8 +156,7 @@ public:
         NoAdditionalButton = 0,
         Help = 1,
         Default = 2,
-        Apply = 4,
-        Export = 8
+        Apply = 4
     };
     Q_ENUMS(Button)
     Q_DECLARE_FLAGS(Buttons, Button)
@@ -460,8 +459,8 @@ private:
 
 }
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(KDeclarative::ConfigModule::Buttons)
-QML_DECLARE_TYPEINFO(KDeclarative::ConfigModule, QML_HAS_ATTACHED_PROPERTIES)
+Q_DECLARE_OPERATORS_FOR_FLAGS(KQuickAddons::ConfigModule::Buttons)
+QML_DECLARE_TYPEINFO(KQuickAddons::ConfigModule, QML_HAS_ATTACHED_PROPERTIES)
 
 #endif //ConfigModule_H
 
