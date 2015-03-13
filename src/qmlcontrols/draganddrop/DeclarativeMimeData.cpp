@@ -91,7 +91,7 @@ QJsonArray DeclarativeMimeData::urls() const
 {
     QJsonArray varUrls;
     foreach (const QUrl &url, QMimeData::urls()) {
-        varUrls << url.toString();
+        varUrls.append(url.toString());
     }
     return varUrls;
 }

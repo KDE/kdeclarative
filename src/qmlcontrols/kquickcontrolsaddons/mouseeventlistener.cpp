@@ -170,7 +170,11 @@ void MouseEventListener::mousePressEvent(QMouseEvent *me)
     m_pressed = true;
     emit pressedChanged();
 
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 3, 0))
     m_pressAndHoldTimer->start(QGuiApplication::styleHints()->mousePressAndHoldInterval());
+#else
+    m_pressAndHoldTimer->start(1000);
+#endif
 }
 
 void MouseEventListener::mouseMoveEvent(QMouseEvent *me)
@@ -258,7 +262,11 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
         m_pressed = true;
         emit pressedChanged();
 
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 3, 0))
         m_pressAndHoldTimer->start(QGuiApplication::styleHints()->mousePressAndHoldInterval());
+#else
+        m_pressAndHoldTimer->start(1000);
+#endif
         break;
     }
     case QEvent::HoverMove: {
