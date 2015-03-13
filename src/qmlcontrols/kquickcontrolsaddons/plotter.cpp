@@ -211,10 +211,14 @@ PlotTexture::PlotTexture(QOpenGLContext *ctx) : QSGTexture()
 {
     QPair<int, int> version = ctx->format().version();
 
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 3, 0))
     if (ctx->isOpenGLES()) {
         m_haveTexStorage = version >= qMakePair(3, 0) || ctx->hasExtension("GL_EXT_texture_storage");
         m_internalFormat = m_haveTexStorage ? GL_RGBA8 : GL_RGBA;
     } else {
+#else
+    {
+#endif
         m_haveTexStorage = version >= qMakePair(4, 2) || ctx->hasExtension("GL_ARB_texture_storage");
         m_internalFormat = GL_RGBA8;
     }
@@ -737,12 +741,16 @@ QSGNode *Plotter::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *updateP
         QOpenGLContext *ctx = window()->openglContext();
         QPair<int, int> version = ctx->format().version();
 
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 3, 0))
         if (ctx->isOpenGLES()) {
             m_haveMSAA = version >= qMakePair(3, 0) || ctx->hasExtension("GL_NV_framebuffer_multisample");
             m_haveFramebufferBlit = version >= qMakePair(3, 0) || ctx->hasExtension("GL_NV_framebuffer_blit");
             m_haveInternalFormatQuery = version >= qMakePair(3, 0);
             m_internalFormat = version >= qMakePair(3, 0) ? GL_RGBA8 : GL_RGBA;
         } else {
+#else
+        {
+#endif
             m_haveMSAA = version >= qMakePair(3, 2) || ctx->hasExtension("GL_ARB_framebuffer_object") ||
                 ctx->hasExtension("GL_EXT_framebuffer_multisample");
             m_haveFramebufferBlit = version >= qMakePair(3, 0) || ctx->hasExtension("GL_ARB_framebuffer_object") ||
