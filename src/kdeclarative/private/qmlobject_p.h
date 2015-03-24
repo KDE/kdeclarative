@@ -76,8 +76,9 @@ protected:
     void incubatingObjectCountChanged(int count) Q_DECL_OVERRIDE
     {
         if (count) {
-            QCoreApplication::postEvent(this, new QEvent(QEvent::User));
+            incubate();
         }
+        QQmlIncubationController::incubatingObjectCountChanged(count);
     }
 private:
     int m_incubation_time;
