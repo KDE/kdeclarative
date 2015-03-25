@@ -10,6 +10,7 @@ set(kquickcontrolsaddons_SRCS
     clipboard.cpp
     mimedatabase.cpp
     kcmshell.cpp
+    icondialog.cpp
 )
 
 if (NOT WIN32)
@@ -25,6 +26,7 @@ target_link_libraries(kquickcontrolsaddonsplugin
         Qt5::Quick
         Qt5::Qml
         Qt5::Gui
+        KF5::IconThemes
         KF5::QuickAddons
         ${KQUICKCONTROLSADDONS_EXTRA_LIBS})
 

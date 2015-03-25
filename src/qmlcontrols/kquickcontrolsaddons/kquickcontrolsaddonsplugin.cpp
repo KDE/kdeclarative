@@ -32,6 +32,7 @@
 #include "clipboard.h"
 #include "mimedatabase.h"
 #include "kcmshell.h"
+#include "icondialog.h"
 
 #ifndef Q_OS_WIN
 #include "plotter.h"
@@ -57,6 +58,7 @@ void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
     qmlRegisterType<Clipboard>(uri, 2, 0, "Clipboard");
     qmlRegisterType<MimeDatabase>(uri, 2, 0, "MimeDatabase");
     qmlRegisterSingletonType<KCMShell>(uri, 2, 0, "KCMShell", kcmshell_singleton_provider);
+    qmlRegisterType<IconDialog>(uri, 2, 0, "IconDialog");
 
 //TODO: make this work under Windows
 #ifndef Q_OS_WIN
