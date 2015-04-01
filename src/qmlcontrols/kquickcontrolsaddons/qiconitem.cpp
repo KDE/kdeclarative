@@ -104,6 +104,11 @@ bool QIconItem::smooth() const
 
 QSGNode* QIconItem::updatePaintNode(QSGNode* node, QQuickItem::UpdatePaintNodeData* /*data*/)
 {
+    if (m_icon.isNull()) {
+        delete node;
+        return Q_NULLPTR;
+    }
+
     if (m_changed || node == 0) {
         m_changed = false;
 
