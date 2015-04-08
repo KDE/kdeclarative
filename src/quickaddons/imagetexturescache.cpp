@@ -55,9 +55,10 @@ QSharedPointer<QSGTexture> ImageTexturesCache::loadTexture(QQuickWindow *window,
     }
 
     //if we have a cache in an atlas but our request cannot use an atlassed texture
-    //return a non atlassed copy
+    //create a new texture and use that
+    //don't use removedFromAtlas() as that requires keeping a reference to the non atlased version
     if (!(options & QQuickWindow::TextureCanUseAtlas) && texture->isAtlasTexture()) {
-        texture = QSharedPointer<QSGTexture>(texture->removedFromAtlas());
+        texture = QSharedPointer<QSGTexture>(window->createTextureFromImage(image, options));
     }
 
     return texture;
