@@ -166,6 +166,7 @@ void MouseEventListener::mousePressEvent(QMouseEvent *me)
     if (!m_pressAndHoldEvent) {
         m_pressAndHoldEvent = new KDeclarativeMouseEvent(me->pos().x(), me->pos().y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()));
     }
+
     emit pressed(&dme);
     m_pressed = true;
     emit pressedChanged();
@@ -238,6 +239,11 @@ QPointF MouseEventListener::buttonDownPos(int btn) const
 bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
 {
     if (!isEnabled()) {
+        return false;
+    }
+
+    //don't filter other mouseeventlisteners
+    if (qobject_cast<MouseEventListener *>(item)) {
         return false;
     }
 
