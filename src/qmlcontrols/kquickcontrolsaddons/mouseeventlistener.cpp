@@ -258,10 +258,11 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
 
         //the parent will receive events in its own coordinates
         const QPointF myPos = item->mapToItem(this, me->pos());
+
         KDeclarativeMouseEvent dme(myPos.x(), myPos.y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()));
-        if (!m_pressAndHoldEvent) {
-            m_pressAndHoldEvent = new KDeclarativeMouseEvent(myPos.x(), myPos.y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()));
-        }
+        delete m_pressAndHoldEvent;
+        m_pressAndHoldEvent = new KDeclarativeMouseEvent(myPos.x(), myPos.y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()));
+
         //qDebug() << "pressed in sceneEventFilter";
         m_buttonDownPos[me->button()] = me->pos();
         emit pressed(&dme);
