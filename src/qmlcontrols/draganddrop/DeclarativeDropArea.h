@@ -105,6 +105,7 @@ private:
     bool m_preventStealing : 1;
     bool m_temporaryInhibition : 1;
     bool m_containsDrag : 1;
+    QPoint m_oldDragMovePos;
 };
 
 #endif
