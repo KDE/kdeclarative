@@ -79,6 +79,7 @@ void DeclarativeDropArea::dragLeaveEvent(QDragLeaveEvent *event)
     //was changed while drag
     temporaryInhibitParent(false);
 
+    m_oldDragMovePos = QPoint(-1,-1);
     DeclarativeDragDropEvent dde(event, this);
     emit dragLeave(&dde);
     setContainsDrag(false);
@@ -109,6 +110,8 @@ void DeclarativeDropArea::dropEvent(QDropEvent *event)
     //so the parent dropevent doesn't get delivered
     metaObject()->invokeMethod(this, "temporaryInhibitParent", Qt::QueuedConnection, Q_ARG(bool, false));
 
+    m_oldDragMovePos = QPoint(-1,-1);
+    
     if (!m_enabled || m_temporaryInhibition) {
         return;
     }
