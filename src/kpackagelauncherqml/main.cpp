@@ -65,6 +65,10 @@ int main(int argc, char **argv)
     obj.setTranslationDomain(packagePath);
     obj.setInitializationDelayed(true);
     obj.loadPackage(packagePath);
+    if (!obj.package().isValid()) {
+        qWarning() << "The specified Application package is not valid.";
+        return 1;
+    }
     obj.engine()->rootContext()->setContextProperty("commandlineArguments", parser.positionalArguments());
     obj.completeInitialization();
 
