@@ -147,7 +147,7 @@ QmlObject::QmlObject(QObject *parent)
     d->kdeclarative.setDeclarativeEngine(d->engine);
     //binds things like kconfig and icons
     d->kdeclarative.setupBindings();
-    d->engine->setIncubationController(new QmlObjectIncubationController(0));
+    d->engine->setIncubationController(new QmlObjectIncubationController(this));
 }
 
 QmlObject::QmlObject(QQmlEngine *engine, QObject *parent)
@@ -158,7 +158,7 @@ QmlObject::QmlObject(QQmlEngine *engine, QObject *parent)
         d->engine = engine;
     } else {
         d->engine = new QQmlEngine(this);
-        d->engine->setIncubationController(new QmlObjectIncubationController(0));
+        d->engine->setIncubationController(new QmlObjectIncubationController(this));
     }
     d->kdeclarative.setDeclarativeEngine(d->engine);
     //binds things like kconfig and icons
