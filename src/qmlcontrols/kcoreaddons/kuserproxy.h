@@ -89,7 +89,7 @@ public:
 
     /**
      * @return the url of the user's configured image (including file:/)
-     * @see nameChanged
+     * @see faceIconUrlChanged
      */
     QUrl faceIconUrl() const;
 
@@ -114,7 +114,7 @@ Q_SIGNALS:
     void nameChanged();
     /**
      * signal that the user image changed
-     * @see faceIconPath
+     * @see faceIconUrl
      */
     void faceIconUrlChanged();
 
