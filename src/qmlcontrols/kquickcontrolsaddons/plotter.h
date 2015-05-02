@@ -237,6 +237,7 @@ private:
     qreal m_rangeMax;
     qreal m_rangeMin;
     int m_sampleSize;
+    int m_horizontalLineCount;
     bool m_stacked;
     bool m_autoRange;
     QColor m_gridColor;
@@ -248,7 +249,6 @@ private:
     bool m_haveInternalFormatQuery;
     GLenum m_internalFormat;
     int m_samples;
-    int m_horizontalLineCount;
     QPointer <QQuickWindow> m_window;
     QMutex m_mutex;
 
