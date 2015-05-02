@@ -32,17 +32,17 @@ class Clipboard : public QObject
     /**
      * Controls the state this object will be monitoring and extracting its contents from.
      */
-    Q_PROPERTY(QClipboard::Mode mode READ mode WRITE setMode NOTIFY modeChanged);
+    Q_PROPERTY(QClipboard::Mode mode READ mode WRITE setMode NOTIFY modeChanged)
 
     /**
      * Provides the contents currently in the clipboard and lets modify them.
      */
-    Q_PROPERTY(QVariant content READ content WRITE setContent NOTIFY contentChanged);
+    Q_PROPERTY(QVariant content READ content WRITE setContent NOTIFY contentChanged)
 
     /**
      * Figure out the nature of the contents in the clipboard.
      */
-    Q_PROPERTY(QStringList formats READ formats NOTIFY contentChanged);
+    Q_PROPERTY(QStringList formats READ formats NOTIFY contentChanged)
 
     public:
         explicit Clipboard(QObject* parent = 0);
