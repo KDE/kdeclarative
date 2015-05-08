@@ -92,6 +92,7 @@ public:
     QTimer *executionEndTimer;
     KDeclarative kdeclarative;
     KPackage::Package package;
+    QQmlContext *rootContext;
     bool delay : 1;
 };
 
@@ -144,6 +145,7 @@ QmlObject::QmlObject(QObject *parent)
       d(new QmlObjectPrivate(this))
 {
     d->engine = new QQmlEngine(this);
+     d->rootContext = d->engine->rootContext();
     d->kdeclarative.setDeclarativeEngine(d->engine);
     //binds things like kconfig and icons
     d->kdeclarative.setupBindings();
@@ -159,6 +161,28 @@ QmlObject::QmlObject(QQmlEngine *engine, QObject *parent)
     } else {
         d->engine = new QQmlEngine(this);
         d->engine->setIncubationController(new QmlObjectIncubationController(0));
+    }
+    d->rootContext = d->engine->rootContext();
+    d->kdeclarative.setDeclarativeEngine(d->engine);
+    //binds things like kconfig and icons
+    d->kdeclarative.setupBindings();
+}
+
+QmlObject::QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QObject *parent)
+    : QObject(parent),
+      d(new QmlObjectPrivate(this))
+{
+    if (engine) {
+        d->engine = engine;
+    } else {
+        d->engine = new QQmlEngine(this);
+        d->engine->setIncubationController(new QmlObjectIncubationController(0));
+    }
+
+    if (rootContext) {
+        d->rootContext = rootContext;
+    } else {
+        d->rootContext = d->engine->rootContext();
     }
     d->kdeclarative.setDeclarativeEngine(d->engine);
     //binds things like kconfig and icons
@@ -241,6 +265,11 @@ QQmlComponent *QmlObject::mainComponent() const
     return d->component;
 }
 
+QQmlContext *QmlObject::rootContext() const
+{
+    return d->rootContext;
+}
+
 void QmlObjectPrivate::checkInitializationCompleted()
 {
     if (!incubator.isReady() && incubator.status() != QQmlIncubator::Error) {
@@ -267,7 +296,7 @@ void QmlObject::completeInitialization(const QVariantHash &initialProperties)
     }
 
     d->incubator.m_initialProperties = initialProperties;
-    d->component->create(d->incubator);
+    d->component->create(d->incubator, d->rootContext);
 
     if (d->delay) {
         d->checkInitializationCompleted();
@@ -293,7 +322,7 @@ QObject *QmlObject::createObjectFromComponent(QQmlComponent *component, QQmlCont
 {
     QmlObjectIncubator incubator;
     incubator.m_initialProperties = initialProperties;
-    component->create(incubator, context ? context : d->engine->rootContext());
+    component->create(incubator, context ? context : d->rootContext);
     incubator.forceCompletion();
   
     QObject *object = incubator.object();

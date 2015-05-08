@@ -76,6 +76,11 @@ public:
      * @param parent the parent of this object
      */
     explicit QmlObject(QQmlEngine *engine, QObject *parent = 0);
+
+    /**
+     * 
+     */
+    explicit QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QObject *parent = 0);
     ~QmlObject();
 
     /**
@@ -169,6 +174,11 @@ public:
      * @return the main QQmlComponent of the engine
      */
     QQmlComponent *mainComponent() const;
+
+    /**
+     * @since 5.10
+     */
+    QQmlContext *rootContext() const;
 
     /**
      * Creates and returns an object based on the provided url to a Qml file
