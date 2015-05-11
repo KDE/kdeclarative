@@ -22,6 +22,7 @@
 #include "private/rootcontext_p.h"
 #include "private/kiconprovider_p.h"
 #include "private/kioaccessmanagerfactory_p.h"
+#include "qmlobject.h"
 
 #include <QCoreApplication>
 #include <QDebug>
@@ -90,7 +91,14 @@ void KDeclarative::setupBindings()
     if (!d->contextObj) {
         d->contextObj = new RootContext(d->declarativeEngine.data());
     }
-    d->declarativeEngine.data()->rootContext()->setContextObject(d->contextObj);
+
+    //If the engine is in a qmlObject take the qmlObject rootContext instead of the engine one.
+    QmlObject *qmlObj = qobject_cast<QmlObject *>(d->declarativeEngine.data()->parent());
+    if (qmlObj) {
+        qmlObj->rootContext()->setContextObject(d->contextObj);
+    } else {
+        d->declarativeEngine.data()->rootContext()->setContextObject(d->contextObj);
+    }
 
     if (!d->translationDomain.isNull()) {
         d->contextObj->setProperty("translationDomain", d->translationDomain);
