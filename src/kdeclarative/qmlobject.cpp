@@ -145,7 +145,7 @@ QmlObject::QmlObject(QObject *parent)
       d(new QmlObjectPrivate(this))
 {
     d->engine = new QQmlEngine(this);
-     d->rootContext = d->engine->rootContext();
+    d->rootContext = d->engine->rootContext();
     d->kdeclarative.setDeclarativeEngine(d->engine);
     //binds things like kconfig and icons
     d->kdeclarative.setupBindings();
