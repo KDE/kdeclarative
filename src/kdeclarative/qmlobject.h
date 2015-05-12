@@ -78,7 +78,11 @@ public:
     explicit QmlObject(QQmlEngine *engine, QObject *parent = 0);
 
     /**
-     * 
+     * Constructs a new QmlObject
+     *
+     * @param engine a QQmlEngine we want to use
+     * @param rootContext the root context we want to use for objects creation
+     * @param parent the parent of this object
      */
     explicit QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QObject *parent = 0);
     ~QmlObject();

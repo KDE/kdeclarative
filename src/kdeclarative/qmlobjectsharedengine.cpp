@@ -18,21 +18,18 @@
  */
 
 #include "qmlobjectsharedengine.h"
+#include "private/qmlobject_p.h"
 
 #include <QQmlComponent>
 #include <QQmlEngine>
 #include <QQmlContext>
-#include <QQuickItem>
-#include <QQmlIncubator>
-#include <QTimer>
 #include <QPointer>
 
 #include <qdebug.h>
 #include <kdeclarative.h>
 #include <KPackage/PackageLoader>
 
-//#include "packageaccessmanagerfactory.h"
-//#include "private/declarative/dataenginebindings_p.h"
+
 
 namespace KDeclarative {
 
@@ -52,6 +49,7 @@ public:
     {
         if (!s_engine) {
             s_engine = new QQmlEngine;
+            s_engine->setIncubationController(new QmlObjectIncubationController(0));
         }
         return s_engine;
     }
@@ -73,6 +71,7 @@ QmlObjectSharedEngine::QmlObjectSharedEngine(QObject *parent)
 
 QmlObjectSharedEngine::~QmlObjectSharedEngine()
 {
+    rootContext()->deleteLater();
     delete d;
 }
 
