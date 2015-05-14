@@ -20,6 +20,7 @@
 #include "configpropertymap.h"
 
 #include <QDebug>
+#include <QJSValue>
 
 #include <kcoreconfigskeleton.h>
 
@@ -91,7 +92,11 @@ void ConfigPropertyMapPrivate::writeConfigValue(const QString &key, const QVaria
 {
     KConfigSkeletonItem *item = config.data()->findItem(key);
     if (item) {
-        item->setProperty(value);
+        if (value.userType() == qMetaTypeId<QJSValue>()) {
+            item->setProperty(value.value<QJSValue>().toVariant());
+        } else {
+            item->setProperty(value);
+        }
         config.data()->blockSignals(true);
         config.data()->save();
         //why read? read will update KConfigSkeletonItem::mLoadedValue,
