@@ -20,6 +20,7 @@
 #ifndef QMLOBJECTSHAREDENGINE_H
 #define QMLOBJECTSHAREDENGINE_H
 
+#include <memory>
 #include <kdeclarative/qmlobject.h>
 #include <kdeclarative/kdeclarative_export.h>
 
@@ -54,7 +55,7 @@ public:
 
 private:
     friend class QmlObjectSharedEnginePrivate;
-    QmlObjectSharedEnginePrivate *const d;
+    const std::unique_ptr<QmlObjectSharedEnginePrivate> d;
 };
 
 }

@@ -72,7 +72,6 @@ QmlObjectSharedEngine::QmlObjectSharedEngine(QObject *parent)
 QmlObjectSharedEngine::~QmlObjectSharedEngine()
 {
     rootContext()->deleteLater();
-    delete d;
 }
 
 
