@@ -160,7 +160,7 @@ void MouseEventListener::mousePressEvent(QMouseEvent *me)
         me->ignore();
         return;
     }
-    m_buttonDownPos[me->button()] = me->pos();
+    m_buttonDownPos = me->screenPos();
 
     KDeclarativeMouseEvent dme(me->pos().x(), me->pos().y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()));
     if (!m_pressAndHoldEvent) {
@@ -183,6 +183,10 @@ void MouseEventListener::mouseMoveEvent(QMouseEvent *me)
     if (m_lastEvent == me || !(me->buttons() & m_acceptedButtons)) {
         me->setAccepted(false);
         return;
+    }
+
+    if (QPointF(me->screenPos() - m_buttonDownPos).manhattanLength() > QGuiApplication::styleHints()->startDragDistance() && m_pressAndHoldTimer->isActive()) {
+        m_pressAndHoldTimer->stop();
     }
 
     KDeclarativeMouseEvent dme(me->pos().x(), me->pos().y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()));
@@ -227,15 +231,6 @@ void MouseEventListener::handlePressAndHold()
     }
 }
 
-QPointF MouseEventListener::buttonDownPos(int btn) const
-{
-    if (m_buttonDownPos.keys().contains(btn)) {
-        return m_buttonDownPos.value(btn);
-    }
-    return QPointF(0, 0);
-}
-
-
 bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
 {
     if (!isEnabled()) {
@@ -264,7 +259,7 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
         m_pressAndHoldEvent = new KDeclarativeMouseEvent(myPos.x(), myPos.y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()));
 
         //qDebug() << "pressed in sceneEventFilter";
-        m_buttonDownPos[me->button()] = me->pos();
+        m_buttonDownPos = me->screenPos();
         emit pressed(&dme);
         m_pressed = true;
         emit pressedChanged();
@@ -306,9 +301,13 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
         KDeclarativeMouseEvent dme(myPos.x(), myPos.y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()));
         //qDebug() << "positionChanged..." << dme.x() << dme.y();
 
+        //stop the pressandhold if mouse moved enough
+        if (QPointF(me->screenPos() - m_buttonDownPos).manhattanLength() > QGuiApplication::styleHints()->startDragDistance() && m_pressAndHoldTimer->isActive()) {
+            m_pressAndHoldTimer->stop();
+
         //if the mouse moves and we are waiting to emit a press and hold event, update the co-ordinates
         //as there is no update function, delete the old event and create a new one
-        if (m_pressAndHoldEvent) {
+        } else if (m_pressAndHoldEvent) {
             delete m_pressAndHoldEvent;
             m_pressAndHoldEvent = new KDeclarativeMouseEvent(myPos.x(), myPos.y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()));
         }
@@ -326,7 +325,7 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
         emit released(&dme);
         emit pressedChanged();
 
-        if (QPointF(me->pos() - buttonDownPos(me->button())).manhattanLength() <= QGuiApplication::styleHints()->startDragDistance() && m_pressAndHoldTimer->isActive()) {
+        if (QPointF(me->screenPos() - m_buttonDownPos).manhattanLength() <= QGuiApplication::styleHints()->startDragDistance() && m_pressAndHoldTimer->isActive()) {
             emit clicked(&dme);
             m_pressAndHoldTimer->stop();
         }

@@ -210,10 +210,9 @@ private Q_SLOTS:
 private:
     static QScreen* screenForGlobalPos(const QPoint &globalPos);
 
-    QPointF buttonDownPos(int btn) const;
     bool m_pressed;
     KDeclarativeMouseEvent* m_pressAndHoldEvent;
-    QHash<int, QPointF> m_buttonDownPos;
+    QPointF m_buttonDownPos;
     //Important: used only for comparison. If you will ever need to access this pointer, make it a QWeakPointer
     QEvent *m_lastEvent;
     QTimer *m_pressAndHoldTimer;
