@@ -26,6 +26,7 @@
 #include <QAnimationDriver>
 #include <QGuiApplication>
 #include <QScreen>
+#include <QQmlComponent>
 
 #include <KPackage/Package>
 #include <kdeclarative/kdeclarative_export.h>
@@ -59,6 +60,7 @@ class KDECLARATIVE_EXPORT QmlObject : public QObject
     Q_PROPERTY(QString translationDomain READ translationDomain WRITE setTranslationDomain)
     Q_PROPERTY(bool initializationDelayed READ isInitializationDelayed WRITE setInitializationDelayed)
     Q_PROPERTY(QObject *rootObject READ rootObject)
+    Q_PROPERTY(QQmlComponent::Status status READ status NOTIFY statusChanged)
 
 public:
 
@@ -180,9 +182,16 @@ public:
     QQmlComponent *mainComponent() const;
 
     /**
-     * @since 5.10
+     * The components's creation context.
+     * @since 5.11
      */
     QQmlContext *rootContext() const;
+
+    /**
+     * The component's current status.
+     * @since 5.11
+     */
+    QQmlComponent::Status status() const;
 
     /**
      * Creates and returns an object based on the provided url to a Qml file
@@ -225,6 +234,8 @@ Q_SIGNALS:
      * Emitted when the parsing and execution of the QML file is terminated
      */
     void finished();
+
+    void statusChanged(QQmlComponent::Status);
 
 private:
     friend class QmlObjectPrivate;

@@ -120,6 +120,8 @@ void QmlObjectPrivate::execute(const QUrl &source)
 
     delete component;
     component = new QQmlComponent(engine, q);
+    QObject::connect(component, &QQmlComponent::statusChanged,
+                     q, &QmlObject::statusChanged);
     delete incubator.object();
 
     component->loadUrl(source);
@@ -268,6 +270,19 @@ QQmlComponent *QmlObject::mainComponent() const
 QQmlContext *QmlObject::rootContext() const
 {
     return d->rootContext;
+}
+
+QQmlComponent::Status QmlObject::status() const
+{
+    if (!d->engine) {
+        return QQmlComponent::Error;
+    }
+
+    if (!d->component) {
+        return QQmlComponent::Null;
+    }
+
+    return QQmlComponent::Status(d->component->status());
 }
 
 void QmlObjectPrivate::checkInitializationCompleted()
