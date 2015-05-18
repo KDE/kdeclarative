@@ -157,6 +157,17 @@ QList<QQmlError> QuickViewSharedEngine::errors() const
 
 QSize QuickViewSharedEngine::sizeHint() const
 {
+    QQuickItem *item = qobject_cast<QQuickItem *>(d->qmlObject->rootObject());
+    if (!item) {
+        return QSize();
+    }
+
+    const QSizeF implicitSize(item->implicitWidth(), item->implicitHeight());
+
+    if (!implicitSize.isEmpty()) {
+        return implicitSize.toSize();
+    }
+
     return initialSize();
 }
 
