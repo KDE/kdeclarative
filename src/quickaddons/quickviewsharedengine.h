@@ -25,6 +25,7 @@
 
 #include "quickaddons_export.h"
 
+#include <memory>
 #include <QQuickWindow>
 #include <QUrl>
 #include <QQmlError>
@@ -77,7 +78,7 @@ Q_SIGNALS:
 
 
 private:
-    QuickViewSharedEnginePrivate *const d;
+    const std::unique_ptr<QuickViewSharedEnginePrivate> d;
 
     Q_PRIVATE_SLOT(d, void executionFinished())
     Q_PRIVATE_SLOT(d, void syncWidth())

@@ -132,7 +132,6 @@ QuickViewSharedEngine::QuickViewSharedEngine(QWindow *parent)
 
 QuickViewSharedEngine::~QuickViewSharedEngine()
 {
-    delete d;
 }
 
 
