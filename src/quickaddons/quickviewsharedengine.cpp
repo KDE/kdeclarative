@@ -77,6 +77,7 @@ void QuickViewSharedEnginePrivate::executionFinished()
     }
 
     item->setParentItem(q->contentItem());
+    initialSize = QSize(item->width(), item ->height());
 
     if (resizeMode == QuickViewSharedEngine::SizeRootObjectToView) {
         QQmlExpression expr(QtQml::qmlContext(item), item, "parent");
@@ -97,6 +98,9 @@ void QuickViewSharedEnginePrivate::executionFinished()
                          q, SLOT(syncWidth()));
         QObject::connect(item, SIGNAL(heightChanged()),
                          q, SLOT(syncHeight()));
+
+        syncWidth();
+        syncHeight();
     }
 }
 
@@ -158,7 +162,7 @@ QSize QuickViewSharedEngine::sizeHint() const
 
 QSize QuickViewSharedEngine::initialSize() const
 {
-    return QSize();
+    return d->initialSize;
 }
 
 QuickViewSharedEngine::ResizeMode QuickViewSharedEngine::resizeMode() const

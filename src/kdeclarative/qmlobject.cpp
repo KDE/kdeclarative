@@ -121,7 +121,7 @@ void QmlObjectPrivate::execute(const QUrl &source)
     delete component;
     component = new QQmlComponent(engine, q);
     QObject::connect(component, &QQmlComponent::statusChanged,
-                     q, &QmlObject::statusChanged);
+                     q, &QmlObject::statusChanged, Qt::QueuedConnection);
     delete incubator.object();
 
     component->loadUrl(source);
