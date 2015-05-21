@@ -185,8 +185,8 @@ void QuickViewSharedEngineTest::errors()
     QVERIFY(view);
     QQmlTestMessageHandler messageHandler;
     view->setSource(testFileUrl("error1.qml"));
-    QVERIFY(view->status() == QQmlComponent::Error);
-    QVERIFY(view->errors().count() == 1);
+    QCOMPARE(view->status(), QQmlComponent::Error);
+    QCOMPARE(view->errors().count(), 1);
     delete view;
 }
 

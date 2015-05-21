@@ -46,6 +46,8 @@ public:
     ~QmlObjectSharedEnginePrivate()
     {
         //when the only remaining are out two refs, reset the pointers, causing deletion
+        //when the refcount is 2, we are sure that the only refs are s_engine and our copy
+        //of engineRef
         if (engineRef.use_count() == 2) {
             s_engine.reset();
         }
