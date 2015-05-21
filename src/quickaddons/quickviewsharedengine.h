@@ -53,7 +53,7 @@ public:
         SizeRootObjectToView
     };
 
-    explicit QuickViewSharedEngine(QWindow *parent);
+    explicit QuickViewSharedEngine(QWindow *parent = 0);
     ~QuickViewSharedEngine();
 
 
@@ -67,6 +67,9 @@ public:
     QQmlComponent::Status status() const;
     ResizeMode resizeMode() const;
     void setResizeMode(ResizeMode);
+
+protected:
+    void resizeEvent(QResizeEvent *e);
 
 public Q_SLOTS:
     void setSource(const QUrl &url);

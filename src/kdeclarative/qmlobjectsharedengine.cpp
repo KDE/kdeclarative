@@ -38,30 +38,35 @@ class QmlObjectSharedEnginePrivate
 public:
     QmlObjectSharedEnginePrivate()
     {
-        engineRef = QSharedPointer<QQmlEngine>(s_engine);
+        //ensure the engine is present, then ref it
+        engine();
+        engineRef = s_engine;
     }
 
     ~QmlObjectSharedEnginePrivate()
     {
+        //when the only remaining are out two refs, reset the pointers, causing deletion
+        if (engineRef.use_count() == 2) {
+            s_engine.reset();
+        }
     }
 
     static QQmlEngine *engine()
     {
         if (!s_engine) {
-            s_engine = new QQmlEngine;
-            s_engine->setIncubationController(new QmlObjectIncubationController(0));
+            s_engine = std::make_shared<QQmlEngine>();
+            s_engine->setIncubationController(new QmlObjectIncubationController(0));            
         }
-        return s_engine;
+        return s_engine.get();
     }
 
     //used to delete it
-    QSharedPointer<QQmlEngine> engineRef;
+    std::shared_ptr<QQmlEngine> engineRef;
 
-    static QQmlEngine *s_engine;
+    static std::shared_ptr<QQmlEngine> s_engine;
 };
 
-QQmlEngine *QmlObjectSharedEnginePrivate::s_engine = 0;
-
+std::shared_ptr<QQmlEngine> QmlObjectSharedEnginePrivate::s_engine = std::shared_ptr<QQmlEngine>();
 
 QmlObjectSharedEngine::QmlObjectSharedEngine(QObject *parent)
     : QmlObject(QmlObjectSharedEnginePrivate::engine(), new QQmlContext(QmlObjectSharedEnginePrivate::engine()), parent),

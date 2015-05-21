@@ -44,7 +44,8 @@ class QuickViewSharedEnginePrivate
 {
 public:
     QuickViewSharedEnginePrivate(QuickViewSharedEngine *module)
-        : q(module)
+        : q(module),
+          initialSize(0, 0)
     {
         qmlObject = new KDeclarative::QmlObjectSharedEngine(q);
         QObject::connect(qmlObject, &KDeclarative::QmlObject::statusChanged,
@@ -54,6 +55,7 @@ public:
     }
 
     void executionFinished();
+    void syncResizeMode();
     void syncWidth();
     void syncHeight();
 
@@ -78,11 +80,24 @@ void QuickViewSharedEnginePrivate::executionFinished()
 
     item->setParentItem(q->contentItem());
     initialSize = QSize(item->width(), item ->height());
+    q->resize(initialSize);
+    q->contentItem()->setWidth(item->width());
+    q->contentItem()->setHeight(item->height());
+
+    syncResizeMode();
+}
+
+void QuickViewSharedEnginePrivate::syncResizeMode()
+{
+    QQuickItem *item = qobject_cast<QQuickItem *>(qmlObject->rootObject());
+
+    if (!item) {
+        return;
+    }
 
     if (resizeMode == QuickViewSharedEngine::SizeRootObjectToView) {
-        QQmlExpression expr(QtQml::qmlContext(item), item, "parent");
-        QQmlProperty prop(item, "anchors.fill");
-        prop.write(expr.evaluate());
+        item->setWidth(q->width());
+        item->setHeight(q->height());
 
         QObject::disconnect(item, SIGNAL(widthChanged()),
                             q, SLOT(syncWidth()));
@@ -90,9 +105,6 @@ void QuickViewSharedEnginePrivate::executionFinished()
                             q, SLOT(syncHeight()));
 
     } else {
-        QQmlExpression expr(QtQml::qmlContext(item), item, "undefined");
-        QQmlProperty prop(item, "anchors.fill");
-        prop.write(expr.evaluate());
 
         QObject::connect(item, SIGNAL(widthChanged()),
                          q, SLOT(syncWidth()));
@@ -168,7 +180,11 @@ QSize QuickViewSharedEngine::sizeHint() const
         return implicitSize.toSize();
     }
 
-    return initialSize();
+    if (item) {
+        return QSize(item->width(), item->height());
+    } else {
+        return size();
+    }
 }
 
 QSize QuickViewSharedEngine::initialSize() const
@@ -206,26 +222,7 @@ void QuickViewSharedEngine::setResizeMode(ResizeMode mode)
         return;
     }
 
-    if (d->resizeMode == QuickViewSharedEngine::SizeRootObjectToView) {
-        QQmlExpression expr(QtQml::qmlContext(item), item, "parent");
-        QQmlProperty prop(item, "anchors.fill");
-        prop.write(expr.evaluate());
-
-        QObject::disconnect(item, SIGNAL(widthChanged()),
-                            this, SLOT(syncWidth()));
-        QObject::disconnect(item, SIGNAL(heightChanged()),
-                            this, SLOT(syncHeight()));
-
-    } else {
-        QQmlExpression expr(QtQml::qmlContext(item), item, "undefined");
-        QQmlProperty prop(item, "anchors.fill");
-        prop.write(expr.evaluate());
-
-        QObject::connect(item, SIGNAL(widthChanged()),
-                         this, SLOT(syncWidth()));
-        QObject::connect(item, SIGNAL(heightChanged()),
-                         this, SLOT(syncHeight()));
-    }
+    d->syncResizeMode();
 }
 
 void QuickViewSharedEngine::setSource(const QUrl &url)
@@ -250,6 +247,17 @@ QQmlComponent::Status QuickViewSharedEngine::status() const
     }
 
     return QQmlComponent::Status(d->qmlObject->status());
+}
+
+void QuickViewSharedEngine::resizeEvent(QResizeEvent *e)
+{
+    QQuickItem *item = qobject_cast<QQuickItem *>(d->qmlObject->rootObject());
+    if (item && d->resizeMode == SizeRootObjectToView) {
+        item->setWidth(e->size().width());
+        item->setHeight(e->size().height());
+    }
+
+    QQuickWindow::resizeEvent(e);
 }
 
 }
