@@ -161,6 +161,7 @@ class Plotter : public QQuickItem
     /**
      * The number of horizontal lines drawn across the view between 0 and rangeMax at the top of the plotter at rangeMax
      * This does not include the bottom line
+     * Setting this to 0 will disable grid lines
      *
      * The default value is 5
      */
