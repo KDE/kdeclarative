@@ -33,6 +33,8 @@
 #include <QObject>
 #include <QtQml>
 
+#include <KPluginMetaData>
+
 class QStringList;
 class KAboutData;
 class QQuickItem;
@@ -169,6 +171,14 @@ public:
      * @param aboutData becomes owned by the ConfigModule
      */
     explicit ConfigModule(const KAboutData *aboutData, QObject *parent = 0, const QVariantList &args = QVariantList());
+
+    /**
+     * @note do not emit changed signals here, since they are not yet connected
+     *       to any slot.
+     * @param metaData description for the plugin: it will generate a KAboutData from that
+     * @since 5.11
+     */
+    explicit ConfigModule(const KPluginMetaData &metaData, QObject *parent = 0, const QVariantList &args = QVariantList());
 
     /**
      * Base class for all KControlModules.

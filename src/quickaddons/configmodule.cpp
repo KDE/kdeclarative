@@ -86,6 +86,17 @@ ConfigModule::ConfigModule(const KAboutData *aboutData, QObject *parent, const Q
     setAboutData(aboutData);
 }
 
+ConfigModule::ConfigModule(const KPluginMetaData &metaData, QObject *parent, const QVariantList &)
+    : QObject(parent), d(new ConfigModulePrivate(this))
+{
+    KAboutData *aboutData = new KAboutData(metaData.pluginId(), metaData.name(), metaData.version(), metaData.description(), KAboutLicense::byKeyword(metaData.license()).key());
+
+    for (auto author : metaData.authors()) {
+        aboutData->addAuthor(author.name(), author.task(), author.emailAddress(), author.webAddress(), author.ocsUsername());
+    }
+    setAboutData(aboutData);
+}
+
 ConfigModule::ConfigModule(QObject *parent, const QVariantList &)
     : QObject(parent), d(new ConfigModulePrivate(this))
 {
