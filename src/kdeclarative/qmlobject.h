@@ -26,6 +26,7 @@
 #include <QAnimationDriver>
 #include <QGuiApplication>
 #include <QScreen>
+#include <QQmlComponent>
 
 #include <KPackage/Package>
 #include <kdeclarative/kdeclarative_export.h>
@@ -59,6 +60,7 @@ class KDECLARATIVE_EXPORT QmlObject : public QObject
     Q_PROPERTY(QString translationDomain READ translationDomain WRITE setTranslationDomain)
     Q_PROPERTY(bool initializationDelayed READ isInitializationDelayed WRITE setInitializationDelayed)
     Q_PROPERTY(QObject *rootObject READ rootObject)
+    Q_PROPERTY(QQmlComponent::Status status READ status NOTIFY statusChanged)
 
 public:
 
@@ -76,6 +78,15 @@ public:
      * @param parent the parent of this object
      */
     explicit QmlObject(QQmlEngine *engine, QObject *parent = 0);
+
+    /**
+     * Constructs a new QmlObject
+     *
+     * @param engine a QQmlEngine we want to use
+     * @param rootContext the root context we want to use for objects creation
+     * @param parent the parent of this object
+     */
+    explicit QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QObject *parent = 0);
     ~QmlObject();
 
     /**
@@ -171,6 +182,18 @@ public:
     QQmlComponent *mainComponent() const;
 
     /**
+     * The components's creation context.
+     * @since 5.11
+     */
+    QQmlContext *rootContext() const;
+
+    /**
+     * The component's current status.
+     * @since 5.11
+     */
+    QQmlComponent::Status status() const;
+
+    /**
      * Creates and returns an object based on the provided url to a Qml file
      * with the same QQmlEngine and the same root context as the amin object,
      * that will be the parent of the newly created object
@@ -211,6 +234,8 @@ Q_SIGNALS:
      * Emitted when the parsing and execution of the QML file is terminated
      */
     void finished();
+
+    void statusChanged(QQmlComponent::Status);
 
 private:
     friend class QmlObjectPrivate;

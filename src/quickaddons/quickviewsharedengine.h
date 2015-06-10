@@ -1,0 +1,95 @@
+/*
+   This file is part of the KDE libraries
+
+   Copyright (C) 2015 Marco Martin <mart@kde.org>
+
+   This library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Library General Public
+   License as published by the Free Software Foundation; either
+   version 2 of the License, or (at your option) any later version.
+
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Library General Public License for more details.
+
+   You should have received a copy of the GNU Library General Public License
+   along with this library; see the file COPYING.LIB.  If not, write to
+   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+   Boston, MA 02110-1301, USA.
+
+*/
+
+#ifndef QUICKVIEWSHAREDENGINE_H
+#define QUICKVIEWSHAREDENGINE_H
+
+#include "quickaddons_export.h"
+
+#include <memory>
+#include <QQuickWindow>
+#include <QUrl>
+#include <QQmlError>
+#include <QQmlComponent>
+
+class QQuickItem;
+class QQmlEngine;
+
+namespace KQuickAddons {
+
+class QuickViewSharedEnginePrivate;
+
+class QUICKADDONS_EXPORT QuickViewSharedEngine : public QQuickWindow
+{
+    Q_OBJECT
+
+    Q_PROPERTY(ResizeMode resizeMode READ resizeMode WRITE setResizeMode NOTIFY resizeModeChanged)
+    Q_PROPERTY(QQmlComponent::Status status READ status NOTIFY statusChanged)
+    Q_PROPERTY(QUrl source READ source WRITE setSource NOTIFY sourceChanged)
+    Q_ENUMS(ResizeMode)
+
+public:
+    enum ResizeMode {
+        SizeViewToRootObject,
+        SizeRootObjectToView
+    };
+
+    explicit QuickViewSharedEngine(QWindow *parent = 0);
+    ~QuickViewSharedEngine();
+
+
+    QQmlEngine *engine() const;
+    QList<QQmlError> errors() const;
+    QSize sizeHint() const;
+    QSize initialSize() const;
+    QQmlContext *rootContext() const;
+    QQuickItem *rootObject() const;
+    QUrl source() const;
+    QQmlComponent::Status status() const;
+    ResizeMode resizeMode() const;
+    void setResizeMode(ResizeMode);
+
+protected:
+    void resizeEvent(QResizeEvent *e);
+
+public Q_SLOTS:
+    void setSource(const QUrl &url);
+
+Q_SIGNALS:
+    void statusChanged(QQmlComponent::Status status);
+    void resizeModeChanged(QuickViewSharedEngine::ResizeMode resizeMode);
+    void sourceChanged(const QUrl &source);
+
+
+private:
+    const std::unique_ptr<QuickViewSharedEnginePrivate> d;
+
+    Q_PRIVATE_SLOT(d, void executionFinished())
+    Q_PRIVATE_SLOT(d, void syncWidth())
+    Q_PRIVATE_SLOT(d, void syncHeight())
+};
+
+}
+
+
+#endif //QuickViewSharedEngine_H
+

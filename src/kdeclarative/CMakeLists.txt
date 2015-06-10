@@ -2,6 +2,7 @@
 set(kdeclarative_SRCS
   configpropertymap.cpp
   qmlobject.cpp
+  qmlobjectsharedengine.cpp
   kdeclarative.cpp
   private/rootcontext.cpp
   private/kiconprovider.cpp
@@ -40,6 +41,7 @@ ecm_generate_headers(KDeclarative_CamelCase_HEADERS
   HEADER_NAMES
   KDeclarative
   QmlObject
+  QmlObjectSharedEngine
   ConfigPropertyMap
 
   PREFIX KDeclarative
