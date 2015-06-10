@@ -106,6 +106,9 @@ int main(int argc, char **argv)
         view.setTitle(obj.package().metadata().name());
         view.setIcon(QIcon::fromTheme(obj.package().metadata().iconName()));
 
+        // Forward Qt.quit() in QML code to QApplication::quit()
+        QObject::connect(obj.engine(), &QQmlEngine::quit, &app, &QCoreApplication::quit);
+
         view.show();
         return app.exec();
     } else if (window) {
