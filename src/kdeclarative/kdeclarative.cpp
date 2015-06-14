@@ -93,9 +93,8 @@ void KDeclarative::setupBindings()
     }
 
     //If the engine is in a qmlObject take the qmlObject rootContext instead of the engine one.
-    QmlObject *qmlObj = qobject_cast<QmlObject *>(d->declarativeEngine.data()->parent());
-    if (qmlObj) {
-        qmlObj->rootContext()->setContextObject(d->contextObj);
+    if (d->qmlObj) {
+        d->qmlObj->rootContext()->setContextObject(d->contextObj);
     } else {
         d->declarativeEngine.data()->rootContext()->setContextObject(d->contextObj);
     }

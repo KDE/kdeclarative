@@ -22,6 +22,7 @@
 
 #include "kdeclarative.h"
 #include "rootcontext_p.h"
+#include "qmlobject.h"
 
 #include <QtCore/QPointer>
 
@@ -37,6 +38,7 @@ public:
     QString translationDomain;
     static QStringList s_runtimePlatform;
     QPointer<RootContext> contextObj;
+    QPointer<QmlObject> qmlObj;
 };
 
 }

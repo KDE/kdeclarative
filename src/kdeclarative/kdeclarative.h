@@ -114,6 +114,7 @@ public:
 
 private:
     KDeclarativePrivate *const d;
+    friend class QmlObject;
 };
 
 }

@@ -19,6 +19,7 @@
 
 #include "qmlobject.h"
 #include "private/qmlobject_p.h"
+#include "private/kdeclarative_p.h"
 
 #include <QQmlComponent>
 #include <QQmlEngine>
@@ -149,6 +150,7 @@ QmlObject::QmlObject(QObject *parent)
     d->engine = new QQmlEngine(this);
     d->rootContext = d->engine->rootContext();
     d->kdeclarative.setDeclarativeEngine(d->engine);
+    d->kdeclarative.d->qmlObj = this;
     //binds things like kconfig and icons
     d->kdeclarative.setupBindings();
     d->engine->setIncubationController(new QmlObjectIncubationController(this));
@@ -166,6 +168,7 @@ QmlObject::QmlObject(QQmlEngine *engine, QObject *parent)
     }
     d->rootContext = d->engine->rootContext();
     d->kdeclarative.setDeclarativeEngine(d->engine);
+    d->kdeclarative.d->qmlObj = this;
     //binds things like kconfig and icons
     d->kdeclarative.setupBindings();
 }
@@ -187,6 +190,7 @@ QmlObject::QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QObject *pare
         d->rootContext = d->engine->rootContext();
     }
     d->kdeclarative.setDeclarativeEngine(d->engine);
+    d->kdeclarative.d->qmlObj = this;
     //binds things like kconfig and icons
     d->kdeclarative.setupBindings();
 }
