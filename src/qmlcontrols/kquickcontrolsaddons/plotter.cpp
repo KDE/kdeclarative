@@ -799,16 +799,15 @@ QSGNode *Plotter::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *updateP
         u_matrix = s_program->uniformLocation("matrix");
     }
 
-    if (n->texture()->textureSize() != boundingRect().size()) {
-        //we need a size always equal or smaller, size.toSize() won't do
-        static_cast<PlotTexture *>(n->texture())->recreate(QSize(qRound(boundingRect().size().width()), qRound(boundingRect().size().height())));
+    //we need a size always equal or smaller, size.toSize() won't do
+    const QSize targetTextureSize(qRound(boundingRect().size().width()), qRound(boundingRect().size().height()));
+    if (n->texture()->textureSize() != targetTextureSize) {
+        static_cast<PlotTexture *>(n->texture())->recreate(targetTextureSize);
         m_matrix = QMatrix4x4();
-        m_matrix.ortho(0, qRound(width()), 0, qRound(height()), -1, 1);
+        m_matrix.ortho(0, targetTextureSize.width(), 0, targetTextureSize.height(), -1, 1);
     }
 
-    n->setRect(QRect(QPoint(0,0),
-                     QSize(qRound(boundingRect().size().width()),
-                           qRound(boundingRect().size().height()))));
+    n->setRect(QRect(QPoint(0,0), targetTextureSize));
     return n;
 }
 
