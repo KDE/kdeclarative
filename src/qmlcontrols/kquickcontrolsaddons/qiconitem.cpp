@@ -118,7 +118,6 @@ QSGNode* QIconItem::updatePaintNode(QSGNode* node, QQuickItem::UpdatePaintNodeDa
             mNode = new ManagedTextureNode;
         }
 
-        const QSize size(width(), height());
         QIcon::Mode mode;
         switch(m_state) {
             case DefaultState:
@@ -132,7 +131,12 @@ QSGNode* QIconItem::updatePaintNode(QSGNode* node, QQuickItem::UpdatePaintNodeDa
                 break;
         }
 
-        mNode->setTexture(s_iconImageCache->loadTexture(window(), m_icon.pixmap(size, mode, QIcon::On).toImage()));
+        QImage img;
+        const QSize size(width(), height());
+        if (!size.isEmpty()) {
+            img = m_icon.pixmap(size, mode, QIcon::On).toImage();
+        }
+        mNode->setTexture(s_iconImageCache->loadTexture(window(), img));
         mNode->setRect(QRect(QPoint(0,0), size));
         node = mNode;
     }
