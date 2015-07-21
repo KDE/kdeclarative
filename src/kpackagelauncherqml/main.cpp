@@ -31,6 +31,7 @@
 #include <QQmlExpression>
 #include <QQmlProperty>
 #include <QQuickWindow>
+#include <QStandardPaths>
 #include <kdeclarative/qmlobject.h>
 #include <KAboutData>
 
@@ -70,6 +71,13 @@ int main(int argc, char **argv)
         return 1;
     }
     obj.engine()->rootContext()->setContextProperty("commandlineArguments", parser.positionalArguments());
+    QVariantMap paths;
+    paths["desktop"] = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
+    paths["documents"] = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+    paths["music"] = QStandardPaths::writableLocation(QStandardPaths::MusicLocation);
+    paths["movies"] = QStandardPaths::writableLocation(QStandardPaths::MoviesLocation);
+    paths["pictures"] = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+    obj.engine()->rootContext()->setContextProperty("userPaths", paths);
     obj.completeInitialization();
 
     if (!obj.package().metadata().isValid()) {
