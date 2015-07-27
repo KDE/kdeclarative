@@ -709,9 +709,6 @@ void Plotter::render()
 
     // Delete the VBO
     glDeleteBuffers(1, &vbo);
-    if (window()) {
-        window()->update();
-    }
 }
 
 QSGNode *Plotter::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *updatePaintNodeData)
