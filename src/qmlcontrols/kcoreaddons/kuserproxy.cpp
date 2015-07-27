@@ -21,6 +21,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "kuserproxy.h"
 #include <QFile>
+#include <QDir>
 #include <QHostInfo>
 #include <QTextStream>
 #include <QUrl>
@@ -35,7 +36,15 @@ KUserProxy::KUserProxy (QObject *parent)
     : QObject(parent),
     m_temporaryEmptyFaceIconPath(false)
 {
-    m_dirWatch.addFile(m_user.faceIconPath());
+    QString pathToFaceIcon(m_user.faceIconPath());
+    if (pathToFaceIcon.isEmpty()) {
+        //KUser returns null if the current faceIconPath is empty
+        //so we should explicitly watch ~/.face.icon rather than faceIconPath()
+        //as we want to watch for this file being created
+        pathToFaceIcon = QDir::homePath() + QStringLiteral("/.face.icon");
+    }
+
+    m_dirWatch.addFile(pathToFaceIcon);
     if (QFile::exists(etcPasswd)) {
         m_dirWatch.addFile(etcPasswd);
     }
