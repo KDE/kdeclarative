@@ -252,7 +252,7 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
         }
 
         //the parent will receive events in its own coordinates
-        const QPointF myPos = item->mapToItem(this, me->pos());
+        const QPointF myPos = mapFromScene(me->windowPos());
 
         KDeclarativeMouseEvent dme(myPos.x(), myPos.y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()));
         delete m_pressAndHoldEvent;
@@ -297,7 +297,7 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
             break;
         }
 
-        const QPointF myPos = item->mapToItem(this, me->pos());
+        const QPointF myPos = mapFromScene(me->windowPos());
         KDeclarativeMouseEvent dme(myPos.x(), myPos.y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()));
         //qDebug() << "positionChanged..." << dme.x() << dme.y();
 
@@ -318,7 +318,7 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
         m_lastEvent = event;
         QMouseEvent *me = static_cast<QMouseEvent *>(event);
 
-        const QPointF myPos = item->mapToItem(this, me->pos());
+        const QPointF myPos = mapFromScene(me->windowPos());
         KDeclarativeMouseEvent dme(myPos.x(), myPos.y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()));
         m_pressed = false;
 
