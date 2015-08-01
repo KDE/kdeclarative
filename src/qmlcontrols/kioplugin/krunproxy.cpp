@@ -45,7 +45,7 @@ bool KRunProxy::openUrl(const QString &filePath)
         // the desktop file itself but the application in which it is associated
         // with.
         KService::Ptr service = KService::serviceByDesktopPath(filePath);
-        return KRun::run(*service, QList<QUrl>(), 0);
+        return KRun::runService(*service, QList<QUrl>(), 0) != 0;
     } else {
         return KRun::runUrl(QUrl(filePath), fileMymeType, 0);
     }
