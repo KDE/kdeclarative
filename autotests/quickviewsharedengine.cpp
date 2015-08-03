@@ -151,7 +151,6 @@ void QuickViewSharedEngineTest::resizemodeitem()
     QCOMPARE(view->size(), QSize(200, 300));
     QCOMPARE(view->size(), view->sizeHint());
 
-    window.hide();
     delete view;
 
     // if we set a specific size for the view then it should keep that size
@@ -160,11 +159,10 @@ void QuickViewSharedEngineTest::resizemodeitem()
     view->resize(300, 300);
     view->setResizeMode(KQuickAddons::QuickViewSharedEngine::SizeRootObjectToView);
     QCOMPARE(QSize(0,0), view->initialSize());
-    view->setSource(testFileUrl("resizemodeitem.qml"));
-    view->resize(300, 300);
+    view->setSource(testFileUrl("resizemodeitem.qml"));qWarning()<<"bbb"<<view->size();
+    view->resize(300, 300);qWarning()<<"ccc"<<view->size();
     item = qobject_cast<QQuickItem*>(view->rootObject());
     QVERIFY(item);
-    window.show();
 
     view->showNormal();
     QTest::qWait(50);
