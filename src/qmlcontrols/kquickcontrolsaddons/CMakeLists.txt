@@ -19,7 +19,7 @@ if (NOT WIN32)
     include_directories(${epoxy_INCLUDE_DIR})
 endif()
 
-add_library(kquickcontrolsaddonsplugin MODULE ${kquickcontrolsaddons_SRCS})
+add_library(kquickcontrolsaddonsplugin SHARED ${kquickcontrolsaddons_SRCS})
 
 target_link_libraries(kquickcontrolsaddonsplugin
         Qt5::Core
