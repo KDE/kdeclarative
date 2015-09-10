@@ -77,6 +77,20 @@ void QIconItem::setState(QIconItem::State state)
     update();
 }
 
+bool QIconItem::enabled() const
+{
+    return (m_state == DefaultState);
+}
+
+void QIconItem::setEnabled(bool enabled)
+{
+    if (enabled) {
+        setState(DefaultState);
+    } else {
+        setState(DisabledState);
+    }
+}
+
 int QIconItem::implicitWidth() const
 {
     return 32;

@@ -32,6 +32,7 @@ class QIconItem : public QQuickItem
     Q_PROPERTY(int implicitWidth READ implicitWidth CONSTANT)
     Q_PROPERTY(int implicitHeight READ implicitHeight CONSTANT)
     Q_PROPERTY(State state READ state WRITE setState NOTIFY stateChanged)
+    Q_PROPERTY(bool enabled READ enabled WRITE setEnabled NOTIFY stateChanged)
 
     Q_ENUMS(State)
 
@@ -57,6 +58,9 @@ public:
 
     void setSmooth(const bool smooth);
     bool smooth() const;
+
+    void setEnabled(bool enabled = true);
+    bool enabled() const;
 
     QSGNode* updatePaintNode(QSGNode* node, UpdatePaintNodeData* data) Q_DECL_OVERRIDE;
 
