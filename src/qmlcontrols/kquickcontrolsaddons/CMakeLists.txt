@@ -8,6 +8,7 @@ set(kquickcontrolsaddons_SRCS
     mouseeventlistener.cpp
     columnproxymodel.cpp
     clipboard.cpp
+    eventgenerator.cpp
     mimedatabase.cpp
     kcmshell.cpp
     icondialog.cpp
