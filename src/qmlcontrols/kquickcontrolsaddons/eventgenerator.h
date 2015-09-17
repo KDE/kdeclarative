@@ -47,12 +47,24 @@ class EventGenerator : public QObject
         EventGenerator(QObject *parent = 0);
         ~EventGenerator();
 
+        /**
+         * Send a mouse event of @type to the given @item
+         */
         Q_INVOKABLE void sendMouseEvent(QQuickItem *item, EventGenerator::MouseEvent type, int x, int y, int button, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers);
 
+        /**
+         * Send a mouse event of @type to the given @item, all its children and descendants
+         */
         Q_INVOKABLE void sendMouseEventRecursive(QQuickItem *item, EventGenerator::MouseEvent type, int x, int y, int button, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers);
 
+        /**
+         * Send a mouse grab event of @type (grab or ungrab) to the given @item
+         */
         Q_INVOKABLE void sendGrabEvent(QQuickItem *item, EventGenerator::GrabEvent type);
 
+        /**
+         * Send a mouse grab event of @type (grab or ungrab) to the given @item, all its children and descendants
+         */
         Q_INVOKABLE void sendGrabEventRecursive(QQuickItem *item, EventGenerator::GrabEvent type);
 
     private:
