@@ -45,6 +45,7 @@ class QuickViewSharedEnginePrivate
 public:
     QuickViewSharedEnginePrivate(QuickViewSharedEngine *module)
         : q(module),
+          resizeMode(QuickViewSharedEngine::ResizeMode::SizeRootObjectToView),
           initialSize(0, 0)
     {
         qmlObject = new KDeclarative::QmlObjectSharedEngine(q);
