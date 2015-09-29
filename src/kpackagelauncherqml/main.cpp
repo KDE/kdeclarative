@@ -77,6 +77,7 @@ int main(int argc, char **argv)
     paths["music"] = QStandardPaths::writableLocation(QStandardPaths::MusicLocation);
     paths["movies"] = QStandardPaths::writableLocation(QStandardPaths::MoviesLocation);
     paths["pictures"] = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+    paths["home"] = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
     obj.engine()->rootContext()->setContextProperty("userPaths", paths);
     obj.completeInitialization();
 
