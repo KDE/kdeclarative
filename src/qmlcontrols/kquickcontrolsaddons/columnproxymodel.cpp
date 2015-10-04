@@ -115,6 +115,10 @@ QModelIndex ColumnProxyModel::rootIndex() const
 
 void ColumnProxyModel::setRootIndex(const QModelIndex& index)
 {
+    if (index == m_index) {
+        return;
+    }
+
     if(index.isValid()) {
         setSourceModel(const_cast<QAbstractItemModel*>(index.model()));
     }
@@ -236,3 +240,7 @@ QHash<int, QByteArray> ColumnProxyModel::roleNames() const
     return m_sourceModel ? m_sourceModel->roleNames() : QHash<int, QByteArray>();
 }
 
+bool ColumnProxyModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    return m_sourceModel && m_sourceModel->setData(sourceIndex(index), value, role);
+}

@@ -48,6 +48,8 @@ class ColumnProxyModel : public QAbstractListModel
         QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
         QHash<int, QByteArray> roleNames() const Q_DECL_OVERRIDE;
 
+        bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) Q_DECL_OVERRIDE;
+
     Q_SIGNALS:
         void rootIndexChanged();
 
