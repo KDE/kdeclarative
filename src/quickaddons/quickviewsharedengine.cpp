@@ -65,6 +65,7 @@ public:
     KDeclarative::QmlObjectSharedEngine *qmlObject;
     QuickViewSharedEngine::ResizeMode resizeMode;
     QSize initialSize;
+
 };
 
 void QuickViewSharedEnginePrivate::executionFinished()
@@ -79,11 +80,13 @@ void QuickViewSharedEnginePrivate::executionFinished()
         return;
     }
 
-    item->setParentItem(q->contentItem());
-    initialSize = QSize(item->width(), item ->height());
-    q->resize(initialSize);
-    q->contentItem()->setWidth(item->width());
-    q->contentItem()->setHeight(item->height());
+    if(q->size().isEmpty()) {
+        item->setParentItem(q->contentItem());
+        initialSize = QSize(item->width(), item ->height());
+        q->resize(initialSize);
+        q->contentItem()->setWidth(item->width());
+        q->contentItem()->setHeight(item->height());
+    }
 
     syncResizeMode();
 }
