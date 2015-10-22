@@ -80,8 +80,9 @@ void QuickViewSharedEnginePrivate::executionFinished()
         return;
     }
 
+    item->setParentItem(q->contentItem());
+
     if(q->size().isEmpty()) {
-        item->setParentItem(q->contentItem());
         initialSize = QSize(item->width(), item ->height());
         q->resize(initialSize);
         q->contentItem()->setWidth(item->width());
