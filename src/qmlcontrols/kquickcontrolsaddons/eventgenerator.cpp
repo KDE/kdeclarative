@@ -71,6 +71,31 @@ void EventGenerator::sendMouseEventRecursive(QQuickItem *parentItem, EventGenera
     }
 }
 
+void EventGenerator::sendWheelEvent(QQuickItem *item, int x, int y, const QPoint &pixelDelta, const QPoint &angleDelta, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers)
+{
+    if (!item || !item->window()) {
+        return;
+    }
+
+    QPointF pos(x, y);
+    QPointF globalPos(item->window()->mapToGlobal(item->mapToScene(pos).toPoint()));
+    QWheelEvent ev(pos, globalPos, pixelDelta, angleDelta, /* qt4Delta */ 0, /* qt4Orientation */ Qt::Horizontal, buttons, modifiers);
+    QGuiApplication::sendEvent(item, &ev);
+}
+
+void EventGenerator::sendWheelEventRecursive(QQuickItem *parentItem, int x, int y, const QPoint &pixelDelta, const QPoint &angleDelta, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers)
+{
+    if (!parentItem) {
+        return;
+    }
+
+    const QList<QQuickItem *> items = allChildItemsRecursive(parentItem);
+
+    foreach(QQuickItem *item, items) {
+        sendWheelEvent(item, x, y, pixelDelta, angleDelta, buttons, modifiers);
+    }
+}
+
 void EventGenerator::sendGrabEvent(QQuickItem *item, EventGenerator::GrabEvent type)
 {
     if (!item) {

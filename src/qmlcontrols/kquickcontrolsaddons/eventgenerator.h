@@ -58,6 +58,20 @@ class EventGenerator : public QObject
         Q_INVOKABLE void sendMouseEventRecursive(QQuickItem *item, EventGenerator::MouseEvent type, int x, int y, int button, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers);
 
         /**
+         * Send a wheel event to the given @item
+         *
+         * @since 5.16
+         */
+        Q_INVOKABLE void sendWheelEvent(QQuickItem *item, int x, int y, const QPoint &pixelDelta, const QPoint &angleDelta, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers);
+
+        /**
+         * Send a wheel event to the given @item, all its children and descendants
+         *
+         * @since 5.16
+         */
+        Q_INVOKABLE void sendWheelEventRecursive(QQuickItem *item, int x, int y, const QPoint &pixelDelta, const QPoint &angleDelta, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers);
+
+        /**
          * Send a mouse grab event of @type (grab or ungrab) to the given @item
          */
         Q_INVOKABLE void sendGrabEvent(QQuickItem *item, EventGenerator::GrabEvent type);
