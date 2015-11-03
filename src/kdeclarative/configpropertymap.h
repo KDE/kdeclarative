@@ -39,6 +39,8 @@ public:
     ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *parent = 0);
     ~ConfigPropertyMap();
 
+protected:
+    QVariant updateValue(const QString &key, const QVariant &input) Q_DECL_OVERRIDE;
 private:
     ConfigPropertyMapPrivate *const d;
 

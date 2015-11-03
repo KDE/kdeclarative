@@ -62,6 +62,14 @@ ConfigPropertyMap::~ConfigPropertyMap()
     delete d;
 }
 
+QVariant ConfigPropertyMap::updateValue(const QString &key, const QVariant &input)
+{
+    if (input.userType() == qMetaTypeId<QJSValue>()) {
+        return input.value<QJSValue>().toVariant();
+    }
+    return input;
+}
+
 void ConfigPropertyMapPrivate::loadConfig()
 {
     if (!config) {
@@ -92,11 +100,7 @@ void ConfigPropertyMapPrivate::writeConfigValue(const QString &key, const QVaria
 {
     KConfigSkeletonItem *item = config.data()->findItem(key);
     if (item) {
-        if (value.userType() == qMetaTypeId<QJSValue>()) {
-            item->setProperty(value.value<QJSValue>().toVariant());
-        } else {
-            item->setProperty(value);
-        }
+        item->setProperty(value);
         config.data()->blockSignals(true);
         config.data()->save();
         //why read? read will update KConfigSkeletonItem::mLoadedValue,
