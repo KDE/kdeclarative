@@ -42,7 +42,7 @@ public:
 };
 
 ConfigPropertyMap::ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *parent)
-    : QQmlPropertyMap(parent),
+    : QQmlPropertyMap(this, parent),
       d(new ConfigPropertyMapPrivate(this))
 {
     d->config = config;
@@ -68,6 +68,16 @@ QVariant ConfigPropertyMap::updateValue(const QString &key, const QVariant &inpu
         return input.value<QJSValue>().toVariant();
     }
     return input;
+}
+
+bool ConfigPropertyMap::isImmutable(const QString &key) const
+{
+    KConfigSkeletonItem *item = d->config.data()->findItem(key);
+    if (item) {
+        return item->isImmutable();
+    }
+
+    return false;
 }
 
 void ConfigPropertyMapPrivate::loadConfig()

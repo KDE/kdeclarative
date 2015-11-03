@@ -39,6 +39,13 @@ public:
     ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *parent = 0);
     ~ConfigPropertyMap();
 
+    /**
+     * @brief Whether the value at the given key is immutable
+     *
+     * @return true if the value is immutable, false if it isn't or it doesn't exist
+     */
+    Q_INVOKABLE bool isImmutable(const QString &key) const;
+
 protected:
     QVariant updateValue(const QString &key, const QVariant &input) Q_DECL_OVERRIDE;
 private:
