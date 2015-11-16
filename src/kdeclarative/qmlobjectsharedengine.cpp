@@ -27,9 +27,6 @@
 
 #include <qdebug.h>
 #include <kdeclarative.h>
-#include <KPackage/PackageLoader>
-
-
 
 namespace KDeclarative {
 

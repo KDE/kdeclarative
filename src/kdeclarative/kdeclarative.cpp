@@ -40,8 +40,7 @@ namespace KDeclarative {
 QStringList KDeclarativePrivate::s_runtimePlatform;
 
 KDeclarativePrivate::KDeclarativePrivate()
-    : initialized(false),
-      contextObj(0)
+    : contextObj(0)
 {
 }
 
@@ -60,7 +59,6 @@ void KDeclarative::setDeclarativeEngine(QQmlEngine *engine)
     if (d->declarativeEngine.data() == engine) {
         return;
     }
-    d->initialized = false;
     d->declarativeEngine = engine;
 }
 
@@ -72,9 +70,6 @@ QQmlEngine *KDeclarative::declarativeEngine() const
 #ifndef KDECLARATIVE_NO_DEPRECATED
 void KDeclarative::initialize()
 {
-    //FIXME: remove this or find a similar hack for qml2
-
-    d->initialized = true;
 }
 #endif
 
@@ -122,7 +117,7 @@ void KDeclarative::setupBindings()
     }
 
     // setup ImageProvider for KDE icons
-    d->declarativeEngine.data()->addImageProvider(QString(QStringLiteral("icon")), new KIconProvider);
+    d->declarativeEngine.data()->addImageProvider(QStringLiteral("icon"), new KIconProvider);
 }
 
 void KDeclarative::setTranslationDomain(const QString &translationDomain)
