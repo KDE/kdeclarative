@@ -21,10 +21,10 @@
 #define KDECLARATIVE_P_H
 
 #include "kdeclarative.h"
-#include "rootcontext_p.h"
 #include "qmlobject.h"
 
 #include <QtCore/QPointer>
+#include <KLocalizedContext>
 
 namespace KDeclarative {
 
@@ -36,7 +36,7 @@ public:
     QPointer<QQmlEngine> declarativeEngine;
     QString translationDomain;
     static QStringList s_runtimePlatform;
-    QPointer<RootContext> contextObj;
+    QPointer<KLocalizedContext> contextObj;
     QPointer<QmlObject> qmlObj;
 };
 

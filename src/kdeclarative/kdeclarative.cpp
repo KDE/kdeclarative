@@ -19,7 +19,6 @@
 
 #include "kdeclarative.h"
 #include "private/kdeclarative_p.h"
-#include "private/rootcontext_p.h"
 #include "private/kiconprovider_p.h"
 #include "private/kioaccessmanagerfactory_p.h"
 #include "qmlobject.h"
@@ -84,7 +83,7 @@ void KDeclarative::setupBindings()
     /*Create a context object for the root qml context.
       in this way we can register global functions, in this case the i18n() family*/
     if (!d->contextObj) {
-        d->contextObj = new RootContext(d->declarativeEngine.data());
+        d->contextObj = new KLocalizedContext(d->declarativeEngine.data());
     }
 
     //If the engine is in a qmlObject take the qmlObject rootContext instead of the engine one.
@@ -95,7 +94,7 @@ void KDeclarative::setupBindings()
     }
 
     if (!d->translationDomain.isNull()) {
-        d->contextObj->setProperty("translationDomain", d->translationDomain);
+        d->contextObj->setTranslationDomain(d->translationDomain);
     }
 
     /* Tell the engine to search for platform-specific imports first
@@ -124,7 +123,7 @@ void KDeclarative::setTranslationDomain(const QString &translationDomain)
 {
     d->translationDomain = translationDomain;
     if (d->contextObj) {
-        d->contextObj->setProperty("translationDomain", d->translationDomain);
+        d->contextObj->setTranslationDomain(d->translationDomain);
     }
 }
 

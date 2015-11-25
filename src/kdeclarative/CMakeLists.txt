@@ -4,7 +4,6 @@ set(kdeclarative_SRCS
   qmlobject.cpp
   qmlobjectsharedengine.cpp
   kdeclarative.cpp
-  private/rootcontext.cpp
   private/kiconprovider.cpp
   private/kioaccessmanagerfactory.cpp
   private/qmlobject_p.h
