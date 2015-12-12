@@ -28,6 +28,6 @@ install(FILES ${CalendarEvents_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCL
 
 install (FILES
         calendareventsplugin.h
-        calendarevents_export.h
+	${CMAKE_CURRENT_BINARY_DIR}/calendarevents_export.h
         DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KDeclarative/calendarevents COMPONENT Devel
 )
