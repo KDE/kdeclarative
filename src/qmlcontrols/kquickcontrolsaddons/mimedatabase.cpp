@@ -30,6 +30,7 @@ static QJsonObject mimetypeToJsonObject(const QMimeType& type)
     QJsonObject ret;
     ret["name"] = type.name();
     ret["iconName"] = type.iconName();
+    ret["comment"] = type.comment();
     return ret;
 }
 
