@@ -86,6 +86,13 @@ class DeclarativeDragArea : public QQuickItem
      */
     Q_PROPERTY(QVariant delegateImage READ delegateImage WRITE setDelegateImage NOTIFY delegateImageChanged)
 
+    /**
+     * Whether a drag currently originates from this drag area.
+     *
+     * @since 5.19
+     */
+    Q_PROPERTY(bool dragActive READ dragActive NOTIFY dragActiveChanged)
+
 public:
     DeclarativeDragArea(QQuickItem *parent=0);
     ~DeclarativeDragArea();
@@ -100,6 +107,8 @@ public:
     QQuickItem* source() const;
     void setSource(QQuickItem* source);
     void resetSource();
+
+    bool dragActive() const;
 
     bool isEnabled() const;
     void setEnabled(bool enabled);
@@ -120,6 +129,7 @@ public:
 Q_SIGNALS:
     void dragStarted();
     void delegateChanged();
+    void dragActiveChanged();
     void sourceChanged();
     void targetChanged();
     void dataChanged();
@@ -142,6 +152,7 @@ private:
     QQuickItem* m_target;
     bool m_enabled;
     bool m_draggingJustStarted;
+    bool m_dragActive;
     Qt::DropActions m_supportedActions;
     Qt::DropAction m_defaultAction;
     DeclarativeMimeData* const m_data;

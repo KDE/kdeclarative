@@ -47,6 +47,7 @@ DeclarativeDragArea::DeclarativeDragArea(QQuickItem *parent)
     m_target(0),
     m_enabled(true),
     m_draggingJustStarted(false),
+    m_dragActive(false),
     m_supportedActions(Qt::MoveAction),
     m_defaultAction(Qt::MoveAction),
     m_data(new DeclarativeMimeData())    // m_data is owned by us, and we shouldn't pass it to Qt directly as it will automatically delete it after the drag and drop.
@@ -108,6 +109,11 @@ void DeclarativeDragArea::setSource(QQuickItem* source)
 void DeclarativeDragArea::resetSource()
 {
     setSource(0);
+}
+
+bool DeclarativeDragArea::dragActive() const
+{
+    return m_dragActive;
 }
 
 // target
@@ -304,11 +310,17 @@ void DeclarativeDragArea::mouseMoveEvent(QMouseEvent *event)
         //drag->setHotSpot(QPoint(drag->pixmap().width()/2, drag->pixmap().height()/2)); // TODO: Make a property for that
         //setCursor(Qt::OpenHandCursor);    //TODO? Make a property for the cursor
 
+        m_dragActive = true;
+        emit dragActiveChanged();
         emit dragStarted();
 
         Qt::DropAction action = drag->exec(m_supportedActions, m_defaultAction);
         setKeepMouseGrab(false);
+
+        m_dragActive = false;
+        emit dragActiveChanged();
         emit drop(action);
+
         ungrabMouse();
     }
 }
