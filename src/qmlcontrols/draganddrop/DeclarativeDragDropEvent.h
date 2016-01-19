@@ -108,6 +108,7 @@ public:
 
 public Q_SLOTS:
     void accept(int action);
+    void ignore();
 
 private:
     int m_x;

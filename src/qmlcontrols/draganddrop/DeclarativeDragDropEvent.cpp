@@ -55,6 +55,11 @@ void DeclarativeDragDropEvent::accept(int action)
     m_event->accept();
 }
 
+void DeclarativeDragDropEvent::ignore()
+{
+    m_event->ignore();
+}
+
 DeclarativeMimeData* DeclarativeDragDropEvent::mimeData()
 {
     if (!m_data && m_event) {

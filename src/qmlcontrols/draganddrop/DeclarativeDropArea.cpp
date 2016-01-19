@@ -70,7 +70,7 @@ void DeclarativeDropArea::dragEnterEvent(QDragEnterEvent *event)
     m_oldDragMovePos = event->pos();
 
     emit dragEnter(&dde);
-    setContainsDrag(true);
+    setContainsDrag(event->isAccepted());
 }
 
 void DeclarativeDropArea::dragLeaveEvent(QDragLeaveEvent *event)
