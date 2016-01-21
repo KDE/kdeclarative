@@ -26,9 +26,11 @@
 
 #include <QQuickItem>
 #include <QImage>
+#include <QSharedPointer>
 
 class QQmlComponent;
 class DeclarativeMimeData;
+class QQuickItemGrabResult;
 
 class DeclarativeDragArea : public QQuickItem
 {
@@ -147,9 +149,12 @@ protected:
     bool childMouseEventFilter(QQuickItem *item, QEvent *event) Q_DECL_OVERRIDE;
 
 private:
+    void startDrag(const QImage &image);
+
     QQuickItem* m_delegate;
     QQuickItem* m_source;
     QQuickItem* m_target;
+    QSharedPointer<QQuickItemGrabResult> m_grabResult;
     bool m_enabled;
     bool m_draggingJustStarted;
     bool m_dragActive;
