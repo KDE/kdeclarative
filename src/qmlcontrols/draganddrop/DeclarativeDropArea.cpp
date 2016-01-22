@@ -63,14 +63,18 @@ void DeclarativeDropArea::dragEnterEvent(QDragEnterEvent *event)
     DeclarativeDragDropEvent dde(event, this);
     event->accept();
 
+    emit dragEnter(&dde);
+
+    if (!event->isAccepted()) {
+        return;
+    }
+
     if (m_preventStealing) {
         temporaryInhibitParent(true);
     }
 
     m_oldDragMovePos = event->pos();
-
-    emit dragEnter(&dde);
-    setContainsDrag(event->isAccepted());
+    setContainsDrag(true);
 }
 
 void DeclarativeDropArea::dragLeaveEvent(QDragLeaveEvent *event)
