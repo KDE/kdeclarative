@@ -16,7 +16,7 @@ set(KF5_DEP_VERSION "5.18.0") # handled by release scripts
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} NO_MODULE REQUIRED Qml Quick Gui)
 include(KDEInstallDirs)
-include(KDEFrameworkCompilerSettings)
+include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 
 find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
