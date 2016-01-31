@@ -30,7 +30,7 @@ class QWindow;
  *
  * Example usage:
  * @code
- * import org.kde.kwindowsystem
+ * import org.kde.kwindowsystem 1.0
  *
  * KWindowSystem {
  *     id: kwindowsystem
