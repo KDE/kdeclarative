@@ -70,7 +70,7 @@ class KWindowSystemProxy : public QObject
     /**
      * @brief Whether "show desktop" is currently active
      */
-    Q_PROPERTY(bool showingDesktop READ showingDesktop NOTIFY showingDesktopChanged)
+    Q_PROPERTY(bool showingDesktop READ showingDesktop WRITE setShowingDesktop NOTIFY showingDesktopChanged)
     /**
      * @brief Whether desktop compositing is active
      *
@@ -87,7 +87,10 @@ public:
 
     QString currentDesktopName() const;
     int numberOfDesktops() const;
+
     bool showingDesktop() const;
+    void setShowingDesktop(bool showingDesktop);
+
     bool compositingActive() const;
 
     /**

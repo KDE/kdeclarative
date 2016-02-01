@@ -93,6 +93,11 @@ bool KWindowSystemProxy::showingDesktop() const
     return KWindowSystem::showingDesktop();
 }
 
+void KWindowSystemProxy::setShowingDesktop(bool showingDesktop)
+{
+    KWindowSystem::setShowingDesktop(showingDesktop);
+}
+
 bool KWindowSystemProxy::compositingActive() const
 {
     return KWindowSystem::compositingActive();
