@@ -6,20 +6,15 @@ add_library(KF5QuickAddons
 generate_export_header(KF5QuickAddons EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/quickaddons_export.h BASE_NAME QuickAddons)
 add_library(KF5::QuickAddons ALIAS KF5QuickAddons)
 
-# Apps must include <QuickAddons/File> or <quickaddons/file.h>
+# Apps must include <KQuickAddons/File> or <kquickaddons/file.h>
 target_include_directories(KF5QuickAddons INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KDeclarative>")
 
 target_link_libraries(KF5QuickAddons
   PUBLIC
-    Qt5::Qml
-    KF5::CoreAddons
+    Qt5::Quick
   PRIVATE
-    Qt5::Quick  #QQuickImageProvider
-    KF5::ConfigCore # KCoreConfigSkeleton, in ConfigPropertyMap
-    KF5::I18n       #i18n bindings
-    KF5::KIOWidgets     #KIO::AccessManager
-    KF5::IconThemes #KIconProvider
-    KF5::Declarative #QmlObject
+    KF5::I18n
+    KF5::Declarative
 )
 
 set_target_properties(KF5QuickAddons

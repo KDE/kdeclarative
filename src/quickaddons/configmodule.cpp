@@ -26,7 +26,6 @@
 
 #include "configmodule.h"
 
-#include <QLayout>
 #include <QTimer>
 #include <QDebug>
 #include <QUrl>

@@ -1,6 +1,6 @@
 @PACKAGE_INIT@
 
-find_dependency(Qt5Qml "@REQUIRED_QT_VERSION@")
+find_dependency(Qt5Quick "@REQUIRED_QT_VERSION@")
 find_dependency(KF5Config "@KF5_DEP_VERSION@")
 find_dependency(KF5Package "@KF5_DEP_VERSION@")
 
