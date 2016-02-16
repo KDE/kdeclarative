@@ -113,9 +113,7 @@ void QmlObjectPrivate::errorPrint(QQmlComponent *component)
 void QmlObjectPrivate::execute(const QUrl &source)
 {
     if (source.isEmpty()) {
-#ifndef NDEBUG
-        qDebug() << "File name empty!";
-#endif
+        qWarning() << "File name empty!";
         return;
     }
 
@@ -309,6 +307,13 @@ void QmlObject::completeInitialization(const QVariantHash &initialProperties)
     if (d->incubator.object()) {
         return;
     }
+
+    if (!d->component) {
+        qWarning() << "No component for" << source();
+        return;
+    }
+
+
     if (d->component->status() != QQmlComponent::Ready || d->component->isError()) {
         d->errorPrint(d->component);
         return;
