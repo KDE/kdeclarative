@@ -292,7 +292,6 @@ void DeclarativeDragArea::startDrag(const QImage &image)
 
     QDrag *drag = new QDrag(parent());
     DeclarativeMimeData *dataCopy = new DeclarativeMimeData(m_data); //Qt will take ownership of this copy and delete it.
-    dataCopy->setText(objectName());
     drag->setMimeData(dataCopy);
 
     const qreal devicePixelRatio = window() ? window()->devicePixelRatio() : 1;
