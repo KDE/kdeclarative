@@ -888,7 +888,7 @@ void Plotter::normalizeData()
 
         qreal adjust;
         //this should never happen, remove?
-        if (qFuzzyCompare(adjustedMax - adjustedMin, 0)) {
+        if (qFuzzyCompare(adjustedMax - adjustedMin, std::numeric_limits<qreal>::min())) {
             adjust = 1;
         } else {
             adjust = (height() / (adjustedMax - adjustedMin));
