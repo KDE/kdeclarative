@@ -714,6 +714,10 @@ void Plotter::render()
 QSGNode *Plotter::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *updatePaintNodeData)
 {
     Q_UNUSED(updatePaintNodeData)
+    if (!window()->openglContext()) {
+        delete oldNode;
+        return Q_NULLPTR;
+    }
 
     QSGSimpleTextureNode *n = static_cast<QSGSimpleTextureNode *>(oldNode);
 
