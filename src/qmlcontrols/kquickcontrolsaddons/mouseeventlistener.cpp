@@ -331,6 +331,10 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
         }
         break;
     }
+    case QEvent::UngrabMouse: {
+        m_lastEvent = event;
+        break;
+    }
     case QEvent::Wheel: {
         m_lastEvent = event;
         QWheelEvent *we = static_cast<QWheelEvent *>(event);
