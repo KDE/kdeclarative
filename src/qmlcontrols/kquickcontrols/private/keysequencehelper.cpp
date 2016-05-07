@@ -158,6 +158,7 @@ KeySequenceHelper::KeySequenceHelper(QObject* parent):
     QObject(),
     d(new KeySequenceHelperPrivate(this))
 {
+    Q_UNUSED(parent);
     connect(&d->modifierlessTimeout, SIGNAL(timeout()), this, SLOT(doneRecording()));
     d->updateShortcutDisplay();
 }
