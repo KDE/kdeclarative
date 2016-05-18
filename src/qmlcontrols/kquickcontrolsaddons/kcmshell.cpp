@@ -21,6 +21,8 @@
 
 #include <QProcess>
 
+#include <KAuthorized>
+
 KCMShell::KCMShell(QObject *parent) : QObject(parent)
 {
 
@@ -34,4 +36,9 @@ KCMShell::~KCMShell()
 void KCMShell::open(const QStringList &names) const
 {
     QProcess::startDetached(QStringLiteral("kcmshell5"), names);
+}
+
+QStringList KCMShell::authorize(const QStringList &menuIds) const
+{
+    return KAuthorized::authorizeControlModules(menuIds);
 }
