@@ -41,7 +41,8 @@ public:
     enum State {
         DefaultState, ///The default state. 
         ActiveState, ///Icon is active. 
-        DisabledState ///Icon is disabled.
+        DisabledState, ///Icon is disabled.
+        SelectedState ///Icon is selected
     };
 
     QIconItem(QQuickItem *parent=0);

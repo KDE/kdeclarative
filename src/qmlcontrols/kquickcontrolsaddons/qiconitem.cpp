@@ -143,6 +143,9 @@ QSGNode* QIconItem::updatePaintNode(QSGNode* node, QQuickItem::UpdatePaintNodeDa
             case DisabledState:
                 mode = QIcon::Disabled;
                 break;
+            case SelectedState:
+                mode = QIcon::Selected;
+                break;
         }
 
         QImage img;
