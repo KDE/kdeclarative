@@ -12,3 +12,7 @@ libraries:
  - qmake: KDeclarative
    cmake: "KF5::Declarative"
 cmakename: KF5Declarative
+
+public_lib: true
+group: Frameworks
+subgroup: Tier 3
