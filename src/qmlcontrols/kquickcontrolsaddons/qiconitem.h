@@ -27,8 +27,8 @@ class QIconItem : public QQuickItem
 {
     Q_OBJECT
 
-    Q_PROPERTY(QVariant icon READ icon WRITE setIcon)
-    Q_PROPERTY(bool smooth READ smooth WRITE setSmooth)
+    Q_PROPERTY(QVariant icon READ icon WRITE setIcon NOTIFY iconChanged)
+    Q_PROPERTY(bool smooth READ smooth WRITE setSmooth NOTIFY smoothChanged)
     Q_PROPERTY(int implicitWidth READ implicitWidth CONSTANT)
     Q_PROPERTY(int implicitHeight READ implicitHeight CONSTANT)
     Q_PROPERTY(State state READ state WRITE setState NOTIFY stateChanged)
@@ -66,6 +66,8 @@ public:
     QSGNode* updatePaintNode(QSGNode* node, UpdatePaintNodeData* data) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
+    void iconChanged();
+    void smoothChanged();
     void stateChanged(State state);
 
 protected:
