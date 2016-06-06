@@ -1,0 +1,106 @@
+# translation of kdelibs4.po to Euskara/Basque (eu)
+# KDE: EUSKERA TRANSLATION
+# Copyright (C) 1999,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011, Free Software Foundation, Inc.
+#
+# Marcos <marcos@euskalgnu.org>, 2002,2003, 2004, 2005.
+# Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
+# marcos <marcos@euskalgnu.org>, 2006, 2007, 2008, 2009, 2010.
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2009.
+# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2010, 2011, 2012, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-05-08 07:20+0000\n"
+"PO-Revision-Date: 2014-03-02 19:49+0100\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
+"Language-Team: Basque <kde-i18n-doc@kde.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Marcos,Ion Gaztañaga,Iñigo Salvador Azurmendi"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "marcos@euskalgnu.org,igaztanaga@gmail.com,xalba@euskalnet.net"
+
+#: kpackagelauncherqml/main.cpp:43
+msgid "KPackage QML application shell"
+msgstr ""
+
+#: kpackagelauncherqml/main.cpp:51
+#, fuzzy
+#| msgid "defines the application font"
+msgid "The unique name of the application (mandatory)"
+msgstr "aplikazioaren letra-tipoa zehazten du"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:38
+#, fuzzy
+#| msgid ""
+#| "Click on the button, then enter the shortcut like you would in the "
+#| "program.\n"
+#| "Example for Ctrl+a: hold the Ctrl key and press a."
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"Klikatu botoia, ondoren sartu lasterbidea programa batekin egingo zenukeen "
+"moduan.\n"
+"Adibidez Ktrl+a: sakatuta mantendu Ktrl tekla eta sakatu a."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:276
+msgid "Reserved Shortcut"
+msgstr "Lasterbide erreserbatua"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:277
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"F12 tekla erreserbatuta dago Windows-en, beraz ezin da erabili lasterbide "
+"orokor gisa.\n"
+"Mesedez hautatu beste bat."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:333
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Aplikazioaren lasterbide estandarrekin gatazkan"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:334
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"'%1' tekla-konbinazioa \"%2\" ekintza estandarrekin erabiltzen da. Aplikazio "
+"askok erabiltzen dute tekla-konbinazio hau.\n"
+"Benetan erabili nahi duzu laster-tekla orokor gisa?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:339
+msgid "Reassign"
+msgstr "Lotu"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:379
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Egin tekla konbinazioa"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:386
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Bat ere ez"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:407
+msgid "The key you just pressed is not supported by Qt."
+msgstr "Qt-ek ez du onartzen sakatu duzun tekla."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:408
+msgid "Unsupported Key"
+msgstr "Tekla ez da onartzen"
