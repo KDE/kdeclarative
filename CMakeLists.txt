@@ -64,13 +64,16 @@ if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
     ki18n_install(po)
 endif()
 
-if (NOT WIN32)
 find_package(epoxy)
 set_package_properties(epoxy PROPERTIES DESCRIPTION "libepoxy"
                        URL "http://github.com/anholt/libepoxy"
-                       TYPE REQUIRED
+                       TYPE OPTIONAL
                        PURPOSE "OpenGL dispatch library"
                       )
+
+set(HAVE_EPOXY 0)
+if(epoxy_FOUND)
+    set(HAVE_EPOXY 1)
 endif()
 
 add_subdirectory(autotests)

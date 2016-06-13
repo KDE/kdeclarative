@@ -20,6 +20,7 @@
  */
 
 #include "kquickcontrolsaddonsplugin.h"
+#include "config-kquickcontrolsaddons.h"
 
 #include <QtQml>
 #include <QDebug>
@@ -35,7 +36,7 @@
 #include "icondialog.h"
 #include "eventgenerator.h"
 
-#ifndef Q_OS_WIN
+#if HAVE_EPOXY
 #include "plotter.h"
 #endif
 
@@ -62,8 +63,7 @@ void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
     qmlRegisterType<IconDialog>(uri, 2, 0, "IconDialog");
     qmlRegisterType<EventGenerator>(uri, 2, 0, "EventGenerator");
 
-//TODO: make this work under Windows
-#ifndef Q_OS_WIN
+#if HAVE_EPOXY
     qmlRegisterType<PlotData>(uri, 2, 0, "PlotData");
     qmlRegisterType<Plotter>(uri, 2, 0, "Plotter");
 #endif

@@ -1,5 +1,7 @@
 project(kquickcontrolsaddons)
 
+configure_file(config-kquickcontrolsaddons.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kquickcontrolsaddons.h)
+
 set(kquickcontrolsaddons_SRCS
     kquickcontrolsaddonsplugin.cpp
     qpixmapitem.cpp
@@ -14,7 +16,7 @@ set(kquickcontrolsaddons_SRCS
     icondialog.cpp
 )
 
-if (NOT WIN32)
+if (HAVE_EPOXY)
     set(kquickcontrolsaddons_SRCS ${kquickcontrolsaddons_SRCS} plotter.cpp)
     set(KQUICKCONTROLSADDONS_EXTRA_LIBS ${epoxy_LIBRARY})
     include_directories(${epoxy_INCLUDE_DIR})
