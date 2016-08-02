@@ -89,6 +89,7 @@ void ConfigPropertyMapPrivate::loadConfig()
 
     foreach (KConfigSkeletonItem *item, config.data()->items()) {
         q->insert(item->key(), item->property());
+        emit q->valueChanged(item->key(), item->property());
     }
 }
 
