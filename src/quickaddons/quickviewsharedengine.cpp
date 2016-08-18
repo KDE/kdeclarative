@@ -156,6 +156,16 @@ QuickViewSharedEngine::~QuickViewSharedEngine()
 }
 
 
+void QuickViewSharedEngine::setTranslationDomain(const QString &translationDomain)
+{
+    d->qmlObject->setTranslationDomain(translationDomain);
+}
+
+QString QuickViewSharedEngine::translationDomain() const
+{
+    return d->qmlObject->translationDomain();
+}
+
 QQmlEngine *QuickViewSharedEngine::engine() const
 {
     return d->qmlObject->engine();
