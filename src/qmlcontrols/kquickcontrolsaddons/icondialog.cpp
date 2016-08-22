@@ -35,7 +35,7 @@ IconDialog::IconDialog(QObject *parent)
     , m_visible(false)
 {
     if (qobject_cast<QApplication *>(QCoreApplication::instance())) {
-        m_dialog = new KIconDialog();
+        QScopedPointer<KIconDialog> m_dialog(new KIconDialog());
         connect(m_dialog.data(), &KIconDialog::newIconName, this, [this](const QString &newIconName) {
                 if (m_iconName != newIconName) {
                 m_iconName = newIconName;
