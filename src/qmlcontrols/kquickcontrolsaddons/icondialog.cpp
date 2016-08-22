@@ -22,30 +22,36 @@
 #include <QQuickItem>
 #include <QQuickWindow>
 
+#include <QApplication>
 #include <KIconDialog>
 #include <KIconLoader>
 
 IconDialog::IconDialog(QObject *parent)
     : QObject(parent)
-    , m_dialog(new KIconDialog())
+    , m_dialog(Q_NULLPTR)
     , m_iconSize(0)
     , m_user(false)
     , m_modality(Qt::WindowModal)
     , m_visible(false)
 {
-    connect(m_dialog.data(), &KIconDialog::newIconName, this, [this](const QString &newIconName) {
-        if (m_iconName != newIconName) {
-            m_iconName = newIconName;
-            emit iconNameChanged(newIconName);
-        }
-    });
+    if (qobject_cast<QApplication *>(QCoreApplication::instance())) {
+        m_dialog = new KIconDialog();
+        connect(m_dialog.data(), &KIconDialog::newIconName, this, [this](const QString &newIconName) {
+                if (m_iconName != newIconName) {
+                m_iconName = newIconName;
+                emit iconNameChanged(newIconName);
+                }
+        });
 
-    m_dialog->installEventFilter(this);
+        m_dialog->installEventFilter(this);
+    }
 }
 
 IconDialog::~IconDialog()
 {
-    m_dialog->close();
+    if (m_dialog) {
+        m_dialog->close();
+    }
 }
 
 QString IconDialog::iconName() const
