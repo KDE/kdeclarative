@@ -92,6 +92,9 @@ int main(int argc, char **argv)
     for (auto author : data.authors()) {
         aboutData.addAuthor(author.name(), author.task(), author.emailAddress(), author.webAddress(), author.ocsUsername());
     }
+    // We assume that desktop file in applicaitons dir is named similar as
+    // the pluginId, this is required to get icons working on wayland for example
+    aboutData.setDesktopFileName(data.pluginId());
 
     KAboutData::setApplicationData(aboutData);
 
