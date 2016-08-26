@@ -1,8 +1,13 @@
-add_library(KF5QuickAddons
+set(KF5QuickAddons_LIB_SRCS
             imagetexturescache.cpp
             managedtexturenode.cpp
             quickviewsharedengine.cpp
-            configmodule.cpp)
+            configmodule.cpp
+            qtquicksettings.cpp)
+kconfig_add_kcfg_files(KF5QuickAddons_LIB_SRCS renderersettings.kcfgc)
+
+add_library(KF5QuickAddons ${KF5QuickAddons_LIB_SRCS})
+
 generate_export_header(KF5QuickAddons EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/quickaddons_export.h BASE_NAME QuickAddons)
 add_library(KF5::QuickAddons ALIAS KF5QuickAddons)
 
@@ -15,6 +20,7 @@ target_link_libraries(KF5QuickAddons
   PRIVATE
     KF5::I18n
     KF5::Declarative
+    KF5::ConfigGui
 )
 
 set_target_properties(KF5QuickAddons
@@ -29,7 +35,6 @@ ecm_generate_headers(QuickAddons_CamelCase_HEADERS
   HEADER_NAMES
   ImageTexturesCache
   ManagedTextureNode
-
   PREFIX QuickAddons
   REQUIRED_HEADERS QuickAddons_HEADERS
 )
@@ -40,6 +45,7 @@ ecm_generate_headers(KQuickAddons_CamelCase_HEADERS
   HEADER_NAMES
   ImageTexturesCache
   ManagedTextureNode
+  QtQuickSettings
   ConfigModule
   QuickViewSharedEngine
 
