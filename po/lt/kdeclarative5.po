@@ -1,0 +1,101 @@
+# translation of kdelibs4.po to Lithuanian
+# Ričardas Čepas <rch@richard.eu.org>, 2002-2004.
+# Donatas Glodenis <dgvirtual@akl.lt>, 2004-2009.
+# Gintautas Miselis <gintautas@miselis.lt>, 2008.
+# Andrius Štikonas <andrius@stikonas.eu>, 2009.
+# Tomas Straupis <tomasstraupis@gmail.com>, 2011.
+# Remigijus Jarmalavičius <remigijus@jarmalavicius.lt>, 2011.
+# Liudas Ališauskas <liudas.alisauskas@gmail.com>, 2011, 2012, 2013, 2014.
+# Liudas Alisauskas <liudas@akmc.lt>, 2013, 2015.
+# Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-05-08 07:20+0000\n"
+"PO-Revision-Date: 2015-12-30 18:08+0200\n"
+"Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
+"Language-Team: lt <kde-i18n-lt@kde.org>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: kpackagelauncherqml/main.cpp:43
+msgid "KPackage QML application shell"
+msgstr ""
+
+#: kpackagelauncherqml/main.cpp:51
+msgid "The unique name of the application (mandatory)"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:38
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"Spauskite mygtuką, tada įveskite klavišų derinį taip, tarsi būtumėte "
+"programoje.\n"
+"Pavyzdžiui kombinacijai Vald+A: laikykite Vald ir spauskite A."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:276
+msgid "Reserved Shortcut"
+msgstr "Rezervuotas klavišų derinys"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:277
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"F12 klavišas yra rezervuotas Windows sistemoje, taigi negali būti naudojamas "
+"trumpuoju klavišų deriniu.\n"
+"Prašome pasirinkti kitą."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:333
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Konfliktas su standartiniu programos iššaukimo klavišų deriniu"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:334
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"Klavišų derinys „%1“ jau priskirtas standartiniam veiksmui „%2“, kurį "
+"naudoja kai kurios programos.\n"
+"Ar tikrai norite jį naudoti ir kaip globalųjį spartųjį klavišų derinį?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:339
+msgid "Reassign"
+msgstr "Priskirti iš naujo"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:379
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Įvestis"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:386
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Jokio"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:407
+msgid "The key you just pressed is not supported by Qt."
+msgstr "Klavišas, kurį nuspaudėte, nepalaikomas Qt sistemoje."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:408
+msgid "Unsupported Key"
+msgstr "Nepalaikomas klavišas"
