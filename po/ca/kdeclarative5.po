@@ -1,0 +1,126 @@
+# Translation of kdeclarative5.po to Catalan
+# Copyright (C) 2014-2016 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Sebastià Pla i Sanz <sps@sastia.com>, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2003, 2006, 2011, 2012, 2013, 2014.
+# Albert Astals Cid <aacid@kde.org>, 2004, 2005, 2007.
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016.
+# Robert Millan <rmh@aybabtu.com>, 2009.
+# Orestes Mas <orestes@tsc.upc.edu>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeclarative5\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-05-08 07:20+0000\n"
+"PO-Revision-Date: 2016-06-07 20:30+0200\n"
+"Last-Translator: Josep Ma. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sebastià Pla i Sanz"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sps@sastia.com"
+
+#: kpackagelauncherqml/main.cpp:43
+msgid "KPackage QML application shell"
+msgstr "Intèrpret d'aplicació QML del KPackage"
+
+#: kpackagelauncherqml/main.cpp:51
+msgid "The unique name of the application (mandatory)"
+msgstr "El nom únic de l'aplicació (obligatori)"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:38
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"Cliqueu en el botó, llavors introduïu la drecera com ho faríeu en el "
+"programa.\n"
+"Exemple per Ctrl+A: premeu la tecla Ctrl mentre premeu la «A»."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:276
+msgid "Reserved Shortcut"
+msgstr "Drecera reservada"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:277
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"La tecla F12 està reservada en el Windows, no es pot utilitzar com a drecera "
+"global.\n"
+"Si us plau, seleccioneu-ne una altra."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:333
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Conflicte amb la drecera estàndard de l'aplicació"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:334
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"La combinació de tecla «%1» ja s'ha assignat a l'acció estàndard «%2» que "
+"usen algunes aplicacions.\n"
+"Esteu segur que també voleu usar-la com a drecera global?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:339
+msgid "Reassign"
+msgstr "Reassigna"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:379
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Entrada"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:386
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Cap"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:407
+msgid "The key you just pressed is not supported by Qt."
+msgstr "La tecla que heu premut no està admesa a les Qt."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:408
+msgid "Unsupported Key"
+msgstr "Tecla no admesa"
+
+#~ msgid "Undo"
+#~ msgstr "Desfés"
+
+#~ msgid "Redo"
+#~ msgstr "Refés"
+
+#~ msgid "Cut"
+#~ msgstr "Retalla"
+
+#~ msgid "Copy"
+#~ msgstr "Copia"
+
+#~ msgid "Paste"
+#~ msgstr "Enganxa"
+
+#~ msgid "Delete"
+#~ msgstr "Suprimeix"
+
+#~ msgid "Clear"
+#~ msgstr "Neteja"
+
+#~ msgid "Select All"
+#~ msgstr "Selecciona-ho tot"
