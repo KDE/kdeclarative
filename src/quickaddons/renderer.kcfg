@@ -9,7 +9,7 @@
             <default></default>
         </entry>
         <entry name="SceneGraphBackend" type="String">
-            <default>false</default>
+            <default></default>
         </entry>
         <entry name="ForceGlCoreProfile" type="Bool">
             <default>false</default>
