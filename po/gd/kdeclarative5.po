@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# GunChleoc <fios@foramnagaidhlig.net>, 2014, 2015, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeclarative5\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-05-08 07:20+0000\n"
+"PO-Revision-Date: 2016-04-30 12:50+0100\n"
+"Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
+"Language-Team: Fòram na Gàidhlig\n"
+"Language: gd\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
+"(n > 2 && n < 20) ? 2 : 3;\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: kde\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "GunChleoc"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "fios@foramnagaidhlig.net"
+
+#: kpackagelauncherqml/main.cpp:43
+msgid "KPackage QML application shell"
+msgstr "Shell aplacaid KPackage QML"
+
+#: kpackagelauncherqml/main.cpp:51
+msgid "The unique name of the application (mandatory)"
+msgstr "Ainm sònraichte na h-aplacaid (riatanach)"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:38
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"Briog air a' phutan agus cuir a-steach an ath-ghoirid an uairsin mar a "
+"dhèanadh tu sa phrògram.\n"
+"Ball-eisimpleir airson \"Ctrl+A\": cum an iuchair \"Ctrl\" sìos agus brùth "
+"air \"A\"."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:276
+msgid "Reserved Shortcut"
+msgstr "Ath-ghoirid ghlèidhte"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:277
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"Tha an iuchair F12 glèidhte air Windows agus cha ghabh a cleachdadh 'na h-"
+"ath-ghoirid uile-choitcheann ri linn seo.\n"
+"Feuch an tagh thu tè eile."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:333
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Còmhstri le ath-ghoirid thùsail na h-aplacaid"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:334
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"Thèid na co-iuchraichean \"%1\" a chleachdadh cuideachd airson a' ghnìomha "
+"thùsail \"%2\" a chleachdas cuid a dh'aplacaidean.\n"
+"A bheil thu cinnteach gu bheil thu airson a chleachdadh na ath-ghoirid uile-"
+"choitcheann cuideachd?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:339
+msgid "Reassign"
+msgstr "Sònraich às ùr"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:379
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Ion-chur"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:386
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Chan eil gin"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:407
+msgid "The key you just pressed is not supported by Qt."
+msgstr "Cha chuir Qt taic ris an iuchair a tha thu air a bhrùthadh."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:408
+msgid "Unsupported Key"
+msgstr "Iuchair ris nach eil taic"
