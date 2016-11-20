@@ -4,6 +4,7 @@ tier: 3
 type: functional
 platforms:
     - name: Linux
+    - name: FreeBSD
     - name: Windows
     - name: MacOSX
       note: The supported remote Urls depends from what runtime kio slaves plugins are installed
