@@ -18,3 +18,7 @@ endif()
 if (KF5WindowSystem_FOUND)
     add_subdirectory(kwindowsystemplugin)
 endif()
+
+if (KF5Config_FOUND)
+    add_subdirectory(kconfig)
+endif()
