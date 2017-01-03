@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(KDeclarative)
+set(KF5_VERSION "5.30.0") # handled by release scripts
+set(KF5_DEP_VERSION "5.29.0") # handled by release scripts
+project(KDeclarative VERSION ${KF5_VERSION})
 
 # Dependencies
 include(FeatureSummary)
@@ -11,8 +13,6 @@ feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKA
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 set(REQUIRED_QT_VERSION 5.5.0)
-set(KF5_VERSION "5.30.0") # handled by release scripts
-set(KF5_DEP_VERSION "5.29.0") # handled by release scripts
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} NO_MODULE REQUIRED Qml Quick Gui)
 include(KDEInstallDirs)
@@ -52,7 +52,7 @@ option(BUILD_EXAMPLES "Build and install examples." OFF)
 
 # ECM setup
 ecm_setup_version(
-  ${KF5_VERSION}
+  PROJECT
   VARIABLE_PREFIX KDECLARATIVE
   VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kdeclarative_version.h"
   PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5DeclarativeConfigVersion.cmake"
