@@ -46,7 +46,7 @@ remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FR
 include(GenerateExportHeader)
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
-include(ECMPackageConfigHelpers)
+include(CMakePackageConfigHelpers)
 
 option(BUILD_EXAMPLES "Build and install examples." OFF)
 
@@ -85,7 +85,7 @@ endif()
 # Create a Config.cmake and a ConfigVersion.cmake file and install them
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Declarative")
 
-ecm_configure_package_config_file(
+configure_package_config_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/KF5DeclarativeConfig.cmake.in"
   "${CMAKE_CURRENT_BINARY_DIR}/KF5DeclarativeConfig.cmake"
   INSTALL_DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
