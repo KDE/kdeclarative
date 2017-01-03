@@ -92,7 +92,7 @@ public:
     void setResizeMode(ResizeMode);
 
 protected:
-    void resizeEvent(QResizeEvent *e);
+    void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
 
 public Q_SLOTS:
     void setSource(const QUrl &url);

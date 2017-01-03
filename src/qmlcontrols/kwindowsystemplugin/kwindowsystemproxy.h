@@ -159,7 +159,7 @@ Q_SIGNALS:
     void compositingActiveChanged(bool compositingActive);
 
 protected:
-    void connectNotify(const QMetaMethod &signal);
+    void connectNotify(const QMetaMethod &signal) Q_DECL_OVERRIDE;
 
 private:
     bool m_initialized;
