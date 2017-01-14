@@ -45,13 +45,13 @@ class QUICKADDONS_EXPORT QuickViewSharedEngine : public QQuickWindow
     Q_PROPERTY(ResizeMode resizeMode READ resizeMode WRITE setResizeMode NOTIFY resizeModeChanged)
     Q_PROPERTY(QQmlComponent::Status status READ status NOTIFY statusChanged)
     Q_PROPERTY(QUrl source READ source WRITE setSource NOTIFY sourceChanged)
-    Q_ENUMS(ResizeMode)
 
 public:
     enum ResizeMode {
         SizeViewToRootObject,
         SizeRootObjectToView
     };
+    Q_ENUM(ResizeMode)
 
     explicit QuickViewSharedEngine(QWindow *parent = 0);
     ~QuickViewSharedEngine();

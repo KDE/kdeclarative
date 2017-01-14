@@ -136,7 +136,6 @@ class QUICKADDONS_EXPORT ConfigModule : public QObject
 {
     Q_OBJECT
 
-    Q_FLAGS(Buttons)
     Q_PROPERTY(QQuickItem *mainUi READ mainUi CONSTANT)
     Q_PROPERTY(KQuickAddons::ConfigModule::Buttons buttons READ buttons WRITE setButtons NOTIFY buttonsChanged)
     Q_PROPERTY(bool needsSave READ needsSave WRITE setNeedsSave NOTIFY needsSaveChanged)
@@ -160,8 +159,9 @@ public:
         Default = 2,
         Apply = 4
     };
-    Q_ENUMS(Button)
+    Q_ENUM(Button)
     Q_DECLARE_FLAGS(Buttons, Button)
+    Q_FLAG(Buttons)
 
     /**
      * Base class for all KControlModules.

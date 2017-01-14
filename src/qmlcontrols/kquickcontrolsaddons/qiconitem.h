@@ -34,8 +34,6 @@ class QIconItem : public QQuickItem
     Q_PROPERTY(State state READ state WRITE setState NOTIFY stateChanged)
     Q_PROPERTY(bool enabled READ enabled WRITE setEnabled NOTIFY stateChanged)
 
-    Q_ENUMS(State)
-
 public:
 
     enum State {
@@ -44,6 +42,7 @@ public:
         DisabledState, ///Icon is disabled.
         SelectedState ///Icon is selected
     };
+    Q_ENUM(State)
 
     QIconItem(QQuickItem *parent=0);
     ~QIconItem();

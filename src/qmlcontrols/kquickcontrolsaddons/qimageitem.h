@@ -35,7 +35,6 @@ class QImageItem : public QQuickPaintedItem
     Q_PROPERTY(int paintedHeight READ paintedHeight NOTIFY paintedHeightChanged)
     Q_PROPERTY(FillMode fillMode READ fillMode WRITE setFillMode NOTIFY fillModeChanged)
     Q_PROPERTY(bool null READ isNull NOTIFY nullChanged)
-    Q_ENUMS(FillMode)
 
 public:
     enum FillMode {
@@ -46,6 +45,7 @@ public:
         TileVertically, // the image is stretched horizontally and tiled vertically
         TileHorizontally //the image is stretched vertically and tiled horizontally
     };
+    Q_ENUM(FillMode)
 
     QImageItem(QQuickItem *parent=0);
     ~QImageItem();
