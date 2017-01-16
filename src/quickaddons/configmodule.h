@@ -170,7 +170,7 @@ public:
      *       to any slot.
      * @param aboutData becomes owned by the ConfigModule
      */
-    explicit ConfigModule(const KAboutData *aboutData, QObject *parent = 0, const QVariantList &args = QVariantList());
+    explicit ConfigModule(const KAboutData *aboutData, QObject *parent = nullptr, const QVariantList &args = QVariantList());
 
     /**
      * @note do not emit changed signals here, since they are not yet connected
@@ -178,7 +178,7 @@ public:
      * @param metaData description for the plugin: it will generate a KAboutData from that
      * @since 5.11
      */
-    explicit ConfigModule(const KPluginMetaData &metaData, QObject *parent = 0, const QVariantList &args = QVariantList());
+    explicit ConfigModule(const KPluginMetaData &metaData, QObject *parent = nullptr, const QVariantList &args = QVariantList());
 
     /**
      * Base class for all KControlModules.
@@ -186,7 +186,7 @@ public:
      * @note do not emit changed signals here, since they are not yet connected
      *       to any slot.
      */
-    explicit ConfigModule(QObject *parent = 0, const QVariantList &args = QVariantList());
+    explicit ConfigModule(QObject *parent = nullptr, const QVariantList &args = QVariantList());
 
     /**
      * Destroys the module.

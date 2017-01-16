@@ -45,7 +45,7 @@ class DeclarativeDropArea : public QQuickItem
     Q_PROPERTY(bool containsDrag READ containsDrag NOTIFY containsDragChanged )
 
 public:
-    DeclarativeDropArea(QQuickItem *parent=0);
+    DeclarativeDropArea(QQuickItem *parent=nullptr);
     bool isEnabled() const;
     void setEnabled(bool enabled);
 

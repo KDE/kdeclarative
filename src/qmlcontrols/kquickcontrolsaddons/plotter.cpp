@@ -501,7 +501,7 @@ void Plotter::dataSet_clear(QQmlListProperty<PlotData> *list)
 
 QQmlListProperty<PlotData> Plotter::dataSets()
 {
-    return QQmlListProperty<PlotData>(this, 0, Plotter::dataSet_append, Plotter::dataSet_count, Plotter::dataSet_at, Plotter::dataSet_clear);
+    return QQmlListProperty<PlotData>(this, nullptr, Plotter::dataSet_append, Plotter::dataSet_count, Plotter::dataSet_at, Plotter::dataSet_clear);
 }
 
 
@@ -822,7 +822,7 @@ void Plotter::normalizeData()
     qreal adjustedMin = m_min;
     m_mutex.lock();
     if (m_stacked) {
-        PlotData *previousData = 0;
+        PlotData *previousData = nullptr;
         auto i = m_plotData.constEnd();
         do {
             --i;

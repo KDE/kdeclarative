@@ -45,7 +45,7 @@ class Clipboard : public QObject
     Q_PROPERTY(QStringList formats READ formats NOTIFY contentChanged)
 
     public:
-        explicit Clipboard(QObject* parent = 0);
+        explicit Clipboard(QObject* parent = nullptr);
 
         QClipboard::Mode mode() const;
         void setMode(QClipboard::Mode mode);

@@ -50,7 +50,7 @@ public:
      *
      * @param parent the parent of this object
      */
-    explicit QmlObjectSharedEngine(QObject *parent = 0);
+    explicit QmlObjectSharedEngine(QObject *parent = nullptr);
     ~QmlObjectSharedEngine();
 
 private:

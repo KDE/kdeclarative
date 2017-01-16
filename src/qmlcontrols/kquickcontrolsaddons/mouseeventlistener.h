@@ -163,7 +163,7 @@ class MouseEventListener : public QQuickItem
     Q_PROPERTY(bool pressed READ isPressed NOTIFY pressedChanged)
 
 public:
-    MouseEventListener(QQuickItem *parent=0);
+    MouseEventListener(QQuickItem *parent=nullptr);
     ~MouseEventListener();
 
     bool containsMouse() const;

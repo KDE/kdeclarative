@@ -44,7 +44,7 @@ class EventGenerator : public QObject
         };
         Q_ENUM(GrabEvent)
 
-        EventGenerator(QObject *parent = 0);
+        EventGenerator(QObject *parent = nullptr);
         ~EventGenerator();
 
         /**

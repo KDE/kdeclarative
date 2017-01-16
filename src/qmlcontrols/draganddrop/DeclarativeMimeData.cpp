@@ -31,7 +31,7 @@
 
 DeclarativeMimeData::DeclarativeMimeData()
     : QMimeData(),
-    m_source(0)
+    m_source(nullptr)
 {}
 
 /*!
@@ -49,7 +49,7 @@ DeclarativeMimeData::DeclarativeMimeData()
 */
 DeclarativeMimeData::DeclarativeMimeData(const QMimeData* copy)
     : QMimeData(),
-    m_source(0)
+    m_source(nullptr)
 {
     // Copy the standard MIME data
     foreach(QString format, copy->formats()) {

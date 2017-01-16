@@ -96,7 +96,7 @@ class DeclarativeDragArea : public QQuickItem
     Q_PROPERTY(bool dragActive READ dragActive NOTIFY dragActiveChanged)
 
 public:
-    DeclarativeDragArea(QQuickItem *parent=0);
+    DeclarativeDragArea(QQuickItem *parent=nullptr);
     ~DeclarativeDragArea();
 
     QQuickItem *delegate() const;

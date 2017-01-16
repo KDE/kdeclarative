@@ -28,7 +28,7 @@ class TranslationContext : public QObject
     Q_PROPERTY(QString domain READ domain WRITE setDomain NOTIFY domainChanged)
 
 public:
-    explicit TranslationContext(QObject* parent = 0);
+    explicit TranslationContext(QObject* parent = nullptr);
     virtual ~TranslationContext();
 
     QString domain() const;

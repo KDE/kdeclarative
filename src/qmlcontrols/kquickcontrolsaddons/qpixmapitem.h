@@ -47,7 +47,7 @@ public:
     };
     Q_ENUM(FillMode)
 
-    QPixmapItem(QQuickItem *parent=0);
+    QPixmapItem(QQuickItem *parent=nullptr);
     ~QPixmapItem();
 
     void setPixmap(const QPixmap &pixmap);

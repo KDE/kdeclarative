@@ -71,7 +71,7 @@ public:
     /**
     * Constructor.
     */
-    explicit KeySequenceHelper(QObject* parent = 0);
+    explicit KeySequenceHelper(QObject* parent = nullptr);
 
     /**
     * Destructs the widget.

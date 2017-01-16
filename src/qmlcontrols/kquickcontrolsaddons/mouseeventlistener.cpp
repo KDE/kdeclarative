@@ -32,8 +32,8 @@
 MouseEventListener::MouseEventListener(QQuickItem *parent)
     : QQuickItem(parent),
     m_pressed(false),
-    m_pressAndHoldEvent(0),
-    m_lastEvent(0),
+    m_pressAndHoldEvent(nullptr),
+    m_lastEvent(nullptr),
     m_containsMouse(false),
     m_acceptedButtons(Qt::LeftButton)
 {
@@ -132,7 +132,7 @@ void MouseEventListener::hoverMoveEvent(QHoverEvent * event)
         screenPos = w->mapToGlobal(event->pos());
     }
 
-    KDeclarativeMouseEvent dme(event->pos().x(), event->pos().y(), screenPos.x(), screenPos.y(), Qt::NoButton, Qt::NoButton, event->modifiers(), 0);
+    KDeclarativeMouseEvent dme(event->pos().x(), event->pos().y(), screenPos.x(), screenPos.y(), Qt::NoButton, Qt::NoButton, event->modifiers(), nullptr);
     emit positionChanged(&dme);
 }
 
@@ -223,7 +223,7 @@ void MouseEventListener::handlePressAndHold()
         emit pressAndHold(m_pressAndHoldEvent);
 
         delete m_pressAndHoldEvent;
-        m_pressAndHoldEvent = 0;
+        m_pressAndHoldEvent = nullptr;
     }
 }
 
@@ -277,7 +277,7 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
             screenPos = w->mapToGlobal(myPos.toPoint());
         }
 
-        KDeclarativeMouseEvent dme(myPos.x(), myPos.y(), screenPos.x(), screenPos.y(), Qt::NoButton, Qt::NoButton, he->modifiers(), 0);
+        KDeclarativeMouseEvent dme(myPos.x(), myPos.y(), screenPos.x(), screenPos.y(), Qt::NoButton, Qt::NoButton, he->modifiers(), nullptr);
         //qDebug() << "positionChanged..." << dme.x() << dme.y();
         emit positionChanged(&dme);
         break;
@@ -349,7 +349,7 @@ QScreen* MouseEventListener::screenForGlobalPos(const QPoint& globalPos)
             return screen;
         }
     }
-    return 0;
+    return nullptr;
 }
 
 void MouseEventListener::mouseUngrabEvent()

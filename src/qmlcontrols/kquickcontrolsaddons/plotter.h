@@ -69,7 +69,7 @@ class PlotData : public QObject
     Q_PROPERTY(qreal min READ min NOTIFY minChanged)
 
 public:
-    PlotData(QObject *parent = 0);
+    PlotData(QObject *parent = nullptr);
 
     void setColor(const QColor &color);
     QColor color() const;
@@ -165,7 +165,7 @@ class Plotter : public QQuickItem
     //Q_CLASSINFO("DefaultProperty", "dataSets")
 
 public:
-    Plotter(QQuickItem *parent = 0);
+    Plotter(QQuickItem *parent = nullptr);
     ~Plotter();
 
     qreal max() const;

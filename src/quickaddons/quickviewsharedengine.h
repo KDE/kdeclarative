@@ -53,7 +53,7 @@ public:
     };
     Q_ENUM(ResizeMode)
 
-    explicit QuickViewSharedEngine(QWindow *parent = 0);
+    explicit QuickViewSharedEngine(QWindow *parent = nullptr);
     ~QuickViewSharedEngine();
 
     /**

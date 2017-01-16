@@ -50,7 +50,7 @@ public:
         _q(module),
         _qmlObject(Q_NULLPTR),
         _buttons(ConfigModule::Help | ConfigModule::Default | ConfigModule::Apply),
-        _about(0),
+        _about(nullptr),
         _useRootOnlyMessage(false),
         _needsAuthorization(false),
         _needsSave(false)
@@ -119,7 +119,7 @@ ConfigModule *ConfigModule::qmlAttachedProperties(QObject *object)
     if (!object->parent() && ConfigModulePrivate::s_rootObjects.contains(QtQml::qmlEngine(object))) {
         return ConfigModulePrivate::s_rootObjects.value(QtQml::qmlEngine(object));
     } else {
-        return 0;
+        return nullptr;
     }
 }
 
@@ -145,7 +145,7 @@ QQuickItem *ConfigModule::mainUi()
         return qobject_cast<QQuickItem *>(d->_qmlObject->rootObject());
     } else {
         qWarning() << "Error loading the module" << aboutData()->componentName() << ": no QML file provided";
-        return 0;
+        return nullptr;
     }
 }
 

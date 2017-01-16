@@ -43,7 +43,7 @@ DeclarativeDragDropEvent::DeclarativeDragDropEvent(QDragLeaveEvent* e, Declarati
     m_buttons(Qt::NoButton),
     m_modifiers(Qt::NoModifier),
     m_data(Q_NULLPTR),
-    m_event(0)
+    m_event(nullptr)
 {
     Q_UNUSED(e);
 }

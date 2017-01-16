@@ -125,7 +125,7 @@ QSGNode* QIconItem::updatePaintNode(QSGNode* node, QQuickItem::UpdatePaintNodeDa
         return Q_NULLPTR;
     }
 
-    if (m_changed || node == 0) {
+    if (m_changed || node == nullptr) {
         m_changed = false;
 
         ManagedTextureNode* mNode = dynamic_cast<ManagedTextureNode*>(node);

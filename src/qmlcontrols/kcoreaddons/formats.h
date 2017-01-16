@@ -29,7 +29,7 @@ class Formats : public QObject
 
     public:
 
-	explicit Formats (QObject* parent = 0);
+	explicit Formats (QObject* parent = nullptr);
 
 	/**
 	* Converts size from bytes to the appropriate string representation

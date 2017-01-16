@@ -43,9 +43,9 @@
 
 DeclarativeDragArea::DeclarativeDragArea(QQuickItem *parent)
     : QQuickItem(parent),
-    m_delegate(0),
+    m_delegate(nullptr),
     m_source(parent),
-    m_target(0),
+    m_target(nullptr),
     m_enabled(true),
     m_draggingJustStarted(false),
     m_dragActive(false),
@@ -87,7 +87,7 @@ void DeclarativeDragArea::setDelegate(QQuickItem *delegate)
 }
 void DeclarativeDragArea::resetDelegate()
 {
-    setDelegate(0);
+    setDelegate(nullptr);
 }
 
 /*!
@@ -109,7 +109,7 @@ void DeclarativeDragArea::setSource(QQuickItem* source)
 
 void DeclarativeDragArea::resetSource()
 {
-    setSource(0);
+    setSource(nullptr);
 }
 
 bool DeclarativeDragArea::dragActive() const
@@ -121,7 +121,7 @@ bool DeclarativeDragArea::dragActive() const
 QQuickItem* DeclarativeDragArea::target() const
 {
     //TODO: implement me
-    return 0;
+    return nullptr;
 }
 
 // data

@@ -39,7 +39,7 @@ namespace KDeclarative {
 QStringList KDeclarativePrivate::s_runtimePlatform;
 
 KDeclarativePrivate::KDeclarativePrivate()
-    : contextObj(0)
+    : contextObj(nullptr)
 {
 }
 
@@ -76,7 +76,7 @@ void KDeclarative::setupBindings()
 {
     //get rid of stock network access manager factory
     QQmlNetworkAccessManagerFactory *factory = d->declarativeEngine.data()->networkAccessManagerFactory();
-    d->declarativeEngine.data()->setNetworkAccessManagerFactory(0);
+    d->declarativeEngine.data()->setNetworkAccessManagerFactory(nullptr);
     delete factory;
     d->declarativeEngine.data()->setNetworkAccessManagerFactory(new KIOAccessManagerFactory());
 

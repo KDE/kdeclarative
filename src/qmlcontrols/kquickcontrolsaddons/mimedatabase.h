@@ -27,7 +27,7 @@ class MimeDatabase : public QObject
 {
     Q_OBJECT
     public:
-        MimeDatabase(QObject* parent = 0);
+        MimeDatabase(QObject* parent = nullptr);
 
         Q_SCRIPTABLE QJsonObject mimeTypeForUrl(const QUrl & url) const;
         Q_SCRIPTABLE QJsonObject mimeTypeForName(const QString & name) const;

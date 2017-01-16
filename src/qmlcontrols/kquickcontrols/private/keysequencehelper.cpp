@@ -298,7 +298,7 @@ bool KeySequenceHelperPrivate::conflictWithGlobalShortcuts(const QKeySequence &k
     }
 
     if (!others.isEmpty()
-            && !KGlobalAccel::promptStealShortcutSystemwide(0, others, keySequence)) {
+            && !KGlobalAccel::promptStealShortcutSystemwide(nullptr, others, keySequence)) {
         return true;
     }
 
@@ -336,7 +336,7 @@ bool KeySequenceHelperPrivate::stealStandardShortcut(KStandardShortcut::Standard
                            "Do you really want to use it as a global shortcut as well?",
                            seq.toString(QKeySequence::NativeText), KStandardShortcut::label(std));
 
-    if (KMessageBox::warningContinueCancel(0, message, title, KGuiItem(i18n("Reassign"))) != KMessageBox::Continue) {
+    if (KMessageBox::warningContinueCancel(nullptr, message, title, KGuiItem(i18n("Reassign"))) != KMessageBox::Continue) {
         return false;
     }
     return true;
@@ -403,7 +403,7 @@ void KeySequenceHelper::keyPressed(int key, int modifiers)
         // Qt sometimes returns garbage keycodes, I observed -1, if it doesn't know a key.
         // We cannot do anything useful with those (several keys have -1, indistinguishable)
         // and QKeySequence.toString() will also yield a garbage string.
-        KMessageBox::sorry(0,
+        KMessageBox::sorry(nullptr,
                            i18n("The key you just pressed is not supported by Qt."),
                            i18n("Unsupported Key"));
         return d->cancelRecording();

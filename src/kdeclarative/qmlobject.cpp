@@ -58,8 +58,8 @@ class QmlObjectPrivate
 public:
     QmlObjectPrivate(QmlObject *parent)
         : q(parent),
-          engine(0),
-          component(0),
+          engine(nullptr),
+          component(nullptr),
           delay(false)
     {
         executionEndTimer = new QTimer(q);
@@ -368,7 +368,7 @@ QObject *QmlObject::createObjectFromComponent(QQmlComponent *component, QQmlCont
     } else {
         d->errorPrint(component);
         delete object;
-        return 0;
+        return nullptr;
     }
 }
 

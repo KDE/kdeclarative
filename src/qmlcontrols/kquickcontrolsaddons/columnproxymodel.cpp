@@ -22,7 +22,7 @@
 ColumnProxyModel::ColumnProxyModel(QObject* parent)
     : QAbstractListModel(parent)
     , m_column(0)
-    , m_sourceModel(0)
+    , m_sourceModel(nullptr)
 {}
 
 void ColumnProxyModel::setSourceModel(QAbstractItemModel* sourceModel)
@@ -167,7 +167,7 @@ void ColumnProxyModel::sourceDestroyed(QObject* source)
     Q_ASSERT(source==m_sourceModel);
     
     beginResetModel();
-    m_sourceModel = 0;
+    m_sourceModel = nullptr;
     endResetModel();
 }
 

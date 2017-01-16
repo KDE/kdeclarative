@@ -36,7 +36,7 @@ class KDECLARATIVE_EXPORT ConfigPropertyMap : public QQmlPropertyMap
     Q_OBJECT
 
 public:
-    ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *parent = 0);
+    ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *parent = nullptr);
     ~ConfigPropertyMap();
 
     /**

@@ -70,7 +70,7 @@ class KUserProxy : public QObject
     Q_PROPERTY(QString host READ host CONSTANT)
 
 public:
-    KUserProxy(QObject *parent = 0);
+    KUserProxy(QObject *parent = nullptr);
     ~KUserProxy();
 
 

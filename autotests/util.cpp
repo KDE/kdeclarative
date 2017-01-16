@@ -41,7 +41,7 @@
 #include <QtCore/QDebug>
 #include <QtCore/QMutexLocker>
 
-QQmlDataTest *QQmlDataTest::m_instance = 0;
+QQmlDataTest *QQmlDataTest::m_instance = nullptr;
 
 QQmlDataTest::QQmlDataTest() :
     m_dataDirectory(QFINDTESTDATA("data")),
@@ -53,7 +53,7 @@ QQmlDataTest::QQmlDataTest() :
 
 QQmlDataTest::~QQmlDataTest()
 {
-    m_instance = 0;
+    m_instance = nullptr;
 }
 
 void QQmlDataTest::initTestCase()
@@ -100,7 +100,7 @@ QByteArray QQmlDataTest::msgComponentError(const QQmlComponent &c,
 
 Q_GLOBAL_STATIC(QMutex, qQmlTestMessageHandlerMutex)
 
-QQmlTestMessageHandler *QQmlTestMessageHandler::m_instance = 0;
+QQmlTestMessageHandler *QQmlTestMessageHandler::m_instance = nullptr;
 
 void QQmlTestMessageHandler::messageHandler(QtMsgType, const QMessageLogContext &, const QString &message)
 {
@@ -122,5 +122,5 @@ QQmlTestMessageHandler::~QQmlTestMessageHandler()
     QMutexLocker locker(qQmlTestMessageHandlerMutex());
     Q_ASSERT(QQmlTestMessageHandler::m_instance);
     qInstallMessageHandler(m_oldHandler);
-    QQmlTestMessageHandler::m_instance = 0;
+    QQmlTestMessageHandler::m_instance = nullptr;
 }

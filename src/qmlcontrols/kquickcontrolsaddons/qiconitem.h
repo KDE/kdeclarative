@@ -44,7 +44,7 @@ public:
     };
     Q_ENUM(State)
 
-    QIconItem(QQuickItem *parent=0);
+    QIconItem(QQuickItem *parent=nullptr);
     ~QIconItem();
 
     void setIcon(const QVariant &icon);

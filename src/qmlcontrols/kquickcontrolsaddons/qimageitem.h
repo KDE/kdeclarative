@@ -47,7 +47,7 @@ public:
     };
     Q_ENUM(FillMode)
 
-    QImageItem(QQuickItem *parent=0);
+    QImageItem(QQuickItem *parent=nullptr);
     ~QImageItem();
 
     void setImage(const QImage &image);

@@ -67,7 +67,7 @@ public:
     static inline QQmlDataTest *instance() { return m_instance; }
 
     static QByteArray msgComponentError(const QQmlComponent &,
-                                        const QQmlEngine *engine = 0);
+                                        const QQmlEngine *engine = nullptr);
 
 public Q_SLOTS:
     virtual void initTestCase();

@@ -47,7 +47,7 @@ void DeclarativeDropArea::temporaryInhibitParent(bool inhibit)
         if (DeclarativeDropArea *da = qobject_cast<DeclarativeDropArea *>(candidate)) {
             da->m_temporaryInhibition = inhibit;
             if (inhibit) {
-                emit da->dragLeaveEvent(0);
+                emit da->dragLeaveEvent(nullptr);
             }
         }
         candidate = candidate->parentItem();
