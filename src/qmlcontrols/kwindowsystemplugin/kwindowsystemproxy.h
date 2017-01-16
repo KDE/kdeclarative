@@ -79,7 +79,7 @@ class KWindowSystemProxy : public QObject
     Q_PROPERTY(bool compositingActive READ compositingActive NOTIFY compositingActiveChanged)
 
 public:
-    explicit KWindowSystemProxy(QObject *parent = Q_NULLPTR);
+    explicit KWindowSystemProxy(QObject *parent = nullptr);
     virtual ~KWindowSystemProxy();
 
     int currentDesktop() const;

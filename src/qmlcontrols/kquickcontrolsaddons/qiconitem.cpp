@@ -122,7 +122,7 @@ QSGNode* QIconItem::updatePaintNode(QSGNode* node, QQuickItem::UpdatePaintNodeDa
 {
     if (m_icon.isNull()) {
         delete node;
-        return Q_NULLPTR;
+        return nullptr;
     }
 
     if (m_changed || node == nullptr) {

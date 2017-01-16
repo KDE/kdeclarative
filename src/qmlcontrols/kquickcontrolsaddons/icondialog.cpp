@@ -28,7 +28,7 @@
 
 IconDialog::IconDialog(QObject *parent)
     : QObject(parent)
-    , m_dialog(Q_NULLPTR)
+    , m_dialog(nullptr)
     , m_iconSize(0)
     , m_user(false)
     , m_modality(Qt::WindowModal)

@@ -61,7 +61,7 @@ class IconDialog : public QObject
     Q_PROPERTY(bool visible READ visible WRITE setVisible NOTIFY visibleChanged)
 
 public:
-    explicit IconDialog(QObject *parent = Q_NULLPTR);
+    explicit IconDialog(QObject *parent = nullptr);
     virtual ~IconDialog();
 
     QString iconName() const;

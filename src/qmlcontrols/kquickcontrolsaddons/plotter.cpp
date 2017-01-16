@@ -712,14 +712,14 @@ QSGNode *Plotter::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *updateP
     Q_UNUSED(updatePaintNodeData)
     if (!window()->openglContext()) {
         delete oldNode;
-        return Q_NULLPTR;
+        return nullptr;
     }
 
     QSGSimpleTextureNode *n = static_cast<QSGSimpleTextureNode *>(oldNode);
 
     if (width() == 0 && height() == 0) {
         delete oldNode;
-        return Q_NULLPTR;
+        return nullptr;
     }
 
     if (!n) {

@@ -27,7 +27,7 @@ class KCMShell : public QObject
     Q_OBJECT
 
 public:
-    explicit KCMShell(QObject *parent = Q_NULLPTR);
+    explicit KCMShell(QObject *parent = nullptr);
     virtual ~KCMShell();
 
 public Q_SLOTS:

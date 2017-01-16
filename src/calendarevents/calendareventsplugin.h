@@ -182,7 +182,7 @@ class CALENDAREVENTS_EXPORT CalendarEventsPlugin : public QObject
     Q_OBJECT
 
 public:
-    explicit CalendarEventsPlugin(QObject *parent = Q_NULLPTR);
+    explicit CalendarEventsPlugin(QObject *parent = nullptr);
     virtual ~CalendarEventsPlugin();
 
     /**

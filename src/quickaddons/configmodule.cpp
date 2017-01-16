@@ -48,7 +48,7 @@ class ConfigModulePrivate
 public:
     ConfigModulePrivate(ConfigModule *module):
         _q(module),
-        _qmlObject(Q_NULLPTR),
+        _qmlObject(nullptr),
         _buttons(ConfigModule::Help | ConfigModule::Default | ConfigModule::Apply),
         _about(nullptr),
         _useRootOnlyMessage(false),
