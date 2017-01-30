@@ -85,8 +85,7 @@ void QuickViewSharedEnginePrivate::executionFinished()
 
     if(q->size().isEmpty()) {
         q->resize(initialSize);
-        q->contentItem()->setWidth(item->width());
-        q->contentItem()->setHeight(item->height());
+        q->contentItem()->setSize(initialSize);
     }
 
     syncResizeMode();
@@ -101,8 +100,7 @@ void QuickViewSharedEnginePrivate::syncResizeMode()
     }
 
     if (resizeMode == QuickViewSharedEngine::SizeRootObjectToView) {
-        item->setWidth(q->width());
-        item->setHeight(q->height());
+        item->setSize(QSize(q->width(), q->height()));
 
         QObject::disconnect(item, SIGNAL(widthChanged()),
                             q, SLOT(syncWidth()));
@@ -268,8 +266,7 @@ void QuickViewSharedEngine::resizeEvent(QResizeEvent *e)
 {
     QQuickItem *item = qobject_cast<QQuickItem *>(d->qmlObject->rootObject());
     if (item && d->resizeMode == SizeRootObjectToView) {
-        item->setWidth(e->size().width());
-        item->setHeight(e->size().height());
+        item->setSize(e->size());
     }
 
     QQuickWindow::resizeEvent(e);
