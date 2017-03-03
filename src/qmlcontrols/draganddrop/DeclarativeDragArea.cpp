@@ -57,7 +57,6 @@ DeclarativeDragArea::DeclarativeDragArea(QQuickItem *parent)
     setAcceptedMouseButtons(Qt::LeftButton);
 //     setFiltersChildEvents(true);
     setFlag(ItemAcceptsDrops, m_enabled);
-    setAcceptHoverEvents(true);
     setFiltersChildMouseEvents(true);
 }
 
