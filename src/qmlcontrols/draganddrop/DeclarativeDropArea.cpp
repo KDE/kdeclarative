@@ -34,7 +34,6 @@ DeclarativeDropArea::DeclarativeDropArea(QQuickItem *parent)
       m_containsDrag(false)
 {
     setFlag(ItemAcceptsDrops, m_enabled);
-    setFlag(ItemHasContents, m_enabled);
 }
 
 void DeclarativeDropArea::temporaryInhibitParent(bool inhibit)
