@@ -35,8 +35,6 @@ DeclarativeDropArea::DeclarativeDropArea(QQuickItem *parent)
 {
     setFlag(ItemAcceptsDrops, m_enabled);
     setFlag(ItemHasContents, m_enabled);
-    setAcceptHoverEvents(m_enabled);
-
 }
 
 void DeclarativeDropArea::temporaryInhibitParent(bool inhibit)
@@ -137,7 +135,6 @@ void DeclarativeDropArea::setEnabled(bool enabled)
     }
 
     m_enabled = enabled;
-    setAcceptHoverEvents(m_enabled);
     setFlag(ItemAcceptsDrops, m_enabled);
     emit enabledChanged();
 }
