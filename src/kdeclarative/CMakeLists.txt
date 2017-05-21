@@ -60,6 +60,9 @@ install(FILES
   COMPONENT Devel
 )
 
+# make available to ecm_add_qch in parent folder
+set(KDeclarative_QCH_SOURCES ${KDeclarative_HEADERS} PARENT_SCOPE)
+
 include(ECMGeneratePriFile)
 ecm_generate_pri_file(BASE_NAME KDeclarative LIB_NAME KF5Declarative DEPS "qml" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/KDeclarative)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
