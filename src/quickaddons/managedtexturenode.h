@@ -27,6 +27,8 @@
 #include <QSharedPointer>
 
 /**
+ * @class ManagedTextureNode managedtexturenode.h KQuickAddons/ManagedTextureNode
+ *
  * @short Node that contains a reference counted texture
  *
  * Usually when assigning textures within a node, we'll want to delete the

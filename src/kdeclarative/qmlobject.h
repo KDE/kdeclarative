@@ -40,13 +40,13 @@ namespace KDeclarative {
 class QmlObjectPrivate;
 
 /**
- * @class QmlObject plasma/declarativewidget.h <Plasma/QmlObject>
+ * @class KDeclarative::QmlObject qmlobject.h KDeclarative/QmlObject
  *
  * @author Marco Martin <mart@kde.org>
  *
  * @short An object that instantiates an entire QML context, with its own declarative engine
  *
- * Plasma::QmlObject provides a class for conveniently use QML based
+ * KDeclarative::QmlObject provides a class for conveniently use QML based
  * declarative user interfaces inside Plasma widgets.
  * To one QmlObject corresponds one QML file (that can eventually include others)
  * tere will be its own QQmlEngine with a single root object,

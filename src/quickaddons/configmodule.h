@@ -45,6 +45,8 @@ namespace KQuickAddons {
 class ConfigModulePrivate;
 
 /**
+ * @class KQuickAddons::ConfigModule configmodule.h KQuickAddons/ConfigModule
+ *
  * The base class for configuration modules.
  *
  * Configuration modules are realized as plugins that are loaded only when

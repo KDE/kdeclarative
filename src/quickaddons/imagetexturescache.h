@@ -30,6 +30,8 @@ class QSGTexture;
 class ImageTexturesCachePrivate;
 
 /**
+ * @class ImageTexturesCache imagetexturescache.h KQuickAddons/ImageTexturesCache
+ *
  * @short Helps to manage textures by creating images and reference counts them.
  *
  * Use this class as a factory for textures, when creating them from a QImage

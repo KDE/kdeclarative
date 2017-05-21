@@ -29,13 +29,13 @@ namespace KDeclarative {
 class QmlObjectSharedEnginePrivate;
 
 /**
- * @class QmlObjectSharedEngine plasma/declarativewidget.h <Plasma/QmlObjectSharedEngine>
+ * @class KDeclarative::QmlObjectSharedEngine qmlobjectsharedengine.h KDeclarative/QmlObjectSharedEngine
  *
  * @author Marco Martin <mart@kde.org>
  *
  * @short An object that instantiates an entire QML context, with its own declarative engine
  *
- * Plasma::QmlObjectSharedEngine is a version of QmlObject that ensures only one
+ * KDeclarative::QmlObjectSharedEngine is a version of QmlObject that ensures only one
  * QQmlEngine instance exists for the whole application. Objects created by different
  * instances of QmlObjectSharedEngine will be insulated by having different creation 
  * contexts, accessible by QmlObject::rootContext()
