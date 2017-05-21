@@ -31,6 +31,11 @@ namespace KDeclarative {
 
 class ConfigPropertyMapPrivate;
 
+/**
+ * @class KDeclarative::ConfigPropertyMap configpropertymap.h KDeclarative/ConfigPropertyMap
+ *
+ * TODO
+ */
 class KDECLARATIVE_EXPORT ConfigPropertyMap : public QQmlPropertyMap
 {
     Q_OBJECT

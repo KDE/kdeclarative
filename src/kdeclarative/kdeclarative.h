@@ -32,6 +32,11 @@ namespace KDeclarative {
 
 class KDeclarativePrivate;
 
+/**
+ * @class KDeclarative::KDeclarative kdeclarative.h <KDeclarative/KDeclarative>
+ *
+ * TODO
+ */
 class KDECLARATIVE_EXPORT KDeclarative
 {
 public:

@@ -38,6 +38,11 @@ namespace KQuickAddons {
 
 class QuickViewSharedEnginePrivate;
 
+/**
+ * @class KQuickAddons::QuickViewSharedEngine quickviewsharedengine.h KQuickAddons/QuickViewSharedEngine
+ *
+ * TODO
+ */
 class QUICKADDONS_EXPORT QuickViewSharedEngine : public QQuickWindow
 {
     Q_OBJECT
