@@ -167,8 +167,8 @@ void MouseEventListener::mousePressEvent(QMouseEvent *me)
         m_pressAndHoldEvent = new KDeclarativeMouseEvent(me->pos().x(), me->pos().y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()));
     }
 
-    emit pressed(&dme);
     m_pressed = true;
+    emit pressed(&dme);
     emit pressedChanged();
 
     m_pressAndHoldTimer->start(QGuiApplication::styleHints()->mousePressAndHoldInterval());
@@ -256,8 +256,8 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
 
         //qDebug() << "pressed in sceneEventFilter";
         m_buttonDownPos = me->screenPos();
-        emit pressed(&dme);
         m_pressed = true;
+        emit pressed(&dme);
         emit pressedChanged();
 
         m_pressAndHoldTimer->start(QGuiApplication::styleHints()->mousePressAndHoldInterval());
