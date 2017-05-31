@@ -65,7 +65,7 @@ DeclarativeMimeData* DeclarativeDragDropEvent::mimeData()
     if (!m_data && m_event) {
 //         TODO This should be using MimeDataWrapper eventually, although this is an API break,
 //         so will need to be done carefully.
-        m_data = new DeclarativeMimeData(m_event->mimeData());
+        m_data.reset(new DeclarativeMimeData(m_event->mimeData()));
     }
-    return m_data;
+    return m_data.data();
 }

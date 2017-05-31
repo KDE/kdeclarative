@@ -26,8 +26,7 @@
 
 #include <QObject>
 #include "DeclarativeDropArea.h"
-
-class DeclarativeMimeData;
+#include "DeclarativeMimeData.h"
 
 class DeclarativeDragDropEvent : public QObject
 {
@@ -115,7 +114,7 @@ private:
     int m_y;
     Qt::MouseButtons m_buttons;
     Qt::KeyboardModifiers m_modifiers;
-    DeclarativeMimeData* m_data;
+    QScopedPointer<DeclarativeMimeData> m_data;
     QDropEvent* m_event;
 };
 
