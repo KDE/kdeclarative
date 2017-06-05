@@ -146,6 +146,7 @@ protected:
     void mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
     void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
     void mouseReleaseEvent(QMouseEvent *) Q_DECL_OVERRIDE;
+    void timerEvent(QTimerEvent *event) Q_DECL_OVERRIDE;
     bool childMouseEventFilter(QQuickItem *item, QEvent *event) Q_DECL_OVERRIDE;
 
 private:
@@ -164,6 +165,7 @@ private:
     QImage m_delegateImage;
     int m_startDragDistance;
     QPointF m_buttonDownPos;
+    int m_pressAndHoldTimerId;
 };
 
 #endif // DECLARATIVEDRAGAREA_H
