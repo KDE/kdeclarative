@@ -325,6 +325,7 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
     }
     case QEvent::UngrabMouse: {
         m_lastEvent = event;
+        handleUngrab();
         break;
     }
     case QEvent::Wheel: {
@@ -368,10 +369,12 @@ void MouseEventListener::touchUngrabEvent()
 
 void MouseEventListener::handleUngrab()
 {
-    m_pressAndHoldTimer->stop();
+    if (m_pressed) {
+        m_pressAndHoldTimer->stop();
 
-    m_pressed = false;
-    emit pressedChanged();
+        m_pressed = false;
+        emit pressedChanged();
 
-    emit canceled();
+        emit canceled();
+    }
 }
