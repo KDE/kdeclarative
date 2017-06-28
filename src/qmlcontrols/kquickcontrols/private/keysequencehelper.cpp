@@ -353,28 +353,30 @@ void KeySequenceHelperPrivate::updateShortcutDisplay()
             if (!s.isEmpty()) {
                 s.append(QLatin1Char(','));
             }
-            if (modifierKeys & Qt::META) {
-                s += KKeyServer::modToStringUser(Qt::META) + QLatin1Char('+');
+            if (modifierKeys & Qt::MetaModifier) {
+                s += KKeyServer::modToStringUser(Qt::MetaModifier) + QLatin1Char('+');
             }
 #if defined(Q_OS_MAC)
-            if (modifierKeys & Qt::ALT) {
-                s += KKeyServer::modToStringUser(Qt::ALT) + QLatin1Char('+');
+            if (modifierKeys & Qt::AltModifier) {
+                s += KKeyServer::modToStringUser(Qt::AltModifier) + QLatin1Char('+');
             }
-            if (modifierKeys & Qt::CTRL) {
-                s += KKeyServer::modToStringUser(Qt::CTRL) + QLatin1Char('+');
+            if (modifierKeys & Qt::ControlModifier) {
+                s += KKeyServer::modToStringUser(Qt::ControlModifier) + QLatin1Char('+');
             }
 #else
-            if (modifierKeys & Qt::CTRL) {
-                s += KKeyServer::modToStringUser(Qt::CTRL) + QLatin1Char('+');
+            if (modifierKeys & Qt::ControlModifier) {
+                s += KKeyServer::modToStringUser(Qt::ControlModifier) + QLatin1Char('+');
             }
-            if (modifierKeys & Qt::ALT) {
-                s += KKeyServer::modToStringUser(Qt::ALT) + QLatin1Char('+');
+            if (modifierKeys & Qt::AltModifier) {
+                s += KKeyServer::modToStringUser(Qt::AltModifier) + QLatin1Char('+');
             }
 #endif
-            if (modifierKeys & Qt::SHIFT) {
-                s += KKeyServer::modToStringUser(Qt::SHIFT) + QLatin1Char('+');
+            if (modifierKeys & Qt::ShiftModifier) {
+                s += KKeyServer::modToStringUser(Qt::ShiftModifier) + QLatin1Char('+');
             }
-
+            if (modifierKeys & Qt::KeypadModifier) {
+                s += KKeyServer::modToStringUser(Qt::KeypadModifier) + QLatin1Char('+');
+            }
         } else if (nKey == 0) {
             s = i18nc("What the user inputs now will be taken as the new shortcut", "Input");
         }
