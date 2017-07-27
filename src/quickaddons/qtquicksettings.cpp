@@ -26,7 +26,7 @@
 void KQuickAddons::QtQuickSettings::init()
 {
     PlasmaQtQuickSettings::RendererSettings s;
-    if (!s.renderLoop().isNull()) {
+    if (!s.renderLoop().isEmpty()) {
         qputenv("QSG_RENDER_LOOP", s.renderLoop().toLatin1());
     }
 
