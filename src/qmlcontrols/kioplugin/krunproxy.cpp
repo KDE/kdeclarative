@@ -41,7 +41,7 @@ bool KRunProxy::openUrl(const QString &filePath)
     }
 
     if (fileMymeType == QStringLiteral("application/x-desktop")) {
-        // If our mimetype is a desktop file, then we don't won't to open
+        // If our mimetype is a desktop file, then we don't want to open
         // the desktop file itself but the application in which it is associated
         // with.
         KService::Ptr service = KService::serviceByDesktopPath(filePath);
@@ -49,4 +49,12 @@ bool KRunProxy::openUrl(const QString &filePath)
     } else {
         return KRun::runUrl(QUrl(filePath), fileMymeType, nullptr);
     }
+}
+
+bool KRunProxy::openService(const QString &serviceName)
+{
+    KService::Ptr service = KService::serviceByDesktopName(serviceName);
+    if(service)
+        return KRun::runApplication(*service, QList<QUrl>(), nullptr) != 0;
+    return false;
 }

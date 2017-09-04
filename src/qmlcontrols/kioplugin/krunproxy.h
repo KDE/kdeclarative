@@ -33,6 +33,13 @@ class KRunProxy : public QObject
      * opens the url from the existing file
      */
     Q_INVOKABLE bool openUrl(const QString &filePath);
+
+    /**
+     * Runs the service (application)
+     * @param serviceName the name of the desktop file without extension
+     * @return true on success
+     */
+    Q_INVOKABLE bool openService(const QString &serviceName);
 };
 
 #endif
