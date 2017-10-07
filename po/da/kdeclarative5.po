@@ -1,0 +1,110 @@
+# translation of kdelibs4.po to
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Martin Schlander, 2008.
+# Martin Schlander <mschlander@opensuse.org>, 2008.
+# Martin Schlander <mschlander@opensuse.org>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015.
+# Keld Simonsen <keld@keldix.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2017-06-30 03:05+0200\n"
+"PO-Revision-Date: 2015-04-25 15:05+0200\n"
+"Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
+"Language-Team: Danish <kde-i18n-doc@kde.org>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Erik Kjær Pedersen,Martin Schlander,Keld Simonsen"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "erik@binghamton.edu,mschlander@opensuse.org,keld@keldix.com"
+
+#: kpackagelauncherqml/main.cpp:43
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr "KPackage skal til QML-programmer"
+
+#: kpackagelauncherqml/main.cpp:51
+#, kde-format
+msgid "The unique name of the application (mandatory)"
+msgstr "Programmets unikke navn (obligatorisk)"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:38
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"Tryk på knappen, angiv så genvejen ligesom du vil gøre i programmet.\n"
+"Eksempel med Ctrl+A, hold Ctrl-tasten nede og tryk A."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:276
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "Reserveret genvej"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:277
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"F12-tasten er reserveret på Windows, og kan derfor ikke bruges som en global "
+"genvej.\n"
+"Vælg venligst en anden."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:333
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Konflikt med programmets standardgenvejstast"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:334
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"Tastekombinationen \"%1\" bruges allerede til standardhandlingen \"%2\" som "
+"mange programmer benytter.\n"
+"Vil du bruge den som en global genvej også?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:339
+#, kde-format
+msgid "Reassign"
+msgstr "Tilknyt igen"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:381
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Input"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:388
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Ingen"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:409
+#, kde-format
+msgid "The key you just pressed is not supported by Qt."
+msgstr "Tasten du netop trykkede på, understøttes ikke af Qt."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:410
+#, kde-format
+msgid "Unsupported Key"
+msgstr "Ikke understøttet tast"
