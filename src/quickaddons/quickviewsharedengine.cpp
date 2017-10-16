@@ -193,11 +193,7 @@ QSize QuickViewSharedEngine::sizeHint() const
         return implicitSize.toSize();
     }
 
-    if (item) {
-        return QSize(item->width(), item->height());
-    } else {
-        return size();
-    }
+    return QSize(item->width(), item->height());
 }
 
 QSize QuickViewSharedEngine::initialSize() const
