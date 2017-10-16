@@ -29,7 +29,7 @@ class ColumnProxyModel : public QAbstractListModel
 //     Q_PROPERTY(QAbstractItemModel* sourceModel READ sourceModel WRITE setSourceModel) //rootIndex sets the model
     Q_PROPERTY(int column READ column WRITE setColumn)
     public:
-        ColumnProxyModel(QObject* parent = nullptr);
+        explicit ColumnProxyModel(QObject* parent = nullptr);
 
         void setRootIndex(const QModelIndex& idx);
         QModelIndex rootIndex() const;
