@@ -141,6 +141,8 @@ class QUICKADDONS_EXPORT ConfigModule : public QObject
     Q_PROPERTY(QQuickItem *mainUi READ mainUi CONSTANT)
     Q_PROPERTY(KQuickAddons::ConfigModule::Buttons buttons READ buttons WRITE setButtons NOTIFY buttonsChanged)
     Q_PROPERTY(bool needsSave READ needsSave WRITE setNeedsSave NOTIFY needsSaveChanged)
+    Q_PROPERTY(QString name READ name CONSTANT)
+    Q_PROPERTY(QString description READ description CONSTANT)
     Q_PROPERTY(QString quickHelp READ quickHelp WRITE setQuickHelp NOTIFY quickHelpChanged)
     Q_PROPERTY(QString rootOnlyMessage READ rootOnlyMessage WRITE setRootOnlyMessage NOTIFY rootOnlyMessageChanged)
     Q_PROPERTY(bool useRootOnlyMessage READ useRootOnlyMessage WRITE setUseRootOnlyMessage NOTIFY useRootOnlyMessageChanged)
@@ -371,6 +373,18 @@ public:
      * @return @c true if the module's save() method requires authorization, @c false otherwise
      */
     bool needsAuthorization() const;
+
+    /**
+     * @returns the name of the config module
+     * @since 5.41
+     */
+    QString name() const;
+
+    /**
+     * @returns the description of the config module
+     * @since 5.41
+     */
+    QString description() const;
 
     static ConfigModule *qmlAttachedProperties(QObject *object);
 

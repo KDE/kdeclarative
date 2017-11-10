@@ -188,6 +188,16 @@ bool ConfigModule::needsAuthorization() const
     return d->_needsAuthorization;
 }
 
+QString ConfigModule::name() const
+{
+    return d->_about->displayName();
+}
+
+QString ConfigModule::description() const
+{
+    return d->_about->shortDescription();
+}
+
 void ConfigModule::setAuthActionName(const QString &name)
 {
     if (d->_authActionName == name) {
