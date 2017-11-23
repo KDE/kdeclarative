@@ -171,6 +171,11 @@ void MouseEventListener::mousePressEvent(QMouseEvent *me)
     emit pressed(&dme);
     emit pressedChanged();
 
+    if (dme.isAccepted()) {
+        me->setAccepted(true);
+        return;
+    }
+
     m_pressAndHoldTimer->start(QGuiApplication::styleHints()->mousePressAndHoldInterval());
 }
 
@@ -187,6 +192,10 @@ void MouseEventListener::mouseMoveEvent(QMouseEvent *me)
 
     KDeclarativeMouseEvent dme(me->pos().x(), me->pos().y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()));
     emit positionChanged(&dme);
+
+    if (dme.isAccepted()) {
+        me->setAccepted(true);
+    }
 }
 
 void MouseEventListener::mouseReleaseEvent(QMouseEvent *me)
@@ -204,6 +213,10 @@ void MouseEventListener::mouseReleaseEvent(QMouseEvent *me)
     if (boundingRect().contains(me->pos()) && m_pressAndHoldTimer->isActive()) {
         emit clicked(&dme);
         m_pressAndHoldTimer->stop();
+    }
+
+    if (dme.isAccepted()) {
+        me->setAccepted(true);
     }
 }
 
@@ -260,7 +273,12 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
         emit pressed(&dme);
         emit pressedChanged();
 
+        if (dme.isAccepted()) {
+            return true;
+        }
+
         m_pressAndHoldTimer->start(QGuiApplication::styleHints()->mousePressAndHoldInterval());
+
         break;
     }
     case QEvent::HoverMove: {
@@ -280,6 +298,10 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
         KDeclarativeMouseEvent dme(myPos.x(), myPos.y(), screenPos.x(), screenPos.y(), Qt::NoButton, Qt::NoButton, he->modifiers(), nullptr);
         //qDebug() << "positionChanged..." << dme.x() << dme.y();
         emit positionChanged(&dme);
+
+        if (dme.isAccepted()) {
+            return true;
+        }
         break;
     }
     case QEvent::MouseMove: {
@@ -304,6 +326,10 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
             m_pressAndHoldEvent = new KDeclarativeMouseEvent(myPos.x(), myPos.y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()));
         }
         emit positionChanged(&dme);
+
+        if (dme.isAccepted()) {
+            return true;
+        }
         break;
     }
     case QEvent::MouseButtonRelease: {
@@ -320,6 +346,10 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
         if (QPointF(me->screenPos() - m_buttonDownPos).manhattanLength() <= QGuiApplication::styleHints()->startDragDistance() && m_pressAndHoldTimer->isActive()) {
             emit clicked(&dme);
             m_pressAndHoldTimer->stop();
+        }
+
+        if (dme.isAccepted()) {
+            return true;
         }
         break;
     }
