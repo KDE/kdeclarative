@@ -41,14 +41,13 @@ int main(int argc, char **argv)
     QApplication app(argc, argv);
 
     const QString description = i18n("KPackage QML application shell");
-    const char version[] = "0.1";
 
-    app.setApplicationVersion(version);
+    app.setApplicationVersion(QStringLiteral("0.1"));
     parser.addVersionOption();
     parser.addHelpOption();
     parser.setApplicationDescription(description);
 
-    QCommandLineOption appPluginOption(QCommandLineOption(QStringList() << "a" << "app", i18n("The unique name of the application (mandatory)"), "app"));
+    QCommandLineOption appPluginOption(QCommandLineOption(QStringList() << QStringLiteral("a") << QStringLiteral("app"), i18n("The unique name of the application (mandatory)"), QStringLiteral("app")));
 
     parser.addOption(appPluginOption);
 
@@ -70,15 +69,15 @@ int main(int argc, char **argv)
         qWarning() << "The specified Application package is not valid.";
         return 1;
     }
-    obj.engine()->rootContext()->setContextProperty("commandlineArguments", parser.positionalArguments());
+    obj.engine()->rootContext()->setContextProperty(QStringLiteral("commandlineArguments"), parser.positionalArguments());
     QVariantMap paths;
-    paths["desktop"] = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
-    paths["documents"] = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
-    paths["music"] = QStandardPaths::writableLocation(QStandardPaths::MusicLocation);
-    paths["movies"] = QStandardPaths::writableLocation(QStandardPaths::MoviesLocation);
-    paths["pictures"] = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
-    paths["home"] = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
-    obj.engine()->rootContext()->setContextProperty("userPaths", paths);
+    paths[QStringLiteral("desktop")] = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
+    paths[QStringLiteral("documents")] = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+    paths[QStringLiteral("music")] = QStandardPaths::writableLocation(QStandardPaths::MusicLocation);
+    paths[QStringLiteral("movies")] = QStandardPaths::writableLocation(QStandardPaths::MoviesLocation);
+    paths[QStringLiteral("pictures")] = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+    paths[QStringLiteral("home")] = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
+    obj.engine()->rootContext()->setContextProperty(QStringLiteral("userPaths"), paths);
     obj.completeInitialization();
 
     if (!obj.package().metadata().isValid()) {
@@ -112,8 +111,8 @@ int main(int argc, char **argv)
         }
 
         //set anchors
-        QQmlExpression expr(obj.engine()->rootContext(), obj.rootObject(), "parent");
-        QQmlProperty prop(obj.rootObject(), "anchors.fill");
+        QQmlExpression expr(obj.engine()->rootContext(), obj.rootObject(), QStringLiteral("parent"));
+        QQmlProperty prop(obj.rootObject(), QStringLiteral("anchors.fill"));
         prop.write(expr.evaluate());
         view.setTitle(obj.package().metadata().name());
         view.setIcon(QIcon::fromTheme(obj.package().metadata().iconName()));

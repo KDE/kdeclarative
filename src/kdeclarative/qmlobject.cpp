@@ -224,7 +224,7 @@ QUrl QmlObject::source() const
 
 void QmlObject::loadPackage(const QString &packageName)
 {
-    d->package = KPackage::PackageLoader::self()->loadPackage("KPackage/GenericQML");
+    d->package = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/GenericQML"));
     d->package.setPath(packageName);
     setSource(QUrl::fromLocalFile(d->package.filePath("mainscript")));
 }
@@ -355,7 +355,7 @@ QObject *QmlObject::createObjectFromComponent(QQmlComponent *component, QQmlCont
         //memory management
         component->setParent(object);
         //reparent to root object if wasn't specified otherwise by initialProperties
-        if (!initialProperties.contains("parent")) {
+        if (!initialProperties.contains(QStringLiteral("parent"))) {
             if (qobject_cast<QQuickItem *>(rootObject())) {
                 object->setProperty("parent", QVariant::fromValue(rootObject()));
             } else {

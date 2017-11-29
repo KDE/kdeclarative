@@ -114,7 +114,7 @@ void Clipboard::setContent(const QVariant &content)
             if (content.canConvert(QVariant::String)) {
                 mimeData->setText(content.toString());
             } else {
-                mimeData->setData("application/octet-stream", content.toByteArray());
+                mimeData->setData(QStringLiteral("application/octet-stream"), content.toByteArray());
                 qWarning() << "Couldn't figure out the content type, storing as application/octet-stream";
             }
             break;

@@ -105,7 +105,7 @@ QUrl KUserProxy::faceIconUrl() const
 QString KUserProxy::os()
 {
     if (m_os.isEmpty()) {
-        QFile osfile("/etc/os-release");
+        QFile osfile(QStringLiteral("/etc/os-release"));
         if (osfile.exists()) {
             if (!osfile.open(QIODevice::ReadOnly | QIODevice::Text)) {
                 return QString();
@@ -114,8 +114,8 @@ QString KUserProxy::os()
             QTextStream in(&osfile);
             while(!in.atEnd()) {
                 QString line = in.readLine();
-                if (line.startsWith("PRETTY_NAME")) {
-                    QStringList fields = line.split("PRETTY_NAME=\"");
+                if (line.startsWith(QLatin1String("PRETTY_NAME"))) {
+                    QStringList fields = line.split(QLatin1String("PRETTY_NAME=\""));
                     if (fields.count() == 2) {
                         osfile.close();
                         QString pretty = fields.at(1);

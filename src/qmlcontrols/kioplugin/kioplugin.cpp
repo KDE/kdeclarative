@@ -24,7 +24,7 @@
 
 void KioPlugin::registerTypes(const char *uri)
 {
-    Q_ASSERT(uri == QLatin1String("org.kde.kio"));
+    Q_ASSERT(QString::fromLatin1(uri) == QLatin1String("org.kde.kio"));
 
     qmlRegisterType<KRunProxy>(uri, 1, 0, "KRun");
 }

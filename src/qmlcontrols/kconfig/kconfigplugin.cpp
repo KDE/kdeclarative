@@ -29,7 +29,7 @@ QObject *kauthorizedProxy_singleton_provider(QQmlEngine *, QJSEngine *)
 
 void KConfigPlugin::registerTypes(const char *uri)
 {
-    Q_ASSERT(uri == QLatin1String("org.kde.kconfig"));
+    Q_ASSERT(QString::fromLatin1(uri) == QLatin1String("org.kde.kconfig"));
 
     qmlRegisterSingletonType<KAuthorizedProxy>(uri, 1, 0, "KAuthorized", kauthorizedProxy_singleton_provider);
 }

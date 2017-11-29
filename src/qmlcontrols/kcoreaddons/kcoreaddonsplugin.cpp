@@ -38,12 +38,12 @@ static QObject *formats_singletontype_provider(QQmlEngine *engine, QJSEngine *sc
 
 void KCoreAddonsPlugin::registerTypes(const char *uri)
 {
-    Q_ASSERT(uri == QLatin1String("org.kde.kcoreaddons"));
+    Q_ASSERT(QString::fromLatin1(uri) == QLatin1String("org.kde.kcoreaddons"));
 
     qmlRegisterSingletonType<Formats>(uri, 1, 0, "Format", formats_singletontype_provider);
     qRegisterMetaType<QLocale::FormatType>();
 
-    qmlRegisterUncreatableType<KFormat>(uri, 1, 0, "FormatTypes", "");
+    qmlRegisterUncreatableType<KFormat>(uri, 1, 0, "FormatTypes", QString());
 
     qmlRegisterType<KUserProxy>(uri, 1, 0, "KUser");
 }

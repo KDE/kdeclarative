@@ -50,7 +50,7 @@ static QObject *kcmshell_singleton_provider(QQmlEngine *engine, QJSEngine *scrip
 
 void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
 {
-    Q_ASSERT(uri == QLatin1String("org.kde.kquickcontrolsaddons"));
+    Q_ASSERT(QString::fromLatin1(uri) == QLatin1String("org.kde.kquickcontrolsaddons"));
 
     qmlRegisterType<QPixmapItem>(uri, 2, 0, "QPixmapItem");
     qmlRegisterType<QImageItem>(uri, 2, 0, "QImageItem");

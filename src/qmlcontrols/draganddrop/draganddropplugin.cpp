@@ -32,12 +32,12 @@
 
 void DragAndDropPlugin::registerTypes(const char *uri)
 {
-    Q_ASSERT(uri == QLatin1String("org.kde.draganddrop"));
+    Q_ASSERT(QString::fromLatin1(uri) == QLatin1String("org.kde.draganddrop"));
 
     qmlRegisterType<DeclarativeDropArea>(uri, 2, 0, "DropArea");
     qmlRegisterType<DeclarativeDragArea>(uri, 2, 0, "DragArea");
     qmlRegisterType<QMimeData>();
-    qmlRegisterUncreatableType<DeclarativeMimeData>(uri, 2, 0, "MimeData", "MimeData cannot be created from QML.");
-    qmlRegisterUncreatableType<DeclarativeDragDropEvent>(uri, 2, 0, "DragDropEvent", "DragDropEvent cannot be created from QML.");
-    qmlRegisterUncreatableType<MimeDataWrapper>(uri, 2, 0, "MimeDataWrapper", "DragDropEvent cannot be created from QML.");
+    qmlRegisterUncreatableType<DeclarativeMimeData>(uri, 2, 0, "MimeData", QStringLiteral("MimeData cannot be created from QML."));
+    qmlRegisterUncreatableType<DeclarativeDragDropEvent>(uri, 2, 0, "DragDropEvent", QStringLiteral("DragDropEvent cannot be created from QML."));
+    qmlRegisterUncreatableType<MimeDataWrapper>(uri, 2, 0, "MimeDataWrapper", QStringLiteral("DragDropEvent cannot be created from QML."));
 }

@@ -144,13 +144,13 @@ QQuickItem *ConfigModule::mainUi()
     d->_qmlObject->setTranslationDomain(aboutData()->componentName());
     d->_qmlObject->setInitializationDelayed(true);
 
-    KPackage::Package package = KPackage::PackageLoader::self()->loadPackage("KPackage/GenericQML");
-    package.setDefaultPackageRoot("kpackage/kcms");
+    KPackage::Package package = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/GenericQML"));
+    package.setDefaultPackageRoot(QStringLiteral("kpackage/kcms"));
     package.setPath(aboutData()->componentName());
 
     if (!package.filePath("mainscript").isEmpty()) {
         d->_qmlObject->setSource(QUrl::fromLocalFile(package.filePath("mainscript")));
-        d->_qmlObject->engine()->rootContext()->setContextProperty("kcm", this);
+        d->_qmlObject->engine()->rootContext()->setContextProperty(QStringLiteral("kcm"), this);
         d->_qmlObject->completeInitialization();
 
         return qobject_cast<QQuickItem *>(d->_qmlObject->rootObject());
@@ -183,7 +183,7 @@ void ConfigModule::setNeedsAuthorization(bool needsAuth)
 
     d->_needsAuthorization = needsAuth;
     if (needsAuth && d->_about) {
-        d->_authActionName = QString("org.kde.kcontrol." + d->_about->componentName() + ".save");
+        d->_authActionName = QStringLiteral("org.kde.kcontrol.") + d->_about->componentName() + QStringLiteral(".save");
         d->_needsAuthorization = true;
 
     } else {

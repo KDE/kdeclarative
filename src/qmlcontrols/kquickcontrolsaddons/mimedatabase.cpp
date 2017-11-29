@@ -28,9 +28,9 @@ static QJsonObject mimetypeToJsonObject(const QMimeType& type)
         return QJsonObject();
     }
     QJsonObject ret;
-    ret["name"] = type.name();
-    ret["iconName"] = type.iconName();
-    ret["comment"] = type.comment();
+    ret[QStringLiteral("name")] = type.name();
+    ret[QStringLiteral("iconName")] = type.iconName();
+    ret[QStringLiteral("comment")] = type.comment();
     return ret;
 }
 

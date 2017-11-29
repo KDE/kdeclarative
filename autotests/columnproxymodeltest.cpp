@@ -36,15 +36,15 @@ void ColumnProxyModelTest::testInit()
     QStandardItemModel* m = new QStandardItemModel(listify);
     listify->setRootIndex(QModelIndex());
     listify->setSourceModel(m);
-    m->appendRow(new QStandardItem("lalalal"));
-    m->appendRow(new QStandardItem("lalalal"));
-    m->appendRow(new QStandardItem("lalalal"));
-    m->appendRow(new QStandardItem("lalalal"));
-    QStandardItem* item = new QStandardItem("lalalal");
-    item->appendRow(new QStandardItem("lelele"));
-    item->appendRow(new QStandardItem("lelele"));
+    m->appendRow(new QStandardItem(QStringLiteral("lalalal")));
+    m->appendRow(new QStandardItem(QStringLiteral("lalalal")));
+    m->appendRow(new QStandardItem(QStringLiteral("lalalal")));
+    m->appendRow(new QStandardItem(QStringLiteral("lalalal")));
+    QStandardItem* item = new QStandardItem(QStringLiteral("lalalal"));
+    item->appendRow(new QStandardItem(QStringLiteral("lelele")));
+    item->appendRow(new QStandardItem(QStringLiteral("lelele")));
     m->appendRow(item);
-    item->appendRow(new QStandardItem("lelele"));
+    item->appendRow(new QStandardItem(QStringLiteral("lelele")));
     
     QCOMPARE(listify->rowCount(), 5);
     QCOMPARE(spy.count(), 5);
@@ -73,15 +73,15 @@ void ColumnProxyModelTest::testSet()
     QStandardItemModel* m = new QStandardItemModel(listify);
     listify->setRootIndex(QModelIndex());
     listify->setSourceModel(m);
-    m->appendRow(new QStandardItem("lalalal"));
-    m->appendRow(new QStandardItem("lalalal"));
-    m->appendRow(new QStandardItem("lalalal"));
-    m->appendRow(new QStandardItem("lalalal"));
-    QStandardItem* item = new QStandardItem("lalalal");
-    item->appendRow(new QStandardItem("lelele"));
-    item->appendRow(new QStandardItem("lelele"));
+    m->appendRow(new QStandardItem(QStringLiteral("lalalal")));
+    m->appendRow(new QStandardItem(QStringLiteral("lalalal")));
+    m->appendRow(new QStandardItem(QStringLiteral("lalalal")));
+    m->appendRow(new QStandardItem(QStringLiteral("lalalal")));
+    QStandardItem* item = new QStandardItem(QStringLiteral("lalalal"));
+    item->appendRow(new QStandardItem(QStringLiteral("lelele")));
+    item->appendRow(new QStandardItem(QStringLiteral("lelele")));
     m->appendRow(item);
-    item->appendRow(new QStandardItem("lelele"));
+    item->appendRow(new QStandardItem(QStringLiteral("lelele")));
 
     const QString newString = QStringLiteral("fu");
     QModelIndex changeIndex = listify->indexAt(0);

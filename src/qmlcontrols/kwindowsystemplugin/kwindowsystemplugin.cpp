@@ -24,7 +24,7 @@
 
 void KWindowSystemPlugin::registerTypes(const char *uri)
 {
-    Q_ASSERT(uri == QLatin1String("org.kde.kwindowsystem"));
+    Q_ASSERT(QString::fromLatin1(uri) == QLatin1String("org.kde.kwindowsystem"));
 
     qmlRegisterType<KWindowSystemProxy>(uri, 1, 0, "KWindowSystem");
 }
