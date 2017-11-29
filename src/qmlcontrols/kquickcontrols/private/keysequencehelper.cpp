@@ -272,7 +272,7 @@ bool KeySequenceHelperPrivate::conflictWithGlobalShortcuts(const QKeySequence &k
 {
 #ifdef Q_OS_WIN
     //on windows F12 is reserved by the debugger at all times, so we can't use it for a global shortcut
-    if (KeySequenceHelper::GlobalShortcuts && keySequence.toString().contains("F12")) {
+    if (KeySequenceHelper::GlobalShortcuts && keySequence.toString().contains(QStringLiteral("F12"))) {
         QString title = i18n("Reserved Shortcut");
         QString message = i18n("The F12 key is reserved on Windows, so cannot be used for a global shortcut.\n"
                                "Please choose another one.");
