@@ -55,8 +55,6 @@ public:
         _needsAuthorization(false),
         _needsSave(false)
     {
-        qmlRegisterUncreatableType<ConfigModule>("org.kde.kcm", 1, 0, "ConfigModule",
-            QLatin1String("Do not create objects of type ConfigModule"));
     }
 
     void authStatusChanged(int status);

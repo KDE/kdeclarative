@@ -1,0 +1,7 @@
+module org.kde.kcm
+plugin kcmcontrolsplugin
+
+GridDelegate 1.1 GridDelegate.qml
+GridViewKCM 1.1 GridViewKCM.qml
+GridView 1.1 GridView.qml
+SimpleKCM 1.1 SimpleKCM.qml
