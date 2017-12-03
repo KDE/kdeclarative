@@ -29,7 +29,7 @@
 
 void KCMControlsPlugin::registerTypes(const char *uri)
 {
-    Q_ASSERT(uri == QLatin1String("org.kde.kcm"));
+    Q_ASSERT(uri == QByteArray("org.kde.kcm"));
 
     qmlRegisterUncreatableType<KQuickAddons::ConfigModule>("org.kde.kcm", 1, 0, "ConfigModule",
             QLatin1String("Do not create objects of type ConfigModule"));
