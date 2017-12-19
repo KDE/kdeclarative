@@ -101,7 +101,10 @@ ConfigModule::ConfigModule(QObject *parent, const QVariantList &)
 
 ConfigModule::~ConfigModule()
 {
-    ConfigModulePrivate::s_rootObjects.remove(d->_qmlObject->rootContext());
+    //in case mainUi was never called
+    if (d->_qmlObject) {
+        ConfigModulePrivate::s_rootObjects.remove(d->_qmlObject->rootContext());
+    }
 
     delete d->_qmlObject;
     delete d->_about;
