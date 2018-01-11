@@ -33,7 +33,12 @@ public:
     {
     }
 
-    void loadConfig();
+    enum LoadConfigOption {
+        DontEmitValueChanged,
+        EmitValueChanged
+    };
+
+    void loadConfig(LoadConfigOption option);
     void writeConfig();
     void writeConfigValue(const QString &key, const QVariant &value);
 
@@ -48,12 +53,11 @@ ConfigPropertyMap::ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *paren
     d->config = config;
 
     //FIXME: find a prettier way to connect without lambdas
-    connect(config, &KCoreConfigSkeleton::configChanged,
-            [=](){d->loadConfig();});
-    connect(this, &ConfigPropertyMap::valueChanged,
-            [=](const QString &key, const QVariant &value){d->writeConfigValue(key, value);});
+    connect(config, &KCoreConfigSkeleton::configChanged, this, std::bind(&ConfigPropertyMapPrivate::loadConfig, d, ConfigPropertyMapPrivate::EmitValueChanged));
+    connect(this, &ConfigPropertyMap::valueChanged, this,
+            [this](const QString &key, const QVariant &value){d->writeConfigValue(key, value);});
 
-    d->loadConfig();
+    d->loadConfig(ConfigPropertyMapPrivate::DontEmitValueChanged);
 }
 
 ConfigPropertyMap::~ConfigPropertyMap()
@@ -81,15 +85,18 @@ bool ConfigPropertyMap::isImmutable(const QString &key) const
     return false;
 }
 
-void ConfigPropertyMapPrivate::loadConfig()
+void ConfigPropertyMapPrivate::loadConfig(ConfigPropertyMapPrivate::LoadConfigOption option)
 {
     if (!config) {
         return;
     }
 
-    foreach (KConfigSkeletonItem *item, config.data()->items()) {
+    const auto &items = config.data()->items();
+    for (KConfigSkeletonItem *item : items) {
         q->insert(item->key(), item->property());
-        emit q->valueChanged(item->key(), item->property());
+        if (option == EmitValueChanged) {
+            emit q->valueChanged(item->key(), item->property());
+        }
     }
 }
 
