@@ -24,6 +24,8 @@
 
 #include <kcoreconfigskeleton.h>
 
+#include <functional>
+
 namespace KDeclarative {
 
 class ConfigPropertyMapPrivate {
