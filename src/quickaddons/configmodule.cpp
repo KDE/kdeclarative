@@ -36,6 +36,7 @@
 
 #include <kaboutdata.h>
 #include <klocalizedstring.h>
+#include <kdeclarative/qmlobject.h>
 #include <kdeclarative/qmlobjectsharedengine.h>
 
 #include <KPackage/Package>
@@ -60,7 +61,7 @@ public:
     void authStatusChanged(int status);
 
     ConfigModule *_q;
-    KDeclarative::QmlObjectSharedEngine *_qmlObject;
+    KDeclarative::QmlObject *_qmlObject;
     ConfigModule::Buttons _buttons;
     const KAboutData *_about;
     QString _rootOnlyMessage;
@@ -140,7 +141,20 @@ QQuickItem *ConfigModule::mainUi()
     if (d->_qmlObject) {
         return qobject_cast<QQuickItem *>(d->_qmlObject->rootObject());
     }
-    d->_qmlObject = new KDeclarative::QmlObjectSharedEngine(this);
+
+    // if we have a qml context, hook up to it and use its engine
+    // this ensure that in e.g. Plasma config dialogs that use a different engine
+    // so they can have different QtQuick Controls styles, we don't end up using
+    // the shared engine that is used by the rest of plasma
+
+    QQmlContext *ctx = QQmlEngine::contextForObject(this);
+
+    if (ctx && ctx->engine()) {
+        d->_qmlObject = new KDeclarative::QmlObject(ctx->engine(), ctx, this);
+    } else {
+        d->_qmlObject = new KDeclarative::QmlObjectSharedEngine(this);
+    }
+
     ConfigModulePrivate::s_rootObjects[d->_qmlObject->rootContext()] = this;
     d->_qmlObject->setTranslationDomain(aboutData()->componentName());
     d->_qmlObject->setInitializationDelayed(true);
