@@ -45,7 +45,7 @@ public:
 
 #ifndef KDECLARATIVE_NO_DEPRECATE
     /**
-     * @deprecated
+     * @deprecated since 5.0. The method is a no-op now, any call can be simply removed.
      */
     KDECLARATIVE_DEPRECATED void initialize();
 #endif
