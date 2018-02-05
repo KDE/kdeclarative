@@ -285,6 +285,14 @@ Plotter::Plotter(QQuickItem *parent)
       m_autoRange(true)
 {
     setFlag(ItemHasContents);
+    connect(this, &Plotter::windowChanged, this, [this]() {
+        if (m_window) {
+            disconnect(m_window.data(), &QQuickWindow::beforeRendering, this, &Plotter::render);
+        }
+        m_window.clear();
+        //when the window changes, the node gets deleted
+        m_node = nullptr;
+    });
 }
 
 Plotter::~Plotter()
@@ -715,7 +723,7 @@ QSGNode *Plotter::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *updateP
         return nullptr;
     }
 
-    QSGSimpleTextureNode *n = static_cast<QSGSimpleTextureNode *>(oldNode);
+    ManagedTextureNode *n = static_cast<ManagedTextureNode *>(oldNode);
 
     if (width() == 0 && height() == 0) {
         delete oldNode;
@@ -724,7 +732,7 @@ QSGNode *Plotter::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *updateP
 
     if (!n) {
         n = new ManagedTextureNode();
-        n->setTexture(new PlotTexture(window()->openglContext()));
+        n->setTexture(QSharedPointer<QSGTexture>(new PlotTexture(window()->openglContext())));
         n->setFiltering(QSGTexture::Linear);
 
         m_node = n;

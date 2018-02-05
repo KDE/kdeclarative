@@ -34,6 +34,8 @@
 #include <QQuickWindow>
 #include <QMutex>
 
+class ManagedTextureNode;
+
 /**
  * a Plotter can draw a graph of values arriving from an arbitrary number of data sources
  * to show their evoluton in time.
@@ -227,7 +229,7 @@ private:
     QList<PlotData *> m_plotData;
 
     GLuint m_fbo = 0;
-    QSGSimpleTextureNode *m_node = nullptr;
+    ManagedTextureNode *m_node = nullptr;
     qreal m_min;
     qreal m_max;
     qreal m_rangeMax;
