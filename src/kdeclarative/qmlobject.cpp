@@ -18,7 +18,6 @@
  */
 
 #include "qmlobject.h"
-#include "private/qmlobject_p.h"
 #include "private/kdeclarative_p.h"
 
 #include <QQmlComponent>
@@ -151,7 +150,6 @@ QmlObject::QmlObject(QObject *parent)
     d->kdeclarative.d->qmlObj = this;
     //binds things like kconfig and icons
     d->kdeclarative.setupBindings();
-    d->engine->setIncubationController(new QmlObjectIncubationController(this));
 }
 
 QmlObject::QmlObject(QQmlEngine *engine, QObject *parent)
@@ -162,7 +160,6 @@ QmlObject::QmlObject(QQmlEngine *engine, QObject *parent)
         d->engine = engine;
     } else {
         d->engine = new QQmlEngine(this);
-        d->engine->setIncubationController(new QmlObjectIncubationController(this));
     }
     d->rootContext = d->engine->rootContext();
     d->kdeclarative.setDeclarativeEngine(d->engine);
@@ -179,7 +176,6 @@ QmlObject::QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QObject *pare
         d->engine = engine;
     } else {
         d->engine = new QQmlEngine(this);
-        d->engine->setIncubationController(new QmlObjectIncubationController(0));
     }
 
     if (rootContext) {

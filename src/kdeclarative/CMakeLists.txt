@@ -6,7 +6,6 @@ set(kdeclarative_SRCS
   kdeclarative.cpp
   private/kiconprovider.cpp
   private/kioaccessmanagerfactory.cpp
-  private/qmlobject_p.h
 )
 
 add_library(KF5Declarative ${kdeclarative_SRCS})

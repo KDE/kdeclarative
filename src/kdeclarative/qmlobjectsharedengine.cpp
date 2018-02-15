@@ -18,7 +18,6 @@
  */
 
 #include "qmlobjectsharedengine.h"
-#include "private/qmlobject_p.h"
 
 #include <QQmlComponent>
 #include <QQmlEngine>
@@ -54,7 +53,6 @@ public:
     {
         if (!s_engine) {
             s_engine = std::make_shared<QQmlEngine>();
-            s_engine->setIncubationController(new QmlObjectIncubationController(0));            
         }
         return s_engine.get();
     }
