@@ -26,6 +26,19 @@
 
 #include <epoxy/gl.h>
 
+// qopengl.h declares GLdouble as a typedef of float when Qt is built
+// with GLES support.  This conflicts with the epoxy/gl_generated.h
+// declaration, so we have to prevent the Qt header from being #included.
+#define QOPENGL_H
+
+#ifndef QOPENGLF_APIENTRY
+#define QOPENGLF_APIENTRY GLAPIENTRY
+#endif
+
+#ifndef QOPENGLF_APIENTRYP
+#define QOPENGLF_APIENTRYP GLAPIENTRYP
+#endif
+
 #include <QSGTexture>
 #include <QSGSimpleTextureNode>
 #include <QQuickItem>
