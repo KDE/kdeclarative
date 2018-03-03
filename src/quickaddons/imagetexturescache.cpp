@@ -23,8 +23,9 @@
 
 typedef QHash<qint64, QHash<QWindow*, QWeakPointer<QSGTexture> > > TexturesCache;
 
-struct ImageTexturesCachePrivate
+class ImageTexturesCachePrivate
 {
+public:
     TexturesCache cache;
 };
 
