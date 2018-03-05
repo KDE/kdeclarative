@@ -141,36 +141,35 @@ void QmlObjectPrivate::scheduleExecutionEnd()
 }
 
 QmlObject::QmlObject(QObject *parent)
-    : QObject(parent),
-      d(new QmlObjectPrivate(this))
+    // cannot do : QmlObject(new QQmlEngine(this), d->engine->rootContext(), parent)
+    : QObject(parent)
+    , d(new QmlObjectPrivate(this))
+
 {
     d->engine = new QQmlEngine(this);
     d->rootContext = d->engine->rootContext();
     d->kdeclarative.setDeclarativeEngine(d->engine);
     d->kdeclarative.d->qmlObj = this;
-    //binds things like kconfig and icons
-    d->kdeclarative.setupBindings();
+
+    d->kdeclarative.setupContext();
+    KDeclarative::setupEngine(d->engine);
 }
 
 QmlObject::QmlObject(QQmlEngine *engine, QObject *parent)
-    : QObject(parent),
-      d(new QmlObjectPrivate(this))
+    : QmlObject(engine, engine->rootContext(), parent)
 {
-    if (engine) {
-        d->engine = engine;
-    } else {
-        d->engine = new QQmlEngine(this);
-    }
-    d->rootContext = d->engine->rootContext();
-    d->kdeclarative.setDeclarativeEngine(d->engine);
-    d->kdeclarative.d->qmlObj = this;
-    //binds things like kconfig and icons
-    d->kdeclarative.setupBindings();
+
 }
 
 QmlObject::QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QObject *parent)
-    : QObject(parent),
-      d(new QmlObjectPrivate(this))
+    : QmlObject(engine, rootContext, nullptr /*call setupEngine*/, parent)
+{
+
+}
+
+QmlObject::QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QmlObject *obj, QObject *parent)
+    : QObject(parent)
+    , d(new QmlObjectPrivate(this))
 {
     if (engine) {
         d->engine = engine;
@@ -185,8 +184,12 @@ QmlObject::QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QObject *pare
     }
     d->kdeclarative.setDeclarativeEngine(d->engine);
     d->kdeclarative.d->qmlObj = this;
-    //binds things like kconfig and icons
-    d->kdeclarative.setupBindings();
+
+    d->kdeclarative.setupContext();
+
+    if (!obj) {
+        KDeclarative::setupEngine(d->engine);
+    }
 }
 
 QmlObject::~QmlObject()

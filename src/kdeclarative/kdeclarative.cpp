@@ -74,12 +74,12 @@ void KDeclarative::initialize()
 
 void KDeclarative::setupBindings()
 {
-    //get rid of stock network access manager factory
-    QQmlNetworkAccessManagerFactory *factory = d->declarativeEngine.data()->networkAccessManagerFactory();
-    d->declarativeEngine.data()->setNetworkAccessManagerFactory(nullptr);
-    delete factory;
-    d->declarativeEngine.data()->setNetworkAccessManagerFactory(new KIOAccessManagerFactory());
+    setupContext();
+    setupEngine(d->declarativeEngine.data());
+}
 
+void KDeclarative::setupContext()
+{
     /*Create a context object for the root qml context.
       in this way we can register global functions, in this case the i18n() family*/
     if (!d->contextObj) {
@@ -96,12 +96,21 @@ void KDeclarative::setupBindings()
     if (!d->translationDomain.isNull()) {
         d->contextObj->setTranslationDomain(d->translationDomain);
     }
+}
+
+void KDeclarative::setupEngine(QQmlEngine *engine)
+{
+    //get rid of stock network access manager factory
+    QQmlNetworkAccessManagerFactory *factory = engine->networkAccessManagerFactory();
+    engine->setNetworkAccessManagerFactory(nullptr);
+    delete factory;
+    engine->setNetworkAccessManagerFactory(new KIOAccessManagerFactory());
 
     /* Tell the engine to search for platform-specific imports first
        (so it will "win" in import name resolution).
        addImportPath adds the path at the beginning, so to honour user's
        paths we need to traverse the list in reverse order */
-    const QStringList pluginPathList = d->declarativeEngine.data()->importPathList();
+    const QStringList pluginPathList = engine->importPathList();
 
     const QString target = componentsTarget();
     if (target != defaultComponentsTarget()) {
@@ -111,12 +120,12 @@ void KDeclarative::setupBindings()
         while (it.hasPrevious()) {
             QString path = it.previous();
             path = path.left(path.lastIndexOf(QLatin1Char('/')));
-            d->declarativeEngine.data()->addImportPath(path + QStringLiteral("/platformqml/") + target);
+            engine->addImportPath(path + QStringLiteral("/platformqml/") + target);
         }
     }
 
     // setup ImageProvider for KDE icons
-    d->declarativeEngine.data()->addImageProvider(QStringLiteral("icon"), new KIconProvider);
+    engine->addImageProvider(QStringLiteral("icon"), new KIconProvider);
 }
 
 void KDeclarative::setTranslationDomain(const QString &translationDomain)

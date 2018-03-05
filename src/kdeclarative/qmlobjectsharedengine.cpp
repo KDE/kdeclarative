@@ -53,6 +53,7 @@ public:
     {
         if (!s_engine) {
             s_engine = std::make_shared<QQmlEngine>();
+            KDeclarative::setupEngine(s_engine.get());
         }
         return s_engine.get();
     }
@@ -66,7 +67,7 @@ public:
 std::shared_ptr<QQmlEngine> QmlObjectSharedEnginePrivate::s_engine = std::shared_ptr<QQmlEngine>();
 
 QmlObjectSharedEngine::QmlObjectSharedEngine(QObject *parent)
-    : QmlObject(QmlObjectSharedEnginePrivate::engine(), new QQmlContext(QmlObjectSharedEnginePrivate::engine()), parent),
+    : QmlObject(QmlObjectSharedEnginePrivate::engine(), new QQmlContext(QmlObjectSharedEnginePrivate::engine()), this /*don't call setupEngine*/, parent),
       d(new QmlObjectSharedEnginePrivate())
 {
 }

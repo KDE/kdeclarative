@@ -48,18 +48,28 @@ public:
      * @deprecated since 5.0. The method is a no-op now, any call can be simply removed.
      */
     KDECLARATIVE_DEPRECATED void initialize();
-#endif
 
     /**
      * Call this after setDeclarativeEngine to set the i18n global functions, the runtime platform, etc
+     *
+     * @deprecated since 5.45 use setupContext() and setupEngine()
      */
-    void setupBindings();
+    KDECLARATIVE_DEPRECATED void setupBindings();
+#endif
+
+    /**
+     * Call this after setDeclarativeEngine to set the i18n global functions.
+     *
+     * @since 5.45
+     * @sa setupEngine
+     */
+    void setupContext();
 
     void setDeclarativeEngine(QQmlEngine *engine);
     QQmlEngine *declarativeEngine() const;
 
     /**
-     * Call this method before calling setupBindings to install a translation domain for all
+     * Call this method before calling setupContext to install a translation domain for all
      * i18n global functions. If a translation domain is set all i18n calls delegate to the
      * matching i18nd calls with the provided translation domain.
      *
@@ -116,6 +126,17 @@ public:
      * @since 4.10
      */
     static QString defaultComponentsTarget();
+
+    /**
+     * Setup the QML engine used by this KDeclarative object.
+     *
+     * This needs to be done only once per QQmlEngine instance.
+     *
+     * @since 5.45
+     * @param engine The engine to setup
+     * @sa setupContext
+     */
+    static void setupEngine(QQmlEngine *engine);
 
 private:
     KDeclarativePrivate *const d;

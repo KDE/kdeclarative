@@ -237,6 +237,20 @@ Q_SIGNALS:
 
     void statusChanged(QQmlComponent::Status);
 
+protected:
+    /**
+     * Constructs a new QmlObject
+     *
+     * @param engine a QQmlEngine we want to use
+     * @param rootContext the root context we want to use for objects creation
+     * @param obj setupEngine is called when this is set to nullptr. This way the creator can
+     * influence if the engine should be initialized or not in case it is shared between
+     * multiple objects (such as QmlObjectSharedEngine)
+     * @param parent the parent of this object
+     * @since 5.45
+     */
+    explicit QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QmlObject *obj, QObject *parent = nullptr);
+
 private:
     friend class QmlObjectPrivate;
     QmlObjectPrivate *const d;
