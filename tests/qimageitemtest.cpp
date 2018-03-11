@@ -18,10 +18,10 @@
  */
 
 #include <QGuiApplication>
-#include <QtQuick/QQuickView>
-#include <QtQml/QQmlContext>
+#include <QQuickView>
+#include <QQmlContext>
 
-#include <QtTest/qtestcase.h>
+#include <qtestcase.h>
 
 int main(int argc, char *argv[])
 {

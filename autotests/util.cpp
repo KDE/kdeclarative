@@ -33,13 +33,13 @@
 
 #include "util.h"
 
-#include <QtQml/QQmlComponent>
-#include <QtQml/QQmlError>
-#include <QtQml/QQmlContext>
-#include <QtQml/QQmlEngine>
-#include <QtCore/QTextStream>
-#include <QtCore/QDebug>
-#include <QtCore/QMutexLocker>
+#include <QQmlComponent>
+#include <QQmlError>
+#include <QQmlContext>
+#include <QQmlEngine>
+#include <QTextStream>
+#include <QDebug>
+#include <QMutexLocker>
 
 QQmlDataTest *QQmlDataTest::m_instance = nullptr;
 

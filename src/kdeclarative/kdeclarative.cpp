@@ -25,11 +25,11 @@
 
 #include <QCoreApplication>
 #include <QDebug>
-#include <QtQml/QQmlComponent>
-#include <QtQml/QQmlContext>
-#include <QtQml/QQmlEngine>
-#include <QtQml/QQmlExpression>
-#include <QtQml/QQmlDebuggingEnabler>
+#include <QQmlComponent>
+#include <QQmlContext>
+#include <QQmlEngine>
+#include <QQmlExpression>
+#include <QQmlDebuggingEnabler>
 
 #include <kconfiggroup.h>
 #include <ksharedconfig.h>

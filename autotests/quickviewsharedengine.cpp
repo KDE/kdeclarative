@@ -31,15 +31,15 @@
 **
 ****************************************************************************/
 #include <qtest.h>
-#include <QtTest/QSignalSpy>
-#include <QtQml/qqmlcomponent.h>
-#include <QtQml/qqmlcontext.h>
-#include <QtQuick/qquickview.h>
-#include <QtQuick/qquickitem.h>
+#include <QSignalSpy>
+#include <qqmlcomponent.h>
+#include <qqmlcontext.h>
+#include <qquickview.h>
+#include <qquickitem.h>
 #include "util.h"
-#include <QtGui/QWindow>
-#include <QtCore/QDebug>
-#include <QtQml/qqmlengine.h>
+#include <QWindow>
+#include <QDebug>
+#include <qqmlengine.h>
 #include <quickviewsharedengine.h>
 
 class QuickViewSharedEngineTest : public QQmlDataTest

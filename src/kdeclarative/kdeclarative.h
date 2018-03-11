@@ -20,7 +20,7 @@
 #ifndef KDECLARATIVE_H
 #define KDECLARATIVE_H
 
-#include <QtQml/QQmlEngine>
+#include <QQmlEngine>
 
 #include <kdeclarative/kdeclarative_export.h>
 

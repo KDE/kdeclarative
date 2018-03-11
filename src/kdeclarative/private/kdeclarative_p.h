@@ -23,7 +23,7 @@
 #include "kdeclarative.h"
 #include "qmlobject.h"
 
-#include <QtCore/QPointer>
+#include <QPointer>
 #include <KLocalizedContext>
 
 namespace KDeclarative {

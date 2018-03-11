@@ -18,7 +18,7 @@
 #ifndef ICON_PROVIDER_H
 #define ICON_PROVIDER_H
 
-#include <QtQuick/QQuickImageProvider>
+#include <QQuickImageProvider>
 
 namespace KDeclarative {
 
