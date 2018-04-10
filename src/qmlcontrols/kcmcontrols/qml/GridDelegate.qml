@@ -153,6 +153,7 @@ T2.ItemDelegate {
                             activeFocusOnTab: focus || delegate.focus
                             onClicked: modelData.trigger()
                             enabled: modelData.enabled
+                            visible: modelData.visible
                             //NOTE: there aren't any global settings where to take "official" tooltip timeouts
                             Controls.ToolTip.delay: 1000
                             Controls.ToolTip.timeout: 5000
