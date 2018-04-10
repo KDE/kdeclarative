@@ -56,6 +56,7 @@ Kirigami.ScrollablePage {
                 left: parent.left
                 right: parent.right
                 top: parent.top
+                topMargin: root.header ? root.header.height : 0
             }
             visible: !root.flickable.atYBeginning
         },
@@ -65,6 +66,7 @@ Kirigami.ScrollablePage {
                 left: parent.left
                 right: parent.right
                 bottom: parent.bottom
+                bottomMargin: root.footer ? root.footer.height : 0
             }
             visible: !root.flickable.atYEnd
         }
