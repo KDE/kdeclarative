@@ -33,11 +33,12 @@ void KQuickAddons::QtQuickSettings::init()
     if (!s.sceneGraphBackend().isNull()) {
      QQuickWindow::setSceneGraphBackend(s.sceneGraphBackend());
     }
+    auto format = QSurfaceFormat::defaultFormat();
     if (s.forceGlCoreProfile()) {
-        QSurfaceFormat format;
         format.setVersion(3,2);
         format.setProfile(QSurfaceFormat::CoreProfile);
-        QSurfaceFormat::setDefaultFormat(format);
     }
+    format.setOption(QSurfaceFormat::ResetNotification);
+    QSurfaceFormat::setDefaultFormat(format);
 }
 
