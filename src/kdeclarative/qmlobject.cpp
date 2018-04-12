@@ -42,7 +42,7 @@ class QmlObjectIncubator : public QQmlIncubator
 public:
     QVariantHash m_initialProperties;
 protected:
-    void setInitialState(QObject *object) Q_DECL_OVERRIDE
+    void setInitialState(QObject *object) override
     {
         QHashIterator<QString, QVariant> i(m_initialProperties);
         while (i.hasNext()) {

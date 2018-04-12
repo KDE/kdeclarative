@@ -59,7 +59,7 @@ public:
     Q_ENUM(ResizeMode)
 
     explicit QuickViewSharedEngine(QWindow *parent = nullptr);
-    ~QuickViewSharedEngine();
+    ~QuickViewSharedEngine() override;
 
     /**
      * Installs a translation domain for all
@@ -97,7 +97,7 @@ public:
     void setResizeMode(ResizeMode);
 
 protected:
-    void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent *e) override;
 
 public Q_SLOTS:
     void setSource(const QUrl &url);

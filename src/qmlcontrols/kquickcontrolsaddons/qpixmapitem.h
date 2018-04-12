@@ -48,8 +48,8 @@ public:
     };
     Q_ENUM(FillMode)
 
-    QPixmapItem(QQuickItem *parent=nullptr);
-    ~QPixmapItem();
+    explicit QPixmapItem(QQuickItem *parent=nullptr);
+    ~QPixmapItem() override;
 
     void setPixmap(const QPixmap &pixmap);
     QPixmap pixmap() const;
@@ -67,7 +67,7 @@ public:
     FillMode fillMode() const;
     void setFillMode(FillMode mode);
 
-    void paint(QPainter *painter) Q_DECL_OVERRIDE;
+    void paint(QPainter *painter) override;
 
     bool isNull() const;
 
@@ -81,7 +81,7 @@ Q_SIGNALS:
     void paintedHeightChanged();
 
 protected:
-    void geometryChanged(const QRectF & newGeometry, const QRectF & oldGeometry) Q_DECL_OVERRIDE;
+    void geometryChanged(const QRectF & newGeometry, const QRectF & oldGeometry) override;
 
 private:
     QPixmap m_pixmap;

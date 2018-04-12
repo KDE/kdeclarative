@@ -45,8 +45,8 @@ public:
     };
     Q_ENUM(State)
 
-    QIconItem(QQuickItem *parent=nullptr);
-    ~QIconItem();
+    explicit QIconItem(QQuickItem *parent=nullptr);
+    ~QIconItem() override;
 
     void setIcon(const QVariant &icon);
     QIcon icon() const;
@@ -63,7 +63,7 @@ public:
     void setEnabled(bool enabled = true);
     bool enabled() const;
 
-    QSGNode* updatePaintNode(QSGNode* node, UpdatePaintNodeData* data) Q_DECL_OVERRIDE;
+    QSGNode* updatePaintNode(QSGNode* node, UpdatePaintNodeData* data) override;
 
 Q_SIGNALS:
     void iconChanged();
@@ -71,7 +71,7 @@ Q_SIGNALS:
     void stateChanged(State state);
 
 protected:
-    void geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry) Q_DECL_OVERRIDE;
+    void geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry) override;
 
 private:
     QIcon m_icon;

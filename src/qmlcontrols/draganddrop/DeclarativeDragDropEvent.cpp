@@ -50,7 +50,7 @@ DeclarativeDragDropEvent::DeclarativeDragDropEvent(QDragLeaveEvent* e, Declarati
 
 void DeclarativeDragDropEvent::accept(int action)
 {
-    m_event->setDropAction( (Qt::DropAction) action );
+    m_event->setDropAction( static_cast<Qt::DropAction>(action) );
 //     qDebug() << "-----> Accepting event: " << this << m_data.urls() << m_data.text() << m_data.html() << ( m_data.hasColor() ? m_data.color().name() : " no color");
     m_event->accept();
 }

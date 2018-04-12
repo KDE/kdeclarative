@@ -97,7 +97,7 @@ class DeclarativeDragArea : public QQuickItem
 
 public:
     DeclarativeDragArea(QQuickItem *parent=nullptr);
-    ~DeclarativeDragArea();
+    ~DeclarativeDragArea() override;
 
     QQuickItem *delegate() const;
     void setDelegate(QQuickItem* delegate);
@@ -143,11 +143,11 @@ Q_SIGNALS:
     void delegateImageChanged();
 
 protected:
-    void mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-    void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-    void mouseReleaseEvent(QMouseEvent *) Q_DECL_OVERRIDE;
-    void timerEvent(QTimerEvent *event) Q_DECL_OVERRIDE;
-    bool childMouseEventFilter(QQuickItem *item, QEvent *event) Q_DECL_OVERRIDE;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *) override;
+    void timerEvent(QTimerEvent *event) override;
+    bool childMouseEventFilter(QQuickItem *item, QEvent *event) override;
 
 private:
     void startDrag(const QImage &image);

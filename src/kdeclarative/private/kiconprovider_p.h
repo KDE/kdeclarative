@@ -27,7 +27,7 @@ class KIconProvider : public QQuickImageProvider
 
 public:
     KIconProvider();
-    QPixmap requestPixmap(const QString &id, QSize *size, const QSize &requestedSize) Q_DECL_OVERRIDE;
+    QPixmap requestPixmap(const QString &id, QSize *size, const QSize &requestedSize) override;
 };
 
 }

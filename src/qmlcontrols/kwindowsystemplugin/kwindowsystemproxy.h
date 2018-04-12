@@ -80,7 +80,7 @@ class KWindowSystemProxy : public QObject
 
 public:
     explicit KWindowSystemProxy(QObject *parent = nullptr);
-    virtual ~KWindowSystemProxy();
+    ~KWindowSystemProxy() override;
 
     int currentDesktop() const;
     void setCurrentDesktop(int desktop);
@@ -159,7 +159,7 @@ Q_SIGNALS:
     void compositingActiveChanged(bool compositingActive);
 
 protected:
-    void connectNotify(const QMetaMethod &signal) Q_DECL_OVERRIDE;
+    void connectNotify(const QMetaMethod &signal) override;
 
 private:
     bool m_initialized;

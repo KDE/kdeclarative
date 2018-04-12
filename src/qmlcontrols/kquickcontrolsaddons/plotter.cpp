@@ -188,7 +188,7 @@ class PlotTexture : public QSGTexture
 {
 public:
     PlotTexture(QOpenGLContext *ctx);
-    ~PlotTexture();
+    ~PlotTexture() override;
 
     void bind() override final;
     bool hasAlphaChannel() const override final { return true; }

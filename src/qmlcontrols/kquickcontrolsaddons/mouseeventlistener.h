@@ -177,7 +177,7 @@ class MouseEventListener : public QQuickItem
 
 public:
     MouseEventListener(QQuickItem *parent=nullptr);
-    ~MouseEventListener();
+    ~MouseEventListener() override;
 
     bool containsMouse() const;
     void setHoverEnabled(bool enable);
@@ -191,16 +191,16 @@ public:
     void setCursorShape(Qt::CursorShape shape);
 
 protected:
-    void hoverEnterEvent(QHoverEvent *event) Q_DECL_OVERRIDE;
-    void hoverLeaveEvent(QHoverEvent *event) Q_DECL_OVERRIDE;
-    void hoverMoveEvent(QHoverEvent * event) Q_DECL_OVERRIDE;
-    void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-    void mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-    void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-    void wheelEvent(QWheelEvent *event) Q_DECL_OVERRIDE;
-    bool childMouseEventFilter(QQuickItem *item, QEvent *event) Q_DECL_OVERRIDE;
-    void mouseUngrabEvent() Q_DECL_OVERRIDE;
-    void touchUngrabEvent() Q_DECL_OVERRIDE;
+    void hoverEnterEvent(QHoverEvent *event) override;
+    void hoverLeaveEvent(QHoverEvent *event) override;
+    void hoverMoveEvent(QHoverEvent * event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
+    void wheelEvent(QWheelEvent *event) override;
+    bool childMouseEventFilter(QQuickItem *item, QEvent *event) override;
+    void mouseUngrabEvent() override;
+    void touchUngrabEvent() override;
 
 Q_SIGNALS:
     void pressed(KDeclarativeMouseEvent *mouse);

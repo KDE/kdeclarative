@@ -62,7 +62,7 @@ class IconDialog : public QObject
 
 public:
     explicit IconDialog(QObject *parent = nullptr);
-    virtual ~IconDialog();
+    ~IconDialog() override;
 
     QString iconName() const;
 
@@ -97,7 +97,7 @@ Q_SIGNALS:
     void visibleChanged();
 
 private:
-    bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
     QScopedPointer<KIconDialog> m_dialog;
 

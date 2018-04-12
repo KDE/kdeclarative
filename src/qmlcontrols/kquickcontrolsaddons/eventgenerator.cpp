@@ -52,7 +52,7 @@ void EventGenerator::sendMouseEvent(QQuickItem *item, EventGenerator::MouseEvent
     default:
         return;
     }
-    QMouseEvent ev(eventType, QPointF(x, y), (Qt::MouseButton)button, buttons, modifiers);
+    QMouseEvent ev(eventType, QPointF(x, y), static_cast<Qt::MouseButton>(button), buttons, modifiers);
 
     QGuiApplication::sendEvent(item, &ev);
 }

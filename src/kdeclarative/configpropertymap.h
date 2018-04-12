@@ -42,7 +42,7 @@ class KDECLARATIVE_EXPORT ConfigPropertyMap : public QQmlPropertyMap
 
 public:
     ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *parent = nullptr);
-    ~ConfigPropertyMap();
+    ~ConfigPropertyMap() override;
 
     /**
      * @brief Whether the value at the given key is immutable
@@ -52,7 +52,7 @@ public:
     Q_INVOKABLE bool isImmutable(const QString &key) const;
 
 protected:
-    QVariant updateValue(const QString &key, const QVariant &input) Q_DECL_OVERRIDE;
+    QVariant updateValue(const QString &key, const QVariant &input) override;
 private:
     ConfigPropertyMapPrivate *const d;
 

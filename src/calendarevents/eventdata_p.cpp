@@ -23,7 +23,7 @@
 
 class CalendarEvents::EventData::Private : public QSharedData {
 public:
-    Private() : isAllDay(false), isMinor(false) {};
+    Private() : isAllDay(false), isMinor(false) {}
     Private(const Private &other)
         : QSharedData(other)
     {
@@ -36,8 +36,8 @@ public:
         type = other.type;
         isAllDay = other.isAllDay;
         isMinor = other.isMinor;
-    };
-    ~Private() {};
+    }
+    ~Private() {}
     QDateTime startDateTime;    // Start of the event
     QDateTime endDateTime;      // End of the event
     QString title;              // Title of the event
