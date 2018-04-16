@@ -58,6 +58,13 @@ Kirigami.Page {
      */
     property alias view: scroll.view
 
+    /**
+     * An header element to be put on top of the Grid View,
+     * The difference with the KCM header is that this item will have te same width as the grid view, whild the KCM top header will span for the whole KCM size
+     */
+    property Item viewHeader
+    property Item viewFooter
+
     title: kcm.name
     implicitWidth: view.implicitCellWidth * 3 + scroll.QtControls.ScrollBar.vertical.width + Kirigami.Units.gridUnit
     implicitHeight: view.implicitCellHeight * 3 + (header ? header.height : 0) + (footer ? footer.height : 0) + Kirigami.Units.gridUnit
@@ -70,10 +77,6 @@ Kirigami.Page {
     KCM.GridView {
         id: scroll
         width: Math.min(implicitWidth, root.width)
-        anchors {
-            top: parent.top
-            bottom: parent.bottom
-            horizontalCenter: parent.horizontalCenter
-        }
+        anchors.fill: parent
     }
 }

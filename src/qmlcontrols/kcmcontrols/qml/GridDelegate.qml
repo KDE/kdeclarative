@@ -59,19 +59,18 @@ T2.ItemDelegate {
      */
     property list<QtObject> actions
 
-    width: view.cellWidth
-    height: view.cellHeight
+    width: GridView.view.cellWidth
+    height: GridView.view.cellHeight
     hoverEnabled: true
 
     Rectangle {
         id: thumbnail
         anchors {
-            left: parent.left
-            right: parent.right
-            top: parent.top
-            margins: Kirigami.Units.smallSpacing * 2
+           centerIn: parent
+           verticalCenterOffset: -label.height/2
         }
-        height: width/1.6
+        width: Math.min(delegate.GridView.view.implicitCellWidth, delegate.width - Kirigami.Units.gridUnit)
+        height: width / 1.6
         radius: Kirigami.Units.smallSpacing
         Kirigami.Theme.inherit: false
         Kirigami.Theme.colorSet: Kirigami.Theme.View
@@ -175,6 +174,7 @@ T2.ItemDelegate {
     }
 
     Controls.Label {
+        id: label
         anchors {
             left: parent.left
             right: parent.right

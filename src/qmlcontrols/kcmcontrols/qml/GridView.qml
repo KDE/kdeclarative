@@ -45,9 +45,6 @@ QtControls.ScrollView {
      */
     property alias view: view
 
-
-    implicitWidth: Math.max(view.cellWidth * 2 + internal.scrollBarSpace
-                , Math.floor(internal.availableWidth / view.cellWidth) * view.cellWidth + internal.scrollBarSpace + 4)
     activeFocusOnTab: false
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     Kirigami.Theme.inherit: false
@@ -57,23 +54,25 @@ QtControls.ScrollView {
     GridView {
         id: view
         property int implicitCellWidth: Kirigami.Units.gridUnit * 10
-        property int implicitCellHeight: Math.round(implicitCellWidth / 1.6) + Kirigami.Units.gridUnit
+        property int implicitCellHeight: Math.round(implicitCellWidth / 1.6) + Kirigami.Units.gridUnit*2
+
+        onCurrentIndexChanged: positionViewAtIndex(currentIndex, GridView.Contain);
+
         QtObject {
             id: internal
-            readonly property int availableWidth: scroll.parent.width - internal.scrollBarSpace - 4
+            readonly property int availableWidth: scroll.width - internal.scrollBarSpace - 4
             readonly property int scrollBarSpace: scroll.QtControls.ScrollBar.vertical.width
         }
         anchors {
             fill: parent
             margins: 2
-            leftMargin: contentHeight <= height ? internal.scrollBarSpace/2 : 2
-            rightMargin: contentHeight <= height ? internal.scrollBarSpace/2 : internal.scrollBarSpace + 2
+            leftMargin: scroll.QtControls.ScrollBar.vertical.visible ? 2 :  internal.scrollBarSpace/2 + 2
         }
         clip: true
         activeFocusOnTab: true
 
-        cellWidth: Math.min(Math.floor(internal.availableWidth / 2), implicitCellWidth)
-        cellHeight: Math.round(cellWidth / 1.6) + Kirigami.Units.gridUnit
+        cellWidth: Math.floor(internal.availableWidth / Math.max(Math.floor(internal.availableWidth / (implicitCellWidth + Kirigami.Units.gridUnit)), 2))
+        cellHeight: implicitCellHeight
 
         keyNavigationEnabled: true
         keyNavigationWraps: true
