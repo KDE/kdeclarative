@@ -4,6 +4,7 @@ set(kquickcontrolsprivate_SRCS
     kquickcontrolsprivateplugin.cpp
     keysequencehelper.cpp
     translationcontext.cpp
+    ghnshelper.cpp
 )
 
 add_library(kquickcontrolsprivateplugin SHARED ${kquickcontrolsprivate_SRCS})
@@ -17,6 +18,7 @@ target_link_libraries(kquickcontrolsprivateplugin
         KF5::WidgetsAddons
         KF5::WindowSystem
         KF5::GlobalAccel
+        KF5::NewStuff
         )
 
 install(TARGETS kquickcontrolsprivateplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/private/kquickcontrols)
