@@ -156,7 +156,7 @@ T2.ItemDelegate {
                             //NOTE: there aren't any global settings where to take "official" tooltip timeouts
                             Controls.ToolTip.delay: 1000
                             Controls.ToolTip.timeout: 5000
-                            Controls.ToolTip.visible: hovered
+                            Controls.ToolTip.visible: hovered && delegate.toolTip.length > 0
                             Controls.ToolTip.text: modelData.tooltip
                         }
                     }
