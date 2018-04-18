@@ -62,6 +62,9 @@ public:
 
     ConfigModule *_q;
     KDeclarative::QmlObject *_qmlObject;
+    KPackage::Package _package;
+    QList<QQuickItem *> _subPages;
+
     ConfigModule::Buttons _buttons;
     const KAboutData *_about;
     QString _rootOnlyMessage;
@@ -159,12 +162,12 @@ QQuickItem *ConfigModule::mainUi()
     d->_qmlObject->setTranslationDomain(aboutData()->componentName());
     d->_qmlObject->setInitializationDelayed(true);
 
-    KPackage::Package package = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/GenericQML"));
-    package.setDefaultPackageRoot(QStringLiteral("kpackage/kcms"));
-    package.setPath(aboutData()->componentName());
+    d->_package = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/GenericQML"));
+    d->_package.setDefaultPackageRoot(QStringLiteral("kpackage/kcms"));
+    d->_package.setPath(aboutData()->componentName());
 
-    if (!package.filePath("mainscript").isEmpty()) {
-        d->_qmlObject->setSource(QUrl::fromLocalFile(package.filePath("mainscript")));
+    if (!d->_package.filePath("mainscript").isEmpty()) {
+        d->_qmlObject->setSource(QUrl::fromLocalFile(d->_package.filePath("mainscript")));
         d->_qmlObject->engine()->rootContext()->setContextProperty(QStringLiteral("kcm"), this);
         d->_qmlObject->completeInitialization();
 
@@ -173,6 +176,41 @@ QQuickItem *ConfigModule::mainUi()
         qWarning() << "Error loading the module" << aboutData()->componentName() << ": no QML file provided";
         return nullptr;
     }
+}
+
+QQuickItem *ConfigModule::push(const QString &fileName)
+{
+    if (!d->_qmlObject) {
+        return nullptr;
+    }
+
+    if (!d->_package.filePath("ui", fileName).isEmpty()) {
+        QObject *pageObj = d->_qmlObject->createObjectFromSource(QUrl::fromLocalFile(d->_package.filePath("ui", fileName)));
+
+        QQuickItem *subPage = qobject_cast<QQuickItem *>(pageObj);
+        //only accept qquickitems
+        if (subPage) {
+            d->_subPages.append(subPage);
+            emit newPage(subPage);
+        } else {
+            pageObj->deleteLater();
+        }
+        return subPage;
+    } else {
+        qWarning() << "Error loading the sub page" << fileName << "doesn't exist.";
+        return nullptr;
+    }
+}
+
+void ConfigModule::pop()
+{
+    if (d->_subPages.length() == 0) {
+        return;
+    }
+
+    QQuickItem *page = d->_subPages.takeLast();
+    QTimer::singleShot(1000, page, &QObject::deleteLater);
+    emit pageRemoved();
 }
 
 ConfigModule::Buttons ConfigModule::buttons() const

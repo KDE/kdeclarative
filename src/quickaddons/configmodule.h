@@ -386,6 +386,22 @@ public:
      */
     QString description() const;
 
+    /**
+     * Push a new page on top of mainUI
+     * It's responsibility of the systemsettings shell to decide how to
+     * display the new page.
+     * It is advised to not push more than one-two sub pages to not make modules too deep.
+     * @param fileName the file name of the QML file contained in the package to load
+     * @since 5.46
+     */
+    Q_INVOKABLE QQuickItem *push(const QString &fileName);
+
+    /**
+     * Remove the last of the sub pages
+     * @since 5.46
+     */
+    Q_INVOKABLE void pop();
+
     static ConfigModule *qmlAttachedProperties(QObject *object);
 
 public Q_SLOTS:
@@ -478,6 +494,18 @@ Q_SIGNALS:
      * Emits this signal whenever the the root only message gets used or discarded.
      */
     void useRootOnlyMessageChanged();
+
+    /**
+     * The kcm created a new sub page, the shell should display it in some way
+     * @since 5.46
+     */
+    void newPage(QQuickItem *item);
+
+    /**
+     * The last of the kcm sub pages has been destroyed
+     * @since 5.46
+     */
+    void pageRemoved();
 
 private:
     ConfigModulePrivate *const d;
