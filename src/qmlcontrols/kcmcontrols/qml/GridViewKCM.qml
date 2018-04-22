@@ -68,12 +68,23 @@ Kirigami.Page {
     title: kcm.name
     implicitWidth: view.implicitCellWidth * 3 + scroll.QtControls.ScrollBar.vertical.width + Kirigami.Units.gridUnit
     implicitHeight: view.implicitCellHeight * 3 + (header ? header.height : 0) + (footer ? footer.height : 0) + Kirigami.Units.gridUnit
+    flickable: scroll.view
 
     topPadding: 0
     leftPadding: 0
     rightPadding: 0
     bottomPadding: footer ? Kirigami.Units.smallSpacing : 0
 
+    Component.onCompleted: {
+        if (footer && Kirigami.Settings.isMobile) {
+            footer.anchors.leftMargin = Kirigami.Units.smallSpacing
+            footer.anchors.rightMargin = Kirigami.Units.smallSpacing
+            footer.anchors.bottomMargin = Kirigami.Units.smallSpacing
+            footer.anchors.left = root.left;
+            footer.anchors.right = root.right;
+            footer.anchors.bottom = root.bottom;
+        }
+    }
     KCM.GridView {
         id: scroll
         width: Math.min(implicitWidth, root.width)

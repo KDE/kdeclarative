@@ -72,7 +72,7 @@ QtControls.ScrollView {
         activeFocusOnTab: true
 
         cellWidth: Math.floor(internal.availableWidth / Math.max(Math.floor(internal.availableWidth / (implicitCellWidth + Kirigami.Units.gridUnit)), 2))
-        cellHeight: implicitCellHeight
+        cellHeight: Kirigami.Settings.isMobile ? cellWidth/1.6 + Kirigami.Units.gridUnit : implicitCellHeight
 
         keyNavigationEnabled: true
         keyNavigationWraps: true

@@ -69,7 +69,7 @@ T2.ItemDelegate {
            centerIn: parent
            verticalCenterOffset: -label.height/2
         }
-        width: Math.min(delegate.GridView.view.implicitCellWidth, delegate.width - Kirigami.Units.gridUnit)
+        width: Kirigami.Settings.isMobile ? delegate.width - Kirigami.Units.gridUnit : Math.min(delegate.GridView.view.implicitCellWidth, delegate.width - Kirigami.Units.gridUnit)
         height: width / 1.6
         radius: Kirigami.Units.smallSpacing
         Kirigami.Theme.inherit: false
@@ -112,9 +112,9 @@ T2.ItemDelegate {
         Rectangle {
             anchors.fill: parent
             visible: actionsRow.children.length > 0
-            opacity: delegate.hovered || (actionsScope.focus) ? 1 : 0
+            opacity: Kirigami.Settings.isMobile || delegate.hovered || (actionsScope.focus) ? 1 : 0
             radius: Kirigami.Units.smallSpacing
-            color: Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.4)
+            color: Kirigami.Settings.isMobile ? "transparent" : Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.4)
 
             Kirigami.Theme.inherit: false
             Kirigami.Theme.colorSet: Kirigami.Theme.Complementary
@@ -156,7 +156,7 @@ T2.ItemDelegate {
                             //NOTE: there aren't any global settings where to take "official" tooltip timeouts
                             Controls.ToolTip.delay: 1000
                             Controls.ToolTip.timeout: 5000
-                            Controls.ToolTip.visible: hovered && modelData.tooltip.length > 0
+                            Controls.ToolTip.visible: (Kirigami.Settings.isMobile ? pressed : hovered) && modelData.tooltip.length > 0
                             Controls.ToolTip.text: modelData.tooltip
                         }
                     }
