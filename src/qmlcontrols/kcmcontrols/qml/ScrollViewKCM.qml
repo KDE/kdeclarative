@@ -24,16 +24,16 @@ import org.kde.kcm 1.1 as KCM
 
 /**
  * This component is intended to be used as the root item for most of the
- * KControl modules which are based upon a grid view of thumbnails, such as theme
- * or wallpaper selectors.
+ * KControl modules which are based upon a list view or another vertical flickable
  * It has a big GridView as its main item, the implementation is free to add extra
  * content in the header or footer properties.
  * @code
- * import org.kde.kcm 1.1 as KCM
- * KCM.GridViewKCM {
+ * import org.kde.kcm 1.2 as KCM
+ * KCM.ScrollViewKCM {
  *     header: Item {...}
- *     view.model: kcm.model
- *     view.delegate: KCM.GridDelegate {...}
+ *     view: ListView {
+ *       ...
+ *     }
  *     footer: Item {...}
  * }
  * @endcode
@@ -44,30 +44,20 @@ Kirigami.Page {
 
     /**
      * view: GridView
-     * Exposes the internal GridView: in order to set a model or a delegate to it,
-     * use the following code:
-     * @code
-     * import org.kde.kcm 1.1 as KCM
-     * KCM.GridViewKCM {
-     *     ...
-     *     view.model: kcm.model
-     *     view.delegate: KCM.GridDelegate {...}
-     *     ...
-     * }
-     * @endcode
+     * Exposes the internal flickable
      */
     property alias view: scroll.view
 
     /**
-     * An header element to be put on top of the Grid View,
-     * The difference with the KCM header is that this item will have te same width as the grid view, whild the KCM top header will span for the whole KCM size
+     * An header element to be put on top of the View,
+     * The difference with the KCM header is that this item will have te same width as the view, whild the KCM top header will span for the whole KCM size
      */
     property Item viewHeader
     property Item viewFooter
 
     title: kcm.name
-    implicitWidth: view.implicitCellWidth * 3 + scroll.QtControls.ScrollBar.vertical.width + Kirigami.Units.gridUnit
-    implicitHeight: view.implicitCellHeight * 3 + (header ? header.height : 0) + (footer ? footer.height : 0) + Kirigami.Units.gridUnit
+    implicitWidth: Kirigami.Units.gridUnit * 30
+    implicitHeight: Kirigami.Units.gridUnit * 40
     flickable: scroll.view
 
     topPadding: 0
@@ -85,7 +75,7 @@ Kirigami.Page {
             footer.anchors.bottom = root.bottom;
         }
     }
-    KCM.GridView {
+    KCM.ScrollView {
         id: scroll
         anchors.fill: parent
     }
