@@ -48,31 +48,43 @@ Kirigami.Page {
      */
     property alias view: scroll.view
 
-    /**
-     * An header element to be put on top of the View,
-     * The difference with the KCM header is that this item will have te same width as the view, whild the KCM top header will span for the whole KCM size
-     */
-    property Item viewHeader
-    property Item viewFooter
-
     title: kcm.name
     implicitWidth: Kirigami.Units.gridUnit * 30
     implicitHeight: Kirigami.Units.gridUnit * 40
     flickable: scroll.view
 
-    topPadding: 0
-    leftPadding: 0
-    rightPadding: 0
-    bottomPadding: footer ? Kirigami.Units.smallSpacing : 0
+    //NOTE: this should be smallspacing buit we need a pixel size in order to align with systemsettings widgets
+    leftPadding: Kirigami.Settings.isMobile ? 0 : 4
+    topPadding: headerParent.contentItem ? 0 : leftPadding
+    rightPadding: leftPadding
+    bottomPadding: footerParent.contentItem ? 0 : leftPadding
 
+    header: QtControls.Control {
+        id: headerParent
+        padding: 4
+    }
+
+    footer: QtControls.Control {
+        id: footerParent
+        padding: 4
+    }
     Component.onCompleted: {
-        if (footer && Kirigami.Settings.isMobile) {
-            footer.anchors.leftMargin = Kirigami.Units.smallSpacing
-            footer.anchors.rightMargin = Kirigami.Units.smallSpacing
-            footer.anchors.bottomMargin = Kirigami.Units.smallSpacing
-            footer.anchors.left = root.left;
-            footer.anchors.right = root.right;
-            footer.anchors.bottom = root.bottom;
+        if (footer && footer != footerParent) {
+            var f = footer
+
+            footerParent.contentItem = f
+            footer = footerParent
+            f.visible = true
+            f.parent = footerParent
+        }
+
+        if (header && header != headerParent) {
+            var f = header
+
+            headerParent.contentItem = f
+            header = headerParent
+            f.visible = true
+            f.parent = headerParent
         }
     }
     KCM.ScrollView {
