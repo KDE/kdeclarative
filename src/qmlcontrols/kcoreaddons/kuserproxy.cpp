@@ -31,6 +31,7 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDebug>
 
 const QString etcPasswd = QStringLiteral("/etc/passwd");
+const QString accountsServiceIconPath = QStringLiteral("/var/lib/AccountsService/icons");
 
 KUserProxy::KUserProxy (QObject *parent)
     : QObject(parent),
@@ -45,12 +46,14 @@ KUserProxy::KUserProxy (QObject *parent)
     }
 
     m_dirWatch.addFile(pathToFaceIcon);
+    m_dirWatch.addFile(accountsServiceIconPath + QLatin1Char('/') + m_user.loginName());
     if (QFile::exists(etcPasswd)) {
         m_dirWatch.addFile(etcPasswd);
     }
 
     connect(&m_dirWatch, &KDirWatch::dirty, this, &KUserProxy::update);
     connect(&m_dirWatch, &KDirWatch::created, this, &KUserProxy::update);
+    connect(&m_dirWatch, &KDirWatch::deleted, this, &KUserProxy::update);
 }
 
 KUserProxy::~KUserProxy()
@@ -59,7 +62,8 @@ KUserProxy::~KUserProxy()
 
 void KUserProxy::update(const QString &path)
 {
-    if (path == m_user.faceIconPath()) {
+    if (path == m_user.faceIconPath() || path == QDir::homePath() + QLatin1String("/.face.icon")
+            || path == accountsServiceIconPath + QLatin1Char('/') + m_user.loginName()) {
         // we need to force updates, even when the path doesn't change,
         // but the underlying image does. Change path temporarily, to
         // make the Image reload.
