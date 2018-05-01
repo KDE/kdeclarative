@@ -38,7 +38,9 @@ void KQuickAddons::QtQuickSettings::init()
         format.setVersion(3,2);
         format.setProfile(QSurfaceFormat::CoreProfile);
     }
-    format.setOption(QSurfaceFormat::ResetNotification);
+    if (s.graphicsResetNotifications()) {
+        format.setOption(QSurfaceFormat::ResetNotification);
+    }
     QSurfaceFormat::setDefaultFormat(format);
 }
 
