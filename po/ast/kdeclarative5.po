@@ -1,0 +1,106 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# enolp <enolp@softastur.org>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2017-11-30 03:07+0100\n"
+"PO-Revision-Date: 2016-12-20 23:02+0100\n"
+"Last-Translator: enolp <enolp@softastur.org>\n"
+"Language-Team: Asturian <alministradores@softastur.org>\n"
+"Language: ast\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Softastur"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "alministradores@softastur.org"
+
+#: kpackagelauncherqml/main.cpp:43
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr "Shell d'aplicaciones QML de KPackage "
+
+#: kpackagelauncherqml/main.cpp:50
+#, kde-format
+msgid "The unique name of the application (mandatory)"
+msgstr "El nome únicu de l'aplicación (obligatorio)"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:38
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"Primi nel menú, depués introduz l'atayu como te prestaría nel programa.\n"
+"Exemplu pa Ctrl+A: ten primida la tecla Ctrl y dempués calca la A"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:276
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "Atayu acutáu"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:277
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"La tecla F12 ta acutada en WIndows, asina que nun pue usase pa un atayu "
+"global.\n"
+"Escueyi otra, por favor."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:333
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Conlfictu col atayu estándar d'aplicación"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:334
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"La combinación de tecles «%1» tamién s'usa pa l'aición estándar «%2» que "
+"delles aplicaciones usen.\n"
+"¿De xuru que quies usala tamién como atayu global?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:339
+#, kde-format
+msgid "Reassign"
+msgstr "Reasignar"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:381
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Entrada"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:388
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Nada"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:409
+#, kde-format
+msgid "The key you just pressed is not supported by Qt."
+msgstr "La tecla que tas acabante primi nun la sofita Qt."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:410
+#, kde-format
+msgid "Unsupported Key"
+msgstr "Tecla ensin sofitu"

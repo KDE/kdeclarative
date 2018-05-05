@@ -1,0 +1,102 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006, 2007, 2008, 2009.
+# Yasen Pramatarov <yasen@lindeas.com>, 2009, 2010, 2011, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2017-11-30 03:07+0100\n"
+"PO-Revision-Date: 2013-07-23 01:52+0300\n"
+"Last-Translator: Yasen Pramatarov <yasen@lindeas.com>\n"
+"Language-Team: Bulgarian <dict@ludost.net>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Ясен Праматаров,Радостин Раднев,Златко Попов"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yasen@lindeas.com,radnev@yahoo.com,zlatkopopov@fsa-bg.org"
+
+#: kpackagelauncherqml/main.cpp:43
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr ""
+
+#: kpackagelauncherqml/main.cpp:50
+#, fuzzy, kde-format
+#| msgid "defines the application font"
+msgid "The unique name of the application (mandatory)"
+msgstr "задаване на шрифта за програмата"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:38
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:276
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "Запазен бърз клавиш"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:277
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:333
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Конфликт с програмна клавишна комбинация"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:334
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"Клавишната комбинация \"%1\" вече е зададена за действието \"%2\".\n"
+"Искате ли да я използвате и като глобален бърз клавиш."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:339
+#, kde-format
+msgid "Reassign"
+msgstr "Прехвърляне"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:381
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Въведени данни"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:388
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Без"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:409
+#, kde-format
+msgid "The key you just pressed is not supported by Qt."
+msgstr "Клавишът, който натиснахте, не се поддържа от Qt."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:410
+#, kde-format
+msgid "Unsupported Key"
+msgstr "Неподдържан клавиш"
