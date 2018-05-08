@@ -44,7 +44,11 @@ QtControls.ScrollView {
      * Exposes the internal flickable
      */
     property Flickable view
-    onViewChanged: view.parent = scroll;
+    contentItem: view
+    onViewChanged: {
+        view.parent = scroll;
+        view.anchors.fill = view.parent;
+    }
 
     activeFocusOnTab: false
     Kirigami.Theme.colorSet: Kirigami.Theme.View
