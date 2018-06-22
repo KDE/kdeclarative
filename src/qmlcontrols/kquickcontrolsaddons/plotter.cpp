@@ -549,7 +549,7 @@ QPainterPath Plotter::interpolate(const QVector<qreal> &p, qreal x0, qreal x1) c
 
 void Plotter::render()
 {
-    if (!window() || !m_node) {
+    if (!window() || !m_node || !m_node->texture()) {
         return;
     }
 
