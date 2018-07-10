@@ -78,9 +78,9 @@ if(epoxy_FOUND)
     set(HAVE_EPOXY 1)
 endif()
 
-add_subdirectory(autotests)
 add_subdirectory(src)
-if(KF5Config_FOUND AND KF5I18n_FOUND AND KF5IconThemes_FOUND AND KF5KIO_FOUND)
+if (BUILD_TESTING)
+    add_subdirectory(autotests)
     add_subdirectory(tests)
 endif()
 
