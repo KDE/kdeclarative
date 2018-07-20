@@ -46,10 +46,10 @@ class QmlObjectPrivate;
  *
  * @short An object that instantiates an entire QML context, with its own declarative engine
  *
- * KDeclarative::QmlObject provides a class for conveniently use QML based
+ * KDeclarative::QmlObject provides a class to conveniently use QML based
  * declarative user interfaces inside Plasma widgets.
- * To one QmlObject corresponds one QML file (that can eventually include others)
- * tere will be its own QQmlEngine with a single root object,
+ * A QmlObject corresponds to one QML file (which can include others).
+ * It will have its own QQmlEngine with a single root object,
  * described in the QML file.
  */
 class KDECLARATIVE_EXPORT QmlObject : public QObject
@@ -82,8 +82,8 @@ public:
     /**
      * Constructs a new QmlObject
      *
-     * @param engine a QQmlEngine we want to use
-     * @param rootContext the root context we want to use for objects creation
+     * @param engine the QQmlEngine to use
+     * @param rootContext the root context to use for object creation
      * @param parent the parent of this object
      */
     explicit QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QObject *parent = nullptr);
@@ -149,9 +149,9 @@ public:
 
     /**
      * Sets whether the execution of the QML file has to be delayed later in the event loop. It has to be called before setQmlPath().
-     * In this case will be possible to assign new objects in the main engine context
+     * In this case it will be possible to assign new objects in the main engine context
      * before the main component gets initialized.
-     * So it will be possible to access it immediately from the QML code.
+     * In that case it will be possible to access it immediately from the QML code.
      * The initialization will either be completed automatically asyncronously
      * or explicitly by calling completeInitialization()
      *
@@ -195,7 +195,7 @@ public:
 
     /**
      * Creates and returns an object based on the provided url to a Qml file
-     * with the same QQmlEngine and the same root context as the amin object,
+     * with the same QQmlEngine and the same root context as the main object,
      * that will be the parent of the newly created object
      * @param source url where the QML file is located
      * @param context The QQmlContext in which we will create the object,
