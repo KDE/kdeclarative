@@ -79,9 +79,9 @@ T2.ItemDelegate {
             if (delegate.GridView.isCurrentItem) {
                 return Kirigami.Theme.highlightColor;
             } else if (parent.hovered) {
-                return Qt.tint(Kirigami.Theme.backgroundColor, Qt.rgba(Kirigami.Theme.highlightColor.r, Kirigami.Theme.highlightColor.g, Kirigami.Theme.highlightColor.b, 0.3))
+                return Kirigami.Theme.highlightColor;
             } else {
-                return Kirigami.Theme.backgroundColor
+                return Kirigami.Theme.backgroundColor;
             }
         }
         Behavior on color {
@@ -110,11 +110,11 @@ T2.ItemDelegate {
         }
 
         Rectangle {
-            anchors.fill: parent
+            anchors.fill: thumbnailArea
             visible: actionsRow.children.length > 0
             opacity: Kirigami.Settings.isMobile || delegate.hovered || (actionsScope.focus) ? 1 : 0
             radius: Kirigami.Units.smallSpacing
-            color: Kirigami.Settings.isMobile ? "transparent" : Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 0.4)
+            color: Kirigami.Settings.isMobile ? "transparent" : Qt.rgba(1, 1, 1, 0.2)
 
             Kirigami.Theme.inherit: false
             Kirigami.Theme.colorSet: Kirigami.Theme.Complementary
@@ -126,12 +126,24 @@ T2.ItemDelegate {
                 }
             }
 
+            Rectangle {
+                visible: actionsRow.children.length > 1
+                anchors {
+                    left: parent.left
+                    top: actionsScope.top
+                    right: parent.right
+                    bottom: parent.bottom
+                }
+                gradient: Gradient {
+                    GradientStop { position: 0.0; color: "transparent" }
+                    GradientStop { position: 1.0; color: Qt.rgba(0, 0, 0, 0.4) }
+                }
+            }
             FocusScope {
                 id: actionsScope
                 anchors {
                     right: parent.right
                     bottom: parent.bottom
-                    margins: Kirigami.Units.smallSpacing
                 }
                 width: actionsRow.width
                 height: actionsRow.height
