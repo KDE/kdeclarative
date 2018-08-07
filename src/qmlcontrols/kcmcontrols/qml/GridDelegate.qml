@@ -16,7 +16,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.1
+import QtQuick 2.8
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.2 as Controls
 import QtQuick.Templates 2.2 as T2
@@ -175,7 +175,7 @@ T2.ItemDelegate {
                 }
             }
         }
-        layer.enabled: true
+        layer.enabled: GraphicsInfo.api === GraphicsInfo.OpenGL
         layer.effect: DropShadow {
             horizontalOffset: 0
             verticalOffset: 2
