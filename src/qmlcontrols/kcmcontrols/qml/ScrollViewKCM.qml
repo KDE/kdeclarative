@@ -50,8 +50,8 @@ Kirigami.Page {
     property alias view: scroll.view
 
     title: kcm.name
-    //implicitWidth: Kirigami.Units.gridUnit * 30
-    //implicitHeight: Kirigami.Units.gridUnit * 40
+    implicitWidth: Kirigami.Units.gridUnit * 20
+    implicitHeight: view && view.contentHeight > 0 ? Math.min(view.contentHeight, Kirigami.Units.gridUnit * 20) : Kirigami.Units.gridUnit * 20
     //flickable: scroll.view
 
     //NOTE: this should be smallspacing buit we need a pixel size in order to align with systemsettings widgets
