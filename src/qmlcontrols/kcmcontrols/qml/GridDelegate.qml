@@ -175,7 +175,8 @@ T2.ItemDelegate {
                 }
             }
         }
-        layer.enabled: GraphicsInfo.api === GraphicsInfo.OpenGL
+        // Bug 397367: explicitly using "delegate" as otherwise it crashes when switching between KCMs
+        layer.enabled: delegate.GraphicsInfo.api === GraphicsInfo.OpenGL
         layer.effect: DropShadow {
             horizontalOffset: 0
             verticalOffset: 2
