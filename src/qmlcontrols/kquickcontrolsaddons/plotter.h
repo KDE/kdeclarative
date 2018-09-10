@@ -51,7 +51,7 @@ class ManagedTextureNode;
 
 /**
  * a Plotter can draw a graph of values arriving from an arbitrary number of data sources
- * to show their evoluton in time.
+ * to show their evolution in time.
  * an example can be a plot of the network transfer speed or CPU temperature over time.
  * Multiple plots can be fitted in the same graph, either stacked or intersected.
  */

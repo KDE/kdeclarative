@@ -60,7 +60,7 @@ class ConfigModulePrivate;
  * the module author.
  *
  * To write a config module, you have to create a C++ library
- * and an accompaining QML user interface.
+ * and an accompaning QML user interface.
  * The library must contain a factory function like the following:
  *
  * \code
@@ -475,7 +475,7 @@ Q_SIGNALS:
     void rootOnlyMessageChanged();
 
     /**
-     * Emits this signal whenever the the root only message gets used or discarded.
+     * Emits this signal whenever the root only message gets used or discarded.
      */
     void useRootOnlyMessageChanged();
 

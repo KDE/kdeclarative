@@ -40,9 +40,9 @@
 ****************************************************************************/
 
 
-#include <QtGui>
-
 #include "modeltest.h"
+
+#include <QtGui>
 
 #include <QtTest>
 //#undef Q_ASSERT

@@ -23,8 +23,8 @@ import org.kde.kirigami 2.3 as Kirigami
 
 /**
  * A ScrollView containing a GridView, with the default behavior about
- * sizing and background as recomended by the user interface guidelines
- * For most KControl modules, it's recomended to use instead the GridViewKCM
+ * sizing and background as recommended by the user interface guidelines
+ * For most KControl modules, it's recommended to use instead the GridViewKCM
  * component as the root element of your module.
  * @code
  * import org.kde.kcm 1.2 as KCM

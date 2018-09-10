@@ -16,12 +16,12 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#include "kwindowsystemproxy.h"
+
 #include <QMetaMethod>
 #include <QWindow>
 
 #include <kwindowsystem.h>
-
-#include "kwindowsystemproxy.h"
 
 KWindowSystemProxy::KWindowSystemProxy(QObject *parent)
     : QObject(parent)

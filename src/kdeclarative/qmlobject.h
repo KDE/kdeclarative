@@ -152,7 +152,7 @@ public:
      * In this case it will be possible to assign new objects in the main engine context
      * before the main component gets initialized.
      * In that case it will be possible to access it immediately from the QML code.
-     * The initialization will either be completed automatically asyncronously
+     * The initialization will either be completed automatically asynchronously
      * or explicitly by calling completeInitialization()
      *
      * @param delay if true the initialization of the QML file will be delayed
@@ -208,7 +208,7 @@ public:
 
     /**
      * Creates and returns an object based on the provided QQmlComponent
-     * with the same QQmlEngine and the same root context as the amin object,
+     * with the same QQmlEngine and the same root context as the admin object,
      * that will be the parent of the newly created object
      * @param component the component we want to instantiate
      * @param context The QQmlContext in which we will create the object,

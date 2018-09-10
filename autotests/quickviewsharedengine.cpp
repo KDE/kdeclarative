@@ -30,6 +30,7 @@
 ** $QT_END_LICENSE$
 **
 ****************************************************************************/
+#include <quickviewsharedengine.h>
 #include <qtest.h>
 #include <QSignalSpy>
 #include <qqmlcomponent.h>
@@ -40,7 +41,6 @@
 #include <QWindow>
 #include <QDebug>
 #include <qqmlengine.h>
-#include <quickviewsharedengine.h>
 
 class QuickViewSharedEngineTest : public QQmlDataTest
 {

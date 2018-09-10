@@ -28,7 +28,6 @@
 #include <QQmlEngine>
 #include <QQmlContext>
 #include <QQuickItem>
-#include <QQmlEngine>
 #include <QQmlExpression>
 #include <QQmlProperty>
 
