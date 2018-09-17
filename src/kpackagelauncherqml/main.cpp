@@ -88,7 +88,8 @@ int main(int argc, char **argv)
     // About data
     KAboutData aboutData(data.pluginId(), data.name(), data.version(), data.description(), KAboutLicense::byKeyword(data.license()).key());
 
-    for (auto author : data.authors()) {
+    const auto authors = data.authors();
+    for (auto& author : authors) {
         aboutData.addAuthor(author.name(), author.task(), author.emailAddress(), author.webAddress(), author.ocsUsername());
     }
     // We assume that desktop file in applications dir is named similar as
