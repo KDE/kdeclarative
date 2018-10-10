@@ -161,7 +161,7 @@ void DeclarativeDragArea::setDelegateImage(const QVariant &image)
     if (image.canConvert<QImage>()) {
         m_delegateImage = image.value<QImage>();
     } else if (image.canConvert<QString>()) {
-        m_delegateImage = QIcon::fromTheme(image.value<QString>()).pixmap(QSize(48, 48)).toImage();
+        m_delegateImage = QIcon::fromTheme(image.toString()).pixmap(QSize(48, 48)).toImage();
     } else {
         m_delegateImage = image.value<QIcon>().pixmap(QSize(48, 48)).toImage();
     }

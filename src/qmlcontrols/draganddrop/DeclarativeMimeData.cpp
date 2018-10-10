@@ -100,7 +100,7 @@ void DeclarativeMimeData::setUrls(const QJsonArray &urls)
 {
     QList<QUrl> urlList;
     foreach (const QVariant &varUrl, urls) {
-        urlList << varUrl.value<QUrl>();
+        urlList << varUrl.toUrl();
     }
     QMimeData::setUrls(urlList);
     emit urlsChanged();
