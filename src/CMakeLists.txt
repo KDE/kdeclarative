@@ -20,7 +20,7 @@ if(BUILD_QCH)
         MD_MAINPAGE "${CMAKE_SOURCE_DIR}/README.md"
         LINK_QCHS
             Qt5Qml_QCH
-            KF5ConfigCore_QCH
+            KF5Config_QCH
             KF5Package_QCH
         BLANK_MACROS
             KDECLARATIVE_EXPORT
