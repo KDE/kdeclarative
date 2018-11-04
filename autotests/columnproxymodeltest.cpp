@@ -30,7 +30,7 @@ void ColumnProxyModelTest::testInit()
     qRegisterMetaType<QModelIndex>("QModelIndex");
     
     ColumnProxyModel* listify = new ColumnProxyModel;
-    QSignalSpy spy(listify, SIGNAL(rowsInserted(QModelIndex, int, int)));
+    QSignalSpy spy(listify, SIGNAL(rowsInserted(QModelIndex,int,int)));
     
     new ModelTest(listify, listify);
     QStandardItemModel* m = new QStandardItemModel(listify);
@@ -67,7 +67,7 @@ void ColumnProxyModelTest::testInit()
 void ColumnProxyModelTest::testSet()
 {
     ColumnProxyModel* listify = new ColumnProxyModel;
-    QSignalSpy spy(listify, SIGNAL(rowsInserted(QModelIndex, int, int)));
+    QSignalSpy spy(listify, SIGNAL(rowsInserted(QModelIndex,int,int)));
 
     new ModelTest(listify, listify);
     QStandardItemModel* m = new QStandardItemModel(listify);
