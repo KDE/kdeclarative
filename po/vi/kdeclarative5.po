@@ -1,0 +1,113 @@
+# Vietnamese translation for kdelibs.
+# Copyright © 2007 KDE i18n Project for Vietnamese.
+#
+# Clytie Siddall <clytie@riverland.net.au>, 2006-2007.
+# Hoàng Đức Hiếu <hieu.d.hoang@gmail.com>, 2008, 2011.
+# Lê Hoàng Phương <herophuong93@gmail.com>, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2018-08-16 09:05+0200\n"
+"PO-Revision-Date: 2012-09-23 18:43+0800\n"
+"Last-Translator: Lê Hoàng Phương <herophuong93@gmail.com>\n"
+"Language-Team: American English <kde-i18n-vi@kde.org>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 1.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Nhóm Việt hoá KDE"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde-l10n-vi@kde.org"
+
+#: kpackagelauncherqml/main.cpp:43
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr ""
+
+#: kpackagelauncherqml/main.cpp:50
+#, fuzzy, kde-format
+#| msgid "defines the application font"
+msgid "The unique name of the application (mandatory)"
+msgstr "định nghĩa phông chữ cho ứng dụng đó"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:38
+#, fuzzy, kde-format
+#| msgid ""
+#| "Click on the button, then enter the shortcut like you would in the "
+#| "program.\n"
+#| "Example for Ctrl+a: hold the Ctrl key and press a."
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"Nhấn vào nút, sau đó nhập phím tắt bạn muốn dùng.\n"
+"Ví dụ cho Ctrl + a: nhấn phím Ctrl và nhấn a."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:276
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "Phím tắt dự trữ"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:277
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"Phím F12 được dự trữ cho cửa sổ, vì vậy không thể dùng làm phím tắt toàn hệ "
+"thống.\n"
+"Hãy chọn phím khác."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:333
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Xung đột với phím tắt ứng dụng chuẩn"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:334
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"Tổ hợp phím '%1' cũng được dùng cho hành động chuẩn \"%2\" do nhiều ứng dụng "
+"sử dụng.\n"
+"Bạn có muốn sử dụng nó như một phím tắt toàn hệ thống không?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:339
+#, kde-format
+msgid "Reassign"
+msgstr "Gán lại"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:381
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Gõ"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:388
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Không"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:409
+#, kde-format
+msgid "The key you just pressed is not supported by Qt."
+msgstr "Phím bạn vừa nhấn không được hỗ trợ bởi Qt."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:410
+#, kde-format
+msgid "Unsupported Key"
+msgstr "Phím không hỗ trợ"
