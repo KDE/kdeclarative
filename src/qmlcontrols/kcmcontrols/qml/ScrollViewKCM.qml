@@ -56,18 +56,28 @@ Kirigami.Page {
 
     //NOTE: this should be smallspacing buit we need a pixel size in order to align with systemsettings widgets
     leftPadding: Kirigami.Settings.isMobile ? 0 : 4
-    topPadding: headerParent.contentItem ? 0 : leftPadding
-    rightPadding: leftPadding
-    bottomPadding: footerParent.contentItem ? 0 : leftPadding
+    topPadding: headerParent.contentItem ? 0 : (Kirigami.Settings.isMobile ? 0 : 4)
+    rightPadding: (Kirigami.Settings.isMobile ? 0 : 4)
+    bottomPadding: footerParent.contentItem ? 0 : (Kirigami.Settings.isMobile ? 0 : 4)
 
     header: QtControls.Control {
         id: headerParent
-        padding: 4
+        visible: contentItem && contentItem.visible
+        height: visible ? implicitHeight : 0
+        leftPadding: 4
+        topPadding: 4
+        rightPadding: 4
+        bottomPadding: 4
     }
 
     footer: QtControls.Control {
         id: footerParent
-        padding: 4
+        visible: contentItem && contentItem.visible
+        height: visible ? implicitHeight : 0
+        leftPadding: 4
+        topPadding: 4
+        rightPadding: 4
+        bottomPadding: 4
     }
     Component.onCompleted: {
         if (footer && footer != footerParent) {
@@ -80,12 +90,12 @@ Kirigami.Page {
         }
 
         if (header && header != headerParent) {
-            var f = header
+            var h = header
 
-            headerParent.contentItem = f
+            headerParent.contentItem = h
             header = headerParent
-            f.visible = true
-            f.parent = headerParent
+            h.visible = true
+            h.parent = headerParent
         }
     }
     Priv.ScrollView {

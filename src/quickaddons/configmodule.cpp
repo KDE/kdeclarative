@@ -68,6 +68,7 @@ public:
     QString _quickHelp;
     QList<QQuickItem *> subPages;
     int _columnWidth = -1;
+    int currentIndex = 0;
     bool _useRootOnlyMessage : 1;
 
     bool _needsAuthorization : 1;
@@ -190,7 +191,7 @@ void ConfigModule::push(const QString &fileName, const QVariantMap &propertyMap)
     package.setDefaultPackageRoot(QStringLiteral("kpackage/kcms"));
     package.setPath(aboutData()->componentName());
 
-    QObject *object = d->_qmlObject->createObjectFromSource(QUrl::fromLocalFile(package.filePath("ui", fileName)), d->_qmlObject->rootContext());//TODO:propertyMap
+    QObject *object = d->_qmlObject->createObjectFromSource(QUrl::fromLocalFile(package.filePath("ui", fileName)), QQmlEngine::contextForObject(d->_qmlObject->rootObject())/*d->_qmlObject->rootContext()*/);//TODO:propertyMap
 
     QQuickItem *item = qobject_cast<QQuickItem *>(object);
     if (!item) {
@@ -200,6 +201,21 @@ void ConfigModule::push(const QString &fileName, const QVariantMap &propertyMap)
 
     d->subPages << item;
     emit pagePushed(item);
+    emit depthChanged(depth());
+    setCurrentIndex(d->currentIndex + 1);
+}
+
+void ConfigModule::push(QQuickItem *item)
+{
+    //ensure main ui is created
+    if (!mainUi()) {
+        return;
+    }
+
+    d->subPages << item;
+    emit pagePushed(item);
+    emit depthChanged(depth());
+    setCurrentIndex(d->currentIndex + 1);
 }
 
 void ConfigModule::pop()
@@ -209,7 +225,10 @@ void ConfigModule::pop()
     }
     QQuickItem *page = d->subPages.takeLast();
     emit pageRemoved();
+    emit depthChanged(depth());
     page->deleteLater();
+
+    setCurrentIndex(qMin(d->currentIndex, depth() - 1));
 }
 
 ConfigModule::Buttons ConfigModule::buttons() const
@@ -274,6 +293,27 @@ void ConfigModule::setColumnWidth(int width)
 
     d->_columnWidth = width;
     emit columnWidthChanged(width);
+}
+
+int ConfigModule::depth() const
+{
+    return d->subPages.count() + 1;
+}
+
+void ConfigModule::setCurrentIndex(int index)
+{
+    if (index < 0 || index > d->subPages.count() || index == d->currentIndex) {
+        return;
+    }
+
+    d->currentIndex = index;
+
+    emit currentIndexChanged(index);
+}
+
+int ConfigModule::currentIndex() const
+{
+    return d->currentIndex;
 }
 
 void ConfigModule::setAuthActionName(const QString &name)
