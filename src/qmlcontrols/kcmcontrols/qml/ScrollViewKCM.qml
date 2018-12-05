@@ -62,7 +62,7 @@ Kirigami.Page {
 
     header: QtControls.Control {
         id: headerParent
-        visible: contentItem && contentItem.visible
+        visible: root.contentItem && root.contentItem.visible
         height: visible ? implicitHeight : 0
         leftPadding: 4
         topPadding: 4
@@ -72,7 +72,7 @@ Kirigami.Page {
 
     footer: QtControls.Control {
         id: footerParent
-        visible: contentItem && contentItem.visible
+        visible: root.contentItem && root.contentItem.visible
         height: visible ? implicitHeight : 0
         leftPadding: 4
         topPadding: 4
