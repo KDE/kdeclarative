@@ -191,7 +191,7 @@ void ConfigModule::push(const QString &fileName, const QVariantMap &propertyMap)
     package.setDefaultPackageRoot(QStringLiteral("kpackage/kcms"));
     package.setPath(aboutData()->componentName());
 
-    QObject *object = d->_qmlObject->createObjectFromSource(QUrl::fromLocalFile(package.filePath("ui", fileName)), QQmlEngine::contextForObject(d->_qmlObject->rootObject())/*d->_qmlObject->rootContext()*/);//TODO:propertyMap
+    QObject *object = d->_qmlObject->createObjectFromSource(QUrl::fromLocalFile(package.filePath("ui", fileName)), d->_qmlObject->rootContext());//TODO:propertyMap
 
     QQuickItem *item = qobject_cast<QQuickItem *>(object);
     if (!item) {
