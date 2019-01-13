@@ -43,6 +43,9 @@ public:
     explicit KDeclarative();
     ~KDeclarative();
 
+    KDeclarative(const KDeclarative &) = delete;
+    KDeclarative &operator=(const KDeclarative &) = delete;
+
 #ifndef KDECLARATIVE_NO_DEPRECATE
     /**
      * @deprecated since 5.0. The method is a no-op now, any call can be simply removed.
