@@ -77,6 +77,21 @@ QtControls.ScrollView {
         keyNavigationEnabled: true
         keyNavigationWraps: true
         highlightMoveDuration: 0
+
+        remove: Transition {
+            ParallelAnimation {
+                NumberAnimation { property: "scale"; to: 0.5; duration: Kirigami.Units.longDuration }
+                NumberAnimation { property: "opacity"; to: 0.0; duration: Kirigami.Units.longDuration }
+            }
+        }
+
+        removeDisplaced: Transition {
+            SequentialAnimation {
+                // wait for the "remove" animation to finish
+                PauseAnimation { duration: Kirigami.Units.longDuration }
+                NumberAnimation { properties: "x,y"; duration: Kirigami.Units.longDuration }
+            }
+        }
     }
     QtControls.ScrollBar.horizontal.visible: false
 }
