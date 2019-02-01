@@ -116,9 +116,6 @@ T2.ItemDelegate {
             radius: Kirigami.Units.smallSpacing
             color: Kirigami.Settings.isMobile ? "transparent" : Qt.rgba(1, 1, 1, 0.2)
 
-            Kirigami.Theme.inherit: false
-            Kirigami.Theme.colorSet: Kirigami.Theme.Complementary
-
             Behavior on opacity {
                 PropertyAnimation {
                     duration: Kirigami.Units.longDuration
@@ -126,43 +123,30 @@ T2.ItemDelegate {
                 }
             }
 
-            Rectangle {
-                visible: actionsRow.children.length > 1
-                anchors {
-                    left: parent.left
-                    top: actionsScope.top
-                    right: parent.right
-                    bottom: parent.bottom
-                }
-                gradient: Gradient {
-                    GradientStop { position: 0.0; color: "transparent" }
-                    GradientStop { position: 1.0; color: Qt.rgba(0, 0, 0, 0.4) }
-                }
-            }
             FocusScope {
                 id: actionsScope
+
                 anchors {
                     right: parent.right
+                    rightMargin: Kirigami.Units.smallSpacing
                     bottom: parent.bottom
+                    bottomMargin: Kirigami.Units.smallSpacing
                 }
                 width: actionsRow.width
                 height: actionsRow.height
+
                 RowLayout {
                     id: actionsRow
-                    
+
                     Repeater {
                         model: delegate.actions
-                        delegate: Controls.ToolButton {
-                            Kirigami.Icon {
-                                Kirigami.Theme.inherit: false
-                                Kirigami.Theme.colorSet: Kirigami.Theme.Complementary
-                                anchors.centerIn: parent
-                                width: Kirigami.Units.iconSizes.smallMedium
-                                height: width
-                                source: modelData.iconName
-                            }
+                        delegate: Controls.Button {
+                            icon.name: modelData.iconName
                             activeFocusOnTab: focus || delegate.focus
-                            onClicked: modelData.trigger()
+                            onClicked: {
+                                delegate.clicked()
+                                modelData.trigger()
+                            }
                             enabled: modelData.enabled
                             visible: modelData.visible
                             //NOTE: there aren't any global settings where to take "official" tooltip timeouts
