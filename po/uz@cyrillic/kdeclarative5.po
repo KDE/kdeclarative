@@ -1,0 +1,102 @@
+# translation of kdelibs4.po to Uzbek
+# translation of kdelibs4.po to
+# Copyright (C) 2003, 2004, 2005, 2006, 2008 Free Software Foundation, Inc.
+# Mashrab Kuvatov <kmashrab@uni-bremen.de>, 2003, 2004, 2005, 2006, 2008, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2018-08-16 09:05+0200\n"
+"PO-Revision-Date: 2009-10-17 00:34+0200\n"
+"Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
+"Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
+"Language: uz\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Машраб Қуватов"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kmashrab@uni-bremen.de"
+
+#: kpackagelauncherqml/main.cpp:43
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr ""
+
+#: kpackagelauncherqml/main.cpp:50
+#, fuzzy, kde-format
+#| msgid "defines the application font"
+msgid "The unique name of the application (mandatory)"
+msgstr "дастур учун шрифтни аниқлайди"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:38
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:276
+#, fuzzy, kde-format
+#| msgid "Shortcut"
+msgid "Reserved Shortcut"
+msgstr "Тугмалар бирикмаси"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:277
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:333
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Дастурнинг андоза тугмалар бирикмаси билан муаммо"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:334
+#, fuzzy, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"\"%1\" тугма бирикмаси аллақачон \"%2\" андоза амали билан боғланган.\n"
+"Уни жорий амал билан боғлашни истайсизми?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:339
+#, kde-format
+msgid "Reassign"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:381
+#, fuzzy, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Киритиш файли"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:388
+#, fuzzy, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Йўқ"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:409
+#, kde-format
+msgid "The key you just pressed is not supported by Qt."
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:410
+#, fuzzy, kde-format
+msgid "Unsupported Key"
+msgstr "Ишончсиз"
