@@ -173,8 +173,8 @@ T2.ItemDelegate {
     Controls.Label {
         id: label
         anchors {
-            left: parent.left
-            right: parent.right
+            left: thumbnail.left
+            right: thumbnail.right
             top: thumbnail.bottom
             topMargin: Kirigami.Units.smallSpacing
         }
