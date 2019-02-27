@@ -168,7 +168,7 @@ QQuickItem *ConfigModule::mainUi()
     package.setPath(aboutData()->componentName());
 
     if (!package.filePath("mainscript").isEmpty()) {
-        d->_qmlObject->setSource(QUrl::fromLocalFile(package.filePath("mainscript")));
+        d->_qmlObject->setSource(package.fileUrl("mainscript"));
         d->_qmlObject->rootContext()->setContextProperty(QStringLiteral("kcm"), this);
         d->_qmlObject->completeInitialization();
 
