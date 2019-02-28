@@ -35,10 +35,6 @@ add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
 
 #add_definitions(-Wno-deprecated)
 
-remove_definitions(-DQT_STRICT_ITERATORS -DQT_NO_KEYWORDS)
-
-
-
 # Includes
 
 include(GenerateExportHeader)
