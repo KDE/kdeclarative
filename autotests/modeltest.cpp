@@ -416,27 +416,27 @@ void ModelTest::data()
     // General Purpose roles that should return a QString
     QVariant variant = model->data ( model->index ( 0, 0 ), Qt::ToolTipRole );
     if ( variant.isValid() ) {
-        Q_ASSERT ( variant.canConvert<QString>() );
+        Q_ASSERT ( qVariantCanConvert<QString> ( variant ) );
     }
     variant = model->data ( model->index ( 0, 0 ), Qt::StatusTipRole );
     if ( variant.isValid() ) {
-        Q_ASSERT ( variant.canConvert<QString>() );
+        Q_ASSERT ( qVariantCanConvert<QString> ( variant ) );
     }
     variant = model->data ( model->index ( 0, 0 ), Qt::WhatsThisRole );
     if ( variant.isValid() ) {
-        Q_ASSERT ( variant.canConvert<QString>() );
+        Q_ASSERT ( qVariantCanConvert<QString> ( variant ) );
     }
 
     // General Purpose roles that should return a QSize
     variant = model->data ( model->index ( 0, 0 ), Qt::SizeHintRole );
     if ( variant.isValid() ) {
-        Q_ASSERT ( variant.canConvert<QSize>() );
+        Q_ASSERT ( qVariantCanConvert<QSize> ( variant ) );
     }
 
     // General Purpose roles that should return a QFont
     QVariant fontVariant = model->data ( model->index ( 0, 0 ), Qt::FontRole );
     if ( fontVariant.isValid() ) {
-        Q_ASSERT ( fontVariant.canConvert<QFont>() );
+        Q_ASSERT ( qVariantCanConvert<QFont> ( fontVariant ) );
     }
 
     // Check that the alignment is one we know about
@@ -447,14 +447,14 @@ void ModelTest::data()
     }
 
     // General Purpose roles that should return a QColor
-    QVariant colorVariant = model->data ( model->index ( 0, 0 ), Qt::BackgroundRole );
+    QVariant colorVariant = model->data ( model->index ( 0, 0 ), Qt::BackgroundColorRole );
     if ( colorVariant.isValid() ) {
-        Q_ASSERT ( colorVariant.canConvert<QColor>() );
+        Q_ASSERT ( qVariantCanConvert<QColor> ( colorVariant ) );
     }
 
-    colorVariant = model->data ( model->index ( 0, 0 ), Qt::ForegroundRole );
+    colorVariant = model->data ( model->index ( 0, 0 ), Qt::TextColorRole );
     if ( colorVariant.isValid() ) {
-        Q_ASSERT ( colorVariant.canConvert<QColor>() );
+        Q_ASSERT ( qVariantCanConvert<QColor> ( colorVariant ) );
     }
 
     // Check that the "check state" is one we know about.

@@ -31,6 +31,7 @@ find_package(KF5Package ${KF5_DEP_VERSION} REQUIRED)
 
 #########################################################################
 
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
 
 #add_definitions(-Wno-deprecated)
 
@@ -72,7 +73,6 @@ set(HAVE_EPOXY 0)
 if(epoxy_FOUND)
     set(HAVE_EPOXY 1)
 endif()
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050d00)
 
 add_subdirectory(src)
 if (BUILD_TESTING)
