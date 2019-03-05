@@ -67,10 +67,10 @@ T2.ItemDelegate {
         id: thumbnail
         anchors {
            centerIn: parent
-           verticalCenterOffset: -label.height/2
+           verticalCenterOffset: Math.ceil(-label.height/2)
         }
         width: Kirigami.Settings.isMobile ? delegate.width - Kirigami.Units.gridUnit : Math.min(delegate.GridView.view.implicitCellWidth, delegate.width - Kirigami.Units.gridUnit)
-        height: width / 1.6
+        height: Math.round(width / 1.6)
         radius: Kirigami.Units.smallSpacing
         Kirigami.Theme.inherit: false
         Kirigami.Theme.colorSet: Kirigami.Theme.View
