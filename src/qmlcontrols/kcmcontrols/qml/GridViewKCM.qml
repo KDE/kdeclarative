@@ -59,8 +59,22 @@ Kirigami.Page {
     property alias view: scroll.view
 
     title: kcm.name
-    implicitWidth: view.implicitCellWidth * 3 + scroll.QtControls.ScrollBar.vertical.width + Kirigami.Units.gridUnit
+    implicitWidth: {
+        var width = 0;
+
+        // Show three columns at once, every colum occupies implicitCellWidth + Units.gridUnit
+        width += 3 * (view.implicitCellWidth + Kirigami.Units.gridUnit);
+
+        var scrollBar = scroll.QtControls.ScrollBar.vertical;
+        width += scrollBar.width + scrollBar.leftPadding + scrollBar.rightPadding;
+
+        width += scroll.leftPadding + scroll.rightPadding
+        width += root.leftPadding + root.rightPadding;
+
+        return width;
+    }
     implicitHeight: view.implicitCellHeight * 3 + (header ? header.height : 0) + (footer ? footer.height : 0) + Kirigami.Units.gridUnit
+
     flickable: scroll.view
 
     //NOTE: this should be smallspacing buit we need a pixel size in order to align with systemsettings widgets
