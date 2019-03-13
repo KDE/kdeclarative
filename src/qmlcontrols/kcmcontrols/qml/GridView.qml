@@ -45,6 +45,21 @@ QtControls.ScrollView {
      */
     property alias view: view
 
+    /**
+     * The ideal width of the grid cells: the view will try to use
+     * this size for delegates unless there is not enough room
+     * For most uses, try to keep the default value
+     * @since 5.57
+     */
+    property alias implicitCellWidth: view.implicitCellWidth
+
+    /**
+     * The ideal height of the grid cells: by default it will be a proportion of the width
+     * For most uses, try to keep the default value
+     * @since 5.57
+     */
+    property alias implicitCellHeight: view.implicitCellHeight
+
     activeFocusOnTab: false
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     Kirigami.Theme.inherit: false
