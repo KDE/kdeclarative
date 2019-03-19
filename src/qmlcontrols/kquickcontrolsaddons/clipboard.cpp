@@ -60,7 +60,8 @@ QVariant Clipboard::contentFormat(const QString &format) const
     QVariant ret;
     if(format == QStringLiteral("text/uri-list")) {
         QVariantList retList;
-        foreach(const QUrl& url, data->urls())
+        const auto urls = data->urls();
+        for (const QUrl& url : urls)
             retList += url;
         ret = retList;
     } else if(format.startsWith(QStringLiteral("text/"))) {
@@ -95,10 +96,10 @@ void Clipboard::setContent(const QVariant &content)
             break;
         default:
             if (content.type() == QVariant::List) {
-                QVariantList list = content.toList();
+                const QVariantList list = content.toList();
                 QList<QUrl> urls;
                 bool wasUrlList = true;
-                foreach (const QVariant& url, list) {
+                for (const QVariant& url : list) {
                     if (url.type() != QVariant::Url) {
                         wasUrlList = false;
                         break;

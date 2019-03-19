@@ -100,8 +100,8 @@ void QmlObjectPrivate::errorPrint(QQmlComponent *component)
 {
     QString errorStr = QStringLiteral("Error loading QML file.\n");
     if (component->isError()) {
-        QList<QQmlError> errors = component->errors();
-        foreach (const QQmlError &error, errors) {
+        const QList<QQmlError> errors = component->errors();
+        for (const QQmlError &error : errors) {
             errorStr += (error.line() > 0 ? QString(QString::number(error.line()) + QLatin1String(": ")) : QLatin1String(""))
                         + error.description() + QLatin1Char('\n');
         }

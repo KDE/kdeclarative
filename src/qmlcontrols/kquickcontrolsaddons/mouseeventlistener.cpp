@@ -375,7 +375,8 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
 
 QScreen* MouseEventListener::screenForGlobalPos(const QPoint& globalPos)
 {
-    foreach(QScreen *screen, QGuiApplication::screens()) {
+    const auto screens = QGuiApplication::screens();
+    for (QScreen *screen : screens) {
         if (screen->geometry().contains(globalPos)) {
             return screen;
         }

@@ -65,7 +65,7 @@ void EventGenerator::sendMouseEventRecursive(QQuickItem *parentItem, EventGenera
 
     const QList<QQuickItem *> items = allChildItemsRecursive(parentItem);
 
-    foreach(QQuickItem *item, items) {
+    for (QQuickItem *item : items) {
         sendMouseEvent(item, type, x, y, button, buttons, modifiers);
     }
 }
@@ -90,7 +90,7 @@ void EventGenerator::sendWheelEventRecursive(QQuickItem *parentItem, int x, int 
 
     const QList<QQuickItem *> items = allChildItemsRecursive(parentItem);
 
-    foreach(QQuickItem *item, items) {
+    for (QQuickItem *item : items) {
         sendWheelEvent(item, x, y, pixelDelta, angleDelta, buttons, modifiers);
     }
 }
@@ -129,7 +129,7 @@ void EventGenerator::sendGrabEventRecursive(QQuickItem *parentItem, EventGenerat
 
     const QList<QQuickItem *> items = allChildItemsRecursive(parentItem);
 
-    foreach(QQuickItem *item, items) {
+    for (QQuickItem *item : items) {
         sendGrabEvent(item, type);
     }
 }
@@ -138,9 +138,11 @@ QList<QQuickItem *> EventGenerator::allChildItemsRecursive(QQuickItem *parentIte
 {
      QList<QQuickItem *> itemList;
 
-     itemList.append(parentItem->childItems());
+     const auto childsItems = parentItem->childItems();
+     itemList.append(childsItems);
 
-     foreach(QQuickItem *childItem, parentItem->childItems()) {
+
+     for (QQuickItem *childItem : childsItems) {
          itemList.append(allChildItemsRecursive(childItem));
      }
 

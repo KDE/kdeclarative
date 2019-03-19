@@ -108,7 +108,8 @@ void ConfigPropertyMapPrivate::writeConfig()
         return;
     }
 
-    foreach (KConfigSkeletonItem *item, config.data()->items()) {
+    const auto lstItems = config.data()->items();
+    for (KConfigSkeletonItem *item : lstItems) {
         item->setProperty(q->value(item->key()));
     }
 

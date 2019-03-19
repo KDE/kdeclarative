@@ -52,7 +52,8 @@ DeclarativeMimeData::DeclarativeMimeData(const QMimeData* copy)
     m_source(nullptr)
 {
     // Copy the standard MIME data
-    foreach(QString format, copy->formats()) {
+    const auto formats = copy->formats();
+    for (const QString &format : formats) {
         QMimeData::setData(format, copy->data(format));
     }
 
@@ -90,7 +91,8 @@ void DeclarativeMimeData::setUrl(const QUrl &url)
 QJsonArray DeclarativeMimeData::urls() const
 {
     QJsonArray varUrls;
-    foreach (const QUrl &url, QMimeData::urls()) {
+    const auto lstUrls = QMimeData::urls();
+    for (const QUrl &url : lstUrls) {
         varUrls.append(url.toString());
     }
     return varUrls;
@@ -100,7 +102,7 @@ void DeclarativeMimeData::setUrls(const QJsonArray &urls)
 {
     QList<QUrl> urlList;
     urlList.reserve(urls.size());
-    foreach (const QVariant &varUrl, urls) {
+    for (const QVariant &varUrl : urls) {
         urlList << varUrl.toUrl();
     }
     QMimeData::setUrls(urlList);
