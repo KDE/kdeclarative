@@ -22,6 +22,8 @@
 
 #include <QSurfaceFormat>
 #include <QQuickWindow>
+#include <QLibraryInfo>
+#include <QVersionNumber>
 
 void KQuickAddons::QtQuickSettings::init()
 {
@@ -38,7 +40,11 @@ void KQuickAddons::QtQuickSettings::init()
         format.setVersion(3,2);
         format.setProfile(QSurfaceFormat::CoreProfile);
     }
-    if (s.graphicsResetNotifications()) {
+    // Before Qt 5.12.2 this setting was somewhat unstable
+    // it was opt-in to find bugs both in KDE and Qt
+    // For 5.13 with modern plasma it should be fine
+    if (s.graphicsResetNotifications() ||
+        QLibraryInfo::version() >= QVersionNumber(5, 13, 0)) {
         format.setOption(QSurfaceFormat::ResetNotification);
     }
     QSurfaceFormat::setDefaultFormat(format);
