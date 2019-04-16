@@ -34,7 +34,6 @@
 #include <KStandardShortcut>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KKeyServer>
 #include <KGlobalAccel/KGlobalShortcutInfo>
 #include <KGlobalAccel/KGlobalAccel>
 
@@ -354,28 +353,28 @@ void KeySequenceHelperPrivate::updateShortcutDisplay()
                 s.append(QLatin1Char(','));
             }
             if (modifierKeys & Qt::MetaModifier) {
-                s += KKeyServer::modToStringUser(Qt::MetaModifier) + QLatin1Char('+');
+                s += QKeySequence(Qt::MetaModifier).toString(QKeySequence::NativeText);
             }
 #if defined(Q_OS_MAC)
             if (modifierKeys & Qt::AltModifier) {
-                s += KKeyServer::modToStringUser(Qt::AltModifier) + QLatin1Char('+');
+                s += QKeySequence(Qt::AltModifier).toString(QKeySequence::NativeText);
             }
             if (modifierKeys & Qt::ControlModifier) {
-                s += KKeyServer::modToStringUser(Qt::ControlModifier) + QLatin1Char('+');
+                s += QKeySequence(Qt::ControlModifier).toString(QKeySequence::NativeText);
             }
 #else
             if (modifierKeys & Qt::ControlModifier) {
-                s += KKeyServer::modToStringUser(Qt::ControlModifier) + QLatin1Char('+');
+                s += QKeySequence(Qt::ControlModifier).toString(QKeySequence::NativeText);
             }
             if (modifierKeys & Qt::AltModifier) {
-                s += KKeyServer::modToStringUser(Qt::AltModifier) + QLatin1Char('+');
+                s += QKeySequence(Qt::AltModifier).toString(QKeySequence::NativeText);
             }
 #endif
             if (modifierKeys & Qt::ShiftModifier) {
-                s += KKeyServer::modToStringUser(Qt::ShiftModifier) + QLatin1Char('+');
+                s += QKeySequence(Qt::ShiftModifier).toString(QKeySequence::NativeText);
             }
             if (modifierKeys & Qt::KeypadModifier) {
-                s += KKeyServer::modToStringUser(Qt::KeypadModifier) + QLatin1Char('+');
+                s += QKeySequence(Qt::KeypadModifier).toString(QKeySequence::NativeText);
             }
         } else if (nKey == 0) {
             s = i18nc("What the user inputs now will be taken as the new shortcut", "Input");
