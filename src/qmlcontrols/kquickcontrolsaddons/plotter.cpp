@@ -44,8 +44,6 @@
 
 #include <QDebug>
 
-#include <QuickAddons/ManagedTextureNode>
-
 #include <math.h>
 
 //completely arbitrary
@@ -262,16 +260,58 @@ void PlotTexture::recreate(const QSize &size)
     m_size = size;
 }
 
+class PlotSGNode: public QSGSimpleTextureNode
+{
+public:
+    PlotSGNode();
+    void bind() {
+        m_program->bind();
+    }
+    void setMatrix(const QMatrix4x4 &matrix) {
+        m_program->setUniformValue(u_matrix, matrix);
+    }
+    void setColor1(const QColor &color) {
+        m_program->setUniformValue(u_color1, color);
+    }
+    void setColor2(const QColor &color) {
+        m_program->setUniformValue(u_color2, color);
+    }
+    void setYMin(float min) {
+        m_program->setUniformValue(u_yMin, min);
+    }
+    void setYMax(float max) {
+        m_program->setUniformValue(u_yMax, max);
+    }
+    ~PlotSGNode() = default;
+private:
+    QScopedPointer<QOpenGLShaderProgram> m_program;
+    int u_matrix;
+    int u_color1;
+    int u_color2;
+    int u_yMin;
+    int u_yMax;
+
+};
+
+PlotSGNode::PlotSGNode():
+    m_program(new QOpenGLShaderProgram)
+{
+    setOwnsTexture(true);
+    m_program->addCacheableShaderFromSourceCode(QOpenGLShader::Vertex, vs_source);
+    m_program->addCacheableShaderFromSourceCode(QOpenGLShader::Fragment, fs_source);
+    m_program->bindAttributeLocation("vertex", 0);
+    m_program->link();
+
+    u_yMin = m_program->uniformLocation("yMin");
+    u_yMax = m_program->uniformLocation("yMax");
+    u_color1 = m_program->uniformLocation("color1");
+    u_color2 = m_program->uniformLocation("color2");
+    u_matrix = m_program->uniformLocation("matrix");
+}
+
 
 
 // ----------------------
-
-QOpenGLShaderProgram *Plotter::s_program = nullptr;
-int Plotter::u_matrix;
-int Plotter::u_color1;
-int Plotter::u_color2;
-int Plotter::u_yMin;
-int Plotter::u_yMax;
 
 Plotter::Plotter(QQuickItem *parent)
     : QQuickItem(parent),
@@ -652,18 +692,18 @@ void Plotter::render()
     glEnableVertexAttribArray(0);
 
     // Bind the shader program
-    s_program->bind();
-    s_program->setUniformValue(u_matrix, m_matrix);
+    m_node->bind();
+    m_node->setMatrix(m_matrix);
 
     // Draw the lines
     QColor color1 = m_gridColor;
     QColor color2 = m_gridColor;
     color1.setAlphaF(0.10);
     color2.setAlphaF(0.40);
-    s_program->setUniformValue(u_yMin, (float) 0.0);
-    s_program->setUniformValue(u_yMax, (float) height());
-    s_program->setUniformValue(u_color1, color1);
-    s_program->setUniformValue(u_color2, color2);
+    m_node->setYMin((float) 0.0);
+    m_node->setYMax((float) height());
+    m_node->setColor1(color1);
+    m_node->setColor2(color2);
 
     glDrawArrays(GL_LINES, 0, (m_horizontalLineCount+1) * 2 );
 
@@ -677,18 +717,18 @@ void Plotter::render()
         color2 = data->color();
         color2.setAlphaF(0.60);
         // Draw the graph
-        s_program->setUniformValue(u_yMin, min);
-        s_program->setUniformValue(u_yMax, max);
-        s_program->setUniformValue(u_color1, data->color());
-        s_program->setUniformValue(u_color2, color2);
+        m_node->setYMin(min);
+        m_node->setYMax(max);
+        m_node->setColor1(data->color());
+        m_node->setColor2(color2);
 
         //+2 is for the bottom line
         glDrawArrays(GL_TRIANGLE_STRIP, m_horizontalLineCount*2 + 2 + oldCount.first + oldCount.second, verticesCounts[data].first);
 
         oldCount.first += verticesCounts[data].first;
 
-        s_program->setUniformValue(u_color1, data->color());
-        s_program->setUniformValue(u_color2, data->color());
+        m_node->setColor1(data->color());
+        m_node->setColor2(data->color());
         glDrawArrays(GL_LINE_STRIP, m_horizontalLineCount*2 + 2 + oldCount.first + oldCount.second, verticesCounts[data].second);
 
         oldCount.second += verticesCounts[data].second;
@@ -697,8 +737,8 @@ void Plotter::render()
 
     glDisable(GL_BLEND);
 
-    s_program->setUniformValue(u_color1, m_gridColor);
-    s_program->setUniformValue(u_color2, m_gridColor);
+    m_node->setColor1(m_gridColor);
+    m_node->setColor2(m_gridColor);
     glDrawArrays(GL_LINES, vertices.count()-2, 2);
 
     if (m_haveMSAA && m_haveFramebufferBlit) {
@@ -723,7 +763,7 @@ QSGNode *Plotter::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *updateP
         return nullptr;
     }
 
-    ManagedTextureNode *n = static_cast<ManagedTextureNode *>(oldNode);
+    PlotSGNode *n = static_cast<PlotSGNode *>(oldNode);
 
     if (width() == 0 && height() == 0) {
         delete oldNode;
@@ -731,8 +771,8 @@ QSGNode *Plotter::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *updateP
     }
 
     if (!n) {
-        n = new ManagedTextureNode();
-        n->setTexture(QSharedPointer<QSGTexture>(new PlotTexture(window()->openglContext())));
+        n = new PlotSGNode();
+        n->setTexture(new PlotTexture(window()->openglContext()));
         n->setFiltering(QSGTexture::Linear);
 
         m_node = n;
@@ -784,20 +824,6 @@ QSGNode *Plotter::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *updateP
         }
 
         m_initialized = true;
-    }
-
-    if (!s_program) {
-        s_program = new QOpenGLShaderProgram;
-        s_program->addShaderFromSourceCode(QOpenGLShader::Vertex, vs_source);
-        s_program->addShaderFromSourceCode(QOpenGLShader::Fragment, fs_source);
-        s_program->bindAttributeLocation("vertex", 0);
-        s_program->link();
-
-        u_yMin = s_program->uniformLocation("yMin");
-        u_yMax = s_program->uniformLocation("yMax");
-        u_color1 = s_program->uniformLocation("color1");
-        u_color2 = s_program->uniformLocation("color2");
-        u_matrix = s_program->uniformLocation("matrix");
     }
 
     //we need a size always equal or smaller, size.toSize() won't do

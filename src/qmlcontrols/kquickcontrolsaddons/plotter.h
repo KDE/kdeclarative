@@ -47,7 +47,7 @@
 #include <QQuickWindow>
 #include <QMutex>
 
-class ManagedTextureNode;
+class PlotSGNode;
 
 /**
  * a Plotter can draw a graph of values arriving from an arbitrary number of data sources
@@ -242,7 +242,7 @@ private:
     QList<PlotData *> m_plotData;
 
     GLuint m_fbo = 0;
-    ManagedTextureNode *m_node = nullptr;
+    PlotSGNode *m_node = nullptr;
     qreal m_min;
     qreal m_max;
     qreal m_rangeMax;
@@ -262,13 +262,6 @@ private:
     int m_samples;
     QPointer <QQuickWindow> m_window;
     QMutex m_mutex;
-
-    static QOpenGLShaderProgram *s_program;
-    static int u_matrix;
-    static int u_color1;
-    static int u_color2;
-    static int u_yMin;
-    static int u_yMax;
 };
 
 #endif
