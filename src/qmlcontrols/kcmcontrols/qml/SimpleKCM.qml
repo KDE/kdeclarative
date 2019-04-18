@@ -47,8 +47,6 @@ Kirigami.ScrollablePage {
     id: root
 
     title: kcm.name
-    implicitWidth: Kirigami.Units.gridUnit * 20
-    implicitHeight: Math.min(flickable.contentHeight, Kirigami.Units.gridUnit * 20)
 
     leftPadding: Kirigami.Settings.isMobile ? 0 : 4
     topPadding: headerParent.contentItem ? 0 : (Kirigami.Settings.isMobile ? 0 : 4)
@@ -57,7 +55,7 @@ Kirigami.ScrollablePage {
 
     header: QtControls.Control {
         id: headerParent
-        visible: root.contentItem && root.contentItem.visible
+        visible: false
         height: visible ? implicitHeight : 0
         leftPadding: 4
         topPadding: 4
@@ -67,7 +65,7 @@ Kirigami.ScrollablePage {
 
     footer: QtControls.Control {
         id: footerParent
-        visible: root.contentItem && root.contentItem.visible
+        visible: false
         height: visible ? implicitHeight : 0
         leftPadding: 4
         topPadding: 4
@@ -102,7 +100,7 @@ Kirigami.ScrollablePage {
                 left: parent.left
                 right: parent.right
                 top: parent.top
-                topMargin: root.header ? root.header.height : 0
+                topMargin: root.header.visible ? root.header.height : 0
             }
             visible: !root.flickable.atYBeginning && !Kirigami.Settings.isMobile
         },
@@ -112,7 +110,7 @@ Kirigami.ScrollablePage {
                 left: parent.left
                 right: parent.right
                 bottom: parent.bottom
-                bottomMargin: root.footer ? root.footer.height : 0
+                bottomMargin: root.footer.visible ? root.footer.height : 0
             }
             visible: !root.flickable.atYEnd && !Kirigami.Settings.isMobile
         }
