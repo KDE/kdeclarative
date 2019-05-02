@@ -62,6 +62,8 @@ RowLayout {
 
     Button {
         id: clearButton
+        Layout.fillHeight: true
+        Layout.preferredWidth: height
         onClicked: _helper.clearKeySequence();
 
         //icon name determines the direction of the arrow, NOT the direction of the app layout
