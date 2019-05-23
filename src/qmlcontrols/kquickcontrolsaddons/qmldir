@@ -1,5 +1,2 @@
 module org.kde.kquickcontrolsaddons
 plugin kquickcontrolsaddonsplugin
-
-
-ShortcutButton 2.0 ShortcutButton.qml
