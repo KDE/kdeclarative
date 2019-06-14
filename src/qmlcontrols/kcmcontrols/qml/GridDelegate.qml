@@ -48,7 +48,8 @@ T2.ItemDelegate {
     /**
      * thumbnailAvailable: bool
      * Set it to true when a thumbnail is actually available: when false,
-     * a default icon will be shown instead of the actual thumbnail.
+     * only an icon will be shown instead of the actual thumbnail
+     * ("edit-none" if pluginName is "None", otherwise it uses "view-preview").
      */
     property bool thumbnailAvailable: false
 
@@ -105,7 +106,7 @@ T2.ItemDelegate {
                 anchors.centerIn: parent
                 width: Kirigami.Units.iconSizes.large
                 height: width
-                source: delegate.text === i18n("None") ? "edit-none" : "view-preview"
+                source: pluginName === "None" ? "edit-none" : "documentinfo"
             }
         }
 
