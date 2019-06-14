@@ -106,7 +106,7 @@ T2.ItemDelegate {
                 anchors.centerIn: parent
                 width: Kirigami.Units.iconSizes.large
                 height: width
-                source: pluginName === "None" ? "edit-none" : "documentinfo"
+                source: pluginName === "None" ? "edit-none" : "view-preview"
             }
         }
 
