@@ -46,6 +46,7 @@ public:
 
     ConfigPropertyMap *q;
     QPointer<KCoreConfigSkeleton> config;
+    bool updatingConfigValue = false;
 };
 
 ConfigPropertyMap::ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *parent)
@@ -54,8 +55,12 @@ ConfigPropertyMap::ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *paren
 {
     d->config = config;
 
-    //FIXME: find a prettier way to connect without lambdas
-    connect(config, &KCoreConfigSkeleton::configChanged, this, std::bind(&ConfigPropertyMapPrivate::loadConfig, d, ConfigPropertyMapPrivate::EmitValueChanged));
+    // Reload the config only if the change signal has *not* been emitted by ourselves updating the config
+    connect(config, &KCoreConfigSkeleton::configChanged, this, [this] () {
+        if (!d->updatingConfigValue) {
+            d->loadConfig(ConfigPropertyMapPrivate::EmitValueChanged);
+        }
+    });
     connect(this, &ConfigPropertyMap::valueChanged, this,
             [this](const QString &key, const QVariant &value){d->writeConfigValue(key, value);});
 
@@ -113,22 +118,22 @@ void ConfigPropertyMapPrivate::writeConfig()
         item->setProperty(q->value(item->key()));
     }
 
-    config.data()->blockSignals(true);
+    updatingConfigValue = true;
     config.data()->save();
-    config.data()->blockSignals(false);
+    updatingConfigValue = false;
 }
 
 void ConfigPropertyMapPrivate::writeConfigValue(const QString &key, const QVariant &value)
 {
     KConfigSkeletonItem *item = config.data()->findItem(key);
     if (item) {
+        updatingConfigValue = true;
         item->setProperty(value);
-        config.data()->blockSignals(true);
         config.data()->save();
         //why read? read will update KConfigSkeletonItem::mLoadedValue,
         //allowing a write operation to be performed next time
         config.data()->read();
-        config.data()->blockSignals(false);
+        updatingConfigValue = false;
     }
 }
 
