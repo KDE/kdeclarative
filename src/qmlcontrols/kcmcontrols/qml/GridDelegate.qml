@@ -116,7 +116,7 @@ T2.ItemDelegate {
             anchors.fill: thumbnailArea
             visible: actionsRow.children.length > 0
             opacity: Kirigami.Settings.isMobile || delegate.hovered || (actionsScope.focus) ? 1 : 0
-            radius: Kirigami.Units.smallSpacing
+            radius: delegate.thumbnailAvailable ? 0 : thumbnailArea.radius
             color: Kirigami.Settings.isMobile ? "transparent" : Qt.rgba(1, 1, 1, 0.2)
 
             Behavior on opacity {
