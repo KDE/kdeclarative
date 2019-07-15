@@ -226,8 +226,33 @@ Q_SIGNALS:
     void eventRemoved(const QString &uid);
 };
 
+/**
+ * Interface for displaying event details
+ *
+ * ShowEventInterface is an additional interface the CalendarEventsPlugin
+ * implementations can implement if they support displaying details about
+ * events (e.g. opening the event in KOrganizer).
+ *
+ * @since 5.61
+ */
+class CALENDAREVENTS_EXPORT ShowEventInterface
+{
+public:
+    virtual ~ShowEventInterface();
+
+    /**
+     * When this is called, the plugin should show a window displaying the
+     * full preview of the event.
+     *
+     * The plugin should return true if the event details can be displayed, false
+     * otherwise.
+     */
+    virtual bool showEvent(const QString &uid) = 0;
+};
+
 }
 
 Q_DECLARE_INTERFACE(CalendarEvents::CalendarEventsPlugin, "org.kde.CalendarEventsPlugin")
+Q_DECLARE_INTERFACE(CalendarEvents::ShowEventInterface, "org.kde.CalendarEventsPlugin.ShowEventInterface")
 
 #endif

@@ -32,4 +32,6 @@ CalendarEventsPlugin::~CalendarEventsPlugin()
 
 }
 
+ShowEventInterface::~ShowEventInterface() = default;
+
 }
