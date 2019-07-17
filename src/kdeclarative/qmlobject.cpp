@@ -308,10 +308,8 @@ void QmlObject::completeInitialization(const QVariantHash &initialProperties)
 
     d->rootObject = d->component->beginCreate(d->rootContext);
     if (d->rootObject) {
-        QHashIterator<QString, QVariant> i(initialProperties);
-        while (i.hasNext()) {
-            i.next();
-            d->rootObject->setProperty(i.key().toLatin1().data(), i.value());
+        for (auto it = initialProperties.begin(), end = initialProperties.end(); it != end; ++it) {
+            d->rootObject->setProperty(it.key().toLatin1().constData(), it.value());
         }
     }
 
