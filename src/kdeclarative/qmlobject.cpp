@@ -24,7 +24,6 @@
 #include <QQmlEngine>
 #include <QQmlContext>
 #include <QQuickItem>
-#include <QQmlIncubator>
 #include <QTimer>
 #include <QPointer>
 
@@ -37,21 +36,6 @@
 
 namespace KDeclarative {
 
-class QmlObjectIncubator : public QQmlIncubator
-{
-public:
-    QVariantHash m_initialProperties;
-protected:
-    void setInitialState(QObject *object) override
-    {
-        QHashIterator<QString, QVariant> i(m_initialProperties);
-        while (i.hasNext()) {
-            i.next();
-            object->setProperty(i.key().toLatin1().data(), i.value());
-        }
-    }
-};
-
 class QmlObjectPrivate
 {
 public:
@@ -59,6 +43,7 @@ public:
         : q(parent),
           engine(nullptr),
           component(nullptr),
+          rootObject(nullptr),
           delay(false)
     {
         executionEndTimer = new QTimer(q);
@@ -69,7 +54,7 @@ public:
 
     ~QmlObjectPrivate()
     {
-        delete incubator.object();
+        rootObject->deleteLater();
     }
 
     void errorPrint(QQmlComponent *component);
@@ -87,8 +72,8 @@ public:
 
     QUrl source;
     QQmlEngine *engine;
-    QmlObjectIncubator incubator;
     QQmlComponent *component;
+    QObject *rootObject;
     QTimer *executionEndTimer;
     KDeclarative kdeclarative;
     KPackage::Package package;
@@ -120,7 +105,7 @@ void QmlObjectPrivate::execute(const QUrl &source)
     component = new QQmlComponent(engine, q);
     QObject::connect(component, &QQmlComponent::statusChanged,
                      q, &QmlObject::statusChanged, Qt::QueuedConnection);
-    delete incubator.object();
+    rootObject->deleteLater();
 
     component->loadUrl(source);
 
@@ -256,11 +241,14 @@ QQmlEngine *QmlObject::engine()
 
 QObject *QmlObject::rootObject() const
 {
-    if (d->incubator.status() == QQmlIncubator::Loading) {
-        qWarning() << "Trying to use rootObject before initialization is completed, whilst using setInitializationDelayed. Forcing completion";
-        d->incubator.forceCompletion();
+    if (!d->component) {
+        return nullptr;
     }
-    return d->incubator.object();
+    if (d->component->status() == QQmlComponent::Loading) {
+        qWarning() << "Trying to use rootObject before initialization is completed, whilst using setInitializationDelayed. Forcing completion";
+        d->component->completeCreate();
+    }
+    return d->rootObject;
 }
 
 QQmlComponent *QmlObject::mainComponent() const
@@ -288,12 +276,12 @@ QQmlComponent::Status QmlObject::status() const
 
 void QmlObjectPrivate::checkInitializationCompleted()
 {
-    if (!incubator.isReady() && incubator.status() != QQmlIncubator::Error) {
+    if (!component->isReady() && component->status() != QQmlComponent::Error) {
         QTimer::singleShot(0, q, SLOT(checkInitializationCompleted()));
         return;
     }
 
-    if (!incubator.object()) {
+    if (!rootObject) {
         errorPrint(component);
     }
 
@@ -303,7 +291,7 @@ void QmlObjectPrivate::checkInitializationCompleted()
 void QmlObject::completeInitialization(const QVariantHash &initialProperties)
 {
     d->executionEndTimer->stop();
-    if (d->incubator.object()) {
+    if (d->rootObject) {
         return;
     }
 
@@ -318,15 +306,21 @@ void QmlObject::completeInitialization(const QVariantHash &initialProperties)
         return;
     }
 
-    d->incubator.m_initialProperties = initialProperties;
-    d->component->create(d->incubator, d->rootContext);
+    d->rootObject = d->component->beginCreate(d->rootContext);
+    if (d->rootObject) {
+        QHashIterator<QString, QVariant> i(initialProperties);
+        while (i.hasNext()) {
+            i.next();
+            d->rootObject->setProperty(i.key().toLatin1().data(), i.value());
+        }
+    }
 
     if (d->delay) {
         d->checkInitializationCompleted();
     } else {
-        d->incubator.forceCompletion();
+        d->component->completeCreate();
 
-        if (!d->incubator.object()) {
+        if (!d->rootObject) {
             d->errorPrint(d->component);
         }
         emit finished();
@@ -343,12 +337,16 @@ QObject *QmlObject::createObjectFromSource(const QUrl &source, QQmlContext *cont
 
 QObject *QmlObject::createObjectFromComponent(QQmlComponent *component, QQmlContext *context, const QVariantHash &initialProperties)
 {
-    QmlObjectIncubator incubator;
-    incubator.m_initialProperties = initialProperties;
-    component->create(incubator, context ? context : d->rootContext);
-    incubator.forceCompletion();
-  
-    QObject *object = incubator.object();
+    QObject *object = component->beginCreate(context ? context : d->rootContext);
+
+    if (object) {
+        QHashIterator<QString, QVariant> i(initialProperties);
+        while (i.hasNext()) {
+            i.next();
+            object->setProperty(i.key().toLatin1().data(), i.value());
+        }
+        component->completeCreate();
+    }  
 
     if (!component->isError() && object) {
         //memory management
