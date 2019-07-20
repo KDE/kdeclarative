@@ -32,7 +32,7 @@ class KRunProxy : public QObject
     /**
      * opens the url from the existing file
      */
-    Q_INVOKABLE bool openUrl(const QString &filePath);
+    Q_INVOKABLE bool openUrl(const QString &fileUrl);
 
     /**
      * Runs the service (application)

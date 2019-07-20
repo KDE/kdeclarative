@@ -28,26 +28,27 @@ KRunProxy::KRunProxy(QObject* parent)
 {
 }
 
-bool KRunProxy::openUrl(const QString &filePath)
+bool KRunProxy::openUrl(const QString &file)
 {
+    QUrl fileUrl(file);
     QMimeDatabase db;
-    QMimeType mime = db.mimeTypeForFile(filePath);
-    const QString fileMymeType = mime.name();
+    QMimeType mime = db.mimeTypeForFile(fileUrl.isLocalFile() ? fileUrl.toLocalFile() : fileUrl.path());
+    const QString fileMimeType = mime.name();
 
-    if (fileMymeType == QStringLiteral("application/x-executable") || !mime.isValid()) {
+    if (fileMimeType == QStringLiteral("application/x-executable") || !mime.isValid()) {
         //for security reasons we should not be able to execute applications.
         //We should use its desktop file to access it.
         return false;
     }
 
-    if (fileMymeType == QStringLiteral("application/x-desktop")) {
+    if (fileMimeType == QStringLiteral("application/x-desktop") && fileUrl.isLocalFile()) {
         // If our mimetype is a desktop file, then we don't want to open
         // the desktop file itself but the application in which it is associated
         // with.
-        KService::Ptr service = KService::serviceByDesktopPath(filePath);
+        KService::Ptr service = KService::serviceByDesktopPath(fileUrl.toLocalFile());
         return KRun::runService(*service, QList<QUrl>(), nullptr) != 0;
     } else {
-        return KRun::runUrl(QUrl(filePath), fileMymeType, nullptr);
+        return KRun::runUrl(fileUrl, fileMimeType, nullptr);
     }
 }
 
