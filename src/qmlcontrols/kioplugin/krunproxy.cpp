@@ -45,10 +45,9 @@ bool KRunProxy::openUrl(const QString &file)
         // If our mimetype is a desktop file, then we don't want to open
         // the desktop file itself but the application in which it is associated
         // with.
-        KService::Ptr service = KService::serviceByDesktopPath(fileUrl.toLocalFile());
-        return KRun::runService(*service, QList<QUrl>(), nullptr) != 0;
+        return openService(fileUrl.toLocalFile());
     } else {
-        return KRun::runUrl(fileUrl, fileMimeType, nullptr);
+        return KRun::runUrl(fileUrl, fileMimeType, nullptr, KRun::RunFlags{});
     }
 }
 
