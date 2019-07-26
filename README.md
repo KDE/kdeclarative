@@ -15,18 +15,26 @@ KDeclarative exposes 3 namespaced classes: KDeclarative::KDeclarative, KDeclarat
 
 ### KDeclarative::KDeclarative
 
-The KDeclarative class is used to manipulate the QQmlEngine instance used by the application and to get some informations about the platform, that influences the behavior of the QML components.
+The KDeclarative class is used to manipulate the QQmlEngine instance used by 
+the application and to get some informations about the platform, 
+that influences the behavior of the QML components.
 
-In order to use it, create an instance of KDeclarative, and as soon as you have a pointer to your QQmlEngine, call setupBindings:
+In order to use it, create an instance of KDeclarative. You will need a 
+pointer to a QQmlEngine, and call **both** `setDeclarativeEngine(engine)` and
+`setupContext()` on your instance. You need to call `setupEngine(engine)`
+at least once on the engine as well.
 
+    KDeclarative::setupEngine(engine);  // if not done elsewhere
     KDeclarative::KDeclarative decl;
-    decl.setupBindings(engine);
-
+    decl.setDeclarativeEngine(engine);
+    decl.setupContext();
+    
 This will add the following things to the engine:
-* use a KIOAccessManagerFactory instead of the stock QQmlNetworkAccessManagerFactory
-* set a new rootContextObject() that exposes all the i18n() functions from the KI18n framework.
-  they will be available in the global QML context: just call i18n() from anywhere in your QML code.
-* Add a QML icon provider, that makes possible for the Image {} element to load stuff from the scheme "image:/"
+* Use a KIOAccessManagerFactory instead of the stock QQmlNetworkAccessManagerFactory
+* Add a QML icon provider, that makes possible for the Image {} element to load images using the scheme "image:/"
+* Use the given engine for this context.
+* Set a new rootContextObject() that exposes all the i18n() functions from the KI18n framework.
+  They will be available in the global QML context: just call i18n() from anywhere in your QML code.
 
 ### KDeclarative::QmlObject
 
