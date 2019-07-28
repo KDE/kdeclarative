@@ -26,7 +26,7 @@ import "." as Priv
 /**
  * This component is intended to be used as the root item for most of the
  * KControl modules which are based upon a list view or another vertical flickable
- * It has a big GridView as its main item, the implementation is free to add extra
+ * It has a big ScrollView as its main item, the implementation is free to add extra
  * content in the header or footer properties.
  * @code
  * import org.kde.kcm 1.2 as KCM
