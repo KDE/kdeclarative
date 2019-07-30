@@ -47,7 +47,6 @@ QtControls.ScrollView {
     contentItem: view
     onViewChanged: {
         view.parent = scroll;
-        view.anchors.fill = view.parent;
     }
 
     activeFocusOnTab: false
