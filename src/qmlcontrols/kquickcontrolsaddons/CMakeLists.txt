@@ -7,6 +7,7 @@ set(kquickcontrolsaddons_SRCS
     qpixmapitem.cpp
     qimageitem.cpp
     qiconitem.cpp
+    fallbacktaphandler.cpp
     mouseeventlistener.cpp
     columnproxymodel.cpp
     clipboard.cpp
