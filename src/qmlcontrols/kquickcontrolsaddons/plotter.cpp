@@ -909,6 +909,11 @@ void Plotter::normalizeData()
     }
     m_mutex.unlock();
 
+    if (adjustedMin > 0.0 && adjustedMax > 0.0)
+        adjustedMin = 0.0;
+
+    if (adjustedMin < 0.0 && adjustedMax < 0.0)
+        adjustedMax = 0.0;
 
     if (m_autoRange || m_rangeMax > m_rangeMin) {
         if (!m_autoRange) {
