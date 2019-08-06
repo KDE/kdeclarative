@@ -53,6 +53,12 @@ QtControls.Button {
      */
     property alias showAlphaChannel: colorDialog.showAlphaChannel
 
+    /**
+     * This signal is emitted when the color dialog has been accepted
+     *
+     * @since 5.61
+     */
+    signal accepted(color color)
 
     readonly property real _buttonMarigns: 4 // same as QStyles. Remove if we can get this provided by the QQC theme
 
@@ -101,6 +107,7 @@ QtControls.Button {
 
     QtDialogs.ColorDialog {
         id: colorDialog
+        onAccepted: colorPicker.accepted(color)
     }
 
     onClicked: {
