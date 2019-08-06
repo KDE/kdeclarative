@@ -146,10 +146,7 @@ T2.ItemDelegate {
                         delegate: Controls.Button {
                             icon.name: modelData.iconName
                             activeFocusOnTab: focus || delegate.focus
-                            onClicked: {
-                                delegate.clicked()
-                                modelData.trigger()
-                            }
+                            onClicked: modelData.trigger()
                             enabled: modelData.enabled
                             visible: modelData.visible
                             //NOTE: there aren't any global settings where to take "official" tooltip timeouts
