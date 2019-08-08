@@ -24,7 +24,6 @@
 #include "DeclarativeDropArea.h"
 #include "DeclarativeDragDropEvent.h"
 
-#include <QMimeData>
 
 DeclarativeDropArea::DeclarativeDropArea(QQuickItem *parent)
     : QQuickItem(parent),

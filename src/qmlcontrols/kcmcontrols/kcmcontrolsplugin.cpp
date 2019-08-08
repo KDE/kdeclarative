@@ -22,7 +22,6 @@
 
 #include "kcmcontrolsplugin.h"
 
-#include <QtQml>
 
 #include <KQuickAddons/ConfigModule>
 

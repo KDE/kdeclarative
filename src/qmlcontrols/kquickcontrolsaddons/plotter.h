@@ -39,8 +39,6 @@
 #define QOPENGLF_APIENTRYP GLAPIENTRYP
 #endif
 
-#include <QSGTexture>
-#include <QSGSimpleTextureNode>
 #include <QQuickItem>
 #include <QQmlListProperty>
 #include <QPointer>

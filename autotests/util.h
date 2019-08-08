@@ -34,11 +34,9 @@
 #ifndef QQMLTESTUTILS_H
 #define QQMLTESTUTILS_H
 
-#include <QDir>
 #include <QUrl>
-#include <QCoreApplication>
 #include <QStringList>
-#include <QTest>
+#include <QObject>
 
 QT_FORWARD_DECLARE_CLASS(QQmlComponent)
 QT_FORWARD_DECLARE_CLASS(QQmlEngine)

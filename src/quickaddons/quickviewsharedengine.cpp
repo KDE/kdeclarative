@@ -22,14 +22,10 @@
 
 #include "quickviewsharedengine.h"
 
-#include <QTimer>
-#include <QDebug>
 #include <QUrl>
 #include <QQmlEngine>
 #include <QQmlContext>
 #include <QQuickItem>
-#include <QQmlExpression>
-#include <QQmlProperty>
 
 #include <klocalizedstring.h>
 #include <kdeclarative/qmlobjectsharedengine.h>

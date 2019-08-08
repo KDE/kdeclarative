@@ -32,7 +32,6 @@
 ****************************************************************************/
 #include <quickviewsharedengine.h>
 #include <qtest.h>
-#include <QSignalSpy>
 #include <qqmlcomponent.h>
 #include <qqmlcontext.h>
 #include <qquickview.h>

@@ -24,11 +24,9 @@
 #include "keysequencehelper.h"
 
 #include <QAction>
-#include <QKeyEvent>
 #include <QTimer>
 #include <QHash>
 #include <QToolButton>
-#include <QApplication>
 #include <QDebug>
 
 #include <KStandardShortcut>

@@ -26,7 +26,6 @@
 
 #include "configmodule.h"
 
-#include <QTimer>
 #include <QDebug>
 #include <QUrl>
 #include <QQmlEngine>

@@ -26,7 +26,6 @@
 #include <QQuickItem>
 #include <QQmlIncubator>
 #include <QTimer>
-#include <QPointer>
 
 #include <qdebug.h>
 #include <kdeclarative.h>

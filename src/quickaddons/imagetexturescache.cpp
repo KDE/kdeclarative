@@ -19,7 +19,6 @@
 
 #include "imagetexturescache.h"
 #include <QSGTexture>
-#include <QDebug>
 
 typedef QHash<qint64, QHash<QWindow*, QWeakPointer<QSGTexture> > > TexturesCache;
 

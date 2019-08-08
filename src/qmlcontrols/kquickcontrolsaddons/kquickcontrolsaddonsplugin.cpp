@@ -22,8 +22,6 @@
 #include "kquickcontrolsaddonsplugin.h"
 #include "config-kquickcontrolsaddons.h"
 
-#include <QtQml>
-#include <QDebug>
 
 #include "qpixmapitem.h"
 #include "qimageitem.h"

@@ -24,12 +24,9 @@
 #include "qmlobject.h"
 
 #include <QCoreApplication>
-#include <QDebug>
-#include <QQmlComponent>
-#include <QQmlContext>
 #include <QQmlEngine>
-#include <QQmlExpression>
 #include <QQmlDebuggingEnabler>
+#include <QQmlContext>
 
 #include <kconfiggroup.h>
 #include <ksharedconfig.h>

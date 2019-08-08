@@ -23,7 +23,6 @@
 #include "MimeDataWrapper.h"
 #include <QMimeData>
 #include <QUrl>
-#include <QColor>
 
 MimeDataWrapper::MimeDataWrapper(const QMimeData* data, QObject* parent)
     : QObject(parent)

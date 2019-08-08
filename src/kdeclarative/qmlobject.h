@@ -22,10 +22,6 @@
 
 #include <QObject>
 
-#include <QWindow>
-#include <QAnimationDriver>
-#include <QGuiApplication>
-#include <QScreen>
 #include <QQmlComponent>
 
 #include <KPackage/Package>

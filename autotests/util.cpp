@@ -38,8 +38,8 @@
 #include <QQmlContext>
 #include <QQmlEngine>
 #include <QTextStream>
-#include <QDebug>
 #include <QMutexLocker>
+#include <QTest>
 
 QQmlDataTest *QQmlDataTest::m_instance = nullptr;
 

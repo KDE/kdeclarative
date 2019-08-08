@@ -20,7 +20,6 @@
 
 #include "qiconitem.h"
 
-#include <QSGSimpleTextureNode>
 #include <qquickwindow.h>
 #include <QIcon>
 #include <quickaddons/imagetexturescache.h>

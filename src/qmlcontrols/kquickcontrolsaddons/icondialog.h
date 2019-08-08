@@ -21,7 +21,6 @@
 #define ICONDIALOG_H
 
 #include <QObject>
-#include <QPointer>
 #include <QString>
 
 class KIconDialog;

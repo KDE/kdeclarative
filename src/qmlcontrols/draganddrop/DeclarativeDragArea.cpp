@@ -27,13 +27,12 @@
 #include <QDrag>
 #include <QIcon>
 #include <QGuiApplication>
-#include <QStyleHints>
 #include <QMimeData>
 #include <QMouseEvent>
 #include <QPainter>
-#include <QQmlContext>
-#include <QQuickWindow>
 #include <QQuickItemGrabResult>
+#include <QQuickWindow>
+#include <QStyleHints>
 
 #include <QDebug>
 

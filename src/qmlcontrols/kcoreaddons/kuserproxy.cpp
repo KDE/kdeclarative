@@ -28,7 +28,6 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <KDirWatch>
 
-#include <QDebug>
 
 const QString etcPasswd = QStringLiteral("/etc/passwd");
 const QString accountsServiceIconPath = QStringLiteral("/var/lib/AccountsService/icons");

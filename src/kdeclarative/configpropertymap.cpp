@@ -19,9 +19,8 @@
 
 #include "configpropertymap.h"
 
-#include <QDebug>
 #include <QJSValue>
-
+#include <QPointer>
 #include <kcoreconfigskeleton.h>
 
 #include <functional>

@@ -23,8 +23,6 @@
 
 #include "plotter.h"
 
-#include <QGuiApplication>
-#include <QWindow>
 
 #include <QOpenGLContext>
 #include <QOpenGLShaderProgram>
@@ -39,7 +37,6 @@
 #include <QSGSimpleTextureNode>
 
 #include <QQuickWindow>
-#include <QQuickView>
 #include <QQuickItem>
 
 #include <QDebug>

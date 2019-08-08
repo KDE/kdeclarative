@@ -19,10 +19,8 @@
 
 #include "qmlobjectsharedengine.h"
 
-#include <QQmlComponent>
 #include <QQmlEngine>
 #include <QQmlContext>
-#include <QPointer>
 
 #include <qdebug.h>
 #include <kdeclarative.h>

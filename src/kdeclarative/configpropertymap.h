@@ -21,7 +21,6 @@
 #define CONFIGPROPERTYMAP_P
 
 #include <QQmlPropertyMap>
-#include <QPointer>
 
 class KCoreConfigSkeleton;
 
