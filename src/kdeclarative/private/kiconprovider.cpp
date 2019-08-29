@@ -49,11 +49,11 @@ QPixmap KIconProvider::requestPixmap(const QString &id, QSize *size, const QSize
         const QString state(source.at(1));
         int finalState = KIconLoader::DefaultState;
 
-        if (state == QStringLiteral("active")) {
+        if (state == QLatin1String("active")) {
             finalState = KIconLoader::ActiveState;
-        } else if (state == QStringLiteral("disabled")) {
+        } else if (state == QLatin1String("disabled")) {
             finalState = KIconLoader::DisabledState;
-        } else if (state == QStringLiteral("last")) {
+        } else if (state == QLatin1String("last")) {
             finalState = KIconLoader::LastState;
         }
 

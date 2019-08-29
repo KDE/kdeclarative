@@ -35,13 +35,13 @@ bool KRunProxy::openUrl(const QString &file)
     QMimeType mime = db.mimeTypeForFile(fileUrl.isLocalFile() ? fileUrl.toLocalFile() : fileUrl.path());
     const QString fileMimeType = mime.name();
 
-    if (fileMimeType == QStringLiteral("application/x-executable") || !mime.isValid()) {
+    if (fileMimeType == QLatin1String("application/x-executable") || !mime.isValid()) {
         //for security reasons we should not be able to execute applications.
         //We should use its desktop file to access it.
         return false;
     }
 
-    if (fileMimeType == QStringLiteral("application/x-desktop") && fileUrl.isLocalFile()) {
+    if (fileMimeType == QLatin1String("application/x-desktop") && fileUrl.isLocalFile()) {
         // If our mimetype is a desktop file, then we don't want to open
         // the desktop file itself but the application in which it is associated
         // with.
