@@ -260,7 +260,7 @@ void ConfigModule::setNeedsAuthorization(bool needsAuth)
 
     d->_needsAuthorization = needsAuth;
     if (needsAuth && d->_about) {
-        d->_authActionName = QStringLiteral("org.kde.kcontrol.") + d->_about->componentName() + QStringLiteral(".save");
+        d->_authActionName = QLatin1String("org.kde.kcontrol.") + d->_about->componentName() + QLatin1String(".save");
         d->_needsAuthorization = true;
 
     } else {
