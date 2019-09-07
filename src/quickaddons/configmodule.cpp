@@ -166,6 +166,11 @@ QQuickItem *ConfigModule::mainUi()
     package.setDefaultPackageRoot(QStringLiteral("kpackage/kcms"));
     package.setPath(aboutData()->componentName());
 
+    if (!package.isValid()) {
+        qWarning() << "Error loading the module" << aboutData()->componentName() << ": invalid KPackage";
+        return nullptr;
+    }
+
     if (!package.filePath("mainscript").isEmpty()) {
         d->_qmlObject->setSource(package.fileUrl("mainscript"));
         d->_qmlObject->rootContext()->setContextProperty(QStringLiteral("kcm"), this);
