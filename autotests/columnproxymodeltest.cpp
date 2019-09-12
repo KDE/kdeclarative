@@ -18,7 +18,7 @@
  */
 #include "columnproxymodeltest.h"
 #include "../src/qmlcontrols/kquickcontrolsaddons/columnproxymodel.h"
-#include "modeltest.h"
+#include <QAbstractItemModelTester>
 #include <qtest.h>
 #include <QSignalSpy>
 #include <QStandardItemModel>
@@ -32,7 +32,7 @@ void ColumnProxyModelTest::testInit()
     ColumnProxyModel* listify = new ColumnProxyModel;
     QSignalSpy spy(listify, SIGNAL(rowsInserted(QModelIndex,int,int)));
     
-    new ModelTest(listify, listify);
+    new QAbstractItemModelTester(listify, listify);
     QStandardItemModel* m = new QStandardItemModel(listify);
     listify->setRootIndex(QModelIndex());
     listify->setSourceModel(m);
@@ -50,12 +50,12 @@ void ColumnProxyModelTest::testInit()
     QCOMPARE(spy.count(), 5);
     
     ColumnProxyModel* listifyB = new ColumnProxyModel;
-    new ModelTest(listifyB, listifyB);
+    new QAbstractItemModelTester(listifyB, listifyB);
     listifyB->setSourceModel(m);
     QCOMPARE(listifyB->rowCount(), 5);
     
     ColumnProxyModel* listifyC = new ColumnProxyModel;
-    new ModelTest(listifyC, listifyC);
+    new QAbstractItemModelTester(listifyC, listifyC);
     listifyC->setRootIndex(item->index());
     QCOMPARE(listifyC->rowCount(), 3);
     
@@ -69,7 +69,7 @@ void ColumnProxyModelTest::testSet()
     ColumnProxyModel* listify = new ColumnProxyModel;
     QSignalSpy spy(listify, SIGNAL(rowsInserted(QModelIndex,int,int)));
 
-    new ModelTest(listify, listify);
+    new QAbstractItemModelTester(listify, listify);
     QStandardItemModel* m = new QStandardItemModel(listify);
     listify->setRootIndex(QModelIndex());
     listify->setSourceModel(m);
