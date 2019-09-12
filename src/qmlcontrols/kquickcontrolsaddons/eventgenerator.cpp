@@ -101,19 +101,13 @@ void EventGenerator::sendGrabEvent(QQuickItem *item, EventGenerator::GrabEvent t
         return;
     }
 
-    QQuickWindow *win = item->window();
-
-    if (!win) {
-        return;
-    }
-
     switch (type) {
     case GrabMouse:
         item->grabMouse();
         break;
     case UngrabMouse: {
         QEvent ev(QEvent::UngrabMouse);
-        win->sendEvent(item, &ev);
+        QGuiApplication::sendEvent(item, &ev);
         return;
     }
     default:
