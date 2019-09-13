@@ -226,7 +226,7 @@ void MouseEventListener::wheelEvent(QWheelEvent *we)
         return;
     }
 
-    KDeclarativeWheelEvent dwe(we->pos(), we->globalPos(), we->delta(), we->buttons(), we->modifiers(), we->orientation());
+    KDeclarativeWheelEvent dwe(we->pos(), we->globalPos(), we->angleDelta(), we->buttons(), we->modifiers(), we->orientation());
     emit wheelMoved(&dwe);
 }
 
@@ -361,7 +361,7 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
     case QEvent::Wheel: {
         m_lastEvent = event;
         QWheelEvent *we = static_cast<QWheelEvent *>(event);
-        KDeclarativeWheelEvent dwe(we->pos(), we->globalPos(), we->delta(), we->buttons(), we->modifiers(), we->orientation());
+        KDeclarativeWheelEvent dwe(we->pos(), we->globalPos(), we->angleDelta(), we->buttons(), we->modifiers(), we->orientation());
         emit wheelMoved(&dwe);
         break;
     }

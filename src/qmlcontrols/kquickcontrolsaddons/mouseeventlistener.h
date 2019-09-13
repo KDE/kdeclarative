@@ -104,13 +104,15 @@ class KDeclarativeWheelEvent : public QObject
     Q_PROPERTY(int y READ y CONSTANT)
     Q_PROPERTY(int screenX READ screenX CONSTANT)
     Q_PROPERTY(int screenY READ screenY CONSTANT)
-    Q_PROPERTY(int delta READ delta CONSTANT)
+    Q_PROPERTY(int deltaX READ deltaX CONSTANT)
+    Q_PROPERTY(int deltaY READ deltaY CONSTANT)
+    Q_PROPERTY(int delta READ deltaY CONSTANT) // deprecated in favor of deltaY. TODO KF6: remove
     Q_PROPERTY(Qt::MouseButtons buttons READ buttons CONSTANT)
     Q_PROPERTY(Qt::KeyboardModifiers modifiers READ modifiers CONSTANT)
-    Q_PROPERTY(Qt::Orientation orientation READ orientation CONSTANT)
+    Q_PROPERTY(Qt::Orientation orientation READ orientation CONSTANT) // deprecated. TODO KF6: remove
 
 public:
-    KDeclarativeWheelEvent(QPointF pos, QPoint screenPos, int delta,
+    KDeclarativeWheelEvent(QPointF pos, QPoint screenPos, QPoint angleDelta,
                            Qt::MouseButtons buttons,
                            Qt::KeyboardModifiers modifiers,
                            Qt::Orientation orientation)
@@ -118,7 +120,7 @@ public:
           m_y(pos.y()),
           m_screenX(screenPos.x()),
           m_screenY(screenPos.y()),
-          m_delta(delta),
+          m_angleDelta(angleDelta),
           m_buttons(buttons),
           m_modifiers(modifiers),
           m_orientation(orientation)
@@ -128,10 +130,11 @@ public:
     int y() const { return m_y; }
     int screenX() const { return m_screenX; }
     int screenY() const { return m_screenY; }
-    int delta() const { return m_delta; }
+    int deltaX() const { return m_angleDelta.x(); }
+    int deltaY() const { return m_angleDelta.y(); }
     Qt::MouseButtons buttons() const { return m_buttons; }
     Qt::KeyboardModifiers modifiers() const { return m_modifiers; }
-    Qt::Orientation orientation() { return m_orientation; }
+    Qt::Orientation orientation() { return m_orientation; } // TODO KF6: remove
 
     // only for internal usage
     void setX(int x) { m_x = x; }
@@ -142,7 +145,7 @@ private:
     int m_y;
     int m_screenX;
     int m_screenY;
-    int m_delta;
+    QPoint m_angleDelta;
     Qt::MouseButtons m_buttons;
     Qt::KeyboardModifiers m_modifiers;
     Qt::Orientation m_orientation;
