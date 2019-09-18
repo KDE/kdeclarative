@@ -68,11 +68,11 @@ QmlObjectSharedEngine::QmlObjectSharedEngine(QObject *parent)
     : QmlObject(QmlObjectSharedEnginePrivate::engine(), new QQmlContext(QmlObjectSharedEnginePrivate::engine()), this /*don't call setupEngine*/, parent),
       d(new QmlObjectSharedEnginePrivate())
 {
+    rootContext()->setParent(this);
 }
 
 QmlObjectSharedEngine::~QmlObjectSharedEngine()
 {
-    rootContext()->deleteLater();
 }
 
 
