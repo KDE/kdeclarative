@@ -1,0 +1,109 @@
+# translation of kdelibs4.po to Estonian
+# Copyright (C) 1999-2004, 2005, 2006, 2009 Free Software Foundation, Inc.
+#
+# Hasso Tepper <hasso@kde.org>, 1999-2004, 2005, 2006.
+# Marek Laane <bald@smail.ee>, 2003-2009.
+# Peeter Russak <pezz@tkwcy.ee>, 2005.
+# Marek Laane <bald@smail.ee>, 2009, 2010, 2011, 2012, 2014, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-08-09 02:54+0200\n"
+"PO-Revision-Date: 2016-09-09 00:55+0300\n"
+"Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
+"Language-Team: Estonian <kde-i18n-doc@kde.org>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Marek Laane"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "bald@smail.ee"
+
+#: kpackagelauncherqml/main.cpp:43
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr "KPackage'i QML rakenduse kest"
+
+#: kpackagelauncherqml/main.cpp:50
+#, kde-format
+msgid "The unique name of the application (mandatory)"
+msgstr "Rakenduse unikaalne nimi (kohustuslik)"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:38
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"Klõpsa nupule ja sisesta meelepärane kiirklahv.\n"
+"Näide Ctrl+A kohta: hoia all Ctrl-klahvi ja vajuta klahvi A."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:273
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "Reserveeritud kiirklahv"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:274
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"Klahv F12 on reserveeritud Windowsile ja seda ei saa kasutada globaalse "
+"kiirklahvina.\n"
+"Palun vali mõni muu klahv."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:330
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Konflikt rakenduse standardse kiirklahviga"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:331
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"Klahvikombinatsioon '%1' on juba kasutusel standardseks toiminguks \"%2\", "
+"mida kasutavad mitmed rakendused.\n"
+"Kas soovid seda kasutada ka globaalse kiirklahvina?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:336
+#, kde-format
+msgid "Reassign"
+msgstr "Asenda"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:378
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Sisend"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:385
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Puudub"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:406
+#, kde-format
+msgid "The key you just pressed is not supported by Qt."
+msgstr "Qt ei toeta klahvi, mida sa praegu vajutasid."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:407
+#, kde-format
+msgid "Unsupported Key"
+msgstr "Toetamata klahv"

@@ -1,0 +1,109 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Lukáš Tinkl <lukas@kde.org>, 2010, 2011, 2012.
+# Vít Pelčák <vit@pelcak.org>, 2011, 2012, 2013, 2014, 2015.
+# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-08-09 02:54+0200\n"
+"PO-Revision-Date: 2015-04-16 09:48+0100\n"
+"Last-Translator: Vít Pelčák <vit@pelcak.org>\n"
+"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 2.0\n"
+"X-Language: cs_CZ\n"
+"X-Source-Language: en_US\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Vít Pelčák"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "vit@pelcak.org"
+
+#: kpackagelauncherqml/main.cpp:43
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr "Shell aplikace KPackage QML"
+
+#: kpackagelauncherqml/main.cpp:50
+#, kde-format
+msgid "The unique name of the application (mandatory)"
+msgstr "Unikátní název aplikace (povinné)"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:38
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"Klikněte na tlačítko a poté zadejte zkratku, kterou si přejete v programu.\n"
+"Příklad pro Ctrl+A: držte klávesu Ctrl a stiskněte A."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:273
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "Rezervovaná klávesová zkratka"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:274
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"Klávesa F12 je na Windows rezervována a nelze ji tedy použít jako globální.\n"
+"Vyberte prosím jinou."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:330
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Konflikt se standardní zkratkou aplikace"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:331
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"Klávesová kombinace '%1' již byla přiřazena standardní činnosti \"%2\", "
+"kterou mnoho aplikací využívá.\n"
+"Opravdu si ji přejete použít jako globální klávesovou zkratku?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:336
+#, kde-format
+msgid "Reassign"
+msgstr "Přeřadit"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:378
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Vstup"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:385
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Žádná"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:406
+#, kde-format
+msgid "The key you just pressed is not supported by Qt."
+msgstr "Právě stisknutá klávesa není podporována v Qt."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:407
+#, kde-format
+msgid "Unsupported Key"
+msgstr "Nepodporovaná klávesa"

@@ -1,0 +1,120 @@
+# translation of kdelibs4.po to hebrew
+# Translation of kdelibs4.po to Hebrew
+# translation of kdelibs4.po to
+# KDE Hebrew Localization Project
+#
+# In addition to the copyright owners of the program
+# which this translation accompanies, this translation is
+# Copyright (C) 1998 Erez Nir <erez-n@actcom.co.il>
+# Copyright (C) 1999-2003 Meni Livne <livne@kde.org>
+#
+# This translation is subject to the same Open Source
+# license as the program which it accompanies.
+#
+# Diego Iastrubni <elcuco@kde.org>, 2003.
+# Diego Iastrubni <elcuco@kde.org>, 2003, 2004.
+# Diego Iastrubni <elcuco@kde.org>, 2005, 2006, 2007, 2008, 2009, 2012, 2014.
+# Meni Livne <livne@kde.org>, 2007.
+# tahmar1900 <tahmar1900@gmail.com>, 2008, 2009.
+# Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeclarative5\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-08-09 02:54+0200\n"
+"PO-Revision-Date: 2017-05-16 06:49-0400\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Zanata 3.9.6\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "צוות התרגום של KDE ישראל"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde-l10n-he@kde.org"
+
+#: kpackagelauncherqml/main.cpp:43
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr ""
+
+#: kpackagelauncherqml/main.cpp:50
+#, fuzzy, kde-format
+msgid "The unique name of the application (mandatory)"
+msgstr "מגדיר את הגופן של התכנית"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:38
+#, fuzzy, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"לחץ על הכפתור, ואז תוכל ליצור קיצור מקשים לשימוש בתוכנית.\n"
+"דוגמא: לקיצור Ctrl+a: לחץ על המקש Ctrl ועל המקש a"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:273
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "קיצורי מקשים שמורים"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:274
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"מקש ה-F12 הוא מקש שמור בWindows, ולכן אינו יכול לשמש כמקש קיצור גלובלי.אנא "
+"לבחור מקש אחר."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:330
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "התנגשות עם קיצור סטנדרטי של ישומים"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:331
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"שילוב המקשים \"%1\" כבר הוקצה לפעולה הסטנדרטית \"%2\", בה משתמשות תוכניות "
+"רבות.\n"
+"מסיבה זו אין באפשרותך להשתמש בו עבור קיצורים גלובליים."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:336
+#, kde-format
+msgid "Reassign"
+msgstr "שייך מחדש"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:378
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "קלט"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:385
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "ללא"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:406
+#, kde-format
+msgid "The key you just pressed is not supported by Qt."
+msgstr "המקש שלחצת אינו נתמך על ידי Qt."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:407
+#, kde-format
+msgid "Unsupported Key"
+msgstr "מקש לא נתמך"
