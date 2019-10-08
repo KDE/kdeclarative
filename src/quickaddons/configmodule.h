@@ -240,6 +240,18 @@ public:
      */
     QQmlEngine *engine() const;
 
+    /**
+     * The status of the mainUi component.
+     * @since 5.64
+     */
+    QQmlComponent::Status status() const;
+
+    /**
+     * The error string in case the mainUi failed to load.
+     * @return 5.64
+     */
+    QString errorString() const;
+
 //QML property accessors
 
     /**

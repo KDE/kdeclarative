@@ -65,6 +65,7 @@ public:
     const KAboutData *_about;
     QString _rootOnlyMessage;
     QString _quickHelp;
+    QString _errorString;
     QList<QQuickItem *> subPages;
     int _columnWidth = -1;
     int currentIndex = 0;
@@ -145,6 +146,8 @@ QQuickItem *ConfigModule::mainUi()
         return qobject_cast<QQuickItem *>(d->_qmlObject->rootObject());
     }
 
+    d->_errorString.clear();
+
     // if we have a qml context, hook up to it and use its engine
     // this ensure that in e.g. Plasma config dialogs that use a different engine
     // so they can have different QtQuick Controls styles, we don't end up using
@@ -167,20 +170,27 @@ QQuickItem *ConfigModule::mainUi()
     package.setPath(aboutData()->componentName());
 
     if (!package.isValid()) {
+        d->_errorString = i18n("Invalid KPackage");
         qWarning() << "Error loading the module" << aboutData()->componentName() << ": invalid KPackage";
         return nullptr;
     }
 
-    if (!package.filePath("mainscript").isEmpty()) {
-        d->_qmlObject->setSource(package.fileUrl("mainscript"));
-        d->_qmlObject->rootContext()->setContextProperty(QStringLiteral("kcm"), this);
-        d->_qmlObject->completeInitialization();
-
-        return qobject_cast<QQuickItem *>(d->_qmlObject->rootObject());
-    } else {
+    if (package.filePath("mainscript").isEmpty()) {
+        d->_errorString = i18n("No QML file provided");
         qWarning() << "Error loading the module" << aboutData()->componentName() << ": no QML file provided";
         return nullptr;
     }
+
+    d->_qmlObject->setSource(package.fileUrl("mainscript"));
+    d->_qmlObject->rootContext()->setContextProperty(QStringLiteral("kcm"), this);
+    d->_qmlObject->completeInitialization();
+
+    if (d->_qmlObject->status() != QQmlComponent::Ready) {
+        d->_errorString = d->_qmlObject->mainComponent()->errorString();
+        return nullptr;
+    }
+
+    return qobject_cast<QQuickItem *>(d->_qmlObject->rootObject());
 }
 
 void ConfigModule::push(const QString &fileName, const QVariantMap &propertyMap)
@@ -348,6 +358,20 @@ QString ConfigModule::authActionName() const
 QQmlEngine *ConfigModule::engine() const
 {
     return d->_qmlObject->engine();
+}
+
+QQmlComponent::Status ConfigModule::status() const
+{
+    if (!d->_qmlObject) {
+        return QQmlComponent::Null;
+    }
+
+    return d->_qmlObject->status();
+}
+
+QString ConfigModule::errorString() const
+{
+    return d->_errorString;
 }
 
 void ConfigModule::load()
