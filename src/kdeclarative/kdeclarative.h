@@ -46,18 +46,22 @@ public:
     KDeclarative(const KDeclarative &) = delete;
     KDeclarative &operator=(const KDeclarative &) = delete;
 
-#ifndef KDECLARATIVE_NO_DEPRECATE
+#if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 0)
     /**
      * @deprecated since 5.0. The method is a no-op now, any call can be simply removed.
      */
-    KDECLARATIVE_DEPRECATED void initialize();
+    KDECLARATIVE_DEPRECATED_VERSION(5, 0, "Is a no-op")
+    void initialize();
+#endif
 
+#if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 45)
     /**
      * Call this after setDeclarativeEngine to set the i18n global functions, the runtime platform, etc
      *
      * @deprecated since 5.45 use setupContext() and setupEngine()
      */
-    KDECLARATIVE_DEPRECATED void setupBindings();
+    KDECLARATIVE_DEPRECATED_VERSION(5, 45, "See API docs")
+    void setupBindings();
 #endif
 
     /**

@@ -9,8 +9,16 @@ set(kdeclarative_SRCS
 )
 
 add_library(KF5Declarative ${kdeclarative_SRCS})
-generate_export_header(KF5Declarative EXPORT_FILE_NAME ${KDeclarative_BINARY_DIR}/kdeclarative/kdeclarative_export.h BASE_NAME KDeclarative)
 add_library(KF5::Declarative ALIAS KF5Declarative)
+ecm_generate_export_header(KF5Declarative
+    EXPORT_FILE_NAME ${KDeclarative_BINARY_DIR}/kdeclarative/kdeclarative_export.h
+    BASE_NAME KDeclarative
+    # GROUP_BASE_NAME KF <- enable once all of KF modules use ecm_generate_export_header
+    VERSION ${KF5_VERSION}
+    DEPRECATED_BASE_VERSION 0
+    DEPRECATION_VERSIONS 5.0 5.45
+    EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
+)
 
 # Apps must include <KDeclarative/File> or <kdeclarative/file.h>
 target_include_directories(KF5Declarative INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KDeclarative>")

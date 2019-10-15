@@ -34,11 +34,11 @@ int main(int argc, char *argv[])
     context->setContextProperty(QStringLiteral("backgroundColor"),
                                 QColor(Qt::yellow));
 
+    KDeclarative::KDeclarative::setupEngine(view.engine());
     KDeclarative::KDeclarative kdeclarative;
     kdeclarative.setDeclarativeEngine(view.engine());
-    kdeclarative.initialize();
     //binds things like kconfig and icons
-    kdeclarative.setupBindings();
+    kdeclarative.setupContext();
 
     view.setSource(QUrl::fromLocalFile(QFINDTESTDATA("test.qml")));
     view.show();

@@ -63,17 +63,19 @@ QQmlEngine *KDeclarative::declarativeEngine() const
     return d->declarativeEngine.data();
 }
 
-#ifndef KDECLARATIVE_NO_DEPRECATED
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 0)
 void KDeclarative::initialize()
 {
 }
 #endif
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 45)
 void KDeclarative::setupBindings()
 {
     setupContext();
     setupEngine(d->declarativeEngine.data());
 }
+#endif
 
 void KDeclarative::setupContext()
 {
