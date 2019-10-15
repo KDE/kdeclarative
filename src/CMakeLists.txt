@@ -22,6 +22,9 @@ if(BUILD_QCH)
             Qt5Qml_QCH
             KF5Config_QCH
             KF5Package_QCH
+        INCLUDE_DIRS
+            ${KQuickAddons_QCH_INCLUDE_DIRS}
+            ${KDeclarative_QCH_INCLUDE_DIRS}
         BLANK_MACROS
             KDECLARATIVE_EXPORT
             KDECLARATIVE_DEPRECATED
