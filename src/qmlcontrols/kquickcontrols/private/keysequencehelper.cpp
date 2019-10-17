@@ -24,6 +24,7 @@
 #include "keysequencehelper.h"
 
 #include <QAction>
+#include <QQuickWindow>
 #include <QTimer>
 #include <QHash>
 #include <QToolButton>
@@ -151,8 +152,8 @@ KeySequenceHelperPrivate::KeySequenceHelperPrivate(KeySequenceHelper *q)
 
 }
 
-KeySequenceHelper::KeySequenceHelper(QObject* parent):
-    QObject(),
+KeySequenceHelper::KeySequenceHelper(QQuickItem* parent):
+    QQuickItem(parent),
     d(new KeySequenceHelperPrivate(this))
 {
     Q_UNUSED(parent);
@@ -236,7 +237,7 @@ void KeySequenceHelperPrivate::startRecording()
     oldKeySequence = keySequence;
     keySequence = QKeySequence();
     isRecording = true;
-
+    q->window()->setKeyboardGrabEnabled(true);
     updateShortcutDisplay();
 }
 //
@@ -245,7 +246,7 @@ void KeySequenceHelper::doneRecording()
     d->modifierlessTimeout.stop();
     d->isRecording = false;
     d->stealActions.clear();
-
+    window()->setKeyboardGrabEnabled(false);
     if (d->keySequence == d->oldKeySequence) {
 //         The sequence hasn't changed
         d->updateShortcutDisplay();

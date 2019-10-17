@@ -21,7 +21,7 @@
 #ifndef KEYSEQUENCEHELPER_H
 #define KEYSEQUENCEHELPER_H
 
-#include <QObject>
+#include <QQuickItem>
 #include <QKeySequence>
 
 /**
@@ -33,7 +33,7 @@
 
 class KeySequenceHelperPrivate;
 
-class KeySequenceHelper : public QObject
+class KeySequenceHelper : public QQuickItem
 {
     Q_OBJECT
 
@@ -71,7 +71,7 @@ public:
     /**
     * Constructor.
     */
-    explicit KeySequenceHelper(QObject* parent = nullptr);
+    explicit KeySequenceHelper(QQuickItem* parent = nullptr);
 
     /**
     * Destructs the widget.
