@@ -121,15 +121,6 @@ class ConfigModulePrivate;
  * }
  * \endcode
  *
- * If you want to make the ConfigModule available only conditionally (i.e. show in
- * the list of available modules only if some test succeeds) then you can use
- * Hidden in the .desktop file. An example:
- * \code
- * Hidden[$e]=$(if test -e /dev/js*; then echo "false"; else echo "true"; fi)
- * \endcode
- * The example executes the given code in a shell and uses the stdout output for
- * the Hidden value (so it's either Hidden=true or Hidden=false).
- *
  * See http://techbase.kde.org/Development/Tutorials/KCM_HowTo
  * for more detailed documentation.
  *
