@@ -3,6 +3,7 @@ set(KF5QuickAddons_LIB_SRCS
             managedtexturenode.cpp
             quickviewsharedengine.cpp
             configmodule.cpp
+            managedconfigmodule.cpp
             qtquicksettings.cpp)
 kconfig_add_kcfg_files(KF5QuickAddons_LIB_SRCS renderersettings.kcfgc)
 
@@ -47,6 +48,7 @@ ecm_generate_headers(KQuickAddons_CamelCase_HEADERS
   ManagedTextureNode
   QtQuickSettings
   ConfigModule
+  ManagedConfigModule
   QuickViewSharedEngine
 
   PREFIX KQuickAddons
