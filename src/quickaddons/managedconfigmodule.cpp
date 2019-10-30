@@ -102,7 +102,7 @@ void ManagedConfigModulePrivate::_k_registerSettings()
 
     _skeletons = _q->findChildren<KCoreConfigSkeleton*>();
     for (auto skeleton : qAsConst(_skeletons)) {
-        QObject::connect(skeleton, SIGNAL(configChanged()), _q, SLOT(settingsChanged()));
+        QObject::connect(skeleton, &KCoreConfigSkeleton::configChanged, _q, &ManagedConfigModule::settingsChanged);
 
         const auto items = skeleton->items();
         for (auto item : items) {
