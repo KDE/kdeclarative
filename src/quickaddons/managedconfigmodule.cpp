@@ -36,7 +36,6 @@ public:
     }
 
     void _k_registerSettings();
-    void _k_settingsChanged();
 
     ManagedConfigModule *_q;
     QList<KCoreConfigSkeleton*> _skeletons;
@@ -98,12 +97,12 @@ bool ManagedConfigModule::isDefaults() const
 
 void ManagedConfigModulePrivate::_k_registerSettings()
 {
-    auto settingsChangedSlotIndex = _q->metaObject()->indexOfMethod("_k_settingsChanged()");
+    auto settingsChangedSlotIndex = _q->metaObject()->indexOfMethod("settingsChanged()");
     auto settingsChangedSlot = _q->metaObject()->method(settingsChangedSlotIndex);
 
     _skeletons = _q->findChildren<KCoreConfigSkeleton*>();
     for (auto skeleton : qAsConst(_skeletons)) {
-        QObject::connect(skeleton, SIGNAL(configChanged()), _q, SLOT(_k_settingsChanged()));
+        QObject::connect(skeleton, SIGNAL(configChanged()), _q, SLOT(settingsChanged()));
 
         const auto items = skeleton->items();
         for (auto item : items) {
@@ -124,28 +123,28 @@ void ManagedConfigModulePrivate::_k_registerSettings()
         }
     }
 
-    _k_settingsChanged();
+    _q->settingsChanged();
 }
 
-void ManagedConfigModulePrivate::_k_settingsChanged()
+void ManagedConfigModule::settingsChanged()
 {
     bool needsSave = false;
-    bool isDefaults = true;
-    for (const auto skeleton : qAsConst(_skeletons)) {
+    bool representsDefaults = true;
+    for (const auto skeleton : qAsConst(d->_skeletons)) {
         needsSave |= skeleton->isSaveNeeded();
-        isDefaults &= skeleton->isDefaults();
+        representsDefaults &= skeleton->isDefaults();
     }
 
     if (!needsSave) {
-        needsSave = _q->isSaveNeeded();
+        needsSave = isSaveNeeded();
     }
 
-    if (isDefaults) {
-        isDefaults = _q->isDefaults();
+    if (representsDefaults) {
+        representsDefaults = isDefaults();
     }
 
-    _q->setRepresentsDefaults(isDefaults);
-    _q->setNeedsSave(needsSave);
+    setRepresentsDefaults(representsDefaults);
+    setNeedsSave(needsSave);
 }
 
 }

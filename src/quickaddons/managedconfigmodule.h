@@ -185,6 +185,16 @@ public Q_SLOTS:
      */
     void defaults() override;
 
+protected Q_SLOTS:
+    /**
+     * Forces the module to reevaluate the saveNeeded and
+     * representsDefault state.
+     *
+     * This is required for some modules which might have
+     * some settings managed outside of KConfigXT objects.
+     */
+    void settingsChanged();
+
 private:
     /**
      * Allows to indicate if the module requires saving.
@@ -205,7 +215,6 @@ private:
     virtual bool isDefaults() const;
 
     Q_PRIVATE_SLOT(d, void _k_registerSettings())
-    Q_PRIVATE_SLOT(d, void _k_settingsChanged())
     ManagedConfigModulePrivate *const d;
     friend class ManagedConfigModulePrivate;
 };
