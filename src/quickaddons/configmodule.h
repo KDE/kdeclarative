@@ -132,6 +132,7 @@ class QUICKADDONS_EXPORT ConfigModule : public QObject
     Q_PROPERTY(QQuickItem *mainUi READ mainUi CONSTANT)
     Q_PROPERTY(KQuickAddons::ConfigModule::Buttons buttons READ buttons WRITE setButtons NOTIFY buttonsChanged)
     Q_PROPERTY(bool needsSave READ needsSave WRITE setNeedsSave NOTIFY needsSaveChanged)
+    Q_PROPERTY(bool representsDefaults READ representsDefaults WRITE setRepresentsDefaults NOTIFY representsDefaultsChanged)
     Q_PROPERTY(QString name READ name CONSTANT)
     Q_PROPERTY(QString description READ description CONSTANT)
     Q_PROPERTY(QString quickHelp READ quickHelp WRITE setQuickHelp NOTIFY quickHelpChanged)
@@ -278,6 +279,17 @@ public:
      * True when the module has something changed and needs save.
      */
     bool needsSave();
+
+    /**
+     * Set this property to true when the user sets the state of the module
+     * to the default settings (e.g. clicking Defaults would do nothing).
+     */
+    void setRepresentsDefaults(bool defaults);
+
+    /**
+     * True when the module state represents the default settings.
+     */
+    bool representsDefaults();
 
     /**
      * Sets the buttons to display.
@@ -515,6 +527,13 @@ Q_SIGNALS:
      * keep track of unsaved changes.
      */
     void needsSaveChanged();
+
+    /**
+     * Indicate that the state of the modules contents has changed
+     * in a way that it might represents the defaults settings, or
+     * stopped representing them.
+     */
+    void representsDefaultsChanged();
 
     /**
      * Emits this signal whenever the need for root authorization to save changes.

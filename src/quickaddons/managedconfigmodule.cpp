@@ -123,24 +123,29 @@ void ManagedConfigModulePrivate::_k_registerSettings()
             QObject::connect(skeleton, changedSignal, _q, settingsChangedSlot);
         }
     }
+
+    _k_settingsChanged();
 }
 
 void ManagedConfigModulePrivate::_k_settingsChanged()
 {
     bool needsSave = false;
+    bool isDefaults = true;
     for (const auto skeleton : qAsConst(_skeletons)) {
         needsSave |= skeleton->isSaveNeeded();
-        if (needsSave) {
-            break;
-        }
+        isDefaults &= skeleton->isDefaults();
     }
+
     if (!needsSave) {
         needsSave = _q->isSaveNeeded();
     }
-    _q->setNeedsSave(needsSave);
 
-    // TODO: Also deal with defaults, once we got an equivalent to setNeedsSave
-    // in ConfigModule
+    if (isDefaults) {
+        isDefaults = _q->isDefaults();
+    }
+
+    _q->setRepresentsDefaults(isDefaults);
+    _q->setNeedsSave(needsSave);
 }
 
 }

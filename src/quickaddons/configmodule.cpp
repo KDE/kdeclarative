@@ -53,7 +53,8 @@ public:
         _about(nullptr),
         _useRootOnlyMessage(false),
         _needsAuthorization(false),
-        _needsSave(false)
+        _needsSave(false),
+        _representsDefaults(false)
     {
     }
 
@@ -73,6 +74,7 @@ public:
 
     bool _needsAuthorization : 1;
     bool _needsSave  :1;
+    bool _representsDefaults :1;
     QString _authActionName;
 
     static QHash<QObject *, ConfigModule *> s_rootObjects;
@@ -461,6 +463,21 @@ void ConfigModule::setNeedsSave(bool needs)
 bool ConfigModule::needsSave()
 {
     return d->_needsSave;
+}
+
+void ConfigModule::setRepresentsDefaults(bool defaults)
+{
+    if (defaults == d->_representsDefaults) {
+        return;
+    }
+
+    d->_representsDefaults = defaults;
+    emit representsDefaultsChanged();
+}
+
+bool ConfigModule::representsDefaults()
+{
+    return d->_representsDefaults;
 }
 
 }
