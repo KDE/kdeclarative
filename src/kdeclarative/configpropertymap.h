@@ -44,6 +44,22 @@ public:
     ~ConfigPropertyMap() override;
 
     /**
+     * Indicates if the map calls save() on the config object on each write or not
+     *
+     * @return true if the map automatically saves (the default), false otherwise
+     * @since 5.65
+     */
+    bool isAutosave() const;
+
+    /**
+     * Allows to set the map into autosave mode or not
+     *
+     * @param autosave the new value for autosaving
+     * @since 5.65
+     */
+    void setAutosave(bool autosave);
+
+    /**
      * @brief Whether the value at the given key is immutable
      *
      * @return true if the value is immutable, false if it isn't or it doesn't exist

@@ -46,6 +46,7 @@ public:
     ConfigPropertyMap *q;
     QPointer<KCoreConfigSkeleton> config;
     bool updatingConfigValue = false;
+    bool autosave = true;
 };
 
 ConfigPropertyMap::ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *parent)
@@ -68,8 +69,20 @@ ConfigPropertyMap::ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *paren
 
 ConfigPropertyMap::~ConfigPropertyMap()
 {
-    d->writeConfig();
+    if (d->autosave) {
+        d->writeConfig();
+    }
     delete d;
+}
+
+bool KDeclarative::ConfigPropertyMap::isAutosave() const
+{
+    return d->autosave;
+}
+
+void ConfigPropertyMap::setAutosave(bool autosave)
+{
+    d->autosave = autosave;
 }
 
 QVariant ConfigPropertyMap::updateValue(const QString &key, const QVariant &input)
@@ -117,9 +130,11 @@ void ConfigPropertyMapPrivate::writeConfig()
         item->setProperty(q->value(item->key()));
     }
 
-    updatingConfigValue = true;
-    config.data()->save();
-    updatingConfigValue = false;
+    if (autosave) {
+        updatingConfigValue = true;
+        config.data()->save();
+        updatingConfigValue = false;
+    }
 }
 
 void ConfigPropertyMapPrivate::writeConfigValue(const QString &key, const QVariant &value)
@@ -128,10 +143,12 @@ void ConfigPropertyMapPrivate::writeConfigValue(const QString &key, const QVaria
     if (item) {
         updatingConfigValue = true;
         item->setProperty(value);
-        config.data()->save();
-        //why read? read will update KConfigSkeletonItem::mLoadedValue,
-        //allowing a write operation to be performed next time
-        config.data()->read();
+        if (autosave) {
+            config.data()->save();
+            //why read? read will update KConfigSkeletonItem::mLoadedValue,
+            //allowing a write operation to be performed next time
+            config.data()->read();
+        }
         updatingConfigValue = false;
     }
 }
