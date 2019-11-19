@@ -32,6 +32,7 @@
 #include <QQmlContext>
 #include <QQuickItem>
 #include <QQmlEngine>
+#include <QQmlFileSelector>
 
 #include <kaboutdata.h>
 #include <klocalizedstring.h>
@@ -183,6 +184,7 @@ QQuickItem *ConfigModule::mainUi()
         return nullptr;
     }
 
+    new QQmlFileSelector(d->_qmlObject->engine(), d->_qmlObject->engine());
     d->_qmlObject->setSource(package.fileUrl("mainscript"));
     d->_qmlObject->rootContext()->setContextProperty(QStringLiteral("kcm"), this);
     d->_qmlObject->completeInitialization();
