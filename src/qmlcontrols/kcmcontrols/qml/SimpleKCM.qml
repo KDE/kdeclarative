@@ -80,6 +80,7 @@ Kirigami.ScrollablePage {
             footerParent.contentItem = f
             footer = footerParent
             f.visible = true
+            footer.visible = true
             f.parent = footerParent
         }
 
@@ -89,6 +90,7 @@ Kirigami.ScrollablePage {
             headerParent.contentItem = h
             header = headerParent
             h.visible = true
+            header.visible = true
             h.parent = headerParent
         }
     }
