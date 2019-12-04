@@ -111,9 +111,13 @@ void ManagedConfigModulePrivate::_k_registerSettings()
                 continue;
             }
 
+            QString name = signallingItem->name();
+            if (name.at(0).isUpper())
+                name[0] = name[0].toLower();
+
             const auto metaObject = skeleton->metaObject();
-            const auto propertyIndex = metaObject->indexOfProperty(signallingItem->name().toUtf8().constData());
-            const auto property = skeleton->metaObject()->property(propertyIndex);
+            const auto propertyIndex = metaObject->indexOfProperty(name.toUtf8().constData());
+            const auto property = metaObject->property(propertyIndex);
             if (!property.hasNotifySignal()) {
                 continue;
             }
