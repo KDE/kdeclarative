@@ -113,7 +113,7 @@ class ManagedConfigModulePrivate;
  * }
  * \endcode
  *
- * See http://techbase.kde.org/Development/Tutorials/KCM_HowTo
+ * See https://techbase.kde.org/Development/Tutorials/KCM_HowTo
  * for more detailed documentation.
  *
  * @since 5.65

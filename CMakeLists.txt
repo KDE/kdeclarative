@@ -67,7 +67,7 @@ endif()
 
 find_package(epoxy)
 set_package_properties(epoxy PROPERTIES DESCRIPTION "libepoxy"
-                       URL "http://github.com/anholt/libepoxy"
+                       URL "https://github.com/anholt/libepoxy"
                        TYPE OPTIONAL
                        PURPOSE "OpenGL dispatch library"
                       )

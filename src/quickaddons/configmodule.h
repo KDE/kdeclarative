@@ -121,7 +121,7 @@ class ConfigModulePrivate;
  * }
  * \endcode
  *
- * See http://techbase.kde.org/Development/Tutorials/KCM_HowTo
+ * See https://techbase.kde.org/Development/Tutorials/KCM_HowTo
  * for more detailed documentation.
  *
  */
@@ -486,7 +486,7 @@ public Q_SLOTS:
     void push(const QString &fileName, const QVariantMap &propertyMap = QVariantMap());
 
     /**
-     * 
+     *
      */
     void push(QQuickItem *item);
 
