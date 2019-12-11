@@ -160,24 +160,25 @@ void QPixmapItem::updatePaintedRect()
         return;
     }
 
-    QRect sourceRect = m_paintedRect;
+    QRectF sourceRect = m_paintedRect;
 
-    QRect destRect;
+    QRectF destRect;
 
     switch (m_fillMode) {
     case PreserveAspectFit: {
-        QSize scaled = m_pixmap.size();
+        QSizeF scaled = m_pixmap.size();
 
-        scaled.scale(boundingRect().size().toSize(), Qt::KeepAspectRatio);
-        destRect = QRect(QPoint(0, 0), scaled);
+        scaled.scale(boundingRect().size(), Qt::KeepAspectRatio);
+        destRect = QRectF(QPoint(0, 0), scaled);
         destRect.moveCenter(boundingRect().center().toPoint());
+
         break;
     }
     case PreserveAspectCrop: {
-        QSize scaled = m_pixmap.size();
+        QSizeF scaled = m_pixmap.size();
 
-        scaled.scale(boundingRect().size().toSize(), Qt::KeepAspectRatioByExpanding);
-        destRect = QRect(QPoint(0, 0), scaled);
+        scaled.scale(boundingRect().size(), Qt::KeepAspectRatioByExpanding);
+        destRect = QRectF(QPoint(0, 0), scaled);
         destRect.moveCenter(boundingRect().center().toPoint());
         break;
     }
@@ -198,7 +199,7 @@ void QPixmapItem::updatePaintedRect()
     }
 
     if (destRect != sourceRect) {
-        m_paintedRect = destRect;
+        m_paintedRect = destRect.toRect();
         emit paintedHeightChanged();
         emit paintedWidthChanged();
     }
