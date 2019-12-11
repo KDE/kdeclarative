@@ -199,7 +199,7 @@ private:
     /**
      * Allows to indicate if the module requires saving.
      *
-     * By default this returns false, it needs to be overriden only
+     * By default this returns false, it needs to be overridden only
      * if the module has state outside of the settings declared in
      * the KConfigXT classes it uses.
      */
@@ -208,7 +208,7 @@ private:
     /**
      * Allows to indicate if the module state is representing its defaults.
      *
-     * By default this returns true, it needs to be overriden only
+     * By default this returns true, it needs to be overridden only
      * if the module has state outside of the settings declared in
      * the KConfigXT classes it uses.
      */
