@@ -27,6 +27,16 @@ import QtQuick.Dialogs 1.0 as QtDialogs
  *
  * This widget can be used to display or allow user selection of a color.
  *
+ * Example usage:
+ * @code
+ * import org.kde.kquickcontrols 2.0
+ *
+ * ColorButton {
+ *   [...]
+ *   onColorChanged: console.log(color)
+ * }
+ * @endcode
+ *
  * @inherits QtQuick.Controls.Button
  */
 QtControls.Button {
