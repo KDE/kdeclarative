@@ -40,6 +40,12 @@ T2.ItemDelegate {
     property string toolTip
 
     /**
+     * subtitle: string
+     * optional string for the text to show below the main label
+     */
+    property string subtitle
+
+    /**
      * thumbnail: Item
      * the item actually implementing the thumbnail: the visualization is up to the implementation
      */
@@ -72,7 +78,7 @@ T2.ItemDelegate {
         }
         width: Kirigami.Settings.isMobile ? delegate.width - Kirigami.Units.gridUnit : Math.min(delegate.GridView.view.implicitCellWidth, delegate.width - Kirigami.Units.gridUnit)
         height: Kirigami.Settings.isMobile ? Math.round((delegate.width - Kirigami.Units.gridUnit) / 1.6)
-                                           : Math.min(delegate.GridView.view.implicitCellHeight - Kirigami.Units.gridUnit * 2,
+                                           : Math.min(delegate.GridView.view.implicitCellHeight - Kirigami.Units.gridUnit * 3,
                                                       delegate.height - Kirigami.Units.gridUnit)
         radius: Kirigami.Units.smallSpacing
         Kirigami.Theme.inherit: false
@@ -176,9 +182,23 @@ T2.ItemDelegate {
             left: thumbnail.left
             right: thumbnail.right
             top: thumbnail.bottom
-            topMargin: Kirigami.Units.smallSpacing
+            topMargin: caption.visible ? Kirigami.Units.smallSpacing : Kirigami.Units.largeSpacing
         }
         text: delegate.text
+        horizontalAlignment: Text.AlignHCenter
+        elide: Text.ElideRight
+    }
+    Controls.Label {
+        id: caption
+        visible: delegate.subtitle.length > 0
+        opacity: 0.6
+        anchors {
+            left: thumbnail.left
+            right: thumbnail.right
+            top: label.bottom
+        }
+        text: delegate.subtitle
+        font.pointSize: theme.smallestFont.pointSize
         horizontalAlignment: Text.AlignHCenter
         elide: Text.ElideRight
     }

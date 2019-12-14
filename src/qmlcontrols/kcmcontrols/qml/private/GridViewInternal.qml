@@ -25,7 +25,7 @@ import org.kde.kirigami 2.3 as Kirigami
 GridView {
     id: view
     property int implicitCellWidth: Kirigami.Units.gridUnit * 10
-    property int implicitCellHeight: Math.round(implicitCellWidth / 1.6) + Kirigami.Units.gridUnit*2
+    property int implicitCellHeight: Math.round(implicitCellWidth / 1.6) + Kirigami.Units.gridUnit*3
 
     onCurrentIndexChanged: positionViewAtIndex(currentIndex, GridView.Contain);
 
