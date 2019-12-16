@@ -22,6 +22,8 @@
 
 #include "managedconfigmodule.h"
 
+#include <QPointer>
+
 #include <KConfigCore/KCoreConfigSkeleton>
 
 namespace KQuickAddons {
@@ -38,7 +40,7 @@ public:
     void _k_registerSettings();
 
     ManagedConfigModule *_q;
-    QList<KCoreConfigSkeleton*> _skeletons;
+    QList<QPointer<KCoreConfigSkeleton>> _skeletons;
 };
 
 ManagedConfigModule::ManagedConfigModule(const KAboutData *aboutData, QObject *parent, const QVariantList &args)
@@ -66,22 +68,28 @@ ManagedConfigModule::~ManagedConfigModule()
 
 void ManagedConfigModule::load()
 {
-    for (const auto skeleton : qAsConst(d->_skeletons)) {
-        skeleton->load();
+    for (const auto &skeleton : qAsConst(d->_skeletons)) {
+        if (skeleton) {
+            skeleton->load();
+        }
     }
 }
 
 void ManagedConfigModule::save()
 {
-    for (const auto skeleton : qAsConst(d->_skeletons)) {
-        skeleton->save();
+    for (const auto &skeleton : qAsConst(d->_skeletons)) {
+        if (skeleton) {
+            skeleton->save();
+        }
     }
 }
 
 void ManagedConfigModule::defaults()
 {
-    for (const auto skeleton : qAsConst(d->_skeletons)) {
-        skeleton->setDefaults();
+    for (const auto &skeleton : qAsConst(d->_skeletons)) {
+        if (skeleton) {
+            skeleton->setDefaults();
+        }
     }
 }
 
@@ -97,47 +105,21 @@ bool ManagedConfigModule::isDefaults() const
 
 void ManagedConfigModulePrivate::_k_registerSettings()
 {
-    auto settingsChangedSlotIndex = _q->metaObject()->indexOfMethod("settingsChanged()");
-    auto settingsChangedSlot = _q->metaObject()->method(settingsChangedSlotIndex);
-
-    _skeletons = _q->findChildren<KCoreConfigSkeleton*>();
-    for (auto skeleton : qAsConst(_skeletons)) {
-        QObject::connect(skeleton, &KCoreConfigSkeleton::configChanged, _q, &ManagedConfigModule::settingsChanged);
-
-        const auto items = skeleton->items();
-        for (auto item : items) {
-            const auto itemHasSignals = dynamic_cast<KConfigCompilerSignallingItem*>(item) || dynamic_cast<KPropertySkeletonItem*>(item);
-
-            if (!itemHasSignals) {
-                continue;
-            }
-
-            auto name = item->name();
-            if (name.at(0).isUpper())
-                name[0] = name[0].toLower();
-
-            const auto metaObject = skeleton->metaObject();
-            const auto propertyIndex = metaObject->indexOfProperty(name.toUtf8().constData());
-            const auto property = metaObject->property(propertyIndex);
-            if (!property.hasNotifySignal()) {
-                continue;
-            }
-
-            const auto changedSignal = property.notifySignal();
-            QObject::connect(skeleton, changedSignal, _q, settingsChangedSlot);
-        }
+    const auto skeletons = _q->findChildren<KCoreConfigSkeleton*>();
+    for (auto *skeleton : skeletons) {
+        _q->registerSettings(skeleton);
     }
-
-    _q->settingsChanged();
 }
 
 void ManagedConfigModule::settingsChanged()
 {
     bool needsSave = false;
     bool representsDefaults = true;
-    for (const auto skeleton : qAsConst(d->_skeletons)) {
-        needsSave |= skeleton->isSaveNeeded();
-        representsDefaults &= skeleton->isDefaults();
+    for (const auto &skeleton : qAsConst(d->_skeletons)) {
+        if (skeleton) {
+            needsSave |= skeleton->isSaveNeeded();
+            representsDefaults &= skeleton->isDefaults();
+        }
     }
 
     if (!needsSave) {
@@ -150,6 +132,50 @@ void ManagedConfigModule::settingsChanged()
 
     setRepresentsDefaults(representsDefaults);
     setNeedsSave(needsSave);
+}
+
+void ManagedConfigModule::registerSettings(KCoreConfigSkeleton *skeleton)
+{
+    if (!skeleton || d->_skeletons.contains(skeleton)) {
+        return;
+    }
+
+    d->_skeletons.append(skeleton);
+
+    auto settingsChangedSlotIndex = metaObject()->indexOfMethod("settingsChanged()");
+    auto settingsChangedSlot = metaObject()->method(settingsChangedSlotIndex);
+
+    QObject::connect(skeleton, &KCoreConfigSkeleton::configChanged, this, &ManagedConfigModule::settingsChanged);
+
+    const auto items = skeleton->items();
+    for (auto item : items) {
+        const auto itemHasSignals = dynamic_cast<KConfigCompilerSignallingItem*>(item) || dynamic_cast<KPropertySkeletonItem*>(item);
+        if (!itemHasSignals) {
+            continue;
+        }
+
+        auto name = item->name();
+        if (name.at(0).isUpper()) {
+            name[0] = name[0].toLower();
+        }
+
+        const auto metaObject = skeleton->metaObject();
+        const auto propertyIndex = metaObject->indexOfProperty(name.toUtf8().constData());
+        const auto property = metaObject->property(propertyIndex);
+        if (!property.hasNotifySignal()) {
+            continue;
+        }
+
+        const auto changedSignal = property.notifySignal();
+        QObject::connect(skeleton, changedSignal, this, settingsChangedSlot);
+    }
+
+    auto toRemove = std::remove_if(d->_skeletons.begin(),
+                                   d->_skeletons.end(),
+                                   [](const QPointer<KCoreConfigSkeleton> &value) { return value.isNull(); } );
+    d->_skeletons.erase(toRemove, d->_skeletons.end());
+
+    QMetaObject::invokeMethod(this, "settingsChanged", Qt::QueuedConnection);
 }
 
 }

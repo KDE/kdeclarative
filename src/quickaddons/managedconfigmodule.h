@@ -25,6 +25,8 @@
 
 #include <KQuickAddons/ConfigModule>
 
+class KCoreConfigSkeleton;
+
 namespace KQuickAddons {
 
 class ManagedConfigModulePrivate;
@@ -194,6 +196,15 @@ protected Q_SLOTS:
      * some settings managed outside of KConfigXT objects.
      */
     void settingsChanged();
+
+    /**
+     * Allow to register manually settings class generated from a kcfg file.
+     * Used by derived class when automatic discovery is not possible.
+     * After skeleton is registered it will automatically call settingsChanged().
+     *
+     * @since 5.67
+     */
+    void registerSettings(KCoreConfigSkeleton *skeleton);
 
 private:
     /**
