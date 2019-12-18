@@ -29,6 +29,8 @@
 #include <QHash>
 #include <QToolButton>
 #include <QDebug>
+#include <QQuickRenderControl>
+#include <QPointer>
 
 #include <KStandardShortcut>
 #include <KLocalizedString>
@@ -104,6 +106,7 @@ public:
     KeySequenceHelper *const q;
     QToolButton *clearButton;
 
+    QPointer<QWindow> grabbedWindow;
     QKeySequence keySequence;
     QKeySequence oldKeySequence;
     QTimer modifierlessTimeout;
@@ -237,7 +240,13 @@ void KeySequenceHelperPrivate::startRecording()
     oldKeySequence = keySequence;
     keySequence = QKeySequence();
     isRecording = true;
-    q->window()->setKeyboardGrabEnabled(true);
+    grabbedWindow = QQuickRenderControl::renderWindowFor(q->window());
+    if (!grabbedWindow) {
+        grabbedWindow = q->window();
+    }
+    if (grabbedWindow) {
+        grabbedWindow->setKeyboardGrabEnabled(true);
+    }
     updateShortcutDisplay();
 }
 //
@@ -246,7 +255,9 @@ void KeySequenceHelper::doneRecording()
     d->modifierlessTimeout.stop();
     d->isRecording = false;
     d->stealActions.clear();
-    window()->setKeyboardGrabEnabled(false);
+    if (d->grabbedWindow) {
+        d->grabbedWindow->setKeyboardGrabEnabled(false);
+    }
     if (d->keySequence == d->oldKeySequence) {
 //         The sequence hasn't changed
         d->updateShortcutDisplay();
