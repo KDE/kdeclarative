@@ -173,7 +173,7 @@ QQuickItem *ConfigModule::mainUi()
     package.setPath(aboutData()->componentName());
 
     if (!package.isValid()) {
-        d->_errorString = i18n("Invalid KPackage");
+        d->_errorString = i18n("Invalid KPackage '%1'", aboutData()->componentName());
         qWarning() << "Error loading the module" << aboutData()->componentName() << ": invalid KPackage";
         return nullptr;
     }
