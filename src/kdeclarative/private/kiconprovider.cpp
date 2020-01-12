@@ -41,7 +41,7 @@ QPixmap KIconProvider::requestPixmap(const QString &id, QSize *size, const QSize
     } else if (size->isValid()) {
         pixmap = QIcon::fromTheme(source.at(0)).pixmap(*size);
     } else {
-        pixmap = QIcon::fromTheme(source.at(0)).pixmap(IconSize(KIconLoader::Desktop));
+        pixmap = QIcon::fromTheme(source.at(0)).pixmap(KIconLoader::global()->currentSize(KIconLoader::Desktop));
     }
 
     if (source.size() == 2) {
