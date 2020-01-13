@@ -74,7 +74,7 @@ T2.ItemDelegate {
         id: thumbnail
         anchors {
            centerIn: parent
-           verticalCenterOffset: Math.ceil(-label.height/2)
+           verticalCenterOffset: Math.ceil(-labelLayout.height/2)
         }
         width: Kirigami.Settings.isMobile ? delegate.width - Kirigami.Units.gridUnit : Math.min(delegate.GridView.view.implicitCellWidth, delegate.width - Kirigami.Units.gridUnit)
         height: Kirigami.Settings.isMobile ? Math.round((delegate.width - Kirigami.Units.gridUnit) / 1.6)
@@ -176,32 +176,38 @@ T2.ItemDelegate {
         }
     }
 
-    Controls.Label {
-        id: label
+    ColumnLayout {
+        id: labelLayout
+        spacing: 0
         anchors {
             left: thumbnail.left
             right: thumbnail.right
             top: thumbnail.bottom
             topMargin: caption.visible ? Kirigami.Units.smallSpacing : Kirigami.Units.largeSpacing
         }
-        text: delegate.text
-        horizontalAlignment: Text.AlignHCenter
-        elide: Text.ElideRight
-    }
-    Controls.Label {
-        id: caption
-        visible: delegate.subtitle.length > 0
-        opacity: 0.6
-        anchors {
-            left: thumbnail.left
-            right: thumbnail.right
-            top: label.bottom
+
+        // FIXME: These labels are center-aligned with a maximum width instead
+        // of the more conventional combination of "Layout.fillWidth: true"
+        // and "horizontalAlignment: Text.AlignHCenter" because that combination
+        // triggers https://bugreports.qt.io/browse/QTBUG-49646
+        Controls.Label {
+            Layout.alignment: Qt.AlignHCenter
+            Layout.maximumWidth: labelLayout.width
+            text: delegate.text
+            elide: Text.ElideRight
         }
-        text: delegate.subtitle
-        font.pointSize: theme.smallestFont.pointSize
-        horizontalAlignment: Text.AlignHCenter
-        elide: Text.ElideRight
+        Controls.Label {
+            id: caption
+            Layout.alignment: Qt.AlignHCenter
+            Layout.maximumWidth: labelLayout.width
+            visible: delegate.subtitle.length > 0
+            opacity: 0.6
+            text: delegate.subtitle
+            font.pointSize: theme.smallestFont.pointSize
+            elide: Text.ElideRight
+        }
     }
+
     Controls.ToolTip.delay: 1000
     Controls.ToolTip.timeout: 5000
     Controls.ToolTip.visible: hovered && delegate.toolTip.length > 0
