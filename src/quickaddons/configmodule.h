@@ -228,7 +228,7 @@ public:
 
 
     /**
-     * @deturn the qml engine that built the main config UI
+     * @return the qml engine that built the main config UI
      */
     QQmlEngine *engine() const;
 
