@@ -106,12 +106,13 @@ void ManagedConfigModulePrivate::_k_registerSettings()
 
         const auto items = skeleton->items();
         for (auto item : items) {
-            auto signallingItem = dynamic_cast<KConfigCompilerSignallingItem*>(item);
-            if (!signallingItem) {
+            const auto itemHasSignals = dynamic_cast<KConfigCompilerSignallingItem*>(item) || dynamic_cast<KPropertySkeletonItem*>(item);
+
+            if (!itemHasSignals) {
                 continue;
             }
 
-            QString name = signallingItem->name();
+            auto name = item->name();
             if (name.at(0).isUpper())
                 name[0] = name[0].toLower();
 
