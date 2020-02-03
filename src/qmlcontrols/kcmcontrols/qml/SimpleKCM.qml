@@ -55,7 +55,7 @@ Kirigami.ScrollablePage {
 
     header: QtControls.Control {
         id: headerParent
-        visible: false
+        visible: contentItem ? contentItem.visible : false
         height: visible ? implicitHeight : 0
         leftPadding: 4
         topPadding: 4
@@ -65,7 +65,7 @@ Kirigami.ScrollablePage {
 
     footer: QtControls.Control {
         id: footerParent
-        visible: false
+        visible: contentItem ? contentItem.visible : false
         height: visible ? implicitHeight : 0
         leftPadding: 4
         topPadding: 4
@@ -79,7 +79,6 @@ Kirigami.ScrollablePage {
 
             footerParent.contentItem = f
             footer = footerParent
-            f.visible = true
             footer.visible = true
             f.parent = footerParent
         }
@@ -89,7 +88,6 @@ Kirigami.ScrollablePage {
 
             headerParent.contentItem = h
             header = headerParent
-            h.visible = true
             header.visible = true
             h.parent = headerParent
         }
