@@ -85,10 +85,12 @@ Kirigami.Page {
 
     header: QtControls.Control {
         id: headerParent
+        height: contentItem ? implicitHeight : 0
     }
 
     footer: QtControls.Control {
         id: footerParent
+        height: contentItem ? implicitHeight : 0
     }
     Component.onCompleted: {
         if (footer && footer != footerParent) {
@@ -109,7 +111,7 @@ Kirigami.Page {
             f.parent = headerParent
         }
     }
-    
+
     KCM.GridView {
         id: scroll
         anchors.fill: parent
