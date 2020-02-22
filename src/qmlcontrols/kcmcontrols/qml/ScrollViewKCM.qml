@@ -85,7 +85,6 @@ Kirigami.Page {
 
             footerParent.contentItem = f
             footer = footerParent
-            f.visible = true
             f.parent = footerParent
         }
 
@@ -94,7 +93,6 @@ Kirigami.Page {
 
             headerParent.contentItem = h
             header = headerParent
-            h.visible = true
             h.parent = headerParent
         }
     }
