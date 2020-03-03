@@ -166,7 +166,11 @@ QStringList KDeclarative::runtimePlatform()
 {
     if (KDeclarativePrivate::s_runtimePlatform.isEmpty()) {
         const QString env = QString::fromLocal8Bit(getenv("PLASMA_PLATFORM"));
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
         KDeclarativePrivate::s_runtimePlatform = QStringList(env.split(QLatin1Char(':'), QString::SkipEmptyParts));
+#else
+        KDeclarativePrivate::s_runtimePlatform = QStringList(env.split(QLatin1Char(':'), Qt::SkipEmptyParts));
+#endif
         if (KDeclarativePrivate::s_runtimePlatform.isEmpty()) {
             KConfigGroup cg(KSharedConfig::openConfig(), "General");
             KDeclarativePrivate::s_runtimePlatform = cg.readEntry(QStringLiteral("runtimePlatform"), KDeclarativePrivate::s_runtimePlatform);
