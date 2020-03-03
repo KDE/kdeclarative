@@ -1,10 +1,10 @@
-project(draganddrop)
+project(kcmcontrols)
 
-set(declarativedragdrop_SRCS
+set(kcmcontrols_SRCS
     kcmcontrolsplugin.cpp
 )
 
-add_library(kcmcontrolsplugin SHARED ${declarativedragdrop_SRCS})
+add_library(kcmcontrolsplugin SHARED ${kcmcontrols_SRCS})
 target_link_libraries(kcmcontrolsplugin
         Qt5::Core
         Qt5::Quick
