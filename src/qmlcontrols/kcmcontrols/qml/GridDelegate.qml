@@ -22,7 +22,7 @@ import QtQuick.Controls 2.2 as Controls
 import QtQuick.Templates 2.2 as T2
 import QtGraphicalEffects 1.0
 
-import org.kde.kirigami 2.2 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 
 /**
  * Base delegate for KControlmodules based on Grid views of thumbnails
@@ -70,7 +70,7 @@ T2.ItemDelegate {
     height: GridView.view.cellHeight
     hoverEnabled: true
 
-    Rectangle {
+    Kirigami.ShadowedRectangle {
         id: thumbnail
         anchors {
            centerIn: parent
@@ -83,6 +83,11 @@ T2.ItemDelegate {
         radius: Kirigami.Units.smallSpacing
         Kirigami.Theme.inherit: false
         Kirigami.Theme.colorSet: Kirigami.Theme.View
+
+        shadow.xOffset: 0
+        shadow.yOffset: 2
+        shadow.size: 10
+        shadow.color: Qt.rgba(0, 0, 0, 0.3)
 
         color: {
             if (delegate.GridView.isCurrentItem) {
@@ -164,15 +169,6 @@ T2.ItemDelegate {
                     }
                 }
             }
-        }
-        // Bug 397367: explicitly using "delegate" as otherwise it crashes when switching between KCMs
-        layer.enabled: delegate.GraphicsInfo.api === GraphicsInfo.OpenGL
-        layer.effect: DropShadow {
-            horizontalOffset: 0
-            verticalOffset: 2
-            radius: 10
-            samples: 32
-            color: Qt.rgba(0, 0, 0, 0.3)
         }
     }
 
