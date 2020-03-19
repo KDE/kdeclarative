@@ -496,6 +496,15 @@ public Q_SLOTS:
      */
     void pop();
 
+    /**
+     * Ask the shell to show a passive notification
+     * @param message The message text to dispalay
+     * @param timeout (optional) the timeout, either in milliseconds or the strings "short" and "long"
+     * @param actionText (optional) The notification can have a button with this text
+     * @param callBack (optional) If actionText is set and callBack is a JavaScript function, it will be called when the use clicks the button.
+     * @since 5.68
+     */
+    void showPassiveNotification(const QString &message, const QVariant &timeout = QVariant(), const QString &actionText = QString(), const QJSValue &callBack = QJSValue());
 Q_SIGNALS:
 
     /**
@@ -583,6 +592,12 @@ Q_SIGNALS:
      * @since 5.53
      */
     void depthChanged(int index);
+
+    /**
+     * Emitted when the kcm wants the shell to display a passive notification
+     * @since 5.68
+     */
+    void passiveNotificationRequested(const QString &message, const QVariant &timeout, const QString &actionText, const QJSValue &callBack);
 
 private:
     ConfigModulePrivate *const d;

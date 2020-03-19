@@ -256,6 +256,11 @@ void ConfigModule::pop()
     setCurrentIndex(qMin(d->currentIndex, depth() - 1));
 }
 
+void ConfigModule::showPassiveNotification(const QString &message, const QVariant &timeout, const QString &actionText, const QJSValue &callBack)
+{
+    emit passiveNotificationRequested(message, timeout, actionText, callBack);
+}
+
 ConfigModule::Buttons ConfigModule::buttons() const
 {
     return d->_buttons;
