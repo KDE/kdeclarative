@@ -32,7 +32,7 @@ find_package(KF5Package ${KF5_DEP_VERSION} REQUIRED)
 #########################################################################
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050d00)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054300)
+add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054400)
 
 #add_definitions(-Wno-deprecated)
 
