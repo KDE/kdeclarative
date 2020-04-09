@@ -167,6 +167,9 @@ KeySequenceHelper::KeySequenceHelper(QQuickItem* parent):
 
 KeySequenceHelper::~KeySequenceHelper()
 {
+    if (d->grabbedWindow) {
+        d->grabbedWindow->setKeyboardGrabEnabled(false);
+    }
     delete d;
 }
 
