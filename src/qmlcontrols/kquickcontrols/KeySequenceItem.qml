@@ -17,6 +17,14 @@ RowLayout {
      */
     signal captureFinished()
 
+    /**
+     * Start capturing a key sequence. This equivalent to the user clicking on the main button of the item
+     * @since 5.70
+     */
+    function startCapturing() {
+        mainButton.checked = true
+    }
+
     KQuickControlsPrivate.KeySequenceHelper {
         id: _helper
 
