@@ -423,6 +423,11 @@ void KeySequenceHelper::keyPressed(int key, int modifiers)
         return d->cancelRecording();
     }
 
+    // Qt doesn't properly recognize Super_L/Super_R as MetaModifier
+    if (key == Qt::Key_Super_L || key == Qt::Key_Super_R) {
+        modifiers |= Qt::MetaModifier;
+    }
+
     //don't have the return or space key appear as first key of the sequence when they
     //were pressed to start editing - catch and them and imitate their effect
     if (!d->isRecording && ((key == Qt::Key_Return || key == Qt::Key_Space))) {
@@ -490,6 +495,11 @@ void KeySequenceHelper::keyReleased(int key, int modifiers)
     if (key == -1) {
         // ignore garbage, see keyPressEvent()
         return;
+    }
+
+    // Qt doesn't properly recognize Super_L/Super_R as MetaModifier
+    if (key == Qt::Key_Super_L || key == Qt::Key_Super_R) {
+        modifiers &= ~Qt::MetaModifier;
     }
 
     //if a modifier that belongs to the shortcut was released...
