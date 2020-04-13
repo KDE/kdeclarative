@@ -23,9 +23,9 @@ import org.kde.kcm 1.1 as KCM
 
 /**
  * This component is intended to be used as root item for
- * KControl modules with arbitrary content, as per the User interface guidelines,
- * usually a Kirigami.FormLayout as its main component.
- * header and footer properties can be used.
+ * KCMs with arbitrary content. Often a Kirigami.FormLayout
+ * is used as main element.
+ * It is possible to specify a header and footer component.
  * @code
  * import org.kde.kcm 1.1 as KCM
  * import org.kde.kirigami 2.3 as Kirigami
