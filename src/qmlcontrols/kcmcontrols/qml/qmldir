@@ -7,3 +7,5 @@ GridView 1.1 GridView.qml
 ScrollView 1.2 ScrollView.qml
 ScrollViewKCM 1.2 ScrollViewKCM.qml
 SimpleKCM 1.1 SimpleKCM.qml
+SettingStateIndicator 1.3 SettingStateIndicator.qml
+SettingStateBinding 1.3 SettingStateBinding.qml
