@@ -1,0 +1,126 @@
+# translation of kdelibs4.po to Spanish
+# Translation of kdelibs4 to Spanish
+# Copyright (C) 2000-2007
+#
+# Pablo de Vicente <vicente@oan.es>, 2000-2002,2003, 2004.
+# Pablo de Vicente <vicnte@oan.es>, 2003.
+# Pablo de Vicente <p.devicente@wanadoo.es>, 2004, 2005.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2005, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2019, 2020.
+# Pablo de Vicente <pablo.devicente@gmail.com>, 2005, 2006, 2007.
+# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007.
+# Jaime Robles <jaime@kde.org>, 2007.
+# Javier Viñal <fjvinal@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-04-11 02:47+0200\n"
+"PO-Revision-Date: 2020-01-10 01:02+0100\n"
+"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"First-Translator: Boris Wesslowski <Boris@Wesslowski.com>\n"
+"X-Generator: Lokalize 19.12.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Eloy Cuadra"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ecuadra@eloihr.net"
+
+#: kpackagelauncherqml/main.cpp:43
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr "Entorno de aplicación QML de KPackage"
+
+#: kpackagelauncherqml/main.cpp:50
+#, kde-format
+msgid "The unique name of the application (mandatory)"
+msgstr "El nombre único de la aplicación (obligatorio)"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:53
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"Pulse sobre el botón e introduzca a continuación el acceso rápido que desee "
+"para el programa.\n"
+"Ejemplo para «Ctrl+A»: mantenga pulsada la tecla «Ctrl» y luego pulse «A»."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:288
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "Acceso rápido reservado"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:289
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"La tecla F12 está reservada en Windows y no se puede usar como acceso rápido "
+"global.\n"
+"Seleccione otra tecla."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:345
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Conflicto con el acceso rápido de la aplicación estándar"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:346
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"La combinación de teclas «%1» ya está asignada a la acción estándar «%2», "
+"que es usada por algunas aplicaciones.\n"
+"¿Realmente quiere usarla también como acceso rápido global?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:351
+#, kde-format
+msgid "Reassign"
+msgstr "Reasignar"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:393
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Entrada"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:400
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Ninguna"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:421
+#, kde-format
+msgid "The key you just pressed is not supported by Qt."
+msgstr "La tecla que acaba de pulsar no está contemplada por Qt."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:422
+#, kde-format
+msgid "Unsupported Key"
+msgstr "Tecla no funcional"
+
+#: quickaddons/configmodule.cpp:176
+#, kde-format
+msgid "Invalid KPackage '%1'"
+msgstr "KPackage «%1» no válido"
+
+#: quickaddons/configmodule.cpp:182
+#, kde-format
+msgid "No QML file provided"
+msgstr "No se ha proporcionado ningún archivo QML"
