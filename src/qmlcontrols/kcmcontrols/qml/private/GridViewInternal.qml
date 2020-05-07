@@ -37,7 +37,7 @@ GridView {
     anchors {
         fill: parent
         margins: 2
-        leftMargin: scroll.QtControls.ScrollBar.vertical.visible ? 2 :  internal.scrollBarSpace/2 + 2
+        leftMargin: scroll.QtControls.ScrollBar.vertical.visible ? 2 : Math.round(internal.scrollBarSpace/2) + 2
     }
     clip: true
     activeFocusOnTab: true
