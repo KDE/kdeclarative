@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtQuick.Controls 1.1
+import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.1
 
 import org.kde.private.kquickcontrols 2.0 as KQuickControlsPrivate
@@ -43,14 +43,20 @@ RowLayout {
     {
         id: mainButton
 
-        iconName: "configure"
+        icon.name: "configure"
 
         property string shortcut
         checkable: true
         focus: checked
 
+        hoverEnabled: true
+
         text: _helper.shortcutDisplay
-        tooltip: _tr.i18n("Click on the button, then enter the shortcut like you would in the program.\nExample for Ctrl+A: hold the Ctrl key and press A.")
+
+        ToolTip.visible: hovered
+        ToolTip.delay: 1000
+        ToolTip.text:  _tr.i18n("Click on the button, then enter the shortcut like you would in the program.\nExample for Ctrl+A: hold the Ctrl key and press A.")
+        ToolTip.timeout: 5000
 
         onCheckedChanged: {
             if (checked) {
@@ -82,6 +88,6 @@ RowLayout {
         onClicked: _helper.clearKeySequence();
 
         //icon name determines the direction of the arrow, NOT the direction of the app layout
-        iconName: Qt.application.layoutDirection == Qt.LeftToRight ? "edit-clear-locationbar-rtl" : "edit-clear-locationbar-ltr"
+        icon.name: Qt.application.layoutDirection == Qt.LeftToRight ? "edit-clear-locationbar-rtl" : "edit-clear-locationbar-ltr"
     }
 }
