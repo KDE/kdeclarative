@@ -22,6 +22,7 @@
 #include <QProcess>
 
 #include <KAuthorized>
+#include <KService>
 
 KCMShell::KCMShell(QObject *parent) : QObject(parent)
 {
@@ -36,6 +37,26 @@ KCMShell::~KCMShell()
 void KCMShell::open(const QStringList &names) const
 {
     QProcess::startDetached(QStringLiteral("kcmshell5"), names);
+}
+
+void KCMShell::openSystemSettings(const QString &name) const
+{
+    auto service = KService::serviceByDesktopName(QStringLiteral("systemsettings"));
+    if (service) {
+        QProcess::startDetached(QStringLiteral("systemsettings5"), QStringList(name));
+    } else {
+        QProcess::startDetached(QStringLiteral("kcmshell5"), QStringList(name));
+    }
+}
+
+void KCMShell::openInfoCenter(const QString &name) const
+{
+    auto service = KService::serviceByDesktopName(QStringLiteral("systemsettings"));
+    if (service) {
+        QProcess::startDetached(QStringLiteral("kinfocenter"), QStringList(name));
+    } else {
+        QProcess::startDetached(QStringLiteral("kcmshell5"), QStringList(name));
+    }
 }
 
 QStringList KCMShell::authorize(const QStringList &menuIds) const

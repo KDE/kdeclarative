@@ -34,6 +34,36 @@ public Q_SLOTS:
     void open(const QStringList &names) const;
 
     /**
+     * Opens the specified module in System Settings. Only a single KCM name may
+     * be provided.
+     *
+     * @code
+     * onClicked: KCMShell.openSystemSettings("kcm_kscreen")
+     * @endcode
+     *
+     * @param name A single kcm name to open in System Settings. Opening multiple
+     * KCMs using this function is not supported; to do that, use kcmshell.open.
+     *
+     * @since 5.71
+     */
+    void openSystemSettings(const QString &name) const;
+
+     /**
+     * Opens the specified module in InfCenter. Only a single KCM name may
+     * be provided.
+     *
+     * @code
+     * onClicked: KCMShell.openInfoCenter("kcm_energy")
+     * @endcode
+     *
+     * @param name A single kcm name to open in Info Center. Opening multiple
+     * KCMs using this function is not supported; to do that, use kcmshell.open.
+     *
+     * @since 5.71
+     */
+    void openInfoCenter(const QString &name) const;
+
+    /**
      * Check which of the given control modules the user is
      * allowed to access
      *

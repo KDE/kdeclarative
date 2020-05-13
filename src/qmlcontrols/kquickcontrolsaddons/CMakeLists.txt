@@ -31,6 +31,7 @@ target_link_libraries(kquickcontrolsaddonsplugin
         Qt5::Qml
         Qt5::Gui
         KF5::IconThemes
+        KF5::KIOWidgets
         KF5::QuickAddons
         KF5::ConfigCore
         ${KQUICKCONTROLSADDONS_EXTRA_LIBS})
