@@ -17,8 +17,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef CONFIGPROPERTYMAP_P
-#define CONFIGPROPERTYMAP_P
+#ifndef CONFIGPROPERTYMAP_H
+#define CONFIGPROPERTYMAP_H
 
 #include <QQmlPropertyMap>
 
