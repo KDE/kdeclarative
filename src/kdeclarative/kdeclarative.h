@@ -35,7 +35,27 @@ class KDeclarativePrivate;
 /**
  * @class KDeclarative::KDeclarative kdeclarative.h <KDeclarative/KDeclarative>
  *
- * TODO
+ * The KDeclarative class is used to manipulate the QQmlEngine instance used by 
+ * the application and to get some informations about the platform, 
+ * that influences the behavior of the QML components.
+ * 
+ * In order to use it, create an instance of KDeclarative. You will need a 
+ * pointer to a QQmlEngine, and call **both** `setDeclarativeEngine(engine)` and
+ * `setupContext()` on your instance. You need to call `setupEngine(engine)`
+ * at least once on the engine as well.
+ * 
+ *     KDeclarative::setupEngine(engine);  // if not done elsewhere
+ *     KDeclarative::KDeclarative decl;
+ *     decl.setDeclarativeEngine(engine);
+ *     decl.setupContext();
+ *     
+ * This will add the following things to the engine:
+ * - Use a KIOAccessManagerFactory instead of the stock QQmlNetworkAccessManagerFactory
+ * - Add a QML icon provider, that makes possible for the Image {} element to load images using the scheme "image:/"
+ * - Use the given engine for this context.
+ * - Set a new rootContextObject() that exposes all the i18n() functions from the KI18n framework.
+ *   They will be available in the global QML context: just call i18n() from anywhere in your QML code.
+ * 
  */
 class KDECLARATIVE_EXPORT KDeclarative
 {
@@ -60,19 +80,39 @@ public:
      *
      * @deprecated since 5.45 use setupContext() and setupEngine()
      */
-    KDECLARATIVE_DEPRECATED_VERSION(5, 45, "See API docs")
+    KDECLARATIVE_DEPRECATED_VERSION(5, 45, "Call setupContext() and setupEngine() independently")
     void setupBindings();
 #endif
 
     /**
      * Call this after setDeclarativeEngine to set the i18n global functions.
      *
-     * @since 5.45
      * @sa setupEngine
+     * @since 5.45
      */
     void setupContext();
 
+    /**
+     * Assign a specific QQmlEngine to be used in this KDeclarative.
+     * 
+     * A KDeclarative object works with a specific QQmlEngine. There
+     * is no default engine, so you **must** call this function with a 
+     * non-null pointer to an engine before calling setupBindings()
+     * or setupContext(), which set properties on the engine.
+     * 
+     * The KDeclarative object does not take ownership of the engine.
+     * 
+     * @param engine the engine to use in this KDeclarative object
+     * @sa setupContext(), setupEngine()
+     * @since 5.0
+     */
     void setDeclarativeEngine(QQmlEngine *engine);
+    /**
+     * @return the engine assigned to this KDeclarative.
+     *         The engine may be a @c nullptr . No ownership is transferred.
+     * @sa setDeclarativeEngine(), setupEngine()
+     * @since 5.0
+     */
     QQmlEngine *declarativeEngine() const;
 
     /**
@@ -103,6 +143,7 @@ public:
      * This method must be called very early at startup time to ensure the
      * QQuickDebugger is enabled. Ideally it should be called in main(),
      * after command-line options are defined.
+     * @since 5.0
      */
     static void setupQmlJsDebugger();
 
@@ -117,7 +158,8 @@ public:
 
     /**
      * Sets the runtime platform from now on, globally to the process.
-     * Already loaded QML components won't be affected
+     * Already loaded QML components won't be affected.
+     * @since 5.0
      */
     static void setRuntimePlatform(const QStringList &platform);
 
@@ -135,13 +177,17 @@ public:
     static QString defaultComponentsTarget();
 
     /**
-     * Setup the QML engine used by this KDeclarative object.
+     * Setup a QML engine for use with any KDeclarative object.
      *
-     * This needs to be done only once per QQmlEngine instance.
+     * This needs to be done only once per QQmlEngine instance. An
+     * engine that is shared between KDeclarative objects only needs
+     * to be setup once. The engine is setup for the component target
+     * (runtime platform) that is configured at the time setupEngine()
+     * is called.
      *
+     * @param engine the engine to setup
+     * @sa setupContext(), componentsTarget()
      * @since 5.45
-     * @param engine The engine to setup
-     * @sa setupContext
      */
     static void setupEngine(QQmlEngine *engine);
 

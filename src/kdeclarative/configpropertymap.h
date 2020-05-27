@@ -33,7 +33,8 @@ class ConfigPropertyMapPrivate;
 /**
  * @class KDeclarative::ConfigPropertyMap configpropertymap.h KDeclarative/ConfigPropertyMap
  *
- * TODO
+ * An object that (optionally) automatically saves changes in a
+ * property map to a configuration object (e.g. a KConfig file).
  */
 class KDECLARATIVE_EXPORT ConfigPropertyMap : public QQmlPropertyMap
 {
