@@ -19,10 +19,10 @@
 
 #include "kcmshell.h"
 
-#include <QProcess>
-
 #include <KAuthorized>
 #include <KService>
+
+#include <KIO/CommandLauncherJob>
 
 KCMShell::KCMShell(QObject *parent) : QObject(parent)
 {
@@ -36,27 +36,41 @@ KCMShell::~KCMShell()
 
 void KCMShell::open(const QStringList &names) const
 {
-    QProcess::startDetached(QStringLiteral("kcmshell5"), names);
+    KIO::CommandLauncherJob *job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), names);
+    job->start();
 }
 
 void KCMShell::openSystemSettings(const QString &name) const
 {
-    auto service = KService::serviceByDesktopName(QStringLiteral("systemsettings"));
-    if (service) {
-        QProcess::startDetached(QStringLiteral("systemsettings5"), QStringList(name));
+    const QString systemSettings = QStringLiteral("systemsettings");
+    KIO::CommandLauncherJob *job = nullptr;
+
+    // Open in System Settings if it's available'
+    if (KService::serviceByDesktopName(systemSettings)) {
+        job = new KIO::CommandLauncherJob(QStringLiteral("systemsettings5"), QStringList(name));
+        job->setDesktopName(systemSettings);
     } else {
-        QProcess::startDetached(QStringLiteral("kcmshell5"), QStringList(name));
+        job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), QStringList(name));
     }
+
+    job->start();
 }
 
 void KCMShell::openInfoCenter(const QString &name) const
 {
-    auto service = KService::serviceByDesktopName(QStringLiteral("systemsettings"));
-    if (service) {
-        QProcess::startDetached(QStringLiteral("kinfocenter"), QStringList(name));
+    const QString systemSettings = QStringLiteral("systemsettings");
+    KIO::CommandLauncherJob *job = nullptr;
+
+    // Open in Info Center if System Settings is available
+    if (KService::serviceByDesktopName(systemSettings)) {
+        job = new KIO::CommandLauncherJob(QStringLiteral("kinfocenter"), QStringList(name));
+        job->setIcon(systemSettings);
+        job->setDesktopName(systemSettings);
     } else {
-        QProcess::startDetached(QStringLiteral("kcmshell5"), QStringList(name));
+        job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), QStringList(name));
     }
+
+    job->start();
 }
 
 QStringList KCMShell::authorize(const QStringList &menuIds) const
