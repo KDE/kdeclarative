@@ -1,5 +1,6 @@
 /*
  *   Copyright 2013 Marco Martin <notmart@gmail.com>
+ *   Copyright 2020 David Edmundson <davidedmundson@kde.org>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -59,6 +60,22 @@ public:
      * @since 5.65
      */
     void setAutosave(bool autosave);
+
+    /**
+     * Whether notifications on config changes are enabled. Disabled by default.
+     * @see KConfigBase::Notify
+     * @return true if writes send (dbus) notifications
+     * @since 5.72
+     */
+    bool isNotify() const;
+
+    /**
+     * Enable or disable notifications on config changes.
+     * @see KConfigBase::Notify
+     * @param notify whether to send notifications
+     * @since 5.72
+     */
+    void setNotify(bool notify);
 
     /**
      * @brief Whether the value at the given key is immutable

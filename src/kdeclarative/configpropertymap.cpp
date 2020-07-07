@@ -1,5 +1,6 @@
 /*
  *   Copyright 2013 Marco Martin <notmart@gmail.com>
+ *   Copyright 2020 David Edmundson <davidedmundson@kde.org>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -47,6 +48,7 @@ public:
     QPointer<KCoreConfigSkeleton> config;
     bool updatingConfigValue = false;
     bool autosave = true;
+    bool notify = false;
 };
 
 ConfigPropertyMap::ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *parent)
@@ -83,6 +85,16 @@ bool KDeclarative::ConfigPropertyMap::isAutosave() const
 void ConfigPropertyMap::setAutosave(bool autosave)
 {
     d->autosave = autosave;
+}
+
+bool ConfigPropertyMap::isNotify() const
+{
+    return d->notify;
+}
+
+void ConfigPropertyMap::setNotify(bool notify)
+{
+    d->notify = notify;
 }
 
 QVariant ConfigPropertyMap::updateValue(const QString &key, const QVariant &input)
@@ -127,6 +139,7 @@ void ConfigPropertyMapPrivate::writeConfig()
 
     const auto lstItems = config.data()->items();
     for (KConfigSkeletonItem *item : lstItems) {
+        item->setWriteFlags(notify ? KConfigBase::Notify : KConfigBase::Normal);
         item->setProperty(q->value(item->key()));
     }
 
@@ -142,6 +155,7 @@ void ConfigPropertyMapPrivate::writeConfigValue(const QString &key, const QVaria
     KConfigSkeletonItem *item = config.data()->findItem(key);
     if (item) {
         updatingConfigValue = true;
+        item->setWriteFlags(notify ? KConfigBase::Notify : KConfigBase::Normal);
         item->setProperty(value);
         if (autosave) {
             config.data()->save();
