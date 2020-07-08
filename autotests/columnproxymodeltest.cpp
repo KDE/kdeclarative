@@ -19,7 +19,7 @@
 #include "columnproxymodeltest.h"
 #include "../src/qmlcontrols/kquickcontrolsaddons/columnproxymodel.h"
 #include <QAbstractItemModelTester>
-#include <qtest.h>
+#include <QTest>
 #include <QSignalSpy>
 #include <QStandardItemModel>
 

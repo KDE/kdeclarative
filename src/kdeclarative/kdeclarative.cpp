@@ -28,8 +28,8 @@
 #include <QQmlDebuggingEnabler>
 #include <QQmlContext>
 
-#include <kconfiggroup.h>
-#include <ksharedconfig.h>
+#include <KConfigGroup>
+#include <KSharedConfig>
 
 namespace KDeclarative {
 

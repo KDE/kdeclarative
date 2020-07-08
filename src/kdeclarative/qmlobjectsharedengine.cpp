@@ -22,7 +22,7 @@
 #include <QQmlEngine>
 #include <QQmlContext>
 
-#include <qdebug.h>
+#include <QDebug>
 #include <kdeclarative.h>
 
 namespace KDeclarative {

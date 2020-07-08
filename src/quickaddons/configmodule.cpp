@@ -34,8 +34,8 @@
 #include <QQmlEngine>
 #include <QQmlFileSelector>
 
-#include <kaboutdata.h>
-#include <klocalizedstring.h>
+#include <KAboutData>
+#include <KLocalizedString>
 #include <kdeclarative/qmlobject.h>
 #include <kdeclarative/qmlobjectsharedengine.h>
 

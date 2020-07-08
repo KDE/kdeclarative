@@ -31,15 +31,15 @@
 **
 ****************************************************************************/
 #include <quickviewsharedengine.h>
-#include <qtest.h>
-#include <qqmlcomponent.h>
-#include <qqmlcontext.h>
-#include <qquickview.h>
-#include <qquickitem.h>
+#include <QTest>
+#include <QQmlComponent>
+#include <QQmlContext>
+#include <QQuickView>
+#include <QQuickItem>
 #include "util.h"
 #include <QWindow>
 #include <QDebug>
-#include <qqmlengine.h>
+#include <QQmlEngine>
 
 class QuickViewSharedEngineTest : public QQmlDataTest
 {

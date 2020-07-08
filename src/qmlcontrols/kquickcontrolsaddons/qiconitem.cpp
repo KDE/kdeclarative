@@ -20,7 +20,7 @@
 
 #include "qiconitem.h"
 
-#include <qquickwindow.h>
+#include <QQuickWindow>
 #include <QIcon>
 #include <quickaddons/imagetexturescache.h>
 #include <quickaddons/managedtexturenode.h>

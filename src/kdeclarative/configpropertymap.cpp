@@ -21,7 +21,7 @@
 
 #include <QJSValue>
 #include <QPointer>
-#include <kcoreconfigskeleton.h>
+#include <KCoreConfigSkeleton>
 
 #include <functional>
 

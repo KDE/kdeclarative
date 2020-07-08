@@ -20,8 +20,8 @@
 #include <QPixmap>
 #include <QSize>
 #include <QIcon>
-#include <kiconloader.h>
-#include <kiconeffect.h>
+#include <KIconLoader>
+#include <KIconEffect>
 
 namespace KDeclarative {
 

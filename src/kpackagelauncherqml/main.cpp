@@ -19,9 +19,9 @@
 
 #include <QApplication>
 
-#include <klocalizedstring.h>
-#include <qcommandlineparser.h>
-#include <qcommandlineoption.h>
+#include <KLocalizedString>
+#include <QCommandLineParser>
+#include <QCommandLineOption>
 #include <QQuickItem>
 
 #include <kpackage/package.h>

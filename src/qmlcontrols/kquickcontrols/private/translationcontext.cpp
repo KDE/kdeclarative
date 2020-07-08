@@ -24,7 +24,7 @@
 
 #include <QDebug>
 
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
 TranslationContext::TranslationContext(QObject* parent)
     : QObject(parent)

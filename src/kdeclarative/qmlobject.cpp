@@ -27,7 +27,7 @@
 #include <QQmlIncubator>
 #include <QTimer>
 
-#include <qdebug.h>
+#include <QDebug>
 #include <kdeclarative.h>
 #include <KPackage/PackageLoader>
 
