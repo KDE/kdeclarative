@@ -65,7 +65,7 @@ public:
      * Whether notifications on config changes are enabled. Disabled by default.
      * @see KConfigBase::Notify
      * @return true if writes send (dbus) notifications
-     * @since 5.72
+     * @since 5.73
      */
     bool isNotify() const;
 
@@ -73,7 +73,7 @@ public:
      * Enable or disable notifications on config changes.
      * @see KConfigBase::Notify
      * @param notify whether to send notifications
-     * @since 5.72
+     * @since 5.73
      */
     void setNotify(bool notify);
 
