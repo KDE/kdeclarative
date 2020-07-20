@@ -24,12 +24,15 @@
 
 
 #include <KQuickAddons/ConfigModule>
-
+#include "settingstateproxy.h"
+#include "settingstatebindingprivate.h"
 
 void KCMControlsPlugin::registerTypes(const char *uri)
 {
     Q_ASSERT(uri == QByteArray("org.kde.kcm"));
 
-    qmlRegisterUncreatableType<KQuickAddons::ConfigModule>("org.kde.kcm", 1, 0, "ConfigModule",
+    qmlRegisterUncreatableType<KQuickAddons::ConfigModule>(uri, 1, 0, "ConfigModule",
             QLatin1String("Do not create objects of type ConfigModule"));
+    qmlRegisterType<SettingStateProxy>(uri, 1, 3, "SettingStateProxy");
+    qmlRegisterType<SettingStateBindingPrivate>("org.kde.kcm.private", 1, 3, "SettingStateBindingPrivate");
 }

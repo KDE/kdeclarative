@@ -55,7 +55,8 @@ public:
         _useRootOnlyMessage(false),
         _needsAuthorization(false),
         _needsSave(false),
-        _representsDefaults(false)
+        _representsDefaults(false),
+        _defaultsIndicatorVisible(false)
     {
     }
 
@@ -76,6 +77,7 @@ public:
     bool _needsAuthorization : 1;
     bool _needsSave  :1;
     bool _representsDefaults :1;
+    bool _defaultsIndicatorVisible :1;
     QString _authActionName;
 
     static QHash<QObject *, ConfigModule *> s_rootObjects;
@@ -487,6 +489,19 @@ bool ConfigModule::representsDefaults()
     return d->_representsDefaults;
 }
 
+bool ConfigModule::defaultsIndicatorsVisible() const
+{
+    return d->_defaultsIndicatorVisible;
+}
+
+void ConfigModule::setDefaultsIndicatorsVisible(bool visible)
+{
+    if (d->_defaultsIndicatorVisible == visible) {
+        return;
+    }
+    d->_defaultsIndicatorVisible = visible;
+    emit defaultsIndicatorsVisibleChanged();
+}
 }
 
 #include "moc_configmodule.cpp"

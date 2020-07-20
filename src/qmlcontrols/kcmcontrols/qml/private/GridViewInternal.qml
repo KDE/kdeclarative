@@ -24,8 +24,14 @@ import org.kde.kirigami 2.3 as Kirigami
 
 GridView {
     id: view
+
     property int implicitCellWidth: Kirigami.Units.gridUnit * 10
     property int implicitCellHeight: Math.round(implicitCellWidth / 1.6) + Kirigami.Units.gridUnit*3
+
+    /**
+     * Allow to highlight the selected item with Kirigami.Theme.neutralTextColor
+     */
+    property bool neutralHighlight: false
 
     onCurrentIndexChanged: positionViewAtIndex(currentIndex, GridView.Contain);
 

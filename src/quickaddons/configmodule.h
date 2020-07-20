@@ -142,6 +142,7 @@ class QUICKADDONS_EXPORT ConfigModule : public QObject
     Q_PROPERTY(int columnWidth READ columnWidth WRITE setColumnWidth NOTIFY columnWidthChanged)
     Q_PROPERTY(int depth READ depth NOTIFY depthChanged)
     Q_PROPERTY(int currentIndex READ currentIndex WRITE setCurrentIndex NOTIFY currentIndexChanged)
+    Q_PROPERTY(int defaultsIndicatorsVisible READ defaultsIndicatorsVisible WRITE setDefaultsIndicatorsVisible NOTIFY defaultsIndicatorsVisibleChanged)
 
 public:
 
@@ -439,6 +440,12 @@ public:
 
     static ConfigModule *qmlAttachedProperties(QObject *object);
 
+    /**
+     * @returns defaultness indicator visibility
+     * @since 5.73
+     */
+    bool defaultsIndicatorsVisible() const;
+
 public Q_SLOTS:
     /**
      * Load the configuration data into the module.
@@ -505,6 +512,14 @@ public Q_SLOTS:
      * @since 5.68
      */
     void showPassiveNotification(const QString &message, const QVariant &timeout = QVariant(), const QString &actionText = QString(), const QJSValue &callBack = QJSValue());
+
+    /**
+     * Change defaultness indicator visibility
+     * @param visible
+     * @since 5.73
+     */
+    void setDefaultsIndicatorsVisible(bool visible);
+
 Q_SIGNALS:
 
     /**
@@ -598,6 +613,12 @@ Q_SIGNALS:
      * @since 5.68
      */
     void passiveNotificationRequested(const QString &message, const QVariant &timeout, const QString &actionText, const QJSValue &callBack);
+
+    /**
+     * Emitted when kcm need to display indicators for field with non default value
+     * @since 5.73
+     */
+    void defaultsIndicatorsVisibleChanged();
 
 private:
     ConfigModulePrivate *const d;

@@ -91,6 +91,9 @@ T2.ItemDelegate {
 
         color: {
             if (delegate.GridView.isCurrentItem) {
+                if (delegate.GridView.view.neutralHighlight) {
+                    return Kirigami.Theme.neutralTextColor;
+                }
                 return Kirigami.Theme.highlightColor;
             } else if (parent.hovered) {
                 return Kirigami.Theme.highlightColor;
