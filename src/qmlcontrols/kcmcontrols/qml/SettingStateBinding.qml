@@ -66,6 +66,16 @@ Item {
      */
     property bool extraEnabledConditions: true
 
+
+    /**
+     * nonDefaultHighlightVisible: bool
+     * Expose whether the non default highlight is visible.
+     * Allow one to implement highlight with custom items.
+     *
+     * @since 5.73
+     */
+    readonly property bool nonDefaultHighlightVisible: helper.highlight && kcm.defaultsIndicatorsVisible
+
     Binding {
         when: helper.target
         target: helper.target
