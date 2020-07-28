@@ -84,7 +84,11 @@ T2.ItemDelegate {
                 }
                 return Kirigami.Theme.highlightColor;
             } else if (parent.hovered) {
-                return Kirigami.Theme.highlightColor;
+                // Match appearance of hovered list items
+                return Qt.rgba(Kirigami.Theme.highlightColor.r,
+                               Kirigami.Theme.highlightColor.g,
+                               Kirigami.Theme.highlightColor.b,
+                               0.5);
             } else {
                 return Kirigami.Theme.backgroundColor;
             }
@@ -99,6 +103,8 @@ T2.ItemDelegate {
             }
 
             color: Kirigami.Theme.backgroundColor
+
+            // "None/There's nothing here" indicator
             Kirigami.Icon {
                 visible: !delegate.thumbnailAvailable
                 anchors.centerIn: parent
@@ -168,6 +174,7 @@ T2.ItemDelegate {
             Layout.maximumWidth: labelLayout.width
             text: delegate.text
             elide: Text.ElideRight
+            font.bold: delegate.GridView.isCurrentItem
         }
         Controls.Label {
             id: caption
@@ -177,6 +184,7 @@ T2.ItemDelegate {
             opacity: 0.6
             text: delegate.subtitle
             font.pointSize: theme.smallestFont.pointSize
+            font.bold: delegate.GridView.isCurrentItem
             elide: Text.ElideRight
         }
     }
