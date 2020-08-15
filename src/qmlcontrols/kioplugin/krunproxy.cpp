@@ -8,7 +8,10 @@
 
 #include <QMimeDatabase>
 
-#include <KRun>
+#include <KIO/ApplicationLauncherJob>
+#include <KIO/OpenUrlJob>
+#include <KIO/JobUiDelegate>
+#include <KNotificationJobUiDelegate>
 #include <KService>
 
 KRunProxy::KRunProxy(QObject* parent)
@@ -16,11 +19,12 @@ KRunProxy::KRunProxy(QObject* parent)
 {
 }
 
+// Apparently unused
 bool KRunProxy::openUrl(const QString &file)
 {
     QUrl fileUrl(file);
     QMimeDatabase db;
-    QMimeType mime = db.mimeTypeForFile(fileUrl.isLocalFile() ? fileUrl.toLocalFile() : fileUrl.path());
+    QMimeType mime = db.mimeTypeForUrl(fileUrl);
     const QString fileMimeType = mime.name();
 
     if (fileMimeType == QLatin1String("application/x-executable") || !mime.isValid()) {
@@ -35,14 +39,22 @@ bool KRunProxy::openUrl(const QString &file)
         // with.
         return openService(fileUrl.toLocalFile());
     } else {
-        return KRun::runUrl(fileUrl, fileMimeType, nullptr, KRun::RunFlags{});
+        KIO::OpenUrlJob *job = new KIO::OpenUrlJob(fileUrl, fileMimeType);
+        // JobUiDelegate is widgets-based, but that's currently the only way to get the open-with dialog
+        job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
+        job->start();
+        return true;
     }
 }
 
 bool KRunProxy::openService(const QString &serviceName)
 {
     KService::Ptr service = KService::serviceByDesktopName(serviceName);
-    if(service)
-        return KRun::runApplication(*service, QList<QUrl>(), nullptr) != 0;
+    if (service) {
+        KIO::ApplicationLauncherJob *job = new KIO::ApplicationLauncherJob(service);
+        job->setUiDelegate(new KNotificationJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled));
+        job->start();
+        return true;
+    }
     return false;
 }
