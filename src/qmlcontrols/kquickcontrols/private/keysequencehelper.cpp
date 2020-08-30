@@ -24,6 +24,8 @@
 #include <KGlobalAccel/KGlobalShortcutInfo>
 #include <KGlobalAccel/KGlobalAccel>
 
+#include <kkeyserver.h>
+
 uint qHash(const QKeySequence &seq)
 {
     return qHash(seq.toString());
@@ -474,8 +476,10 @@ void KeySequenceHelper::keyPressed(int key, int modifiers)
         if (key) {
             if ((key == Qt::Key_Backtab) && (d->modifierKeys & Qt::SHIFT)) {
                 key = Qt::Key_Tab | d->modifierKeys;
+            } else if (KKeyServer::isShiftAsModifierAllowed(key)) {
+                key |= d->modifierKeys;
             } else {
-                key |= (d->modifierKeys);
+                key |= (d->modifierKeys & ~Qt::SHIFT);
             }
 
             if (d->nKey == 0) {
