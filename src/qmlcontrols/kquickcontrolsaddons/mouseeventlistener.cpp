@@ -37,7 +37,7 @@ MouseEventListener::MouseEventListener(QQuickItem *parent)
 #endif
 
     setFiltersChildMouseEvents(true);
-    setAcceptedMouseButtons(Qt::LeftButton|Qt::RightButton|Qt::MidButton|Qt::XButton1|Qt::XButton2);
+    setAcceptedMouseButtons(Qt::LeftButton|Qt::RightButton|Qt::MiddleButton|Qt::XButton1|Qt::XButton2);
 }
 
 MouseEventListener::~MouseEventListener()
