@@ -473,7 +473,7 @@ public Q_SLOTS:
     virtual void defaults();
 
     /**
-     * Push a new sub page in the KCM hyerarchy: pages will be seen as a Kirigami PageRow
+     * Push a new sub page in the KCM hierarchy: pages will be seen as a Kirigami PageRow
      * @since 5.50
      */
     void push(const QString &fileName, const QVariantMap &propertyMap = QVariantMap());
@@ -484,14 +484,14 @@ public Q_SLOTS:
     void push(QQuickItem *item);
 
     /**
-     * pop the last page of the KCM hyerarchy
+     * pop the last page of the KCM hierarchy
      * @since 5.50
      */
     void pop();
 
     /**
      * Ask the shell to show a passive notification
-     * @param message The message text to dispalay
+     * @param message The message text to display
      * @param timeout (optional) the timeout, either in milliseconds or the strings "short" and "long"
      * @param actionText (optional) The notification can have a button with this text
      * @param callBack (optional) If actionText is set and callBack is a JavaScript function, it will be called when the use clicks the button.
