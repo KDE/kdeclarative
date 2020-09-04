@@ -9,6 +9,18 @@ RowLayout {
     property alias modifierlessAllowed: _helper.modifierlessAllowed
     property alias multiKeyShortcutsAllowed: _helper.multiKeyShortcutsAllowed
     property alias keySequence: _helper.keySequence
+    /**
+     * This property controls which types of shortcuts are checked for conflicts when the keySequence
+     * is set. If a conflict is detected, a messagebox will be shown asking the user to confirm their
+     * input. Valid values are combinations of the following flags:
+     *   - @p ShortcutType.None Do not check for conflicts.
+     *   - @p ShortcutType.StandardShortcuts Check against standard shortcuts. @see KStandardshortcut
+     *   - @p ShortcutType.GlobalShortcuts Check against global shortcuts. @see KGlobalAccel
+     *
+     * The default is `ShortcutType.GlobalShortcuts | ShortcutType.StandardShortcut`
+     * @since 5.74
+     */
+    property alias checkForConflictsAgainst: _helper.checkAgainstShortcutTypes
 
     /**
      * This signal is emitted after the user introduces a new key sequence

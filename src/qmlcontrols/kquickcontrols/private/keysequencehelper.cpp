@@ -184,8 +184,14 @@ bool KeySequenceHelper::isKeySequenceAvailable(const QKeySequence& keySequence) 
     if (keySequence.isEmpty()) {
         return true;
     }
-    return !(d->conflictWithGlobalShortcuts(keySequence)
-             || d->conflictWithStandardShortcuts(keySequence));
+    bool conflict = false;
+    if (d->checkAgainstShortcutTypes.testFlag(GlobalShortcuts)) {
+        conflict |= d->conflictWithGlobalShortcuts(keySequence);
+    }
+    if (d->checkAgainstShortcutTypes.testFlag(StandardShortcuts)) {
+        conflict |=  d->conflictWithStandardShortcuts(keySequence);
+    }
+    return !conflict;
 }
 
 //
@@ -215,6 +221,20 @@ void KeySequenceHelper::setKeySequence(const QKeySequence& sequence)
     d->updateShortcutDisplay();
     emit keySequenceChanged(d->keySequence);
 }
+
+KeySequenceHelper::ShortcutTypes KeySequenceHelper::checkAgainstShortcutTypes()
+{
+    return d->checkAgainstShortcutTypes;
+}
+
+void KeySequenceHelper::setCheckAgainstShortcutTypes(KeySequenceHelper::ShortcutTypes types)
+{
+    if (d->checkAgainstShortcutTypes != types) {
+        d->checkAgainstShortcutTypes = types;
+    }
+    Q_EMIT checkAgainstShortcutTypesChanged();
+}
+
 
 
 void KeySequenceHelper::clearKeySequence()

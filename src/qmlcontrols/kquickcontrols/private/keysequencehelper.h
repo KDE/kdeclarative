@@ -44,6 +44,13 @@ class KeySequenceHelper : public QQuickItem
         READ isModifierlessAllowed
         WRITE setModifierlessAllowed)
 
+    Q_PROPERTY(
+        ShortcutTypes checkAgainstShortcutTypes
+        READ checkAgainstShortcutTypes
+        WRITE setCheckAgainstShortcutTypes
+        NOTIFY checkAgainstShortcutTypesChanged
+    )
+
 public:
 
     enum ShortcutType {
@@ -101,11 +108,14 @@ public:
 
     bool isKeySequenceAvailable(const QKeySequence &keySequence) const;
 
+    ShortcutTypes checkAgainstShortcutTypes();
+    void setCheckAgainstShortcutTypes(ShortcutTypes types);
 
 Q_SIGNALS:
     void keySequenceChanged(const QKeySequence &seq);
     void shortcutDisplayChanged(const QString &string);
     void captureFinished();
+    void checkAgainstShortcutTypesChanged();
 
 public Q_SLOTS:
     void captureKeySequence();
