@@ -1,0 +1,131 @@
+# translation of kdelibs4.po to Greek
+# translation of kdelibs4.po to
+# Copyright (C) 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
+# Last MAJOR revision (whole file) (29-03-2003 - Stergios Dramis).
+#
+# Dimitris Kamenopoulos <d.kamenopoulos@mail.ntua.gr>, 2000-2002.
+# Stergios Dramis <sdramis@egnatia.ee.auth.gr>, 2002-2004.
+# Κώστας Μπουκουβάλας <quantis@hellug.gr>, 2005.
+# Spiros Georgaras <sngeorgaras@otenet.gr>, 2005, 2006, 2007, 2008.
+# Toussis Manolis <manolis@koppermind.homelinux.org>, 2006, 2007, 2008, 2009.
+# Spiros Georgaras <sng@hellug.gr>, 2007, 2008.
+# Σπύρος Γεωργαράς <sngeorgaras@otenet.gr>, 2008.
+# Petros <pvidalis@gmail.com>, 2009.
+# Petros Vidalis <p_vidalis@hotmail.com>, 2010, 2011.
+# Dimitrios Glentadakis <dglent@gmail.com>, 2010, 2011, 2012, 2013, 2014.
+# nikos, 2011.
+# Stelios <sstavra@gmail.com>, 2012, 2013, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-09-06 02:09+0200\n"
+"PO-Revision-Date: 2015-10-27 00:12+0100\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Σπύρος Γεωργαράς, Τούσης Μανώλης, Πέτρος Βιδάλης"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sng@hellug.gr, manolis@koppermind.homelinux.org, p_vidalis@hotmail.com"
+
+#: kpackagelauncherqml/main.cpp:30
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr "KPackage QML κέλυφος εφαρμογής"
+
+#: kpackagelauncherqml/main.cpp:37
+#, kde-format
+msgid "The unique name of the application (mandatory)"
+msgstr "Το μοναδικό όνομα της εφαρμογής (υποχρεωτικό)"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:70
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"Πατήστε το κουμπί, έπειτα εισάγετε την συντόμευση που επιθυμείτε στο "
+"πρόγραμμα.\n"
+"Παράδειγμα για Ctrl+A: κρατήστε πατημένο το Ctrl και πιέστε το A."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:296
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "Δεσμευμένη συντόμευση"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:297
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"Το πλήκτρο F12 είναι δεσμευμένο στα Windows και δεν μπορεί χρησιμοποιηθεί "
+"για καθολική συντόμευση.\n"
+"Παρακαλώ επιλέξτε μία άλλη."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:353
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Σύγκρουση με πρότυπη συντόμευση εφαρμογής"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:354
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"Ο συνδυασμός πλήκτρων « %1 » χρησιμοποιείται ήδη για την τυπική ενέργεια « "
+"%2 » η οποία είναι σε χρήση από διάφορες εφαρμογές.\n"
+"Επιθυμείτε πραγματικά τη χρήση της ως καθολική συντόμευση επίσης;"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:359
+#, kde-format
+msgid "Reassign"
+msgstr "Επανάθεση"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:401
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Είσοδος"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:408
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Καμία"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:429
+#, kde-format
+msgid "The key you just pressed is not supported by Qt."
+msgstr "Το πλήκτρο που μόλις πιέσατε δεν υποστηρίζεται από την Qt."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:430
+#, kde-format
+msgid "Unsupported Key"
+msgstr "Μη υποστηριζόμενο πλήκτρο"
+
+#: quickaddons/configmodule.cpp:164
+#, fuzzy, kde-format
+#| msgid "Invalid item."
+msgid "Invalid KPackage '%1'"
+msgstr "Μη έγκυρο αντικείμενο."
+
+#: quickaddons/configmodule.cpp:170
+#, kde-format
+msgid "No QML file provided"
+msgstr ""

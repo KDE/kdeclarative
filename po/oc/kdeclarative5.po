@@ -1,0 +1,111 @@
+# translation of kdelibs4.po to Occitan
+# Copyright (C) 2008 This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>, 2007, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-09-06 02:09+0200\n"
+"PO-Revision-Date: 2008-08-06 00:07+0200\n"
+"Last-Translator: \n"
+"Language-Team: Occitan <oc@li.org>\n"
+"Language: oc\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Yannig Marchegay (Kokoyaya)"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yannig@marchegay.org"
+
+#: kpackagelauncherqml/main.cpp:30
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr ""
+
+#: kpackagelauncherqml/main.cpp:37
+#, kde-format
+msgid "The unique name of the application (mandatory)"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:70
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:296
+#, fuzzy, kde-format
+#| msgid "Shortcut"
+msgid "Reserved Shortcut"
+msgstr "Acorchi"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:297
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:353
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Conflicte amb un acorchi clavièr d'aplicacion estandarda"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:354
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:359
+#, kde-format
+msgid "Reassign"
+msgstr "Reatribuir"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:401
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Entrada"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:408
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Pas cap"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:429
+#, kde-format
+msgid "The key you just pressed is not supported by Qt."
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:430
+#, kde-format
+msgid "Unsupported Key"
+msgstr ""
+
+#: quickaddons/configmodule.cpp:164
+#, fuzzy, kde-format
+#| msgid "Invalid URL"
+msgid "Invalid KPackage '%1'"
+msgstr "URL invalida"
+
+#: quickaddons/configmodule.cpp:170
+#, kde-format
+msgid "No QML file provided"
+msgstr ""
