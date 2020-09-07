@@ -71,13 +71,17 @@ public:
     void setupBindings();
 #endif
 
+#if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 75)
     /**
      * Call this after setDeclarativeEngine to set the i18n global functions.
      *
      * @sa setupEngine
      * @since 5.45
+     * @deprecated since 5.75 set KLocalizedContext directly, see documentation in KI18n::KLocalizedContext
      */
+    KDECLARATIVE_DEPRECATED_VERSION(5, 75, "set KLocalizedContext directly, see documentation in KI18n::KLocalizedContext")
     void setupContext();
+#endif
 
     /**
      * Assign a specific QQmlEngine to be used in this KDeclarative.
@@ -102,6 +106,7 @@ public:
      */
     QQmlEngine *declarativeEngine() const;
 
+#if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 75)
     /**
      * Call this method before calling setupContext to install a translation domain for all
      * i18n global functions. If a translation domain is set all i18n calls delegate to the
@@ -117,14 +122,21 @@ public:
      *
      * @param translationDomain The translation domain to be used for i18n calls.
      * @since 5.0
+     * @deprecated since 5.75 use KLocalizedContext::setTranslationDomain
      */
+    KDECLARATIVE_DEPRECATED_VERSION(5, 75, "set via KLocalizedContext::setTranslationDomain")
     void setTranslationDomain(const QString &translationDomain);
+#endif
 
+#if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 75)
     /**
      * @return the translation domain for the i18n calls done in this QML engine
      * @since 5.0
+     * @deprecated since 5.75 use KLocalizedContext::translationDomain
      */
+    KDECLARATIVE_DEPRECATED_VERSION(5, 75, "available via KLocalizedContext::translationDomain")
     QString translationDomain() const;
+#endif
 
     /**
      * This method must be called very early at startup time to ensure the

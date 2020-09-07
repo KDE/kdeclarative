@@ -64,6 +64,7 @@ void KDeclarative::setupBindings()
 }
 #endif
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 75)
 void KDeclarative::setupContext()
 {
     /*Create a context object for the root qml context.
@@ -83,6 +84,7 @@ void KDeclarative::setupContext()
         d->contextObj->setTranslationDomain(d->translationDomain);
     }
 }
+#endif
 
 void KDeclarative::setupEngine(QQmlEngine *engine)
 {
@@ -114,6 +116,7 @@ void KDeclarative::setupEngine(QQmlEngine *engine)
     engine->addImageProvider(QStringLiteral("icon"), new KIconProvider);
 }
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 75)
 void KDeclarative::setTranslationDomain(const QString &translationDomain)
 {
     d->translationDomain = translationDomain;
@@ -121,11 +124,14 @@ void KDeclarative::setTranslationDomain(const QString &translationDomain)
         d->contextObj->setTranslationDomain(d->translationDomain);
     }
 }
+#endif
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 75)
 QString KDeclarative::translationDomain() const
 {
     return d->translationDomain;
 }
+#endif
 
 void KDeclarative::setupQmlJsDebugger()
 {

@@ -24,8 +24,6 @@ int main(int argc, char *argv[])
     KDeclarative::KDeclarative::setupEngine(view.engine());
     KDeclarative::KDeclarative kdeclarative;
     kdeclarative.setDeclarativeEngine(view.engine());
-    //binds things like kconfig and icons
-    kdeclarative.setupContext();
 
     view.setSource(QUrl::fromLocalFile(QFINDTESTDATA("test.qml")));
     view.show();

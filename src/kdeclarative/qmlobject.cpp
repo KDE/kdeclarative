@@ -77,6 +77,7 @@ public:
     QQmlComponent *component;
     QTimer *executionEndTimer;
     KDeclarative kdeclarative;
+    KLocalizedContext *context{ nullptr };
     KPackage::Package package;
     QQmlContext *rootContext;
     bool delay : 1;
@@ -137,7 +138,8 @@ QmlObject::QmlObject(QObject *parent)
     d->kdeclarative.setDeclarativeEngine(d->engine);
     d->kdeclarative.d->qmlObj = this;
 
-    d->kdeclarative.setupContext();
+    d->context = new KLocalizedContext(this);
+    d->rootContext->setContextObject(d->context);
     KDeclarative::setupEngine(d->engine);
 }
 
@@ -171,7 +173,8 @@ QmlObject::QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QmlObject *ob
     d->kdeclarative.setDeclarativeEngine(d->engine);
     d->kdeclarative.d->qmlObj = this;
 
-    d->kdeclarative.setupContext();
+    d->context = new KLocalizedContext(this);
+    d->rootContext->setContextObject(d->context);
 
     if (!obj) {
         KDeclarative::setupEngine(d->engine);
@@ -188,12 +191,12 @@ QmlObject::~QmlObject()
 
 void QmlObject::setTranslationDomain(const QString &translationDomain)
 {
-    d->kdeclarative.setTranslationDomain(translationDomain);
+    d->context->setTranslationDomain(translationDomain);
 }
 
 QString QmlObject::translationDomain() const
 {
-    return d->kdeclarative.translationDomain();
+    return d->context->translationDomain();
 }
 
 void QmlObject::setSource(const QUrl &source)
