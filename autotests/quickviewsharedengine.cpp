@@ -15,6 +15,7 @@
 #include <QWindow>
 #include <QDebug>
 #include <QQmlEngine>
+#include <QSignalSpy>
 
 class QuickViewSharedEngineTest : public QQmlDataTest
 {
@@ -172,14 +173,13 @@ void QuickViewSharedEngineTest::engine()
     KQuickAddons::QuickViewSharedEngine *view2 = new KQuickAddons::QuickViewSharedEngine();
     QQmlEngine *engine2 = view2->engine();
 
+    QCOMPARE(engine, engine2);
+    QSignalSpy engineDestroyedSpy(engine, &QObject::destroyed);
+
     delete view;
     delete view2;
 
-    view = new KQuickAddons::QuickViewSharedEngine();
-    QQmlEngine *engine3 = view->engine();
-
-    QCOMPARE(engine, engine2);
-    QVERIFY(engine != engine3);
+    QCOMPARE(engineDestroyedSpy.count(), 1);
 }
 
 QTEST_MAIN(QuickViewSharedEngineTest)
