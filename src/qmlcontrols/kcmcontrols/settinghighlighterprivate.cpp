@@ -5,7 +5,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "settingstatebindingprivate.h"
+#include "settinghighlighterprivate.h"
 
 #include <QGuiApplication>
 #include <QQmlContext>
@@ -54,12 +54,12 @@ QQuickItem *findStyleItem(QQuickItem *item)
 
 } // namespace
 
-QQuickItem *SettingStateBindingPrivate::target() const
+QQuickItem *SettingHighlighterPrivate::target() const
 {
     return m_target;
 }
 
-void SettingStateBindingPrivate::setTarget(QQuickItem *target)
+void SettingHighlighterPrivate::setTarget(QQuickItem *target)
 {
     if (m_target == target) {
         return;
@@ -69,12 +69,12 @@ void SettingStateBindingPrivate::setTarget(QQuickItem *target)
     emit targetChanged();
 }
 
-bool SettingStateBindingPrivate::highlight() const
+bool SettingHighlighterPrivate::highlight() const
 {
     return m_highlight;
 }
 
-void SettingStateBindingPrivate::setHighlight(bool highlight)
+void SettingHighlighterPrivate::setHighlight(bool highlight)
 {
     if (m_highlight == highlight) {
         return;
@@ -85,12 +85,12 @@ void SettingStateBindingPrivate::setHighlight(bool highlight)
     emit highlightChanged();
 }
 
-bool SettingStateBindingPrivate::defaultIndicatorVisible() const
+bool SettingHighlighterPrivate::defaultIndicatorVisible() const
 {
     return m_enabled;
 }
 
-void SettingStateBindingPrivate::setDefaultIndicatorVisible(bool enabled)
+void SettingHighlighterPrivate::setDefaultIndicatorVisible(bool enabled)
 {
     if (m_enabled == enabled) {
         return;
@@ -102,17 +102,21 @@ void SettingStateBindingPrivate::setDefaultIndicatorVisible(bool enabled)
     emit defaultIndicatorVisibleChanged(m_enabled);
 }
 
-void SettingStateBindingPrivate::updateTarget()
+void SettingHighlighterPrivate::updateTarget()
 {
     if (!m_styleTarget) {
         if (!m_target) {
-            // parent is SettingStateBinding, use SettingStateBinding's visual parent as target item.
+            // parent is SettingStateBinding/SettingHighlighter, use it's visual parent as target item.
             const auto *parentItem = qobject_cast<QQuickItem*>(parent());
             if (parentItem) {
                 setTarget(parentItem->parentItem());
             }
+            qDebug() << parent()  << parentItem << parentItem->parentItem();
         }
-        m_styleTarget = findStyleItem(m_target);
+        if (m_target) {
+            m_styleTarget = findStyleItem(m_target);
+        }
+        qDebug() << m_styleTarget;
     }
 
     if (m_styleTarget) {

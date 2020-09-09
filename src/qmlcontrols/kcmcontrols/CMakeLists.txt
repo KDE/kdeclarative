@@ -3,7 +3,7 @@ project(kcmcontrols)
 set(kcmcontrols_SRCS
     kcmcontrolsplugin.cpp
     settingstateproxy.cpp
-    settingstatebindingprivate.cpp
+    settinghighlighterprivate.cpp
 )
 
 add_library(kcmcontrolsplugin SHARED ${kcmcontrols_SRCS})

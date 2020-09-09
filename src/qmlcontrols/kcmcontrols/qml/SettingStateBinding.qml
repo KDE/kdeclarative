@@ -84,7 +84,7 @@ Item {
         id: settingState
     }
 
-    SettingStateBindingPrivate {
+    SettingHighlighterPrivate {
         id: helper
         defaultIndicatorVisible: kcm.defaultsIndicatorsVisible
     }

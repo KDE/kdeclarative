@@ -9,7 +9,7 @@
 
 #include <KQuickAddons/ConfigModule>
 #include "settingstateproxy.h"
-#include "settingstatebindingprivate.h"
+#include "settinghighlighterprivate.h"
 
 void KCMControlsPlugin::registerTypes(const char *uri)
 {
@@ -18,5 +18,5 @@ void KCMControlsPlugin::registerTypes(const char *uri)
     qmlRegisterUncreatableType<KQuickAddons::ConfigModule>(uri, 1, 0, "ConfigModule",
             QLatin1String("Do not create objects of type ConfigModule"));
     qmlRegisterType<SettingStateProxy>(uri, 1, 3, "SettingStateProxy");
-    qmlRegisterType<SettingStateBindingPrivate>("org.kde.kcm.private", 1, 3, "SettingStateBindingPrivate");
+    qmlRegisterType<SettingHighlighterPrivate>("org.kde.kcm.private", 1, 3, "SettingHighlighterPrivate");
 }

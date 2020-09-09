@@ -5,13 +5,13 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef SETTINGSTATEBINDINGPRIVATE_H
-#define SETTINGSTATEBINDINGPRIVATE_H
+#ifndef SETTINGSHIGHLIGHTERPRIVATE_H
+#define SETTINGSHIGHLIGHTERPRIVATE_H
 
 #include <QQuickItem>
 #include <QPointer>
 
-class SettingStateBindingPrivate : public QObject
+class SettingHighlighterPrivate : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QQuickItem *target READ target WRITE setTarget NOTIFY targetChanged)

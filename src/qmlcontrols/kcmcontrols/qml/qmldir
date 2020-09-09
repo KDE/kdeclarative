@@ -9,3 +9,4 @@ ScrollViewKCM 1.2 ScrollViewKCM.qml
 SimpleKCM 1.1 SimpleKCM.qml
 AbstractKCM 1.4 AbstractKCM.qml
 SettingStateBinding 1.3 SettingStateBinding.qml
+SettingHighlighter 1.5 SettingHighlighter.qml
