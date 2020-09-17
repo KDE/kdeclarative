@@ -51,6 +51,12 @@ class KeySequenceHelper : public QQuickItem
         NOTIFY checkAgainstShortcutTypesChanged
     )
 
+    Q_PROPERTY(
+        bool isRecording
+        READ isRecording
+        NOTIFY isRecordingChanged
+    )
+
 public:
 
     enum ShortcutType {
@@ -116,6 +122,7 @@ Q_SIGNALS:
     void shortcutDisplayChanged(const QString &string);
     void captureFinished();
     void checkAgainstShortcutTypesChanged();
+    void isRecordingChanged();
 
 public Q_SLOTS:
     void captureKeySequence();

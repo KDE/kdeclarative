@@ -237,7 +237,10 @@ void KeySequenceHelper::setCheckAgainstShortcutTypes(KeySequenceHelper::Shortcut
     Q_EMIT checkAgainstShortcutTypesChanged();
 }
 
-
+bool KeySequenceHelper::isRecording() const
+{
+    return d->isRecording;
+}
 
 void KeySequenceHelper::clearKeySequence()
 {
@@ -251,6 +254,7 @@ void KeySequenceHelperPrivate::startRecording()
     oldKeySequence = keySequence;
     keySequence = QKeySequence();
     isRecording = true;
+    emit q->isRecordingChanged();
     grabbedWindow = QQuickRenderControl::renderWindowFor(q->window());
     if (!grabbedWindow) {
         grabbedWindow = q->window();
@@ -265,6 +269,8 @@ void KeySequenceHelper::doneRecording()
 {
     d->modifierlessTimeout.stop();
     d->isRecording = false;
+    emit isRecordingChanged();
+
     d->stealActions.clear();
     if (d->grabbedWindow) {
         d->grabbedWindow->setKeyboardGrabEnabled(false);

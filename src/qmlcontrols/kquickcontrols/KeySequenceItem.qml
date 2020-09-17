@@ -83,6 +83,13 @@ RowLayout {
             }
         }
 
+        Keys.onShortcutOverride: {
+            if (_helper.isRecording) {
+                _helper.keyPressed(event.key, event.modifiers);
+                event.accepted = true;
+            }
+        }
+
         Keys.onPressed: {
             _helper.keyPressed(event.key, event.modifiers);
             event.accepted = true;
