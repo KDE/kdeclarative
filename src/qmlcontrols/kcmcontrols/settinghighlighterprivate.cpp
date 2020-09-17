@@ -106,17 +106,15 @@ void SettingHighlighterPrivate::updateTarget()
 {
     if (!m_styleTarget) {
         if (!m_target) {
-            // parent is SettingStateBinding/SettingHighlighter, use it's visual parent as target item.
+            // parent is SettingStateBinding/SettingHighlighter, use its visual parent as target item.
             const auto *parentItem = qobject_cast<QQuickItem*>(parent());
             if (parentItem) {
                 setTarget(parentItem->parentItem());
             }
-            qDebug() << parent()  << parentItem << parentItem->parentItem();
         }
         if (m_target) {
             m_styleTarget = findStyleItem(m_target);
         }
-        qDebug() << m_styleTarget;
     }
 
     if (m_styleTarget) {
