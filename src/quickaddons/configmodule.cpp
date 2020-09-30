@@ -429,6 +429,11 @@ bool ConfigModule::useRootOnlyMessage() const
     return d->_useRootOnlyMessage;
 }
 
+QQuickItem *ConfigModule::subPage(int index) const
+{
+    return d->subPages[index];
+}
+
 void ConfigModule::setQuickHelp(const QString &help)
 {
     if (d->_quickHelp == help) {

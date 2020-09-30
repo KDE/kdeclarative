@@ -240,6 +240,13 @@ public:
      */
     QQuickItem *mainUi();
 
+    /*
+     * @return a subpage at a given depth
+     * @note This does not include the mainUi. i.e a depth of 2 is a mainUi and one subPage
+     * at index 0
+     */
+    QQuickItem *subPage(int index) const;
+
     /**
      * Sets the quick help.
      */
@@ -408,7 +415,7 @@ public:
 
     /**
      * @returns how many pages this kcm has.
-     * It is guaranteed to be at least 1 9the main ui) plus how many times a new page has been pushed without pop
+     * It is guaranteed to be at least 1 (the main ui) plus how many times a new page has been pushed without pop
      */
     int depth() const;
 
