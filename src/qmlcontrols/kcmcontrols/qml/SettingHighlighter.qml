@@ -2,7 +2,7 @@
     SPDX-FileCopyrightText: 2020 Kevin Ottens <kevin.ottens@enioka.com>
     SPDX-FileCopyrightText: 2020 David Redondo <kde@david.redondo.de>
 
-    SPDX-License-Identifier: LGPL-2.0-only
+    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 import QtQuick 2.8
