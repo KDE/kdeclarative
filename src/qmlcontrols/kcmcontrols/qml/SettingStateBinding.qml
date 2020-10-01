@@ -1,7 +1,7 @@
 /*
     SPDX-FileCopyrightText: 2020 Kevin Ottens <kevin.ottens@enioka.com>
 
-    SPDX-License-Identifier: LGPL-2.0-only
+    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 import QtQuick 2.8
