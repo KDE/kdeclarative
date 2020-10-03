@@ -31,13 +31,15 @@ class KDeclarativeMouseEvent : public QObject
     Q_PROPERTY(Qt::KeyboardModifiers modifiers READ modifiers)
     Q_PROPERTY(QScreen* screen READ screen CONSTANT)
     Q_PROPERTY(bool accepted READ isAccepted WRITE setAccepted NOTIFY acceptedChanged)
+    Q_PROPERTY(int source READ source)
 
 public:
     KDeclarativeMouseEvent(int x, int y, int screenX, int screenY,
                            Qt::MouseButton button,
                            Qt::MouseButtons buttons,
                            Qt::KeyboardModifiers modifiers,
-                           QScreen* screen)
+                           QScreen* screen,
+                           Qt::MouseEventSource source)
         : m_x(x),
           m_y(y),
           m_screenX(screenX),
@@ -45,8 +47,10 @@ public:
           m_button(button),
           m_buttons(buttons),
           m_modifiers(modifiers),
-          m_screen(screen)
+          m_screen(screen),
+          m_source(source)
     {}
+
 
     int x() const { return m_x; }
     int y() const { return m_y; }
@@ -56,6 +60,7 @@ public:
     Qt::MouseButtons buttons() const { return m_buttons; }
     Qt::KeyboardModifiers modifiers() const { return m_modifiers; }
     QScreen* screen() const { return m_screen; }
+    int source() const {  return m_source; }
 
     bool isAccepted() const { return m_accepted; }
     void setAccepted(bool accepted) {
@@ -82,6 +87,7 @@ private:
     Qt::KeyboardModifiers m_modifiers;
     QScreen *m_screen;
     bool m_accepted = false;
+    int m_source;
 };
 
 class KDeclarativeWheelEvent : public QObject
