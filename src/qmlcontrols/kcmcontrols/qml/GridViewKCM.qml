@@ -64,7 +64,6 @@ Kirigami.Page {
 
     flickable: scroll.view
 
-    //NOTE: this should be smallspacing buit we need a pixel size in order to align with systemsettings widgets
     leftPadding: Kirigami.Settings.isMobile ? 0 : headerParent.leftPadding
     topPadding: headerParent.contentItem ? 0 : leftPadding
     rightPadding: leftPadding
@@ -79,6 +78,7 @@ Kirigami.Page {
         id: footerParent
         height: contentItem ? implicitHeight : 0
     }
+
     Component.onCompleted: {
         if (footer && footer != footerParent) {
             var f = footer

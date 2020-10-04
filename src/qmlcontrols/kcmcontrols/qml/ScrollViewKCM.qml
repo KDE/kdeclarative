@@ -41,31 +41,21 @@ Kirigami.Page {
     implicitHeight: view && view.contentHeight > 0 ? Math.min(view.contentHeight, Kirigami.Units.gridUnit * 20) : Kirigami.Units.gridUnit * 20
     //flickable: scroll.view
 
-    //NOTE: this should be smallspacing buit we need a pixel size in order to align with systemsettings widgets
-    leftPadding: Kirigami.Settings.isMobile ? 0 : 4
-    topPadding: headerParent.contentItem ? 0 : (Kirigami.Settings.isMobile ? 0 : 4)
-    rightPadding: (Kirigami.Settings.isMobile ? 0 : 4)
-    bottomPadding: footerParent.contentItem ? 0 : (Kirigami.Settings.isMobile ? 0 : 4)
+    leftPadding: Kirigami.Settings.isMobile ? 0 : headerParent.leftPadding
+    topPadding: headerParent.contentItem ? 0 : leftPadding
+    rightPadding: leftPadding
+    bottomPadding: footerParent.contentItem ? 0 : leftPadding
 
     header: QtControls.Control {
         id: headerParent
-        visible: root.contentItem && root.contentItem.visible
-        height: visible ? implicitHeight : 0
-        leftPadding: 4
-        topPadding: 4
-        rightPadding: 4
-        bottomPadding: 4
+        height: contentItem ? implicitHeight : 0
     }
 
     footer: QtControls.Control {
         id: footerParent
-        visible: root.contentItem && root.contentItem.visible
-        height: visible ? implicitHeight : 0
-        leftPadding: 4
-        topPadding: 4
-        rightPadding: 4
-        bottomPadding: 4
+        height: contentItem ? implicitHeight : 0
     }
+
     Component.onCompleted: {
         if (footer && footer != footerParent) {
             var f = footer
