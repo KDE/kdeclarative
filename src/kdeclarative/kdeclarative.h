@@ -26,22 +26,31 @@ class KDeclarativePrivate;
  * the application and to get some informations about the platform, 
  * that influences the behavior of the QML components.
  * 
- * In order to use it, create an instance of KDeclarative. You will need a 
- * pointer to a QQmlEngine, and call **both** `setDeclarativeEngine(engine)` and
- * `setupContext()` on your instance. You need to call `setupEngine(engine)`
- * at least once on the engine as well.
- * 
- *     KDeclarative::setupEngine(engine);  // if not done elsewhere
+ * In order to use it, you will need a pointer to a QQmlEngine, and call
+ * `setupEngine(engine)` at least once on the engine.
+ * @code
+ *     KDeclarative::KDeclarative::setupEngine(engine);  // if not done elsewhere
+ * @endcode
+ *
+ * To setup integration with KI18n's translation methods and thus being able to call
+ * i18n() from anywhere in your QML code., you set a KLocalizedContext from Ki18n
+ * directly like this (since KF 5.17):
+ * @code
+ *     KLocalizedContext *localizedContextObject = new KLocalizedContext(engine);
+ *     // if not using the global application domain, set custom domain name
+ *     localizedContextObject->setTranslationDomain(QStringLiteral("mydomainname"));
+ *     engine->rootContext()->setContextObject(localizedContextObject);
+ * @endcode
+ *
+ * In case your code should work with KF versions before 5.17, use these deprecated
+ * calls instead:
+ * @code
  *     KDeclarative::KDeclarative decl;
  *     decl.setDeclarativeEngine(engine);
+ *     // if not using the global application domain, set custom domain name
+ *     decl.setTranslationDomain(QStringLiteral("mydomainname"));
  *     decl.setupContext();
- *     
- * This will add the following things to the engine:
- * - Use a KIOAccessManagerFactory instead of the stock QQmlNetworkAccessManagerFactory
- * - Add a QML icon provider, that makes possible for the Image {} element to load images using the scheme "image:/"
- * - Use the given engine for this context.
- * - Set a new rootContextObject() that exposes all the i18n() functions from the KI18n framework.
- *   They will be available in the global QML context: just call i18n() from anywhere in your QML code.
+ * @endcode
  * 
  */
 class KDECLARATIVE_EXPORT KDeclarative
@@ -77,9 +86,9 @@ public:
      *
      * @sa setupEngine
      * @since 5.45
-     * @deprecated since 5.75 set KLocalizedContext directly, see documentation in KI18n::KLocalizedContext
+     * @deprecated Since 5.17 set KLocalizedContext directly, see documentation in KI18n::KLocalizedContext
      */
-    KDECLARATIVE_DEPRECATED_VERSION(5, 75, "set KLocalizedContext directly, see documentation in KI18n::KLocalizedContext")
+    KDECLARATIVE_DEPRECATED_VERSION_BELATED(5, 75, 5, 17, "set KLocalizedContext directly, see documentation in KI18n::KLocalizedContext")
     void setupContext();
 #endif
 
@@ -122,9 +131,9 @@ public:
      *
      * @param translationDomain The translation domain to be used for i18n calls.
      * @since 5.0
-     * @deprecated since 5.75 use KLocalizedContext::setTranslationDomain
+     * @deprecated Since 5.17 use KLocalizedContext::setTranslationDomain
      */
-    KDECLARATIVE_DEPRECATED_VERSION(5, 75, "set via KLocalizedContext::setTranslationDomain")
+    KDECLARATIVE_DEPRECATED_VERSION_BELATED(5, 75, 5, 17, "set via KLocalizedContext::setTranslationDomain")
     void setTranslationDomain(const QString &translationDomain);
 #endif
 
@@ -132,9 +141,9 @@ public:
     /**
      * @return the translation domain for the i18n calls done in this QML engine
      * @since 5.0
-     * @deprecated since 5.75 use KLocalizedContext::translationDomain
+     * @deprecated Since 5.17 use KLocalizedContext::translationDomain
      */
-    KDECLARATIVE_DEPRECATED_VERSION(5, 75, "available via KLocalizedContext::translationDomain")
+    KDECLARATIVE_DEPRECATED_VERSION_BELATED(5, 75, 5, 17, "available via KLocalizedContext::translationDomain")
     QString translationDomain() const;
 #endif
 
@@ -182,7 +191,9 @@ public:
      * engine that is shared between KDeclarative objects only needs
      * to be setup once. The engine is setup for the component target
      * (runtime platform) that is configured at the time setupEngine()
-     * is called.
+     * is called. The following things are added to the engine:
+     * - a KIOAccessManagerFactory, replacing any existing stock QQmlNetworkAccessManagerFactory
+     * - a QML icon provider, enabling the Image {} element to load images using the scheme "image:/"
      *
      * @param engine the engine to setup
      * @sa setupContext(), componentsTarget()
