@@ -24,9 +24,8 @@ import org.kde.kcm 1.1 as KCM
  *     footer: Item {...}
  * }
  * @endcode
- * @inherits org.kde.kirigami.Page
  */
-Kirigami.Page {
+AbstractKCM {
     id: root
 
     /**
@@ -45,7 +44,6 @@ Kirigami.Page {
      */
     property alias view: scroll.view
 
-    title: kcm.name
     implicitWidth: {
         var width = 0;
 
@@ -63,21 +61,6 @@ Kirigami.Page {
     implicitHeight: view.implicitCellHeight * 3 + (header ? header.height : 0) + (footer ? footer.height : 0) + Kirigami.Units.gridUnit
 
     flickable: scroll.view
-
-    leftPadding: Kirigami.Settings.isMobile ? 0 : headerParent.leftPadding
-    topPadding: headerParent.contentItem ? 0 : leftPadding
-    rightPadding: leftPadding
-    bottomPadding: footerParent.contentItem ? 0 : leftPadding
-
-    header: QtControls.Control {
-        id: headerParent
-        height: contentItem ? implicitHeight : 0
-    }
-
-    footer: QtControls.Control {
-        id: footerParent
-        height: contentItem ? implicitHeight : 0
-    }
 
     Component.onCompleted: {
         if (footer && footer != footerParent) {

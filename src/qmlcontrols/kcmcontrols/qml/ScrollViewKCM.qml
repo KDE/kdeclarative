@@ -25,36 +25,15 @@ import "." as Priv
  *     footer: Item {...}
  * }
  * @endcode
- * @inherits org.kde.kirigami.Page
  */
-Kirigami.Page {
+AbstractKCM {
     id: root
 
     /**
-     * view: GridView
+     * view: ScrollView
      * Exposes the internal flickable
      */
     property alias view: scroll.view
-
-    title: kcm.name
-    implicitWidth: Kirigami.Units.gridUnit * 20
-    implicitHeight: view && view.contentHeight > 0 ? Math.min(view.contentHeight, Kirigami.Units.gridUnit * 20) : Kirigami.Units.gridUnit * 20
-    //flickable: scroll.view
-
-    leftPadding: Kirigami.Settings.isMobile ? 0 : headerParent.leftPadding
-    topPadding: headerParent.contentItem ? 0 : leftPadding
-    rightPadding: leftPadding
-    bottomPadding: footerParent.contentItem ? 0 : leftPadding
-
-    header: QtControls.Control {
-        id: headerParent
-        height: contentItem ? implicitHeight : 0
-    }
-
-    footer: QtControls.Control {
-        id: footerParent
-        height: contentItem ? implicitHeight : 0
-    }
 
     Component.onCompleted: {
         if (footer && footer != footerParent) {
