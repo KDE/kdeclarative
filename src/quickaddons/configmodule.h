@@ -74,12 +74,16 @@ class ConfigModulePrivate;
  *
  * The QML part must be in the KPackage format, installed under share/kpackage/kcms.
  * @see KPackage::Package
+ * 
  * The package must have the same name as the KAboutData componentName, to be installed
  * by CMake with the command:
- * kpackage_install_package(package kcm_componentName kcms)
- * given "package" is the subdirectory in the source tree where the package sources are
+ * \code
+ * kpackage_install_package(packagedir kcm_componentName kcms)
+ * \endcode
+ * The "packagedir" is the subdirectory in the source tree where the package sources are
  * located, and "kcm_componentName" is the componentname passed to the KAboutData in the
- * C++ part.
+ * C++ part. Finally "kcms" is the literal string "kcms", so that the package is
+ * installed as a configuration module (and not some other kind of package).
  * The main config dialog UI will be the file
  * ui/main.qml from the package (or what X-KPackage-MainScript value is in the
  * package metadata desktop file).
