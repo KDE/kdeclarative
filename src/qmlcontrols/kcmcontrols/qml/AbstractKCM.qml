@@ -70,5 +70,16 @@ Kirigami.Page {
             header.visible = true
             h.parent = headerParent
         }
+
+        //Search overlaysheets in contentItem, parent to root if found
+        for (let i in contentItem.data) {
+            let child = contentItem.data[i];
+            if (child instanceof Kirigami.OverlaySheet) {
+                if (!child.parent) {
+                    child.parent = root;
+                }
+                root.data.push(child);
+            }
+        }
     }
 }
