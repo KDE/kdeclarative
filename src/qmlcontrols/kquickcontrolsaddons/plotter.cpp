@@ -23,8 +23,6 @@
 #include <QSGTexture>
 #include <QSGSimpleTextureNode>
 
-#include <QQuickWindow>
-#include <QQuickItem>
 
 #include <QDebug>
 

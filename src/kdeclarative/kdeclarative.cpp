@@ -11,7 +11,6 @@
 #include "qmlobject.h"
 
 #include <QCoreApplication>
-#include <QQmlEngine>
 #include <QQmlDebuggingEnabler>
 #include <QQmlContext>
 

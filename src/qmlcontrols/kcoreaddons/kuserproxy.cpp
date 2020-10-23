@@ -12,7 +12,6 @@
 #include <QTextStream>
 #include <QUrl>
 
-#include <KDirWatch>
 
 
 const QString etcPasswd = QStringLiteral("/etc/passwd");

@@ -7,7 +7,6 @@
 #include "qmlobject.h"
 #include "private/kdeclarative_p.h"
 
-#include <QQmlComponent>
 #include <QQmlEngine>
 #include <QQmlContext>
 #include <QQuickItem>

@@ -7,7 +7,6 @@
 
 #include "quickviewsharedengine.h"
 
-#include <QUrl>
 #include <QQmlEngine>
 #include <QQmlContext>
 #include <QQuickItem>

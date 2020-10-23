@@ -7,7 +7,6 @@
 */
 
 #include "DeclarativeDragDropEvent.h"
-#include "DeclarativeMimeData.h"
 
 DeclarativeDragDropEvent::DeclarativeDragDropEvent(QDropEvent* e, DeclarativeDropArea* parent) :
     QObject(parent),
