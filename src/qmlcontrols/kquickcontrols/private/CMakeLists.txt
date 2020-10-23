@@ -14,6 +14,7 @@ target_link_libraries(kquickcontrolsprivateplugin
         Qt5::Qml
         KF5::I18n
         KF5::ConfigGui
+        KF5::GuiAddons
         KF5::WidgetsAddons
         KF5::WindowSystem
         KF5::GlobalAccel
