@@ -62,24 +62,6 @@ AbstractKCM {
 
     flickable: scroll.view
 
-    Component.onCompleted: {
-        if (footer && footer != footerParent) {
-            var f = footer
-
-            footerParent.contentItem = f
-            footer = footerParent
-            f.parent = footerParent
-        }
-
-        if (header && header != headerParent) {
-            var f = header
-
-            headerParent.contentItem = f
-            header = headerParent
-            f.parent = headerParent
-        }
-    }
-
     KCM.GridView {
         id: scroll
         anchors.fill: parent

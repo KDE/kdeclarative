@@ -35,23 +35,6 @@ AbstractKCM {
      */
     property alias view: scroll.view
 
-    Component.onCompleted: {
-        if (footer && footer != footerParent) {
-            var f = footer
-
-            footerParent.contentItem = f
-            footer = footerParent
-            f.parent = footerParent
-        }
-
-        if (header && header != headerParent) {
-            var h = header
-
-            headerParent.contentItem = h
-            header = headerParent
-            h.parent = headerParent
-        }
-    }
     Priv.ScrollView {
         id: scroll
         anchors.fill: parent
