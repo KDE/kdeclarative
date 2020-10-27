@@ -36,11 +36,6 @@ Kirigami.ScrollablePage {
 
     title: kcm.name
 
-    leftPadding: Kirigami.Settings.isMobile ? 0 : headerParent.leftPadding
-    topPadding: headerParent.contentItem ? 0 : leftPadding
-    rightPadding: leftPadding
-    bottomPadding: footerParent.contentItem ? 0 : leftPadding
-
     header: QtControls.Control {
         id: headerParent
         height: contentItem ? implicitHeight : 0
