@@ -37,7 +37,7 @@ Kirigami.Page {
 
     title: kcm.name
 
-    leftPadding: Kirigami.Settings.isMobile ? 0 : headerParent.leftPadding
+    leftPadding: headerParent.leftPadding
     topPadding: headerParent.contentItem ? 0 : leftPadding
     rightPadding: leftPadding
     bottomPadding: footerParent.contentItem ? 0 : leftPadding
