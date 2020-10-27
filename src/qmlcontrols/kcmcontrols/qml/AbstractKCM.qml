@@ -37,7 +37,7 @@ Kirigami.Page {
 
     title: kcm.name
 
-    leftPadding: headerParent.leftPadding
+    leftPadding: 6 // Layout_ChildMarginWidth from Breeze
     topPadding: headerParent.contentItem ? 0 : leftPadding
     rightPadding: leftPadding
     bottomPadding: footerParent.contentItem ? 0 : leftPadding
@@ -45,11 +45,19 @@ Kirigami.Page {
     header: QtControls.Control {
         id: headerParent
         height: contentItem ? implicitHeight : 0
+        leftPadding: 6 // Layout_ChildMarginWidth from Breeze
+        topPadding: leftPadding
+        rightPadding: leftPadding
+        bottomPadding: leftPadding
     }
 
     footer: QtControls.Control {
         id: footerParent
         height: contentItem ? implicitHeight : 0
+        leftPadding: 6 // Layout_ChildMarginWidth from Breeze
+        topPadding: leftPadding
+        rightPadding: leftPadding
+        bottomPadding: leftPadding
     }
 
     Component.onCompleted: {
