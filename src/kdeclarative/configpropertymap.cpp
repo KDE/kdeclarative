@@ -111,6 +111,7 @@ void ConfigPropertyMapPrivate::loadConfig(ConfigPropertyMapPrivate::LoadConfigOp
 
     const auto &items = config.data()->items();
     for (KConfigSkeletonItem *item : items) {
+        q->insert(item->key() + QStringLiteral("Default"), item->getDefault());
         q->insert(item->key(), item->property());
         if (option == EmitValueChanged) {
             emit q->valueChanged(item->key(), item->property());
