@@ -49,6 +49,13 @@ Kirigami.Page {
         topPadding: leftPadding
         rightPadding: leftPadding
         bottomPadding: leftPadding
+
+        Kirigami.Separator {
+            visible: Kirigami.Settings.isMobile
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+        }
     }
 
     footer: QtControls.Control {
@@ -58,6 +65,13 @@ Kirigami.Page {
         topPadding: leftPadding
         rightPadding: leftPadding
         bottomPadding: leftPadding
+
+        Kirigami.Separator {
+            visible: Kirigami.Settings.isMobile
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+        }
     }
 
     Component.onCompleted: {
