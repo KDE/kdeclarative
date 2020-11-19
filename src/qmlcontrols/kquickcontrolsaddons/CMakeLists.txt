@@ -28,6 +28,14 @@ set(kquickcontrolsaddons_SRCS
 
 )
 
+ecm_qt_declare_logging_category(kquickcontrolsaddons_SRCS
+    HEADER kquickcontrolsaddons_debug.h
+    IDENTIFIER KQUICKCONTROLSADDONS_LOG
+    CATEGORY_NAME kf.declarative.quickcontrolsaddons
+    DESCRIPTION "KDeclarative (KQuickControlsAddons)"
+    EXPORT KDECLARATIVE
+)
+
 add_library(kquickcontrolsaddonsplugin ${kquickcontrolsaddons_SRCS})
 
 target_link_libraries(kquickcontrolsaddonsplugin

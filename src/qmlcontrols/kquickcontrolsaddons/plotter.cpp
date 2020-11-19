@@ -10,6 +10,8 @@
 
 #include "plotter.h"
 
+#include "kquickcontrolsaddons_debug.h"
+
 #include <QOpenGLContext>
 #include <QOpenGLShaderProgram>
 
@@ -26,6 +28,8 @@
 
 #include <math.h>
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
+
 // completely arbitrary
 static int s_defaultSampleSize = 40;
 
@@ -35,6 +39,7 @@ PlotData::PlotData(QObject *parent)
     , m_max(std::numeric_limits<qreal>::min())
     , m_sampleSize(s_defaultSampleSize)
 {
+    qCWarning(KQUICKCONTROLSADDONS_LOG) << "org.kde.kquickcontrolsaddons.PlotData is deprecated. Use classes from the KQuickCharts framework instead";
     m_values.reserve(s_defaultSampleSize);
     for (int i = 0; i < s_defaultSampleSize; ++i) {
         m_values << 0.0;
@@ -318,6 +323,7 @@ Plotter::Plotter(QQuickItem *parent)
     , m_stacked(true)
     , m_autoRange(true)
 {
+    qCWarning(KQUICKCONTROLSADDONS_LOG) << "org.kde.kquickcontrolsaddons.Plotter is deprecated. Use classes from the KQuickCharts framework instead";
     setFlag(ItemHasContents);
     connect(this, &Plotter::windowChanged, this, [this]() {
         if (m_window) {
@@ -956,3 +962,5 @@ void Plotter::normalizeData()
         m_mutex.unlock();
     }
 }
+
+#endif

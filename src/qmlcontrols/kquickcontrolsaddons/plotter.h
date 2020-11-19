@@ -33,11 +33,16 @@
 
 class PlotSGNode;
 
+#include "../../kdeclarative/kdeclarative_export.h"
+
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
+
 /**
  * a Plotter can draw a graph of values arriving from an arbitrary number of data sources
  * to show their evolution in time.
  * an example can be a plot of the network transfer speed or CPU temperature over time.
  * Multiple plots can be fitted in the same graph, either stacked or intersected.
+ * @deprecated since 5.101, use the KQuickCharts framework instead
  */
 class PlotData : public QObject
 {
@@ -256,4 +261,5 @@ private:
     QMutex m_mutex;
 };
 
+#endif
 #endif

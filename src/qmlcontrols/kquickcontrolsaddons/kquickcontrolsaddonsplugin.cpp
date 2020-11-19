@@ -21,8 +21,12 @@
 #include "qimageitem.h"
 #include "qpixmapitem.h"
 
+#include "../../kdeclarative/kdeclarative_export.h"
+
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
 #if HAVE_EPOXY
 #include "plotter.h"
+#endif
 #endif
 
 static QObject *kcmshell_singleton_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
@@ -56,9 +60,11 @@ void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
                                                              QStringLiteral("Cannot create items of type FallbackTapHandlerMouseEvent"));
     qmlRegisterType<FallbackTapHandler>(uri, 2, 1, "FallbackTapHandler");
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
 #if HAVE_EPOXY
     qmlRegisterType<PlotData>(uri, 2, 0, "PlotData");
     qmlRegisterType<Plotter>(uri, 2, 0, "Plotter");
+#endif
 #endif
     qmlRegisterAnonymousType<QAbstractItemModel>(uri, 1);
     qRegisterMetaType<QModelIndex>("QModelIndex");
