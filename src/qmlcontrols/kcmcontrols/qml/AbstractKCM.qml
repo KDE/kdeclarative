@@ -16,7 +16,7 @@ import org.kde.kcm 1.1 as KCM
  * their own scrollviews.
  * Most of the times SimpleKCM should be used instead
  * @code
- * import org.kde.kcm 1.1 as KCM
+ * import org.kde.kcm 1.4 as KCM
  * import org.kde.kirigami 2.3 as Kirigami
  * KCM.AbstractKCM {
  *     RowLayout {
