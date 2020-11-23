@@ -22,7 +22,8 @@ namespace KQuickAddons
      * Load settings from the appConfig (app + kdeglobals) which relate to QtQuick rendering.
      * This will then set relevant default QWindow and QSurfaceFormat flags, or in some cases environment variables
      *
-     * This function must be called at the start of your application before any windows are created.
+     * This function must be called at the start of your application before any windows are created,
+     * but after an instance of QGuiApplication is already available.
      *
      * @since 5.26
      */
