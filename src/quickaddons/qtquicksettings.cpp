@@ -35,5 +35,9 @@ void KQuickAddons::QtQuickSettings::init()
         format.setOption(QSurfaceFormat::ResetNotification);
     }
     QSurfaceFormat::setDefaultFormat(format);
+#ifndef NDEBUG
+    if (qEnvironmentVariableIsSet("KDE_ENABLE_QML_DEBUG")) {
+        QQmlDebuggingEnabler enabler;
+    }
+#endif
 }
-
