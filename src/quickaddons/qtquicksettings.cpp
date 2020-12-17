@@ -27,6 +27,14 @@ static bool checkBackend()
     if (!QQuickWindow::sceneGraphBackend().isEmpty()) {
         return true; // QtQuick is not configured to use the OpenGL backend
     }
+
+    // kwin wayland has it's own QPA, it is unable to create a GL context at this point.
+    // KF6 TODO, drop this . The issue will be resolved in future kwin releases.
+    QString platformName = qApp->platformName();
+    if (platformName == QLatin1String("wayland-org.kde.kwin.qpa")) {
+        return true;
+    }
+
     QOpenGLContext* gl = new QOpenGLContext();
     bool ok = gl->create();
     if (!ok) {
