@@ -28,13 +28,8 @@ MouseEventListener::MouseEventListener(QQuickItem *parent)
     m_pressAndHoldTimer->setSingleShot(true);
     connect(m_pressAndHoldTimer, SIGNAL(timeout()),
             this, SLOT(handlePressAndHold()));
-#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-    qmlRegisterType<KDeclarativeMouseEvent>();
-    qmlRegisterType<KDeclarativeWheelEvent>();
-#else
     qmlRegisterAnonymousType<KDeclarativeMouseEvent>("org.kde.kquickcontrolsaddons", 1);
     qmlRegisterAnonymousType<KDeclarativeWheelEvent>("org.kde.kquickcontrolsaddons", 1);
-#endif
 
     setFiltersChildMouseEvents(true);
     setAcceptedMouseButtons(Qt::LeftButton|Qt::RightButton|Qt::MiddleButton|Qt::XButton1|Qt::XButton2);
@@ -217,11 +212,7 @@ void MouseEventListener::wheelEvent(QWheelEvent *we)
         return;
     }
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-    KDeclarativeWheelEvent dwe(we->pos(), we->globalPos(), we->angleDelta(), we->buttons(), we->modifiers(), we->orientation());
-#else
     KDeclarativeWheelEvent dwe(we->position().toPoint(), we->globalPosition().toPoint(), we->angleDelta(), we->buttons(), we->modifiers(), Qt::Vertical /* HACK, deprecated, remove */);
-#endif
     emit wheelMoved(&dwe);
 }
 
@@ -356,11 +347,7 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
     case QEvent::Wheel: {
         m_lastEvent = event;
         QWheelEvent *we = static_cast<QWheelEvent *>(event);
-#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-        KDeclarativeWheelEvent dwe(we->pos(), we->globalPos(), we->angleDelta(), we->buttons(), we->modifiers(), we->orientation());
-#else
         KDeclarativeWheelEvent dwe(we->position().toPoint(), we->globalPosition().toPoint(), we->angleDelta(), we->buttons(), we->modifiers(), Qt::Vertical /* HACK, deprecated, remove */);
-#endif
         emit wheelMoved(&dwe);
         break;
     }

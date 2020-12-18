@@ -19,11 +19,7 @@ void DragAndDropPlugin::registerTypes(const char *uri)
 
     qmlRegisterType<DeclarativeDropArea>(uri, 2, 0, "DropArea");
     qmlRegisterType<DeclarativeDragArea>(uri, 2, 0, "DragArea");
-#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-    qmlRegisterType<QMimeData>();
-#else
     qmlRegisterAnonymousType<QMimeData>(uri, 1);
-#endif
     qmlRegisterUncreatableType<DeclarativeMimeData>(uri, 2, 0, "MimeData", QStringLiteral("MimeData cannot be created from QML."));
     qmlRegisterUncreatableType<DeclarativeDragDropEvent>(uri, 2, 0, "DragDropEvent", QStringLiteral("DragDropEvent cannot be created from QML."));
     qmlRegisterUncreatableType<MimeDataWrapper>(uri, 2, 0, "MimeDataWrapper", QStringLiteral("DragDropEvent cannot be created from QML."));

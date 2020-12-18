@@ -55,11 +55,7 @@ void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
     qmlRegisterType<PlotData>(uri, 2, 0, "PlotData");
     qmlRegisterType<Plotter>(uri, 2, 0, "Plotter");
 #endif
-#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-    qmlRegisterType<QAbstractItemModel>();
-#else
     qmlRegisterAnonymousType<QAbstractItemModel>(uri, 1);
-#endif
     qRegisterMetaType<QModelIndex>("QModelIndex");
 }
 

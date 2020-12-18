@@ -65,11 +65,7 @@ void EventGenerator::sendWheelEvent(QQuickItem *item, int x, int y, const QPoint
 
     QPointF pos(x, y);
     QPointF globalPos(item->window()->mapToGlobal(item->mapToScene(pos).toPoint()));
-#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
-    QWheelEvent ev(pos, globalPos, pixelDelta, angleDelta, /* qt4Delta */ 0, /* qt4Orientation */ Qt::Horizontal, buttons, modifiers);
-#else
     QWheelEvent ev(pos, globalPos, pixelDelta, angleDelta, buttons, modifiers, Qt::ScrollUpdate, false /*not inverted*/);
-#endif
     QGuiApplication::sendEvent(item, &ev);
 }
 
