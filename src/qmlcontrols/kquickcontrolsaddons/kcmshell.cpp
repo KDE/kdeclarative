@@ -27,17 +27,23 @@ void KCMShell::open(const QStringList &names) const
     job->start();
 }
 
-void KCMShell::openSystemSettings(const QString &name) const
+void KCMShell::openSystemSettings(const QString &name, const QStringList &args) const
 {
     const QString systemSettings = QStringLiteral("systemsettings");
     KIO::CommandLauncherJob *job = nullptr;
 
+    QStringList cmdline{name};
+    if (!args.isEmpty()) {
+        cmdline.append(QStringLiteral("--args"));
+        cmdline.append(args.join(QLatin1Char(' ')));
+    }
+
     // Open in System Settings if it's available'
     if (KService::serviceByDesktopName(systemSettings)) {
-        job = new KIO::CommandLauncherJob(QStringLiteral("systemsettings5"), QStringList(name));
+        job = new KIO::CommandLauncherJob(QStringLiteral("systemsettings5"), cmdline);
         job->setDesktopName(systemSettings);
     } else {
-        job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), QStringList(name));
+        job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), cmdline);
     }
 
     job->start();

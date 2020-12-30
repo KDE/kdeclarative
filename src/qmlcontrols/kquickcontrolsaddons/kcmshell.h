@@ -30,10 +30,11 @@ public Q_SLOTS:
      *
      * @param name A single kcm name to open in System Settings. Opening multiple
      * KCMs using this function is not supported; to do that, use kcmshell.open.
+     * @param args Additional arguments to pass to the module.
      *
      * @since 5.71
      */
-    void openSystemSettings(const QString &name) const;
+    void openSystemSettings(const QString &name, const QStringList &args = QStringList()) const;
 
      /**
      * Opens the specified module in InfCenter. Only a single KCM name may
