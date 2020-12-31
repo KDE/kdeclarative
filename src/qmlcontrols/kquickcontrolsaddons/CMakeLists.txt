@@ -17,12 +17,6 @@ set(kquickcontrolsaddons_SRCS
     icondialog.cpp
 )
 
-if (HAVE_EPOXY)
-    set(kquickcontrolsaddons_SRCS ${kquickcontrolsaddons_SRCS} plotter.cpp)
-    set(KQUICKCONTROLSADDONS_EXTRA_LIBS ${epoxy_LIBRARY})
-    include_directories(${epoxy_INCLUDE_DIR})
-endif()
-
 add_library(kquickcontrolsaddonsplugin SHARED ${kquickcontrolsaddons_SRCS})
 
 target_link_libraries(kquickcontrolsaddonsplugin
@@ -33,8 +27,12 @@ target_link_libraries(kquickcontrolsaddonsplugin
         KF5::IconThemes
         KF5::KIOWidgets
         KF5::QuickAddons
-        KF5::ConfigCore
-        ${KQUICKCONTROLSADDONS_EXTRA_LIBS})
+        KF5::ConfigCore)
+
+if (HAVE_EPOXY)
+    target_sources(kquickcontrolsaddonsplugin PRIVATE plotter.cpp)
+    target_link_libraries(kquickcontrolsaddonsplugin epoxy::epoxy)
+endif()
 
 install(TARGETS kquickcontrolsaddonsplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kquickcontrolsaddons)
 
