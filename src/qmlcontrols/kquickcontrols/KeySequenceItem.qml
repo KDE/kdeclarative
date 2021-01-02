@@ -106,7 +106,7 @@ RowLayout {
         id: clearButton
         Layout.fillHeight: true
         Layout.preferredWidth: height
-        onClicked: root.keySequence = undefined
+        onClicked: root.keySequence = ""
 
         //icon name determines the direction of the arrow, NOT the direction of the app layout
         icon.name: Qt.application.layoutDirection == Qt.LeftToRight ? "edit-clear-locationbar-rtl" : "edit-clear-locationbar-ltr"
