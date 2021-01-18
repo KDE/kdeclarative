@@ -66,7 +66,7 @@ public:
     void setAccepted(bool accepted) {
         if (m_accepted != accepted) {
             m_accepted = accepted;
-            emit acceptedChanged();
+            Q_EMIT acceptedChanged();
         }
     }
 

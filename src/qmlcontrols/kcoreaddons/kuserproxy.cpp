@@ -53,12 +53,12 @@ void KUserProxy::update(const QString &path)
         // make the Image reload.
         // Needs cache: false in the Image item to actually reload
         m_temporaryEmptyFaceIconPath = true;
-        emit faceIconUrlChanged();
+        Q_EMIT faceIconUrlChanged();
         m_temporaryEmptyFaceIconPath = false;
-        emit faceIconUrlChanged();
+        Q_EMIT faceIconUrlChanged();
     } else if (path == etcPasswd) {
         m_user = KUser();
-        emit nameChanged();
+        Q_EMIT nameChanged();
     }
 }
 

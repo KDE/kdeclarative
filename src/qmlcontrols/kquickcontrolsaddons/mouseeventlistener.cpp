@@ -57,7 +57,7 @@ void MouseEventListener::setCursorShape(Qt::CursorShape shape)
 
     setCursor(shape);
 
-    emit cursorShapeChanged();
+    Q_EMIT cursorShapeChanged();
 }
 
 void MouseEventListener::setAcceptedButtons(Qt::MouseButtons buttons)
@@ -67,7 +67,7 @@ void MouseEventListener::setAcceptedButtons(Qt::MouseButtons buttons)
     }
 
     m_acceptedButtons = buttons;
-    emit acceptedButtonsChanged();
+    Q_EMIT acceptedButtonsChanged();
 }
 
 void MouseEventListener::setHoverEnabled(bool enable)
@@ -77,7 +77,7 @@ void MouseEventListener::setHoverEnabled(bool enable)
     }
 
     setAcceptHoverEvents(enable);
-    emit hoverEnabledChanged(enable);
+    Q_EMIT hoverEnabledChanged(enable);
 }
 
 bool MouseEventListener::hoverEnabled() const
@@ -95,7 +95,7 @@ void MouseEventListener::hoverEnterEvent(QHoverEvent *event)
     Q_UNUSED(event);
 
     m_containsMouse = true;
-    emit containsMouseChanged(true);
+    Q_EMIT containsMouseChanged(true);
 }
 
 void MouseEventListener::hoverLeaveEvent(QHoverEvent *event)
@@ -103,7 +103,7 @@ void MouseEventListener::hoverLeaveEvent(QHoverEvent *event)
     Q_UNUSED(event);
 
     m_containsMouse = false;
-    emit containsMouseChanged(false);
+    Q_EMIT containsMouseChanged(false);
 }
 
 void MouseEventListener::hoverMoveEvent(QHoverEvent * event)
@@ -119,7 +119,7 @@ void MouseEventListener::hoverMoveEvent(QHoverEvent * event)
     }
 
     KDeclarativeMouseEvent dme(event->pos().x(), event->pos().y(), screenPos.x(), screenPos.y(), Qt::NoButton, Qt::NoButton, event->modifiers(), nullptr, Qt::MouseEventNotSynthesized);
-    emit positionChanged(&dme);
+    Q_EMIT positionChanged(&dme);
 }
 
 bool MouseEventListener::containsMouse() const
@@ -154,8 +154,8 @@ void MouseEventListener::mousePressEvent(QMouseEvent *me)
     }
 
     m_pressed = true;
-    emit pressed(&dme);
-    emit pressedChanged();
+    Q_EMIT pressed(&dme);
+    Q_EMIT pressedChanged();
 
     if (dme.isAccepted()) {
         me->setAccepted(true);
@@ -177,7 +177,7 @@ void MouseEventListener::mouseMoveEvent(QMouseEvent *me)
     }
 
     KDeclarativeMouseEvent dme(me->pos().x(), me->pos().y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()), me->source());
-    emit positionChanged(&dme);
+    Q_EMIT positionChanged(&dme);
 
     if (dme.isAccepted()) {
         me->setAccepted(true);
@@ -193,11 +193,11 @@ void MouseEventListener::mouseReleaseEvent(QMouseEvent *me)
 
     KDeclarativeMouseEvent dme(me->pos().x(), me->pos().y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()), me->source());
     m_pressed = false;
-    emit released(&dme);
-    emit pressedChanged();
+    Q_EMIT released(&dme);
+    Q_EMIT pressedChanged();
 
     if (boundingRect().contains(me->pos()) && m_pressAndHoldTimer->isActive()) {
-        emit clicked(&dme);
+        Q_EMIT clicked(&dme);
         m_pressAndHoldTimer->stop();
     }
 
@@ -213,13 +213,13 @@ void MouseEventListener::wheelEvent(QWheelEvent *we)
     }
 
     KDeclarativeWheelEvent dwe(we->position().toPoint(), we->globalPosition().toPoint(), we->angleDelta(), we->buttons(), we->modifiers(), Qt::Vertical /* HACK, deprecated, remove */);
-    emit wheelMoved(&dwe);
+    Q_EMIT wheelMoved(&dwe);
 }
 
 void MouseEventListener::handlePressAndHold()
 {
     if (m_pressed) {
-        emit pressAndHold(m_pressAndHoldEvent);
+        Q_EMIT pressAndHold(m_pressAndHoldEvent);
 
         delete m_pressAndHoldEvent;
         m_pressAndHoldEvent = nullptr;
@@ -256,8 +256,8 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
         //qDebug() << "pressed in sceneEventFilter";
         m_buttonDownPos = me->screenPos();
         m_pressed = true;
-        emit pressed(&dme);
-        emit pressedChanged();
+        Q_EMIT pressed(&dme);
+        Q_EMIT pressedChanged();
 
         if (dme.isAccepted()) {
             return true;
@@ -283,7 +283,7 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
 
         KDeclarativeMouseEvent dme(myPos.x(), myPos.y(), screenPos.x(), screenPos.y(), Qt::NoButton, Qt::NoButton, he->modifiers(), nullptr, Qt::MouseEventNotSynthesized);
         //qDebug() << "positionChanged..." << dme.x() << dme.y();
-        emit positionChanged(&dme);
+        Q_EMIT positionChanged(&dme);
 
         if (dme.isAccepted()) {
             return true;
@@ -311,7 +311,7 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
             delete m_pressAndHoldEvent;
             m_pressAndHoldEvent = new KDeclarativeMouseEvent(myPos.x(), myPos.y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()), me->source());
         }
-        emit positionChanged(&dme);
+        Q_EMIT positionChanged(&dme);
 
         if (dme.isAccepted()) {
             return true;
@@ -326,11 +326,11 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
         KDeclarativeMouseEvent dme(myPos.x(), myPos.y(), me->screenPos().x(), me->screenPos().y(), me->button(), me->buttons(), me->modifiers(), screenForGlobalPos(me->globalPos()), me->source());
         m_pressed = false;
 
-        emit released(&dme);
-        emit pressedChanged();
+        Q_EMIT released(&dme);
+        Q_EMIT pressedChanged();
 
         if (QPointF(me->screenPos() - m_buttonDownPos).manhattanLength() <= QGuiApplication::styleHints()->startDragDistance() && m_pressAndHoldTimer->isActive()) {
-            emit clicked(&dme);
+            Q_EMIT clicked(&dme);
             m_pressAndHoldTimer->stop();
         }
 
@@ -348,7 +348,7 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
         m_lastEvent = event;
         QWheelEvent *we = static_cast<QWheelEvent *>(event);
         KDeclarativeWheelEvent dwe(we->position().toPoint(), we->globalPosition().toPoint(), we->angleDelta(), we->buttons(), we->modifiers(), Qt::Vertical /* HACK, deprecated, remove */);
-        emit wheelMoved(&dwe);
+        Q_EMIT wheelMoved(&dwe);
         break;
     }
     default:
@@ -390,8 +390,8 @@ void MouseEventListener::handleUngrab()
         m_pressAndHoldTimer->stop();
 
         m_pressed = false;
-        emit pressedChanged();
+        Q_EMIT pressedChanged();
 
-        emit canceled();
+        Q_EMIT canceled();
     }
 }

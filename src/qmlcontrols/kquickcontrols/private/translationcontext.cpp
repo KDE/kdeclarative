@@ -34,7 +34,7 @@ void TranslationContext::setDomain(const QString &domain)
     }
 
     m_domain = domain;
-    emit domainChanged(domain);
+    Q_EMIT domainChanged(domain);
 }
 
 QString TranslationContext::i18n(const QString &message, const QString &param1, const QString &param2, const QString &param3, const QString &param4, const QString &param5, const QString &param6, const QString &param7, const QString &param8, const QString &param9, const QString &param10) const

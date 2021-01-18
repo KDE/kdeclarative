@@ -51,7 +51,7 @@ void PlotData::setColor(const QColor &color)
 
     m_color = color;
 
-    emit colorChanged();
+    Q_EMIT colorChanged();
 }
 
 QColor PlotData::color() const
@@ -103,7 +103,7 @@ void PlotData::setLabel(const QString &label)
     }
 
     m_label = label;
-    emit labelChanged();
+    Q_EMIT labelChanged();
 }
 
 void PlotData::addSample(qreal value)
@@ -126,7 +126,7 @@ void PlotData::addSample(qreal value)
         }
     }
 
-    emit valuesChanged();
+    Q_EMIT valuesChanged();
 }
 
 QList<qreal> PlotData::values() const
@@ -351,7 +351,7 @@ void Plotter::setSampleSize(int size)
     m_mutex.unlock();
 
     update();
-    emit sampleSizeChanged();
+    Q_EMIT sampleSizeChanged();
 }
 
 bool Plotter::isStacked() const
@@ -367,7 +367,7 @@ void Plotter::setStacked(bool stacked)
 
     m_stacked = stacked;
 
-    emit stackedChanged();
+    Q_EMIT stackedChanged();
     update();
 }
 
@@ -384,7 +384,7 @@ void Plotter::setAutoRange(bool autoRange)
 
     m_autoRange = autoRange;
 
-    emit autoRangeChanged();
+    Q_EMIT autoRangeChanged();
     normalizeData();
     update();
 }
@@ -406,7 +406,7 @@ void Plotter::setRangeMax(qreal max)
 
     m_rangeMax = max;
 
-    emit rangeMaxChanged();
+    Q_EMIT rangeMaxChanged();
     normalizeData();
     update();
 }
@@ -428,7 +428,7 @@ void Plotter::setRangeMin(qreal min)
 
     m_rangeMin = min;
 
-    emit rangeMinChanged();
+    Q_EMIT rangeMinChanged();
     normalizeData();
     update();
 }
@@ -441,7 +441,7 @@ void Plotter::setGridColor(const QColor &color)
 
     m_gridColor = color;
 
-    emit gridColorChanged();
+    Q_EMIT gridColorChanged();
 }
 
 QColor Plotter::gridColor() const
@@ -461,7 +461,7 @@ void Plotter::setHorizontalGridLineCount(int count)
     }
 
     m_horizontalLineCount = count;
-    emit horizontalGridLineCountChanged();
+    Q_EMIT horizontalGridLineCountChanged();
 }
 
 

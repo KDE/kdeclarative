@@ -203,7 +203,7 @@ void QuickViewSharedEngine::setResizeMode(ResizeMode mode)
 
     d->resizeMode = mode;
 
-    emit resizeModeChanged(mode);
+    Q_EMIT resizeModeChanged(mode);
 
     QQuickItem *item = qobject_cast<QQuickItem *>(d->qmlObject->rootObject());
     if (!item) {
@@ -220,7 +220,7 @@ void QuickViewSharedEngine::setSource(const QUrl &url)
     }
 
     d->qmlObject->setSource(url);
-    emit sourceChanged(url);
+    Q_EMIT sourceChanged(url);
 }
 
 QUrl QuickViewSharedEngine::source() const

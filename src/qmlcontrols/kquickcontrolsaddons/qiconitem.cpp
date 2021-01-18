@@ -39,7 +39,7 @@ void QIconItem::setIcon(const QVariant &icon)
     }
     m_changed = true;
     update();
-    emit iconChanged();
+    Q_EMIT iconChanged();
 }
 
 QIcon QIconItem::icon() const
@@ -60,7 +60,7 @@ void QIconItem::setState(QIconItem::State state)
 
     m_state = state;
     m_changed = true;
-    emit stateChanged(state);
+    Q_EMIT stateChanged(state);
     update();
 }
 
@@ -96,7 +96,7 @@ void QIconItem::setSmooth(const bool smooth)
     m_smooth = smooth;
     m_changed = true;
     update();
-    emit smoothChanged();
+    Q_EMIT smoothChanged();
 }
 
 bool QIconItem::smooth() const

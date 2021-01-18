@@ -65,7 +65,7 @@ void DeclarativeDragArea::setDelegate(QQuickItem *delegate)
     if (m_delegate != delegate) {
         //qDebug() << " ______________________________________________ " << delegate;
         m_delegate = delegate;
-        emit delegateChanged();
+        Q_EMIT delegateChanged();
     }
 }
 void DeclarativeDragArea::resetDelegate()
@@ -86,7 +86,7 @@ void DeclarativeDragArea::setSource(QQuickItem* source)
 {
     if (m_source != source) {
         m_source = source;
-        emit sourceChanged();
+        Q_EMIT sourceChanged();
     }
 }
 
@@ -126,7 +126,7 @@ void DeclarativeDragArea::setStartDragDistance(int distance)
     }
 
     m_startDragDistance = distance;
-    emit startDragDistanceChanged();
+    Q_EMIT startDragDistanceChanged();
 }
 
 // delegateImage
@@ -149,7 +149,7 @@ void DeclarativeDragArea::setDelegateImage(const QVariant &image)
         m_delegateImage = image.value<QIcon>().pixmap(QSize(48, 48)).toImage();
     }
 
-    emit delegateImageChanged();
+    Q_EMIT delegateImageChanged();
 }
 
 // enabled
@@ -161,7 +161,7 @@ void DeclarativeDragArea::setEnabled(bool enabled)
 {
     if (enabled != m_enabled) {
         m_enabled = enabled;
-        emit enabledChanged();
+        Q_EMIT enabledChanged();
     }
 }
 
@@ -174,7 +174,7 @@ void DeclarativeDragArea::setSupportedActions(Qt::DropActions actions)
 {
     if (actions != m_supportedActions) {
         m_supportedActions = actions;
-        emit supportedActionsChanged();
+        Q_EMIT supportedActionsChanged();
     }
 }
 
@@ -187,7 +187,7 @@ void DeclarativeDragArea::setDefaultAction(Qt::DropAction action)
 {
     if (action != m_defaultAction) {
         m_defaultAction = action;
-        emit defaultActionChanged();
+        Q_EMIT defaultActionChanged();
     }
 }
 
@@ -356,15 +356,15 @@ void DeclarativeDragArea::startDrag(const QImage &image)
     //setCursor(Qt::OpenHandCursor);    //TODO? Make a property for the cursor
 
     m_dragActive = true;
-    emit dragActiveChanged();
-    emit dragStarted();
+    Q_EMIT dragActiveChanged();
+    Q_EMIT dragStarted();
 
     Qt::DropAction action = drag->exec(m_supportedActions, m_defaultAction);
     setKeepMouseGrab(false);
 
     m_dragActive = false;
-    emit dragActiveChanged();
-    emit drop(action);
+    Q_EMIT dragActiveChanged();
+    Q_EMIT drop(action);
 
     ungrabMouse();
 }

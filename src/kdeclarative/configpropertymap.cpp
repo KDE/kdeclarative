@@ -114,7 +114,7 @@ void ConfigPropertyMapPrivate::loadConfig(ConfigPropertyMapPrivate::LoadConfigOp
         q->insert(item->key() + QStringLiteral("Default"), item->getDefault());
         q->insert(item->key(), item->property());
         if (option == EmitValueChanged) {
-            emit q->valueChanged(item->key(), item->property());
+            Q_EMIT q->valueChanged(item->key(), item->property());
         }
     }
 }

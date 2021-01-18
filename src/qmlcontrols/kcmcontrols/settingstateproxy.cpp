@@ -26,7 +26,7 @@ void SettingStateProxy::setConfigObject(KCoreConfigSkeleton *configObject)
     }
 
     m_configObject = configObject;
-    emit configObjectChanged();
+    Q_EMIT configObjectChanged();
     updateState();
     connectSetting();
 }
@@ -47,7 +47,7 @@ void SettingStateProxy::setSettingName(const QString &settingName)
     }
 
     m_settingName = settingName;
-    emit settingNameChanged();
+    Q_EMIT settingNameChanged();
     updateState();
     connectSetting();
 }
@@ -70,12 +70,12 @@ void SettingStateProxy::updateState()
 
     if (m_immutable != immutable) {
         m_immutable = immutable;
-        emit immutableChanged();
+        Q_EMIT immutableChanged();
     }
 
     if (m_defaulted != defaulted) {
         m_defaulted = defaulted;
-        emit defaultedChanged();
+        Q_EMIT defaultedChanged();
     }
 }
 

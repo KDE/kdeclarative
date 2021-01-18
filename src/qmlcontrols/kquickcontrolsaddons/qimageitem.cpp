@@ -29,11 +29,11 @@ void QImageItem::setImage(const QImage &image)
     m_image = image;
     updatePaintedRect();
     update();
-    emit nativeWidthChanged();
-    emit nativeHeightChanged();
-    emit imageChanged();
+    Q_EMIT nativeWidthChanged();
+    Q_EMIT nativeHeightChanged();
+    Q_EMIT imageChanged();
     if (oldImageNull != m_image.isNull()) {
-        emit nullChanged();
+        Q_EMIT nullChanged();
     }
 }
 
@@ -85,7 +85,7 @@ void QImageItem::setFillMode(QImageItem::FillMode mode)
     m_fillMode = mode;
     updatePaintedRect();
     update();
-    emit fillModeChanged();
+    Q_EMIT fillModeChanged();
 }
 
 void QImageItem::paint(QPainter *painter)
@@ -183,8 +183,8 @@ void QImageItem::updatePaintedRect()
 
     if (destRect != sourceRect) {
         m_paintedRect = destRect.toRect();
-        emit paintedHeightChanged();
-        emit paintedWidthChanged();
+        Q_EMIT paintedHeightChanged();
+        Q_EMIT paintedWidthChanged();
     }
 }
 

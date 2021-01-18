@@ -285,7 +285,7 @@ void QmlObjectPrivate::checkInitializationCompleted()
         errorPrint(component);
     }
 
-    emit q->finished();
+    Q_EMIT q->finished();
 }
 
 void QmlObject::completeInitialization(const QVariantHash &initialProperties)
@@ -317,7 +317,7 @@ void QmlObject::completeInitialization(const QVariantHash &initialProperties)
         if (!d->incubator.object()) {
             d->errorPrint(d->component);
         }
-        emit finished();
+        Q_EMIT finished();
     }
 }
 

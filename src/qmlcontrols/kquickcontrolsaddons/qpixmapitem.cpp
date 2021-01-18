@@ -30,11 +30,11 @@ void QPixmapItem::setPixmap(const QPixmap &pixmap)
     m_pixmap = pixmap;
     updatePaintedRect();
     update();
-    emit nativeWidthChanged();
-    emit nativeHeightChanged();
-    emit pixmapChanged();
+    Q_EMIT nativeWidthChanged();
+    Q_EMIT nativeHeightChanged();
+    Q_EMIT pixmapChanged();
     if (oldPixmapNull != m_pixmap.isNull()) {
-        emit nullChanged();
+        Q_EMIT nullChanged();
     }
 }
 
@@ -86,7 +86,7 @@ void QPixmapItem::setFillMode(QPixmapItem::FillMode mode)
     m_fillMode = mode;
     updatePaintedRect();
     update();
-    emit fillModeChanged();
+    Q_EMIT fillModeChanged();
 
 }
 
@@ -187,8 +187,8 @@ void QPixmapItem::updatePaintedRect()
 
     if (destRect != sourceRect) {
         m_paintedRect = destRect.toRect();
-        emit paintedHeightChanged();
-        emit paintedWidthChanged();
+        Q_EMIT paintedHeightChanged();
+        Q_EMIT paintedWidthChanged();
     }
 }
 

@@ -66,7 +66,7 @@ void SettingHighlighterPrivate::setTarget(QQuickItem *target)
     }
 
     m_target = target;
-    emit targetChanged();
+    Q_EMIT targetChanged();
 }
 
 bool SettingHighlighterPrivate::highlight() const
@@ -82,7 +82,7 @@ void SettingHighlighterPrivate::setHighlight(bool highlight)
 
     m_highlight = highlight;
     updateTarget();
-    emit highlightChanged();
+    Q_EMIT highlightChanged();
 }
 
 bool SettingHighlighterPrivate::defaultIndicatorVisible() const
@@ -99,7 +99,7 @@ void SettingHighlighterPrivate::setDefaultIndicatorVisible(bool enabled)
     m_enabled = enabled;
     updateTarget();
 
-    emit defaultIndicatorVisibleChanged(m_enabled);
+    Q_EMIT defaultIndicatorVisibleChanged(m_enabled);
 }
 
 void SettingHighlighterPrivate::updateTarget()

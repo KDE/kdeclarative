@@ -113,7 +113,7 @@ void ColumnProxyModel::setRootIndex(const QModelIndex& index)
     m_index = index;
     endResetModel();
     
-    emit rootIndexChanged();
+    Q_EMIT rootIndexChanged();
 }
 
 QModelIndex ColumnProxyModel::indexFromModel(QAbstractItemModel* model, int row, int column, const QModelIndex& parent)
@@ -168,7 +168,7 @@ QModelIndex ColumnProxyModel::indexAt(int row, const QModelIndex& parent) const
 void ColumnProxyModel::considerDataChanged(const QModelIndex& idxA, const QModelIndex& idxB)
 {
     if(idxA.parent()==m_index && idxB.parent()==m_index) {
-        emit dataChanged(proxyIndex(idxA), proxyIndex(idxB));
+        Q_EMIT dataChanged(proxyIndex(idxA), proxyIndex(idxB));
     }
 }
 

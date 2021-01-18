@@ -26,7 +26,7 @@ IconDialog::IconDialog(QObject *parent)
         connect(m_dialog.data(), &KIconDialog::newIconName, this, [this](const QString &newIconName) {
                 if (m_iconName != newIconName) {
                 m_iconName = newIconName;
-                emit iconNameChanged(newIconName);
+                Q_EMIT iconNameChanged(newIconName);
                 }
         });
 
@@ -55,7 +55,7 @@ void IconDialog::setIconSize(int iconSize)
 {
     if (m_dialog->iconSize() != iconSize) {
         m_iconSize = iconSize;
-        emit iconSizeChanged(iconSize);
+        Q_EMIT iconSizeChanged(iconSize);
     }
 }
 
@@ -68,7 +68,7 @@ void IconDialog::setTitle(const QString &title)
 {
     if (m_dialog->windowTitle() != title) {
         m_dialog->setWindowTitle(title);
-        emit titleChanged(title);
+        Q_EMIT titleChanged(title);
     }
 }
 
@@ -81,7 +81,7 @@ void IconDialog::setUser(bool user)
 {
     if (m_user != user) {
         m_user = user;
-        emit userChanged(user);
+        Q_EMIT userChanged(user);
     }
 }
 
@@ -96,7 +96,7 @@ void IconDialog::setCustomLocation(const QString &customLocation)
         m_dialog->setCustomLocation(customLocation);
 
         m_customLocation = customLocation;
-        emit customLocationChanged(customLocation);
+        Q_EMIT customLocationChanged(customLocation);
     }
 }
 
@@ -109,7 +109,7 @@ void IconDialog::setModality(Qt::WindowModality modality)
 {
     if (m_modality != modality) {
         m_modality = modality;
-        emit modalityChanged(modality);
+        Q_EMIT modalityChanged(modality);
     }
 }
 
@@ -165,7 +165,7 @@ void IconDialog::close()
 bool IconDialog::eventFilter(QObject *watched, QEvent *event)
 {
     if (watched == m_dialog.data() && (event->type() == QEvent::Show || event->type() == QEvent::Hide)) {
-        emit visibleChanged();
+        Q_EMIT visibleChanged();
     }
 
     return false;

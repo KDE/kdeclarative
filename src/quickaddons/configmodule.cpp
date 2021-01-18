@@ -213,8 +213,8 @@ void ConfigModule::push(const QString &fileName, const QVariantMap &propertyMap)
     }
 
     d->subPages << item;
-    emit pagePushed(item);
-    emit depthChanged(depth());
+    Q_EMIT pagePushed(item);
+    Q_EMIT depthChanged(depth());
     setCurrentIndex(d->currentIndex + 1);
 }
 
@@ -226,8 +226,8 @@ void ConfigModule::push(QQuickItem *item)
     }
 
     d->subPages << item;
-    emit pagePushed(item);
-    emit depthChanged(depth());
+    Q_EMIT pagePushed(item);
+    Q_EMIT depthChanged(depth());
     setCurrentIndex(d->currentIndex + 1);
 }
 
@@ -237,8 +237,8 @@ void ConfigModule::pop()
         return;
     }
     QQuickItem *page = d->subPages.takeLast();
-    emit pageRemoved();
-    emit depthChanged(depth());
+    Q_EMIT pageRemoved();
+    Q_EMIT depthChanged(depth());
     page->deleteLater();
 
     setCurrentIndex(qMin(d->currentIndex, depth() - 1));
@@ -246,7 +246,7 @@ void ConfigModule::pop()
 
 void ConfigModule::showPassiveNotification(const QString &message, const QVariant &timeout, const QString &actionText, const QJSValue &callBack)
 {
-    emit passiveNotificationRequested(message, timeout, actionText, callBack);
+    Q_EMIT passiveNotificationRequested(message, timeout, actionText, callBack);
 }
 
 ConfigModule::Buttons ConfigModule::buttons() const
@@ -261,7 +261,7 @@ void ConfigModule::setButtons(const KQuickAddons::ConfigModule::Buttons buttons)
     }
 
     d->_buttons = buttons;
-    emit buttonsChanged();
+    Q_EMIT buttonsChanged();
 }
 
 void ConfigModule::setNeedsAuthorization(bool needsAuth)
@@ -279,8 +279,8 @@ void ConfigModule::setNeedsAuthorization(bool needsAuth)
         d->_authActionName = QString();
     }
 
-    emit needsAuthorizationChanged();
-    emit authActionNameChanged();
+    Q_EMIT needsAuthorizationChanged();
+    Q_EMIT authActionNameChanged();
 }
 
 bool ConfigModule::needsAuthorization() const
@@ -310,7 +310,7 @@ void ConfigModule::setColumnWidth(int width)
     }
 
     d->_columnWidth = width;
-    emit columnWidthChanged(width);
+    Q_EMIT columnWidthChanged(width);
 }
 
 int ConfigModule::depth() const
@@ -326,7 +326,7 @@ void ConfigModule::setCurrentIndex(int index)
 
     d->currentIndex = index;
 
-    emit currentIndexChanged(index);
+    Q_EMIT currentIndexChanged(index);
 }
 
 int ConfigModule::currentIndex() const
@@ -343,8 +343,8 @@ void ConfigModule::setAuthActionName(const QString &name)
     d->_authActionName = name;
     d->_needsAuthorization = true;
 
-    emit needsAuthorizationChanged();
-    emit authActionNameChanged();
+    Q_EMIT needsAuthorizationChanged();
+    Q_EMIT authActionNameChanged();
 }
 
 QString ConfigModule::authActionName() const
@@ -405,7 +405,7 @@ void ConfigModule::setRootOnlyMessage(const QString &message)
     }
 
     d->_rootOnlyMessage = message;
-    emit rootOnlyMessageChanged();
+    Q_EMIT rootOnlyMessageChanged();
 }
 
 QString ConfigModule::rootOnlyMessage() const
@@ -421,7 +421,7 @@ void ConfigModule::setUseRootOnlyMessage(bool on)
 
     d->_useRootOnlyMessage = on;
 
-    emit useRootOnlyMessageChanged();
+    Q_EMIT useRootOnlyMessageChanged();
 }
 
 bool ConfigModule::useRootOnlyMessage() const
@@ -442,7 +442,7 @@ void ConfigModule::setQuickHelp(const QString &help)
 
     d->_quickHelp = help;
 
-    emit quickHelpChanged();
+    Q_EMIT quickHelpChanged();
 }
 
 QString ConfigModule::quickHelp() const
@@ -457,7 +457,7 @@ void ConfigModule::setNeedsSave(bool needs)
     }
 
     d->_needsSave = needs;
-    emit needsSaveChanged();
+    Q_EMIT needsSaveChanged();
 }
 
 bool ConfigModule::needsSave()
@@ -472,7 +472,7 @@ void ConfigModule::setRepresentsDefaults(bool defaults)
     }
 
     d->_representsDefaults = defaults;
-    emit representsDefaultsChanged();
+    Q_EMIT representsDefaultsChanged();
 }
 
 bool ConfigModule::representsDefaults()
@@ -491,7 +491,7 @@ void ConfigModule::setDefaultsIndicatorsVisible(bool visible)
         return;
     }
     d->_defaultsIndicatorVisible = visible;
-    emit defaultsIndicatorsVisibleChanged();
+    Q_EMIT defaultsIndicatorsVisibleChanged();
 }
 }
 

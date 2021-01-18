@@ -35,7 +35,7 @@ FallbackTapHandler::~FallbackTapHandler()
 void FallbackTapHandler::setAcceptedButtons(Qt::MouseButtons buttons)
 {
     setAcceptedMouseButtons(buttons);
-    emit acceptedButtonsChanged();
+    Q_EMIT acceptedButtonsChanged();
 }
 
 bool FallbackTapHandler::childMouseEventFilter(QQuickItem *item, QEvent *event)
@@ -50,7 +50,7 @@ bool FallbackTapHandler::childMouseEventFilter(QQuickItem *item, QEvent *event)
 
         QPointF mappedPoint = mapFromItem(item, me->pos());
         FallbackTapHandlerMouseEvent eventProxy(me->button(), me->buttons(), me->modifiers(), mappedPoint.x(), mappedPoint.y());
-        emit pressed(&eventProxy);
+        Q_EMIT pressed(&eventProxy);
 
     } else if (event->type() == QEvent::MouseButtonRelease && item->inherits("QQuickFlickable")) {
         QMouseEvent *me = static_cast<QMouseEvent *>(event);
@@ -62,10 +62,10 @@ bool FallbackTapHandler::childMouseEventFilter(QQuickItem *item, QEvent *event)
 
         QPointF mappedPoint = mapFromItem(item, me->pos());
         FallbackTapHandlerMouseEvent eventProxy(me->button(), me->buttons(), me->modifiers(), mappedPoint.x(), mappedPoint.y());
-        emit released(&eventProxy);
+        Q_EMIT released(&eventProxy);
 
         if (QPointF(m_mouseDownPos - me->windowPos()).manhattanLength() < QGuiApplication::styleHints()->startDragDistance()) {
-            emit tapped(&eventProxy);
+            Q_EMIT tapped(&eventProxy);
         }
 
         m_mouseDownItem.clear();
@@ -87,7 +87,7 @@ void FallbackTapHandler::mousePressEvent(QMouseEvent *event)
     m_mouseDownPos = event->windowPos();
 
     FallbackTapHandlerMouseEvent eventProxy(event->button(), event->buttons(), event->modifiers(), event->x(), event->y());
-    emit pressed(&eventProxy);
+    Q_EMIT pressed(&eventProxy);
 }
 
 void FallbackTapHandler::mouseReleaseEvent(QMouseEvent *event)
@@ -100,13 +100,13 @@ void FallbackTapHandler::mouseReleaseEvent(QMouseEvent *event)
     FallbackTapHandlerMouseEvent eventProxy(event->button(), event->buttons(), event->modifiers(), event->x(), event->y());
 
     if (QPointF(m_mouseDownPos - event->windowPos()).manhattanLength() < QGuiApplication::styleHints()->startDragDistance()) {
-        emit tapped(&eventProxy);
+        Q_EMIT tapped(&eventProxy);
     }
 
     m_mouseDownItem.clear();
     m_mouseDownPos = QPointF();
 
-    emit released(&eventProxy);
+    Q_EMIT released(&eventProxy);
 }
 
 #include "moc_fallbacktaphandler.cpp"
