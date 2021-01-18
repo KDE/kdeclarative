@@ -89,12 +89,6 @@ T2.ItemDelegate {
                 return Kirigami.Theme.backgroundColor;
             }
         }
-        Behavior on color {
-            ColorAnimation {
-                duration: Kirigami.Units.longDuration
-                easing.type: Easing.OutQuad
-            }
-        }
 
         Rectangle {
             id: thumbnailArea
@@ -116,17 +110,9 @@ T2.ItemDelegate {
 
         Rectangle {
             anchors.fill: thumbnailArea
-            visible: actionsRow.children.length > 0
-            opacity: Kirigami.Settings.isMobile || delegate.hovered || (actionsScope.focus) ? 1 : 0
+            visible: actionsRow.children.length > 0 && (Kirigami.Settings.isMobile || delegate.hovered || (actionsScope.focus))
             radius: delegate.thumbnailAvailable ? 0 : thumbnailArea.radius
             color: Kirigami.Settings.isMobile ? "transparent" : Qt.rgba(1, 1, 1, 0.2)
-
-            Behavior on opacity {
-                PropertyAnimation {
-                    duration: Kirigami.Units.longDuration
-                    easing.type: Easing.OutQuad
-                }
-            }
 
             FocusScope {
                 id: actionsScope
