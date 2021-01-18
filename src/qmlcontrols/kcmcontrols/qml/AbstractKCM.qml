@@ -6,7 +6,7 @@
 
 import QtQuick 2.7
 import QtQuick.Controls 2.2 as QtControls
-import org.kde.kirigami 2.2 as Kirigami
+import org.kde.kirigami 2.14 as Kirigami
 import org.kde.kcm 1.1 as KCM
 
 /**
@@ -36,6 +36,9 @@ Kirigami.Page {
     id: root
 
     title: kcm.name
+
+    // Make pages fill the whole view by default
+    Kirigami.ColumnView.fillWidth: true
 
     leftPadding: 6 // Layout_ChildMarginWidth from Breeze
     topPadding: headerParent.contentItem ? 0 : leftPadding
