@@ -6,6 +6,7 @@
     SPDX-FileCopyrightText: 2004 Frans Englich <frans.englich@telia.com>
     SPDX-FileCopyrightText: 2009 Dario Freddi <drf@kde.org>
     SPDX-FileCopyrightText: 2015 Marco Martin <mart@kde.org>
+    SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -193,6 +194,14 @@ public:
      * The about data is now owned by ConfigModule.
      */
     void setAboutData(const KAboutData *about);
+
+    /**
+     * Convenience overload. Converts plugin metadata to trivial KAboutData.
+     * Since 5.80 KCMs loaded through KCMUtils initialize the KAboutData unless
+     * the ConfigModule plugin does so in its constructor.
+     * @since 5.80
+     */
+    void setAboutData(const KPluginMetaData &metaData);
 
     /**
      * @brief Set if the module's save() method requires authorization to be executed

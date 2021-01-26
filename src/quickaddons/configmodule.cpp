@@ -6,6 +6,7 @@
     SPDX-FileCopyrightText: 2004 Frans Englich <frans.englich@telia.com>
     SPDX-FileCopyrightText: 2009 Dario Freddi <drf@kde.org>
     SPDX-FileCopyrightText: 2015 Marco Martin <mart@kde.org>
+    SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -81,13 +82,7 @@ ConfigModule::ConfigModule(const KAboutData *aboutData, QObject *parent, const Q
 ConfigModule::ConfigModule(const KPluginMetaData &metaData, QObject *parent, const QVariantList &)
     : QObject(parent), d(new ConfigModulePrivate(this))
 {
-    KAboutData *aboutData = new KAboutData(metaData.pluginId(), metaData.name(), metaData.version(), metaData.description(), KAboutLicense::byKeyword(metaData.license()).key());
-
-    const auto authors = metaData.authors();
-    for (auto& author : authors) {
-        aboutData->addAuthor(author.name(), author.task(), author.emailAddress(), author.webAddress(), author.ocsUsername());
-    }
-    setAboutData(aboutData);
+    setAboutData(metaData);
 }
 
 ConfigModule::ConfigModule(QObject *parent, const QVariantList &)
@@ -395,6 +390,25 @@ void ConfigModule::setAboutData(const KAboutData *about)
     if (about != d->_about) {
         delete d->_about;
         d->_about = about;
+    }
+}
+
+void ConfigModule::setAboutData(const KPluginMetaData &metaData)
+{
+    std::unique_ptr<KAboutData> aboutData =
+        std::unique_ptr<KAboutData>(new KAboutData(metaData.pluginId(),
+                                                   metaData.name(),
+                                                   metaData.version(),
+                                                   metaData.description(),
+                                                   KAboutLicense::byKeyword(metaData.license()).key()));
+    const auto authors = metaData.authors();
+    for (auto &author : authors) {
+        aboutData->addAuthor(author.name(), author.task(), author.emailAddress(), author.webAddress(), author.ocsUsername());
+    }
+
+    if (aboutData.get() != d->_about) {
+        delete d->_about;
+        d->_about = aboutData.release();
     }
 }
 

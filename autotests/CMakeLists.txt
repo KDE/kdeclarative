@@ -15,3 +15,7 @@ ecm_add_test(quickviewsharedengine.cpp
     LINK_LIBRARIES Qt5::Quick KF5::QuickAddons Qt5::Test)
 
 
+ecm_add_test(configmoduletest.cpp
+    configmoduletest.cpp
+    TEST_NAME configmoduletest
+    LINK_LIBRARIES KF5::QuickAddons Qt5::Test)

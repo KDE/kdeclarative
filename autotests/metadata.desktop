@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
+[Desktop Entry]
+Type=Service
+Icon=tbd
+X-KDE-PluginInfo-Author=Harald Sitter
+X-KDE-PluginInfo-Email=sitter@kde.org
+X-KDE-PluginInfo-Name=kcm_freespacenotifier
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Website=https://www.kde.org
+X-KDE-PluginInfo-License=GPL
+X-Plasma-MainScript=main.qml
+
+Name=Free Space Notifier
+Comment=Warns when running out of space on your home folder
