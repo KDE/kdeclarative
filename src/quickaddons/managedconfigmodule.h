@@ -32,7 +32,7 @@ class ManagedConfigModulePrivate;
  * the module author.
  *
  * To write a config module, you have to create a C++ library
- * and an accompaning QML user interface.
+ * and an accompanying QML user interface.
  * The library must contain a factory function like the following:
  *
  * \code
