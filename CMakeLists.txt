@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 
-set(KF5_VERSION "5.79.0") # handled by release scripts
-set(KF5_DEP_VERSION "5.79.0") # handled by release scripts
-project(KDeclarative VERSION ${KF5_VERSION})
+set(KF_VERSION "5.79.0") # handled by release scripts
+set(KF_DEP_VERSION "5.79.0") # handled by release scripts
+project(KDeclarative VERSION ${KF_VERSION})
 
 # Dependencies
 include(FeatureSummary)
@@ -19,16 +19,16 @@ include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 
-find_package(KF5Config ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5I18n ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5IconThemes ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5KIO ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5WidgetsAddons ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5WindowSystem ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5GlobalAccel ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5GuiAddons ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5Package ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5Notifications ${KF5_DEP_VERSION} REQUIRED)
+find_package(KF5Config ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5I18n ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5IconThemes ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5KIO ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5WindowSystem ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5GlobalAccel ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5GuiAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5Package ${KF_DEP_VERSION} REQUIRED)
+find_package(KF5Notifications ${KF_DEP_VERSION} REQUIRED)
 
 #########################################################################
 

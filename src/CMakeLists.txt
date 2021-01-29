@@ -12,7 +12,7 @@ if(BUILD_QCH)
         KF5Declarative_QCH
         NAME KDeclarative
         BASE_NAME KF5Declarative
-        VERSION ${KF5_VERSION}
+        VERSION ${KF_VERSION}
         ORG_DOMAIN org.kde
         SOURCES # using only public headers, to cover only public API
             ${KQuickAddons_QCH_SOURCES}
