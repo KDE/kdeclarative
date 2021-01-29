@@ -12,6 +12,6 @@ target_link_libraries(kwindowsystem
         KF5::WindowSystem
 )
 
-install(TARGETS kwindowsystem DESTINATION ${QML_INSTALL_DIR}/org/kde/kwindowsystem)
+install(TARGETS kwindowsystem DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kwindowsystem)
 
-install(FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/kwindowsystem)
+install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kwindowsystem)

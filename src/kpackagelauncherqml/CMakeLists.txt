@@ -18,4 +18,4 @@ target_link_libraries(kpackagelauncherqml
  KF5::QuickAddons
 )
 
-install(TARGETS kpackagelauncherqml ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kpackagelauncherqml ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
