@@ -165,21 +165,17 @@ T2.ItemDelegate {
             topMargin: caption.visible ? Kirigami.Units.smallSpacing : Kirigami.Units.largeSpacing
         }
 
-        // FIXME: These labels are center-aligned with a maximum width instead
-        // of the more conventional combination of "Layout.fillWidth: true"
-        // and "horizontalAlignment: Text.AlignHCenter" because that combination
-        // triggers https://bugreports.qt.io/browse/QTBUG-49646
         Controls.Label {
-            Layout.alignment: Qt.AlignHCenter
-            Layout.maximumWidth: labelLayout.width
+            Layout.fillWidth: true
+            horizontalAlignment: Text.AlignHCenter
             text: delegate.text
             elide: Text.ElideRight
             font.bold: delegate.GridView.isCurrentItem
         }
         Controls.Label {
             id: caption
-            Layout.alignment: Qt.AlignHCenter
-            Layout.maximumWidth: labelLayout.width
+            Layout.fillWidth: true
+            horizontalAlignment: Text.AlignHCenter
             visible: delegate.subtitle.length > 0
             opacity: 0.6
             text: delegate.subtitle
