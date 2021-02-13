@@ -158,16 +158,19 @@ T2.ItemDelegate {
     ColumnLayout {
         id: labelLayout
         spacing: 0
+        height: Kirigami.Units.gridUnit * 2
         anchors {
             left: thumbnail.left
             right: thumbnail.right
             top: thumbnail.bottom
-            topMargin: caption.visible ? Kirigami.Units.smallSpacing : Kirigami.Units.largeSpacing
+            topMargin: Kirigami.Units.largeSpacing
         }
 
         QQC2.Label {
             Layout.fillWidth: true
+            Layout.fillHeight: true
             horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignTop
             text: delegate.text
             elide: Text.ElideRight
             font.bold: delegate.GridView.isCurrentItem
@@ -175,6 +178,7 @@ T2.ItemDelegate {
         QQC2.Label {
             id: caption
             Layout.fillWidth: true
+            Layout.fillHeight: true
             horizontalAlignment: Text.AlignHCenter
             visible: delegate.subtitle.length > 0
             opacity: 0.6
