@@ -6,7 +6,7 @@
 
 import QtQuick 2.8
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.2 as Controls
+import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Templates 2.2 as T2
 import QtGraphicalEffects 1.0
 
@@ -137,17 +137,17 @@ T2.ItemDelegate {
 
                     Repeater {
                         model: delegate.actions
-                        delegate: Controls.Button {
+                        delegate: QQC2.Button {
                             icon.name: modelData.iconName
                             activeFocusOnTab: focus || delegate.focus
                             onClicked: modelData.trigger()
                             enabled: modelData.enabled
                             visible: modelData.visible
                             //NOTE: there aren't any global settings where to take "official" tooltip timeouts
-                            Controls.ToolTip.delay: 1000
-                            Controls.ToolTip.timeout: 5000
-                            Controls.ToolTip.visible: (Kirigami.Settings.isMobile ? pressed : hovered) && modelData.tooltip.length > 0
-                            Controls.ToolTip.text: modelData.tooltip
+                            QQC2.ToolTip.delay: 1000
+                            QQC2.ToolTip.timeout: 5000
+                            QQC2.ToolTip.visible: (Kirigami.Settings.isMobile ? pressed : hovered) && modelData.tooltip.length > 0
+                            QQC2.ToolTip.text: modelData.tooltip
                         }
                     }
                 }
@@ -165,14 +165,14 @@ T2.ItemDelegate {
             topMargin: caption.visible ? Kirigami.Units.smallSpacing : Kirigami.Units.largeSpacing
         }
 
-        Controls.Label {
+        QQC2.Label {
             Layout.fillWidth: true
             horizontalAlignment: Text.AlignHCenter
             text: delegate.text
             elide: Text.ElideRight
             font.bold: delegate.GridView.isCurrentItem
         }
-        Controls.Label {
+        QQC2.Label {
             id: caption
             Layout.fillWidth: true
             horizontalAlignment: Text.AlignHCenter
@@ -185,8 +185,8 @@ T2.ItemDelegate {
         }
     }
 
-    Controls.ToolTip.delay: 1000
-    Controls.ToolTip.timeout: 5000
-    Controls.ToolTip.visible: hovered && delegate.toolTip.length > 0
-    Controls.ToolTip.text: toolTip
+    QQC2.ToolTip.delay: 1000
+    QQC2.ToolTip.timeout: 5000
+    QQC2.ToolTip.visible: hovered && delegate.toolTip.length > 0
+    QQC2.ToolTip.text: toolTip
 }
