@@ -56,7 +56,7 @@ T2.ItemDelegate {
 
     width: GridView.view.cellWidth
     height: GridView.view.cellHeight
-    hoverEnabled: true
+    hoverEnabled: !Kirigami.Settings.isMobile
 
     Kirigami.ShadowedRectangle {
         id: thumbnail
