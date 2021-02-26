@@ -18,7 +18,7 @@ import org.kde.kirigami 2.12 as Kirigami
  * the user clicks on the thumbnail
  * @inherits QtQuick.Templates.ItemDelegate
  */
-T2.ItemDelegate {
+Kirigami.Card {
     id: delegate
 
     /**
@@ -47,60 +47,60 @@ T2.ItemDelegate {
      */
     property bool thumbnailAvailable: false
 
-    /**
-     * actions: list<Action>
-     * A list of extra actions for the thumbnails. They will be shown as
-     * icons on the bottom-right corner of the thumbnail on mouse over
-     */
-    property list<QtObject> actions
+    implicitWidth: GridView.view.cellWidth - Kirigami.Units.gridUnit * 2
+    implicitHeight: GridView.view.cellHeight - Kirigami.Units.gridUnit * 2
 
-    width: GridView.view.cellWidth
-    height: GridView.view.cellHeight
-    hoverEnabled: !Kirigami.Settings.isMobile
+    // FIXME: center the card inside the grid cell
 
-    Kirigami.ShadowedRectangle {
-        id: thumbnail
-        anchors {
-           centerIn: parent
-           verticalCenterOffset: Math.ceil(-labelLayout.height/2)
+    showClickFeedback: true
+    highlighted: delegate.GridView.isCurrentItem
+
+    // Title and optional subtitle
+    header: ColumnLayout {
+        // FIXME: seems to be ignored? Header layout is too tall
+        implicitHeight: Kirigami.Units.gridUnit * 2
+
+        Kirigami.Heading {
+            Layout.fillWidth: true
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: caption.visible? Text.AlignBottom : Text.AlignVCenter
+            level: 3
+            text: delegate.text
+            elide: Text.ElideRight
+            font.bold: delegate.GridView.isCurrentItem
         }
-        width: Kirigami.Settings.isMobile ? delegate.width - Kirigami.Units.gridUnit : Math.min(delegate.GridView.view.implicitCellWidth, delegate.width - Kirigami.Units.gridUnit)
-        height: Kirigami.Settings.isMobile ? Math.round((delegate.width - Kirigami.Units.gridUnit) / 1.6)
-                                           : Math.min(delegate.GridView.view.implicitCellHeight - Kirigami.Units.gridUnit * 3,
-                                                      delegate.height - Kirigami.Units.gridUnit)
-        radius: Kirigami.Units.smallSpacing
-        Kirigami.Theme.inherit: false
-        Kirigami.Theme.colorSet: Kirigami.Theme.View
-
-        shadow.xOffset: 0
-        shadow.yOffset: 2
-        shadow.size: 10
-        shadow.color: Qt.rgba(0, 0, 0, 0.3)
-
-        color: {
-            if (delegate.GridView.isCurrentItem) {
-                if (delegate.GridView.view.neutralHighlight) {
-                    return Kirigami.Theme.neutralTextColor;
-                }
-                return Kirigami.Theme.highlightColor;
-            } else if (parent.hovered) {
-                // Match appearance of hovered list items
-                return Qt.rgba(Kirigami.Theme.highlightColor.r,
-                               Kirigami.Theme.highlightColor.g,
-                               Kirigami.Theme.highlightColor.b,
-                               0.5);
-            } else {
-                return Kirigami.Theme.backgroundColor;
-            }
+        QQC2.Label {
+            id: caption
+            Layout.fillWidth: true
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignTop
+            visible: delegate.subtitle.length > 0
+            opacity: 0.6
+            text: delegate.subtitle
+            font.pointSize: theme.smallestFont.pointSize
+            font.bold: delegate.GridView.isCurrentItem
+            elide: Text.ElideRight
         }
+    }
 
+    // Thumbnail
+    contentItem: ColumnLayout {
+        spacing: 0
+
+        // FIXME: this whole thing should vertically maximize itself
+        // Layout.fillHeight: true // doesn't work
+        // anchors.fill: parent // doesn't work
+
+        // FIXME: this content item un-clips itself and gets laid out strangely when the window is resized
         Rectangle {
             id: thumbnailArea
             radius: Kirigami.Units.smallSpacing/2
-            anchors {
-                fill: parent
-                margins: Kirigami.Units.smallSpacing
-            }
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            Layout.minimumHeight: Kirigami.Units.gridUnit * 4
+            Layout.margins: Kirigami.Units.smallSpacing
+
+            clip: true
 
             color: Kirigami.Theme.backgroundColor
 
@@ -113,79 +113,10 @@ T2.ItemDelegate {
                 source: typeof pluginName === "string" && pluginName === "None" ? "edit-none" : "view-preview"
             }
         }
-
-        Rectangle {
-            anchors.fill: thumbnailArea
-            visible: actionsRow.children.length > 0 && (Kirigami.Settings.isMobile || delegate.hovered || (actionsScope.focus))
-            radius: delegate.thumbnailAvailable ? 0 : thumbnailArea.radius
-            color: Kirigami.Settings.isMobile ? "transparent" : Qt.rgba(1, 1, 1, 0.2)
-
-            FocusScope {
-                id: actionsScope
-
-                anchors {
-                    right: parent.right
-                    rightMargin: Kirigami.Units.smallSpacing
-                    bottom: parent.bottom
-                    bottomMargin: Kirigami.Units.smallSpacing
-                }
-                width: actionsRow.width
-                height: actionsRow.height
-
-                RowLayout {
-                    id: actionsRow
-
-                    Repeater {
-                        model: delegate.actions
-                        delegate: QQC2.Button {
-                            icon.name: modelData.iconName
-                            activeFocusOnTab: focus || delegate.focus
-                            onClicked: modelData.trigger()
-                            enabled: modelData.enabled
-                            visible: modelData.visible
-                            //NOTE: there aren't any global settings where to take "official" tooltip timeouts
-                            QQC2.ToolTip.delay: 1000
-                            QQC2.ToolTip.timeout: 5000
-                            QQC2.ToolTip.visible: (Kirigami.Settings.isMobile ? pressed : hovered) && modelData.tooltip.length > 0
-                            QQC2.ToolTip.text: modelData.tooltip
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    ColumnLayout {
-        id: labelLayout
-        spacing: 0
-        height: Kirigami.Units.gridUnit * 2
-        anchors {
-            left: thumbnail.left
-            right: thumbnail.right
-            top: thumbnail.bottom
-            topMargin: Kirigami.Units.largeSpacing
-        }
-
-        QQC2.Label {
+        Kirigami.Separator {
             Layout.fillWidth: true
-            Layout.fillHeight: true
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignTop
-            text: delegate.text
-            elide: Text.ElideRight
-            font.bold: delegate.GridView.isCurrentItem
-        }
-        QQC2.Label {
-            id: caption
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            horizontalAlignment: Text.AlignHCenter
-            visible: delegate.subtitle.length > 0
-            opacity: 0.6
-            text: delegate.subtitle
-            font.pointSize: theme.smallestFont.pointSize
-            font.bold: delegate.GridView.isCurrentItem
-            elide: Text.ElideRight
+            // FIXME: this doesn't succeed in adding spacing below the separator
+            Layout.bottomMargin: Kirigami.Units.smallSpacing
         }
     }
 
