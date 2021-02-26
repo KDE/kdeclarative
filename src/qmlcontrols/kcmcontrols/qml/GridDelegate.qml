@@ -18,6 +18,10 @@ import org.kde.kirigami 2.12 as Kirigami
  * the user clicks on the thumbnail
  * @inherits QtQuick.Templates.ItemDelegate
  */
+
+// TODO(KF6): this is unbelievably fragile and changes can often lead to freezes and crashes, as well as visually unpleasant
+// effects. Needs to be thrown out and done from scratch, because this is not conducive to making changes.
+// Also see: private/GridViewInternal.qml.
 T2.ItemDelegate {
     id: delegate
 
