@@ -58,134 +58,67 @@ T2.ItemDelegate {
     height: GridView.view.cellHeight
     hoverEnabled: !Kirigami.Settings.isMobile
 
-    Kirigami.ShadowedRectangle {
+    Kirigami.AbstractCard {
         id: thumbnail
-        anchors {
-           centerIn: parent
-           verticalCenterOffset: Math.ceil(-labelLayout.height/2)
-        }
-        width: Kirigami.Settings.isMobile ? delegate.width - Kirigami.Units.gridUnit : Math.min(delegate.GridView.view.implicitCellWidth, delegate.width - Kirigami.Units.gridUnit)
-        height: Kirigami.Settings.isMobile ? Math.round((delegate.width - Kirigami.Units.gridUnit) / 1.6)
-                                           : Math.min(delegate.GridView.view.implicitCellHeight - Kirigami.Units.gridUnit * 3,
-                                                      delegate.height - Kirigami.Units.gridUnit)
-        radius: Kirigami.Units.smallSpacing
+
         Kirigami.Theme.inherit: false
         Kirigami.Theme.colorSet: Kirigami.Theme.View
 
-        shadow.xOffset: 0
-        shadow.yOffset: 2
-        shadow.size: 10
-        shadow.color: Qt.rgba(0, 0, 0, 0.3)
+        anchors.centerIn: parent
 
-        color: {
-            if (delegate.GridView.isCurrentItem) {
-                if (delegate.GridView.view.neutralHighlight) {
-                    return Kirigami.Theme.neutralTextColor;
-                }
-                return Kirigami.Theme.highlightColor;
-            } else if (parent.hovered) {
-                // Match appearance of hovered list items
-                return Qt.rgba(Kirigami.Theme.highlightColor.r,
-                               Kirigami.Theme.highlightColor.g,
-                               Kirigami.Theme.highlightColor.b,
-                               0.5);
-            } else {
-                return Kirigami.Theme.backgroundColor;
+        topPadding: Kirigami.Units.largeSpacing
+        bottomPadding: Kirigami.Units.largeSpacing
+
+        contentItem: ColumnLayout {
+            spacing: 0
+
+            QQC2.Label {
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignTop
+                text: delegate.text
+                elide: Text.ElideRight
+                font.bold: delegate.GridView.isCurrentItem
             }
-        }
-
-        Rectangle {
-            id: thumbnailArea
-            radius: Kirigami.Units.smallSpacing/2
-            anchors {
-                fill: parent
-                margins: Kirigami.Units.smallSpacing
+            QQC2.Label {
+                id: caption
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                visible: delegate.subtitle.length > 0
+                opacity: 0.6
+                text: delegate.subtitle
+                font.pointSize: theme.smallestFont.pointSize
+                font.bold: delegate.GridView.isCurrentItem
+                elide: Text.ElideRight
             }
+            Rectangle {
+                id: thumbnailArea
+                radius: Kirigami.Units.smallSpacing/2
 
-            color: Kirigami.Theme.backgroundColor
+                implicitWidth: Kirigami.Settings.isMobile ? delegate.width - Kirigami.Units.gridUnit : Math.min(delegate.GridView.view.implicitCellWidth, delegate.width - Kirigami.Units.gridUnit)
+                implicitHeight: Kirigami.Settings.isMobile ? Math.round((delegate.width - Kirigami.Units.gridUnit) / 1.6)
+                                                : Math.min(delegate.GridView.view.implicitCellHeight - Kirigami.Units.gridUnit * 3,
+                                                            (delegate.height) - Kirigami.Units.gridUnit)
 
-            // "None/There's nothing here" indicator
-            Kirigami.Icon {
-                visible: !delegate.thumbnailAvailable
-                anchors.centerIn: parent
-                width: Kirigami.Units.iconSizes.large
-                height: width
-                source: typeof pluginName === "string" && pluginName === "None" ? "edit-none" : "view-preview"
-            }
-        }
+                color: Kirigami.Theme.backgroundColor
 
-        Rectangle {
-            anchors.fill: thumbnailArea
-            visible: actionsRow.children.length > 0 && (Kirigami.Settings.isMobile || delegate.hovered || (actionsScope.focus))
-            radius: delegate.thumbnailAvailable ? 0 : thumbnailArea.radius
-            color: Kirigami.Settings.isMobile ? "transparent" : Qt.rgba(1, 1, 1, 0.2)
-
-            FocusScope {
-                id: actionsScope
-
-                anchors {
-                    right: parent.right
-                    rightMargin: Kirigami.Units.smallSpacing
-                    bottom: parent.bottom
-                    bottomMargin: Kirigami.Units.smallSpacing
-                }
-                width: actionsRow.width
-                height: actionsRow.height
-
-                RowLayout {
-                    id: actionsRow
-
-                    Repeater {
-                        model: delegate.actions
-                        delegate: QQC2.Button {
-                            icon.name: modelData.iconName
-                            activeFocusOnTab: focus || delegate.focus
-                            onClicked: modelData.trigger()
-                            enabled: modelData.enabled
-                            visible: modelData.visible
-                            //NOTE: there aren't any global settings where to take "official" tooltip timeouts
-                            QQC2.ToolTip.delay: 1000
-                            QQC2.ToolTip.timeout: 5000
-                            QQC2.ToolTip.visible: (Kirigami.Settings.isMobile ? pressed : hovered) && modelData.tooltip.length > 0
-                            QQC2.ToolTip.text: modelData.tooltip
-                        }
-                    }
+                // "None/There's nothing here" indicator
+                Kirigami.Icon {
+                    visible: !delegate.thumbnailAvailable
+                    anchors.centerIn: parent
+                    width: Kirigami.Units.iconSizes.large
+                    height: width
+                    source: typeof pluginName === "string" && pluginName === "None" ? "edit-none" : "view-preview"
                 }
             }
-        }
-    }
-
-    ColumnLayout {
-        id: labelLayout
-        spacing: 0
-        height: Kirigami.Units.gridUnit * 2
-        anchors {
-            left: thumbnail.left
-            right: thumbnail.right
-            top: thumbnail.bottom
-            topMargin: Kirigami.Units.largeSpacing
-        }
-
-        QQC2.Label {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignTop
-            text: delegate.text
-            elide: Text.ElideRight
-            font.bold: delegate.GridView.isCurrentItem
-        }
-        QQC2.Label {
-            id: caption
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            horizontalAlignment: Text.AlignHCenter
-            visible: delegate.subtitle.length > 0
-            opacity: 0.6
-            text: delegate.subtitle
-            font.pointSize: theme.smallestFont.pointSize
-            font.bold: delegate.GridView.isCurrentItem
-            elide: Text.ElideRight
+            Kirigami.Separator {
+                Layout.fillWidth: true
+                visible: actionToolBar.implicitHeight > 0
+            }
+            Kirigami.ActionToolBar {
+                id: actionToolBar
+                actions: delegate.actions
+            }
         }
     }
 

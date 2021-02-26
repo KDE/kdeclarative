@@ -37,7 +37,7 @@ GridView {
     activeFocusOnTab: true
 
     cellWidth: Math.floor(internal.availableWidth / Math.max(Math.floor(internal.availableWidth / (implicitCellWidth + Kirigami.Units.gridUnit)), (Kirigami.Settings.isMobile ? 1 : 2)))
-    cellHeight: Kirigami.Settings.isMobile ? cellWidth/1.6 + Kirigami.Units.gridUnit : implicitCellHeight
+    cellHeight: (Kirigami.Settings.isMobile ? cellWidth/1.6 + Kirigami.Units.gridUnit : implicitCellHeight) + (Kirigami.Units.gridUnit*4)
 
     keyNavigationEnabled: true
     keyNavigationWraps: true
