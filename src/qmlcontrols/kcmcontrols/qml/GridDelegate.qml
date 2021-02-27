@@ -19,9 +19,6 @@ import org.kde.kirigami 2.12 as Kirigami
  * @inherits QtQuick.Templates.ItemDelegate
  */
 
-// TODO(KF6): this is unbelievably fragile and changes can often lead to freezes and crashes, as well as visually unpleasant
-// effects. Needs to be thrown out and done from scratch, because this is not conducive to making changes.
-// Also see: private/GridViewInternal.qml.
 T2.ItemDelegate {
     id: delegate
 
@@ -60,41 +57,61 @@ T2.ItemDelegate {
 
     width: GridView.view.cellWidth
     height: GridView.view.cellHeight
-    hoverEnabled: !Kirigami.Settings.isMobile
+
+    onClicked: {
+        GridView.currentIndex = index;
+    }
 
     Kirigami.AbstractCard {
-        id: thumbnail
-
-        Kirigami.Theme.inherit: false
-        Kirigami.Theme.colorSet: Kirigami.Theme.View
+        leftPadding: Kirigami.Units.smallSpacing
+        rightPadding: Kirigami.Units.smallSpacing
+        topPadding: 0
+        bottomPadding: 0
 
         anchors.centerIn: parent
 
-        topPadding: Kirigami.Units.largeSpacing
-        bottomPadding: Kirigami.Units.largeSpacing
+        showClickFeedback: true
+        highlighted: delegate.GridView.isCurrentItem
+        onClicked: {
+            delegate.clicked();
+        }
 
         contentItem: ColumnLayout {
-            spacing: 0
 
-            QQC2.Label {
+            // Title and subtitle
+            ColumnLayout {
+                id: headerLayout
+
                 Layout.fillWidth: true
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignTop
-                text: delegate.text
-                elide: Text.ElideRight
-                font.bold: delegate.GridView.isCurrentItem
+                Layout.minimumHeight: Kirigami.Units.gridUnit * 2
+                spacing: 0
+
+                Kirigami.Heading {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.maximumWidth: thumbnailArea.implicitWidth // HACK
+                    horizontalAlignment: Text.AlignHCenter
+                    level: 3
+                    text: delegate.text
+                    maximumLineCount: caption.visible ? 1 : 2
+                    wrapMode: caption.visible ? Text.NoWrap : Text.Wrap
+                    elide: Text.ElideRight
+                    font.bold: delegate.GridView.isCurrentItem
+                }
+                QQC2.Label {
+                    id: caption
+                    Layout.fillWidth: true
+                    horizontalAlignment: Text.AlignHCenter
+                    visible: delegate.subtitle.length > 0
+                    opacity: 0.6
+                    text: delegate.subtitle
+                    font.pointSize: theme.smallestFont.pointSize
+                    font.bold: delegate.GridView.isCurrentItem
+                    elide: Text.ElideRight
+                }
             }
-            QQC2.Label {
-                id: caption
-                Layout.fillWidth: true
-                horizontalAlignment: Text.AlignHCenter
-                visible: delegate.subtitle.length > 0
-                opacity: 0.6
-                text: delegate.subtitle
-                font.pointSize: theme.smallestFont.pointSize
-                font.bold: delegate.GridView.isCurrentItem
-                elide: Text.ElideRight
-            }
+
+            // Thumbnail
             Rectangle {
                 id: thumbnailArea
                 radius: Kirigami.Units.smallSpacing/2
@@ -115,12 +132,11 @@ T2.ItemDelegate {
                     source: typeof pluginName === "string" && pluginName === "None" ? "edit-none" : "view-preview"
                 }
             }
-            Kirigami.Separator {
-                Layout.fillWidth: true
-                visible: actionToolBar.implicitHeight > 0
-            }
+
+            // Contextual buttons on the bottom
             Kirigami.ActionToolBar {
-                id: actionToolBar
+                Layout.fillWidth: true
+                implicitHeight: Kirigami.Units.gridUnit * 2
                 actions: delegate.actions
             }
         }
