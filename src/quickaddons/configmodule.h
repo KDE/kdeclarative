@@ -143,7 +143,7 @@ public:
         NoAdditionalButton = 0,
         Help = 1,
         Default = 2,
-        Apply = 4
+        Apply = 4,
     };
     Q_ENUM(Button)
     Q_DECLARE_FLAGS(Buttons, Button)

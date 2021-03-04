@@ -24,7 +24,7 @@ public:
 
     enum LoadConfigOption {
         DontEmitValueChanged,
-        EmitValueChanged
+        EmitValueChanged,
     };
 
     void loadConfig(LoadConfigOption option);

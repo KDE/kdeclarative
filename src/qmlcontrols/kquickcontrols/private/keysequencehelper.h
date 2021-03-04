@@ -32,7 +32,7 @@ public:
     enum ShortcutType {
         None           = 0x00,      //!< No checking for conflicts
         StandardShortcuts = 0x01,   //!< Check against standard shortcuts. @see KStandardShortcut
-        GlobalShortcuts = 0x02      //!< Check against global shortcuts. @see KGlobalAccel
+        GlobalShortcuts = 0x02,      //!< Check against global shortcuts. @see KGlobalAccel
     };
     Q_DECLARE_FLAGS(ShortcutTypes, ShortcutType)
     Q_FLAG(ShortcutTypes)

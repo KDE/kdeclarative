@@ -22,7 +22,7 @@ public:
     enum EventType {
         Holiday,    // Any holiday
         Event,      // General event
-        Todo        // A Todo item
+        Todo,        // A Todo item
     };
 
     EventData();

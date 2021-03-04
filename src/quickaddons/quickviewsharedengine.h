@@ -39,7 +39,7 @@ class QUICKADDONS_EXPORT QuickViewSharedEngine : public QQuickWindow
 public:
     enum ResizeMode {
         SizeViewToRootObject,
-        SizeRootObjectToView
+        SizeRootObjectToView,
     };
     Q_ENUM(ResizeMode)
 

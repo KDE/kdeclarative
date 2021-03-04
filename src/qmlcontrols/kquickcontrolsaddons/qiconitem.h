@@ -28,7 +28,7 @@ public:
         DefaultState, ///The default state.
         ActiveState, ///Icon is active.
         DisabledState, ///Icon is disabled.
-        SelectedState ///Icon is selected
+        SelectedState, ///Icon is selected
     };
     Q_ENUM(State)
 

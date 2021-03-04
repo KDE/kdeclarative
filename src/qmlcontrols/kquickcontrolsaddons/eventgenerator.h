@@ -21,13 +21,13 @@ class EventGenerator : public QObject
         enum MouseEvent {
             MouseButtonPress,
             MouseButtonRelease,
-            MouseMove
+            MouseMove,
         };
         Q_ENUM(MouseEvent)
 
         enum GrabEvent {
             GrabMouse,
-            UngrabMouse
+            UngrabMouse,
         };
         Q_ENUM(GrabEvent)
 
