@@ -18,6 +18,7 @@ find_package(Qt5 ${REQUIRED_QT_VERSION} NO_MODULE REQUIRED Qml Quick Gui)
 include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
+include(KDEGitCommitHooks)
 
 find_package(KF5Config ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5I18n ${KF_DEP_VERSION} REQUIRED)
@@ -144,3 +145,5 @@ else()
   message("In order to build KCoreAddons QML bindings you need KCoreAddons")
 endif()
 
+
+kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
