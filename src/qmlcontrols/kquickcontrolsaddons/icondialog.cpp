@@ -9,9 +9,9 @@
 #include <QQuickItem>
 #include <QQuickWindow>
 
-#include <QApplication>
 #include <KIconDialog>
 #include <KIconLoader>
+#include <QApplication>
 
 IconDialog::IconDialog(QObject *parent)
     : QObject(parent)
@@ -24,10 +24,10 @@ IconDialog::IconDialog(QObject *parent)
     if (qobject_cast<QApplication *>(QCoreApplication::instance())) {
         m_dialog.reset(new KIconDialog());
         connect(m_dialog.data(), &KIconDialog::newIconName, this, [this](const QString &newIconName) {
-                if (m_iconName != newIconName) {
+            if (m_iconName != newIconName) {
                 m_iconName = newIconName;
                 Q_EMIT iconNameChanged(newIconName);
-                }
+            }
         });
 
         m_dialog->installEventFilter(this);

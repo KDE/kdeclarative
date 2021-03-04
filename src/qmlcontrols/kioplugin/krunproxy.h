@@ -13,9 +13,8 @@ class KRunProxy : public QObject
 {
     Q_OBJECT
 
-    public:
-
-    explicit KRunProxy (QObject* parent = nullptr);
+public:
+    explicit KRunProxy(QObject *parent = nullptr);
 
     /**
      * opens the url from the existing file

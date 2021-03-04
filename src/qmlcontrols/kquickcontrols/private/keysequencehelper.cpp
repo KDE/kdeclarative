@@ -13,14 +13,14 @@
 #include <QDebug>
 #include <QHash>
 #include <QPointer>
-#include <QQuickRenderControl>
 #include <QQmlEngine>
+#include <QQuickRenderControl>
 #include <QQuickWindow>
 
-#include <KLocalizedString>
-#include <KMessageBox>
 #include <KGlobalAccel>
 #include <KGlobalShortcutInfo>
+#include <KLocalizedString>
+#include <KMessageBox>
 #include <KStandardShortcut>
 
 class KeySequenceHelperPrivate
@@ -55,8 +55,7 @@ public:
         return checkAgainstShortcutTypes & KeySequenceHelper::GlobalShortcuts;
     }
 
-
-//members
+    // members
     KeySequenceHelper *const q;
 
     //! Check the key sequence against KStandardShortcut::find()
@@ -75,13 +74,12 @@ KeySequenceHelper::KeySequenceHelper(QObject *parent)
 {
 }
 
-
 KeySequenceHelper::~KeySequenceHelper()
 {
     delete d;
 }
 
-bool KeySequenceHelper::isKeySequenceAvailable(const QKeySequence& keySequence) const
+bool KeySequenceHelper::isKeySequenceAvailable(const QKeySequence &keySequence) const
 {
     if (keySequence.isEmpty()) {
         return true;
@@ -91,11 +89,10 @@ bool KeySequenceHelper::isKeySequenceAvailable(const QKeySequence& keySequence) 
         conflict |= d->conflictWithGlobalShortcuts(keySequence);
     }
     if (d->checkAgainstShortcutTypes.testFlag(StandardShortcuts)) {
-        conflict |=  d->conflictWithStandardShortcuts(keySequence);
+        conflict |= d->conflictWithStandardShortcuts(keySequence);
     }
     return !conflict;
 }
-
 
 KeySequenceHelper::ShortcutTypes KeySequenceHelper::checkAgainstShortcutTypes()
 {
@@ -113,11 +110,12 @@ void KeySequenceHelper::setCheckAgainstShortcutTypes(KeySequenceHelper::Shortcut
 bool KeySequenceHelperPrivate::conflictWithGlobalShortcuts(const QKeySequence &keySequence)
 {
 #ifdef Q_OS_WIN
-    //on windows F12 is reserved by the debugger at all times, so we can't use it for a global shortcut
+    // on windows F12 is reserved by the debugger at all times, so we can't use it for a global shortcut
     if (KeySequenceHelper::GlobalShortcuts && keySequence.toString().contains(QLatin1String("F12"))) {
         QString title = i18n("Reserved Shortcut");
-        QString message = i18n("The F12 key is reserved on Windows, so cannot be used for a global shortcut.\n"
-                               "Please choose another one.");
+        QString message = i18n(
+            "The F12 key is reserved on Windows, so cannot be used for a global shortcut.\n"
+            "Please choose another one.");
 
         KMessageBox::sorry(nullptr, message, title);
         return false;
@@ -139,8 +137,7 @@ bool KeySequenceHelperPrivate::conflictWithGlobalShortcuts(const QKeySequence &k
         }
     }
 
-    if (!others.isEmpty()
-            && !KGlobalAccel::promptStealShortcutSystemwide(nullptr, others, keySequence)) {
+    if (!others.isEmpty() && !KGlobalAccel::promptStealShortcutSystemwide(nullptr, others, keySequence)) {
         return true;
     }
 
@@ -172,17 +169,18 @@ bool KeySequenceHelperPrivate::conflictWithStandardShortcuts(const QKeySequence 
 bool KeySequenceHelperPrivate::stealStandardShortcut(KStandardShortcut::StandardShortcut std, const QKeySequence &seq)
 {
     QString title = i18n("Conflict with Standard Application Shortcut");
-    QString message = i18n("The '%1' key combination is also used for the standard action "
-                           "\"%2\" that some applications use.\n"
-                           "Do you really want to use it as a global shortcut as well?",
-                           seq.toString(QKeySequence::NativeText), KStandardShortcut::label(std));
+    QString message = i18n(
+        "The '%1' key combination is also used for the standard action "
+        "\"%2\" that some applications use.\n"
+        "Do you really want to use it as a global shortcut as well?",
+        seq.toString(QKeySequence::NativeText),
+        KStandardShortcut::label(std));
 
     if (KMessageBox::warningContinueCancel(nullptr, message, title, KGuiItem(i18n("Reassign"))) != KMessageBox::Continue) {
         return false;
     }
     return true;
 }
-
 
 bool KeySequenceHelper::keySequenceIsEmpty(const QKeySequence &keySequence)
 {
@@ -194,7 +192,7 @@ QString KeySequenceHelper::keySequenceNativeText(const QKeySequence &keySequence
     return keySequence.toString(QKeySequence::NativeText);
 }
 
-QWindow* KeySequenceHelper::renderWindow(QQuickWindow *quickWindow)
+QWindow *KeySequenceHelper::renderWindow(QQuickWindow *quickWindow)
 {
     QWindow *renderWindow = QQuickRenderControl::renderWindowFor(quickWindow);
     auto window = renderWindow ? renderWindow : quickWindow;

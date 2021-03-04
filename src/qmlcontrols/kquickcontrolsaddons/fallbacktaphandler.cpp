@@ -11,15 +11,14 @@
 #include <QStyleHints>
 
 FallbackTapHandlerMouseEvent::FallbackTapHandlerMouseEvent(Qt::MouseButton button, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers, qreal x, qreal y)
-    : QObject(nullptr),
-      m_button(button),
-      m_buttons(buttons),
-      m_modifiers(modifiers),
-      m_x(x),
-      m_y(y)
-{}
-
-
+    : QObject(nullptr)
+    , m_button(button)
+    , m_buttons(buttons)
+    , m_modifiers(modifiers)
+    , m_x(x)
+    , m_y(y)
+{
+}
 
 FallbackTapHandler::FallbackTapHandler(QQuickItem *parent)
     : QQuickItem(parent)
@@ -55,8 +54,7 @@ bool FallbackTapHandler::childMouseEventFilter(QQuickItem *item, QEvent *event)
     } else if (event->type() == QEvent::MouseButtonRelease && item->inherits("QQuickFlickable")) {
         QMouseEvent *me = static_cast<QMouseEvent *>(event);
 
-        if ((!(me->button() & acceptedMouseButtons()) && !(me->buttons() & acceptedMouseButtons())) ||
-            m_mouseDownItem != item) {            
+        if ((!(me->button() & acceptedMouseButtons()) && !(me->buttons() & acceptedMouseButtons())) || m_mouseDownItem != item) {
             return QQuickItem::childMouseEventFilter(item, event);
         }
 

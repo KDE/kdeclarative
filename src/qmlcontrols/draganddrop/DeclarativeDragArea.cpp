@@ -9,8 +9,8 @@
 #include "DeclarativeMimeData.h"
 
 #include <QDrag>
-#include <QIcon>
 #include <QGuiApplication>
+#include <QIcon>
 #include <QMimeData>
 #include <QMouseEvent>
 #include <QPainter>
@@ -25,21 +25,22 @@
 */
 
 DeclarativeDragArea::DeclarativeDragArea(QQuickItem *parent)
-    : QQuickItem(parent),
-    m_delegate(nullptr),
-    m_source(parent),
-    m_target(nullptr),
-    m_enabled(true),
-    m_draggingJustStarted(false),
-    m_dragActive(false),
-    m_supportedActions(Qt::MoveAction),
-    m_defaultAction(Qt::MoveAction),
-    m_data(new DeclarativeMimeData()),    // m_data is owned by us, and we shouldn't pass it to Qt directly as it will automatically delete it after the drag and drop.
+    : QQuickItem(parent)
+    , m_delegate(nullptr)
+    , m_source(parent)
+    , m_target(nullptr)
+    , m_enabled(true)
+    , m_draggingJustStarted(false)
+    , m_dragActive(false)
+    , m_supportedActions(Qt::MoveAction)
+    , m_defaultAction(Qt::MoveAction)
+    , m_data(new DeclarativeMimeData())
+    , // m_data is owned by us, and we shouldn't pass it to Qt directly as it will automatically delete it after the drag and drop.
     m_pressAndHoldTimerId(0)
 {
     m_startDragDistance = QGuiApplication::styleHints()->startDragDistance();
     setAcceptedMouseButtons(Qt::LeftButton);
-//     setFiltersChildEvents(true);
+    //     setFiltersChildEvents(true);
     setFlag(ItemAcceptsDrops, m_enabled);
     setFiltersChildMouseEvents(true);
 }
@@ -55,7 +56,7 @@ DeclarativeDragArea::~DeclarativeDragArea()
   The delegate is the item that will be displayed next to the mouse cursor during the drag and drop operation.
   It usually consists of a large, semi-transparent icon representing the data being dragged.
 */
-QQuickItem* DeclarativeDragArea::delegate() const
+QQuickItem *DeclarativeDragArea::delegate() const
 {
     return m_delegate;
 }
@@ -63,7 +64,7 @@ QQuickItem* DeclarativeDragArea::delegate() const
 void DeclarativeDragArea::setDelegate(QQuickItem *delegate)
 {
     if (m_delegate != delegate) {
-        //qDebug() << " ______________________________________________ " << delegate;
+        // qDebug() << " ______________________________________________ " << delegate;
         m_delegate = delegate;
         Q_EMIT delegateChanged();
     }
@@ -77,12 +78,12 @@ void DeclarativeDragArea::resetDelegate()
   The QML element that is the source of this drag and drop operation. This can be defined to any item, and will
   be available to the DropArea as event.data.source
 */
-QQuickItem* DeclarativeDragArea::source() const
+QQuickItem *DeclarativeDragArea::source() const
 {
     return m_source;
 }
 
-void DeclarativeDragArea::setSource(QQuickItem* source)
+void DeclarativeDragArea::setSource(QQuickItem *source)
 {
     if (m_source != source) {
         m_source = source;
@@ -101,14 +102,14 @@ bool DeclarativeDragArea::dragActive() const
 }
 
 // target
-QQuickItem* DeclarativeDragArea::target() const
+QQuickItem *DeclarativeDragArea::target() const
 {
-    //TODO: implement me
+    // TODO: implement me
     return nullptr;
 }
 
 // data
-DeclarativeMimeData* DeclarativeDragArea::mimeData() const
+DeclarativeMimeData *DeclarativeDragArea::mimeData() const
 {
     return m_data;
 }
@@ -191,7 +192,7 @@ void DeclarativeDragArea::setDefaultAction(Qt::DropAction action)
     }
 }
 
-void DeclarativeDragArea::mousePressEvent(QMouseEvent* event)
+void DeclarativeDragArea::mousePressEvent(QMouseEvent *event)
 {
     m_pressAndHoldTimerId = startTimer(QGuiApplication::styleHints()->mousePressAndHoldInterval());
     m_buttonDownPos = event->screenPos();
@@ -199,7 +200,7 @@ void DeclarativeDragArea::mousePressEvent(QMouseEvent* event)
     setKeepMouseGrab(true);
 }
 
-void DeclarativeDragArea::mouseReleaseEvent(QMouseEvent* event)
+void DeclarativeDragArea::mouseReleaseEvent(QMouseEvent *event)
 {
     Q_UNUSED(event);
     killTimer(m_pressAndHoldTimerId);
@@ -235,14 +236,12 @@ void DeclarativeDragArea::timerEvent(QTimerEvent *event)
 
 void DeclarativeDragArea::mouseMoveEvent(QMouseEvent *event)
 {
-    if ( !m_enabled
-         || QLineF(event->screenPos(), m_buttonDownPos).length()
-            < m_startDragDistance) {
+    if (!m_enabled || QLineF(event->screenPos(), m_buttonDownPos).length() < m_startDragDistance) {
         return;
     }
 
-    //don't start drags on move for touch events, they'll be handled only by press and hold
-    //reset timer if moved more than m_startDragDistance
+    // don't start drags on move for touch events, they'll be handled only by press and hold
+    // reset timer if moved more than m_startDragDistance
     if (event->source() == Qt::MouseEventSynthesizedByQt) {
         killTimer(m_pressAndHoldTimerId);
         m_pressAndHoldTimerId = 0;
@@ -280,19 +279,19 @@ bool DeclarativeDragArea::childMouseEventFilter(QQuickItem *item, QEvent *event)
     switch (event->type()) {
     case QEvent::MouseButtonPress: {
         QMouseEvent *me = static_cast<QMouseEvent *>(event);
-        //qDebug() << "press in dragarea";
+        // qDebug() << "press in dragarea";
         mousePressEvent(me);
         break;
     }
     case QEvent::MouseMove: {
         QMouseEvent *me = static_cast<QMouseEvent *>(event);
-        //qDebug() << "move in dragarea";
+        // qDebug() << "move in dragarea";
         mouseMoveEvent(me);
         break;
     }
     case QEvent::MouseButtonRelease: {
         QMouseEvent *me = static_cast<QMouseEvent *>(event);
-        //qDebug() << "release in dragarea";
+        // qDebug() << "release in dragarea";
         mouseReleaseEvent(me);
         break;
     }
@@ -309,7 +308,7 @@ void DeclarativeDragArea::startDrag(const QImage &image)
     m_draggingJustStarted = false;
 
     QDrag *drag = new QDrag(parent());
-    DeclarativeMimeData *dataCopy = new DeclarativeMimeData(m_data); //Qt will take ownership of this copy and delete it.
+    DeclarativeMimeData *dataCopy = new DeclarativeMimeData(m_data); // Qt will take ownership of this copy and delete it.
     drag->setMimeData(dataCopy);
 
     const qreal devicePixelRatio = window() ? window()->devicePixelRatio() : 1;
@@ -352,8 +351,8 @@ void DeclarativeDragArea::startDrag(const QImage &image)
         }
     }
 
-    //drag->setHotSpot(QPoint(drag->pixmap().width()/2, drag->pixmap().height()/2)); // TODO: Make a property for that
-    //setCursor(Qt::OpenHandCursor);    //TODO? Make a property for the cursor
+    // drag->setHotSpot(QPoint(drag->pixmap().width()/2, drag->pixmap().height()/2)); // TODO: Make a property for that
+    // setCursor(Qt::OpenHandCursor);    //TODO? Make a property for the cursor
 
     m_dragActive = true;
     Q_EMIT dragActiveChanged();

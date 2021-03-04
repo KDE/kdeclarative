@@ -15,8 +15,8 @@
 
 #include "quickaddons_export.h"
 
-#include <QVariant>
 #include <QObject>
+#include <QVariant>
 #include <QtQml>
 
 #include <KPluginMetaData>
@@ -26,8 +26,8 @@ class KAboutData;
 class QQuickItem;
 class QQmlEngine;
 
-namespace KQuickAddons {
-
+namespace KQuickAddons
+{
 class ConfigModulePrivate;
 
 /**
@@ -131,7 +131,6 @@ class QUICKADDONS_EXPORT ConfigModule : public QObject
     Q_PROPERTY(int defaultsIndicatorsVisible READ defaultsIndicatorsVisible WRITE setDefaultsIndicatorsVisible NOTIFY defaultsIndicatorsVisibleChanged)
 
 public:
-
     /**
      * An enumeration type for the buttons used by this module.
      * You should only use Help, Default and Apply. The rest is obsolete.
@@ -213,7 +212,6 @@ public:
      */
     QString authActionName() const;
 
-
     /**
      * @return the qml engine that built the main config UI
      */
@@ -231,7 +229,7 @@ public:
      */
     QString errorString() const;
 
-//QML property accessors
+    // QML property accessors
 
     /**
      * @return The main UI for this configuration module. It's a QQuickItem coming from
@@ -311,7 +309,6 @@ public:
      */
     Buttons buttons() const;
 
-
     /**
      * Sets the RootOnly message.
      *
@@ -336,7 +333,6 @@ public:
      */
     QString rootOnlyMessage() const;
 
-
     /**
      * Change whether or not the RootOnly message should be shown.
      *
@@ -358,7 +354,6 @@ public:
      * @see ConfigModule::setUseRootOnlyMessage
      */
     bool useRootOnlyMessage() const;
-
 
     /**
      * @brief Set if the module's save() method requires authorization to be executed.
@@ -504,7 +499,10 @@ public Q_SLOTS:
      * @param callBack (optional) If actionText is set and callBack is a JavaScript function, it will be called when the use clicks the button.
      * @since 5.68
      */
-    void showPassiveNotification(const QString &message, const QVariant &timeout = QVariant(), const QString &actionText = QString(), const QJSValue &callBack = QJSValue());
+    void showPassiveNotification(const QString &message,
+                                 const QVariant &timeout = QVariant(),
+                                 const QString &actionText = QString(),
+                                 const QJSValue &callBack = QJSValue());
 
     /**
      * Change defaultness indicator visibility
@@ -520,7 +518,7 @@ Q_SIGNALS:
      */
     void authActionNameChanged();
 
-    //QML NOTIFY signaling
+    // QML NOTIFY signaling
     /**
      * Buttons to display changed.
      */
@@ -580,7 +578,7 @@ Q_SIGNALS:
      * Emitted when a sub page is popped
      * @since 5.50
      */
-    //RFC: page argument?
+    // RFC: page argument?
     void pageRemoved();
 
     /**
@@ -622,5 +620,4 @@ private:
 Q_DECLARE_OPERATORS_FOR_FLAGS(KQuickAddons::ConfigModule::Buttons)
 QML_DECLARE_TYPEINFO(KQuickAddons::ConfigModule, QML_HAS_ATTACHED_PROPERTIES)
 
-#endif //ConfigModule_H
-
+#endif // ConfigModule_H

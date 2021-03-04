@@ -8,11 +8,11 @@
 #ifndef DECLARATIVEMIMEDATA_H
 #define DECLARATIVEMIMEDATA_H
 
-#include <QMimeData>
 #include <QColor>
-#include <QUrl>
-#include <QQuickItem>
 #include <QJsonArray>
+#include <QMimeData>
+#include <QQuickItem>
+#include <QUrl>
 
 class DeclarativeMimeData : public QMimeData
 {
@@ -47,11 +47,11 @@ class DeclarativeMimeData : public QMimeData
     /**
      * The graphical item on the scene that started the drag event. It may be null.
      */
-    Q_PROPERTY(QQuickItem* source READ source WRITE setSource NOTIFY sourceChanged)
+    Q_PROPERTY(QQuickItem *source READ source WRITE setSource NOTIFY sourceChanged)
 
     /** @see QMimeData::hasUrls */
     Q_PROPERTY(bool hasUrls READ hasUrls NOTIFY urlsChanged)
-    //TODO: Image property
+    // TODO: Image property
 
     /**
      * @sa QMimeData::formats
@@ -59,7 +59,7 @@ class DeclarativeMimeData : public QMimeData
     Q_PROPERTY(QStringList formats READ formats)
 public:
     DeclarativeMimeData();
-    DeclarativeMimeData(const QMimeData* copy);
+    DeclarativeMimeData(const QMimeData *copy);
 
     QUrl url() const;
     void setUrl(const QUrl &url);
@@ -73,10 +73,10 @@ public:
 
     Q_INVOKABLE void setData(const QString &mimeType, const QVariant &data);
 
-    QQuickItem* source() const;
-    void setSource(QQuickItem* source);
+    QQuickItem *source() const;
+    void setSource(QQuickItem *source);
 
-    Q_INVOKABLE QByteArray getDataAsByteArray(const QString& format);
+    Q_INVOKABLE QByteArray getDataAsByteArray(const QString &format);
 
     /*
     QString text() const;                //TODO: Reimplement this to issue the onChanged signals
@@ -86,15 +86,15 @@ public:
     */
 
 Q_SIGNALS:
-    void textChanged();        //FIXME not being used
-    void htmlChanged();        //FIXME not being used
+    void textChanged(); // FIXME not being used
+    void htmlChanged(); // FIXME not being used
     void urlChanged();
     void urlsChanged();
     void colorChanged();
     void sourceChanged();
 
 private:
-    QQuickItem* m_source;
+    QQuickItem *m_source;
 };
 
 #endif // DECLARATIVEMIMEDATA_H

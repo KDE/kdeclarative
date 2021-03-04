@@ -8,8 +8,8 @@
 #ifndef QPIXMAPITEM_H
 #define QPIXMAPITEM_H
 
-#include <QQuickPaintedItem>
 #include <QPixmap>
+#include <QQuickPaintedItem>
 
 class QPixmapItem : public QQuickPaintedItem
 {
@@ -31,11 +31,11 @@ public:
         PreserveAspectCrop, // the image is scaled uniformly to fill, cropping if necessary
         Tile, // the image is duplicated horizontally and vertically
         TileVertically, // the image is stretched horizontally and tiled vertically
-        TileHorizontally, //the image is stretched vertically and tiled horizontally
+        TileHorizontally, // the image is stretched vertically and tiled horizontally
     };
     Q_ENUM(FillMode)
 
-    explicit QPixmapItem(QQuickItem *parent=nullptr);
+    explicit QPixmapItem(QQuickItem *parent = nullptr);
     ~QPixmapItem() override;
 
     void setPixmap(const QPixmap &pixmap);
@@ -68,7 +68,7 @@ Q_SIGNALS:
     void paintedHeightChanged();
 
 protected:
-    void geometryChanged(const QRectF & newGeometry, const QRectF & oldGeometry) override;
+    void geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry) override;
 
 private:
     QPixmap m_pixmap;
@@ -78,7 +78,6 @@ private:
 
 private Q_SLOTS:
     void updatePaintedRect();
-
 };
 
 #endif

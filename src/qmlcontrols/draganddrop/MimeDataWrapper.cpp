@@ -8,10 +8,11 @@
 #include <QMimeData>
 #include <QUrl>
 
-MimeDataWrapper::MimeDataWrapper(const QMimeData* data, QObject* parent)
+MimeDataWrapper::MimeDataWrapper(const QMimeData *data, QObject *parent)
     : QObject(parent)
     , m_data(data)
-{}
+{
+}
 
 QString MimeDataWrapper::text() const
 {
@@ -25,7 +26,7 @@ QString MimeDataWrapper::html() const
 
 QUrl MimeDataWrapper::url() const
 {
-    if ( m_data->hasUrls() && !m_data->urls().isEmpty()) {
+    if (m_data->hasUrls() && !m_data->urls().isEmpty()) {
         return m_data->urls().first();
     }
     return QUrl();
@@ -59,19 +60,18 @@ QStringList MimeDataWrapper::formats() const
     return m_data->formats();
 }
 
-
-QByteArray MimeDataWrapper::getDataAsByteArray(const QString& format)
+QByteArray MimeDataWrapper::getDataAsByteArray(const QString &format)
 {
     return m_data->data(format);
 }
 
 QVariant MimeDataWrapper::source() const
 {
-//     In case it comes from a DeclarativeMimeData
+    //     In case it comes from a DeclarativeMimeData
     return m_data->property("source");
 }
 
-QMimeData* MimeDataWrapper::mimeData() const
+QMimeData *MimeDataWrapper::mimeData() const
 {
-    return const_cast<QMimeData*>(m_data);
+    return const_cast<QMimeData *>(m_data);
 }

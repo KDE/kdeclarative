@@ -7,8 +7,8 @@
 #ifndef IMAGETEXTURESCACHE_H
 #define IMAGETEXTURESCACHE_H
 
-#include <QSharedPointer>
 #include <QQuickWindow>
+#include <QSharedPointer>
 
 #include "quickaddons_export.h"
 
@@ -43,7 +43,6 @@ public:
     QSharedPointer<QSGTexture> loadTexture(QQuickWindow *window, const QImage &image, QQuickWindow::CreateTextureOptions options);
 
     QSharedPointer<QSGTexture> loadTexture(QQuickWindow *window, const QImage &image);
-
 
 private:
     QScopedPointer<ImageTexturesCachePrivate> d;

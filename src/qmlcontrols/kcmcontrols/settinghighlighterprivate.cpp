@@ -10,8 +10,8 @@
 #include <QGuiApplication>
 #include <QQmlContext>
 
-namespace {
-
+namespace
+{
 QByteArray itemClassName(QQuickItem *item)
 {
     // Split since some exported types will be of the form: Foo_QMLTYPE_XX
@@ -36,16 +36,15 @@ QQuickItem *findStyleItem(QQuickItem *item)
     auto descendant = findDescendantItems(item);
     for (auto child : qAsConst(descendant)) {
         if (className.contains("FontWidget") && itemClassName(child).contains("TextField")) {
-            return child->property("background").value<QQuickItem*>();
+            return child->property("background").value<QQuickItem *>();
         }
         if (itemClassName(child).contains("GridViewInternal")) {
             return child;
         }
         if (itemClassName(child).contains("GridView")) {
-            return child->property("view").value<QQuickItem*>();
+            return child->property("view").value<QQuickItem *>();
         }
-        if (itemClassName(child).contains("CheckIndicator")
-         || itemClassName(child).contains("KQuickStyleItem")) {
+        if (itemClassName(child).contains("CheckIndicator") || itemClassName(child).contains("KQuickStyleItem")) {
             return child;
         }
     }
@@ -107,7 +106,7 @@ void SettingHighlighterPrivate::updateTarget()
     if (!m_styleTarget) {
         if (!m_target) {
             // parent is SettingStateBinding/SettingHighlighter, use its visual parent as target item.
-            const auto *parentItem = qobject_cast<QQuickItem*>(parent());
+            const auto *parentItem = qobject_cast<QQuickItem *>(parent());
             if (parentItem) {
                 setTarget(parentItem->parentItem());
             }

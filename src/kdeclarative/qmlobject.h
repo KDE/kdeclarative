@@ -18,8 +18,8 @@ class QQmlEngine;
 class QQmlComponent;
 class QQmlContext;
 
-namespace KDeclarative {
-
+namespace KDeclarative
+{
 class QmlObjectPrivate;
 
 /**
@@ -46,7 +46,6 @@ class KDECLARATIVE_EXPORT QmlObject : public QObject
     Q_PROPERTY(QQmlComponent::Status status READ status NOTIFY statusChanged)
 
 public:
-
     /**
      * Constructs a new QmlObject
      *
@@ -126,7 +125,7 @@ public:
     void setPackage(const KPackage::Package &package);
 
     /**
-     * @return the optional package, if any 
+     * @return the optional package, if any
      */
     KPackage::Package package() const;
 

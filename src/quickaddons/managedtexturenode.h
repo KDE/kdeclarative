@@ -8,10 +8,10 @@
 #define MANAGEDTEXTURENODE_H
 
 #include "quickaddons_export.h"
-#include <qglobal.h>
 #include <QSGSimpleTextureNode>
 #include <QSGTexture>
 #include <QSharedPointer>
+#include <qglobal.h>
 
 /**
  * @class ManagedTextureNode managedtexturenode.h KQuickAddons/ManagedTextureNode
@@ -31,7 +31,7 @@
 
 class QUICKADDONS_EXPORT ManagedTextureNode : public QSGSimpleTextureNode
 {
-Q_DISABLE_COPY(ManagedTextureNode)
+    Q_DISABLE_COPY(ManagedTextureNode)
 public:
     ManagedTextureNode();
 

@@ -6,7 +6,7 @@
 
 #include "formats.h"
 
-Formats::Formats(QObject* parent)
+Formats::Formats(QObject *parent)
     : QObject(parent)
     , m_format()
 {

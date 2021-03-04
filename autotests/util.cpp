@@ -7,18 +7,19 @@
 
 #include "util.h"
 
+#include <QMutexLocker>
 #include <QQmlComponent>
-#include <QQmlError>
 #include <QQmlContext>
 #include <QQmlEngine>
-#include <QTextStream>
-#include <QMutexLocker>
+#include <QQmlError>
 #include <QTest>
+#include <QTextStream>
 
 QQmlDataTest *QQmlDataTest::m_instance = nullptr;
 
-QQmlDataTest::QQmlDataTest() :
-    m_dataDirectory(QFINDTESTDATA("data")),
+QQmlDataTest::QQmlDataTest()
+    : m_dataDirectory(QFINDTESTDATA("data"))
+    ,
 
     m_dataDirectoryUrl(QUrl::fromLocalFile(m_dataDirectory + QLatin1Char('/')))
 {
@@ -47,27 +48,23 @@ QString QQmlDataTest::testFile(const QString &fileName) const
     return result;
 }
 
-QByteArray QQmlDataTest::msgComponentError(const QQmlComponent &c,
-                                                   const QQmlEngine *engine /* = 0 */)
+QByteArray QQmlDataTest::msgComponentError(const QQmlComponent &c, const QQmlEngine *engine /* = 0 */)
 {
     QString result;
     const QList<QQmlError> errors = c.errors();
     QTextStream str(&result);
-    str << "Component '" << c.url().toString() << "' has " << errors.size()
-        << " errors: '";
+    str << "Component '" << c.url().toString() << "' has " << errors.size() << " errors: '";
     for (int i = 0; i < errors.size(); ++i) {
         if (i)
             str << ", '";
         str << errors.at(i).toString() << '\'';
-
     }
     if (!engine)
         if (QQmlContext *context = c.creationContext())
             engine = context->engine();
     if (engine) {
-        str << " Import paths: (" << engine->importPathList().join(QLatin1String(", "))
-            << ") Plugin paths: (" << engine->pluginPathList().join(QLatin1String(", "))
-            << ')';
+        str << " Import paths: (" << engine->importPathList().join(QLatin1String(", ")) << ") Plugin paths: ("
+            << engine->pluginPathList().join(QLatin1String(", ")) << ')';
     }
     return result.toLocal8Bit();
 }

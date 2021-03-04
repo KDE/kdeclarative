@@ -8,14 +8,13 @@
 
 #include <KAuthorized>
 
-KAuthorizedProxy::KAuthorizedProxy(QObject *parent) : QObject(parent)
+KAuthorizedProxy::KAuthorizedProxy(QObject *parent)
+    : QObject(parent)
 {
-
 }
 
 KAuthorizedProxy::~KAuthorizedProxy()
 {
-
 }
 
 bool KAuthorizedProxy::authorize(const QString &action) const

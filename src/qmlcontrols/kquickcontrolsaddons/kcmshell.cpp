@@ -11,14 +11,13 @@
 
 #include <KIO/CommandLauncherJob>
 
-KCMShell::KCMShell(QObject *parent) : QObject(parent)
+KCMShell::KCMShell(QObject *parent)
+    : QObject(parent)
 {
-
 }
 
 KCMShell::~KCMShell()
 {
-
 }
 
 void KCMShell::open(const QStringList &names) const

@@ -8,13 +8,12 @@
 #include "DeclarativeDropArea.h"
 #include "DeclarativeDragDropEvent.h"
 
-
 DeclarativeDropArea::DeclarativeDropArea(QQuickItem *parent)
-    : QQuickItem(parent),
-      m_enabled(true),
-      m_preventStealing(false),
-      m_temporaryInhibition(false),
-      m_containsDrag(false)
+    : QQuickItem(parent)
+    , m_enabled(true)
+    , m_preventStealing(false)
+    , m_temporaryInhibition(false)
+    , m_containsDrag(false)
 {
     setFlag(ItemAcceptsDrops, m_enabled);
 }
@@ -59,11 +58,11 @@ void DeclarativeDropArea::dragEnterEvent(QDragEnterEvent *event)
 
 void DeclarativeDropArea::dragLeaveEvent(QDragLeaveEvent *event)
 {
-    //do it anyways, in the unlikely case m_preventStealing
-    //was changed while drag
+    // do it anyways, in the unlikely case m_preventStealing
+    // was changed while drag
     temporaryInhibitParent(false);
 
-    m_oldDragMovePos = QPoint(-1,-1);
+    m_oldDragMovePos = QPoint(-1, -1);
     DeclarativeDragDropEvent dde(event, this);
     Q_EMIT dragLeave(&dde);
     setContainsDrag(false);
@@ -76,7 +75,7 @@ void DeclarativeDropArea::dragMoveEvent(QDragMoveEvent *event)
         return;
     }
     event->accept();
-    //if the position we export didn't change, don't generate the move event
+    // if the position we export didn't change, don't generate the move event
     if (event->pos() == m_oldDragMovePos) {
         return;
     }
@@ -88,13 +87,13 @@ void DeclarativeDropArea::dragMoveEvent(QDragMoveEvent *event)
 
 void DeclarativeDropArea::dropEvent(QDropEvent *event)
 {
-    //do it anyways, in the unlikely case m_preventStealing
-    //was changed while drag, do it after a loop,
-    //so the parent dropevent doesn't get delivered
+    // do it anyways, in the unlikely case m_preventStealing
+    // was changed while drag, do it after a loop,
+    // so the parent dropevent doesn't get delivered
     metaObject()->invokeMethod(this, "temporaryInhibitParent", Qt::QueuedConnection, Q_ARG(bool, false));
 
-    m_oldDragMovePos = QPoint(-1,-1);
-    
+    m_oldDragMovePos = QPoint(-1, -1);
+
     if (!m_enabled || m_temporaryInhibition) {
         return;
     }

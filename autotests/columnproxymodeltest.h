@@ -13,9 +13,9 @@ class ColumnProxyModelTest : public QObject
 {
     Q_OBJECT
 
-    private Q_SLOTS:
-        void testInit();
-        void testSet();
+private Q_SLOTS:
+    void testInit();
+    void testSet();
 };
 
 #endif

@@ -11,13 +11,13 @@
 
 #include <KConfigCore/KCoreConfigSkeleton>
 
-namespace KQuickAddons {
-
+namespace KQuickAddons
+{
 class ManagedConfigModulePrivate
 {
 public:
-    ManagedConfigModulePrivate(ManagedConfigModule *module):
-        _q(module)
+    ManagedConfigModulePrivate(ManagedConfigModule *module)
+        : _q(module)
     {
         QMetaObject::invokeMethod(_q, "_k_registerSettings", Qt::QueuedConnection);
     }
@@ -29,20 +29,20 @@ public:
 };
 
 ManagedConfigModule::ManagedConfigModule(const KAboutData *aboutData, QObject *parent, const QVariantList &args)
-    : ConfigModule(aboutData, parent, args),
-      d(new ManagedConfigModulePrivate(this))
+    : ConfigModule(aboutData, parent, args)
+    , d(new ManagedConfigModulePrivate(this))
 {
 }
 
 ManagedConfigModule::ManagedConfigModule(const KPluginMetaData &metaData, QObject *parent, const QVariantList &args)
-    : ConfigModule(metaData, parent, args),
-      d(new ManagedConfigModulePrivate(this))
+    : ConfigModule(metaData, parent, args)
+    , d(new ManagedConfigModulePrivate(this))
 {
 }
 
 ManagedConfigModule::ManagedConfigModule(QObject *parent, const QVariantList &args)
-    : ConfigModule(parent, args),
-      d(new ManagedConfigModulePrivate(this))
+    : ConfigModule(parent, args)
+    , d(new ManagedConfigModulePrivate(this))
 {
 }
 
@@ -90,7 +90,7 @@ bool ManagedConfigModule::isDefaults() const
 
 void ManagedConfigModulePrivate::_k_registerSettings()
 {
-    const auto skeletons = _q->findChildren<KCoreConfigSkeleton*>();
+    const auto skeletons = _q->findChildren<KCoreConfigSkeleton *>();
     for (auto *skeleton : skeletons) {
         _q->registerSettings(skeleton);
     }
@@ -134,7 +134,7 @@ void ManagedConfigModule::registerSettings(KCoreConfigSkeleton *skeleton)
 
     const auto items = skeleton->items();
     for (auto item : items) {
-        const auto itemHasSignals = dynamic_cast<KConfigCompilerSignallingItem*>(item) || dynamic_cast<KPropertySkeletonItem*>(item);
+        const auto itemHasSignals = dynamic_cast<KConfigCompilerSignallingItem *>(item) || dynamic_cast<KPropertySkeletonItem *>(item);
         if (!itemHasSignals) {
             continue;
         }
@@ -155,9 +155,9 @@ void ManagedConfigModule::registerSettings(KCoreConfigSkeleton *skeleton)
         QObject::connect(skeleton, changedSignal, this, settingsChangedSlot);
     }
 
-    auto toRemove = std::remove_if(d->_skeletons.begin(),
-                                   d->_skeletons.end(),
-                                   [](const QPointer<KCoreConfigSkeleton> &value) { return value.isNull(); } );
+    auto toRemove = std::remove_if(d->_skeletons.begin(), d->_skeletons.end(), [](const QPointer<KCoreConfigSkeleton> &value) {
+        return value.isNull();
+    });
     d->_skeletons.erase(toRemove, d->_skeletons.end());
 
     QMetaObject::invokeMethod(this, "settingsChanged", Qt::QueuedConnection);
@@ -166,4 +166,3 @@ void ManagedConfigModule::registerSettings(KCoreConfigSkeleton *skeleton)
 }
 
 #include "moc_managedconfigmodule.cpp"
-

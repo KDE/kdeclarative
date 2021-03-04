@@ -7,9 +7,9 @@
 #ifndef MIMEDATAWRAPPER_H
 #define MIMEDATAWRAPPER_H
 
+#include <QJsonArray>
 #include <QObject>
 #include <QString>
-#include <QJsonArray>
 
 class QMimeData;
 class QObject;
@@ -68,10 +68,10 @@ class MimeDataWrapper : public QObject
     /**
      * @returns the wrapped object
      */
-    Q_PROPERTY(QMimeData* mimeData READ mimeData CONSTANT)
+    Q_PROPERTY(QMimeData *mimeData READ mimeData CONSTANT)
 
 public:
-    MimeDataWrapper(const QMimeData* data, QObject* parent);
+    MimeDataWrapper(const QMimeData *data, QObject *parent);
 
     QString text() const;
     QString html() const;
@@ -81,12 +81,12 @@ public:
     QVariant color() const;
     QStringList formats() const;
     QVariant source() const;
-    QMimeData* mimeData() const;
+    QMimeData *mimeData() const;
 
-    Q_INVOKABLE QByteArray getDataAsByteArray(const QString& format);
+    Q_INVOKABLE QByteArray getDataAsByteArray(const QString &format);
 
 private:
-    const QMimeData* m_data;
+    const QMimeData *m_data;
 };
 
 #endif

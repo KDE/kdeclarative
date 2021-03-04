@@ -7,12 +7,12 @@
 #ifndef QMLOBJECTSHAREDENGINE_H
 #define QMLOBJECTSHAREDENGINE_H
 
-#include <memory>
-#include <kdeclarative/qmlobject.h>
 #include <kdeclarative/kdeclarative_export.h>
+#include <kdeclarative/qmlobject.h>
+#include <memory>
 
-namespace KDeclarative {
-
+namespace KDeclarative
+{
 class QmlObjectSharedEnginePrivate;
 
 /**
@@ -24,7 +24,7 @@ class QmlObjectSharedEnginePrivate;
  *
  * KDeclarative::QmlObjectSharedEngine is a version of QmlObject that ensures only one
  * QQmlEngine instance exists for the whole application. Objects created by different
- * instances of QmlObjectSharedEngine will be insulated by having different creation 
+ * instances of QmlObjectSharedEngine will be insulated by having different creation
  * contexts, accessible by QmlObject::rootContext()
  */
 class KDECLARATIVE_EXPORT QmlObjectSharedEngine : public QmlObject

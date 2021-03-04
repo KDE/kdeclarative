@@ -5,8 +5,8 @@
 */
 
 #include <QGuiApplication>
-#include <QQuickView>
 #include <QQmlContext>
+#include <QQuickView>
 
 #include <kdeclarative/kdeclarative.h>
 
@@ -18,8 +18,7 @@ int main(int argc, char *argv[])
 
     QQuickView view;
     QQmlContext *context = view.rootContext();
-    context->setContextProperty(QStringLiteral("backgroundColor"),
-                                QColor(Qt::yellow));
+    context->setContextProperty(QStringLiteral("backgroundColor"), QColor(Qt::yellow));
 
     KDeclarative::KDeclarative::setupEngine(view.engine());
     KDeclarative::KDeclarative kdeclarative;

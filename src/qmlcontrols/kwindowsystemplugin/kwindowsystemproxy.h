@@ -97,7 +97,7 @@ public:
      *
      * @param window the window to make active
      * @param time X server timestamp of the user activity that caused this request
-    */
+     */
     Q_INVOKABLE void forceActivateWindow(QWindow *window, long time = 0);
 
     /**
@@ -151,7 +151,6 @@ protected:
 
 private:
     bool m_initialized;
-
 };
 
 #endif // KWINDOWSYSTEMPROXY_H

@@ -5,10 +5,10 @@
 */
 
 #include "mimedatabase.h"
-#include <QJsonObject>
 #include <QDebug>
+#include <QJsonObject>
 
-static QJsonObject mimetypeToJsonObject(const QMimeType& type)
+static QJsonObject mimetypeToJsonObject(const QMimeType &type)
 {
     if (!type.isValid()) {
         qWarning() << "trying to export an invalid type";
@@ -21,17 +21,17 @@ static QJsonObject mimetypeToJsonObject(const QMimeType& type)
     return ret;
 }
 
-MimeDatabase::MimeDatabase(QObject* parent)
+MimeDatabase::MimeDatabase(QObject *parent)
     : QObject(parent)
 {
 }
 
-QJsonObject MimeDatabase::mimeTypeForUrl(const QUrl& url) const
+QJsonObject MimeDatabase::mimeTypeForUrl(const QUrl &url) const
 {
     return mimetypeToJsonObject(m_db.mimeTypeForUrl(url));
 }
 
-QJsonObject MimeDatabase::mimeTypeForName(const QString& name) const
+QJsonObject MimeDatabase::mimeTypeForName(const QString &name) const
 {
     QMimeType type = m_db.mimeTypeForName(name);
     if (!type.isValid()) {

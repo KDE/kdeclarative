@@ -15,12 +15,10 @@ KWindowSystemProxy::KWindowSystemProxy(QObject *parent)
     : QObject(parent)
     , m_initialized(false)
 {
-
 }
 
 KWindowSystemProxy::~KWindowSystemProxy()
 {
-
 }
 
 void KWindowSystemProxy::connectNotify(const QMetaMethod &signal)
@@ -29,12 +27,11 @@ void KWindowSystemProxy::connectNotify(const QMetaMethod &signal)
         return;
     }
 
-    if (signal == QMetaMethod::fromSignal(&KWindowSystemProxy::currentDesktopChanged) ||
-        signal == QMetaMethod::fromSignal(&KWindowSystemProxy::desktopNamesChanged) ||
-        signal == QMetaMethod::fromSignal(&KWindowSystemProxy::numberOfDesktopsChanged) ||
-        signal == QMetaMethod::fromSignal(&KWindowSystemProxy::showingDesktopChanged) ||
-        signal == QMetaMethod::fromSignal(&KWindowSystemProxy::compositingActiveChanged)) {
-
+    if (signal == QMetaMethod::fromSignal(&KWindowSystemProxy::currentDesktopChanged)
+        || signal == QMetaMethod::fromSignal(&KWindowSystemProxy::desktopNamesChanged)
+        || signal == QMetaMethod::fromSignal(&KWindowSystemProxy::numberOfDesktopsChanged)
+        || signal == QMetaMethod::fromSignal(&KWindowSystemProxy::showingDesktopChanged)
+        || signal == QMetaMethod::fromSignal(&KWindowSystemProxy::compositingActiveChanged)) {
         connect(KWindowSystem::self(), &KWindowSystem::currentDesktopChanged, this, [this](int currentDesktop) {
             Q_EMIT currentDesktopChanged(currentDesktop);
             Q_EMIT currentDesktopNameChanged();
@@ -45,12 +42,9 @@ void KWindowSystemProxy::connectNotify(const QMetaMethod &signal)
             Q_EMIT currentDesktopNameChanged();
         });
 
-        connect(KWindowSystem::self(), &KWindowSystem::numberOfDesktopsChanged,
-                this, &KWindowSystemProxy::numberOfDesktopsChanged);
-        connect(KWindowSystem::self(), &KWindowSystem::showingDesktopChanged,
-                this, &KWindowSystemProxy::showingDesktopChanged);
-        connect(KWindowSystem::self(), &KWindowSystem::compositingChanged,
-                this, &KWindowSystemProxy::compositingActiveChanged);
+        connect(KWindowSystem::self(), &KWindowSystem::numberOfDesktopsChanged, this, &KWindowSystemProxy::numberOfDesktopsChanged);
+        connect(KWindowSystem::self(), &KWindowSystem::showingDesktopChanged, this, &KWindowSystemProxy::showingDesktopChanged);
+        connect(KWindowSystem::self(), &KWindowSystem::compositingChanged, this, &KWindowSystemProxy::compositingActiveChanged);
 
         m_initialized = true;
     }

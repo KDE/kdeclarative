@@ -7,8 +7,8 @@
 
 #include "quickviewsharedengine.h"
 
-#include <QQmlEngine>
 #include <QQmlContext>
+#include <QQmlEngine>
 #include <QQuickItem>
 
 #include <KLocalizedString>
@@ -17,21 +17,19 @@
 #include <KPackage/Package>
 #include <KPackage/PackageLoader>
 
-namespace KQuickAddons {
-
+namespace KQuickAddons
+{
 class QuickViewSharedEnginePrivate
 {
 public:
     QuickViewSharedEnginePrivate(QuickViewSharedEngine *module)
-        : q(module),
-          resizeMode(QuickViewSharedEngine::ResizeMode::SizeRootObjectToView),
-          initialSize(0, 0)
+        : q(module)
+        , resizeMode(QuickViewSharedEngine::ResizeMode::SizeRootObjectToView)
+        , initialSize(0, 0)
     {
         qmlObject = new KDeclarative::QmlObjectSharedEngine(q);
-        QObject::connect(qmlObject, &KDeclarative::QmlObject::statusChanged,
-                         q, &QuickViewSharedEngine::statusChanged);
-        QObject::connect(qmlObject, SIGNAL(finished()),
-                         q, SLOT(executionFinished()));
+        QObject::connect(qmlObject, &KDeclarative::QmlObject::statusChanged, q, &QuickViewSharedEngine::statusChanged);
+        QObject::connect(qmlObject, SIGNAL(finished()), q, SLOT(executionFinished()));
     }
 
     void executionFinished();
@@ -39,12 +37,10 @@ public:
     void syncWidth();
     void syncHeight();
 
-
     QuickViewSharedEngine *q;
     KDeclarative::QmlObjectSharedEngine *qmlObject;
     QuickViewSharedEngine::ResizeMode resizeMode;
     QSize initialSize;
-
 };
 
 void QuickViewSharedEnginePrivate::executionFinished()
@@ -60,9 +56,9 @@ void QuickViewSharedEnginePrivate::executionFinished()
     }
 
     item->setParentItem(q->contentItem());
-    initialSize = QSize(item->width(), item ->height());
+    initialSize = QSize(item->width(), item->height());
 
-    if(q->size().isEmpty()) {
+    if (q->size().isEmpty()) {
         q->resize(initialSize);
         q->contentItem()->setSize(initialSize);
     }
@@ -81,17 +77,12 @@ void QuickViewSharedEnginePrivate::syncResizeMode()
     if (resizeMode == QuickViewSharedEngine::SizeRootObjectToView) {
         item->setSize(QSize(q->width(), q->height()));
 
-        QObject::disconnect(item, SIGNAL(widthChanged()),
-                            q, SLOT(syncWidth()));
-        QObject::disconnect(item, SIGNAL(heightChanged()),
-                            q, SLOT(syncHeight()));
+        QObject::disconnect(item, SIGNAL(widthChanged()), q, SLOT(syncWidth()));
+        QObject::disconnect(item, SIGNAL(heightChanged()), q, SLOT(syncHeight()));
 
     } else {
-
-        QObject::connect(item, SIGNAL(widthChanged()),
-                         q, SLOT(syncWidth()));
-        QObject::connect(item, SIGNAL(heightChanged()),
-                         q, SLOT(syncHeight()));
+        QObject::connect(item, SIGNAL(widthChanged()), q, SLOT(syncWidth()));
+        QObject::connect(item, SIGNAL(heightChanged()), q, SLOT(syncHeight()));
 
         syncWidth();
         syncHeight();
@@ -120,18 +111,15 @@ void QuickViewSharedEnginePrivate::syncHeight()
     q->setHeight(item->height());
 }
 
-
-
 QuickViewSharedEngine::QuickViewSharedEngine(QWindow *parent)
-    : QQuickWindow(parent),
-      d(new QuickViewSharedEnginePrivate(this))
+    : QQuickWindow(parent)
+    , d(new QuickViewSharedEnginePrivate(this))
 {
 }
 
 QuickViewSharedEngine::~QuickViewSharedEngine()
 {
 }
-
 
 void QuickViewSharedEngine::setTranslationDomain(const QString &translationDomain)
 {
@@ -192,7 +180,7 @@ QQmlContext *QuickViewSharedEngine::rootContext() const
 
 QQuickItem *QuickViewSharedEngine::rootObject() const
 {
-     return qobject_cast<QQuickItem *>(d->qmlObject->rootObject());
+    return qobject_cast<QQuickItem *>(d->qmlObject->rootObject());
 }
 
 void QuickViewSharedEngine::setResizeMode(ResizeMode mode)
@@ -250,4 +238,3 @@ void QuickViewSharedEngine::resizeEvent(QResizeEvent *e)
 }
 
 #include "moc_quickviewsharedengine.cpp"
-

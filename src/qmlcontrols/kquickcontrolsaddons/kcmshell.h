@@ -36,7 +36,7 @@ public Q_SLOTS:
      */
     void openSystemSettings(const QString &name, const QStringList &args = QStringList()) const;
 
-     /**
+    /**
      * Opens the specified module in InfCenter. Only a single KCM name may
      * be provided.
      *
@@ -69,7 +69,6 @@ public Q_SLOTS:
      * @since 5.23
      */
     QStringList authorize(const QStringList &menuIds) const;
-
 };
 
 #endif // KCMSHELL_H

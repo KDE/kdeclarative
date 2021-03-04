@@ -10,7 +10,8 @@
 #include <QPointer>
 #include <QQuickItem>
 
-class FallbackTapHandlerMouseEvent : public QObject {
+class FallbackTapHandlerMouseEvent : public QObject
+{
     Q_OBJECT
     Q_PROPERTY(Qt::MouseButton button MEMBER m_button)
     Q_PROPERTY(Qt::MouseButtons buttons MEMBER m_buttons)
@@ -56,4 +57,3 @@ private:
     QPointer<QQuickItem> m_mouseDownItem;
     QPointF m_mouseDownPos;
 };
-

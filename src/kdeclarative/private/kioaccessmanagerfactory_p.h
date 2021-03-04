@@ -9,8 +9,8 @@
 
 #include <QQmlNetworkAccessManagerFactory>
 
-namespace KDeclarative {
-
+namespace KDeclarative
+{
 class KIOAccessManagerFactory : public QQmlNetworkAccessManagerFactory
 {
 public:

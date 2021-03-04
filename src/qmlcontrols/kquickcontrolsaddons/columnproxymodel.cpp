@@ -6,79 +6,66 @@
 
 #include "columnproxymodel.h"
 
-ColumnProxyModel::ColumnProxyModel(QObject* parent)
+ColumnProxyModel::ColumnProxyModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_column(0)
     , m_sourceModel(nullptr)
-{}
-
-void ColumnProxyModel::setSourceModel(QAbstractItemModel* sourceModel)
 {
-    if(sourceModel==m_sourceModel) {
+}
+
+void ColumnProxyModel::setSourceModel(QAbstractItemModel *sourceModel)
+{
+    if (sourceModel == m_sourceModel) {
         return;
     }
-    
+
     beginResetModel();
-    if(m_sourceModel) {
-        disconnect(m_sourceModel, SIGNAL(destroyed(QObject*)),
-                this, SLOT(sourceDestroyed(QObject*)));
-        
-        disconnect(m_sourceModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-                this, SLOT(considerDataChanged(QModelIndex,QModelIndex)));
-        disconnect(m_sourceModel, SIGNAL(rowsAboutToBeInserted(QModelIndex,int,int)),
-                this, SLOT(considerRowsAboutToBeInserted(QModelIndex,int,int)));
-        disconnect(m_sourceModel, SIGNAL(rowsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)),
-                this, SLOT(considerRowsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)));
-        disconnect(m_sourceModel, SIGNAL(rowsAboutToBeRemoved(QModelIndex,int,int)),
-                this, SLOT(considerRowsAboutToBeRemoved(QModelIndex,int,int)));        
-        disconnect(m_sourceModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
-                this, SLOT(considerRowsInserted(QModelIndex,int,int)));
-        disconnect(m_sourceModel, SIGNAL(rowsMoved(QModelIndex,int,int,QModelIndex,int)),
-                this, SLOT(considerRowsMoved(QModelIndex,int,int,QModelIndex,int)));
-        disconnect(m_sourceModel, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-                this, SLOT(considerRowsRemoved(QModelIndex,int,int)));
-        
-        disconnect(m_sourceModel, SIGNAL(modelAboutToBeReset()),
-                this, SIGNAL(modelAboutToBeReset()));
-        disconnect(m_sourceModel, SIGNAL(modelReset()),
-                this, SIGNAL(modelReset()));
-        disconnect(m_sourceModel, SIGNAL(headerDataChanged(Qt::Orientation,int,int)),
-                this, SIGNAL(headerDataChanged(Qt::Orientation,int,int)));
-        disconnect(m_sourceModel, SIGNAL(layoutAboutToBeChanged()),
-                this, SIGNAL(layoutAboutToBeChanged()));
-        disconnect(m_sourceModel, SIGNAL(layoutChanged()),
-                this, SIGNAL(layoutChanged()));
+    if (m_sourceModel) {
+        disconnect(m_sourceModel, SIGNAL(destroyed(QObject *)), this, SLOT(sourceDestroyed(QObject *)));
+
+        disconnect(m_sourceModel, SIGNAL(dataChanged(QModelIndex, QModelIndex)), this, SLOT(considerDataChanged(QModelIndex, QModelIndex)));
+        disconnect(m_sourceModel, SIGNAL(rowsAboutToBeInserted(QModelIndex, int, int)), this, SLOT(considerRowsAboutToBeInserted(QModelIndex, int, int)));
+        disconnect(m_sourceModel,
+                   SIGNAL(rowsAboutToBeMoved(QModelIndex, int, int, QModelIndex, int)),
+                   this,
+                   SLOT(considerRowsAboutToBeMoved(QModelIndex, int, int, QModelIndex, int)));
+        disconnect(m_sourceModel, SIGNAL(rowsAboutToBeRemoved(QModelIndex, int, int)), this, SLOT(considerRowsAboutToBeRemoved(QModelIndex, int, int)));
+        disconnect(m_sourceModel, SIGNAL(rowsInserted(QModelIndex, int, int)), this, SLOT(considerRowsInserted(QModelIndex, int, int)));
+        disconnect(m_sourceModel,
+                   SIGNAL(rowsMoved(QModelIndex, int, int, QModelIndex, int)),
+                   this,
+                   SLOT(considerRowsMoved(QModelIndex, int, int, QModelIndex, int)));
+        disconnect(m_sourceModel, SIGNAL(rowsRemoved(QModelIndex, int, int)), this, SLOT(considerRowsRemoved(QModelIndex, int, int)));
+
+        disconnect(m_sourceModel, SIGNAL(modelAboutToBeReset()), this, SIGNAL(modelAboutToBeReset()));
+        disconnect(m_sourceModel, SIGNAL(modelReset()), this, SIGNAL(modelReset()));
+        disconnect(m_sourceModel, SIGNAL(headerDataChanged(Qt::Orientation, int, int)), this, SIGNAL(headerDataChanged(Qt::Orientation, int, int)));
+        disconnect(m_sourceModel, SIGNAL(layoutAboutToBeChanged()), this, SIGNAL(layoutAboutToBeChanged()));
+        disconnect(m_sourceModel, SIGNAL(layoutChanged()), this, SIGNAL(layoutChanged()));
     }
     m_sourceModel = sourceModel;
-    if(m_sourceModel) {
-        connect(m_sourceModel, SIGNAL(destroyed(QObject*)),
-                this, SLOT(sourceDestroyed(QObject*)));
-        
-        connect(m_sourceModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-                this, SLOT(considerDataChanged(QModelIndex,QModelIndex)));
-        connect(m_sourceModel, SIGNAL(rowsAboutToBeInserted(QModelIndex,int,int)),
-                this, SLOT(considerRowsAboutToBeInserted(QModelIndex,int,int)));
-        connect(m_sourceModel, SIGNAL(rowsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)),
-                this, SLOT(considerRowsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)));
-        connect(m_sourceModel, SIGNAL(rowsAboutToBeRemoved(QModelIndex,int,int)),
-                this, SLOT(considerRowsAboutToBeRemoved(QModelIndex,int,int)));        
-        connect(m_sourceModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
-                this, SLOT(considerRowsInserted(QModelIndex,int,int)));
-        connect(m_sourceModel, SIGNAL(rowsMoved(QModelIndex,int,int,QModelIndex,int)),
-                this, SLOT(considerRowsMoved(QModelIndex,int,int,QModelIndex,int)));
-        connect(m_sourceModel, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-                this, SLOT(considerRowsRemoved(QModelIndex,int,int)));
-        
-        connect(m_sourceModel, SIGNAL(modelAboutToBeReset()),
-                this, SIGNAL(modelAboutToBeReset()));
-        connect(m_sourceModel, SIGNAL(modelReset()),
-                this, SIGNAL(modelReset()));
-        connect(m_sourceModel, SIGNAL(headerDataChanged(Qt::Orientation,int,int)),
-                this, SIGNAL(headerDataChanged(Qt::Orientation,int,int)));
-        connect(m_sourceModel, SIGNAL(layoutAboutToBeChanged()),
-                this, SIGNAL(layoutAboutToBeChanged()));
-        connect(m_sourceModel, SIGNAL(layoutChanged()),
-                this, SIGNAL(layoutChanged()));
+    if (m_sourceModel) {
+        connect(m_sourceModel, SIGNAL(destroyed(QObject *)), this, SLOT(sourceDestroyed(QObject *)));
+
+        connect(m_sourceModel, SIGNAL(dataChanged(QModelIndex, QModelIndex)), this, SLOT(considerDataChanged(QModelIndex, QModelIndex)));
+        connect(m_sourceModel, SIGNAL(rowsAboutToBeInserted(QModelIndex, int, int)), this, SLOT(considerRowsAboutToBeInserted(QModelIndex, int, int)));
+        connect(m_sourceModel,
+                SIGNAL(rowsAboutToBeMoved(QModelIndex, int, int, QModelIndex, int)),
+                this,
+                SLOT(considerRowsAboutToBeMoved(QModelIndex, int, int, QModelIndex, int)));
+        connect(m_sourceModel, SIGNAL(rowsAboutToBeRemoved(QModelIndex, int, int)), this, SLOT(considerRowsAboutToBeRemoved(QModelIndex, int, int)));
+        connect(m_sourceModel, SIGNAL(rowsInserted(QModelIndex, int, int)), this, SLOT(considerRowsInserted(QModelIndex, int, int)));
+        connect(m_sourceModel,
+                SIGNAL(rowsMoved(QModelIndex, int, int, QModelIndex, int)),
+                this,
+                SLOT(considerRowsMoved(QModelIndex, int, int, QModelIndex, int)));
+        connect(m_sourceModel, SIGNAL(rowsRemoved(QModelIndex, int, int)), this, SLOT(considerRowsRemoved(QModelIndex, int, int)));
+
+        connect(m_sourceModel, SIGNAL(modelAboutToBeReset()), this, SIGNAL(modelAboutToBeReset()));
+        connect(m_sourceModel, SIGNAL(modelReset()), this, SIGNAL(modelReset()));
+        connect(m_sourceModel, SIGNAL(headerDataChanged(Qt::Orientation, int, int)), this, SIGNAL(headerDataChanged(Qt::Orientation, int, int)));
+        connect(m_sourceModel, SIGNAL(layoutAboutToBeChanged()), this, SIGNAL(layoutAboutToBeChanged()));
+        connect(m_sourceModel, SIGNAL(layoutChanged()), this, SIGNAL(layoutChanged()));
     }
     endResetModel();
 }
@@ -100,28 +87,28 @@ QModelIndex ColumnProxyModel::rootIndex() const
     return m_index;
 }
 
-void ColumnProxyModel::setRootIndex(const QModelIndex& index)
+void ColumnProxyModel::setRootIndex(const QModelIndex &index)
 {
     if (index == m_index) {
         return;
     }
 
-    if(index.isValid()) {
-        setSourceModel(const_cast<QAbstractItemModel*>(index.model()));
+    if (index.isValid()) {
+        setSourceModel(const_cast<QAbstractItemModel *>(index.model()));
     }
     beginResetModel();
     m_index = index;
     endResetModel();
-    
+
     Q_EMIT rootIndexChanged();
 }
 
-QModelIndex ColumnProxyModel::indexFromModel(QAbstractItemModel* model, int row, int column, const QModelIndex& parent)
+QModelIndex ColumnProxyModel::indexFromModel(QAbstractItemModel *model, int row, int column, const QModelIndex &parent)
 {
     return model ? model->index(row, column, parent) : QModelIndex();
 }
 
-QVariant ColumnProxyModel::data(const QModelIndex& index, int role) const
+QVariant ColumnProxyModel::data(const QModelIndex &index, int role) const
 {
     return m_sourceModel ? m_sourceModel->data(sourceIndex(index), role) : QVariant();
 }
@@ -131,93 +118,93 @@ QVariant ColumnProxyModel::headerData(int section, Qt::Orientation orientation, 
     return m_sourceModel ? m_sourceModel->headerData(section, orientation, role) : QVariant();
 }
 
-QModelIndex ColumnProxyModel::sourceIndex(const QModelIndex& proxyIndex) const
+QModelIndex ColumnProxyModel::sourceIndex(const QModelIndex &proxyIndex) const
 {
     return m_sourceModel ? m_sourceModel->index(proxyIndex.row(), m_column, m_index) : QModelIndex();
 }
 
-int ColumnProxyModel::rowCount(const QModelIndex& parent) const
+int ColumnProxyModel::rowCount(const QModelIndex &parent) const
 {
     return (!m_sourceModel || parent.isValid()) ? 0 : m_sourceModel->rowCount(m_index);
 }
 
-QModelIndex ColumnProxyModel::proxyIndex(const QModelIndex& sourceIndex) const
+QModelIndex ColumnProxyModel::proxyIndex(const QModelIndex &sourceIndex) const
 {
-    if(sourceIndex.parent()==m_index)
+    if (sourceIndex.parent() == m_index)
         return index(sourceIndex.row(), sourceIndex.column(), QModelIndex());
-    
+
     return QModelIndex();
 }
 
-void ColumnProxyModel::sourceDestroyed(QObject* source)
+void ColumnProxyModel::sourceDestroyed(QObject *source)
 {
-    Q_ASSERT(source==m_sourceModel);
-    
+    Q_ASSERT(source == m_sourceModel);
+
     beginResetModel();
     m_sourceModel = nullptr;
     endResetModel();
 }
 
-QModelIndex ColumnProxyModel::indexAt(int row, const QModelIndex& parent) const
+QModelIndex ColumnProxyModel::indexAt(int row, const QModelIndex &parent) const
 {
     return m_sourceModel ? m_sourceModel->index(row, m_column, parent) : QModelIndex();
 }
 
 /////////////////
 
-void ColumnProxyModel::considerDataChanged(const QModelIndex& idxA, const QModelIndex& idxB)
+void ColumnProxyModel::considerDataChanged(const QModelIndex &idxA, const QModelIndex &idxB)
 {
-    if(idxA.parent()==m_index && idxB.parent()==m_index) {
+    if (idxA.parent() == m_index && idxB.parent() == m_index) {
         Q_EMIT dataChanged(proxyIndex(idxA), proxyIndex(idxB));
     }
 }
 
-void ColumnProxyModel::considerRowsAboutToBeInserted(const QModelIndex& parent, int rA, int rB)
+void ColumnProxyModel::considerRowsAboutToBeInserted(const QModelIndex &parent, int rA, int rB)
 {
-    if(parent==m_index) {
+    if (parent == m_index) {
         beginInsertRows(QModelIndex(), rA, rB);
     }
 }
 
-void ColumnProxyModel::considerRowsAboutToBeMoved(const QModelIndex &sourceParent, int rA, int rB, const QModelIndex& destParent, int rD)
+void ColumnProxyModel::considerRowsAboutToBeMoved(const QModelIndex &sourceParent, int rA, int rB, const QModelIndex &destParent, int rD)
 {
-    if(sourceParent==m_index && destParent==m_index) {
+    if (sourceParent == m_index && destParent == m_index) {
         beginMoveRows(QModelIndex(), rA, rB, QModelIndex(), rD);
-    } else if(sourceParent==m_index) {
-        beginRemoveRows(sourceParent, rA, rB); 
-    } else if(destParent==m_index) {
-        beginInsertRows(destParent, rD, rD+(rB-rA));
+    } else if (sourceParent == m_index) {
+        beginRemoveRows(sourceParent, rA, rB);
+    } else if (destParent == m_index) {
+        beginInsertRows(destParent, rD, rD + (rB - rA));
     }
 }
 
-void ColumnProxyModel::considerRowsAboutToBeRemoved(const QModelIndex& parent, int rA, int rB)
+void ColumnProxyModel::considerRowsAboutToBeRemoved(const QModelIndex &parent, int rA, int rB)
 {
-    if(parent==m_index) {
+    if (parent == m_index) {
         beginRemoveRows(QModelIndex(), rA, rB);
     }
 }
 
-void ColumnProxyModel::considerRowsInserted(const QModelIndex& parent, int , int )
+void ColumnProxyModel::considerRowsInserted(const QModelIndex &parent, int, int)
 {
-    if(parent==m_index) {
+    if (parent == m_index) {
         endInsertRows();
     }
 }
 
-void ColumnProxyModel::considerRowsMoved(const QModelIndex& sourceParent, int , int , const QModelIndex& destParent, int )
+void ColumnProxyModel::considerRowsMoved(const QModelIndex &sourceParent, int, int, const QModelIndex &destParent, int)
 {
-    if(sourceParent==m_index && destParent==m_index) {
+    if (sourceParent == m_index && destParent == m_index) {
         endMoveRows();
-    } else if(sourceParent==m_index) {
+    } else if (sourceParent == m_index) {
         endRemoveRows();
-    } else if(destParent==m_index) {
+    } else if (destParent == m_index) {
         endInsertRows();
     }
 }
 
-void ColumnProxyModel::considerRowsRemoved(const QModelIndex& parent, int , int )
+void ColumnProxyModel::considerRowsRemoved(const QModelIndex &parent, int, int)
 {
-    if(parent==m_index) {
+    if (parent == m_index) {
         endInsertRows();
     }
 }

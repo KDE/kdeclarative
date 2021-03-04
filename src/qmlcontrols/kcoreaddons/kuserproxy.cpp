@@ -6,26 +6,24 @@
 */
 
 #include "kuserproxy.h"
-#include <QFile>
 #include <QDir>
+#include <QFile>
 #include <QHostInfo>
 #include <QTextStream>
 #include <QUrl>
 
-
-
 const QString etcPasswd = QStringLiteral("/etc/passwd");
 const QString accountsServiceIconPath = QStringLiteral("/var/lib/AccountsService/icons");
 
-KUserProxy::KUserProxy (QObject *parent)
-    : QObject(parent),
-    m_temporaryEmptyFaceIconPath(false)
+KUserProxy::KUserProxy(QObject *parent)
+    : QObject(parent)
+    , m_temporaryEmptyFaceIconPath(false)
 {
     QString pathToFaceIcon(m_user.faceIconPath());
     if (pathToFaceIcon.isEmpty()) {
-        //KUser returns null if the current faceIconPath is empty
-        //so we should explicitly watch ~/.face.icon rather than faceIconPath()
-        //as we want to watch for this file being created
+        // KUser returns null if the current faceIconPath is empty
+        // so we should explicitly watch ~/.face.icon rather than faceIconPath()
+        // as we want to watch for this file being created
         pathToFaceIcon = QDir::homePath() + QStringLiteral("/.face.icon");
     }
 
@@ -47,7 +45,7 @@ KUserProxy::~KUserProxy()
 void KUserProxy::update(const QString &path)
 {
     if (path == m_user.faceIconPath() || path == QDir::homePath() + QLatin1String("/.face.icon")
-            || path == accountsServiceIconPath + QLatin1Char('/') + m_user.loginName()) {
+        || path == accountsServiceIconPath + QLatin1Char('/') + m_user.loginName()) {
         // we need to force updates, even when the path doesn't change,
         // but the underlying image does. Change path temporarily, to
         // make the Image reload.
@@ -100,7 +98,7 @@ QString KUserProxy::os()
             }
 
             QTextStream in(&osfile);
-            while(!in.atEnd()) {
+            while (!in.atEnd()) {
                 QString line = in.readLine();
                 if (line.startsWith(QLatin1String("PRETTY_NAME"))) {
                     QStringList fields = line.split(QLatin1String("PRETTY_NAME=\""));
@@ -122,4 +120,3 @@ QString KUserProxy::host() const
 {
     return QHostInfo::localHostName();
 }
-

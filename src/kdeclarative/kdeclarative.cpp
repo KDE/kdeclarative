@@ -11,14 +11,14 @@
 #include "qmlobject.h"
 
 #include <QCoreApplication>
-#include <QQmlDebuggingEnabler>
 #include <QQmlContext>
+#include <QQmlDebuggingEnabler>
 
 #include <KConfigGroup>
 #include <KSharedConfig>
 
-namespace KDeclarative {
-
+namespace KDeclarative
+{
 QStringList KDeclarativePrivate::s_runtimePlatform;
 
 KDeclarativePrivate::KDeclarativePrivate()
@@ -72,7 +72,7 @@ void KDeclarative::setupContext()
         d->contextObj = new KLocalizedContext(d->declarativeEngine.data());
     }
 
-    //If the engine is in a qmlObject take the qmlObject rootContext instead of the engine one.
+    // If the engine is in a qmlObject take the qmlObject rootContext instead of the engine one.
     if (d->qmlObj) {
         d->qmlObj->rootContext()->setContextObject(d->contextObj);
     } else {
@@ -87,7 +87,7 @@ void KDeclarative::setupContext()
 
 void KDeclarative::setupEngine(QQmlEngine *engine)
 {
-    //get rid of stock network access manager factory
+    // get rid of stock network access manager factory
     QQmlNetworkAccessManagerFactory *factory = engine->networkAccessManagerFactory();
     engine->setNetworkAccessManagerFactory(nullptr);
     delete factory;

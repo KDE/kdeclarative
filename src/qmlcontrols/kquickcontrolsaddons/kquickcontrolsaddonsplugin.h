@@ -11,7 +11,6 @@
 
 #include <QQmlExtensionPlugin>
 
-
 class KQuickControlsAddonsPlugin : public QQmlExtensionPlugin
 {
     Q_OBJECT

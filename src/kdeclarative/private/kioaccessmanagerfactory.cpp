@@ -7,8 +7,8 @@
 #include "kioaccessmanagerfactory_p.h"
 #include <kio/accessmanager.h>
 
-namespace KDeclarative {
-
+namespace KDeclarative
+{
 KIOAccessManagerFactory::KIOAccessManagerFactory()
     : QQmlNetworkAccessManagerFactory()
 {

@@ -10,32 +10,30 @@
 
 #include "plotter.h"
 
-
 #include <QOpenGLContext>
 #include <QOpenGLShaderProgram>
 
 #include <QPainterPath>
 #include <QPolygonF>
 
-#include <QVector2D>
 #include <QMatrix4x4>
+#include <QVector2D>
 
-#include <QSGTexture>
 #include <QSGSimpleTextureNode>
-
+#include <QSGTexture>
 
 #include <QDebug>
 
 #include <math.h>
 
-//completely arbitrary
+// completely arbitrary
 static int s_defaultSampleSize = 40;
 
 PlotData::PlotData(QObject *parent)
-    : QObject(parent),
-      m_min(std::numeric_limits<qreal>::max()),
-      m_max(std::numeric_limits<qreal>::min()),
-      m_sampleSize(s_defaultSampleSize)
+    : QObject(parent)
+    , m_min(std::numeric_limits<qreal>::max())
+    , m_max(std::numeric_limits<qreal>::min())
+    , m_sampleSize(s_defaultSampleSize)
 {
     m_values.reserve(s_defaultSampleSize);
     for (int i = 0; i < s_defaultSampleSize; ++i) {
@@ -108,8 +106,7 @@ void PlotData::setLabel(const QString &label)
 
 void PlotData::addSample(qreal value)
 {
-
-    //assume at this point we'll have to pop a single time to stay in size
+    // assume at this point we'll have to pop a single time to stay in size
     if (m_values.size() >= m_sampleSize) {
         m_values.removeFirst();
     }
@@ -157,12 +154,7 @@ const char *fs_source =
     "    gl_FragColor = mix(color1, color2, gradient);\n"
     "}";
 
-
-
-
 // --------------------------------------------------
-
-
 
 class PlotTexture : public QSGTexture
 {
@@ -171,13 +163,28 @@ public:
     ~PlotTexture() override;
 
     void bind() override final;
-    bool hasAlphaChannel() const override final { return true; }
-    bool hasMipmaps() const override final { return false; }
-    int textureId() const override final { return m_texture; }
-    QSize textureSize() const override final { return m_size; }
+    bool hasAlphaChannel() const override final
+    {
+        return true;
+    }
+    bool hasMipmaps() const override final
+    {
+        return false;
+    }
+    int textureId() const override final
+    {
+        return m_texture;
+    }
+    QSize textureSize() const override final
+    {
+        return m_size;
+    }
 
     void recreate(const QSize &size);
-    GLuint fbo() const { return m_fbo; }
+    GLuint fbo() const
+    {
+        return m_fbo;
+    }
 
 private:
     GLuint m_texture = 0;
@@ -187,7 +194,8 @@ private:
     QSize m_size;
 };
 
-PlotTexture::PlotTexture(QOpenGLContext *ctx) : QSGTexture()
+PlotTexture::PlotTexture(QOpenGLContext *ctx)
+    : QSGTexture()
 {
     QPair<int, int> version = ctx->format().version();
 
@@ -242,29 +250,36 @@ void PlotTexture::recreate(const QSize &size)
     m_size = size;
 }
 
-class PlotSGNode: public QSGSimpleTextureNode
+class PlotSGNode : public QSGSimpleTextureNode
 {
 public:
     PlotSGNode();
-    void bind() {
+    void bind()
+    {
         m_program->bind();
     }
-    void setMatrix(const QMatrix4x4 &matrix) {
+    void setMatrix(const QMatrix4x4 &matrix)
+    {
         m_program->setUniformValue(u_matrix, matrix);
     }
-    void setColor1(const QColor &color) {
+    void setColor1(const QColor &color)
+    {
         m_program->setUniformValue(u_color1, color);
     }
-    void setColor2(const QColor &color) {
+    void setColor2(const QColor &color)
+    {
         m_program->setUniformValue(u_color2, color);
     }
-    void setYMin(float min) {
+    void setYMin(float min)
+    {
         m_program->setUniformValue(u_yMin, min);
     }
-    void setYMax(float max) {
+    void setYMax(float max)
+    {
         m_program->setUniformValue(u_yMax, max);
     }
     ~PlotSGNode() = default;
+
 private:
     QScopedPointer<QOpenGLShaderProgram> m_program;
     int u_matrix;
@@ -272,11 +287,10 @@ private:
     int u_color2;
     int u_yMin;
     int u_yMax;
-
 };
 
-PlotSGNode::PlotSGNode():
-    m_program(new QOpenGLShaderProgram)
+PlotSGNode::PlotSGNode()
+    : m_program(new QOpenGLShaderProgram)
 {
     setOwnsTexture(true);
     m_program->addCacheableShaderFromSourceCode(QOpenGLShader::Vertex, vs_source);
@@ -291,20 +305,18 @@ PlotSGNode::PlotSGNode():
     u_matrix = m_program->uniformLocation("matrix");
 }
 
-
-
 // ----------------------
 
 Plotter::Plotter(QQuickItem *parent)
-    : QQuickItem(parent),
-      m_min(0),
-      m_max(0),
-      m_rangeMax(0),
-      m_rangeMin(0),
-      m_sampleSize(s_defaultSampleSize),
-      m_horizontalLineCount(5),
-      m_stacked(true),
-      m_autoRange(true)
+    : QQuickItem(parent)
+    , m_min(0)
+    , m_max(0)
+    , m_rangeMax(0)
+    , m_rangeMin(0)
+    , m_sampleSize(s_defaultSampleSize)
+    , m_horizontalLineCount(5)
+    , m_stacked(true)
+    , m_autoRange(true)
 {
     setFlag(ItemHasContents);
     connect(this, &Plotter::windowChanged, this, [this]() {
@@ -312,7 +324,7 @@ Plotter::Plotter(QQuickItem *parent)
             disconnect(m_window.data(), &QQuickWindow::beforeRendering, this, &Plotter::render);
         }
         m_window.clear();
-        //when the window changes, the node gets deleted
+        // when the window changes, the node gets deleted
         m_node = nullptr;
     });
 }
@@ -464,7 +476,6 @@ void Plotter::setHorizontalGridLineCount(int count)
     Q_EMIT horizontalGridLineCountChanged();
 }
 
-
 void Plotter::addSample(qreal value)
 {
     if (m_plotData.count() != 1) {
@@ -497,7 +508,7 @@ void Plotter::addSample(const QList<qreal> &value)
 
 void Plotter::dataSet_append(QQmlListProperty<PlotData> *list, PlotData *item)
 {
-    //encase all m_plotData access in a mutex, since rendering is usually done in another thread
+    // encase all m_plotData access in a mutex, since rendering is usually done in another thread
     Plotter *p = static_cast<Plotter *>(list->object);
     p->m_mutex.lock();
     p->m_plotData.append(item);
@@ -528,23 +539,17 @@ void Plotter::dataSet_clear(QQmlListProperty<PlotData> *list)
     p->m_mutex.unlock();
 }
 
-
 QQmlListProperty<PlotData> Plotter::dataSets()
 {
     return QQmlListProperty<PlotData>(this, nullptr, Plotter::dataSet_append, Plotter::dataSet_count, Plotter::dataSet_at, Plotter::dataSet_clear);
 }
-
-
 
 // Catmull-Rom interpolation
 QPainterPath Plotter::interpolate(const QVector<qreal> &p, qreal x0, qreal x1) const
 {
     QPainterPath path;
 
-    const QMatrix4x4 matrix( 0,    1,    0,     0,
-                            -1/6., 1,    1/6.,  0,
-                             0,    1/6., 1,    -1/6.,
-                             0,    0,    1,     0);
+    const QMatrix4x4 matrix(0, 1, 0, 0, -1 / 6., 1, 1 / 6., 0, 0, 1 / 6., 1, -1 / 6., 0, 0, 1, 0);
 
     const qreal xDelta = (x1 - x0) / (p.count() - 3);
     qreal x = x0 - xDelta;
@@ -552,16 +557,11 @@ QPainterPath Plotter::interpolate(const QVector<qreal> &p, qreal x0, qreal x1) c
     path.moveTo(x0, p[0]);
 
     for (int i = 1; i < p.count() - 2; i++) {
-        const QMatrix4x4 points(x,              p[i-1], 0, 0,
-                                x + xDelta * 1, p[i+0], 0, 0,
-                                x + xDelta * 2, p[i+1], 0, 0,
-                                x + xDelta * 3, p[i+2], 0, 0);
+        const QMatrix4x4 points(x, p[i - 1], 0, 0, x + xDelta * 1, p[i + 0], 0, 0, x + xDelta * 2, p[i + 1], 0, 0, x + xDelta * 3, p[i + 2], 0, 0);
 
         const QMatrix4x4 res = matrix * points;
 
-        path.cubicTo(res(1, 0), res(1, 1),
-                     res(2, 0), res(2, 1),
-                     res(3, 0), res(3, 1));
+        path.cubicTo(res(1, 0), res(1, 1), res(2, 0), res(2, 1), res(3, 0), res(3, 1));
 
         x += xDelta;
     }
@@ -588,7 +588,7 @@ void Plotter::render()
         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, rb);
     } else {
         // If we don't have MSAA support we render directly into the texture
-        glBindFramebuffer(GL_FRAMEBUFFER, static_cast<PlotTexture*>(m_node->texture())->fbo());
+        glBindFramebuffer(GL_FRAMEBUFFER, static_cast<PlotTexture *>(m_node->texture())->fbo());
     }
 
     glViewport(0, 0, width(), height());
@@ -602,22 +602,21 @@ void Plotter::render()
 
     QVector<QVector2D> vertices;
 
-    //don't draw the bottom line that will come later
+    // don't draw the bottom line that will come later
     for (int i = 0; i < m_horizontalLineCount; i++) {
-        int lineY = ceil(i * lineSpacing)+1; //floor +1 makes the entry at point 0 on pixel 1
+        int lineY = ceil(i * lineSpacing) + 1; // floor +1 makes the entry at point 0 on pixel 1
         vertices << QVector2D(0, lineY) << QVector2D(width(), lineY);
     }
-    //bottom line
-    vertices << QVector2D(0, height()-1) << QVector2D(width(), height()-1);
-
+    // bottom line
+    vertices << QVector2D(0, height() - 1) << QVector2D(width(), height() - 1);
 
     // Tessellate
     float min = height();
     float max = height();
 
-    QHash<PlotData *, QPair<int, int> > verticesCounts;
+    QHash<PlotData *, QPair<int, int>> verticesCounts;
 
-    //encase all m_plotData access in a mutex, since rendering is usually done in another thread
+    // encase all m_plotData access in a mutex, since rendering is usually done in another thread
     m_mutex.lock();
     int roundedHeight = qRound(height());
     int roundedWidth = qRound(width());
@@ -633,10 +632,10 @@ void Plotter::render()
             verticesCounts[data].first = 0;
             vertices << QVector2D(p.first().x(), roundedHeight);
 
-            for (int i = 0; i < p.count()-1; i++) {
+            for (int i = 0; i < p.count() - 1; i++) {
                 min = qMin<float>(min, roundedHeight - p[i].y());
                 vertices << QVector2D(p[i].x(), roundedHeight - p[i].y());
-                vertices << QVector2D((p[i].x() + p[i+1].x()) / 2.0, roundedHeight);
+                vertices << QVector2D((p[i].x() + p[i + 1].x()) / 2.0, roundedHeight);
                 verticesCounts[data].first += 2;
             }
 
@@ -649,7 +648,7 @@ void Plotter::render()
         for (const QPolygonF &p : polygons) {
             verticesCounts[data].second = 0;
 
-            for (int i = 0; i < p.count()-1; i++) {
+            for (int i = 0; i < p.count() - 1; i++) {
                 min = qMin<float>(min, roundedHeight - p[i].y());
                 vertices << QVector2D(p[i].x(), roundedHeight - p[i].y());
                 verticesCounts[data].second += 1;
@@ -682,12 +681,12 @@ void Plotter::render()
     QColor color2 = m_gridColor;
     color1.setAlphaF(0.10);
     color2.setAlphaF(0.40);
-    m_node->setYMin((float) 0.0);
-    m_node->setYMax((float) height());
+    m_node->setYMin((float)0.0);
+    m_node->setYMax((float)height());
     m_node->setColor1(color1);
     m_node->setColor2(color2);
 
-    glDrawArrays(GL_LINES, 0, (m_horizontalLineCount+1) * 2 );
+    glDrawArrays(GL_LINES, 0, (m_horizontalLineCount + 1) * 2);
 
     // Enable alpha blending
     glEnable(GL_BLEND);
@@ -705,13 +704,13 @@ void Plotter::render()
         m_node->setColor2(color2);
 
         //+2 is for the bottom line
-        glDrawArrays(GL_TRIANGLE_STRIP, m_horizontalLineCount*2 + 2 + oldCount.first + oldCount.second, verticesCounts[data].first);
+        glDrawArrays(GL_TRIANGLE_STRIP, m_horizontalLineCount * 2 + 2 + oldCount.first + oldCount.second, verticesCounts[data].first);
 
         oldCount.first += verticesCounts[data].first;
 
         m_node->setColor1(data->color());
         m_node->setColor2(data->color());
-        glDrawArrays(GL_LINE_STRIP, m_horizontalLineCount*2 + 2 + oldCount.first + oldCount.second, verticesCounts[data].second);
+        glDrawArrays(GL_LINE_STRIP, m_horizontalLineCount * 2 + 2 + oldCount.first + oldCount.second, verticesCounts[data].second);
 
         oldCount.second += verticesCounts[data].second;
     }
@@ -721,12 +720,12 @@ void Plotter::render()
 
     m_node->setColor1(m_gridColor);
     m_node->setColor2(m_gridColor);
-    glDrawArrays(GL_LINES, vertices.count()-2, 2);
+    glDrawArrays(GL_LINES, vertices.count() - 2, 2);
 
     if (m_haveMSAA && m_haveFramebufferBlit) {
         // Resolve the MSAA buffer
         glBindFramebuffer(GL_READ_FRAMEBUFFER, m_fbo);
-        glBindFramebuffer(GL_DRAW_FRAMEBUFFER, static_cast<PlotTexture*>(m_node->texture())->fbo());
+        glBindFramebuffer(GL_DRAW_FRAMEBUFFER, static_cast<PlotTexture *>(m_node->texture())->fbo());
         glBlitFramebuffer(0, 0, width(), height(), 0, 0, width(), height(), GL_COLOR_BUFFER_BIT, GL_NEAREST);
 
         // Delete the render buffer
@@ -777,10 +776,9 @@ QSGNode *Plotter::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *updateP
             m_haveInternalFormatQuery = version >= qMakePair(3, 0);
             m_internalFormat = version >= qMakePair(3, 0) ? GL_RGBA8 : GL_RGBA;
         } else {
-            m_haveMSAA = version >= qMakePair(3, 2) || ctx->hasExtension("GL_ARB_framebuffer_object") ||
-                ctx->hasExtension("GL_EXT_framebuffer_multisample");
-            m_haveFramebufferBlit = version >= qMakePair(3, 0) || ctx->hasExtension("GL_ARB_framebuffer_object") ||
-                ctx->hasExtension("GL_EXT_framebuffer_blit");
+            m_haveMSAA = version >= qMakePair(3, 2) || ctx->hasExtension("GL_ARB_framebuffer_object") || ctx->hasExtension("GL_EXT_framebuffer_multisample");
+            m_haveFramebufferBlit =
+                version >= qMakePair(3, 0) || ctx->hasExtension("GL_ARB_framebuffer_object") || ctx->hasExtension("GL_EXT_framebuffer_blit");
             m_haveInternalFormatQuery = version >= qMakePair(4, 2) || ctx->hasExtension("GL_ARB_internalformat_query");
             m_internalFormat = GL_RGBA8;
         }
@@ -808,7 +806,7 @@ QSGNode *Plotter::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *updateP
         m_initialized = true;
     }
 
-    //we need a size always equal or smaller, size.toSize() won't do
+    // we need a size always equal or smaller, size.toSize() won't do
     const QSize targetTextureSize(qRound(boundingRect().size().width()), qRound(boundingRect().size().height()));
     if (n->texture()->textureSize() != targetTextureSize) {
         static_cast<PlotTexture *>(n->texture())->recreate(targetTextureSize);
@@ -816,7 +814,7 @@ QSGNode *Plotter::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *updateP
         m_matrix.ortho(0, targetTextureSize.width(), 0, targetTextureSize.height(), -1, 1);
     }
 
-    n->setRect(QRect(QPoint(0,0), targetTextureSize));
+    n->setRect(QRect(QPoint(0, 0), targetTextureSize));
     return n;
 }
 
@@ -831,7 +829,7 @@ void Plotter::normalizeData()
     if (m_plotData.isEmpty()) {
         return;
     }
-    //normalize data
+    // normalize data
     m_max = std::numeric_limits<qreal>::min();
     m_min = std::numeric_limits<qreal>::max();
     qreal adjustedMax = m_max;
@@ -867,7 +865,7 @@ void Plotter::normalizeData()
             }
             previousData = data;
 
-            //global max and global min
+            // global max and global min
             if (data->max() > m_max) {
                 m_max = data->max();
             }
@@ -880,7 +878,7 @@ void Plotter::normalizeData()
         for (auto data : qAsConst(m_plotData)) {
             data->m_normalizedValues.clear();
             data->m_normalizedValues = data->values().toVector();
-            //global max and global min
+            // global max and global min
             if (data->max() > m_max) {
                 adjustedMax = m_max = data->max();
             }
@@ -904,14 +902,14 @@ void Plotter::normalizeData()
         }
 
         qreal adjust;
-        //this should never happen, remove?
+        // this should never happen, remove?
         if (qFuzzyCompare(adjustedMax - adjustedMin, std::numeric_limits<qreal>::min())) {
             adjust = 1;
         } else {
             adjust = (height() / (adjustedMax - adjustedMin));
         }
 
-        //normalizebased on global max and min
+        // normalizebased on global max and min
         m_mutex.lock();
         for (auto data : qAsConst(m_plotData)) {
             for (int i = 0; i < data->values().count(); ++i) {
@@ -921,4 +919,3 @@ void Plotter::normalizeData()
         m_mutex.unlock();
     }
 }
-

@@ -6,29 +6,29 @@
 
 #include "qmlobjectsharedengine.h"
 
-#include <QQmlEngine>
 #include <QQmlContext>
+#include <QQmlEngine>
 
 #include <QDebug>
 #include <kdeclarative.h>
 
-namespace KDeclarative {
-
+namespace KDeclarative
+{
 class QmlObjectSharedEnginePrivate
 {
 public:
     QmlObjectSharedEnginePrivate()
     {
-        //ensure the engine is present, then ref it
+        // ensure the engine is present, then ref it
         engine();
         engineRef = s_engine;
     }
 
     ~QmlObjectSharedEnginePrivate()
     {
-        //when the only remaining are out two refs, reset the pointers, causing deletion
-        //when the refcount is 2, we are sure that the only refs are s_engine and our copy
-        //of engineRef
+        // when the only remaining are out two refs, reset the pointers, causing deletion
+        // when the refcount is 2, we are sure that the only refs are s_engine and our copy
+        // of engineRef
         if (engineRef.use_count() == 2) {
             s_engine.reset();
         }
@@ -43,7 +43,7 @@ public:
         return s_engine.get();
     }
 
-    //used to delete it
+    // used to delete it
     std::shared_ptr<QQmlEngine> engineRef;
 
     static std::shared_ptr<QQmlEngine> s_engine;
@@ -52,8 +52,8 @@ public:
 std::shared_ptr<QQmlEngine> QmlObjectSharedEnginePrivate::s_engine = std::shared_ptr<QQmlEngine>();
 
 QmlObjectSharedEngine::QmlObjectSharedEngine(QObject *parent)
-    : QmlObject(QmlObjectSharedEnginePrivate::engine(), new QQmlContext(QmlObjectSharedEnginePrivate::engine()), this /*don't call setupEngine*/, parent),
-      d(new QmlObjectSharedEnginePrivate())
+    : QmlObject(QmlObjectSharedEnginePrivate::engine(), new QQmlContext(QmlObjectSharedEnginePrivate::engine()), this /*don't call setupEngine*/, parent)
+    , d(new QmlObjectSharedEnginePrivate())
 {
     rootContext()->setParent(this);
 }
@@ -61,7 +61,6 @@ QmlObjectSharedEngine::QmlObjectSharedEngine(QObject *parent)
 QmlObjectSharedEngine::~QmlObjectSharedEngine()
 {
 }
-
 
 }
 

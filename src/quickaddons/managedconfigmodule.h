@@ -12,8 +12,8 @@
 
 class KCoreConfigSkeleton;
 
-namespace KQuickAddons {
-
+namespace KQuickAddons
+{
 class ManagedConfigModulePrivate;
 
 /**
@@ -217,5 +217,4 @@ private:
 
 }
 
-#endif //MANAGEDCONFIGMODULE_H
-
+#endif // MANAGEDCONFIGMODULE_H

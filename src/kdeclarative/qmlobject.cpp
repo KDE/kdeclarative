@@ -7,25 +7,26 @@
 #include "qmlobject.h"
 #include "private/kdeclarative_p.h"
 
-#include <QQmlEngine>
 #include <QQmlContext>
-#include <QQuickItem>
+#include <QQmlEngine>
 #include <QQmlIncubator>
+#include <QQuickItem>
 #include <QTimer>
 
+#include <KPackage/PackageLoader>
 #include <QDebug>
 #include <kdeclarative.h>
-#include <KPackage/PackageLoader>
 
 //#include "packageaccessmanagerfactory.h"
 //#include "private/declarative/dataenginebindings_p.h"
 
-namespace KDeclarative {
-
+namespace KDeclarative
+{
 class QmlObjectIncubator : public QQmlIncubator
 {
 public:
     QVariantHash m_initialProperties;
+
 protected:
     void setInitialState(QObject *object) override
     {
@@ -41,10 +42,10 @@ class QmlObjectPrivate
 {
 public:
     QmlObjectPrivate(QmlObject *parent)
-        : q(parent),
-          engine(nullptr),
-          component(nullptr),
-          delay(false)
+        : q(parent)
+        , engine(nullptr)
+        , component(nullptr)
+        , delay(false)
     {
         executionEndTimer = new QTimer(q);
         executionEndTimer->setInterval(0);
@@ -76,7 +77,7 @@ public:
     QQmlComponent *component;
     QTimer *executionEndTimer;
     KDeclarative kdeclarative;
-    KLocalizedContext *context{ nullptr };
+    KLocalizedContext *context{nullptr};
     KPackage::Package package;
     QQmlContext *rootContext;
     bool delay : 1;
@@ -88,8 +89,8 @@ void QmlObjectPrivate::errorPrint(QQmlComponent *component)
     if (component->isError()) {
         const QList<QQmlError> errors = component->errors();
         for (const QQmlError &error : errors) {
-            errorStr += (error.line() > 0 ? QString(QString::number(error.line()) + QLatin1String(": ")) : QLatin1String(""))
-                        + error.description() + QLatin1Char('\n');
+            errorStr +=
+                (error.line() > 0 ? QString(QString::number(error.line()) + QLatin1String(": ")) : QLatin1String("")) + error.description() + QLatin1Char('\n');
         }
     }
     qWarning() << component->url().toString() << '\n' << errorStr;
@@ -104,8 +105,7 @@ void QmlObjectPrivate::execute(const QUrl &source)
 
     delete component;
     component = new QQmlComponent(engine, q);
-    QObject::connect(component, &QQmlComponent::statusChanged,
-                     q, &QmlObject::statusChanged, Qt::QueuedConnection);
+    QObject::connect(component, &QQmlComponent::statusChanged, q, &QmlObject::statusChanged, Qt::QueuedConnection);
     delete incubator.object();
 
     component->loadUrl(source);
@@ -145,13 +145,11 @@ QmlObject::QmlObject(QObject *parent)
 QmlObject::QmlObject(QQmlEngine *engine, QObject *parent)
     : QmlObject(engine, engine->rootContext(), parent)
 {
-
 }
 
 QmlObject::QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QObject *parent)
     : QmlObject(engine, rootContext, nullptr /*call setupEngine*/, parent)
 {
-
 }
 
 QmlObject::QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QmlObject *obj, QObject *parent)
@@ -182,9 +180,9 @@ QmlObject::QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QmlObject *ob
 
 QmlObject::~QmlObject()
 {
-//    QDeclarativeNetworkAccessManagerFactory *factory = d->engine->networkAccessManagerFactory();
-//    d->engine->setNetworkAccessManagerFactory(0);
-//    delete factory;
+    //    QDeclarativeNetworkAccessManagerFactory *factory = d->engine->networkAccessManagerFactory();
+    //    d->engine->setNetworkAccessManagerFactory(0);
+    //    delete factory;
     delete d;
 }
 
@@ -300,7 +298,6 @@ void QmlObject::completeInitialization(const QVariantHash &initialProperties)
         return;
     }
 
-
     if (d->component->status() != QQmlComponent::Ready || d->component->isError()) {
         d->errorPrint(d->component);
         return;
@@ -335,13 +332,13 @@ QObject *QmlObject::createObjectFromComponent(QQmlComponent *component, QQmlCont
     incubator.m_initialProperties = initialProperties;
     component->create(incubator, context ? context : d->rootContext);
     incubator.forceCompletion();
-  
+
     QObject *object = incubator.object();
 
     if (!component->isError() && object) {
-        //memory management
+        // memory management
         component->setParent(object);
-        //reparent to root object if wasn't specified otherwise by initialProperties
+        // reparent to root object if wasn't specified otherwise by initialProperties
         if (!initialProperties.contains(QLatin1String("parent"))) {
             if (qobject_cast<QQuickItem *>(rootObject())) {
                 object->setProperty("parent", QVariant::fromValue(rootObject()));

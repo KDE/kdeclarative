@@ -7,22 +7,22 @@
 #ifndef CALENDAREVENTSPLUGIN_H
 #define CALENDAREVENTSPLUGIN_H
 
-#include <QObject>
 #include <QDateTime>
 #include <QMultiHash>
+#include <QObject>
 #include <QSharedDataPointer>
 
 #include "calendarevents_export.h"
 
-namespace CalendarEvents {
-
+namespace CalendarEvents
+{
 class CALENDAREVENTS_EXPORT EventData
 {
 public:
     enum EventType {
-        Holiday,    // Any holiday
-        Event,      // General event
-        Todo,        // A Todo item
+        Holiday, // Any holiday
+        Event, // General event
+        Todo, // A Todo item
     };
 
     EventData();

@@ -10,11 +10,11 @@
 #include "kdeclarative.h"
 #include "qmlobject.h"
 
-#include <QPointer>
 #include <KLocalizedContext>
+#include <QPointer>
 
-namespace KDeclarative {
-
+namespace KDeclarative
+{
 class KDeclarativePrivate
 {
 public:

@@ -13,12 +13,11 @@
 #include "configmodule.h"
 
 #include <QDebug>
-#include <QUrl>
-#include <QQmlEngine>
 #include <QQmlContext>
-#include <QQuickItem>
 #include <QQmlEngine>
 #include <QQmlFileSelector>
+#include <QQuickItem>
+#include <QUrl>
 
 #include <KAboutData>
 #include <KLocalizedString>
@@ -28,21 +27,21 @@
 #include <KPackage/Package>
 #include <KPackage/PackageLoader>
 
-namespace KQuickAddons {
-
+namespace KQuickAddons
+{
 class ConfigModulePrivate
 {
 public:
-    ConfigModulePrivate(ConfigModule *module):
-        _q(module),
-        _qmlObject(nullptr),
-        _buttons(ConfigModule::Help | ConfigModule::Default | ConfigModule::Apply),
-        _about(nullptr),
-        _useRootOnlyMessage(false),
-        _needsAuthorization(false),
-        _needsSave(false),
-        _representsDefaults(false),
-        _defaultsIndicatorVisible(false)
+    ConfigModulePrivate(ConfigModule *module)
+        : _q(module)
+        , _qmlObject(nullptr)
+        , _buttons(ConfigModule::Help | ConfigModule::Default | ConfigModule::Apply)
+        , _about(nullptr)
+        , _useRootOnlyMessage(false)
+        , _needsAuthorization(false)
+        , _needsSave(false)
+        , _representsDefaults(false)
+        , _defaultsIndicatorVisible(false)
     {
     }
 
@@ -61,9 +60,9 @@ public:
     bool _useRootOnlyMessage : 1;
 
     bool _needsAuthorization : 1;
-    bool _needsSave  :1;
-    bool _representsDefaults :1;
-    bool _defaultsIndicatorVisible :1;
+    bool _needsSave : 1;
+    bool _representsDefaults : 1;
+    bool _defaultsIndicatorVisible : 1;
     QString _authActionName;
 
     static QHash<QObject *, ConfigModule *> s_rootObjects;
@@ -71,33 +70,36 @@ public:
 
 QHash<QObject *, ConfigModule *> ConfigModulePrivate::s_rootObjects = QHash<QObject *, ConfigModule *>();
 
-
 ConfigModule::ConfigModule(const KAboutData *aboutData, QObject *parent, const QVariantList &)
-    : QObject(parent), d(new ConfigModulePrivate(this))
+    : QObject(parent)
+    , d(new ConfigModulePrivate(this))
 {
     setAboutData(aboutData);
 }
 
 ConfigModule::ConfigModule(const KPluginMetaData &metaData, QObject *parent, const QVariantList &)
-    : QObject(parent), d(new ConfigModulePrivate(this))
+    : QObject(parent)
+    , d(new ConfigModulePrivate(this))
 {
-    KAboutData *aboutData = new KAboutData(metaData.pluginId(), metaData.name(), metaData.version(), metaData.description(), KAboutLicense::byKeyword(metaData.license()).key());
+    KAboutData *aboutData =
+        new KAboutData(metaData.pluginId(), metaData.name(), metaData.version(), metaData.description(), KAboutLicense::byKeyword(metaData.license()).key());
 
     const auto authors = metaData.authors();
-    for (auto& author : authors) {
+    for (auto &author : authors) {
         aboutData->addAuthor(author.name(), author.task(), author.emailAddress(), author.webAddress(), author.ocsUsername());
     }
     setAboutData(aboutData);
 }
 
 ConfigModule::ConfigModule(QObject *parent, const QVariantList &)
-    : QObject(parent), d(new ConfigModulePrivate(this))
+    : QObject(parent)
+    , d(new ConfigModulePrivate(this))
 {
 }
 
 ConfigModule::~ConfigModule()
 {
-    //in case mainUi was never called
+    // in case mainUi was never called
     if (d->_qmlObject) {
         ConfigModulePrivate::s_rootObjects.remove(d->_qmlObject->rootContext());
     }
@@ -107,19 +109,17 @@ ConfigModule::~ConfigModule()
     delete d;
 }
 
-
-
 ConfigModule *ConfigModule::qmlAttachedProperties(QObject *object)
 {
-    //at the moment of the attached object creation, the root item is the only one that hasn't a parent
-    //only way to avoid creation of this attached for everybody but the root item
+    // at the moment of the attached object creation, the root item is the only one that hasn't a parent
+    // only way to avoid creation of this attached for everybody but the root item
     const QQmlEngine *engine = QtQml::qmlEngine(object);
     QQmlContext *cont = QQmlEngine::contextForObject(object);
 
-    //Search the qml context that is the "root" for the sharedqmlobject, which
-    //is an ancestor of QQmlEngine::contextForObject(object) and the direct child
-    //of the engine's root context: we can do this assumption on the internals as
-    //we are distributed on the same repo.
+    // Search the qml context that is the "root" for the sharedqmlobject, which
+    // is an ancestor of QQmlEngine::contextForObject(object) and the direct child
+    // of the engine's root context: we can do this assumption on the internals as
+    // we are distributed on the same repo.
     while (cont->parentContext() && cont->parentContext() != engine->rootContext()) {
         cont = cont->parentContext();
     }
@@ -187,12 +187,12 @@ QQuickItem *ConfigModule::mainUi()
 
 void ConfigModule::push(const QString &fileName, const QVariantMap &propertyMap)
 {
-    //ensure main ui is created
+    // ensure main ui is created
     if (!mainUi()) {
         return;
     }
 
-    //TODO: package as member
+    // TODO: package as member
     KPackage::Package package = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/GenericQML"));
     package.setDefaultPackageRoot(QStringLiteral("kpackage/kcms"));
     package.setPath(aboutData()->componentName());
@@ -202,9 +202,7 @@ void ConfigModule::push(const QString &fileName, const QVariantMap &propertyMap)
         propertyHash.insert(it.key(), it.value());
     }
 
-    QObject *object = d->_qmlObject->createObjectFromSource(QUrl::fromLocalFile(package.filePath("ui", fileName)),
-                                                            d->_qmlObject->rootContext(),
-                                                            propertyHash);
+    QObject *object = d->_qmlObject->createObjectFromSource(QUrl::fromLocalFile(package.filePath("ui", fileName)), d->_qmlObject->rootContext(), propertyHash);
 
     QQuickItem *item = qobject_cast<QQuickItem *>(object);
     if (!item) {
@@ -220,7 +218,7 @@ void ConfigModule::push(const QString &fileName, const QVariantMap &propertyMap)
 
 void ConfigModule::push(QQuickItem *item)
 {
-    //ensure main ui is created
+    // ensure main ui is created
     if (!mainUi()) {
         return;
     }
@@ -496,4 +494,3 @@ void ConfigModule::setDefaultsIndicatorsVisible(bool visible)
 }
 
 #include "moc_configmodule.cpp"
-

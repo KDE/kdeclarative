@@ -59,7 +59,6 @@ public:
     KUserProxy(QObject *parent = nullptr);
     ~KUserProxy();
 
-
     /**
      * @return the full name of the user
      * @see nameChanged
@@ -112,5 +111,4 @@ private:
     bool m_temporaryEmptyFaceIconPath;
 };
 
-#endif //KUSERPROXY_H
-
+#endif // KUSERPROXY_H

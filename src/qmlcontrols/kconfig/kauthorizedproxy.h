@@ -26,5 +26,4 @@ public:
      * This behaves like authorize(), except that "action/" is prepended to action
      */
     Q_INVOKABLE bool authorizeAction(const QString &action) const;
-
 };

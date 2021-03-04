@@ -23,16 +23,15 @@ class QIconItem : public QQuickItem
     Q_PROPERTY(bool enabled READ enabled WRITE setEnabled NOTIFY stateChanged)
 
 public:
-
     enum State {
-        DefaultState, ///The default state.
-        ActiveState, ///Icon is active.
-        DisabledState, ///Icon is disabled.
-        SelectedState, ///Icon is selected
+        DefaultState, /// The default state.
+        ActiveState, /// Icon is active.
+        DisabledState, /// Icon is disabled.
+        SelectedState, /// Icon is selected
     };
     Q_ENUM(State)
 
-    explicit QIconItem(QQuickItem *parent=nullptr);
+    explicit QIconItem(QQuickItem *parent = nullptr);
     ~QIconItem() override;
 
     void setIcon(const QVariant &icon);
@@ -50,7 +49,7 @@ public:
     void setEnabled(bool enabled = true);
     bool enabled() const;
 
-    QSGNode* updatePaintNode(QSGNode* node, UpdatePaintNodeData* data) override;
+    QSGNode *updatePaintNode(QSGNode *node, UpdatePaintNodeData *data) override;
 
 Q_SIGNALS:
     void iconChanged();

@@ -10,17 +10,17 @@
 
 #include "quickaddons_export.h"
 
-#include <memory>
+#include <QQmlComponent>
+#include <QQmlError>
 #include <QQuickWindow>
 #include <QUrl>
-#include <QQmlError>
-#include <QQmlComponent>
+#include <memory>
 
 class QQuickItem;
 class QQmlEngine;
 
-namespace KQuickAddons {
-
+namespace KQuickAddons
+{
 class QuickViewSharedEnginePrivate;
 
 /**
@@ -92,7 +92,6 @@ Q_SIGNALS:
     void resizeModeChanged(QuickViewSharedEngine::ResizeMode resizeMode);
     void sourceChanged(const QUrl &source);
 
-
 private:
     const std::unique_ptr<QuickViewSharedEnginePrivate> d;
 
@@ -103,6 +102,4 @@ private:
 
 }
 
-
-#endif //QuickViewSharedEngine_H
-
+#endif // QuickViewSharedEngine_H

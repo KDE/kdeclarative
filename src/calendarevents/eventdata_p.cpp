@@ -8,9 +8,14 @@
 
 #include <QSharedData>
 
-class CalendarEvents::EventData::Private : public QSharedData {
+class CalendarEvents::EventData::Private : public QSharedData
+{
 public:
-    Private() : isAllDay(false), isMinor(false) {}
+    Private()
+        : isAllDay(false)
+        , isMinor(false)
+    {
+    }
     Private(const Private &other)
         : QSharedData(other)
     {
@@ -24,22 +29,24 @@ public:
         isAllDay = other.isAllDay;
         isMinor = other.isMinor;
     }
-    ~Private() {}
-    QDateTime startDateTime;    // Start of the event
-    QDateTime endDateTime;      // End of the event
-    QString title;              // Title of the event
-    QString description;        // Additional info of the event
-    QString uid;                // An internal event id, useful mostly just for the eventModified/Removed signals
-    QString eventColor;         // Optional color of the event in the HTML hex format, eg. #AARRGGBB or #RRGGBB
-    EventType type;             // Type of the event
-    bool isAllDay;              // True if the event takes all day, then it won't be displayed with any time
-    bool isMinor;               // A minor holiday that will not create a colored entry in the calendar
+    ~Private()
+    {
+    }
+    QDateTime startDateTime; // Start of the event
+    QDateTime endDateTime; // End of the event
+    QString title; // Title of the event
+    QString description; // Additional info of the event
+    QString uid; // An internal event id, useful mostly just for the eventModified/Removed signals
+    QString eventColor; // Optional color of the event in the HTML hex format, eg. #AARRGGBB or #RRGGBB
+    EventType type; // Type of the event
+    bool isAllDay; // True if the event takes all day, then it won't be displayed with any time
+    bool isMinor; // A minor holiday that will not create a colored entry in the calendar
 };
 
 //---------------------------------------------------
 
-namespace CalendarEvents {
-
+namespace CalendarEvents
+{
 EventData::EventData()
     : d(new Private())
 {
@@ -54,7 +61,7 @@ EventData::~EventData()
 {
 }
 
-EventData& EventData::operator=(const EventData &other)
+EventData &EventData::operator=(const EventData &other)
 {
     if (this == &other) {
         return *this;

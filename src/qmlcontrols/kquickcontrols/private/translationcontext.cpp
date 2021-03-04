@@ -13,7 +13,7 @@
 
 #include <KLocalizedString>
 
-TranslationContext::TranslationContext(QObject* parent)
+TranslationContext::TranslationContext(QObject *parent)
     : QObject(parent)
 {
 }
@@ -37,7 +37,17 @@ void TranslationContext::setDomain(const QString &domain)
     Q_EMIT domainChanged(domain);
 }
 
-QString TranslationContext::i18n(const QString &message, const QString &param1, const QString &param2, const QString &param3, const QString &param4, const QString &param5, const QString &param6, const QString &param7, const QString &param8, const QString &param9, const QString &param10) const
+QString TranslationContext::i18n(const QString &message,
+                                 const QString &param1,
+                                 const QString &param2,
+                                 const QString &param3,
+                                 const QString &param4,
+                                 const QString &param5,
+                                 const QString &param6,
+                                 const QString &param7,
+                                 const QString &param8,
+                                 const QString &param9,
+                                 const QString &param10) const
 {
     if (message.isNull()) {
         qWarning() << "i18n() needs at least one parameter";
@@ -80,7 +90,18 @@ QString TranslationContext::i18n(const QString &message, const QString &param1, 
     return trMessage.toString();
 }
 
-QString TranslationContext::i18nc(const QString &context, const QString &message, const QString &param1, const QString &param2, const QString &param3, const QString &param4, const QString &param5, const QString &param6, const QString &param7, const QString &param8, const QString &param9, const QString &param10) const
+QString TranslationContext::i18nc(const QString &context,
+                                  const QString &message,
+                                  const QString &param1,
+                                  const QString &param2,
+                                  const QString &param3,
+                                  const QString &param4,
+                                  const QString &param5,
+                                  const QString &param6,
+                                  const QString &param7,
+                                  const QString &param8,
+                                  const QString &param9,
+                                  const QString &param10) const
 {
     if (context.isNull() || message.isNull()) {
         qWarning() << "i18nc() needs at least two arguments";
@@ -123,7 +144,18 @@ QString TranslationContext::i18nc(const QString &context, const QString &message
     return trMessage.toString();
 }
 
-QString TranslationContext::i18np(const QString &singular, const QString &plural, const QString &param1, const QString &param2, const QString &param3, const QString &param4, const QString &param5, const QString &param6, const QString &param7, const QString &param8, const QString &param9, const QString &param10) const
+QString TranslationContext::i18np(const QString &singular,
+                                  const QString &plural,
+                                  const QString &param1,
+                                  const QString &param2,
+                                  const QString &param3,
+                                  const QString &param4,
+                                  const QString &param5,
+                                  const QString &param6,
+                                  const QString &param7,
+                                  const QString &param8,
+                                  const QString &param9,
+                                  const QString &param10) const
 {
     if (singular.isNull() || plural.isNull()) {
         qWarning() << "i18np() needs at least two arguments";
@@ -172,14 +204,27 @@ QString TranslationContext::i18np(const QString &singular, const QString &plural
     return trMessage.toString();
 }
 
-QString TranslationContext::i18ncp(const QString &context, const QString &singular, const QString &plural, const QString &param1, const QString &param2, const QString &param3, const QString &param4, const QString &param5, const QString &param6, const QString &param7, const QString &param8, const QString &param9, const QString &param10) const
+QString TranslationContext::i18ncp(const QString &context,
+                                   const QString &singular,
+                                   const QString &plural,
+                                   const QString &param1,
+                                   const QString &param2,
+                                   const QString &param3,
+                                   const QString &param4,
+                                   const QString &param5,
+                                   const QString &param6,
+                                   const QString &param7,
+                                   const QString &param8,
+                                   const QString &param9,
+                                   const QString &param10) const
 {
     if (context.isNull() || singular.isNull() || plural.isNull()) {
         qWarning() << "i18ncp() needs at least three arguments";
         return QString();
     }
 
-    KLocalizedString trMessage = ki18ndcp(m_domain.toUtf8().constData(), context.toUtf8().constData(), singular.toUtf8().constData(), plural.toUtf8().constData());
+    KLocalizedString trMessage =
+        ki18ndcp(m_domain.toUtf8().constData(), context.toUtf8().constData(), singular.toUtf8().constData(), plural.toUtf8().constData());
 
     if (!param1.isNull()) {
         bool ok;

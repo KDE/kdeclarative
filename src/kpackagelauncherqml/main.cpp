@@ -7,12 +7,11 @@
 #include <QApplication>
 
 #include <KLocalizedString>
-#include <QCommandLineParser>
 #include <QCommandLineOption>
+#include <QCommandLineParser>
 #include <QQuickItem>
 
-#include <kpackage/package.h>
-#include <kpackage/packageloader.h>
+#include <KAboutData>
 #include <QQmlContext>
 #include <QQmlEngine>
 #include <QQmlExpression>
@@ -20,7 +19,8 @@
 #include <QQuickWindow>
 #include <QStandardPaths>
 #include <kdeclarative/qmlobject.h>
-#include <KAboutData>
+#include <kpackage/package.h>
+#include <kpackage/packageloader.h>
 
 int main(int argc, char **argv)
 {
@@ -34,7 +34,9 @@ int main(int argc, char **argv)
     parser.addHelpOption();
     parser.setApplicationDescription(description);
 
-    QCommandLineOption appPluginOption(QCommandLineOption(QStringList() << QStringLiteral("a") << QStringLiteral("app"), i18n("The unique name of the application (mandatory)"), QStringLiteral("app")));
+    QCommandLineOption appPluginOption(QCommandLineOption(QStringList() << QStringLiteral("a") << QStringLiteral("app"),
+                                                          i18n("The unique name of the application (mandatory)"),
+                                                          QStringLiteral("app")));
 
     parser.addOption(appPluginOption);
 
@@ -47,7 +49,7 @@ int main(int argc, char **argv)
         parser.showHelp(1);
     }
 
-    //usually we have an ApplicationWindow here, so we do not need to create a window by ourselves
+    // usually we have an ApplicationWindow here, so we do not need to create a window by ourselves
     KDeclarative::QmlObject obj;
     obj.setTranslationDomain(packagePath);
     obj.setInitializationDelayed(true);
@@ -76,7 +78,7 @@ int main(int argc, char **argv)
     KAboutData aboutData(data.pluginId(), data.name(), data.version(), data.description(), KAboutLicense::byKeyword(data.license()).key());
 
     const auto authors = data.authors();
-    for (auto& author : authors) {
+    for (auto &author : authors) {
         aboutData.addAuthor(author.name(), author.task(), author.emailAddress(), author.webAddress(), author.ocsUsername());
     }
     // We assume that desktop file in applications dir is named similar as
@@ -85,8 +87,8 @@ int main(int argc, char **argv)
 
     KAboutData::setApplicationData(aboutData);
 
-    //The root is not a window?
-    //have to use a normal QQuickWindow since the root item is already created
+    // The root is not a window?
+    // have to use a normal QQuickWindow since the root item is already created
     QQuickItem *item = qobject_cast<QQuickItem *>(obj.rootObject());
     QWindow *window = qobject_cast<QWindow *>(obj.rootObject());
     if (item) {
@@ -98,7 +100,7 @@ int main(int argc, char **argv)
             view.resize(item->width(), item->height());
         }
 
-        //set anchors
+        // set anchors
         QQmlExpression expr(obj.engine()->rootContext(), obj.rootObject(), QStringLiteral("parent"));
         QQmlProperty prop(obj.rootObject(), QStringLiteral("anchors.fill"));
         prop.write(expr.evaluate());
@@ -120,4 +122,3 @@ int main(int argc, char **argv)
 
     return app.exec();
 }
-

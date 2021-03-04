@@ -93,7 +93,6 @@ private:
     QString m_customLocation;
     Qt::WindowModality m_modality;
     bool m_visible;
-
 };
 
 #endif // ICONDIALOG_H

@@ -18,7 +18,5 @@ void KQuickControlsPrivatePlugin::registerTypes(const char *uri)
     qmlRegisterType<TranslationContext>(uri, 2, 0, "TranslationContext");
     // Register the Helper again publically but uncreatable, so one can access the shortcuttype enum
     // values as for example "ShortcutType.StandardShortcuts" from qml
-    qmlRegisterUncreatableType<KeySequenceHelper>("org.kde.kquickcontrols", 2, 0, "ShortcutType",
-        QStringLiteral("This is just to allow accessing the enum"));
+    qmlRegisterUncreatableType<KeySequenceHelper>("org.kde.kquickcontrols", 2, 0, "ShortcutType", QStringLiteral("This is just to allow accessing the enum"));
 }
-

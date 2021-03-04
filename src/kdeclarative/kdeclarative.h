@@ -15,17 +15,17 @@
 
 class QQmlEngine;
 
-namespace KDeclarative {
-
+namespace KDeclarative
+{
 class KDeclarativePrivate;
 
 /**
  * @class KDeclarative::KDeclarative kdeclarative.h <KDeclarative/KDeclarative>
  *
- * The KDeclarative class is used to manipulate the QQmlEngine instance used by 
- * the application and to get some informations about the platform, 
+ * The KDeclarative class is used to manipulate the QQmlEngine instance used by
+ * the application and to get some informations about the platform,
  * that influences the behavior of the QML components.
- * 
+ *
  * In order to use it, you will need a pointer to a QQmlEngine, and call
  * `setupEngine(engine)` at least once on the engine.
  * @code
@@ -51,7 +51,7 @@ class KDeclarativePrivate;
  *     decl.setTranslationDomain(QStringLiteral("mydomainname"));
  *     decl.setupContext();
  * @endcode
- * 
+ *
  */
 class KDECLARATIVE_EXPORT KDeclarative
 {
@@ -94,14 +94,14 @@ public:
 
     /**
      * Assign a specific QQmlEngine to be used in this KDeclarative.
-     * 
+     *
      * A KDeclarative object works with a specific QQmlEngine. There
-     * is no default engine, so you **must** call this function with a 
+     * is no default engine, so you **must** call this function with a
      * non-null pointer to an engine before calling setupBindings()
      * or setupContext(), which set properties on the engine.
-     * 
+     *
      * The KDeclarative object does not take ownership of the engine.
-     * 
+     *
      * @param engine the engine to use in this KDeclarative object
      * @sa setupContext(), setupEngine()
      * @since 5.0

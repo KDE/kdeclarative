@@ -11,7 +11,8 @@
 #include <QQuickItem>
 #include <QQuickWindow>
 
-EventGenerator::EventGenerator(QObject *parent) : QObject(parent)
+EventGenerator::EventGenerator(QObject *parent)
+    : QObject(parent)
 {
 }
 
@@ -19,7 +20,13 @@ EventGenerator::~EventGenerator()
 {
 }
 
-void EventGenerator::sendMouseEvent(QQuickItem *item, EventGenerator::MouseEvent type, int x, int y, int button, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers)
+void EventGenerator::sendMouseEvent(QQuickItem *item,
+                                    EventGenerator::MouseEvent type,
+                                    int x,
+                                    int y,
+                                    int button,
+                                    Qt::MouseButtons buttons,
+                                    Qt::KeyboardModifiers modifiers)
 {
     if (!item) {
         return;
@@ -44,7 +51,13 @@ void EventGenerator::sendMouseEvent(QQuickItem *item, EventGenerator::MouseEvent
     QGuiApplication::sendEvent(item, &ev);
 }
 
-void EventGenerator::sendMouseEventRecursive(QQuickItem *parentItem, EventGenerator::MouseEvent type, int x, int y, int button, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers)
+void EventGenerator::sendMouseEventRecursive(QQuickItem *parentItem,
+                                             EventGenerator::MouseEvent type,
+                                             int x,
+                                             int y,
+                                             int button,
+                                             Qt::MouseButtons buttons,
+                                             Qt::KeyboardModifiers modifiers)
 {
     if (!parentItem) {
         return;
@@ -57,7 +70,13 @@ void EventGenerator::sendMouseEventRecursive(QQuickItem *parentItem, EventGenera
     }
 }
 
-void EventGenerator::sendWheelEvent(QQuickItem *item, int x, int y, const QPoint &pixelDelta, const QPoint &angleDelta, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers)
+void EventGenerator::sendWheelEvent(QQuickItem *item,
+                                    int x,
+                                    int y,
+                                    const QPoint &pixelDelta,
+                                    const QPoint &angleDelta,
+                                    Qt::MouseButtons buttons,
+                                    Qt::KeyboardModifiers modifiers)
 {
     if (!item || !item->window()) {
         return;
@@ -69,7 +88,13 @@ void EventGenerator::sendWheelEvent(QQuickItem *item, int x, int y, const QPoint
     QGuiApplication::sendEvent(item, &ev);
 }
 
-void EventGenerator::sendWheelEventRecursive(QQuickItem *parentItem, int x, int y, const QPoint &pixelDelta, const QPoint &angleDelta, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers)
+void EventGenerator::sendWheelEventRecursive(QQuickItem *parentItem,
+                                             int x,
+                                             int y,
+                                             const QPoint &pixelDelta,
+                                             const QPoint &angleDelta,
+                                             Qt::MouseButtons buttons,
+                                             Qt::KeyboardModifiers modifiers)
 {
     if (!parentItem) {
         return;
@@ -117,15 +142,14 @@ void EventGenerator::sendGrabEventRecursive(QQuickItem *parentItem, EventGenerat
 
 QList<QQuickItem *> EventGenerator::allChildItemsRecursive(QQuickItem *parentItem)
 {
-     QList<QQuickItem *> itemList;
+    QList<QQuickItem *> itemList;
 
-     const auto childsItems = parentItem->childItems();
-     itemList.append(childsItems);
+    const auto childsItems = parentItem->childItems();
+    itemList.append(childsItems);
 
+    for (QQuickItem *childItem : childsItems) {
+        itemList.append(allChildItemsRecursive(childItem));
+    }
 
-     for (QQuickItem *childItem : childsItems) {
-         itemList.append(allChildItemsRecursive(childItem));
-     }
-
-     return itemList;
+    return itemList;
 }

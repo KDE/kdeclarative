@@ -8,9 +8,9 @@
 #ifndef QQMLTESTUTILS_H
 #define QQMLTESTUTILS_H
 
-#include <QUrl>
-#include <QStringList>
 #include <QObject>
+#include <QStringList>
+#include <QUrl>
 
 QT_FORWARD_DECLARE_CLASS(QQmlComponent)
 QT_FORWARD_DECLARE_CLASS(QQmlEngine)
@@ -26,20 +26,37 @@ public:
 
     QString testFile(const QString &fileName) const;
     inline QString testFile(const char *fileName) const
-        { return testFile(QLatin1String(fileName)); }
+    {
+        return testFile(QLatin1String(fileName));
+    }
     inline QUrl testFileUrl(const QString &fileName) const
-        { return QUrl::fromLocalFile(testFile(fileName)); }
+    {
+        return QUrl::fromLocalFile(testFile(fileName));
+    }
     inline QUrl testFileUrl(const char *fileName) const
-        { return testFileUrl(QLatin1String(fileName)); }
+    {
+        return testFileUrl(QLatin1String(fileName));
+    }
 
-    inline QString dataDirectory() const { return m_dataDirectory; }
-    inline QUrl dataDirectoryUrl() const { return m_dataDirectoryUrl; }
-    inline QString directory() const  { return m_directory; }
+    inline QString dataDirectory() const
+    {
+        return m_dataDirectory;
+    }
+    inline QUrl dataDirectoryUrl() const
+    {
+        return m_dataDirectoryUrl;
+    }
+    inline QString directory() const
+    {
+        return m_directory;
+    }
 
-    static inline QQmlDataTest *instance() { return m_instance; }
+    static inline QQmlDataTest *instance()
+    {
+        return m_instance;
+    }
 
-    static QByteArray msgComponentError(const QQmlComponent &,
-                                        const QQmlEngine *engine = nullptr);
+    static QByteArray msgComponentError(const QQmlComponent &, const QQmlEngine *engine = nullptr);
 
 public Q_SLOTS:
     virtual void initTestCase();
@@ -59,10 +76,19 @@ public:
     QQmlTestMessageHandler();
     ~QQmlTestMessageHandler();
 
-    const QStringList &messages() const { return m_messages; }
-    const QString messageString() const { return m_messages.join(QLatin1Char('\n')); }
+    const QStringList &messages() const
+    {
+        return m_messages;
+    }
+    const QString messageString() const
+    {
+        return m_messages.join(QLatin1Char('\n'));
+    }
 
-    void clear() { m_messages.clear(); }
+    void clear()
+    {
+        m_messages.clear();
+    }
 
 private:
     static void messageHandler(QtMsgType, const QMessageLogContext &, const QString &message);

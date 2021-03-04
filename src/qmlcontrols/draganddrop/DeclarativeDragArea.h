@@ -8,8 +8,8 @@
 #ifndef DECLARATIVEDRAGAREA_H
 #define DECLARATIVEDRAGAREA_H
 
-#include <QQuickItem>
 #include <QImage>
+#include <QQuickItem>
 #include <QSharedPointer>
 
 class QQmlComponent;
@@ -24,27 +24,27 @@ class DeclarativeDragArea : public QQuickItem
      * The delegate is the item that will be displayed next to the mouse cursor during the drag and drop operation.
      * It usually consists of a large, semi-transparent icon representing the data being dragged.
      */
-    Q_PROPERTY(QQuickItem* delegate READ delegate WRITE setDelegate NOTIFY delegateChanged RESET resetDelegate)
+    Q_PROPERTY(QQuickItem *delegate READ delegate WRITE setDelegate NOTIFY delegateChanged RESET resetDelegate)
 
     /**
      * The QML element that is the source of the resulting drag and drop operation. This can be defined to any item, and will
      * be available to the DropArea as event.data.source
      */
-    Q_PROPERTY(QQuickItem* source READ source WRITE setSource NOTIFY sourceChanged RESET resetSource)
+    Q_PROPERTY(QQuickItem *source READ source WRITE setSource NOTIFY sourceChanged RESET resetSource)
 
-    //TODO: to be implemented
-    Q_PROPERTY(QQuickItem* target READ source NOTIFY targetChanged)
+    // TODO: to be implemented
+    Q_PROPERTY(QQuickItem *target READ source NOTIFY targetChanged)
 
     /**
      * the mime data of the drag operation
      * @see DeclarativeMimeData
      */
-    Q_PROPERTY(DeclarativeMimeData* mimeData READ mimeData CONSTANT)
+    Q_PROPERTY(DeclarativeMimeData *mimeData READ mimeData CONSTANT)
 
     /**
      * If false no drag operation will be generate
      */
-    Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY enabledChanged) //TODO: Should call setAcceptDrops()
+    Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY enabledChanged) // TODO: Should call setAcceptDrops()
 
     /**
      * Supported operations, a combination of
@@ -80,18 +80,18 @@ class DeclarativeDragArea : public QQuickItem
     Q_PROPERTY(bool dragActive READ dragActive NOTIFY dragActiveChanged)
 
 public:
-    DeclarativeDragArea(QQuickItem *parent=nullptr);
+    DeclarativeDragArea(QQuickItem *parent = nullptr);
     ~DeclarativeDragArea() override;
 
     QQuickItem *delegate() const;
-    void setDelegate(QQuickItem* delegate);
+    void setDelegate(QQuickItem *delegate);
     void resetDelegate();
 
     QVariant delegateImage() const;
     void setDelegateImage(const QVariant &image);
-    QQuickItem* target() const;
-    QQuickItem* source() const;
-    void setSource(QQuickItem* source);
+    QQuickItem *target() const;
+    QQuickItem *source() const;
+    void setSource(QQuickItem *source);
     void resetSource();
 
     bool dragActive() const;
@@ -102,15 +102,15 @@ public:
     int startDragDistance() const;
     void setStartDragDistance(int distance);
 
-    //supported actions
+    // supported actions
     Qt::DropActions supportedActions() const;
     void setSupportedActions(Qt::DropActions actions);
 
-    //default action
+    // default action
     Qt::DropAction defaultAction() const;
     void setDefaultAction(Qt::DropAction action);
 
-    DeclarativeMimeData* mimeData() const;
+    DeclarativeMimeData *mimeData() const;
 
 Q_SIGNALS:
     void dragStarted();
@@ -136,16 +136,16 @@ protected:
 private:
     void startDrag(const QImage &image);
 
-    QQuickItem* m_delegate;
-    QQuickItem* m_source;
-    QQuickItem* m_target;
+    QQuickItem *m_delegate;
+    QQuickItem *m_source;
+    QQuickItem *m_target;
     QSharedPointer<QQuickItemGrabResult> m_grabResult;
     bool m_enabled;
     bool m_draggingJustStarted;
     bool m_dragActive;
     Qt::DropActions m_supportedActions;
     Qt::DropAction m_defaultAction;
-    DeclarativeMimeData* const m_data;
+    DeclarativeMimeData *const m_data;
     QImage m_delegateImage;
     int m_startDragDistance;
     QPointF m_buttonDownPos;

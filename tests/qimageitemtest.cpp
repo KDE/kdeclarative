@@ -5,8 +5,8 @@
 */
 
 #include <QGuiApplication>
-#include <QQuickView>
 #include <QQmlContext>
+#include <QQuickView>
 
 #include <qtestcase.h>
 
@@ -26,9 +26,7 @@ int main(int argc, char *argv[])
         image.setDevicePixelRatio(2);
     }
 
-    context->setContextProperty(QStringLiteral("testImage"),
-                                image);
-
+    context->setContextProperty(QStringLiteral("testImage"), image);
 
     view.setSource(QUrl::fromLocalFile(QFINDTESTDATA("qimageitemtest.qml")));
     view.show();

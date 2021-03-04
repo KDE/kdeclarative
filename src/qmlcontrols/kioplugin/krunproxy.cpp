@@ -9,12 +9,12 @@
 #include <QMimeDatabase>
 
 #include <KIO/ApplicationLauncherJob>
-#include <KIO/OpenUrlJob>
 #include <KIO/JobUiDelegate>
+#include <KIO/OpenUrlJob>
 #include <KNotificationJobUiDelegate>
 #include <KService>
 
-KRunProxy::KRunProxy(QObject* parent)
+KRunProxy::KRunProxy(QObject *parent)
     : QObject(parent)
 {
 }
@@ -28,8 +28,8 @@ bool KRunProxy::openUrl(const QString &file)
     const QString fileMimeType = mime.name();
 
     if (fileMimeType == QLatin1String("application/x-executable") || !mime.isValid()) {
-        //for security reasons we should not be able to execute applications.
-        //We should use its desktop file to access it.
+        // for security reasons we should not be able to execute applications.
+        // We should use its desktop file to access it.
         return false;
     }
 

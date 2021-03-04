@@ -22,14 +22,14 @@ class DeclarativeDropArea : public QQuickItem
     Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY enabledChanged)
 
     /**
-     * 
+     *
      */
     Q_PROPERTY(bool preventStealing READ preventStealing WRITE setPreventStealing NOTIFY preventStealingChanged)
 
-    Q_PROPERTY(bool containsDrag READ containsDrag NOTIFY containsDragChanged )
+    Q_PROPERTY(bool containsDrag READ containsDrag NOTIFY containsDragChanged)
 
 public:
-    DeclarativeDropArea(QQuickItem *parent=nullptr);
+    DeclarativeDropArea(QQuickItem *parent = nullptr);
     bool isEnabled() const;
     void setEnabled(bool enabled);
 
@@ -43,14 +43,14 @@ Q_SIGNALS:
      * @param event description of the dragged content
      * @see DeclarativeDragDropEvent
      */
-    void dragEnter(DeclarativeDragDropEvent* event);
+    void dragEnter(DeclarativeDragDropEvent *event);
 
     /**
      * Emitted when the mouse cursor dragging something leaves the drag area
      * @param event description of the dragged content
      * @see DeclarativeDragDropEvent
      */
-    void dragLeave(DeclarativeDragDropEvent* event);
+    void dragLeave(DeclarativeDragDropEvent *event);
 
     /**
      * Emitted when the mouse cursor dragging something moves over the drag area
@@ -64,9 +64,9 @@ Q_SIGNALS:
      * @param event description of the dragged content
      * @see DeclarativeDragDropEvent
      */
-    void drop(DeclarativeDragDropEvent* event);
+    void drop(DeclarativeDragDropEvent *event);
 
-    //Notifiers
+    // Notifiers
     void enabledChanged();
 
     void preventStealingChanged();
@@ -93,4 +93,3 @@ private:
 };
 
 #endif
-

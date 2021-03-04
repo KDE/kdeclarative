@@ -91,7 +91,7 @@ void SettingStateProxy::connectSetting()
     const auto updateStateSlot = metaObject()->method(updateStateSlotIndex);
     Q_ASSERT(updateStateSlot.isValid());
 
-    const auto itemHasSignals = dynamic_cast<KConfigCompilerSignallingItem*>(item) || dynamic_cast<KPropertySkeletonItem*>(item);
+    const auto itemHasSignals = dynamic_cast<KConfigCompilerSignallingItem *>(item) || dynamic_cast<KPropertySkeletonItem *>(item);
     if (!itemHasSignals) {
         qWarning() << "Attempting to use SettingStateProxy with a non signalling item:" << m_settingName;
         return;
@@ -118,6 +118,5 @@ void SettingStateProxy::connectSetting()
     const auto changedSignal = property.notifySignal();
     Q_ASSERT(changedSignal.isValid());
     connect(m_configObject, changedSignal, this, updateStateSlot);
-    connect(m_configObject, &KCoreConfigSkeleton::configChanged,
-            this, &SettingStateProxy::updateState);
+    connect(m_configObject, &KCoreConfigSkeleton::configChanged, this, &SettingStateProxy::updateState);
 }

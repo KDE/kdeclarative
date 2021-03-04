@@ -7,20 +7,20 @@
 #ifndef MIMEDATABASE_H
 #define MIMEDATABASE_H
 
-#include <QObject>
 #include <QMimeDatabase>
+#include <QObject>
 
 class MimeDatabase : public QObject
 {
     Q_OBJECT
-    public:
-        MimeDatabase(QObject* parent = nullptr);
+public:
+    MimeDatabase(QObject *parent = nullptr);
 
-        Q_SCRIPTABLE QJsonObject mimeTypeForUrl(const QUrl & url) const;
-        Q_SCRIPTABLE QJsonObject mimeTypeForName(const QString & name) const;
+    Q_SCRIPTABLE QJsonObject mimeTypeForUrl(const QUrl &url) const;
+    Q_SCRIPTABLE QJsonObject mimeTypeForName(const QString &name) const;
 
-    private:
-        QMimeDatabase m_db;
+private:
+    QMimeDatabase m_db;
 };
 
 #endif // MIMEDATABASE_H

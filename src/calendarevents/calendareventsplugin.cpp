@@ -6,17 +6,15 @@
 
 #include "calendareventsplugin.h"
 
-namespace CalendarEvents {
-
+namespace CalendarEvents
+{
 CalendarEventsPlugin::CalendarEventsPlugin(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 CalendarEventsPlugin::~CalendarEventsPlugin()
 {
-
 }
 
 ShowEventInterface::~ShowEventInterface() = default;

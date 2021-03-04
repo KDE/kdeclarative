@@ -7,15 +7,16 @@
 
 #include "configpropertymap.h"
 
+#include <KCoreConfigSkeleton>
 #include <QJSValue>
 #include <QPointer>
-#include <KCoreConfigSkeleton>
 
 #include <functional>
 
-namespace KDeclarative {
-
-class ConfigPropertyMapPrivate {
+namespace KDeclarative
+{
+class ConfigPropertyMapPrivate
+{
 public:
     ConfigPropertyMapPrivate(ConfigPropertyMap *map)
         : q(map)
@@ -39,19 +40,20 @@ public:
 };
 
 ConfigPropertyMap::ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *parent)
-    : QQmlPropertyMap(this, parent),
-      d(new ConfigPropertyMapPrivate(this))
+    : QQmlPropertyMap(this, parent)
+    , d(new ConfigPropertyMapPrivate(this))
 {
     d->config = config;
 
     // Reload the config only if the change signal has *not* been emitted by ourselves updating the config
-    connect(config, &KCoreConfigSkeleton::configChanged, this, [this] () {
+    connect(config, &KCoreConfigSkeleton::configChanged, this, [this]() {
         if (!d->updatingConfigValue) {
             d->loadConfig(ConfigPropertyMapPrivate::EmitValueChanged);
         }
     });
-    connect(this, &ConfigPropertyMap::valueChanged, this,
-            [this](const QString &key, const QVariant &value){d->writeConfigValue(key, value);});
+    connect(this, &ConfigPropertyMap::valueChanged, this, [this](const QString &key, const QVariant &value) {
+        d->writeConfigValue(key, value);
+    });
 
     d->loadConfig(ConfigPropertyMapPrivate::DontEmitValueChanged);
 }
@@ -147,8 +149,8 @@ void ConfigPropertyMapPrivate::writeConfigValue(const QString &key, const QVaria
         item->setProperty(value);
         if (autosave) {
             config.data()->save();
-            //why read? read will update KConfigSkeletonItem::mLoadedValue,
-            //allowing a write operation to be performed next time
+            // why read? read will update KConfigSkeletonItem::mLoadedValue,
+            // allowing a write operation to be performed next time
             config.data()->read();
         }
         updatingConfigValue = false;

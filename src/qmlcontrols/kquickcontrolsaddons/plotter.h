@@ -10,7 +10,6 @@
 #ifndef PLASMA_PLOTTER_H
 #define PLASMA_PLOTTER_H
 
-
 #include <epoxy/gl.h>
 
 // qopengl.h declares GLdouble as a typedef of float when Qt is built
@@ -26,11 +25,11 @@
 #define QOPENGLF_APIENTRYP GLAPIENTRYP
 #endif
 
-#include <QQuickItem>
-#include <QQmlListProperty>
-#include <QPointer>
-#include <QQuickWindow>
 #include <QMutex>
+#include <QPointer>
+#include <QQmlListProperty>
+#include <QQuickItem>
+#include <QQuickWindow>
 
 class PlotSGNode;
 
@@ -152,7 +151,6 @@ class Plotter : public QQuickItem
      */
     Q_PROPERTY(QColor gridColor READ gridColor WRITE setGridColor NOTIFY gridColorChanged)
 
-
     /**
      * The number of horizontal lines drawn across the view between 0 and rangeMax at the top of the plotter at rangeMax
      * This does not include the bottom line
@@ -162,7 +160,7 @@ class Plotter : public QQuickItem
      */
     Q_PROPERTY(int horizontalGridLineCount READ horizontalGridLineCount WRITE setHorizontalGridLineCount NOTIFY horizontalGridLineCountChanged)
 
-    //Q_CLASSINFO("DefaultProperty", "dataSets")
+    // Q_CLASSINFO("DefaultProperty", "dataSets")
 
 public:
     Plotter(QQuickItem *parent = nullptr);
@@ -245,7 +243,7 @@ private:
     bool m_haveInternalFormatQuery;
     GLenum m_internalFormat;
     int m_samples;
-    QPointer <QQuickWindow> m_window;
+    QPointer<QQuickWindow> m_window;
     QMutex m_mutex;
 };
 

@@ -9,15 +9,13 @@
 
 #include <QPainter>
 
-
 QImageItem::QImageItem(QQuickItem *parent)
-    : QQuickPaintedItem(parent),
-      m_smooth(false),
-      m_fillMode(QImageItem::Stretch)
+    : QQuickPaintedItem(parent)
+    , m_smooth(false)
+    , m_fillMode(QImageItem::Stretch)
 {
     setFlag(ItemHasContents, true);
 }
-
 
 QImageItem::~QImageItem()
 {
@@ -97,12 +95,12 @@ void QImageItem::paint(QPainter *painter)
     painter->setRenderHint(QPainter::Antialiasing, m_smooth);
     painter->setRenderHint(QPainter::SmoothPixmapTransform, m_smooth);
 
-     if (m_fillMode == TileVertically) {
-        painter->scale(width()/(qreal)m_image.width(), 1);
+    if (m_fillMode == TileVertically) {
+        painter->scale(width() / (qreal)m_image.width(), 1);
     }
 
     if (m_fillMode == TileHorizontally) {
-        painter->scale(1, height()/(qreal)m_image.height());
+        painter->scale(1, height() / (qreal)m_image.height());
     }
 
     if (m_fillMode >= Tile) {
@@ -139,7 +137,6 @@ int QImageItem::paintedHeight() const
 
 void QImageItem::updatePaintedRect()
 {
-
     if (m_image.isNull()) {
         return;
     }
@@ -167,12 +164,12 @@ void QImageItem::updatePaintedRect()
     }
     case TileVertically: {
         destRect = boundingRect().toRect();
-        destRect.setWidth(destRect.width() / (width()/(qreal)m_image.width()));
+        destRect.setWidth(destRect.width() / (width() / (qreal)m_image.width()));
         break;
     }
     case TileHorizontally: {
         destRect = boundingRect().toRect();
-        destRect.setHeight(destRect.height() / (height()/(qreal)m_image.height()));
+        destRect.setHeight(destRect.height() / (height() / (qreal)m_image.height()));
         break;
     }
     case Stretch:
@@ -188,7 +185,7 @@ void QImageItem::updatePaintedRect()
     }
 }
 
-void QImageItem::geometryChanged(const QRectF& newGeometry, const QRectF& oldGeometry)
+void QImageItem::geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry)
 {
     QQuickPaintedItem::geometryChanged(newGeometry, oldGeometry);
     updatePaintedRect();

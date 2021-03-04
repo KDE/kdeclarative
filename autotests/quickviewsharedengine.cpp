@@ -5,17 +5,17 @@
     SPDX-License-Identifier: LGPL-2.1-only WITH Qt-LGPL-exception-1.1 OR LGPL-3.0-only WITH Qt-LGPL-exception-1.1 OR LicenseRef-Qt-Commercial
 */
 
-#include <quickviewsharedengine.h>
-#include <QTest>
+#include "util.h"
+#include <QDebug>
 #include <QQmlComponent>
 #include <QQmlContext>
-#include <QQuickView>
-#include <QQuickItem>
-#include "util.h"
-#include <QWindow>
-#include <QDebug>
 #include <QQmlEngine>
+#include <QQuickItem>
+#include <QQuickView>
 #include <QSignalSpy>
+#include <QTest>
+#include <QWindow>
+#include <quickviewsharedengine.h>
 
 class QuickViewSharedEngineTest : public QQmlDataTest
 {
@@ -29,7 +29,6 @@ private Q_SLOTS:
     void engine();
 };
 
-
 QuickViewSharedEngineTest::QuickViewSharedEngineTest()
 {
 }
@@ -42,9 +41,9 @@ void QuickViewSharedEngineTest::resizemodeitem()
     KQuickAddons::QuickViewSharedEngine *view = new KQuickAddons::QuickViewSharedEngine(&window);
     QVERIFY(view);
     view->setResizeMode(KQuickAddons::QuickViewSharedEngine::SizeRootObjectToView);
-    QCOMPARE(QSize(0,0), view->initialSize());
+    QCOMPARE(QSize(0, 0), view->initialSize());
     view->setSource(testFileUrl("resizemodeitem.qml"));
-    QQuickItem* item = qobject_cast<QQuickItem*>(view->rootObject());
+    QQuickItem *item = qobject_cast<QQuickItem *>(view->rootObject());
     QVERIFY(item);
     window.show();
 
@@ -58,7 +57,7 @@ void QuickViewSharedEngineTest::resizemodeitem()
     QCOMPARE(view->size(), view->initialSize());
 
     // size update from view
-    view->resize(QSize(80,100));
+    view->resize(QSize(80, 100));
 
     QTRY_COMPARE(item->width(), 80.0);
     QCOMPARE(item->height(), 100.0);
@@ -68,7 +67,7 @@ void QuickViewSharedEngineTest::resizemodeitem()
     view->setResizeMode(KQuickAddons::QuickViewSharedEngine::SizeViewToRootObject);
 
     // size update from view disabled
-    view->resize(QSize(60,80));
+    view->resize(QSize(60, 80));
     QCOMPARE(item->width(), 80.0);
     QCOMPARE(item->height(), 100.0);
     QTest::qWait(50);
@@ -90,7 +89,7 @@ void QuickViewSharedEngineTest::resizemodeitem()
     QVERIFY(view);
     view->setResizeMode(KQuickAddons::QuickViewSharedEngine::SizeViewToRootObject);
     view->setSource(testFileUrl("resizemodeitem.qml"));
-    item = qobject_cast<QQuickItem*>(view->rootObject());
+    item = qobject_cast<QQuickItem *>(view->rootObject());
     QVERIFY(item);
     window.show();
 
@@ -120,7 +119,7 @@ void QuickViewSharedEngineTest::resizemodeitem()
     QCOMPARE(QSize(item->width(), item->height()), view->sizeHint());
 
     // size update from view
-    view->resize(QSize(200,300));
+    view->resize(QSize(200, 300));
     QTRY_COMPARE(item->width(), 200.0);
     QCOMPARE(item->height(), 300.0);
     QCOMPARE(view->size(), QSize(200, 300));
@@ -133,10 +132,12 @@ void QuickViewSharedEngineTest::resizemodeitem()
     view = new KQuickAddons::QuickViewSharedEngine(&window);
     view->resize(300, 300);
     view->setResizeMode(KQuickAddons::QuickViewSharedEngine::SizeRootObjectToView);
-    QCOMPARE(QSize(0,0), view->initialSize());
-    view->setSource(testFileUrl("resizemodeitem.qml"));qWarning()<<"bbb"<<view->size();
-    view->resize(300, 300);qWarning()<<"ccc"<<view->size();
-    item = qobject_cast<QQuickItem*>(view->rootObject());
+    QCOMPARE(QSize(0, 0), view->initialSize());
+    view->setSource(testFileUrl("resizemodeitem.qml"));
+    qWarning() << "bbb" << view->size();
+    view->resize(300, 300);
+    qWarning() << "ccc" << view->size();
+    item = qobject_cast<QQuickItem *>(view->rootObject());
     QVERIFY(item);
 
     view->showNormal();
@@ -165,8 +166,8 @@ void QuickViewSharedEngineTest::errors()
 
 void QuickViewSharedEngineTest::engine()
 {
-    //test if engines are actually shared
-    //test if the engine gets deleted when the last view dies
+    // test if engines are actually shared
+    // test if the engine gets deleted when the last view dies
     KQuickAddons::QuickViewSharedEngine *view = new KQuickAddons::QuickViewSharedEngine();
     QQmlEngine *engine = view->engine();
 

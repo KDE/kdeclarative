@@ -14,8 +14,8 @@ class KCoreConfigSkeleton;
 
 #include <kdeclarative/kdeclarative_export.h>
 
-namespace KDeclarative {
-
+namespace KDeclarative
+{
 class ConfigPropertyMapPrivate;
 
 /**
@@ -73,9 +73,9 @@ public:
 
 protected:
     QVariant updateValue(const QString &key, const QVariant &input) override;
+
 private:
     ConfigPropertyMapPrivate *const d;
-
 };
 
 }

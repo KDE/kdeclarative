@@ -6,14 +6,14 @@
 
 #include "kiconprovider_p.h"
 
+#include <KIconEffect>
+#include <KIconLoader>
+#include <QIcon>
 #include <QPixmap>
 #include <QSize>
-#include <QIcon>
-#include <KIconLoader>
-#include <KIconEffect>
 
-namespace KDeclarative {
-
+namespace KDeclarative
+{
 KIconProvider::KIconProvider()
     : QQuickImageProvider(QQuickImageProvider::Pixmap)
 {
@@ -58,4 +58,3 @@ QPixmap KIconProvider::requestPixmap(const QString &id, QSize *size, const QSize
 }
 
 }
-

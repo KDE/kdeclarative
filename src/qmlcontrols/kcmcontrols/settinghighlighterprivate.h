@@ -8,8 +8,8 @@
 #ifndef SETTINGSHIGHLIGHTERPRIVATE_H
 #define SETTINGSHIGHLIGHTERPRIVATE_H
 
-#include <QQuickItem>
 #include <QPointer>
+#include <QQuickItem>
 
 class SettingHighlighterPrivate : public QObject
 {

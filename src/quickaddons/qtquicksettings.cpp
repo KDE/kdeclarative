@@ -8,12 +8,12 @@
 #include "qtquicksettings.h"
 #include "renderersettings.h"
 
-#include <QSurfaceFormat>
-#include <QQuickWindow>
-#include <QLibraryInfo>
-#include <QVersionNumber>
 #include <QGuiApplication>
+#include <QLibraryInfo>
 #include <QOpenGLContext>
+#include <QQuickWindow>
+#include <QSurfaceFormat>
+#include <QVersionNumber>
 
 /**
  * If QtQuick is configured (QQuickWindow::sceneGraphBackend()) to use the OpenGL backend,
@@ -35,7 +35,7 @@ static bool checkBackend()
         return true;
     }
 
-    QOpenGLContext* gl = new QOpenGLContext();
+    QOpenGLContext *gl = new QOpenGLContext();
     bool ok = gl->create();
     if (!ok) {
         qWarning("Warning: fallback to QtQuick software backend.");
@@ -47,7 +47,7 @@ static bool checkBackend()
 
 void KQuickAddons::QtQuickSettings::init()
 {
-    if (!(qobject_cast<QGuiApplication*>qApp)) {
+    if (!(qobject_cast<QGuiApplication *> qApp)) {
         qWarning("Error: cannot call KQuickAddons::QtQuickSettings::init() before QGuiApplication is created.");
         return;
     }
@@ -66,14 +66,13 @@ void KQuickAddons::QtQuickSettings::init()
 
     auto format = QSurfaceFormat::defaultFormat();
     if (s.forceGlCoreProfile()) {
-        format.setVersion(3,2);
+        format.setVersion(3, 2);
         format.setProfile(QSurfaceFormat::CoreProfile);
     }
     // Before Qt 5.12.2 this setting was somewhat unstable
     // it was opt-in to find bugs both in KDE and Qt
     // For 5.13 with modern plasma it should be fine
-    if (s.graphicsResetNotifications() ||
-        QLibraryInfo::version() >= QVersionNumber(5, 13, 0)) {
+    if (s.graphicsResetNotifications() || QLibraryInfo::version() >= QVersionNumber(5, 13, 0)) {
         format.setOption(QSurfaceFormat::ResetNotification);
     }
     QSurfaceFormat::setDefaultFormat(format);
