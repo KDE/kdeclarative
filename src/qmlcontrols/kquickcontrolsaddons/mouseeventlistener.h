@@ -229,8 +229,8 @@ class MouseEventListener : public QQuickItem
     Q_PROPERTY(bool hoverEnabled READ hoverEnabled WRITE setHoverEnabled NOTIFY hoverEnabledChanged)
 
     /**
-     * True if this MouseEventListener or any of its children contains the mouse cursor: this property will change only when the mouse button is pressed if
-     * hoverEnabled is false
+     * True if this MouseEventListener or any of its children contains the mouse cursor:
+     * this property will change only when the mouse button is pressed if hoverEnabled is false.
      */
     Q_PROPERTY(bool containsMouse READ containsMouse NOTIFY containsMouseChanged)
 

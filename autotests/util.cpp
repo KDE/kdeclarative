@@ -19,9 +19,7 @@ QQmlDataTest *QQmlDataTest::m_instance = nullptr;
 
 QQmlDataTest::QQmlDataTest()
     : m_dataDirectory(QFINDTESTDATA("data"))
-    ,
-
-    m_dataDirectoryUrl(QUrl::fromLocalFile(m_dataDirectory + QLatin1Char('/')))
+    , m_dataDirectoryUrl(QUrl::fromLocalFile(m_dataDirectory + QLatin1Char('/')))
 {
     m_instance = this;
 }

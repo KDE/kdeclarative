@@ -279,7 +279,6 @@ public:
         m_program->setUniformValue(u_yMax, max);
     }
     ~PlotSGNode() = default;
-
 private:
     QScopedPointer<QOpenGLShaderProgram> m_program;
     int u_matrix;
@@ -549,7 +548,12 @@ QPainterPath Plotter::interpolate(const QVector<qreal> &p, qreal x0, qreal x1) c
 {
     QPainterPath path;
 
-    const QMatrix4x4 matrix(0, 1, 0, 0, -1 / 6., 1, 1 / 6., 0, 0, 1 / 6., 1, -1 / 6., 0, 0, 1, 0);
+    /* clang-format off */
+    const QMatrix4x4 matrix( 0,    1,    0,     0,
+                            -1/6., 1,    1/6.,  0,
+                             0,    1/6., 1,    -1/6.,
+                             0,    0,    1,     0);
+    /* clang-format on */
 
     const qreal xDelta = (x1 - x0) / (p.count() - 3);
     qreal x = x0 - xDelta;
@@ -557,11 +561,18 @@ QPainterPath Plotter::interpolate(const QVector<qreal> &p, qreal x0, qreal x1) c
     path.moveTo(x0, p[0]);
 
     for (int i = 1; i < p.count() - 2; i++) {
-        const QMatrix4x4 points(x, p[i - 1], 0, 0, x + xDelta * 1, p[i + 0], 0, 0, x + xDelta * 2, p[i + 1], 0, 0, x + xDelta * 3, p[i + 2], 0, 0);
+        /* clang-format off */
+        const QMatrix4x4 points(x,              p[i-1], 0, 0,
+                                x + xDelta * 1, p[i+0], 0, 0,
+                                x + xDelta * 2, p[i+1], 0, 0,
+                                x + xDelta * 3, p[i+2], 0, 0);
 
         const QMatrix4x4 res = matrix * points;
 
-        path.cubicTo(res(1, 0), res(1, 1), res(2, 0), res(2, 1), res(3, 0), res(3, 1));
+        path.cubicTo(res(1, 0), res(1, 1),
+                     res(2, 0), res(2, 1),
+                     res(3, 0), res(3, 1));
+        /* clang-format on */
 
         x += xDelta;
     }
@@ -776,9 +787,16 @@ QSGNode *Plotter::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *updateP
             m_haveInternalFormatQuery = version >= qMakePair(3, 0);
             m_internalFormat = version >= qMakePair(3, 0) ? GL_RGBA8 : GL_RGBA;
         } else {
-            m_haveMSAA = version >= qMakePair(3, 2) || ctx->hasExtension("GL_ARB_framebuffer_object") || ctx->hasExtension("GL_EXT_framebuffer_multisample");
-            m_haveFramebufferBlit =
-                version >= qMakePair(3, 0) || ctx->hasExtension("GL_ARB_framebuffer_object") || ctx->hasExtension("GL_EXT_framebuffer_blit");
+            /* clang-format off */
+            m_haveMSAA = version >= qMakePair(3, 2)
+                         || ctx->hasExtension("GL_ARB_framebuffer_object")
+                         || ctx->hasExtension("GL_EXT_framebuffer_multisample");
+
+            m_haveFramebufferBlit = version >= qMakePair(3, 0)
+                                    || ctx->hasExtension("GL_ARB_framebuffer_object")
+                                    || ctx->hasExtension("GL_EXT_framebuffer_blit");
+            /* clang-format on */
+
             m_haveInternalFormatQuery = version >= qMakePair(4, 2) || ctx->hasExtension("GL_ARB_internalformat_query");
             m_internalFormat = GL_RGBA8;
         }

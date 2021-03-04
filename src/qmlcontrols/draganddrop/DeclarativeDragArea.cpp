@@ -34,9 +34,9 @@ DeclarativeDragArea::DeclarativeDragArea(QQuickItem *parent)
     , m_dragActive(false)
     , m_supportedActions(Qt::MoveAction)
     , m_defaultAction(Qt::MoveAction)
-    , m_data(new DeclarativeMimeData())
-    , // m_data is owned by us, and we shouldn't pass it to Qt directly as it will automatically delete it after the drag and drop.
-    m_pressAndHoldTimerId(0)
+    , m_data(new DeclarativeMimeData()) // m_data is owned by us, and we shouldn't pass it to Qt directly
+                                        // as it will automatically delete it after the drag and drop.
+    , m_pressAndHoldTimerId(0)
 {
     m_startDragDistance = QGuiApplication::styleHints()->startDragDistance();
     setAcceptedMouseButtons(Qt::LeftButton);

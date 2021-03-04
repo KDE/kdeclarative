@@ -44,7 +44,8 @@ QQuickItem *findStyleItem(QQuickItem *item)
         if (itemClassName(child).contains("GridView")) {
             return child->property("view").value<QQuickItem *>();
         }
-        if (itemClassName(child).contains("CheckIndicator") || itemClassName(child).contains("KQuickStyleItem")) {
+        if (itemClassName(child).contains("CheckIndicator") //
+            || itemClassName(child).contains("KQuickStyleItem")) {
             return child;
         }
     }
