@@ -57,6 +57,8 @@ T2.ItemDelegate {
     width: GridView.view.cellWidth
     height: GridView.view.cellHeight
     hoverEnabled: !Kirigami.Settings.isMobile
+    activeFocusOnTab: true
+    onActiveFocusChanged: if (activeFocus) delegate.GridView.view.currentIndex = index
 
     Kirigami.ShadowedRectangle {
         id: thumbnail
