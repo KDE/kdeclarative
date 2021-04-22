@@ -58,6 +58,33 @@ T2.ItemDelegate {
     height: GridView.view.cellHeight
     hoverEnabled: !Kirigami.Settings.isMobile
 
+    Keys.onEnterPressed: menu.trigger()
+    Keys.onSpacePressed: menu.trigger()
+
+    QQC2.Menu {
+        id: menu
+
+        function trigger() {
+            delegate.clicked()
+            if (delegate.actions.length > 0) {
+                menu.popup(delegate, thumbnail.x, thumbnail.y + thumbnail.height)
+            }
+        }
+
+        onClosed: view.forceActiveFocus()
+
+        Repeater {
+            model: delegate.actions
+            delegate: QQC2.MenuItem {
+                text: modelData.text || modelData.tooltip
+                icon.name: modelData.iconName
+                onTriggered: modelData.trigger()
+                enabled: modelData.enabled
+                visible: modelData.visible
+            }
+        }
+    }
+
     Kirigami.ShadowedRectangle {
         id: thumbnail
         anchors {
@@ -116,12 +143,12 @@ T2.ItemDelegate {
 
         Rectangle {
             anchors.fill: thumbnailArea
-            visible: actionsRow.children.length > 0 && (Kirigami.Settings.isMobile || delegate.hovered || (actionsScope.focus))
+            visible: actionsRow.children.length > 0 && (Kirigami.Settings.isMobile || delegate.hovered)
             radius: delegate.thumbnailAvailable ? 0 : thumbnailArea.radius
             color: Kirigami.Settings.isMobile ? "transparent" : Qt.rgba(1, 1, 1, 0.2)
 
-            FocusScope {
-                id: actionsScope
+            RowLayout {
+                id: actionsRow
 
                 anchors {
                     right: parent.right
@@ -129,26 +156,20 @@ T2.ItemDelegate {
                     bottom: parent.bottom
                     bottomMargin: Kirigami.Units.smallSpacing
                 }
-                width: actionsRow.width
-                height: actionsRow.height
 
-                RowLayout {
-                    id: actionsRow
-
-                    Repeater {
-                        model: delegate.actions
-                        delegate: QQC2.Button {
-                            icon.name: modelData.iconName
-                            activeFocusOnTab: focus || delegate.focus
-                            onClicked: modelData.trigger()
-                            enabled: modelData.enabled
-                            visible: modelData.visible
-                            //NOTE: there aren't any global settings where to take "official" tooltip timeouts
-                            QQC2.ToolTip.delay: 1000
-                            QQC2.ToolTip.timeout: 5000
-                            QQC2.ToolTip.visible: (Kirigami.Settings.isMobile ? pressed : hovered) && modelData.tooltip.length > 0
-                            QQC2.ToolTip.text: modelData.tooltip
-                        }
+                Repeater {
+                    model: delegate.actions
+                    delegate: QQC2.Button {
+                        icon.name: modelData.iconName
+                        activeFocusOnTab: false
+                        onClicked: modelData.trigger()
+                        enabled: modelData.enabled
+                        visible: modelData.visible
+                        //NOTE: there aren't any global settings where to take "official" tooltip timeouts
+                        QQC2.ToolTip.delay: 1000
+                        QQC2.ToolTip.timeout: 5000
+                        QQC2.ToolTip.visible: (Kirigami.Settings.isMobile ? pressed : hovered) && modelData.tooltip.length > 0
+                        QQC2.ToolTip.text: modelData.tooltip
                     }
                 }
             }
