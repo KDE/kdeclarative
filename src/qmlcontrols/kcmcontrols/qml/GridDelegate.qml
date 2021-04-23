@@ -143,7 +143,7 @@ T2.ItemDelegate {
 
         Rectangle {
             anchors.fill: thumbnailArea
-            visible: actionsRow.children.length > 0 && (Kirigami.Settings.isMobile || delegate.hovered)
+            visible: actionsRow.children.length > 0 && (Kirigami.Settings.isMobile || delegate.hovered || delegate.GridView.isCurrentItem)
             radius: delegate.thumbnailAvailable ? 0 : thumbnailArea.radius
             color: Kirigami.Settings.isMobile ? "transparent" : Qt.rgba(1, 1, 1, 0.2)
 
