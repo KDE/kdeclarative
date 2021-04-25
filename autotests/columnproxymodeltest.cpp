@@ -54,13 +54,13 @@ void ColumnProxyModelTest::testInit()
 
 void ColumnProxyModelTest::testSet()
 {
-    ColumnProxyModel *listify = new ColumnProxyModel;
-    QSignalSpy spy(listify, SIGNAL(rowsInserted(QModelIndex, int, int)));
+    ColumnProxyModel listify;
+    QSignalSpy spy(&listify, SIGNAL(rowsInserted(QModelIndex, int, int)));
 
-    new QAbstractItemModelTester(listify, listify);
-    QStandardItemModel *m = new QStandardItemModel(listify);
-    listify->setRootIndex(QModelIndex());
-    listify->setSourceModel(m);
+    new QAbstractItemModelTester(&listify, &listify);
+    QStandardItemModel *m = new QStandardItemModel(&listify);
+    listify.setRootIndex(QModelIndex());
+    listify.setSourceModel(m);
     m->appendRow(new QStandardItem(QStringLiteral("lalalal")));
     m->appendRow(new QStandardItem(QStringLiteral("lalalal")));
     m->appendRow(new QStandardItem(QStringLiteral("lalalal")));
@@ -72,7 +72,7 @@ void ColumnProxyModelTest::testSet()
     item->appendRow(new QStandardItem(QStringLiteral("lelele")));
 
     const QString newString = QStringLiteral("fu");
-    QModelIndex changeIndex = listify->indexAt(0);
-    listify->setData(changeIndex, QVariant::fromValue(newString), Qt::DisplayRole);
+    QModelIndex changeIndex = listify.indexAt(0);
+    listify.setData(changeIndex, QVariant::fromValue(newString), Qt::DisplayRole);
     QCOMPARE(changeIndex.data(Qt::DisplayRole).toString(), newString);
 }
