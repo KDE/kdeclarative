@@ -63,9 +63,7 @@ ecm_setup_version(
 
 # Subdirectories
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeclarative5\")
-if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
-    ki18n_install(po)
-endif()
+ki18n_install(po)
 
 find_package(epoxy)
 set_package_properties(epoxy PROPERTIES DESCRIPTION "libepoxy"
