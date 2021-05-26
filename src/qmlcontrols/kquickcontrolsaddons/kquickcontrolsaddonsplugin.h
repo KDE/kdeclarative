@@ -10,6 +10,7 @@
 #define KQUICKCONTROLSADDONSPLUGIN_H
 
 #include <QQmlExtensionPlugin>
+#include <QScreen>
 
 class KQuickControlsAddonsPlugin : public QQmlExtensionPlugin
 {
