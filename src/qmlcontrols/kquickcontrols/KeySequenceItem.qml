@@ -78,7 +78,12 @@ RowLayout {
                      text += _tr.i18nc("No shortcut defined", "None");
                 }
             } else {
-                text += _helper.keySequenceNativeText(keys)
+                // Single ampersand gets interpreted by the button as a mnemonic
+                // and removed; replace it with a double ampersand so that it
+                // will be displayed by the button as a single ampersand, or
+                // else shortcuts with the actual ampersand character will
+                // appear to be partially empty.
+                text += _helper.keySequenceNativeText(keys).replace('&', '&&')
             }
             return _helper.isRecording ? text.concat(" ... ") : text.concat(" ")
         }
