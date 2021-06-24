@@ -17,6 +17,7 @@
 KRunProxy::KRunProxy(QObject *parent)
     : QObject(parent)
 {
+    qWarning() << "Using KRun from QML is deprecated. Use Qt.openUrlExternally, KIO::OpenUrlJob, or KIO::ApplicationLauncherJob instead.";
 }
 
 // Apparently unused
