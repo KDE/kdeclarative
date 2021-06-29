@@ -134,9 +134,11 @@ QString KDeclarative::translationDomain() const
 
 void KDeclarative::setupQmlJsDebugger()
 {
+#if QT_CONFIG(qml_debug)
     if (QCoreApplication::arguments().contains(QLatin1String("-qmljsdebugger"))) {
         QQmlDebuggingEnabler enabler;
     }
+#endif
 }
 
 QString KDeclarative::defaultComponentsTarget()
