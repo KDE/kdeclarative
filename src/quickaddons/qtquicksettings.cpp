@@ -35,13 +35,17 @@ static bool checkBackend()
         return true;
     }
 
+#ifdef QT_NO_OPENGL
+    bool ok = false;
+#else
     QOpenGLContext *gl = new QOpenGLContext();
     bool ok = gl->create();
+    delete gl;
+#endif
     if (!ok) {
         qWarning("Warning: fallback to QtQuick software backend.");
         QQuickWindow::setSceneGraphBackend(QStringLiteral("software"));
     }
-    delete gl;
     return ok;
 }
 
