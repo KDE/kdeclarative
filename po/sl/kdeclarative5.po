@@ -1,0 +1,129 @@
+# translation of kdelibs4.po to Slovenian
+# Translation of kdelibs4.po to Slovenian
+# KDELIBS translation to Slovenian language
+# $Id: kdelibs4.po 685926 2007-07-10 04:25:11Z scripty $
+# $Source$
+#
+# Copyright (C) 2002,2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
+# Roman Maurer <roman.maurer@amis.net>, 2002.
+# Gregor Rakar <gregor.rakar@kiss.uni-lj.si>, 2002,2003.
+# Gregor Rakar <gregor.rakar@kiss.si>, 2003, 2004, 2005.
+# Andrej Vernekar <andrej.vernekar@moj.net>, 2005, 2007, 2008, 2009, 2010.
+# Jure Repinc <jlp@holodeck1.com>, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013.
+# Andrej Vernekar <andrej.vernerkar@moj.net>, 2008, 2011, 2012.
+# Andrej Mernik <andrejm@ubuntu.si>, 2012, 2013, 2014, 2015.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-06-03 00:14+0000\n"
+"PO-Revision-Date: 2021-05-03 07:20+0200\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
+"X-Generator: Lokalize 20.08.1\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"Roman Maurer,Gregor Rakar,Andrej Vernekar,Jure Repinc,Andrej Mernik,Matjaž "
+"Jeran"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"roman.maurer@amis.net,gregor.rakar@kiss.si,andrej.vernekar@gmail.com,"
+"jlp@holodeck1.com,andrejm@ubuntu.si,matjaz.jeran@amis.net"
+
+#: kpackagelauncherqml/main.cpp:30
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr "Programska lupina KPackage QML"
+
+#: kpackagelauncherqml/main.cpp:38
+#, kde-format
+msgid "The unique name of the application (mandatory)"
+msgstr "Edinstveno ime programa (obvezno)"
+
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Contextual Help"
+msgstr "Prikaži kontekstno pomoč"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:76
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Vhod"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:78
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Brez"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:93
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"Kliknite gumb in nato vnesite bližnjico, kot bi jo v programu.\n"
+"Primer za Ctrl+A: držite pritisnjeno tipko Ctrl in pritisnite tipko A."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:115
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "Rezervirana bližnjica"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:117
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"Tipka F12 je rezervirana v Windows, zato ne more biti uporabljena za splošno "
+"bližnjico.\n"
+"Izberite drugo."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:171
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Spor z običajnimi bližnjicami programov"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:173
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"Zaporedje tipk »%1« se uporablja tudi pri standardnemu dejanju »%2«, ki \n"
+"ga uporabljajo nekateri programi.\n"
+"Ali ga res želite uporabiti tudi za splošno bližnjico?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:179
+#, kde-format
+msgid "Reassign"
+msgstr "Prestavi"
+
+#: quickaddons/configmodule.cpp:164
+#, kde-format
+msgid "Invalid KPackage '%1'"
+msgstr "Neveljaven KPackage '%1'"
+
+#: quickaddons/configmodule.cpp:170
+#, kde-format
+msgid "No QML file provided"
+msgstr "Ni datoteke QML"

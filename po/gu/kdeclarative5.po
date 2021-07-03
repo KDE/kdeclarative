@@ -1,0 +1,111 @@
+# translation of kdelibs4.po to Gujarati
+# Copyright (C) 2008 This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Kartik Mistry <kartik.mistry@gmail.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-06-03 00:14+0000\n"
+"PO-Revision-Date: 2009-11-22 00:01+0530\n"
+"Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
+"Language-Team: Gujarati <team@utkarsh.org>\n"
+"Language: gu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kartik Mistry"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kartik.mistry@gmail.com"
+
+#: kpackagelauncherqml/main.cpp:30
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr ""
+
+#: kpackagelauncherqml/main.cpp:38
+#, fuzzy, kde-format
+#| msgid "defines the application font"
+msgid "The unique name of the application (mandatory)"
+msgstr "કાર્યક્રમ ફોન્ટ વ્યાખ્યાયિત કરે છે"
+
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Contextual Help"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:76
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "ઈનપુટ"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:78
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "કંઇ નહી"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:93
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:115
+#, fuzzy, kde-format
+#| msgid "New Web Shortcut"
+msgid "Reserved Shortcut"
+msgstr "નવો વેબ ટુંકાણ"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:117
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:171
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "પ્રમાણભૂત કાર્યક્રમ ટૂંકાણ સાથે તકરાર થાય છે"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:173
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"'%1' કળ જોડાણ પ્રમાણભૂત ક્રિયા \"%2\" માટે પણ વપરાય છે જે કેટલાક કાર્યક્રમો ઉપયોગ કરે "
+"છે.\n"
+"તમે તેને ખરેખર વૈશ્વિક ટૂંકાણો તરીકે પણ વાપરવા માંગો છો?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:179
+#, kde-format
+msgid "Reassign"
+msgstr "પુનઃસોંપણી"
+
+#: quickaddons/configmodule.cpp:164
+#, fuzzy, kde-format
+#| msgid "invalid flags"
+msgid "Invalid KPackage '%1'"
+msgstr "અયોગ્ય ફ્લેગો"
+
+#: quickaddons/configmodule.cpp:170
+#, kde-format
+msgid "No QML file provided"
+msgstr ""
