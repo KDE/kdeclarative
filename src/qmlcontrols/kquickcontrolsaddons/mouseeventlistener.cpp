@@ -375,7 +375,7 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
             && m_pressAndHoldTimer->isActive()) {
             m_pressAndHoldTimer->stop();
 
-            // if the mouse moves and we are waiting to emit a press and hold event, update the co-ordinates
+            // if the mouse moves and we are waiting to emit a press and hold event, update the coordinates
             // as there is no update function, delete the old event and create a new one
         } else if (m_pressAndHoldEvent) {
             delete m_pressAndHoldEvent;

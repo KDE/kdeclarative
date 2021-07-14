@@ -23,7 +23,7 @@ class KDeclarativePrivate;
  * @class KDeclarative::KDeclarative kdeclarative.h <KDeclarative/KDeclarative>
  *
  * The KDeclarative class is used to manipulate the QQmlEngine instance used by
- * the application and to get some informations about the platform,
+ * the application and to get some information about the platform,
  * that influences the behavior of the QML components.
  *
  * In order to use it, you will need a pointer to a QQmlEngine, and call

@@ -16,7 +16,7 @@ KDeclarative exposes 3 namespaced classes: KDeclarative::KDeclarative, KDeclarat
 ### KDeclarative::KDeclarative
 
 The KDeclarative class is used to manipulate the QQmlEngine instance used by 
-the application and to get some informations about the platform, 
+the application and to get some information about the platform,
 that influences the behavior of the QML components.
 
 Full documentation in KDeclarative::KDeclarative

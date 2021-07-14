@@ -47,7 +47,7 @@ AbstractKCM {
     implicitWidth: {
         var width = 0;
 
-        // Show three columns at once, every colum occupies implicitCellWidth + Units.gridUnit
+        // Show three columns at once, every column occupies implicitCellWidth + Units.gridUnit
         width += 3 * (view.implicitCellWidth + Kirigami.Units.gridUnit);
 
         var scrollBar = scroll.QtControls.ScrollBar.vertical;
