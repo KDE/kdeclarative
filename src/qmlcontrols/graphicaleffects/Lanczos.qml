@@ -21,7 +21,12 @@ ShaderEffect {
     /**
      * The source texture. Can be any QQuickTextureProvider.
      */
-    property var source
+    required property var source
+    /**
+     * The size of the source texture. Used to perform aspect ratio correction.
+     */
+    required property size sourceSize
+
     /**
      * The target size of the Lanczos effect.
      *
@@ -56,5 +61,6 @@ ShaderEffect {
      */
     property real resolution: 0.98;
 
-    fragmentShader: Qt.resolvedUrl("lanczos2sharp.glsl")
+    vertexShader: Qt.resolvedUrl("preserveaspect.vert")
+    fragmentShader: Qt.resolvedUrl("lanczos2sharp.frag")
 }

@@ -3,7 +3,9 @@ project(kgraphicaleffects)
 install(FILES
     qmldir
     Lanczos.qml
-    lanczos2sharp.glsl
-    lanczos2sharp_core.glsl
+    preserveaspect.vert
+    preserveaspect_core.vert
+    lanczos2sharp.frag
+    lanczos2sharp_core.frag
     DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/graphicaleffects
 )

@@ -72,6 +72,12 @@ highp vec4 lanczos(highp vec4 x)
 
 void main()
 {
+    // Discard any pixels that are outside the bounds of the texture.
+    // This prevents artifacts when the texture doesn't have a full-alpha border.
+    if (any(lessThan(qt_TexCoord0, vec2(0.0))) || any(greaterThan(qt_TexCoord0, vec2(1.0)))) {
+        discard;
+    }
+
     highp vec2 dx = vec2(1.0, 0.0);
     highp vec2 dy = vec2(0.0, 1.0);
 
