@@ -9,7 +9,16 @@ kconfig_add_kcfg_files(KF5QuickAddons_LIB_SRCS renderersettings.kcfgc)
 
 add_library(KF5QuickAddons ${KF5QuickAddons_LIB_SRCS})
 
-generate_export_header(KF5QuickAddons EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/quickaddons_export.h BASE_NAME QuickAddons)
+ecm_generate_export_header(KF5QuickAddons
+    EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/quickaddons_export.h
+    BASE_NAME QuickAddons
+    GROUP_BASE_NAME KF
+    VERSION ${KF_VERSION}
+    DEPRECATED_BASE_VERSION 0
+    DEPRECATION_VERSIONS 5.88
+    EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
+)
+
 add_library(KF5::QuickAddons ALIAS KF5QuickAddons)
 
 # Apps must include <KQuickAddons/File> or <kquickaddons/file.h>

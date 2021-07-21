@@ -109,17 +109,25 @@ class QUICKADDONS_EXPORT ManagedConfigModule : public ConfigModule
 {
     Q_OBJECT
 public:
+#if QUICKADDONS_ENABLE_DEPRECATED_SINCE(5, 88)
     /**
      * Base class for all modules which manage automatically some of their state.
      *
      * @param aboutData becomes owned by the ManagedConfigModule
+     * @deprecated since 5.88, use ConfigModule(QObject*, QVariantList) and call setAboutData
      */
+    QUICKADDONS_DEPRECATED_VERSION(5, 88, "Use ConfigModule(QObject*, QVariantList) and call setAboutData")
     explicit ManagedConfigModule(const KAboutData *aboutData, QObject *parent = nullptr, const QVariantList &args = QVariantList());
+#endif
 
+#if QUICKADDONS_ENABLE_DEPRECATED_SINCE(5, 88)
     /**
      * @param metaData description for the plugin: it will generate a KAboutData from that
+     * @deprecated since 5.88, use ConfigModule(QObject*, QVariantList)
      */
+    QUICKADDONS_DEPRECATED_VERSION(5, 88, "Use ConfigModule(QObject*, QVariantList)")
     explicit ManagedConfigModule(const KPluginMetaData &metaData, QObject *parent = nullptr, const QVariantList &args = QVariantList());
+#endif
 
     /**
      * Base class for all KControlModules.

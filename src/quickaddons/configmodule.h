@@ -152,22 +152,30 @@ public:
     Q_DECLARE_FLAGS(Buttons, Button)
     Q_FLAG(Buttons)
 
+#if QUICKADDONS_ENABLE_DEPRECATED_SINCE(5, 88)
     /**
      * Base class for all KControlModules.
      *
      * @note do not emit changed signals here, since they are not yet connected
      *       to any slot.
      * @param aboutData becomes owned by the ConfigModule
+     * @deprecated since 5.88, use ConfigModule(QObject*, QVariantList) and call setAboutData
      */
+    QUICKADDONS_DEPRECATED_VERSION(5, 88, "Use ConfigModule(QObject*, QVariantList) and call setAboutData")
     explicit ConfigModule(const KAboutData *aboutData, QObject *parent = nullptr, const QVariantList &args = QVariantList());
+#endif
 
+#if QUICKADDONS_ENABLE_DEPRECATED_SINCE(5, 88)
     /**
      * @note do not emit changed signals here, since they are not yet connected
      *       to any slot.
      * @param metaData description for the plugin: it will generate a KAboutData from that
      * @since 5.11
+     * @deprecated since 5.88, use ConfigModule(QObject*, QVariantList)
      */
+    QUICKADDONS_DEPRECATED_VERSION(5, 88, "Use ConfigModule(QObject*, QVariantList)")
     explicit ConfigModule(const KPluginMetaData &metaData, QObject *parent = nullptr, const QVariantList &args = QVariantList());
+#endif
 
     /**
      * Base class for all KControlModules.

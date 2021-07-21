@@ -70,13 +70,16 @@ public:
 
 QHash<QObject *, ConfigModule *> ConfigModulePrivate::s_rootObjects = QHash<QObject *, ConfigModule *>();
 
+#if QUICKADDONS_BUILD_DEPRECATED_SINCE(5, 88)
 ConfigModule::ConfigModule(const KAboutData *aboutData, QObject *parent, const QVariantList &)
     : QObject(parent)
     , d(new ConfigModulePrivate(this))
 {
     setAboutData(aboutData);
 }
+#endif
 
+#if QUICKADDONS_BUILD_DEPRECATED_SINCE(5, 88)
 ConfigModule::ConfigModule(const KPluginMetaData &metaData, QObject *parent, const QVariantList &)
     : QObject(parent)
     , d(new ConfigModulePrivate(this))
@@ -90,6 +93,7 @@ ConfigModule::ConfigModule(const KPluginMetaData &metaData, QObject *parent, con
     }
     setAboutData(aboutData);
 }
+#endif
 
 ConfigModule::ConfigModule(QObject *parent, const QVariantList &)
     : QObject(parent)
