@@ -159,9 +159,9 @@ public:
      * @note do not emit changed signals here, since they are not yet connected
      *       to any slot.
      * @param aboutData becomes owned by the ConfigModule
-     * @deprecated since 5.88, use ConfigModule(QObject*, QVariantList) and call setAboutData
+     * @deprecated since 5.88, use ConfigModule(QObject*, KPluginMetaData, QVariantList)
      */
-    QUICKADDONS_DEPRECATED_VERSION(5, 88, "Use ConfigModule(QObject*, QVariantList) and call setAboutData")
+    QUICKADDONS_DEPRECATED_VERSION(5, 88, "Use ConfigModule(QObject*, KPluginMetaData, QVariantList)")
     explicit ConfigModule(const KAboutData *aboutData, QObject *parent = nullptr, const QVariantList &args = QVariantList());
 #endif
 
@@ -171,11 +171,20 @@ public:
      *       to any slot.
      * @param metaData description for the plugin: it will generate a KAboutData from that
      * @since 5.11
-     * @deprecated since 5.88, use ConfigModule(QObject*, QVariantList)
+     * @deprecated since 5.88, use ConfigModule(QObject*, KPluginMetaData, QVariantList)
      */
-    QUICKADDONS_DEPRECATED_VERSION(5, 88, "Use ConfigModule(QObject*, QVariantList)")
+    QUICKADDONS_DEPRECATED_VERSION(5, 88, "Use ConfigModule(QObject*, KPluginMetaData, QVariantList)")
     explicit ConfigModule(const KPluginMetaData &metaData, QObject *parent = nullptr, const QVariantList &args = QVariantList());
 #endif
+
+    /**
+     * Base class for all KControlModules.
+     *
+     * @note do not emit changed signals here, since they are not yet connected
+     *       to any slot.
+     * @since 5.88
+     */
+    explicit ConfigModule(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args = QVariantList());
 
     /**
      * Base class for all KControlModules.

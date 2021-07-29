@@ -50,6 +50,12 @@ ManagedConfigModule::ManagedConfigModule(QObject *parent, const QVariantList &ar
 {
 }
 
+ManagedConfigModule::ManagedConfigModule(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args)
+    : ConfigModule(parent, metaData, args)
+    , d(new ManagedConfigModulePrivate(this))
+{
+}
+
 ManagedConfigModule::~ManagedConfigModule()
 {
     delete d;
