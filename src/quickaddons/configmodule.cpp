@@ -408,6 +408,7 @@ void ConfigModule::defaults()
 {
 }
 
+#if QUICKADDONS_BUILD_DEPRECATED_SINCE(5, 88)
 const KAboutData *ConfigModule::aboutData() const
 {
     // If the ConfigModule was created from a KPluginMetaData lazily create a KAboutData from it
@@ -428,6 +429,7 @@ const KAboutData *ConfigModule::aboutData() const
 
     return d->_about.get();
 }
+#endif
 
 void ConfigModule::setAboutData(const KAboutData *about)
 {

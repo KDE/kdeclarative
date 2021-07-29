@@ -199,14 +199,18 @@ public:
      */
     ~ConfigModule();
 
+#if QUICKADDONS_ENABLE_DEPRECATED_SINCE(5, 88)
     /**
      * This is generally only called for the KBugReport.
      * If you override you should  have it return a pointer to a constant.
      *
      *
      * @returns the KAboutData for this module
+     * @deprecated since 5.88. Use the KPluginMetaData the ConfigModule was instantiated from.
      */
+    QUICKADDONS_DEPRECATED_VERSION(5, 88, "Use the KPluginMetaData the ConfigModule was instantiated from")
     const KAboutData *aboutData() const;
+#endif
 
     /**
      * This sets the KAboutData returned by aboutData()
