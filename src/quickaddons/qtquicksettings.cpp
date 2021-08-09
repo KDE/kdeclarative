@@ -1,6 +1,7 @@
 /*
     SPDX-FileCopyrightText: 2016 David Edmundson <davidedmundson@kde.org>
     SPDX-FileCopyrightText: 2020 Piotr Henryk Dabrowski <phd@phd.re>
+    SPDX-FileCopyrightText: 2021 David Redondo <kde@david-redondo.de>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -10,7 +11,9 @@
 
 #include <QGuiApplication>
 #include <QLibraryInfo>
+#include <QOffscreenSurface>
 #include <QOpenGLContext>
+#include <QOpenGLFunctions>
 #include <QQuickWindow>
 #include <QSurfaceFormat>
 #include <QVersionNumber>
@@ -22,7 +25,7 @@
  *
  * @returns true if the selected backend is supported, false on fallback to software mode.
  */
-static bool checkBackend()
+static bool checkBackend(QOpenGLContext &checkContext)
 {
     if (!QQuickWindow::sceneGraphBackend().isEmpty()) {
         return true; // QtQuick is not configured to use the OpenGL backend
@@ -38,9 +41,7 @@ static bool checkBackend()
 #ifdef QT_NO_OPENGL
     bool ok = false;
 #else
-    QOpenGLContext *gl = new QOpenGLContext();
-    bool ok = gl->create();
-    delete gl;
+    bool ok = checkContext.create();
 #endif
     if (!ok) {
         qWarning("Warning: fallback to QtQuick software backend.");
@@ -57,15 +58,29 @@ void KQuickAddons::QtQuickSettings::init()
     }
 
     PlasmaQtQuickSettings::RendererSettings s;
-    if (!s.renderLoop().isEmpty() && !qEnvironmentVariableIsSet("QSG_RENDER_LOOP")) {
-        qputenv("QSG_RENDER_LOOP", s.renderLoop().toLatin1());
-    }
-
+    QOpenGLContext checkContext;
     if (!s.sceneGraphBackend().isEmpty()) {
         QQuickWindow::setSceneGraphBackend(s.sceneGraphBackend());
     } else {
         QQuickWindow::setSceneGraphBackend(QStringLiteral(""));
-        checkBackend();
+        checkBackend(checkContext);
+    }
+
+    if (!qEnvironmentVariableIsSet("QSG_RENDER_LOOP")) {
+        if (!s.renderLoop().isEmpty()) {
+            qputenv("QSG_RENDER_LOOP", s.renderLoop().toLatin1());
+        } else if (QGuiApplication::platformName() == QLatin1String("wayland")) {
+            // Workaround for Bug 432062 / QTBUG-95817
+            QOffscreenSurface surface;
+            surface.create();
+            if (checkContext.makeCurrent(&surface)) {
+                const char *vendor = reinterpret_cast<const char *>(checkContext.functions()->glGetString(GL_VENDOR));
+                if (qstrcmp(vendor, "NVIDIA Corporation") == 0) {
+                    // Otherwise Qt Quick Windows break when resized
+                    qputenv("QSG_RENDER_LOOP", "basic");
+                }
+            }
+        }
     }
 
     auto format = QSurfaceFormat::defaultFormat();
