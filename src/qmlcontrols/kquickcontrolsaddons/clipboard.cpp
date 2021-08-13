@@ -48,15 +48,17 @@ QVariant Clipboard::contentFormat(const QString &format) const
     if (format == QLatin1String("text/uri-list")) {
         QVariantList retList;
         const auto urls = data->urls();
-        for (const QUrl &url : urls)
+        for (const QUrl &url : urls) {
             retList += url;
+        }
         ret = retList;
     } else if (format.startsWith(QLatin1String("text/"))) {
         ret = data->text();
     } else if (format.startsWith(QLatin1String("image/"))) {
         ret = data->imageData();
-    } else
+    } else {
         ret = data->data(format.isEmpty() ? data->formats().first() : format);
+    }
 
     return ret;
 }

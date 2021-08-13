@@ -64,8 +64,9 @@ QUrl DeclarativeMimeData::url() const
 }
 void DeclarativeMimeData::setUrl(const QUrl &url)
 {
-    if (this->url() == url)
+    if (this->url() == url) {
         return;
+    }
 
     QList<QUrl> urlList;
     urlList.append(url);

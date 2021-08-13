@@ -49,10 +49,11 @@ QJsonArray MimeDataWrapper::urls() const
 
 QVariant MimeDataWrapper::color() const
 {
-    if (m_data->hasColor())
+    if (m_data->hasColor()) {
         return m_data->colorData();
-    else
+    } else {
         return QVariant();
+    }
 }
 
 QStringList MimeDataWrapper::formats() const

@@ -38,8 +38,9 @@ void QQmlDataTest::initTestCase()
 
 QString QQmlDataTest::testFile(const QString &fileName) const
 {
-    if (m_directory.isEmpty())
+    if (m_directory.isEmpty()) {
         qFatal("QQmlDataTest::initTestCase() not called.");
+    }
     QString result = m_dataDirectory;
     result += QLatin1Char('/');
     result += fileName;
@@ -53,13 +54,16 @@ QByteArray QQmlDataTest::msgComponentError(const QQmlComponent &c, const QQmlEng
     QTextStream str(&result);
     str << "Component '" << c.url().toString() << "' has " << errors.size() << " errors: '";
     for (int i = 0; i < errors.size(); ++i) {
-        if (i)
+        if (i) {
             str << ", '";
+        }
         str << errors.at(i).toString() << '\'';
     }
-    if (!engine)
-        if (QQmlContext *context = c.creationContext())
+    if (!engine) {
+        if (QQmlContext *context = c.creationContext()) {
             engine = context->engine();
+        }
+    }
     if (engine) {
         str << " Import paths: (" << engine->importPathList().join(QLatin1String(", ")) << ") Plugin paths: ("
             << engine->pluginPathList().join(QLatin1String(", ")) << ')';
@@ -74,8 +78,9 @@ QQmlTestMessageHandler *QQmlTestMessageHandler::m_instance = nullptr;
 void QQmlTestMessageHandler::messageHandler(QtMsgType, const QMessageLogContext &, const QString &message)
 {
     QMutexLocker locker(qQmlTestMessageHandlerMutex());
-    if (QQmlTestMessageHandler::m_instance)
+    if (QQmlTestMessageHandler::m_instance) {
         QQmlTestMessageHandler::m_instance->m_messages.push_back(message);
+    }
 }
 
 QQmlTestMessageHandler::QQmlTestMessageHandler()

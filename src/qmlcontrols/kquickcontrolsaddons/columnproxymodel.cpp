@@ -130,8 +130,9 @@ int ColumnProxyModel::rowCount(const QModelIndex &parent) const
 
 QModelIndex ColumnProxyModel::proxyIndex(const QModelIndex &sourceIndex) const
 {
-    if (sourceIndex.parent() == m_index)
+    if (sourceIndex.parent() == m_index) {
         return index(sourceIndex.row(), sourceIndex.column(), QModelIndex());
+    }
 
     return QModelIndex();
 }

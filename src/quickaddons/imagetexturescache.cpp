@@ -33,8 +33,9 @@ QSharedPointer<QSGTexture> ImageTexturesCache::loadTexture(QQuickWindow *window,
         auto cleanAndDelete = [this, window, id](QSGTexture *texture) {
             QHash<QWindow *, QWeakPointer<QSGTexture>> &textures = (d->cache)[id];
             textures.remove(window);
-            if (textures.isEmpty())
+            if (textures.isEmpty()) {
                 d->cache.remove(id);
+            }
             delete texture;
         };
         texture = QSharedPointer<QSGTexture>(window->createTextureFromImage(image, options), cleanAndDelete);
