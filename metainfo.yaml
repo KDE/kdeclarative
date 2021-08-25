@@ -6,7 +6,7 @@ platforms:
     - name: Linux
     - name: FreeBSD
     - name: Windows
-    - name: MacOSX
+    - name: macOS
       note: The supported remote Urls depends from what runtime kio slaves plugins are installed
 portingAid: false
 deprecated: false
