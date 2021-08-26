@@ -87,11 +87,13 @@ void KDeclarative::setupContext()
 
 void KDeclarative::setupEngine(QQmlEngine *engine)
 {
+#ifndef Q_OS_ANDROID
     // get rid of stock network access manager factory
     QQmlNetworkAccessManagerFactory *factory = engine->networkAccessManagerFactory();
     engine->setNetworkAccessManagerFactory(nullptr);
     delete factory;
     engine->setNetworkAccessManagerFactory(new KIOAccessManagerFactory());
+#endif
 
     /* Tell the engine to search for platform-specific imports first
        (so it will "win" in import name resolution).

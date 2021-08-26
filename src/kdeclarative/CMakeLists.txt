@@ -5,8 +5,10 @@ set(kdeclarative_SRCS
   qmlobjectsharedengine.cpp
   kdeclarative.cpp
   private/kiconprovider.cpp
-  private/kioaccessmanagerfactory.cpp
 )
+if(NOT ANDROID)
+    list(APPEND kdeclarative_SRCS private/kioaccessmanagerfactory.cpp)
+endif()
 
 add_library(KF5Declarative ${kdeclarative_SRCS})
 add_library(KF5::Declarative ALIAS KF5Declarative)
