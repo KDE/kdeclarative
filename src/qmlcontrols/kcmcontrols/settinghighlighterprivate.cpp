@@ -34,7 +34,7 @@ QQuickItem *findStyleItem(QQuickItem *item)
     const auto className = itemClassName(item);
 
     auto descendant = findDescendantItems(item);
-    for (auto child : qAsConst(descendant)) {
+    for (auto child : std::as_const(descendant)) {
         if (className.contains("FontWidget") && itemClassName(child).contains("TextField")) {
             return child->property("background").value<QQuickItem *>();
         }

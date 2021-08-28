@@ -115,7 +115,7 @@ void PlotData::addSample(qreal value)
 
     m_max = std::numeric_limits<qreal>::min();
     m_min = std::numeric_limits<qreal>::max();
-    for (auto v : qAsConst(m_values)) {
+    for (auto v : std::as_const(m_values)) {
         if (v > m_max) {
             m_max = v;
         } else if (v < m_min) {
@@ -356,7 +356,7 @@ void Plotter::setSampleSize(int size)
     m_sampleSize = size;
 
     m_mutex.lock();
-    for (auto data : qAsConst(m_plotData)) {
+    for (auto data : std::as_const(m_plotData)) {
         data->setSampleSize(size);
     }
     m_mutex.unlock();
@@ -494,7 +494,7 @@ void Plotter::addSample(const QList<qreal> &value)
 
     int i = 0;
     m_mutex.lock();
-    for (auto data : qAsConst(m_plotData)) {
+    for (auto data : std::as_const(m_plotData)) {
         data->addSample(value.value(i));
         ++i;
     }
@@ -632,7 +632,7 @@ void Plotter::render()
     int roundedHeight = qRound(height());
     int roundedWidth = qRound(width());
 
-    for (auto data : qAsConst(m_plotData)) {
+    for (auto data : std::as_const(m_plotData)) {
         // Interpolate the data set
         const QPainterPath path = interpolate(data->m_normalizedValues, 0, roundedWidth);
 
@@ -705,7 +705,7 @@ void Plotter::render()
 
     QPair<int, int> oldCount;
     m_mutex.lock();
-    for (auto data : qAsConst(m_plotData)) {
+    for (auto data : std::as_const(m_plotData)) {
         color2 = data->color();
         color2.setAlphaF(0.60);
         // Draw the graph
@@ -893,7 +893,7 @@ void Plotter::normalizeData()
         } while (i != m_plotData.constBegin());
 
     } else {
-        for (auto data : qAsConst(m_plotData)) {
+        for (auto data : std::as_const(m_plotData)) {
             data->m_normalizedValues.clear();
             data->m_normalizedValues = data->values().toVector();
             // global max and global min
@@ -931,7 +931,7 @@ void Plotter::normalizeData()
 
         // normalizebased on global max and min
         m_mutex.lock();
-        for (auto data : qAsConst(m_plotData)) {
+        for (auto data : std::as_const(m_plotData)) {
             for (int i = 0; i < data->values().count(); ++i) {
                 data->m_normalizedValues[i] = (data->m_normalizedValues.value(i) - adjustedMin) * adjust;
             }

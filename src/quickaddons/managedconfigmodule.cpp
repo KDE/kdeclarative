@@ -53,7 +53,7 @@ ManagedConfigModule::~ManagedConfigModule()
 
 void ManagedConfigModule::load()
 {
-    for (const auto &skeleton : qAsConst(d->_skeletons)) {
+    for (const auto &skeleton : std::as_const(d->_skeletons)) {
         if (skeleton) {
             skeleton->load();
         }
@@ -62,7 +62,7 @@ void ManagedConfigModule::load()
 
 void ManagedConfigModule::save()
 {
-    for (const auto &skeleton : qAsConst(d->_skeletons)) {
+    for (const auto &skeleton : std::as_const(d->_skeletons)) {
         if (skeleton) {
             skeleton->save();
         }
@@ -71,7 +71,7 @@ void ManagedConfigModule::save()
 
 void ManagedConfigModule::defaults()
 {
-    for (const auto &skeleton : qAsConst(d->_skeletons)) {
+    for (const auto &skeleton : std::as_const(d->_skeletons)) {
         if (skeleton) {
             skeleton->setDefaults();
         }
@@ -100,7 +100,7 @@ void ManagedConfigModule::settingsChanged()
 {
     bool needsSave = false;
     bool representsDefaults = true;
-    for (const auto &skeleton : qAsConst(d->_skeletons)) {
+    for (const auto &skeleton : std::as_const(d->_skeletons)) {
         if (skeleton) {
             needsSave |= skeleton->isSaveNeeded();
             representsDefaults &= skeleton->isDefaults();

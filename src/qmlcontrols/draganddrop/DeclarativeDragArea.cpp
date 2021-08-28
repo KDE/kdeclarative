@@ -342,7 +342,7 @@ void DeclarativeDragArea::startDrag(const QImage &image)
             pm.fill(Qt::transparent);
             QPainter p(&pm);
             int i = 0;
-            for (const QString &ic : qAsConst(icons)) {
+            for (const QString &ic : std::as_const(icons)) {
                 p.drawPixmap(QPoint(i * imageSize, 0), QIcon::fromTheme(ic).pixmap(imageSize));
                 i++;
             }
