@@ -26,7 +26,7 @@
 class KeySequenceHelperPrivate
 {
 public:
-    KeySequenceHelperPrivate(KeySequenceHelper *q);
+    KeySequenceHelperPrivate(KeySequenceHelper *qq);
 
     /**
      * Conflicts the key sequence @a seq with a current standard
@@ -62,8 +62,8 @@ public:
     KeySequenceHelper::ShortcutTypes checkAgainstShortcutTypes;
 };
 
-KeySequenceHelperPrivate::KeySequenceHelperPrivate(KeySequenceHelper *q)
-    : q(q)
+KeySequenceHelperPrivate::KeySequenceHelperPrivate(KeySequenceHelper *qq)
+    : q(qq)
     , checkAgainstShortcutTypes(KeySequenceHelper::StandardShortcuts | KeySequenceHelper::GlobalShortcuts)
 {
 }
