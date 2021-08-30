@@ -41,13 +41,14 @@ Kirigami.Page {
     Kirigami.ColumnView.fillWidth: true
 
     leftPadding: 6 // Layout_ChildMarginWidth from Breeze
-    topPadding: headerParent.contentItem ? 0 : leftPadding
+    topPadding: headerParent.contentVisible ? 0 : leftPadding
     rightPadding: leftPadding
-    bottomPadding: footerParent.contentItem ? 0 : leftPadding
+    bottomPadding: footerParent.contentVisible ? 0 : leftPadding
 
     header: QtControls.Control {
         id: headerParent
-        height: contentItem ? implicitHeight : 0
+        readonly property bool contentVisible: contentItem && contentItem.visible && contentItem.implicitHeight
+        height: contentVisible ? implicitHeight : 0
         leftPadding: 6 // Layout_ChildMarginWidth from Breeze
         topPadding: leftPadding
         rightPadding: leftPadding
@@ -56,7 +57,8 @@ Kirigami.Page {
 
     footer: QtControls.Control {
         id: footerParent
-        height: contentItem ? implicitHeight : 0
+        readonly property bool contentVisible: contentItem && contentItem.visible && contentItem.implicitHeight
+        height: contentVisible ? implicitHeight : 0
         leftPadding: 6 // Layout_ChildMarginWidth from Breeze
         topPadding: leftPadding
         rightPadding: leftPadding
