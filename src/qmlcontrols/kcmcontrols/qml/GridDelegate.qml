@@ -200,7 +200,7 @@ T2.ItemDelegate {
             visible: delegate.subtitle.length > 0
             opacity: 0.6
             text: delegate.subtitle
-            font.pointSize: theme.smallestFont.pointSize
+            font.pointSize: Kirigami.Theme.smallFont.pointSize
             font.bold: delegate.GridView.isCurrentItem
             elide: Text.ElideRight
         }
