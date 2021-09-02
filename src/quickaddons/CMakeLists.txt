@@ -24,6 +24,9 @@ target_link_libraries(KF5QuickAddons
     KF5::Declarative
     KF5::ConfigGui
 )
+if (ANDROID)
+    target_link_libraries(KF5QuickAddons GLESv3)
+endif()
 
 set_target_properties(KF5QuickAddons
   PROPERTIES VERSION ${KDECLARATIVE_VERSION}
