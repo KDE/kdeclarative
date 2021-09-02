@@ -12,6 +12,27 @@
 
 class ClipboardPrivate;
 
+/**
+ * @brief Wrapper for QClipboard
+ *
+ * Offers a simple wrapper to interact with QClipboard from QtQuick.
+ *
+ * ```
+ * import QtQuick 2.5
+ * import org.kde.kquickcontrolsaddons 2.0 as KQuickControlsAddons
+ * Text {
+ *     text: "lorem ipsum"
+ *
+ *     KQuickControlsAddons.Clipboard { id: clipboard }
+ *
+ *     MouseArea {
+ *         anchors.fill: parent
+ *         acceptedButtons: Qt.LeftButton | Qt.RightButton
+ *         onClicked: clipboard.content = parent.text
+ *     }
+ * }
+ * ```
+ */
 class Clipboard : public QObject
 {
     Q_OBJECT
@@ -26,7 +47,7 @@ class Clipboard : public QObject
     Q_PROPERTY(QVariant content READ content WRITE setContent NOTIFY contentChanged)
 
     /**
-     * Figure out the nature of the contents in the clipboard.
+     * Figure out the nature of the contents in the clipboard as mimetype strings.
      */
     Q_PROPERTY(QStringList formats READ formats NOTIFY contentChanged)
 
@@ -36,12 +57,17 @@ public:
     QClipboard::Mode mode() const;
     void setMode(QClipboard::Mode mode);
 
+    /**
+     * @param format mimetype string
+     * @return Output based on the mimetype. This may be a list of URLs, text, image data, or use QMimeData::data
+     */
     Q_SCRIPTABLE QVariant contentFormat(const QString &format) const;
     QVariant content() const;
     void setContent(const QVariant &content);
 
     QStringList formats() const;
 
+    /** @see QClipboard::clear() */
     Q_SCRIPTABLE void clear();
 
 Q_SIGNALS:
