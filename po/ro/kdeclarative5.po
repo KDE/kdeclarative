@@ -1,0 +1,115 @@
+# Traducerea kdelibs4.po în Română
+# Laurenţiu Buzdugan <lbuz@rolix.org>, 2008, 2009.
+# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2010.
+# Sergiu Bivol <sergiu@cip.md>, 2010, 2012, 2013, 2014, 2020, 2021.
+# Cristian Oneț <onet.cristian@gmail.com>, 2010, 2011, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-06-03 00:14+0000\n"
+"PO-Revision-Date: 2021-05-03 15:50+0100\n"
+"Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
+"Language-Team: Romanian\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Lokalize 19.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Claudiu Costin,Sergiu Bivol,Laurențiu Buzdugan,Cristian Oneț"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ",sergiu@cip.md,lbuz@rolix.org,onet.cristian@gmail.com"
+
+#: kpackagelauncherqml/main.cpp:30
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr "Înveliș pentru aplicații QML KPackage"
+
+#: kpackagelauncherqml/main.cpp:38
+#, kde-format
+msgid "The unique name of the application (mandatory)"
+msgstr "Denumirea unică a aplicației (obligatoriu)"
+
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Contextual Help"
+msgstr "Arată ajutor contextual"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:76
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Introduceți"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:78
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Niciuna"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:93
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"Apăsați butonul, apoi introduceți scurtătura la fel cum ați face în "
+"aplicație.\n"
+"Exemplu pentru Ctrl+A: tineți tasta Ctrl și apăsați A."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:115
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "Scurtătură rezervată"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:117
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"Tasta F12 este rezervată în Windows și nu poate fi utilizată ca accelerator "
+"global.\n"
+"Alegeți alta."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:171
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Conflict cu un accelerator standard de aplicație"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:173
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"Combinația de taste „%1” a fost deja alocată pentru acțiunea globală „%2” pe "
+"care o folosesc unele aplicații.\n"
+"Sigur doriți să o utilizați și pe aceasta ca globală?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:179
+#, kde-format
+msgid "Reassign"
+msgstr "Reatribuie"
+
+#: quickaddons/configmodule.cpp:164
+#, kde-format
+msgid "Invalid KPackage '%1'"
+msgstr "KPackage nevalid „%1”"
+
+#: quickaddons/configmodule.cpp:170
+#, kde-format
+msgid "No QML file provided"
+msgstr "Niciun fișier QML furnizat"
