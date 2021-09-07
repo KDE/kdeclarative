@@ -44,36 +44,6 @@ Kirigami.ScrollablePage {
     rightPadding: leftPadding
     bottomPadding: footerParent.contentItem ? 0 : leftPadding
 
-    header: QtControls.Control {
-        id: headerParent
-        height: contentItem ? implicitHeight : 0
-    }
-
-    footer: QtControls.Control {
-        id: footerParent
-        height: contentItem ? implicitHeight : 0
-    }
-
-    Component.onCompleted: {
-        if (footer && footer != footerParent) {
-            var f = footer
-
-            footerParent.contentItem = f
-            footer = footerParent
-            footer.visible = true
-            f.parent = footerParent
-        }
-
-        if (header && header != headerParent) {
-            var h = header
-
-            headerParent.contentItem = h
-            header = headerParent
-            header.visible = true
-            h.parent = headerParent
-        }
-    }
-
     children: [
         Kirigami.Separator {
             z: 999
@@ -81,7 +51,7 @@ Kirigami.ScrollablePage {
                 left: parent.left
                 right: parent.right
                 top: parent.top
-                topMargin: root.header.visible ? root.header.height : 0
+                topMargin: root.header && root.header.visible ? root.header.height : 0
             }
             visible: !root.flickable.atYBeginning && !Kirigami.Settings.isMobile
         },
@@ -91,7 +61,7 @@ Kirigami.ScrollablePage {
                 left: parent.left
                 right: parent.right
                 bottom: parent.bottom
-                bottomMargin: root.footer.visible ? root.footer.height : 0
+                bottomMargin: root.footer && root.footer.visible ? root.footer.height : 0
             }
             visible: !root.flickable.atYEnd && !Kirigami.Settings.isMobile
         }
