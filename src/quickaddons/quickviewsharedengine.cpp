@@ -119,6 +119,7 @@ QuickViewSharedEngine::QuickViewSharedEngine(QWindow *parent)
 
 QuickViewSharedEngine::~QuickViewSharedEngine()
 {
+    delete d->qmlObject;
 }
 
 void QuickViewSharedEngine::setTranslationDomain(const QString &translationDomain)
