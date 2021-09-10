@@ -126,15 +126,36 @@ bool KeySequenceHelperPrivate::conflictWithGlobalShortcuts(const QKeySequence &k
         return false;
     }
 
-    // Global shortcuts are on key+modifier shortcuts. They can clash with
-    // each of the keys of a multi key shortcut.
+    // Global shortcuts are on key+modifier shortcuts. They can clash with a multi key shortcut.
     QList<KGlobalShortcutInfo> others;
-    for (int i = 0; i < keySequence.count(); ++i) {
-        QKeySequence tmp(keySequence[i]);
+    QList<KGlobalShortcutInfo> shadow;
+    QList<KGlobalShortcutInfo> shadowed;
+    if (!KGlobalAccel::isGlobalShortcutAvailable(keySequence, QString())) {
+        others << KGlobalAccel::getGlobalShortcutsByKey_v2(keySequence);
 
-        if (!KGlobalAccel::isGlobalShortcutAvailable(tmp, QString())) {
-            others << KGlobalAccel::getGlobalShortcutsByKey(tmp);
+        // look for shortcuts shadowing
+        shadow << KGlobalAccel::getGlobalShortcutsByKey_v2(keySequence, KGlobalAccel::MatchType::Shadows);
+        shadowed << KGlobalAccel::getGlobalShortcutsByKey_v2(keySequence, KGlobalAccel::MatchType::Shadowed);
+    }
+
+    if (!shadow.isEmpty() || !shadowed.isEmpty()) {
+        QString title = i18n("Global Shortcut Shadowing");
+        QString message;
+        if (!shadowed.isEmpty()) {
+            message += i18n("The '%1' key combination is shadowed by following global actions:\n").arg(keySequence.toString());
+            for (const KGlobalShortcutInfo &info : std::as_const(shadowed)) {
+                message += i18n("Action '%1' in context '%2'\n").arg(info.friendlyName(), info.contextFriendlyName());
+            }
         }
+        if (!shadow.isEmpty()) {
+            message += i18n("The '%1' key combination shadows following global actions:\n").arg(keySequence.toString());
+            for (const KGlobalShortcutInfo &info : std::as_const(shadow)) {
+                message += i18n("Action '%1' in context '%2'\n").arg(info.friendlyName(), info.contextFriendlyName());
+            }
+        }
+
+        KMessageBox::sorry(nullptr, message, title);
+        return true;
     }
 
     if (!others.isEmpty() && !KGlobalAccel::promptStealShortcutSystemwide(nullptr, others, keySequence)) {
@@ -147,9 +168,7 @@ bool KeySequenceHelperPrivate::conflictWithGlobalShortcuts(const QKeySequence &k
     // error it just silently fails. So be nice because this is
     // most likely the first action that is done in the slot
     // listening to keySequenceChanged().
-    for (int i = 0; i < keySequence.count(); ++i) {
-        KGlobalAccel::stealShortcutSystemwide(keySequence[i]);
-    }
+    KGlobalAccel::stealShortcutSystemwide(keySequence);
     return false;
 }
 
