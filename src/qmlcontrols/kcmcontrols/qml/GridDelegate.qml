@@ -184,8 +184,9 @@ T2.ItemDelegate {
         }
 
         QQC2.Label {
+            id: title
+
             Layout.fillWidth: true
-            Layout.fillHeight: true
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignTop
             text: delegate.text
@@ -195,7 +196,6 @@ T2.ItemDelegate {
         QQC2.Label {
             id: caption
             Layout.fillWidth: true
-            Layout.fillHeight: true
             horizontalAlignment: Text.AlignHCenter
             visible: delegate.subtitle.length > 0
             opacity: 0.6
@@ -204,6 +204,18 @@ T2.ItemDelegate {
             font.bold: delegate.GridView.isCurrentItem
             elide: Text.ElideRight
         }
+
+        Rectangle {
+            Layout.preferredHeight: 1
+            Layout.preferredWidth: Math.max(title.paintedWidth, caption.paintedWidth)
+            Layout.alignment: Qt.AlignHCenter
+
+            color: Kirigami.Theme.highlightColor
+
+            opacity: delegate.visualFocus ? 1 : 0
+        }
+
+        Item { Layout.fillWidth: true; Layout.fillHeight: true; }
     }
 
     QQC2.ToolTip.delay: 1000
