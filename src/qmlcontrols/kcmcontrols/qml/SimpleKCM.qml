@@ -40,9 +40,9 @@ Kirigami.ScrollablePage {
     Kirigami.ColumnView.fillWidth: true
 
     leftPadding: 6 // Layout_ChildMarginWidth from Breeze
-    topPadding: headerParent.contentItem ? 0 : leftPadding
+    topPadding:  leftPadding
     rightPadding: leftPadding
-    bottomPadding: footerParent.contentItem ? 0 : leftPadding
+    bottomPadding: leftPadding
 
     children: [
         Kirigami.Separator {
