@@ -9,7 +9,7 @@
 #include <KAuthorized>
 
 KAuthorizedProxy::KAuthorizedProxy(QObject *parent)
-    : QObject(parent)
+    : QQmlPropertyMap(this, parent)
 {
 }
 

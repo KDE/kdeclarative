@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include <QObject>
+#include <QQmlPropertyMap>
 
-class KAuthorizedProxy : public QObject
+class KAuthorizedProxy : public QQmlPropertyMap
 {
     Q_OBJECT
 
