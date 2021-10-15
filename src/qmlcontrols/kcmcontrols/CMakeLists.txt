@@ -5,7 +5,6 @@ set(kcmcontrols_SRCS
     kcmcontrolsplugin.h
     settinghighlighterprivate.cpp
     settinghighlighterprivate.h
-    settingshighlighterprivate.h
     settingstateproxy.cpp
     settingstateproxy.h
 )
