@@ -4,8 +4,9 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-import QtQuick 2.8
-import QtQml 2.14
+import QtQuick 2.15
+// Deliberately imported after QtQuick to avoid missing restoreMode property in Binding. Fix in Qt 6.
+import QtQml 2.15
 import QtQuick.Layouts 1.3
 import org.kde.kcm 1.3 as KCM
 import org.kde.kcm.private 1.3
