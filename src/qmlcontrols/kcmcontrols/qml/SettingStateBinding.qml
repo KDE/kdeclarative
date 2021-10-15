@@ -71,7 +71,7 @@ Item {
         when: helper.target
         target: helper.target
         property: "enabled"
-        value:  extraEnabledConditions && !settingState.immutable
+        value: extraEnabledConditions && !settingState.immutable
         restoreMode: Binding.RestoreBinding
     }
 
