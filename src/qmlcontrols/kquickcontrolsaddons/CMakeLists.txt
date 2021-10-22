@@ -17,7 +17,7 @@ set(kquickcontrolsaddons_SRCS
     icondialog.cpp
 )
 
-add_library(kquickcontrolsaddonsplugin SHARED ${kquickcontrolsaddons_SRCS})
+add_library(kquickcontrolsaddonsplugin ${kquickcontrolsaddons_SRCS})
 
 target_link_libraries(kquickcontrolsaddonsplugin
         Qt5::Core

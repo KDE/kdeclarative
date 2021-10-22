@@ -6,7 +6,7 @@ set(kcmcontrols_SRCS
     settinghighlighterprivate.cpp
 )
 
-add_library(kcmcontrolsplugin SHARED ${kcmcontrols_SRCS})
+add_library(kcmcontrolsplugin ${kcmcontrols_SRCS})
 target_link_libraries(kcmcontrolsplugin
         Qt5::Core
         Qt5::Quick

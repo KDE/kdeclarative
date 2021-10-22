@@ -5,7 +5,7 @@ set(kioplugin_SRCS
     krunproxy.cpp
     )
 
-add_library(kio SHARED ${kioplugin_SRCS})
+add_library(kio ${kioplugin_SRCS})
 target_link_libraries(kio
         Qt5::Core
         Qt5::Qml

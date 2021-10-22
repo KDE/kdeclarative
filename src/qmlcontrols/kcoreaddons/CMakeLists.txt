@@ -6,7 +6,7 @@ set(kcoreaddonsplugin_SRCS
     kuserproxy.cpp
     )
 
-add_library(kcoreaddonsplugin SHARED ${kcoreaddonsplugin_SRCS})
+add_library(kcoreaddonsplugin ${kcoreaddonsplugin_SRCS})
 target_link_libraries(kcoreaddonsplugin
         Qt5::Core
         Qt5::Quick

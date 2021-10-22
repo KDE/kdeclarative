@@ -5,7 +5,7 @@ set(kconfigplugin_SRCS
     kauthorizedproxy.cpp
     )
 
-add_library(kconfigplugin SHARED ${kconfigplugin_SRCS})
+add_library(kconfigplugin ${kconfigplugin_SRCS})
 target_link_libraries(kconfigplugin
         Qt5::Core
         Qt5::Qml

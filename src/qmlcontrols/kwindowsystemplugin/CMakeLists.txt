@@ -5,7 +5,7 @@ set(kwindowsystemplugin_SRCS
     kwindowsystemproxy.cpp
     )
 
-add_library(kwindowsystem SHARED ${kwindowsystemplugin_SRCS})
+add_library(kwindowsystem ${kwindowsystemplugin_SRCS})
 target_link_libraries(kwindowsystem
         Qt5::Core
         Qt5::Qml

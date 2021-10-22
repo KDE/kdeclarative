@@ -9,7 +9,7 @@ set(declarativedragdrop_SRCS
     MimeDataWrapper.cpp
 )
 
-add_library(draganddropplugin SHARED ${declarativedragdrop_SRCS})
+add_library(draganddropplugin ${declarativedragdrop_SRCS})
 target_link_libraries(draganddropplugin
         Qt5::Core
         Qt5::Quick

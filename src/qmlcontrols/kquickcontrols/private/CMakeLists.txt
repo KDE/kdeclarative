@@ -6,7 +6,7 @@ set(kquickcontrolsprivate_SRCS
     translationcontext.cpp
 )
 
-add_library(kquickcontrolsprivateplugin SHARED ${kquickcontrolsprivate_SRCS})
+add_library(kquickcontrolsprivateplugin ${kquickcontrolsprivate_SRCS})
 
 target_link_libraries(kquickcontrolsprivateplugin
         Qt5::Core
