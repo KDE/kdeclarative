@@ -73,10 +73,11 @@ QHash<QObject *, ConfigModule *> ConfigModulePrivate::s_rootObjects = QHash<QObj
 
 QString ConfigModulePrivate::componentName() const
 {
-    if (_metaData.isValid()) {
+    if (_about) {
+        return _about->componentName();
+    } else {
         return _metaData.pluginId();
     }
-    return _about->componentName();
 }
 
 #if QUICKADDONS_BUILD_DEPRECATED_SINCE(5, 88)
@@ -178,6 +179,9 @@ QQuickItem *ConfigModule::mainUi()
     KPackage::Package package = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/GenericQML"));
     package.setDefaultPackageRoot(QStringLiteral("kpackage/kcms"));
     package.setPath(d->componentName());
+    if (d->_metaData.isValid() && !package.metadata().isValid()) {
+        package.setMetadata(d->_metaData);
+    }
 
     if (!package.isValid()) {
         d->_errorString = i18n("Invalid KPackage '%1'", d->componentName());
