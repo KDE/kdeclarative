@@ -34,15 +34,17 @@ import org.kde.kcm 1.1 as KCM
 Kirigami.ScrollablePage {
     id: root
 
+    readonly property int margins: 6 // Layout_ChildMarginWidth from Breeze
+
     title: kcm.name
 
     // Make pages fill the whole view by default
     Kirigami.ColumnView.fillWidth: true
 
-    leftPadding: 6 // Layout_ChildMarginWidth from Breeze
-    topPadding:  leftPadding
-    rightPadding: leftPadding
-    bottomPadding: leftPadding
+    leftPadding: root.margins
+    topPadding:  root.margins
+    rightPadding: root.margins
+    bottomPadding: root.margins
 
     children: [
         Kirigami.Separator {

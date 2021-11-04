@@ -35,34 +35,36 @@ import org.kde.kcm 1.1 as KCM
 Kirigami.Page {
     id: root
 
+    readonly property int margins: 6 // Layout_ChildMarginWidth from Breeze
+
     title: kcm.name
 
     // Make pages fill the whole view by default
     Kirigami.ColumnView.fillWidth: true
 
-    leftPadding: 6 // Layout_ChildMarginWidth from Breeze
-    topPadding: headerParent.contentVisible ? 0 : leftPadding
-    rightPadding: leftPadding
-    bottomPadding: footerParent.contentVisible ? 0 : leftPadding
+    leftPadding: root.margins
+    topPadding: headerParent.contentVisible ? 0 : root.margins
+    rightPadding: root.margins
+    bottomPadding: footerParent.contentVisible ? 0 : root.margins
 
     header: QtControls.Control {
         id: headerParent
         readonly property bool contentVisible: contentItem && contentItem.visible && contentItem.implicitHeight
         height: contentVisible ? implicitHeight : 0
-        leftPadding: 6 // Layout_ChildMarginWidth from Breeze
-        topPadding: leftPadding
-        rightPadding: leftPadding
-        bottomPadding: leftPadding
+        leftPadding: root.margins // Layout_ChildMarginWidth from Breeze
+        topPadding: root.margins
+        rightPadding: root.margins
+        bottomPadding: root.margins
     }
 
     footer: QtControls.Control {
         id: footerParent
         readonly property bool contentVisible: contentItem && contentItem.visible && contentItem.implicitHeight
         height: contentVisible ? implicitHeight : 0
-        leftPadding: 6 // Layout_ChildMarginWidth from Breeze
-        topPadding: leftPadding
-        rightPadding: leftPadding
-        bottomPadding: leftPadding
+        leftPadding: root.margins // Layout_ChildMarginWidth from Breeze
+        topPadding: root.margins
+        rightPadding: root.margins
+        bottomPadding: root.margins
     }
 
     Component.onCompleted: {
