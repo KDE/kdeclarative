@@ -37,34 +37,87 @@ Kirigami.Page {
 
     readonly property int margins: 6 // Layout_ChildMarginWidth from Breeze
 
+    /**
+     * framedView: bool
+     * Whether to use this component as the base of a "framed" KCM with an
+     * inner scrollview that draws its own frame.
+     * Default: true
+     *
+     * @since 5.90
+     */
+    property bool framedView: true
+
     title: kcm.name
 
     // Make pages fill the whole view by default
     Kirigami.ColumnView.fillWidth: true
 
-    leftPadding: root.margins
-    topPadding: headerParent.contentVisible ? 0 : root.margins
-    rightPadding: root.margins
-    bottomPadding: footerParent.contentVisible ? 0 : root.margins
+    leftPadding: root.framedView ? root.margins : 0
+    topPadding: headerParent.contentVisible || !root.framedView ? 0 : root.margins
+    rightPadding: root.framedView ? root.margins : 0
+    bottomPadding: footerParent.contentVisible || !root.framedView ? 0 : root.margins
 
     header: QtControls.Control {
         id: headerParent
         readonly property bool contentVisible: contentItem && contentItem.visible && contentItem.implicitHeight
         height: contentVisible ? implicitHeight : 0
-        leftPadding: root.margins // Layout_ChildMarginWidth from Breeze
+        leftPadding: root.margins
         topPadding: root.margins
         rightPadding: root.margins
         bottomPadding: root.margins
+
+        // When the scrollview isn't drawing its own frame, we need to add a
+        // line below the header (when visible) to separate it from the view
+        Kirigami.Separator {
+            z: 999
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.bottom
+            }
+            visible: !root.framedView && headerParent.contentVisible
+        }
+    }
+
+    // View background, shown when the scrollview isn't drawing its own frame
+    Rectangle {
+        anchors.fill: parent
+        visible: !root.framedView
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
+        Kirigami.Theme.inherit: false
+        color: Kirigami.Theme.backgroundColor
     }
 
     footer: QtControls.Control {
         id: footerParent
         readonly property bool contentVisible: contentItem && contentItem.visible && contentItem.implicitHeight
-        height: contentVisible ? implicitHeight : 0
-        leftPadding: root.margins // Layout_ChildMarginWidth from Breeze
+
+        // When the scrollview isn't drawing its own frame, we need to add
+        // extra padding on top when there is no footer content, or else the
+        // Apply, Help, and Defaults buttons provided by System Settings won't
+        // have enough top padding. This isn't a problem when the inner scrollview
+        // draws its own frame because its own outer margins provide this
+        height: contentVisible ? implicitHeight : (root.framedView ? 0 : root.margins)
+        leftPadding: root.margins
         topPadding: root.margins
         rightPadding: root.margins
         bottomPadding: root.margins
+
+        // When the scrollview isn't drawing its own frame, we need to add a
+        // line above the footer ourselves to separate it from the view
+        Kirigami.Separator {
+            z: 999
+            anchors {
+                left: parent.left
+                right: parent.right
+                bottom: parent.top
+            }
+            // Deliberately not checking for footerParent.contentVisible because
+            // we always want the footer line to be visible when the scrollview
+            // doesn't have a frame of its own, because System Settings always
+            // adds its own footer for the Apply, Help, and Defaults buttons
+            visible: !root.framedView
+        }
     }
 
     Component.onCompleted: {

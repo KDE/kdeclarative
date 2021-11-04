@@ -35,8 +35,18 @@ AbstractKCM {
      */
     property alias view: scroll.view
 
+    /**
+     * framedView: bool
+     * Whether to draw a frame around the KCM's inner scrollable list view.
+     * Default: false
+     *
+     * @since 5.90
+     */
+    framedView: false
+
     Priv.ScrollView {
         id: scroll
         anchors.fill: parent
+        framedView: root.framedView
     }
 }

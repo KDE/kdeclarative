@@ -33,12 +33,13 @@ QtControls.ScrollView {
      * @endcode
      */
     property alias view: view
+    property bool framedView: true
 
     activeFocusOnTab: false
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     Kirigami.Theme.inherit: false
 
-    Component.onCompleted: scroll.background.visible = true;
+    Component.onCompleted: scroll.background.visible = scroll.framedView;
 
     GridViewInternal {
         id: view

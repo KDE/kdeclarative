@@ -32,6 +32,8 @@ QtControls.ScrollView {
      * Exposes the internal flickable
      */
     property Flickable view
+    property bool framedView: true
+
     contentItem: view
     onViewChanged: {
         view.parent = scroll;
@@ -41,7 +43,7 @@ QtControls.ScrollView {
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     Kirigami.Theme.inherit: false
 
-    Component.onCompleted: scroll.background.visible = true;
+    Component.onCompleted: scroll.background.visible = scroll.framedView;
 
     
     QtControls.ScrollBar.horizontal.visible: false

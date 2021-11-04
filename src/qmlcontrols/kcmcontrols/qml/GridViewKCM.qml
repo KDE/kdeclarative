@@ -44,6 +44,15 @@ AbstractKCM {
      */
     property alias view: scroll.view
 
+    /**
+     * framedView: bool
+     * Whether to draw a frame around the KCM's inner scrollable grid view.
+     * Default: false
+     *
+     * @since 5.90
+     */
+    framedView: false
+
     implicitWidth: {
         var width = 0;
 
@@ -65,5 +74,7 @@ AbstractKCM {
     KCM.GridView {
         id: scroll
         anchors.fill: parent
+        framedView: root.framedView
     }
+
 }
