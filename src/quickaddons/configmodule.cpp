@@ -250,15 +250,21 @@ void ConfigModule::push(QQuickItem *item)
 
 void ConfigModule::pop()
 {
+    if (QQuickItem *page = takeLast()) {
+        page->deleteLater();
+    }
+}
+
+QQuickItem *ConfigModule::takeLast()
+{
     if (d->subPages.isEmpty()) {
-        return;
+        return nullptr;
     }
     QQuickItem *page = d->subPages.takeLast();
     Q_EMIT pageRemoved();
     Q_EMIT depthChanged(depth());
-    page->deleteLater();
-
     setCurrentIndex(qMin(d->currentIndex, depth() - 1));
+    return page;
 }
 
 void ConfigModule::showPassiveNotification(const QString &message, const QVariant &timeout, const QString &actionText, const QJSValue &callBack)
