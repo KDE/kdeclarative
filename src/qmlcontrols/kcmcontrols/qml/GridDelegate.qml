@@ -187,8 +187,6 @@ T2.ItemDelegate {
             id: title
 
             Layout.fillWidth: true
-            // HACK: why isn't Layout.fillWidth enough?
-            Layout.maximumWidth: labelLayout.width
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignTop
             text: delegate.text
@@ -198,8 +196,6 @@ T2.ItemDelegate {
         QQC2.Label {
             id: caption
             Layout.fillWidth: true
-            // HACK: why isn't Layout.fillWidth enough?
-            Layout.maximumWidth: labelLayout.width
             horizontalAlignment: Text.AlignHCenter
             visible: delegate.subtitle.length > 0
             opacity: 0.6
@@ -212,6 +208,7 @@ T2.ItemDelegate {
         Rectangle {
             Layout.preferredHeight: 1
             Layout.preferredWidth: Math.max(title.paintedWidth, caption.paintedWidth)
+            Layout.maximumWidth: labelLayout.width // Otherwise labels can overflow
             Layout.alignment: Qt.AlignHCenter
 
             color: Kirigami.Theme.highlightColor
