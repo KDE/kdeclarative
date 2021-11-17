@@ -21,8 +21,6 @@ set(kquickcontrolsaddons_SRCS
     mimedatabase.h
     mouseeventlistener.cpp
     mouseeventlistener.h
-    plotter.cpp
-    plotter.h
     qiconitem.cpp
     qiconitem.h
     qimageitem.cpp
@@ -45,7 +43,7 @@ target_link_libraries(kquickcontrolsaddonsplugin
         KF5::ConfigCore)
 
 if (HAVE_EPOXY)
-    target_sources(kquickcontrolsaddonsplugin PRIVATE plotter.cpp)
+    target_sources(kquickcontrolsaddonsplugin PRIVATE plotter.cpp plotter.h)
     target_link_libraries(kquickcontrolsaddonsplugin epoxy::epoxy)
 endif()
 
