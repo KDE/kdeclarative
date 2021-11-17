@@ -1,5 +1,6 @@
 set(calendar-integration_SRCS
     calendareventsplugin.cpp
+    calendareventsplugin.h
     eventdata_p.cpp
 )
 

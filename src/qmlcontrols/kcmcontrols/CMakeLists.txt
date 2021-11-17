@@ -2,8 +2,12 @@ project(kcmcontrols)
 
 set(kcmcontrols_SRCS
     kcmcontrolsplugin.cpp
-    settingstateproxy.cpp
+    kcmcontrolsplugin.h
     settinghighlighterprivate.cpp
+    settinghighlighterprivate.h
+    settingshighlighterprivate.h
+    settingstateproxy.cpp
+    settingstateproxy.h
 )
 
 add_library(kcmcontrolsplugin ${kcmcontrols_SRCS})

@@ -2,7 +2,10 @@ project(kwindowsystemplugin)
 
 set(kwindowsystemplugin_SRCS
     kwindowsystemplugin.cpp
+    kwindowsystemplugin.h
     kwindowsystemproxy.cpp
+    kwindowsystemproxy.h
+
     )
 
 add_library(kwindowsystem ${kwindowsystemplugin_SRCS})

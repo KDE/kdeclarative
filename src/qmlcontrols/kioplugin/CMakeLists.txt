@@ -2,7 +2,9 @@ project(kioplugin)
 
 set(kioplugin_SRCS
     kioplugin.cpp
+    kioplugin.h
     krunproxy.cpp
+    krunproxy.h
     )
 
 add_library(kio ${kioplugin_SRCS})

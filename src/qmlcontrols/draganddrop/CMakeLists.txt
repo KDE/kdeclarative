@@ -1,12 +1,18 @@
 project(draganddrop)
 
 set(declarativedragdrop_SRCS
-    draganddropplugin.cpp
     DeclarativeDragArea.cpp
+    DeclarativeDragArea.h
     DeclarativeDragDropEvent.cpp
+    DeclarativeDragDropEvent.h
     DeclarativeDropArea.cpp
+    DeclarativeDropArea.h
     DeclarativeMimeData.cpp
+    DeclarativeMimeData.h
+    draganddropplugin.cpp
+    draganddropplugin.h
     MimeDataWrapper.cpp
+    MimeDataWrapper.h
 )
 
 add_library(draganddropplugin ${declarativedragdrop_SRCS})

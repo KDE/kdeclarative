@@ -1,13 +1,20 @@
 
 set(kdeclarative_SRCS
-  configpropertymap.cpp
-  qmlobject.cpp
-  qmlobjectsharedengine.cpp
-  kdeclarative.cpp
-  private/kiconprovider.cpp
+    configpropertymap.cpp
+    configpropertymap.h
+    kdeclarative.cpp
+    kdeclarative.h
+    private/kdeclarative_p.h
+    private/kiconprovider.cpp
+    private/kiconprovider_p.h
+    qmlobject.cpp
+    qmlobject.h
+    qmlobjectsharedengine.cpp
+    qmlobjectsharedengine.h
+
 )
 if(NOT ANDROID)
-    list(APPEND kdeclarative_SRCS private/kioaccessmanagerfactory.cpp)
+    list(APPEND kdeclarative_SRCS private/kioaccessmanagerfactory.cpp private/kioaccessmanagerfactory_p.h)
 endif()
 
 add_library(KF5Declarative ${kdeclarative_SRCS})

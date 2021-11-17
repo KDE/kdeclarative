@@ -1,9 +1,13 @@
 project(kquickcontrolsprivate)
 
 set(kquickcontrolsprivate_SRCS
-    kquickcontrolsprivateplugin.cpp
     keysequencehelper.cpp
+    keysequencehelper.h
+    kquickcontrolsprivateplugin.cpp
+    kquickcontrolsprivateplugin.h
     translationcontext.cpp
+    translationcontext.h
+
 )
 
 add_library(kquickcontrolsprivateplugin ${kquickcontrolsprivate_SRCS})

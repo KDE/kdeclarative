@@ -1,9 +1,13 @@
 project(kcoreaddons)
 
 set(kcoreaddonsplugin_SRCS
-    kcoreaddonsplugin.cpp
     formats.cpp
+    formats.h
+    kcoreaddonsplugin.cpp
+    kcoreaddonsplugin.h
     kuserproxy.cpp
+    kuserproxy.h
+
     )
 
 add_library(kcoreaddonsplugin ${kcoreaddonsplugin_SRCS})

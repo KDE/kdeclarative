@@ -1,10 +1,16 @@
 set(KF5QuickAddons_LIB_SRCS
-            imagetexturescache.cpp
-            managedtexturenode.cpp
-            quickviewsharedengine.cpp
-            configmodule.cpp
-            managedconfigmodule.cpp
-            qtquicksettings.cpp)
+    configmodule.cpp
+    configmodule.h
+    imagetexturescache.cpp
+    imagetexturescache.h
+    managedconfigmodule.cpp
+    managedconfigmodule.h
+    managedtexturenode.cpp
+    managedtexturenode.h
+    qtquicksettings.cpp
+    qtquicksettings.h
+    quickviewsharedengine.cpp
+    quickviewsharedengine.h)
 kconfig_add_kcfg_files(KF5QuickAddons_LIB_SRCS renderersettings.kcfgc)
 
 add_library(KF5QuickAddons ${KF5QuickAddons_LIB_SRCS})

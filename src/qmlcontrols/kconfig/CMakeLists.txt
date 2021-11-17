@@ -1,8 +1,10 @@
 project(kconfigplugin)
 
 set(kconfigplugin_SRCS
-    kconfigplugin.cpp
     kauthorizedproxy.cpp
+    kauthorizedproxy.h
+    kconfigplugin.cpp
+    kconfigplugin.h
     )
 
 add_library(kconfigplugin ${kconfigplugin_SRCS})
