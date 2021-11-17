@@ -40,7 +40,7 @@ public:
     /**
      * Destructs the widget.
      */
-    virtual ~KeySequenceHelper();
+    ~KeySequenceHelper() override;
 
     Q_INVOKABLE bool isKeySequenceAvailable(const QKeySequence &keySequence) const;
     // FIXME why can't qml call the inherited method?

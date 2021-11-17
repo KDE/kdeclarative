@@ -149,7 +149,7 @@ public:
     /**
      * Destroys the module.
      */
-    ~ManagedConfigModule();
+    ~ManagedConfigModule() override;
 
 public Q_SLOTS:
     /**

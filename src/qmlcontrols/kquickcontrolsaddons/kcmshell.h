@@ -15,7 +15,7 @@ class KCMShell : public QObject
 
 public:
     explicit KCMShell(QObject *parent = nullptr);
-    virtual ~KCMShell();
+    ~KCMShell() override;
 
 public Q_SLOTS:
     void open(const QStringList &names) const;

@@ -278,7 +278,8 @@ public:
     {
         m_program->setUniformValue(u_yMax, max);
     }
-    ~PlotSGNode() = default;
+    ~PlotSGNode() override = default;
+
 private:
     QScopedPointer<QOpenGLShaderProgram> m_program;
     int u_matrix;

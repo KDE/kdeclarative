@@ -197,7 +197,7 @@ public:
     /**
      * Destroys the module.
      */
-    ~ConfigModule();
+    ~ConfigModule() override;
 
 #if QUICKADDONS_ENABLE_DEPRECATED_SINCE(5, 88)
     /**

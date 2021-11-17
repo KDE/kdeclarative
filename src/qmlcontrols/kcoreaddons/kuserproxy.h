@@ -57,7 +57,7 @@ class KUserProxy : public QObject
 
 public:
     KUserProxy(QObject *parent = nullptr);
-    ~KUserProxy();
+    ~KUserProxy() override;
 
     /**
      * @return the full name of the user

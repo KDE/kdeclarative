@@ -164,7 +164,7 @@ class Plotter : public QQuickItem
 
 public:
     Plotter(QQuickItem *parent = nullptr);
-    ~Plotter();
+    ~Plotter() override;
 
     qreal max() const;
     qreal min() const;

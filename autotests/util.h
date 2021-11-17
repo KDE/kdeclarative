@@ -22,7 +22,7 @@ class QQmlDataTest : public QObject
     Q_OBJECT
 public:
     QQmlDataTest();
-    virtual ~QQmlDataTest();
+    ~QQmlDataTest() override;
 
     QString testFile(const QString &fileName) const;
     inline QString testFile(const char *fileName) const

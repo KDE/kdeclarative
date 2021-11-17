@@ -16,7 +16,7 @@ class TranslationContext : public QObject
 
 public:
     explicit TranslationContext(QObject *parent = nullptr);
-    virtual ~TranslationContext();
+    ~TranslationContext() override;
 
     QString domain() const;
 

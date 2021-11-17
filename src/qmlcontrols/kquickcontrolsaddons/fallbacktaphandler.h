@@ -21,7 +21,7 @@ class FallbackTapHandlerMouseEvent : public QObject
 
 public:
     FallbackTapHandlerMouseEvent(Qt::MouseButton button, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers, qreal x, qreal y);
-    ~FallbackTapHandlerMouseEvent() = default;
+    ~FallbackTapHandlerMouseEvent() override = default;
 
 private:
     Qt::MouseButton m_button = Qt::NoButton;

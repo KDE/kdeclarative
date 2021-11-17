@@ -170,7 +170,7 @@ class CALENDAREVENTS_EXPORT CalendarEventsPlugin : public QObject
 
 public:
     explicit CalendarEventsPlugin(QObject *parent = nullptr);
-    virtual ~CalendarEventsPlugin();
+    ~CalendarEventsPlugin() override;
 
     /**
      * When this is called, the plugin should load all events data

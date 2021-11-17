@@ -31,7 +31,7 @@ public:
     Q_ENUM(GrabEvent)
 
     EventGenerator(QObject *parent = nullptr);
-    ~EventGenerator();
+    ~EventGenerator() override;
 
     /**
      * Send a mouse event of @type to the given @item

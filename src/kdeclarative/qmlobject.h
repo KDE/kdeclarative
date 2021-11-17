@@ -69,7 +69,7 @@ public:
      * @param parent the parent of this object
      */
     explicit QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QObject *parent = nullptr);
-    ~QmlObject();
+    ~QmlObject() override;
 
     /**
      * Call this method before calling setupBindings to install a translation domain for all
