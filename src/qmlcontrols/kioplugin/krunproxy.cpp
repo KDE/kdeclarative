@@ -17,9 +17,10 @@
 KRunProxy::KRunProxy(QObject *parent)
     : QObject(parent)
 {
+    qWarning() << "Using KRun from QML is deprecated (since 5.88)."
+               << "Use Qt.openUrlExternally, or the KIO::OpenUrlJob/KIO::ApplicationLauncherJob classes from C++ instead.";
 }
 
-// Apparently unused
 bool KRunProxy::openUrl(const QString &file)
 {
     QUrl fileUrl(file);
