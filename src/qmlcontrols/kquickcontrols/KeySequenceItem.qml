@@ -42,7 +42,6 @@ RowLayout {
 
     KQuickControlsPrivate.KeySequenceHelper {
         id: _helper
-        window: renderWindow(parent.Window.window)
         onGotKeySequence: {
             if (isKeySequenceAvailable(keySequence)) {
                 root.keySequence = keySequence
@@ -95,6 +94,7 @@ RowLayout {
 
         onCheckedChanged: {
             if (checked) {
+                _helper.window = _helper.renderWindow(parent.Window.window)
                 mainButton.forceActiveFocus()
                 _helper.startRecording()
             }
