@@ -21,51 +21,45 @@ void ColumnProxyModel::setSourceModel(QAbstractItemModel *sourceModel)
 
     beginResetModel();
     if (m_sourceModel) {
-        disconnect(m_sourceModel, SIGNAL(destroyed(QObject *)), this, SLOT(sourceDestroyed(QObject *)));
+        disconnect(m_sourceModel, &QObject::destroyed, this, &ColumnProxyModel::sourceDestroyed);
 
-        disconnect(m_sourceModel, SIGNAL(dataChanged(QModelIndex, QModelIndex)), this, SLOT(considerDataChanged(QModelIndex, QModelIndex)));
-        disconnect(m_sourceModel, SIGNAL(rowsAboutToBeInserted(QModelIndex, int, int)), this, SLOT(considerRowsAboutToBeInserted(QModelIndex, int, int)));
-        disconnect(m_sourceModel,
-                   SIGNAL(rowsAboutToBeMoved(QModelIndex, int, int, QModelIndex, int)),
-                   this,
-                   SLOT(considerRowsAboutToBeMoved(QModelIndex, int, int, QModelIndex, int)));
-        disconnect(m_sourceModel, SIGNAL(rowsAboutToBeRemoved(QModelIndex, int, int)), this, SLOT(considerRowsAboutToBeRemoved(QModelIndex, int, int)));
-        disconnect(m_sourceModel, SIGNAL(rowsInserted(QModelIndex, int, int)), this, SLOT(considerRowsInserted(QModelIndex, int, int)));
-        disconnect(m_sourceModel,
-                   SIGNAL(rowsMoved(QModelIndex, int, int, QModelIndex, int)),
-                   this,
-                   SLOT(considerRowsMoved(QModelIndex, int, int, QModelIndex, int)));
-        disconnect(m_sourceModel, SIGNAL(rowsRemoved(QModelIndex, int, int)), this, SLOT(considerRowsRemoved(QModelIndex, int, int)));
+        disconnect(m_sourceModel, &QAbstractItemModel::dataChanged, this, &ColumnProxyModel::considerDataChanged);
+        disconnect(m_sourceModel, &QAbstractItemModel::rowsAboutToBeInserted, this, &ColumnProxyModel::considerRowsAboutToBeInserted);
+        disconnect(m_sourceModel, &QAbstractItemModel::rowsAboutToBeMoved, this, &ColumnProxyModel::considerRowsAboutToBeMoved);
+        disconnect(m_sourceModel, &QAbstractItemModel::rowsAboutToBeRemoved, this, &ColumnProxyModel::considerRowsAboutToBeRemoved);
+        disconnect(m_sourceModel, &QAbstractItemModel::rowsInserted, this, &ColumnProxyModel::considerRowsInserted);
+        disconnect(m_sourceModel, &QAbstractItemModel::rowsMoved, this, &ColumnProxyModel::considerRowsMoved);
+        disconnect(m_sourceModel, &QAbstractItemModel::rowsRemoved, this, &ColumnProxyModel::considerRowsRemoved);
 
+        // TODO: QAbstractItemModel::modelAboutToBeReset and QAbstractItemModel::modelReset are private signals
+        // we can connect to them, but can't emit them
         disconnect(m_sourceModel, SIGNAL(modelAboutToBeReset()), this, SIGNAL(modelAboutToBeReset()));
         disconnect(m_sourceModel, SIGNAL(modelReset()), this, SIGNAL(modelReset()));
-        disconnect(m_sourceModel, SIGNAL(headerDataChanged(Qt::Orientation, int, int)), this, SIGNAL(headerDataChanged(Qt::Orientation, int, int)));
-        disconnect(m_sourceModel, SIGNAL(layoutAboutToBeChanged()), this, SIGNAL(layoutAboutToBeChanged()));
-        disconnect(m_sourceModel, SIGNAL(layoutChanged()), this, SIGNAL(layoutChanged()));
+
+        disconnect(m_sourceModel, &QAbstractItemModel::headerDataChanged, this, &QAbstractItemModel::headerDataChanged);
+        disconnect(m_sourceModel, &QAbstractItemModel::layoutAboutToBeChanged, this, &QAbstractItemModel::layoutAboutToBeChanged);
+        disconnect(m_sourceModel, &QAbstractItemModel::layoutChanged, this, &QAbstractItemModel::layoutChanged);
     }
     m_sourceModel = sourceModel;
     if (m_sourceModel) {
-        connect(m_sourceModel, SIGNAL(destroyed(QObject *)), this, SLOT(sourceDestroyed(QObject *)));
+        connect(m_sourceModel, &QObject::destroyed, this, &ColumnProxyModel::sourceDestroyed);
 
-        connect(m_sourceModel, SIGNAL(dataChanged(QModelIndex, QModelIndex)), this, SLOT(considerDataChanged(QModelIndex, QModelIndex)));
-        connect(m_sourceModel, SIGNAL(rowsAboutToBeInserted(QModelIndex, int, int)), this, SLOT(considerRowsAboutToBeInserted(QModelIndex, int, int)));
-        connect(m_sourceModel,
-                SIGNAL(rowsAboutToBeMoved(QModelIndex, int, int, QModelIndex, int)),
-                this,
-                SLOT(considerRowsAboutToBeMoved(QModelIndex, int, int, QModelIndex, int)));
-        connect(m_sourceModel, SIGNAL(rowsAboutToBeRemoved(QModelIndex, int, int)), this, SLOT(considerRowsAboutToBeRemoved(QModelIndex, int, int)));
-        connect(m_sourceModel, SIGNAL(rowsInserted(QModelIndex, int, int)), this, SLOT(considerRowsInserted(QModelIndex, int, int)));
-        connect(m_sourceModel,
-                SIGNAL(rowsMoved(QModelIndex, int, int, QModelIndex, int)),
-                this,
-                SLOT(considerRowsMoved(QModelIndex, int, int, QModelIndex, int)));
-        connect(m_sourceModel, SIGNAL(rowsRemoved(QModelIndex, int, int)), this, SLOT(considerRowsRemoved(QModelIndex, int, int)));
+        connect(m_sourceModel, &QAbstractItemModel::dataChanged, this, &ColumnProxyModel::considerDataChanged);
+        connect(m_sourceModel, &QAbstractItemModel::rowsAboutToBeInserted, this, &ColumnProxyModel::considerRowsAboutToBeInserted);
+        connect(m_sourceModel, &QAbstractItemModel::rowsAboutToBeMoved, this, &ColumnProxyModel::considerRowsAboutToBeMoved);
+        connect(m_sourceModel, &QAbstractItemModel::rowsAboutToBeRemoved, this, &ColumnProxyModel::considerRowsAboutToBeRemoved);
+        connect(m_sourceModel, &QAbstractItemModel::rowsInserted, this, &ColumnProxyModel::considerRowsInserted);
+        connect(m_sourceModel, &QAbstractItemModel::rowsMoved, this, &ColumnProxyModel::considerRowsMoved);
+        connect(m_sourceModel, &QAbstractItemModel::rowsRemoved, this, &ColumnProxyModel::considerRowsRemoved);
 
+        // TODO: QAbstractItemModel::modelAboutToBeReset and QAbstractItemModel::modelReset are private signals
+        // we can connect to them, but can't emit them
         connect(m_sourceModel, SIGNAL(modelAboutToBeReset()), this, SIGNAL(modelAboutToBeReset()));
         connect(m_sourceModel, SIGNAL(modelReset()), this, SIGNAL(modelReset()));
-        connect(m_sourceModel, SIGNAL(headerDataChanged(Qt::Orientation, int, int)), this, SIGNAL(headerDataChanged(Qt::Orientation, int, int)));
-        connect(m_sourceModel, SIGNAL(layoutAboutToBeChanged()), this, SIGNAL(layoutAboutToBeChanged()));
-        connect(m_sourceModel, SIGNAL(layoutChanged()), this, SIGNAL(layoutChanged()));
+
+        connect(m_sourceModel, &QAbstractItemModel::headerDataChanged, this, &QAbstractItemModel::headerDataChanged);
+        connect(m_sourceModel, &QAbstractItemModel::layoutAboutToBeChanged, this, &QAbstractItemModel::layoutAboutToBeChanged);
+        connect(m_sourceModel, &QAbstractItemModel::layoutChanged, this, &QAbstractItemModel::layoutChanged);
     }
     endResetModel();
 }

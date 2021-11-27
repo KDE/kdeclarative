@@ -29,7 +29,9 @@ public:
     {
         qmlObject = new KDeclarative::QmlObjectSharedEngine(q);
         QObject::connect(qmlObject, &KDeclarative::QmlObject::statusChanged, q, &QuickViewSharedEngine::statusChanged);
-        QObject::connect(qmlObject, SIGNAL(finished()), q, SLOT(executionFinished()));
+        QObject::connect(qmlObject, &KDeclarative::QmlObject::finished, q, [this]() {
+            executionFinished();
+        });
     }
 
     void executionFinished();
@@ -77,12 +79,16 @@ void QuickViewSharedEnginePrivate::syncResizeMode()
     if (resizeMode == QuickViewSharedEngine::SizeRootObjectToView) {
         item->setSize(QSize(q->width(), q->height()));
 
-        QObject::disconnect(item, SIGNAL(widthChanged()), q, SLOT(syncWidth()));
-        QObject::disconnect(item, SIGNAL(heightChanged()), q, SLOT(syncHeight()));
+        QObject::disconnect(item, &QQuickItem::widthChanged, q, nullptr);
+        QObject::disconnect(item, &QQuickItem::heightChanged, q, nullptr);
 
     } else {
-        QObject::connect(item, SIGNAL(widthChanged()), q, SLOT(syncWidth()));
-        QObject::connect(item, SIGNAL(heightChanged()), q, SLOT(syncHeight()));
+        QObject::connect(item, &QQuickItem::widthChanged, q, [this]() {
+            syncWidth();
+        });
+        QObject::connect(item, &QQuickItem::heightChanged, q, [this]() {
+            syncHeight();
+        });
 
         syncWidth();
         syncHeight();

@@ -50,7 +50,9 @@ public:
         executionEndTimer = new QTimer(q);
         executionEndTimer->setInterval(0);
         executionEndTimer->setSingleShot(true);
-        QObject::connect(executionEndTimer, SIGNAL(timeout()), q, SLOT(scheduleExecutionEnd()));
+        QObject::connect(executionEndTimer, &QTimer::timeout, q, [this]() {
+            scheduleExecutionEnd();
+        });
     }
 
     ~QmlObjectPrivate()
@@ -122,7 +124,9 @@ void QmlObjectPrivate::scheduleExecutionEnd()
     if (component->isReady() || component->isError()) {
         q->completeInitialization();
     } else {
-        QObject::connect(component, SIGNAL(statusChanged(QQmlComponent::Status)), q, SLOT(completeInitialization()));
+        QObject::connect(component, &QQmlComponent::statusChanged, q, [this]() {
+            q->completeInitialization();
+        });
     }
 }
 
