@@ -8,11 +8,13 @@
 #ifndef CONFIGPROPERTYMAP_H
 #define CONFIGPROPERTYMAP_H
 
+#include <kdeclarative/kdeclarative_export.h>
+
+#if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 89)
+
 #include <QQmlPropertyMap>
 
 class KCoreConfigSkeleton;
-
-#include <kdeclarative/kdeclarative_export.h>
 
 namespace KDeclarative
 {
@@ -23,12 +25,16 @@ class ConfigPropertyMapPrivate;
  *
  * An object that (optionally) automatically saves changes in a
  * property map to a configuration object (e.g. a KConfig file).
+ * @deprecated Since 5.91, use KConfigPropertyMap from KConfig KConfigQml module instead.
+ * The replacement class does not provide any autosave behavior, instead it requires
+ * an explicit writeConfig call.
  */
 class KDECLARATIVE_EXPORT ConfigPropertyMap : public QQmlPropertyMap
 {
     Q_OBJECT
 
 public:
+    KDECLARATIVE_DEPRECATED_VERSION(5, 91, "See class API docs")
     ConfigPropertyMap(KCoreConfigSkeleton *config, QObject *parent = nullptr);
     ~ConfigPropertyMap() override;
 
@@ -80,4 +86,5 @@ private:
 
 }
 
+#endif
 #endif

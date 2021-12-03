@@ -7,6 +7,7 @@
 
 #include "configpropertymap.h"
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 89)
 #include <KCoreConfigSkeleton>
 #include <QJSValue>
 #include <QPointer>
@@ -160,3 +161,4 @@ void ConfigPropertyMapPrivate::writeConfigValue(const QString &key, const QVaria
 }
 
 #include "moc_configpropertymap.cpp"
+#endif
