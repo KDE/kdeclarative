@@ -1,6 +1,6 @@
 include(ECMMarkAsTest)
 
-find_package(Qt5Test REQUIRED)
+find_package(Qt${QT_MAJOR_VERSION}Test REQUIRED)
 
 add_executable(kdeclarativetest kdeclarativetest.cpp)
 
@@ -12,8 +12,8 @@ target_include_directories(kdeclarativetest
 
 ecm_mark_as_test(kdeclarativetest)
 target_link_libraries(kdeclarativetest
-   Qt5::Quick
-   Qt5::Test
+   Qt${QT_MAJOR_VERSION}::Quick
+   Qt${QT_MAJOR_VERSION}::Test
    KF5::Declarative
 )
 
@@ -22,8 +22,8 @@ add_executable(qimageitemtest qimageitemtest.cpp)
 
 ecm_mark_as_test(qimageitemtest)
 target_link_libraries(qimageitemtest
-   Qt5::Quick
-   Qt5::Test
+   Qt${QT_MAJOR_VERSION}::Quick
+   Qt${QT_MAJOR_VERSION}::Test
 )
 
 if (BUILD_EXAMPLES)

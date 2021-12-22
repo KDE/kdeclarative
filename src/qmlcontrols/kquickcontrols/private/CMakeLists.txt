@@ -13,9 +13,9 @@ set(kquickcontrolsprivate_SRCS
 add_library(kquickcontrolsprivateplugin ${kquickcontrolsprivate_SRCS})
 
 target_link_libraries(kquickcontrolsprivateplugin
-        Qt5::Core
-        Qt5::Quick
-        Qt5::Qml
+        Qt${QT_MAJOR_VERSION}::Core
+        Qt${QT_MAJOR_VERSION}::Quick
+        Qt${QT_MAJOR_VERSION}::Qml
         KF5::I18n
         KF5::ConfigGui
         KF5::GuiAddons

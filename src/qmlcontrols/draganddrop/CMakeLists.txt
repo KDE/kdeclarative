@@ -17,10 +17,10 @@ set(declarativedragdrop_SRCS
 
 add_library(draganddropplugin ${declarativedragdrop_SRCS})
 target_link_libraries(draganddropplugin
-        Qt5::Core
-        Qt5::Quick
-        Qt5::Qml
-        Qt5::Gui
+        Qt${QT_MAJOR_VERSION}::Core
+        Qt${QT_MAJOR_VERSION}::Quick
+        Qt${QT_MAJOR_VERSION}::Qml
+        Qt${QT_MAJOR_VERSION}::Gui
 )
 
 if(WIN32 AND BUILD_SHARED_LIBS)

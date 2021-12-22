@@ -32,7 +32,7 @@ target_include_directories(KF5QuickAddons INTERFACE "$<INSTALL_INTERFACE:${KDE_I
 
 target_link_libraries(KF5QuickAddons
   PUBLIC
-    Qt5::Quick
+    Qt${QT_MAJOR_VERSION}::Quick
     KF5::CoreAddons
   PRIVATE
     KF5::I18n

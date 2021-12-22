@@ -9,8 +9,8 @@ set(kconfigplugin_SRCS
 
 add_library(kconfigplugin ${kconfigplugin_SRCS})
 target_link_libraries(kconfigplugin
-        Qt5::Core
-        Qt5::Qml
+        Qt${QT_MAJOR_VERSION}::Core
+        Qt${QT_MAJOR_VERSION}::Qml
         KF5::ConfigCore
 )
 
