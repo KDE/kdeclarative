@@ -16,12 +16,12 @@
 #include "quickaddons_export.h"
 
 #include <QObject>
+#include <QStringList>
 #include <QVariant>
 #include <QtQml>
 
 #include <KPluginMetaData>
 
-class QStringList;
 class KAboutData;
 class QQuickItem;
 class QQmlEngine;
