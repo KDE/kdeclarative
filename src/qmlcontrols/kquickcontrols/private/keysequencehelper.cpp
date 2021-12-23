@@ -131,11 +131,11 @@ bool KeySequenceHelperPrivate::conflictWithGlobalShortcuts(const QKeySequence &k
     QList<KGlobalShortcutInfo> shadow;
     QList<KGlobalShortcutInfo> shadowed;
     if (!KGlobalAccel::isGlobalShortcutAvailable(keySequence, QString())) {
-        others << KGlobalAccel::getGlobalShortcutsByKey_v2(keySequence);
+        others << KGlobalAccel::globalShortcutsByKey(keySequence);
 
         // look for shortcuts shadowing
-        shadow << KGlobalAccel::getGlobalShortcutsByKey_v2(keySequence, KGlobalAccel::MatchType::Shadows);
-        shadowed << KGlobalAccel::getGlobalShortcutsByKey_v2(keySequence, KGlobalAccel::MatchType::Shadowed);
+        shadow << KGlobalAccel::globalShortcutsByKey(keySequence, KGlobalAccel::MatchType::Shadows);
+        shadowed << KGlobalAccel::globalShortcutsByKey(keySequence, KGlobalAccel::MatchType::Shadowed);
     }
 
     if (!shadow.isEmpty() || !shadowed.isEmpty()) {
