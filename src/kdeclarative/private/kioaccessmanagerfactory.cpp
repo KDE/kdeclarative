@@ -20,7 +20,7 @@ KIOAccessManagerFactory::~KIOAccessManagerFactory()
 
 QNetworkAccessManager *KIOAccessManagerFactory::create(QObject *parent)
 {
-    return new KIO::AccessManager(parent);
+    return new KIO::Integration::AccessManager(parent);
 }
 
 }

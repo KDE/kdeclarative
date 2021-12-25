@@ -40,7 +40,7 @@ target_link_libraries(KF5Declarative
   PRIVATE
     Qt5::Quick  #QQuickImageProvider
     KF5::I18n       #i18n bindings
-    KF5::KIOWidgets     #KIO::AccessManager
+    KF5::KIOWidgets     #KIO::Integration::AccessManager
     KF5::IconThemes #KIconProvider
 )
 set(KDeclarative_BUILD_INCLUDE_DIRS ${KDeclarative_BINARY_DIR} ${CMAKE_CURRENT_BINARY_DIR})
