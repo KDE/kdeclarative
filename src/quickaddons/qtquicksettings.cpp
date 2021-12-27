@@ -25,7 +25,7 @@
  *
  * @returns true if the selected backend is supported, false on fallback to software mode.
  */
-static bool checkBackend(QOpenGLContext &checkContext)
+static bool checkBackend(QOpenGLContext *checkContext)
 {
     if (!QQuickWindow::sceneGraphBackend().isEmpty()) {
         return true; // QtQuick is not configured to use the OpenGL backend
@@ -38,10 +38,11 @@ static bool checkBackend(QOpenGLContext &checkContext)
         return true;
     }
 
-#ifdef QT_NO_OPENGL
+#if !QT_CONFIG(opengl)
+    Q_UNUSED(checkContext)
     bool ok = false;
 #else
-    bool ok = checkContext.create();
+    bool ok = checkContext->create();
 #endif
     if (!ok) {
         qWarning("Warning: fallback to QtQuick software backend.");
@@ -58,18 +59,23 @@ void KQuickAddons::QtQuickSettings::init()
     }
 
     PlasmaQtQuickSettings::RendererSettings s;
-    QOpenGLContext checkContext;
+#if !QT_CONFIG(opengl)
+    QOpenGLContext *pCheckContext = nullptr;
+#else
+    QOpenGLContext checkContext, *pCheckContext = &checkContext;
+#endif
     if (!s.sceneGraphBackend().isEmpty()) {
         QQuickWindow::setSceneGraphBackend(s.sceneGraphBackend());
     } else {
         QQuickWindow::setSceneGraphBackend(QStringLiteral(""));
-        checkBackend(checkContext);
+        checkBackend(pCheckContext);
     }
 
     if (!qEnvironmentVariableIsSet("QSG_RENDER_LOOP")) {
         if (!s.renderLoop().isEmpty()) {
             qputenv("QSG_RENDER_LOOP", s.renderLoop().toLatin1());
         } else if (QGuiApplication::platformName() == QLatin1String("wayland")) {
+#if QT_CONFIG(opengl)
             // Workaround for Bug 432062 / QTBUG-95817
             QOffscreenSurface surface;
             surface.create();
@@ -80,6 +86,7 @@ void KQuickAddons::QtQuickSettings::init()
                     qputenv("QSG_RENDER_LOOP", "basic");
                 }
             }
+#endif
         }
     }
 
