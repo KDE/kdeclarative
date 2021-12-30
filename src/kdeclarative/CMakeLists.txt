@@ -30,7 +30,7 @@ ecm_generate_export_header(KF5Declarative
 )
 
 # Apps must include <KDeclarative/File> or <kdeclarative/file.h>
-target_include_directories(KF5Declarative INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KDeclarative>")
+target_include_directories(KF5Declarative INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative>")
 
 target_link_libraries(KF5Declarative
   PUBLIC
@@ -63,7 +63,7 @@ ecm_generate_headers(KDeclarative_CamelCase_HEADERS
   PREFIX KDeclarative
   REQUIRED_HEADERS KDeclarative_HEADERS
 )
-install(FILES ${KDeclarative_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KDeclarative/KDeclarative COMPONENT Devel)
+install(FILES ${KDeclarative_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative/KDeclarative COMPONENT Devel)
 
 install(TARGETS KF5Declarative
   EXPORT KF5DeclarativeTargets
@@ -73,7 +73,7 @@ install(TARGETS KF5Declarative
 install(FILES
   ${KDeclarative_BINARY_DIR}/kdeclarative/kdeclarative_export.h
   ${KDeclarative_HEADERS}
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KDeclarative/kdeclarative
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative/kdeclarative
   COMPONENT Devel
 )
 
@@ -82,5 +82,5 @@ set(KDeclarative_QCH_SOURCES ${KDeclarative_HEADERS} PARENT_SCOPE)
 set(KDeclarative_QCH_INCLUDE_DIRS ${KDeclarative_BUILD_INCLUDE_DIRS} PARENT_SCOPE)
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KDeclarative LIB_NAME KF5Declarative DEPS "qml" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/KDeclarative)
+ecm_generate_pri_file(BASE_NAME KDeclarative LIB_NAME KF5Declarative DEPS "qml" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
