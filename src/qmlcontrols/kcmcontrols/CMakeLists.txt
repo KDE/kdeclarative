@@ -21,6 +21,11 @@ target_link_libraries(kcmcontrolsplugin
         KF5::ConfigCore
 )
 
+if(WIN32 AND BUILD_SHARED_LIBS)
+    set_target_properties(kcmcontrolsplugin PROPERTIES PREFIX "")
+endif()
+
+
 install(TARGETS kcmcontrolsplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kcm)
 
 install(DIRECTORY qml/ DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kcm)

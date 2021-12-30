@@ -15,6 +15,10 @@ target_link_libraries(kwindowsystem
         KF5::WindowSystem
 )
 
+if(WIN32 AND BUILD_SHARED_LIBS)
+    set_target_properties(kwindowsystem PROPERTIES PREFIX "")
+endif()
+
 install(TARGETS kwindowsystem DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kwindowsystem)
 
 install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kwindowsystem)

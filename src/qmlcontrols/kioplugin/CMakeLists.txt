@@ -15,6 +15,10 @@ target_link_libraries(kio
         KF5::Notifications
 )
 
+if(WIN32 AND BUILD_SHARED_LIBS)
+    set_target_properties(kio PROPERTIES PREFIX "")
+endif()
+
 install(TARGETS kio DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kio)
 
 install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kio)

@@ -47,6 +47,10 @@ if (HAVE_EPOXY)
     target_link_libraries(kquickcontrolsaddonsplugin epoxy::epoxy)
 endif()
 
+if(WIN32 AND BUILD_SHARED_LIBS)
+    set_target_properties(kquickcontrolsaddonsplugin PROPERTIES PREFIX "")
+endif()
+
 install(TARGETS kquickcontrolsaddonsplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kquickcontrolsaddons)
 
 install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kquickcontrolsaddons)

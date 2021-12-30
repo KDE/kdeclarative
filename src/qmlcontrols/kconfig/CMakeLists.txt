@@ -14,6 +14,10 @@ target_link_libraries(kconfigplugin
         KF5::ConfigCore
 )
 
+if(WIN32 AND BUILD_SHARED_LIBS)
+    set_target_properties(kconfigplugin PROPERTIES PREFIX "")
+endif()
+
 install(TARGETS kconfigplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kconfig)
 
 install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kconfig)

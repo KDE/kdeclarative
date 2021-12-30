@@ -24,6 +24,10 @@ target_link_libraries(kquickcontrolsprivateplugin
         KF5::GlobalAccel
         )
 
+if(WIN32 AND BUILD_SHARED_LIBS)
+    set_target_properties(kquickcontrolsprivateplugin PROPERTIES PREFIX "")
+endif()
+
 install(TARGETS kquickcontrolsprivateplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/private/kquickcontrols)
 
 install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/private/kquickcontrols)
