@@ -333,7 +333,7 @@ void DeclarativeDragArea::startDrag(const QImage &image)
             icons << QStringLiteral("text-html");
         }
         if (mimeData()->hasUrls()) {
-            for (int i = 0; i < std::min(4, mimeData()->urls().size()); ++i) {
+            for (int i = 0; i < std::min<int>(4, mimeData()->urls().size()); ++i) {
                 icons << QStringLiteral("text-html");
             }
         }

@@ -133,7 +133,7 @@ ConfigModule *ConfigModule::qmlAttachedProperties(QObject *object)
 {
     // at the moment of the attached object creation, the root item is the only one that hasn't a parent
     // only way to avoid creation of this attached for everybody but the root item
-    const QQmlEngine *engine = QtQml::qmlEngine(object);
+    const QQmlEngine *engine = qmlEngine(object);
     QQmlContext *cont = QQmlEngine::contextForObject(object);
 
     // Search the qml context that is the "root" for the sharedqmlobject, which

@@ -8,12 +8,13 @@
 #ifndef DECLARATIVEDRAGAREA_H
 #define DECLARATIVEDRAGAREA_H
 
+#include "DeclarativeMimeData.h"
+
 #include <QImage>
 #include <QQuickItem>
 #include <QSharedPointer>
 
 class QQmlComponent;
-class DeclarativeMimeData;
 class QQuickItemGrabResult;
 
 class DeclarativeDragArea : public QQuickItem
