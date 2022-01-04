@@ -18,7 +18,7 @@
 QQmlDataTest *QQmlDataTest::m_instance = nullptr;
 
 QQmlDataTest::QQmlDataTest()
-    : m_dataDirectory(QFINDTESTDATA("data"))
+    : m_dataDirectory(QFINDTESTDATA("input"))
     , m_dataDirectoryUrl(QUrl::fromLocalFile(m_dataDirectory + QLatin1Char('/')))
 {
     m_instance = this;
@@ -31,7 +31,7 @@ QQmlDataTest::~QQmlDataTest()
 
 void QQmlDataTest::initTestCase()
 {
-    QVERIFY2(!m_dataDirectory.isEmpty(), "'data' directory not found");
+    QVERIFY2(!m_dataDirectory.isEmpty(), "'input' directory not found");
     m_directory = QFileInfo(m_dataDirectory).absolutePath();
     QVERIFY2(QDir::setCurrent(m_directory), qPrintable(QLatin1String("Could not chdir to ") + m_directory));
 }
