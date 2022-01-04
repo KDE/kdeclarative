@@ -8,5 +8,9 @@ Dependencies:
     'frameworks/kio' : '@same'
     'frameworks/kpackage' : '@same'
 
+- 'on': ['Linux', 'FreeBSD']
+  'require':
+    'frameworks/kglobalaccel' : '@same'
+
 Options:
   test-before-installing: True

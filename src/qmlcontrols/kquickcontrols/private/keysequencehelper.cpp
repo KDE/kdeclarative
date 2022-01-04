@@ -17,11 +17,14 @@
 #include <QQuickRenderControl>
 #include <QQuickWindow>
 
-#include <KGlobalAccel>
-#include <KGlobalShortcutInfo>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KStandardShortcut>
+
+#ifndef Q_OS_WIN
+#include <KGlobalAccel>
+#include <KGlobalShortcutInfo>
+#endif
 
 class KeySequenceHelperPrivate
 {
@@ -118,10 +121,9 @@ bool KeySequenceHelperPrivate::conflictWithGlobalShortcuts(const QKeySequence &k
             "Please choose another one.");
 
         KMessageBox::sorry(nullptr, message, title);
-        return false;
     }
-#endif
-
+    return false;
+#else
     if (!(checkAgainstShortcutTypes & KeySequenceHelper::GlobalShortcuts)) {
         return false;
     }
@@ -170,6 +172,7 @@ bool KeySequenceHelperPrivate::conflictWithGlobalShortcuts(const QKeySequence &k
     // listening to keySequenceChanged().
     KGlobalAccel::stealShortcutSystemwide(keySequence);
     return false;
+#endif
 }
 
 bool KeySequenceHelperPrivate::conflictWithStandardShortcuts(const QKeySequence &keySequence)

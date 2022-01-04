@@ -21,8 +21,11 @@ target_link_libraries(kquickcontrolsprivateplugin
         KF5::GuiAddons
         KF5::WidgetsAddons
         KF5::WindowSystem
-        KF5::GlobalAccel
         )
+
+if (NOT WIN32)
+    target_link_libraries(kquickcontrolsprivateplugin KF5::GlobalAccel)
+endif()
 
 if(WIN32 AND BUILD_SHARED_LIBS)
     set_target_properties(kquickcontrolsprivateplugin PROPERTIES PREFIX "")

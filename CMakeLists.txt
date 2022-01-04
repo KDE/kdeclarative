@@ -26,11 +26,14 @@ find_package(KF5IconThemes ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5KIO ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5WindowSystem ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5GlobalAccel ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5GuiAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5Package ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5Notifications ${KF_DEP_VERSION} REQUIRED)
 
+
+if(NOT WIN32)
+    find_package(KF5GlobalAccel ${KF_DEP_VERSION} REQUIRED)
+endif()
 #########################################################################
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f02)
@@ -130,7 +133,7 @@ else()
   message("In order to build libkdeclarative you need KF5Config, KF5I18n, KF5IconThemes and KF5KIO")
 endif()
 
-if(KF5I18n_FOUND AND KF5WidgetsAddons_FOUND AND KF5WindowSystem_FOUND AND KF5GlobalAccel_FOUND AND KF5KIO_FOUND AND KF5GuiAddons_FOUND)
+if(KF5I18n_FOUND AND KF5WidgetsAddons_FOUND AND KF5WindowSystem_FOUND AND KF5KIO_FOUND AND KF5GuiAddons_FOUND)
   message("Dependencies for KQuickControls found: it will be built")
 else()
   message("In order to build KQuickControls you need KF5I18n, KF5WidgetsAddons, KF5WindowSystem, KF5GlobalAccel, KF5KIO and KF5GuiAddons")
