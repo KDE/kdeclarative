@@ -5,6 +5,7 @@
 */
 
 #include "imagetexturescache.h"
+#include <QOpenGLContext>
 #include <QSGTexture>
 
 typedef QHash<qint64, QHash<QWindow *, QWeakPointer<QSGTexture>>> TexturesCache;
@@ -26,20 +27,26 @@ ImageTexturesCache::~ImageTexturesCache()
 
 QSharedPointer<QSGTexture> ImageTexturesCache::loadTexture(QQuickWindow *window, const QImage &image, QQuickWindow::CreateTextureOptions options)
 {
+    QQuickWindow *cacheWindowKey = window;
+    // if we are using shared contexts, we don't need a per window cache
+    if (QOpenGLContext::areSharing(QOpenGLContext::currentContext(), QOpenGLContext::globalShareContext())) {
+        cacheWindowKey = nullptr;
+    }
+
     qint64 id = image.cacheKey();
-    QSharedPointer<QSGTexture> texture = d->cache.value(id).value(window).toStrongRef();
+    QSharedPointer<QSGTexture> texture = d->cache.value(id).value(cacheWindowKey).toStrongRef();
 
     if (!texture) {
-        auto cleanAndDelete = [this, window, id](QSGTexture *texture) {
+        auto cleanAndDelete = [this, cacheWindowKey, id](QSGTexture *texture) {
             QHash<QWindow *, QWeakPointer<QSGTexture>> &textures = (d->cache)[id];
-            textures.remove(window);
+            textures.remove(cacheWindowKey);
             if (textures.isEmpty()) {
                 d->cache.remove(id);
             }
             delete texture;
         };
         texture = QSharedPointer<QSGTexture>(window->createTextureFromImage(image, options), cleanAndDelete);
-        (d->cache)[id][window] = texture.toWeakRef();
+        (d->cache)[id][cacheWindowKey] = texture.toWeakRef();
     }
 
     // if we have a cache in an atlas but our request cannot use an atlassed texture
