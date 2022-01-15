@@ -122,7 +122,7 @@ install(EXPORT
 
 install(FILES
   "${CMAKE_CURRENT_BINARY_DIR}/kdeclarative_version.h"
-  DESTINATION "${KDE_INSTALL_INCLUDEDIR_KF}"
+  DESTINATION "${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative"
   COMPONENT Devel
 )
 
