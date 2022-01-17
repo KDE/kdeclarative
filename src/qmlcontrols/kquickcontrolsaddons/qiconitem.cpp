@@ -148,11 +148,19 @@ QSGNode *QIconItem::updatePaintNode(QSGNode *node, QQuickItem::UpdatePaintNodeDa
     return node;
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 void QIconItem::geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry)
+#else
+void QIconItem::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
+#endif
 {
     if (newGeometry.size() != oldGeometry.size()) {
         m_changed = true;
         update();
     }
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QQuickItem::geometryChanged(newGeometry, oldGeometry);
+#else
+    QQuickItem::geometryChange(newGeometry, oldGeometry);
+#endif
 }

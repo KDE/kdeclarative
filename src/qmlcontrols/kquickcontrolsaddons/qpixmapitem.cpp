@@ -186,8 +186,16 @@ void QPixmapItem::updatePaintedRect()
     }
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 void QPixmapItem::geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry)
+#else
+void QPixmapItem::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
+#endif
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QQuickPaintedItem::geometryChanged(newGeometry, oldGeometry);
+#else
+    QQuickPaintedItem::geometryChange(newGeometry, oldGeometry);
+#endif
     updatePaintedRect();
 }

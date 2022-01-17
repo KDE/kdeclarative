@@ -192,15 +192,24 @@ public:
 
     QQmlListProperty<PlotData> dataSets();
     static void dataSet_append(QQmlListProperty<PlotData> *list, PlotData *item);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     static int dataSet_count(QQmlListProperty<PlotData> *list);
     static PlotData *dataSet_at(QQmlListProperty<PlotData> *list, int pos);
+#else
+    static qsizetype dataSet_count(QQmlListProperty<PlotData> *list);
+    static PlotData *dataSet_at(QQmlListProperty<PlotData> *list, qsizetype pos);
+#endif
     static void dataSet_clear(QQmlListProperty<PlotData> *list);
 
     Q_INVOKABLE void addSample(qreal value);
     Q_INVOKABLE void addSample(const QList<qreal> &value);
 
 protected:
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     void geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry) override;
+#else
+    void geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry) override;
+#endif
 
 private:
     QSGNode *updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *updatePaintNodeData) override final;

@@ -184,9 +184,16 @@ void QImageItem::updatePaintedRect()
         Q_EMIT paintedWidthChanged();
     }
 }
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 void QImageItem::geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry)
+#else
+void QImageItem::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
+#endif
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QQuickPaintedItem::geometryChanged(newGeometry, oldGeometry);
+#else
+    QQuickPaintedItem::geometryChange(newGeometry, oldGeometry);
+#endif
     updatePaintedRect();
 }
