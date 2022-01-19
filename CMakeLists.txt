@@ -69,13 +69,16 @@ ecm_setup_version(
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeclarative5\")
 ki18n_install(po)
 
-find_package(epoxy)
-set_package_properties(epoxy PROPERTIES DESCRIPTION "libepoxy"
-                       URL "https://github.com/anholt/libepoxy"
-                       TYPE OPTIONAL
-                       PURPOSE "OpenGL dispatch library"
-                      )
+if (QT_MAJOR_VERSION STREQUAL "5")
+    find_package(epoxy)
+    set_package_properties(epoxy PROPERTIES DESCRIPTION "libepoxy"
+        URL "https://github.com/anholt/libepoxy"
+        TYPE OPTIONAL
+        PURPOSE "OpenGL dispatch library"
+    )
 
+find_package(Qt6Core5Compat)
+endif()
 set(HAVE_EPOXY 0)
 if(epoxy_FOUND)
     set(HAVE_EPOXY 1)
