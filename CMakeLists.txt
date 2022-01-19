@@ -76,8 +76,6 @@ if (QT_MAJOR_VERSION STREQUAL "5")
         TYPE OPTIONAL
         PURPOSE "OpenGL dispatch library"
     )
-
-find_package(Qt6Core5Compat)
 endif()
 set(HAVE_EPOXY 0)
 if(epoxy_FOUND)
