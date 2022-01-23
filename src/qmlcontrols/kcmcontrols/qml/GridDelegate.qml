@@ -72,7 +72,7 @@ T2.ItemDelegate {
             }
         }
 
-        onClosed: view.forceActiveFocus()
+        onClosed: delegate.forceActiveFocus()
 
         Repeater {
             model: delegate.actions
