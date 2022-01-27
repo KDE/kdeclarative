@@ -47,7 +47,7 @@ Kirigami.Page {
      */
     property bool framedView: true
 
-    title: kcm.name
+    title: (typeof kcm !== "undefined") ? kcm.name : ""
 
     // Make pages fill the whole view by default
     Kirigami.ColumnView.fillWidth: true

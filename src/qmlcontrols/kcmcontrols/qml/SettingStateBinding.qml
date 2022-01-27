@@ -54,6 +54,8 @@ Item {
      */
     property bool extraEnabledConditions: true
 
+    // Context properties are not reliable
+    property bool __defaultsIndicatorsVisible: (typeof kcm !== "undefined") ? kcm.defaultsIndicatorsVisible : false
 
     /**
      * nonDefaultHighlightVisible: bool
@@ -62,7 +64,7 @@ Item {
      *
      * @since 5.73
      */
-    readonly property bool nonDefaultHighlightVisible: helper.highlight && kcm.defaultsIndicatorsVisible
+    readonly property bool nonDefaultHighlightVisible: helper.highlight && __defaultsIndicatorsVisible
 
     Binding {
         when: helper.target
@@ -86,7 +88,7 @@ Item {
 
     SettingHighlighterPrivate {
         id: helper
-        defaultIndicatorVisible: kcm.defaultsIndicatorsVisible
+        defaultIndicatorVisible: root.__defaultsIndicatorsVisible
     }
 
     Component.onCompleted: {

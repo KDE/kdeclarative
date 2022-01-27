@@ -36,7 +36,8 @@ Kirigami.ScrollablePage {
 
     readonly property int margins: 6 // Layout_ChildMarginWidth from Breeze
 
-    title: kcm.name
+    // Context properties are not reliable
+    title: (typeof kcm !== "undefined") ? kcm.name : ""
 
     // Make pages fill the whole view by default
     Kirigami.ColumnView.fillWidth: true
