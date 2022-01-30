@@ -11,7 +11,8 @@ RowLayout {
     property alias showClearButton: clearButton.visible
     property alias modifierlessAllowed: helper.modifierlessAllowed
     property alias multiKeyShortcutsAllowed: helper.multiKeyShortcutsAllowed
-    property var keySequence
+    // Can't use proper types for QGadgets
+    property var/*QKeySequence*/ keySequence: helper.fromString()
 
     /**
      * This property controls which types of shortcuts are checked for conflicts when the keySequence
@@ -43,7 +44,7 @@ RowLayout {
 
     KQuickControlsPrivate.KeySequenceHelper {
         id: helper
-        onGotKeySequence: {
+        onGotKeySequence: keySequence => {
             if (isKeySequenceAvailable(keySequence)) {
                 root.keySequence = keySequence;
             }
@@ -69,22 +70,18 @@ RowLayout {
 
         text: {
             const keys = helper.isRecording ? helper.currentKeySequence : root.keySequence
-            let text = " " // This space is intentional
-            if (keys === undefined || helper.keySequenceIsEmpty(keys)) {
-                if (helper.isRecording) {
-                    text += _tr.i18nc("What the user inputs now will be taken as the new shortcut", "Input");
-                } else {
-                    text += _tr.i18nc("No shortcut defined", "None");
-                }
-            } else {
+            const text = helper.keySequenceIsEmpty(keys)
+                ? (helper.isRecording
+                    ? _tr.i18nc("What the user inputs now will be taken as the new shortcut", "Input")
+                    : _tr.i18nc("No shortcut defined", "None"))
                 // Single ampersand gets interpreted by the button as a mnemonic
                 // and removed; replace it with a double ampersand so that it
                 // will be displayed by the button as a single ampersand, or
                 // else shortcuts with the actual ampersand character will
                 // appear to be partially empty.
-                text += helper.keySequenceNativeText(keys).replace('&', '&&')
-            }
-            return text + (helper.isRecording ? " ... " : " ")
+                : helper.keySequenceNativeText(keys).replace('&', '&&');
+            // These spaces are intentional
+            return " " + text + (helper.isRecording ? " ... " : " ")
         }
 
         ToolTip.visible: hovered
@@ -111,7 +108,7 @@ RowLayout {
         id: clearButton
         Layout.fillHeight: true
         Layout.preferredWidth: height
-        onClicked: root.keySequence = ""
+        onClicked: root.keySequence = helper.fromString()
 
         // icon name determines the direction of the arrow, NOT the direction of the app layout
         icon.name: Qt.application.layoutDirection === Qt.LeftToRight ? "edit-clear-locationbar-rtl" : "edit-clear-locationbar-ltr"

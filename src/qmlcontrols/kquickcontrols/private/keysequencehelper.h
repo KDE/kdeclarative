@@ -52,6 +52,7 @@ public:
     ShortcutTypes checkAgainstShortcutTypes();
     void setCheckAgainstShortcutTypes(ShortcutTypes types);
 
+    Q_INVOKABLE static QKeySequence fromString(const QString &str = QString());
     Q_INVOKABLE static bool keySequenceIsEmpty(const QKeySequence &keySequence);
     Q_INVOKABLE static QString keySequenceNativeText(const QKeySequence &keySequence);
     Q_INVOKABLE static QWindow *renderWindow(QQuickWindow *quickWindow);
