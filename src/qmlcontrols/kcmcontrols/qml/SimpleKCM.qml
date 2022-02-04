@@ -54,9 +54,9 @@ Kirigami.ScrollablePage {
                 left: parent.left
                 right: parent.right
                 top: parent.top
-                topMargin: root.header && root.header.visible ? root.header.height : 0
+                topMargin: root.header && root.header.visible ? root.header.y + root.header.height : 0
             }
-            visible: !root.flickable.atYBeginning && !Kirigami.Settings.isMobile
+            visible: root.flickable.contentHeight > root.flickable.height && !Kirigami.Settings.isMobile
         },
         Kirigami.Separator {
             z: 999
@@ -66,7 +66,7 @@ Kirigami.ScrollablePage {
                 bottom: parent.bottom
                 bottomMargin: root.footer && root.footer.visible ? root.footer.height : 0
             }
-            visible: !root.flickable.atYEnd && !Kirigami.Settings.isMobile
+            visible: root.flickable.contentHeight > root.flickable.height && !Kirigami.Settings.isMobile
         }
     ]
 }
