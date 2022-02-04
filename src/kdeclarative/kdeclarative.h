@@ -192,7 +192,9 @@ public:
      * to be setup once. The engine is setup for the component target
      * (runtime platform) that is configured at the time setupEngine()
      * is called. The following things are added to the engine:
-     * - a KIOAccessManagerFactory, replacing any existing stock QQmlNetworkAccessManagerFactory
+     * - a KIOAccessManagerFactory, replacing any existing stock QQmlNetworkAccessManagerFactory. The ownership
+     *   of this factory is not taken by KDeclarative or QQmlEngine, so essentially the ownership belongs to the
+     *   caller of this function.
      * - a QML icon provider, enabling the Image {} element to load images using the scheme "image:/"
      *
      * @param engine the engine to setup
