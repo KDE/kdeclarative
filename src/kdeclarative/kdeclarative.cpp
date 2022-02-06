@@ -33,6 +33,9 @@ KDeclarative::KDeclarative()
 
 KDeclarative::~KDeclarative()
 {
+    if (d->declarativeEngine) {
+        delete d->declarativeEngine->networkAccessManagerFactory();
+    }
     delete d;
 }
 
