@@ -28,6 +28,7 @@ void KCMShell::open(const QStringList &names) const
 
 void KCMShell::openSystemSettings(const QString &name, const QStringList &args) const
 {
+    // The desktop filename is the same as the binary and icon
     const QString systemSettings = QStringLiteral("systemsettings");
     KIO::CommandLauncherJob *job = nullptr;
 
@@ -37,9 +38,10 @@ void KCMShell::openSystemSettings(const QString &name, const QStringList &args) 
         cmdline.append(args.join(QLatin1Char(' ')));
     }
 
-    // Open in System Settings if it's available'
+    // Open in System Settings if it's available
     if (KService::serviceByDesktopName(systemSettings)) {
-        job = new KIO::CommandLauncherJob(QStringLiteral("systemsettings5"), cmdline);
+        job = new KIO::CommandLauncherJob(systemSettings, cmdline);
+        job->setIcon(systemSettings);
         job->setDesktopName(systemSettings);
     } else {
         job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), cmdline);
@@ -50,14 +52,16 @@ void KCMShell::openSystemSettings(const QString &name, const QStringList &args) 
 
 void KCMShell::openInfoCenter(const QString &name) const
 {
-    const QString systemSettings = QStringLiteral("systemsettings");
+    const QString infoCenterDesktopFile = QStringLiteral("org.kde.kinfocenter");
+    const QString infoCenterbinary = QStringLiteral("kinfocenter");
+
     KIO::CommandLauncherJob *job = nullptr;
 
-    // Open in Info Center if System Settings is available
-    if (KService::serviceByDesktopName(systemSettings)) {
-        job = new KIO::CommandLauncherJob(QStringLiteral("kinfocenter"), QStringList(name));
-        job->setIcon(systemSettings);
-        job->setDesktopName(systemSettings);
+    // Open in Info Center if it's available
+    if (KService::serviceByDesktopName(infoCenterDesktopFile)) {
+        job = new KIO::CommandLauncherJob(infoCenterbinary, QStringList(name));
+        job->setIcon(infoCenterbinary);
+        job->setDesktopName(infoCenterDesktopFile);
     } else {
         job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), QStringList(name));
     }
