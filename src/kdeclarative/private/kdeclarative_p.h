@@ -19,6 +19,7 @@ class KDeclarativePrivate
 {
 public:
     KDeclarativePrivate();
+    ~KDeclarativePrivate();
 
     QPointer<QQmlEngine> declarativeEngine;
     QString translationDomain;
