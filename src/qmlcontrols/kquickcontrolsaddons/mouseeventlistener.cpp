@@ -27,9 +27,6 @@ MouseEventListener::MouseEventListener(QQuickItem *parent)
     m_pressAndHoldTimer = new QTimer(this);
     m_pressAndHoldTimer->setSingleShot(true);
     connect(m_pressAndHoldTimer, &QTimer::timeout, this, &MouseEventListener::handlePressAndHold);
-    qmlRegisterAnonymousType<KDeclarativeMouseEvent>("org.kde.kquickcontrolsaddons", 1);
-    qmlRegisterAnonymousType<KDeclarativeWheelEvent>("org.kde.kquickcontrolsaddons", 1);
-
     setFiltersChildMouseEvents(true);
     setAcceptedMouseButtons(Qt::LeftButton | Qt::RightButton | Qt::MiddleButton | Qt::XButton1 | Qt::XButton2);
 }

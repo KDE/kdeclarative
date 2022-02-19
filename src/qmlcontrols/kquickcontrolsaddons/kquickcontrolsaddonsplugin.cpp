@@ -41,6 +41,8 @@ void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
     qmlRegisterType<QImageItem>(uri, 2, 0, "QImageItem");
     qmlRegisterType<QIconItem>(uri, 2, 0, "QIconItem");
     qmlRegisterType<MouseEventListener>(uri, 2, 0, "MouseEventListener");
+    qmlRegisterAnonymousType<KDeclarativeMouseEvent>(uri, 1);
+    qmlRegisterAnonymousType<KDeclarativeWheelEvent>(uri, 1);
     qmlRegisterType<ColumnProxyModel>(uri, 2, 0, "ColumnProxyModel");
     qmlRegisterType<Clipboard>(uri, 2, 0, "Clipboard");
     qmlRegisterType<MimeDatabase>(uri, 2, 0, "MimeDatabase");
