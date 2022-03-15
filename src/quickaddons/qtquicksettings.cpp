@@ -7,6 +7,8 @@
 */
 
 #include "qtquicksettings.h"
+
+#if QUICKADDONS_BUILD_DEPRECATED_SINCE(5, 93)
 #include "renderersettings.h"
 
 #include <QGuiApplication>
@@ -103,3 +105,4 @@ void KQuickAddons::QtQuickSettings::init()
     }
     QSurfaceFormat::setDefaultFormat(format);
 }
+#endif
