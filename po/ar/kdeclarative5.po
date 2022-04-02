@@ -1,0 +1,167 @@
+# translation of kdelibs4.po to Arabic
+# translation of kdelibs4.po to
+# Copyright (C) 2001-2003, 2004, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+# Isam Bayazidi <bayazidi@arabeyes.org>, 2001,2003.
+# Sayed Jaffer Al-Mosawi <mosawi@arabeyes.org>, 2002.
+# Hicham Amaoui <amaoui@wanadoo.fr>, 2002.
+# Youcef Rabah Rahal <rahal@arabeyes.org>, 2003.
+# Ahmad M. Zawawi <azawawi@emirates.net.ae>, 2004.
+# Mohammed Gamal <f2c2001@yahoo.com>, 2004.
+# Usamah Ali Al-Maqdad <msareehi@kacst.edu.sa>, 2004.
+# Munzir Taha <munzir@kacst.edu.sa>, 2004.
+# Mohamed SAAD <metehyi@free.fr>, 2006.
+# Khaled Hosny <khaledhosny@eglug.org>, 2007.
+# Youssef Chahibi <chahibi@gmail.com>, 2007.
+# zayed <zayed.alsaidi@gmail.com>, 2008, 2009.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2009, 2021, 2022.
+# hanny <hannysabbagh@hotmail.com>, 2012.
+# Abderrahim Kitouni <a.kitouni@gmail.com>, 2012.
+# Safa Alfulaij <safaalfulaij@hotmail.com>, 2013, 2017, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-02-04 00:41+0000\n"
+"PO-Revision-Date: 2022-02-17 17:20+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: Arabic <kde-l10n-ar@kde.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 21.07.70\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "زايد السعيدي,محمد هاني صباغ,صفا الفليج"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"zayed.alsaidi@gmail.com,hannysabbagh@hotmail.com,safa1996alfulaij@gmail.com"
+
+#: kpackagelauncherqml/main.cpp:30
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr "صدفة تطبيقات «حزمتك» لِ‍QML"
+
+#: kpackagelauncherqml/main.cpp:38
+#, kde-format
+msgid "The unique name of the application (mandatory)"
+msgstr "اسم التطبيق الفريد (إلزامي)"
+
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Contextual Help"
+msgstr "اعرض المساعدة السياقية"
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:63
+#, kde-format
+msgctxt "@info:whatsthis for a button"
+msgid "Color button"
+msgstr "زر لون"
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:65
+#, kde-format
+msgctxt "@info:whatsthis for a button of current color code %1"
+msgid "Current color is %1. This button will open a color chooser dialog."
+msgstr "اللون الحالي %1. هذا الزر سيفتح حواري اختيار اللون."
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:66
+#, kde-format
+msgctxt "@info:whatsthis for a button of current color code %1"
+msgid "Current color is %1."
+msgstr "اللون الحالي %1."
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:75
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "الدخل"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:76
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "بلا"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:89
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"انقر الزر ثمّ أدخل الاختصار الذي تريد في البرنامج.\n"
+"فمثلًا إن أردت Ctrl+A: أبقِ مفتاح Ctrl مضغوطًا واضغط A."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "اختصار محجوز"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:120
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"مفتاح F12 محجوز في «وندوز»، لذا لا يمكن استخدامه كاختصار عمومي.\n"
+"رجاءً اختر غيره."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
+#, kde-format
+msgid "Global Shortcut Shadowing"
+msgstr "حجب الاختصارات العامة"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
+#, kde-format
+msgid "The '%1' key combination is shadowed by following global actions:\n"
+msgstr "مجموعة المفاتيح '%1' محجوبة بواسطة الإجراءات العامة التالية:\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:149
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:155
+#, kde-format
+msgid "Action '%1' in context '%2'\n"
+msgstr "الإجراء '%1' في سياق '%2'\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
+#, kde-format
+msgid "The '%1' key combination shadows following global actions:\n"
+msgstr "مجموعة المفاتيح '%1' تحجب الإجراءات العامة التالية:\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "تضارب مع اختصار تطبيق قياسي"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"تجميعة الأزرار ’%1‘ يستخدمها الإجراء القياسي ”%2“ أيضًا، والذي تستخدمه بعض "
+"التطبيقات.\n"
+"أمتأكّد من استخدامه كاختصار عمومي أيضًا؟"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#, kde-format
+msgid "Reassign"
+msgstr "أعد التعيين"
+
+#: quickaddons/configmodule.cpp:187
+#, kde-format
+msgid "Invalid KPackage '%1'"
+msgstr "حزمة غير صالحة '%1'"
+
+#: quickaddons/configmodule.cpp:193
+#, kde-format
+msgid "No QML file provided"
+msgstr "لا يوجد ملف QML"
