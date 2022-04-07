@@ -7,7 +7,7 @@
 import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.2 as QtControls
-import org.kde.kirigami 2.3 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 
 
 GridView {
@@ -59,5 +59,37 @@ GridView {
             PauseAnimation { duration: Kirigami.Units.longDuration }
             NumberAnimation { properties: "x,y"; duration: Kirigami.Units.longDuration }
         }
+    }
+
+    Loader {
+        anchors.centerIn: parent
+        width: parent.width - (Kirigami.Units.gridUnit * 8)
+        active: parent.count === 0 && !startupTimer.running
+        opacity: active && status === Loader.Ready ? 1 : 0
+        visible: opacity > 0
+        Behavior on opacity {
+            OpacityAnimator {
+                duration: Kirigami.Units.longDuration
+                easing.type: Easing.InOutQuad
+            }
+        }
+        sourceComponent: Kirigami.PlaceholderMessage {
+            anchors.centerIn: parent
+            icon.name: "edit-none"
+            text: i18n("No items found")
+        }
+    }
+
+    // The view can take a bit of time to initialize itself when the KCM first
+    // loads, during which time count is 0, which would cause the placeholder
+    // message to appear for a moment and then disappear. To prevent this, let's
+    // suppress it appearing for a moment after the KCM loads.
+    Timer {
+        id: startupTimer
+        interval: Kirigami.Units.humanMoment
+        running: false
+    }
+    Component.onCompleted: {
+        startupTimer.start()
     }
 }
