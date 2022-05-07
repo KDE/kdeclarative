@@ -1,0 +1,168 @@
+# translation of kdelibs4.po to Slovak
+# Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>, 2002.
+# Stanislav Visnovsky <visnovsky@kde.org>, 2003, 2004, 2005.
+# Richard Fric <Richard.Fric@kdemail.net>, 2006, 2007, 2010.
+# Michal Gaspar <miguel@portugal.sk>, 2006.
+# Jakub <vatrtj@gmail.com>, 2009.
+# Michal Sulek <misurel@gmail.com>, 2009, 2010, 2011.
+# Richard Frič <Richard.Fric@kdemail.net>, 2011.
+# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013, 2014, 2015, 2022.
+# Matej Mrenica <matejm98mthw@gmail.com>, 2019, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-04-12 00:40+0000\n"
+"PO-Revision-Date: 2022-04-15 19:04+0200\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 21.12.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"Stanislav Višňovský,Richard Frič,Michal Gašpar,Jakub Vatrt,Michal Šulek"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"visnovsky@kde.org,Richard.Fric@kdemail.net,miguel@portugal.sk,vatrtj@gmail."
+"com,misurel@gmail.com"
+
+#: kpackagelauncherqml/main.cpp:30
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr "Shell KPackage QML aplikácie"
+
+#: kpackagelauncherqml/main.cpp:38
+#, kde-format
+msgid "The unique name of the application (mandatory)"
+msgstr "Jedinečný názov pre aplikáciu (povinné)"
+
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Contextual Help"
+msgstr "Zobraziť kontextovú nápovedu"
+
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#, kde-format
+msgid "No items found"
+msgstr "Neboli nájdené žiadne položky"
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:63
+#, kde-format
+msgctxt "@info:whatsthis for a button"
+msgid "Color button"
+msgstr "Farebné tlačidlo"
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:65
+#, kde-format
+msgctxt "@info:whatsthis for a button of current color code %1"
+msgid "Current color is %1. This button will open a color chooser dialog."
+msgstr ""
+"Aktuálna farba je %1. Toto tlačidlo otvorí dialógové okno na výber farby."
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:66
+#, kde-format
+msgctxt "@info:whatsthis for a button of current color code %1"
+msgid "Current color is %1."
+msgstr "Aktuálna farba je %1."
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:75
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Vstup"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:76
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Žiadna"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:89
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"Kliknite na tlačidlo a potom zadajte skratku, ktorú chcete použiť v "
+"programe.\n"
+"Príklad pre Ctrl+A: držte klávesu Ctrl a stlačte A."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "Rezervovaná skratka"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:120
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"Klávesa F12 je vo Windows rezervovaná, takže nemôže byť použitá pre globálnu "
+"skratku.\n"
+"Prosím vyberte inú."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
+#, kde-format
+msgid "Global Shortcut Shadowing"
+msgstr "Globálne tieňovanie skratiek"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
+#, kde-format
+msgid "The '%1' key combination is shadowed by following global actions:\n"
+msgstr ""
+"Kombinácia klávesov '%1' je zatienená nasledujúcimi globálnymi akciami:\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:149
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:155
+#, kde-format
+msgid "Action '%1' in context '%2'\n"
+msgstr "Akcia '%1' v kontexte '%2'\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
+#, kde-format
+msgid "The '%1' key combination shadows following global actions:\n"
+msgstr "Klávesová kombinácia '%1' zatieni nasledujúce globálne akcie:\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Konflikt so štandardnou skratkou aplikácie"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"Klávesová kombinácia '%1' je už používaná pre štandardnú akciu \"%2\", ktorú "
+"používa viacero aplikácií.\n"
+"Naozaj ju chcete použiť ako globálnu klávesovú skratku?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#, kde-format
+msgid "Reassign"
+msgstr "Znovu priradiť"
+
+#: quickaddons/configmodule.cpp:187
+#, kde-format
+msgid "Invalid KPackage '%1'"
+msgstr "Neplatný KPackage '%1'"
+
+#: quickaddons/configmodule.cpp:193
+#, kde-format
+msgid "No QML file provided"
+msgstr "Žiadny QML nebol poskytnutý"
