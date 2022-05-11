@@ -191,6 +191,7 @@ public:
     virtual void loadEventsForDateRange(const QDate &startDate, const QDate &endDate) = 0;
 
     struct SubLabel {
+        QString label; /**< The label will be displayed in the tooltip or beside the full date */
         QString yearLabel; /**< The label will be displayed under the year number */
         QString monthLabel; /**< The label will be displayed under the month number */
         QString dayLabel; /**< The label will be displayed under the day number */
