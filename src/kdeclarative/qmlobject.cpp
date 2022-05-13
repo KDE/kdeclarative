@@ -10,6 +10,7 @@
 #include <QQmlContext>
 #include <QQmlEngine>
 #include <QQmlIncubator>
+#include <QQmlNetworkAccessManagerFactory>
 #include <QQuickItem>
 #include <QTimer>
 
@@ -74,7 +75,8 @@ public:
     QmlObject *q;
 
     QUrl source;
-    QQmlEngine *engine;
+    std::shared_ptr<QQmlEngine> engine;
+
     QmlObjectIncubator incubator;
     QQmlComponent *component;
     QTimer *executionEndTimer;
@@ -106,7 +108,7 @@ void QmlObjectPrivate::execute(const QUrl &source)
     }
 
     delete component;
-    component = new QQmlComponent(engine, q);
+    component = new QQmlComponent(engine.get(), q);
     QObject::connect(component, &QQmlComponent::statusChanged, q, &QmlObject::statusChanged, Qt::QueuedConnection);
     delete incubator.object();
 
@@ -131,62 +133,64 @@ void QmlObjectPrivate::scheduleExecutionEnd()
 }
 
 QmlObject::QmlObject(QObject *parent)
-    // cannot do : QmlObject(new QQmlEngine(this), d->engine->rootContext(), parent)
-    : QObject(parent)
-    , d(new QmlObjectPrivate(this))
-
+    : QmlObject(nullptr, nullptr, parent)
 {
-    d->engine = new QQmlEngine(this);
-    d->rootContext = d->engine->rootContext();
-    d->kdeclarative.setDeclarativeEngine(d->engine);
-    d->kdeclarative.d->qmlObj = this;
-
-    d->context = new KLocalizedContext(this);
-    d->rootContext->setContextObject(d->context);
-    KDeclarative::setupEngine(d->engine);
 }
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 95)
 QmlObject::QmlObject(QQmlEngine *engine, QObject *parent)
-    : QmlObject(engine, engine->rootContext(), parent)
+    : QmlObject(std::shared_ptr<QQmlEngine>(engine), nullptr, parent)
 {
 }
 
 QmlObject::QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QObject *parent)
-    : QmlObject(engine, rootContext, nullptr /*call setupEngine*/, parent)
+    : QmlObject(std::shared_ptr<QQmlEngine>(engine), rootContext, parent)
 {
 }
 
 QmlObject::QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QmlObject *obj, QObject *parent)
+    : QmlObject(std::shared_ptr<QQmlEngine>(engine), rootContext, parent)
+{
+    Q_UNUSED(obj);
+}
+#endif
+
+QmlObject::QmlObject(std::shared_ptr<QQmlEngine> engine, QQmlContext *rootContext, QObject *parent)
     : QObject(parent)
     , d(new QmlObjectPrivate(this))
 {
     if (engine) {
         d->engine = engine;
     } else {
-        d->engine = new QQmlEngine(this);
+        d->engine = std::make_shared<QQmlEngine>();
+    }
+
+    if (d->engine.use_count() <= 2) {
+        KDeclarative::setupEngine(d->engine.get());
     }
 
     if (rootContext) {
         d->rootContext = rootContext;
     } else {
-        d->rootContext = d->engine->rootContext();
+        d->rootContext = engine->rootContext();
     }
-    d->kdeclarative.setDeclarativeEngine(d->engine);
-    d->kdeclarative.d->qmlObj = this;
 
     d->context = new KLocalizedContext(this);
     d->rootContext->setContextObject(d->context);
-
-    if (!obj) {
-        KDeclarative::setupEngine(d->engine);
-    }
 }
 
 QmlObject::~QmlObject()
 {
-    //    QDeclarativeNetworkAccessManagerFactory *factory = d->engine->networkAccessManagerFactory();
-    //    d->engine->setNetworkAccessManagerFactory(0);
-    //    delete factory;
+    if (d->engine.use_count() == 1) {
+        // QQmlEngine does not take ownership of the QNAM factory so we need to
+        // make sure to clean it, but only if we are the last user of the engine
+        // otherwise we risk resetting the factory on an engine that is still in
+        // use.
+        auto factory = d->engine->networkAccessManagerFactory();
+        d->engine->setNetworkAccessManagerFactory(nullptr);
+        delete factory;
+    }
+
     delete d;
 }
 
@@ -241,7 +245,7 @@ bool QmlObject::isInitializationDelayed() const
 
 QQmlEngine *QmlObject::engine()
 {
-    return d->engine;
+    return d->engine.get();
 }
 
 QObject *QmlObject::rootObject() const
@@ -324,7 +328,7 @@ void QmlObject::completeInitialization(const QVariantHash &initialProperties)
 
 QObject *QmlObject::createObjectFromSource(const QUrl &source, QQmlContext *context, const QVariantHash &initialProperties)
 {
-    QQmlComponent *component = new QQmlComponent(d->engine, this);
+    QQmlComponent *component = new QQmlComponent(d->engine.get(), this);
     component->loadUrl(source);
 
     return createObjectFromComponent(component, context, initialProperties);

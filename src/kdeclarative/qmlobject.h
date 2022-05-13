@@ -58,8 +58,14 @@ public:
      *
      * @param engine a QQmlEngine we want to use
      * @param parent the parent of this object
+     *
+     * @deprecated Since 5.95, Use QmlObject(std::shared_ptr<QmlEngine>, QObject*)
+     * instead.
      */
+#if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 95)
+    KDECLARATIVE_DEPRECATED_VERSION(5, 95, "Use QmlObject(std::shared_ptr<QQmlEngine>, QmlContext*, QObject*) instead")
     explicit QmlObject(QQmlEngine *engine, QObject *parent = nullptr);
+#endif
 
     /**
      * Constructs a new QmlObject
@@ -67,8 +73,28 @@ public:
      * @param engine the QQmlEngine to use
      * @param rootContext the root context to use for object creation
      * @param parent the parent of this object
+     *
+     * @deprecated Since 5.95, Use QmlObject(std::shared_ptr<QmlEngine>, QmlContext*, QObject*)
+     * instead.
      */
+#if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 95)
+    KDECLARATIVE_DEPRECATED_VERSION(5, 95, "Use QmlObject(std::shared_ptr<QQmlEngine>, QQmlContext*, QObject*) instead")
     explicit QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QObject *parent = nullptr);
+#endif
+
+    /**
+     * Construct a new QmlObject
+     *
+     * @param engine The QQmlEngine to use. If this object is the first user of
+     * the engine (e.g. use_count() is 1), KDeclarative::setupEngine() will be
+     * called. If this is nullptr, a new engine will be created for this object
+     * to use.
+     * @param rootContext The QML context to use for object creation. If this is
+     * nullptr, the engine's root context will be used.
+     * @param parent The QObject parent for this object.
+     */
+    explicit QmlObject(std::shared_ptr<QQmlEngine> engine, QQmlContext *rootContext = nullptr, QObject *parent = nullptr);
+
     ~QmlObject() override;
 
     /**
@@ -230,8 +256,15 @@ protected:
      * multiple objects (such as QmlObjectSharedEngine)
      * @param parent the parent of this object
      * @since 5.45
+     *
+     * @deprecated Since 5.95, Use QmlObject(std::shared_ptr<QmlEngine>, QmlContext*, QObject*)
+     * instead. The "obj" parameter has been dropped, instead setupEngine will be
+     * called if this QmlObject is the first user of the engine.
      */
+#if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 95)
+    KDECLARATIVE_DEPRECATED_VERSION(5, 95, "Use QmlObject(std::shared_ptr<QQmlEngine>, QQmlContext*, QObject*) instead")
     explicit QmlObject(QQmlEngine *engine, QQmlContext *rootContext, QmlObject *obj, QObject *parent = nullptr);
+#endif
 
 private:
     friend class QmlObjectPrivate;
