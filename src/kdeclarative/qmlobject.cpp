@@ -80,7 +80,6 @@ public:
     QmlObjectIncubator incubator;
     QQmlComponent *component;
     QTimer *executionEndTimer;
-    KDeclarative kdeclarative;
     KLocalizedContext *context{nullptr};
     KPackage::Package package;
     QQmlContext *rootContext;
