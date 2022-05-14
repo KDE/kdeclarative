@@ -1,13 +1,14 @@
 project(kioplugin)
 
-set(kioplugin_SRCS
+ecm_add_qml_module(kio URI "org.kde.kio" VERSION 1.0)
+
+target_sources(kio PRIVATE
     kioplugin.cpp
     kioplugin.h
     krunproxy.cpp
     krunproxy.h
-    )
+)
 
-add_library(kio ${kioplugin_SRCS})
 target_link_libraries(kio
         Qt${QT_MAJOR_VERSION}::Core
         Qt${QT_MAJOR_VERSION}::Qml
@@ -15,11 +16,6 @@ target_link_libraries(kio
         KF5::Notifications
 )
 
-if(WIN32 AND BUILD_SHARED_LIBS)
-    set_target_properties(kio PROPERTIES PREFIX "")
-endif()
+ecm_finalize_qml_module(kio DESTINATION ${KDE_INSTALL_QMLDIR})
 
-install(TARGETS kio DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kio)
-
-install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kio)
 

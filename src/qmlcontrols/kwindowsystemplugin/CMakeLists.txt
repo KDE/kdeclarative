@@ -1,6 +1,8 @@
 project(kwindowsystemplugin)
 
-set(kwindowsystemplugin_SRCS
+ecm_add_qml_module(kwindowsystem URI "org.kde.kwindowsystem" VERSION 1.0)
+
+target_sources(kwindowsystem PRIVATE
     kwindowsystemplugin.cpp
     kwindowsystemplugin.h
     kwindowsystemproxy.cpp
@@ -8,17 +10,10 @@ set(kwindowsystemplugin_SRCS
 
     )
 
-add_library(kwindowsystem ${kwindowsystemplugin_SRCS})
 target_link_libraries(kwindowsystem
         Qt${QT_MAJOR_VERSION}::Core
         Qt${QT_MAJOR_VERSION}::Qml
         KF5::WindowSystem
 )
 
-if(WIN32 AND BUILD_SHARED_LIBS)
-    set_target_properties(kwindowsystem PROPERTIES PREFIX "")
-endif()
-
-install(TARGETS kwindowsystem DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kwindowsystem)
-
-install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kwindowsystem)
+ecm_finalize_qml_module(kwindowsystem DESTINATION ${KDE_INSTALL_QMLDIR})

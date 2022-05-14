@@ -1,6 +1,8 @@
 project(kquickcontrolsprivate)
 
-set(kquickcontrolsprivate_SRCS
+ecm_add_qml_module(kquickcontrolsprivateplugin URI "org.kde.private.kquickcontrols" VERSION 2.0)
+
+target_sources(kquickcontrolsprivateplugin PRIVATE
     keysequencehelper.cpp
     keysequencehelper.h
     kquickcontrolsprivateplugin.cpp
@@ -9,8 +11,6 @@ set(kquickcontrolsprivate_SRCS
     translationcontext.h
 
 )
-
-add_library(kquickcontrolsprivateplugin ${kquickcontrolsprivate_SRCS})
 
 target_link_libraries(kquickcontrolsprivateplugin
         Qt${QT_MAJOR_VERSION}::Core
@@ -27,10 +27,4 @@ if (NOT WIN32)
     target_link_libraries(kquickcontrolsprivateplugin KF5::GlobalAccel)
 endif()
 
-if(WIN32 AND BUILD_SHARED_LIBS)
-    set_target_properties(kquickcontrolsprivateplugin PROPERTIES PREFIX "")
-endif()
-
-install(TARGETS kquickcontrolsprivateplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/private/kquickcontrols)
-
-install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/private/kquickcontrols)
+ecm_finalize_qml_module(kquickcontrolsprivateplugin DESTINATION ${KDE_INSTALL_QMLDIR})

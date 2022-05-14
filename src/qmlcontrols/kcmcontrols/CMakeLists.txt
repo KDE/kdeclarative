@@ -1,6 +1,8 @@
 project(kcmcontrols)
 
-set(kcmcontrols_SRCS
+ecm_add_qml_module(kcmcontrolsplugin URI "org.kde.kcm" VERSION 1.1)
+
+target_sources(kcmcontrolsplugin PRIVATE
     kcmcontrolsplugin.cpp
     kcmcontrolsplugin.h
     settinghighlighterprivate.cpp
@@ -9,7 +11,38 @@ set(kcmcontrols_SRCS
     settingstateproxy.h
 )
 
-add_library(kcmcontrolsplugin ${kcmcontrols_SRCS})
+ecm_target_qml_sources(kcmcontrolsplugin SOURCES
+    qml/GridDelegate.qml
+    qml/GridViewKCM.qml
+    qml/GridView.qml
+    qml/SimpleKCM.qml
+)
+
+ecm_target_qml_sources(kcmcontrolsplugin VERSION 1.2 SOURCES
+    qml/ScrollView.qml
+    qml/ScrollViewKCM.qml
+)
+
+ecm_target_qml_sources(kcmcontrolsplugin VERSION 1.3 SOURCES
+    qml/SettingStateBinding.qml
+)
+
+ecm_target_qml_sources(kcmcontrolsplugin VERSION 1.4 SOURCES
+    qml/AbstractKCM.qml
+)
+
+ecm_target_qml_sources(kcmcontrolsplugin VERSION 1.5 SOURCES
+    qml/SettingHighlighter.qml
+)
+
+ecm_target_qml_sources(kcmcontrolsplugin VERSION 1.6 SOURCES
+    qml/ContextualHelpButton.qml
+)
+
+ecm_target_qml_sources(kcmcontrolsplugin PRIVATE PATH private SOURCES
+    qml/private/GridViewInternal.qml
+)
+
 target_link_libraries(kcmcontrolsplugin
         Qt${QT_MAJOR_VERSION}::Core
         Qt${QT_MAJOR_VERSION}::Quick
@@ -20,11 +53,4 @@ target_link_libraries(kcmcontrolsplugin
         KF5::ConfigCore
 )
 
-if(WIN32 AND BUILD_SHARED_LIBS)
-    set_target_properties(kcmcontrolsplugin PROPERTIES PREFIX "")
-endif()
-
-
-install(TARGETS kcmcontrolsplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kcm)
-
-install(DIRECTORY qml/ DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kcm)
+ecm_finalize_qml_module(kcmcontrolsplugin DESTINATION ${KDE_INSTALL_QMLDIR})

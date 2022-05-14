@@ -2,7 +2,10 @@ project(kquickcontrolsaddons)
 
 configure_file(config-kquickcontrolsaddons.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kquickcontrolsaddons.h)
 
-set(kquickcontrolsaddons_SRCS
+ecm_add_qml_module(kquickcontrolsaddonsplugin URI "org.kde.kquickcontrolsaddons" VERSION 1.0)
+
+
+target_sources(kquickcontrolsaddonsplugin PRIVATE
     clipboard.cpp
     clipboard.h
     columnproxymodel.cpp
@@ -30,8 +33,6 @@ set(kquickcontrolsaddons_SRCS
 
 )
 
-add_library(kquickcontrolsaddonsplugin ${kquickcontrolsaddons_SRCS})
-
 target_link_libraries(kquickcontrolsaddonsplugin
         Qt${QT_MAJOR_VERSION}::Core
         Qt${QT_MAJOR_VERSION}::Quick
@@ -47,10 +48,4 @@ if (HAVE_EPOXY)
     target_link_libraries(kquickcontrolsaddonsplugin epoxy::epoxy)
 endif()
 
-if(WIN32 AND BUILD_SHARED_LIBS)
-    set_target_properties(kquickcontrolsaddonsplugin PROPERTIES PREFIX "")
-endif()
-
-install(TARGETS kquickcontrolsaddonsplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kquickcontrolsaddons)
-
-install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kquickcontrolsaddons)
+ecm_finalize_qml_module(kquickcontrolsaddonsplugin DESTINATION ${KDE_INSTALL_QMLDIR})
