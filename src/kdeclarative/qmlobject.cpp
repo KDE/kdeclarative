@@ -171,7 +171,7 @@ QmlObject::QmlObject(std::shared_ptr<QQmlEngine> engine, QQmlContext *rootContex
     if (rootContext) {
         d->rootContext = rootContext;
     } else {
-        d->rootContext = engine->rootContext();
+        d->rootContext = d->engine->rootContext();
     }
 
     d->context = new KLocalizedContext(this);
