@@ -281,7 +281,7 @@ public:
     ~PlotSGNode() override = default;
 
 private:
-    QScopedPointer<QOpenGLShaderProgram> m_program;
+    std::unique_ptr<QOpenGLShaderProgram> m_program;
     int u_matrix;
     int u_color1;
     int u_color2;
@@ -290,7 +290,7 @@ private:
 };
 
 PlotSGNode::PlotSGNode()
-    : m_program(new QOpenGLShaderProgram)
+    : m_program(std::make_unique<QOpenGLShaderProgram>())
 {
     setOwnsTexture(true);
     m_program->addCacheableShaderFromSourceCode(QOpenGLShader::Vertex, vs_source);
