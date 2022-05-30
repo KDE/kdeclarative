@@ -180,7 +180,7 @@ QmlObject::QmlObject(std::shared_ptr<QQmlEngine> engine, QQmlContext *rootContex
         d->rootContext = d->engine->rootContext();
     }
 
-    d->context = new KLocalizedContext(this);
+    d->context = new KLocalizedContext(d->rootContext);
     d->rootContext->setContextObject(d->context);
 }
 
