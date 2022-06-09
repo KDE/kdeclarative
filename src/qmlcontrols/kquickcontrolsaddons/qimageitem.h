@@ -32,6 +32,7 @@ public:
         Tile, // the image is duplicated horizontally and vertically
         TileVertically, // the image is stretched horizontally and tiled vertically
         TileHorizontally, // the image is stretched vertically and tiled horizontally
+        Pad, /**< the image is not transformed @since 5.96 **/
     };
     Q_ENUM(FillMode)
 

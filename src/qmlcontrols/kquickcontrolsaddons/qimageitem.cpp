@@ -103,7 +103,11 @@ void QImageItem::paint(QPainter *painter)
         painter->scale(1, height() / (qreal)m_image.height());
     }
 
-    if (m_fillMode >= Tile) {
+    if (m_fillMode == Pad) {
+        QRect centeredRect = m_paintedRect;
+        centeredRect.moveCenter(m_image.rect().center());
+        painter->drawImage(m_paintedRect, m_image, centeredRect);
+    } else if (m_fillMode >= Tile) {
         painter->drawTiledPixmap(m_paintedRect, QPixmap::fromImage(m_image));
     } else {
         painter->drawImage(m_paintedRect, m_image, m_image.rect());
@@ -174,6 +178,7 @@ void QImageItem::updatePaintedRect()
     }
     case Stretch:
     case Tile:
+    case Pad:
     default:
         destRect = boundingRect().toRect();
     }
