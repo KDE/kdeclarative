@@ -84,10 +84,10 @@ RowLayout {
             return " " + text + (helper.isRecording ? " ... " : " ")
         }
 
-        ToolTip.visible: hovered
-        ToolTip.delay: 1000
-        ToolTip.text: _tr.i18n("Click on the button, then enter the shortcut like you would in the program.\nExample for Ctrl+A: hold the Ctrl key and press A.")
-        ToolTip.timeout: 5000
+        ToolTip {
+            visible: mainButton.hovered
+            text: _tr.i18n("Click on the button, then enter the shortcut like you would in the program.\nExample for Ctrl+A: hold the Ctrl key and press A.")
+        }
 
         onCheckedChanged: {
             if (checked) {
