@@ -85,6 +85,16 @@ bool KWindowSystemProxy::compositingActive() const
     return KWindowSystem::compositingActive();
 }
 
+bool KWindowSystemProxy::isPlatformX11() const
+{
+    return KWindowSystem::isPlatformX11();
+}
+
+bool KWindowSystemProxy::isPlatformWayland() const
+{
+    return KWindowSystem::isPlatformWayland();
+}
+
 bool KWindowSystemProxy::hasWindow(QWindow *window) const
 {
     if (!window) {

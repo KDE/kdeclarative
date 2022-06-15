@@ -66,6 +66,22 @@ class KWindowSystemProxy : public QObject
      */
     Q_PROPERTY(bool compositingActive READ compositingActive NOTIFY compositingActiveChanged)
 
+    /**
+     * @brief Whether the Platform is X11.
+     *
+     * @see isPlatformWayland
+     * @since 5.96
+     */
+    Q_PROPERTY(bool isPlatformX11 READ isPlatformX11)
+
+    /**
+     * @brief Whether the Platform is Wayland.
+     *
+     * @see isPlatformX11
+     * @since 5.96
+     */
+    Q_PROPERTY(bool isPlatformWayland READ isPlatformWayland)
+
 public:
     explicit KWindowSystemProxy(QObject *parent = nullptr);
     ~KWindowSystemProxy() override;
@@ -80,6 +96,9 @@ public:
     void setShowingDesktop(bool showingDesktop);
 
     bool compositingActive() const;
+
+    bool isPlatformX11() const;
+    bool isPlatformWayland() const;
 
     /**
      * Test to see if @p window still managed at present.
