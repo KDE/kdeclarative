@@ -72,7 +72,7 @@ class KWindowSystemProxy : public QObject
      * @see isPlatformWayland
      * @since 5.96
      */
-    Q_PROPERTY(bool isPlatformX11 READ isPlatformX11)
+    Q_PROPERTY(bool isPlatformX11 READ isPlatformX11 CONSTANT)
 
     /**
      * @brief Whether the Platform is Wayland.
@@ -80,7 +80,7 @@ class KWindowSystemProxy : public QObject
      * @see isPlatformX11
      * @since 5.96
      */
-    Q_PROPERTY(bool isPlatformWayland READ isPlatformWayland)
+    Q_PROPERTY(bool isPlatformWayland READ isPlatformWayland CONSTANT)
 
 public:
     explicit KWindowSystemProxy(QObject *parent = nullptr);
