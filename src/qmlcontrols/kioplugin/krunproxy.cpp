@@ -6,6 +6,7 @@
 
 #include "krunproxy.h"
 
+#include <QDebug>
 #include <QMimeDatabase>
 
 #include <KIO/ApplicationLauncherJob>
