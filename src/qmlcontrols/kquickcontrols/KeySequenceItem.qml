@@ -110,7 +110,15 @@ RowLayout {
         Layout.preferredWidth: height
         onClicked: root.keySequence = helper.fromString()
 
+        hoverEnabled: true
         // icon name determines the direction of the arrow, NOT the direction of the app layout
         icon.name: Qt.application.layoutDirection === Qt.LeftToRight ? "edit-clear-locationbar-rtl" : "edit-clear-locationbar-ltr"
+
+        Accessible.name: _tr.i18nc("@info:tooltip", "Clear Key Sequence")
+
+        ToolTip {
+            visible: clearButton.hovered
+            text: clearButton.Accessible.name
+        }
     }
 }
