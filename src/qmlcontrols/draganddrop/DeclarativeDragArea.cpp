@@ -6,7 +6,6 @@
 */
 
 #include "DeclarativeDragArea.h"
-#include "DeclarativeMimeData.h"
 
 #include <QDrag>
 #include <QGuiApplication>
