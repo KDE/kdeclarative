@@ -1,0 +1,163 @@
+# Korean messages for kdelibs.
+# Copyright (C) Free Software Foundation, Inc.
+# Cho Sung Jae <cho.sungjae@gmail.com>, 2007.
+# Shinjo Park <kde@peremen.name>, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2019, 2020, 2021, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-06-30 00:41+0000\n"
+"PO-Revision-Date: 2022-04-16 22:00+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 21.08.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "박신조"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde@peremen.name"
+
+#: kpackagelauncherqml/main.cpp:30
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr "KPackage QML 프로그램 셸"
+
+#: kpackagelauncherqml/main.cpp:38
+#, kde-format
+msgid "The unique name of the application (mandatory)"
+msgstr "프로그램의 식별 가능한 이름(필수)"
+
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Contextual Help"
+msgstr "문맥 도움말 표시"
+
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#, kde-format
+msgid "No items found"
+msgstr "항목 없음"
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:63
+#, kde-format
+msgctxt "@info:whatsthis for a button"
+msgid "Color button"
+msgstr "색상 단추"
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:65
+#, kde-format
+msgctxt "@info:whatsthis for a button of current color code %1"
+msgid "Current color is %1. This button will open a color chooser dialog."
+msgstr ""
+"현재 색상은 %1입니다. 이 단추를 클릭하면 색상 선택기 대화 상자를 엽니다."
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:66
+#, kde-format
+msgctxt "@info:whatsthis for a button of current color code %1"
+msgid "Current color is %1."
+msgstr "현재 색상은 %1입니다."
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:75
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "입력"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:76
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "없음"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:87
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"단추를 클릭한 다음 프로그램에 사용할 단축키를 누르십시오.\n"
+"Ctrl+A를 사용하려면 Ctrl 키를 누르면서 A 키를 누르십시오."
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:119
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear Key Sequence"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "예약된 단축키"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:120
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"F12 키는 Windows에서 예약되어 있으므로 전역 단축키로 사용할 수 없습니다.\n"
+"다른 키를 선택하십시오."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
+#, kde-format
+msgid "Global Shortcut Shadowing"
+msgstr "전역 단축키 재정의"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
+#, kde-format
+msgid "The '%1' key combination is shadowed by following global actions:\n"
+msgstr "'%1' 키 조합은 다음 전역 동작이 우선 순위를 갖습니다:\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:149
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:155
+#, kde-format
+msgid "Action '%1' in context '%2'\n"
+msgstr "상황 '%2'의 동작 '%1'\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
+#, kde-format
+msgid "The '%1' key combination shadows following global actions:\n"
+msgstr "'%1' 키 조합은 다음 전역 동작을 덮어씁니다:\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "표준 프로그램 단축키와 충돌"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"'%1' 키 조합은 많은 프로그램이 사용하는 \"%2\" 표준 동작에 할당되어 있습니"
+"다.\n"
+"그래도 전역 단축키로 사용하시겠습니까?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#, kde-format
+msgid "Reassign"
+msgstr "재할당"
+
+#: quickaddons/configmodule.cpp:187
+#, kde-format
+msgid "Invalid KPackage '%1'"
+msgstr "잘못된 KPackage '%1'"
+
+#: quickaddons/configmodule.cpp:193
+#, kde-format
+msgid "No QML file provided"
+msgstr "QML 파일을 지정하지 않았음"
