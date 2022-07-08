@@ -6,7 +6,7 @@
 
 import QtQuick 2.2
 import QtQuick.Controls 1.2 as QtControls
-import QtQuick.Dialogs 1.0 as QtDialogs
+import Qt.labs.platform 1.1 as QtDialogs
 
 /**
  * @short A pushbutton to display or allow user selection of a color.
@@ -47,7 +47,7 @@ QtControls.Button {
     /**
      * Allow the user to configure an alpha value
      */
-    property alias showAlphaChannel: colorDialog.showAlphaChannel
+    property bool showAlphaChannel: false
 
     /**
      * This signal is emitted when the color dialog has been accepted
@@ -108,6 +108,7 @@ QtControls.Button {
     QtDialogs.ColorDialog {
         id: colorDialog
         onAccepted: colorPicker.accepted(color)
+        options: showAlphaChannel ? QtDialogs.ColorDialog.ShowAlphaChannel : 0
     }
 
     onClicked: {
