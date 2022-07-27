@@ -158,15 +158,19 @@ T2.ItemDelegate {
                     model: delegate.actions
                     delegate: QQC2.Button {
                         icon.name: modelData.iconName
-                        activeFocusOnTab: false
-                        onClicked: modelData.trigger()
+                        text: modelData.text || modelData.tooltip
+                        display: QQC2.AbstractButton.IconOnly
+
                         enabled: modelData.enabled
                         visible: modelData.visible
-                        //NOTE: there aren't any global settings where to take "official" tooltip timeouts
-                        QQC2.ToolTip.delay: 1000
-                        QQC2.ToolTip.timeout: 5000
-                        QQC2.ToolTip.visible: (Kirigami.Settings.isMobile ? pressed : hovered) && modelData.tooltip.length > 0
-                        QQC2.ToolTip.text: modelData.tooltip
+
+                        activeFocusOnTab: false
+
+                        onClicked: modelData.trigger()
+
+                        QQC2.ToolTip {
+                            text: parent.text
+                        }
                     }
                 }
             }
