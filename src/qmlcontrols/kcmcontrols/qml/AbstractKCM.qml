@@ -47,6 +47,24 @@ Kirigami.Page {
      */
     property bool framedView: true
 
+    /**
+     * TODO KF6: remove this property and always have System Settings itself add
+     * appropriate padding above its footer, so individual KCMs don't have to
+     *
+     * extraFooterTopPadding: bool
+     * Whether to add extra top padding to an empty footer when framedView is
+     * false. Use the default value of true for KCMs in System Settings, because
+     * otherwise the Apply, Help, and Defaults buttons provided by System
+     * Settings won't have enough top padding and the button bar will look ugly.
+     * When using this component outside of System Settings where there is no
+     * such restriction, or in System Settings KCMs that don't show Apply, Help,
+     * or Defaults buttons, set it to false.
+     * Default: true
+     *
+     * @since 5.99
+     */
+    property bool extraFooterTopPadding: true
+
     title: (typeof kcm !== "undefined") ? kcm.name : ""
 
     // Make pages fill the whole view by default
@@ -92,12 +110,7 @@ Kirigami.Page {
         id: footerParent
         readonly property bool contentVisible: contentItem && contentItem.visible && contentItem.implicitHeight
 
-        // When the scrollview isn't drawing its own frame, we need to add
-        // extra padding on top when there is no footer content, or else the
-        // Apply, Help, and Defaults buttons provided by System Settings won't
-        // have enough top padding. This isn't a problem when the inner scrollview
-        // draws its own frame because its own outer margins provide this
-        height: contentVisible ? implicitHeight : (root.framedView ? 0 : root.margins)
+        height: contentVisible ? implicitHeight : (root.framedView ? 0 : (root.extraFooterTopPadding ? root.margins : 0))
         leftPadding: root.margins
         topPadding: root.margins
         rightPadding: root.margins
