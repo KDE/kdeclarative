@@ -5,7 +5,7 @@
 */
 
 import QtQuick 2.2
-import QtQuick.Controls 1.3
+import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.1
 
 import org.kde.kquickcontrolsaddons 2.0
@@ -33,7 +33,7 @@ RowLayout {
         Layout.maximumWidth: Layout.minimumWidth
         Layout.minimumHeight: Layout.minimumWidth
         Layout.maximumHeight: Layout.minimumWidth
-        iconName: iconDialog.iconName
+        icon.name: iconDialog.iconName
         onClicked: iconDialog.open()
     }
 

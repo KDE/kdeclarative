@@ -1,6 +1,6 @@
 import org.kde.kquickcontrolsaddons 2.0
 import QtQuick 2.2
-import QtQuick.Controls 1.3
+import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.1
 
 

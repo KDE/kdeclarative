@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 1.1
+import QtQuick.Controls 2.15
 import org.kde.kquickcontrolsaddons 2.0 as KQCA
 
 //this file should be used via qimageitemtest executable
