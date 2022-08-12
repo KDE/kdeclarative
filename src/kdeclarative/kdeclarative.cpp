@@ -147,6 +147,7 @@ void KDeclarative::setupQmlJsDebugger()
 #endif
 }
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 98)
 QString KDeclarative::defaultComponentsTarget()
 {
     return QLatin1String("desktop");
@@ -180,5 +181,5 @@ void KDeclarative::setRuntimePlatform(const QStringList &platform)
 {
     KDeclarativePrivate::s_runtimePlatform = platform;
 }
-
+#endif
 }

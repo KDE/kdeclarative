@@ -155,34 +155,44 @@ public:
      */
     static void setupQmlJsDebugger();
 
+#if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 98)
     /**
      * @return the runtime platform, e.g. "desktop" or "tablet, touch". The first entry/ies in
      *         the list relate to the platform formfactor and the last is the input method
      *         specialization. If the string is empty, there is no specified runtime platform
      *         and a traditional desktop environment may be assumed
      * @since 4.10
+     * @deprecated Since 5.98, use KRuntimePlatform::runtimePlatform instead
      */
+    KDECLARATIVE_DEPRECATED_VERSION(5, 98, "Use KRuntimePlatform::runtimePlatform instead")
     static QStringList runtimePlatform();
 
     /**
      * Sets the runtime platform from now on, globally to the process.
      * Already loaded QML components won't be affected.
      * @since 5.0
+     * @deprecated Since 5.98, deprecated for lack of usage, set PLASMA_PLATFORM ENV variable instead
      */
+    KDECLARATIVE_DEPRECATED_VERSION(5, 98, "Deprecated for lack of usage, set PLASMA_PLATFORM ENV variable instead")
     static void setRuntimePlatform(const QStringList &platform);
 
     /**
      * @return the QML components target, based on the runtime platform. e.g. touch or desktop
      * @since 4.10
+     * @deprecated Since 5.98, deprecated for lack of usage, use last value from KRuntimePlatform::runtimePlatform instead
      */
+    KDECLARATIVE_DEPRECATED_VERSION(5, 98, "Deprecated for lack of usage, use last value from KRuntimePlatform::runtimePlatform instead")
     static QString componentsTarget();
 
     /**
      * @return the default components target; can be used to compare against the returned value
      *         from @see componentsTarget()
      * @since 4.10
+     * @deprecated Since 5.98, deprecated for lack of usage, use "desktop" as hardcoded value instead
      */
+    KDECLARATIVE_DEPRECATED_VERSION(5, 98, "Deprecated for lack of usage, use \"desktop\" as hardcoded value instead")
     static QString defaultComponentsTarget();
+#endif
 
     /**
      * Setup a QML engine for use with any KDeclarative object.
