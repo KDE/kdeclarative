@@ -105,6 +105,7 @@ void KDeclarative::setupEngine(QQmlEngine *engine)
        paths we need to traverse the list in reverse order */
     const QStringList pluginPathList = engine->importPathList();
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 98)
     const QString target = componentsTarget();
     if (target != defaultComponentsTarget()) {
         const QStringList paths = pluginPathList;
@@ -116,6 +117,7 @@ void KDeclarative::setupEngine(QQmlEngine *engine)
             engine->addImportPath(path + QStringLiteral("/platformqml/") + target);
         }
     }
+#endif
 
     // setup ImageProvider for KDE icons
     engine->addImageProvider(QStringLiteral("icon"), new KIconProvider);
