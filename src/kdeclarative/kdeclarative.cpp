@@ -140,6 +140,7 @@ QString KDeclarative::translationDomain() const
 }
 #endif
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 98)
 void KDeclarative::setupQmlJsDebugger()
 {
 #if QT_CONFIG(qml_debug)
@@ -149,7 +150,6 @@ void KDeclarative::setupQmlJsDebugger()
 #endif
 }
 
-#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 98)
 QString KDeclarative::defaultComponentsTarget()
 {
     return QLatin1String("desktop");

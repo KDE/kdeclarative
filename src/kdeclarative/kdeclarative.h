@@ -147,15 +147,17 @@ public:
     QString translationDomain() const;
 #endif
 
+#if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 98)
     /**
      * This method must be called very early at startup time to ensure the
      * QQuickDebugger is enabled. Ideally it should be called in main(),
      * after command-line options are defined.
      * @since 5.0
+     * @deprecated Since 5.98, deprecated for lack of usage. Set the debugger manually up
      */
+    KDECLARATIVE_DEPRECATED_VERSION(5, 98, "Deprecated for lack of usage. Set the debugger manually up")
     static void setupQmlJsDebugger();
 
-#if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 98)
     /**
      * @return the runtime platform, e.g. "desktop" or "tablet, touch". The first entry/ies in
      *         the list relate to the platform formfactor and the last is the input method
