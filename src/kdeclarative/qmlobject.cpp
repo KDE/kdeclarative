@@ -214,6 +214,7 @@ QUrl QmlObject::source() const
     return d->source;
 }
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 98)
 void QmlObject::loadPackage(const QString &packageName)
 {
     d->package = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/GenericQML"));
@@ -231,6 +232,7 @@ KPackage::Package QmlObject::package() const
 {
     return d->package;
 }
+#endif
 
 void QmlObject::setInitializationDelayed(const bool delay)
 {
