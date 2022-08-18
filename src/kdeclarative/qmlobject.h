@@ -11,8 +11,11 @@
 
 #include <QQmlComponent>
 
-#include <KPackage/Package>
 #include <kdeclarative/kdeclarative_export.h>
+
+#if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 98)
+#include <KPackage/Package>
+#endif
 
 class QQmlEngine;
 class QQmlComponent;
@@ -133,12 +136,15 @@ public:
      */
     QUrl source() const;
 
+#if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 98)
     /**
      * Load the package called packageName, then loads the
      * mainscript file for that package
      *
      * @param packageName the plugin name of the package
+     * @seprecated Since 5.98, use KPackage manually and set the source URL to the "mainscript" file path
      */
+    KDECLARATIVE_DEPRECATED_VERSION(5, 98, "use KPackage manually and set the source URL to the \"mainscript\" file path")
     void loadPackage(const QString &packageName);
 
     /**
@@ -147,13 +153,18 @@ public:
      *
      * @param package the package we want to use to provide QML
      *         files to this QML object
+     * @seprecated Since 5.98, use KPackage manually and set the source URL to the "mainscript" file path
      */
+    KDECLARATIVE_DEPRECATED_VERSION(5, 98, "use KPackage manually and set the source URL to the \"mainscript\" file path")
     void setPackage(const KPackage::Package &package);
 
     /**
      * @return the optional package, if any
+     * @seprecated Since 5.98, use KPackage manually and set the source URL to the "mainscript" file path
      */
+    KDECLARATIVE_DEPRECATED_VERSION(5, 98, "use KPackage manually and set the source URL to the \"mainscript\" file path")
     KPackage::Package package() const;
+#endif
 
     /**
      * Sets whether the execution of the QML file has to be delayed later in the event loop. It has to be called before setQmlPath().

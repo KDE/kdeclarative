@@ -14,7 +14,9 @@
 #include <QQuickItem>
 #include <QTimer>
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 98)
 #include <KPackage/PackageLoader>
+#endif
 #include <QDebug>
 #include <kdeclarative.h>
 
@@ -81,7 +83,9 @@ public:
     QQmlComponent *component;
     QTimer *executionEndTimer;
     KLocalizedContext *context{nullptr};
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 98)
     KPackage::Package package;
+#endif
     QQmlContext *rootContext;
     bool delay : 1;
 };
@@ -214,6 +218,7 @@ QUrl QmlObject::source() const
     return d->source;
 }
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 98)
 void QmlObject::loadPackage(const QString &packageName)
 {
     d->package = KPackage::PackageLoader::self()->loadPackage(QStringLiteral("KPackage/GenericQML"));
@@ -231,6 +236,7 @@ KPackage::Package QmlObject::package() const
 {
     return d->package;
 }
+#endif
 
 void QmlObject::setInitializationDelayed(const bool delay)
 {
