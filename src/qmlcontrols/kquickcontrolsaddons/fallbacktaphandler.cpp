@@ -75,7 +75,7 @@ bool FallbackTapHandler::childMouseEventFilter(QQuickItem *item, QEvent *event)
 
 void FallbackTapHandler::mousePressEvent(QMouseEvent *event)
 {
-    if ((!(event->button() & acceptedMouseButtons()) && !(event->buttons() & acceptedMouseButtons()))) {
+    if (!(event->button() & acceptedMouseButtons()) && !(event->buttons() & acceptedMouseButtons())) {
         event->ignore();
         return;
     }
@@ -90,7 +90,7 @@ void FallbackTapHandler::mousePressEvent(QMouseEvent *event)
 
 void FallbackTapHandler::mouseReleaseEvent(QMouseEvent *event)
 {
-    if ((!(event->button() & acceptedMouseButtons()) && !(event->buttons() & acceptedMouseButtons()))) {
+    if (!(event->button() & acceptedMouseButtons()) && !(event->buttons() & acceptedMouseButtons())) {
         event->ignore();
         return;
     }
