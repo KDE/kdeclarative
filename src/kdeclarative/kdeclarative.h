@@ -194,7 +194,6 @@ public:
      */
     KDECLARATIVE_DEPRECATED_VERSION(5, 98, "Deprecated for lack of usage, use \"desktop\" as hardcoded value instead")
     static QString defaultComponentsTarget();
-#endif
 
     /**
      * Setup a QML engine for use with any KDeclarative object.
@@ -210,8 +209,12 @@ public:
      * @param engine the engine to setup
      * @sa setupContext(), componentsTarget()
      * @since 5.45
+     * @deprecated Since 5.98, set up the KQuickIconProvider from KIconThemes and the QQmlNetworkAccessManagerFactory creating a KIO::Integration::AccessManager
+     * mnually up with if needed
      */
+    KDECLARATIVE_DEPRECATED_VERSION(5, 98, "See API docs")
     static void setupEngine(QQmlEngine *engine);
+#endif
 
 private:
     KDeclarativePrivate *const d;

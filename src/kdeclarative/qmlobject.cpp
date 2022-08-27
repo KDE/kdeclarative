@@ -168,9 +168,11 @@ QmlObject::QmlObject(std::shared_ptr<QQmlEngine> engine, QQmlContext *rootContex
         d->engine = std::make_shared<QQmlEngine>();
     }
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 98)
     if (d->engine.use_count() <= 2) {
         KDeclarative::setupEngine(d->engine.get());
     }
+#endif
 
     if (rootContext) {
         d->rootContext = rootContext;
