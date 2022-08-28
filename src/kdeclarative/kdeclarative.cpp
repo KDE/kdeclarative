@@ -6,7 +6,6 @@
 
 #include "kdeclarative.h"
 #include "private/kdeclarative_p.h"
-#include "private/kiconprovider_p.h"
 #include "private/kioaccessmanagerfactory_p.h"
 #include "qmlobject.h"
 
@@ -15,6 +14,7 @@
 #include <QQmlDebuggingEnabler>
 
 #include <KConfigGroup>
+#include <KQuickIconProvider>
 #include <KSharedConfig>
 
 namespace KDeclarative
@@ -119,7 +119,7 @@ void KDeclarative::setupEngine(QQmlEngine *engine)
     }
 
     // setup ImageProvider for KDE icons
-    engine->addImageProvider(QStringLiteral("icon"), new KIconProvider);
+    engine->addImageProvider(QStringLiteral("icon"), new KQuickIconProvider);
 }
 #endif
 

@@ -5,8 +5,6 @@ set(kdeclarative_SRCS
     kdeclarative.cpp
     kdeclarative.h
     private/kdeclarative_p.h
-    private/kiconprovider.cpp
-    private/kiconprovider_p.h
     qmlobject.cpp
     qmlobject.h
     qmlobjectsharedengine.cpp
