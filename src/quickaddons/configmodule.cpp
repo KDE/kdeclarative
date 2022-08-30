@@ -27,6 +27,8 @@
 #include <KPackage/Package>
 #include <KPackage/PackageLoader>
 
+#include <memory>
+
 namespace KQuickAddons
 {
 class ConfigModulePrivate
@@ -167,7 +169,7 @@ QQuickItem *ConfigModule::mainUi()
     QQmlContext *ctx = QQmlEngine::contextForObject(this);
 
     if (ctx && ctx->engine()) {
-        d->_qmlObject = new KDeclarative::QmlObject(ctx->engine(), ctx, this);
+        d->_qmlObject = new KDeclarative::QmlObject(std::shared_ptr<QQmlEngine>(ctx->engine()), ctx, this);
     } else {
         d->_qmlObject = new KDeclarative::QmlObjectSharedEngine(this);
     }
