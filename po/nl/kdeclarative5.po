@@ -1,0 +1,184 @@
+# translation of kdelibs4.po to Dutch
+# Copyright (C) 2000,2001,2002,2003, 2004 KDE e.v..
+# KTranslator Generated File
+# Nederlandse vertaling van kdelibs.
+# KDE-vertaalgroep Nederlands <i18n@kde.nl>, 2000, 2001, 2002.
+# Rinse de Vries <rinsedevries@kde.nl>,2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009.
+# Wilbert Berendsen <wbsoft@xs4all.nl>, 2003, 2004.
+# Bram Schoenmakers <bramschoenmakers@kde.nl>, 2004, 2005, 2006, 2007.
+# Tom Albers <tomalbers@kde.nl>, 2004.
+# Sander Koning <sanderkoning@kde.nl>, 2005.
+# Tijmen Baarda <tijmenbaarda@kde.nl>, 2005.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2008, 2009.
+# Kristof Bal <kristof.bal@gmail.com>, 2008, 2009.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2009, 2010.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2010, 2011, 2012.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2010, 2011, 2013, 2014, 2015, 2019, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-31 00:42+0000\n"
+"PO-Revision-Date: 2022-06-30 09:55+0200\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Files: kfarch.cpp kfdird.cpp kfind.cpp kfindtop.cpp kfoptions.cpp kfsave.cpp "
+"kftabdlg.cpp kftypes.cpp kfwin.cpp main.cpp mkfdird.cpp mkfind.cpp\n"
+"X-Generator: Lokalize 22.04.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"Rinse de Vries - 2000 t/m 2008,Wilbert Berendsen - 2003; 2004,Bram "
+"Schoenmakers - 2004 t/m 2007,Tom Albers - 2004,Tijmen Baarda - 2005,Sander "
+"Koning - 2005, Freek de Kruijf - 2009 t/m 2022"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"rinsedevries@kde.nl,wbsoft@xs4all.nl,bramschoenmakers@kde.nl,tomalbers@kde."
+"nl,tijmenbaarda@kde.nl,,freekdekruijf@kde.nl"
+
+#: kpackagelauncherqml/main.cpp:30
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr "KPackage QML toepassingsshell"
+
+#: kpackagelauncherqml/main.cpp:38
+#, kde-format
+msgid "The unique name of the application (mandatory)"
+msgstr "De unieke naam van de toepassingen"
+
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Contextual Help"
+msgstr "Contextuele hulp tonen"
+
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#, kde-format
+msgid "No items found"
+msgstr "Geen items gevonden"
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:63
+#, kde-format
+msgctxt "@info:whatsthis for a button"
+msgid "Color button"
+msgstr "Kleurenknop"
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:65
+#, kde-format
+msgctxt "@info:whatsthis for a button of current color code %1"
+msgid "Current color is %1. This button will open a color chooser dialog."
+msgstr ""
+"Huidige kleur is %1. Deze knop zal een dialoog met de kleurenkiezer openen."
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:66
+#, kde-format
+msgctxt "@info:whatsthis for a button of current color code %1"
+msgid "Current color is %1."
+msgstr "Huidige kleur is %1."
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:75
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Invoer"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:76
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Geen"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:87
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"Klik op de knop, voer dan de sneltoets in zoals u zou doen in het "
+"programma.\n"
+"Voorbeeld voor Ctrl+A: houdt de Ctrl-toets in en druk op A."
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:119
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear Key Sequence"
+msgstr "Toetsenreeks wissen"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "Gereserveerde snelkoppeling"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:120
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"De F12-toets is gereserveerd in Windows, en kan dus niet gebruikt worden "
+"voor een globale sneltoets.\n"
+"Graag een andere kiezen."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
+#, kde-format
+msgid "Global Shortcut Shadowing"
+msgstr "Globaal schaduwen van sneltoets"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
+#, kde-format
+msgid "The '%1' key combination is shadowed by following global actions:\n"
+msgstr ""
+"De toetsencombinatie '%1' wordt geschaduwd door de volgende globale acties:\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:149
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:155
+#, kde-format
+msgid "Action '%1' in context '%2'\n"
+msgstr "Actie '%1' in context '%2'\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
+#, kde-format
+msgid "The '%1' key combination shadows following global actions:\n"
+msgstr "De toetscombinatie '%1' schaduwt de volgende globale acties:\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Conflict met standaard-sneltoets"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"De toetscombinatie '%1' is reeds toegewezen aan de standaardactie \"%2\". "
+"Deze actie wordt door enkele programma's gebruikt.\n"
+"Wilt u de combinatie ook gebruiken als globale toetsencombinatie?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#, kde-format
+msgid "Reassign"
+msgstr "Opnieuw toewijzen"
+
+#: quickaddons/configmodule.cpp:189
+#, kde-format
+msgid "Invalid KPackage '%1'"
+msgstr "Ongeldige KPackage '%1'"
+
+#: quickaddons/configmodule.cpp:195
+#, kde-format
+msgid "No QML file provided"
+msgstr "Geen QML-bestand aangeleverd"

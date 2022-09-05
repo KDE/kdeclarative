@@ -1,0 +1,165 @@
+# translation of kdelibs4.po to தமிழ்
+# Copyright (C) 2000,2002, 2004, 2007, 2008 Free Software Foundation, Inc.
+#
+# Sivakumar Shanmugasundaram <sshanmu@yahoo.com>, 2000.
+# Thuraiappah Vaseeharan <t_vasee@yahoo.com>, 2000-2001.
+# ம. ஸ்ரீ ராமதாஸ் | Sri Ramadoss M <amachu@yavarkkum.org>, 2007-2012.
+# Kishore G <kishore96@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-31 00:42+0000\n"
+"PO-Revision-Date: 2022-06-30 21:30+0530\n"
+"Last-Translator: Kishore G <kishore96@gmail.com>\n"
+"Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.04.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ம. ஸ்ரீ ராமதாஸ்"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "amachu@yavarkkum.org"
+
+#: kpackagelauncherqml/main.cpp:30
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr ""
+
+#: kpackagelauncherqml/main.cpp:38
+#, kde-format
+msgid "The unique name of the application (mandatory)"
+msgstr "செயலியின் தனிப்பட்ட பெயர் (அவசியம்)"
+
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Contextual Help"
+msgstr "சூழல்சார் உதவியைக் காட்டு"
+
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#, kde-format
+msgid "No items found"
+msgstr "எதுவும் கண்டுபிடிக்கப்படவில்லை"
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:63
+#, kde-format
+msgctxt "@info:whatsthis for a button"
+msgid "Color button"
+msgstr "நிறப் பட்டன்"
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:65
+#, kde-format
+msgctxt "@info:whatsthis for a button of current color code %1"
+msgid "Current color is %1. This button will open a color chooser dialog."
+msgstr "தற்போதைய நிறம் %1 ஆகும். நிறத்தேர்வு சாளரத்தை இப்பட்டன் திறக்கும்."
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:66
+#, kde-format
+msgctxt "@info:whatsthis for a button of current color code %1"
+msgid "Current color is %1."
+msgstr "தற்போதைய நிறம் %1 ஆகும்."
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:75
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "உள்ளீடு"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:76
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "ஏதுமில்லை"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:87
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"பட்டனை அழுத்தி, விருப்பமான சுருக்குவழியை அழுத்துங்கள்.\n"
+"எடுத்துக்காட்டாக, Ctrl+A என்பதை அமைக்க: Ctrl விசையை அழுத்தியப்படியே A விசையை "
+"அழுத்துங்கள்."
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:119
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear Key Sequence"
+msgstr "விசைக்கூட்டை நீக்கு"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "ஒதுக்கப்பட்டுள்ள சுருக்குவழி"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:120
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"F12 விண்டோஸில் ஒதுக்கப்பட்டுள்ளதால், பொதுவான சுருக்கு வழியாக அதை பயன்படுத்த முடியாது.\n"
+"வேறொன்றை தேர்வு செய்யுங்கள்."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
+#, kde-format
+msgid "Global Shortcut Shadowing"
+msgstr "பொதுவான சுருக்குவழியுடன் முரண்பாடு"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
+#, kde-format
+msgid "The '%1' key combination is shadowed by following global actions:\n"
+msgstr "'%1' என்ற விசைக்கூட்டு, பின்வரும் பொது சுருக்குவழிகளுடன் முரண்படுகிறது:\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:149
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:155
+#, kde-format
+msgid "Action '%1' in context '%2'\n"
+msgstr "'%2' என்பதில் '%1' என்ற செயல்\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
+#, kde-format
+msgid "The '%1' key combination shadows following global actions:\n"
+msgstr "'%1' என்ற விசைக்கூட்டு, பின்வரும் பொது சுருக்குவழிகளுடன் முரண்படுகிறது:\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "வழக்கமான செயலிச் சுருக்கு வழியுடன் முரண்பாடு"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"'%1' எனும் விசைக்கூட்டு, வழக்கமாக பல செயலிகளால் \"%2\" என்ற செயலுக்கு "
+"பயன்படுத்தப்படும்.\n"
+"இதைப் பொது சுருக்குவழியாகவும் பயன்படுத்த வேண்டுமா?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#, kde-format
+msgid "Reassign"
+msgstr "இதற்கே அமர்த்து"
+
+#: quickaddons/configmodule.cpp:189
+#, kde-format
+msgid "Invalid KPackage '%1'"
+msgstr "செல்லுபடியாகாத KPackage '%1'"
+
+#: quickaddons/configmodule.cpp:195
+#, kde-format
+msgid "No QML file provided"
+msgstr "QML கோப்பு தரப்படவில்லை"

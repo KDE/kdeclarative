@@ -1,0 +1,179 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-31 00:42+0000\n"
+"PO-Revision-Date: 2011-11-26 15:12+0400\n"
+"Last-Translator: Ainur Shakirov <ainur.shakirov.tt@gmail.com>\n"
+"Language-Team: Tatar <>\n"
+"Language: tt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Ainur Shakirov"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ainur.shakirov.tt@gmail.com"
+
+#: kpackagelauncherqml/main.cpp:30
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr ""
+
+#: kpackagelauncherqml/main.cpp:38
+#, fuzzy, kde-format
+#| msgid "defines the application font"
+msgid "The unique name of the application (mandatory)"
+msgstr "кушымтаның хәрефен билгели"
+
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Contextual Help"
+msgstr ""
+
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#, fuzzy, kde-format
+#| msgid "Not found"
+msgid "No items found"
+msgstr "Табылмады"
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:63
+#, fuzzy, kde-format
+#| msgctxt "left mouse button"
+#| msgid "left button"
+msgctxt "@info:whatsthis for a button"
+msgid "Color button"
+msgstr "сул төймә"
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:65
+#, kde-format
+msgctxt "@info:whatsthis for a button of current color code %1"
+msgid "Current color is %1. This button will open a color chooser dialog."
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:66
+#, kde-format
+msgctxt "@info:whatsthis for a button of current color code %1"
+msgid "Current color is %1."
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:75
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "Кертү"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:76
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "Юк"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:87
+#, fuzzy, kde-format
+#| msgid ""
+#| "Click on the button, then enter the shortcut like you would in the "
+#| "program.\n"
+#| "Example for Ctrl+a: hold the Ctrl key and press a."
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"Нажмите на кнопке и введите комбинацию клавиш.\n"
+"Например, для комбинации клавиш Ctrl+A зажмите клавишу Ctrl и нажмите A."
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:119
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear Key Sequence"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "Зарезервированная комбинация клавиш"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:120
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"В Windows клавиша F12 зарезервирована, поэтому её нельзя использовать в "
+"глобальных комбинациях клавиш.\n"
+"Выберите другую комбинацию клавиш."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
+#, kde-format
+msgid "Global Shortcut Shadowing"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
+#, fuzzy, kde-format
+#| msgid ""
+#| "The '%1' key combination is registered by application %2 for action %3:"
+msgid "The '%1' key combination is shadowed by following global actions:\n"
+msgstr "Клавиша «%1» уже назначена в приложении %2 на действие %3:"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:149
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:155
+#, fuzzy, kde-format
+#| msgid "In context '%1' for action '%2'\n"
+msgid "Action '%1' in context '%2'\n"
+msgstr "Контекст «%1» для действия «%2»\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
+#, fuzzy, kde-format
+#| msgid ""
+#| "The '%1' key combination is registered by application %2.\n"
+#| "%3"
+msgid "The '%1' key combination shadows following global actions:\n"
+msgstr ""
+"Клавиша «%1» уже назначена в приложении %2.\n"
+"%3"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "Стандартлы төймә функциясе белән конфликт"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"Комбинация клавиш %1 уже связана со стандартным действием «%2», используемым "
+"во многих программах.\n"
+"Вы действительно хотите использовать эту комбинацию как глобальную?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#, kde-format
+msgid "Reassign"
+msgstr "Яңа белән бәйләү"
+
+#: quickaddons/configmodule.cpp:189
+#, fuzzy, kde-format
+#| msgid "Invalid item."
+msgid "Invalid KPackage '%1'"
+msgstr "Тотылмаган элемент."
+
+#: quickaddons/configmodule.cpp:195
+#, kde-format
+msgid "No QML file provided"
+msgstr ""

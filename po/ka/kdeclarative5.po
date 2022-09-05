@@ -1,0 +1,163 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeclarative package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeclarative\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-31 00:42+0000\n"
+"PO-Revision-Date: 2022-05-22 06:36+0200\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Temuri Doghonadze"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "Temuri.doghonadze@gmail.com"
+
+#: kpackagelauncherqml/main.cpp:30
+#, kde-format
+msgid "KPackage QML application shell"
+msgstr "KPackage QML აპლიკაციის გარსი"
+
+#: kpackagelauncherqml/main.cpp:38
+#, kde-format
+msgid "The unique name of the application (mandatory)"
+msgstr "აპლიკაციის უნიკალური სახელი (აუცილებელია)"
+
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Contextual Help"
+msgstr "კონტექსტური დახმარების ჩვენება"
+
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#, kde-format
+msgid "No items found"
+msgstr "ჩანაწერები ნაპოვნი არაა"
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:63
+#, kde-format
+msgctxt "@info:whatsthis for a button"
+msgid "Color button"
+msgstr "ფერის ღილაკი"
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:65
+#, kde-format
+msgctxt "@info:whatsthis for a button of current color code %1"
+msgid "Current color is %1. This button will open a color chooser dialog."
+msgstr "მიმდინარე ფერია %1. ეს ღილაკი ფერის არჩევის ფანჯარას გახსნის."
+
+#: qmlcontrols/kquickcontrols/ColorButton.qml:66
+#, kde-format
+msgctxt "@info:whatsthis for a button of current color code %1"
+msgid "Current color is %1."
+msgstr "მიმდინარე ფერია %1."
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:75
+#, kde-format
+msgctxt "What the user inputs now will be taken as the new shortcut"
+msgid "Input"
+msgstr "შეტანის ფაილი"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:76
+#, kde-format
+msgctxt "No shortcut defined"
+msgid "None"
+msgstr "არაა"
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:87
+#, kde-format
+msgid ""
+"Click on the button, then enter the shortcut like you would in the program.\n"
+"Example for Ctrl+A: hold the Ctrl key and press A."
+msgstr ""
+"დააჭირეთ ღილაკს და და შეიყვანეთ მალსახმობი, როგორც პროგრამაში.\n"
+"მაგალითად Ctrl+A: დააჭირეთ Ctrl-ს და A-ს."
+
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:119
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Clear Key Sequence"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
+#, kde-format
+msgid "Reserved Shortcut"
+msgstr "დარეზერვებულია მალსახმობი"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:120
+#, kde-format
+msgid ""
+"The F12 key is reserved on Windows, so cannot be used for a global "
+"shortcut.\n"
+"Please choose another one."
+msgstr ""
+"Windows-ზე F12 ღილაკი რეზერვირებულია და მისი გამოყენება გლობალურ მალსახმობად "
+"აკრძალულია.\n"
+"გამოიყენეთ სხვა."
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
+#, kde-format
+msgid "Global Shortcut Shadowing"
+msgstr "გლობალური მალსახმობის გადაჩრდილვა"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
+#, kde-format
+msgid "The '%1' key combination is shadowed by following global actions:\n"
+msgstr ""
+"ღილაკების კომბინაცია '%1' შემდეგი გლობალური ქმედებებითაა გადაჩრდილული:\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:149
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:155
+#, kde-format
+msgid "Action '%1' in context '%2'\n"
+msgstr "ქმედება \"%1' '%2'-ის კონტექსტში\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
+#, kde-format
+msgid "The '%1' key combination shadows following global actions:\n"
+msgstr "ღილაკების კომბინაცია '%1' შემდეგ გლობალურ ქმედებებს გადაჩრდილავს:\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#, kde-format
+msgid "Conflict with Standard Application Shortcut"
+msgstr "კონფლიქტი პროგრამის სტანდარტულ მალსახმობთან"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#, kde-format
+msgid ""
+"The '%1' key combination is also used for the standard action \"%2\" that "
+"some applications use.\n"
+"Do you really want to use it as a global shortcut as well?"
+msgstr ""
+"კლავიშების ბმული %1 უკვე გამოიყენება \"%2\" სტანდარტული ქმედებისთვის.\n"
+"გადმოვამისამართო იგი ახალ ქმედებაზე?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#, kde-format
+msgid "Reassign"
+msgstr "მალსახმობის თავიდან მინიჭება"
+
+#: quickaddons/configmodule.cpp:189
+#, kde-format
+msgid "Invalid KPackage '%1'"
+msgstr "არასწორი KPackage '%1'"
+
+#: quickaddons/configmodule.cpp:195
+#, kde-format
+msgid "No QML file provided"
+msgstr "QML ფაილი მითითებული არაა"
