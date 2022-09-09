@@ -510,7 +510,11 @@ void ConfigModule::setNeedsSave(bool needs)
     Q_EMIT needsSaveChanged();
 }
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+bool ConfigModule::needsSave() const
+#else
 bool ConfigModule::needsSave()
+#endif
 {
     return d->_needsSave;
 }
@@ -525,7 +529,11 @@ void ConfigModule::setRepresentsDefaults(bool defaults)
     Q_EMIT representsDefaultsChanged();
 }
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+bool ConfigModule::representsDefaults() const
+#else
 bool ConfigModule::representsDefaults()
+#endif
 {
     return d->_representsDefaults;
 }
