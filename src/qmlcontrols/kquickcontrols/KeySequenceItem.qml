@@ -12,8 +12,7 @@ RowLayout {
     property bool showCancelButton: false /// TODO KF6 default to true
     property alias modifierlessAllowed: helper.modifierlessAllowed
     property alias multiKeyShortcutsAllowed: helper.multiKeyShortcutsAllowed
-    // Can't use proper types for QGadgets
-    property var/*QKeySequence*/ keySequence: helper.fromString()
+    property alias keySequence: helper.currentKeySequence
 
     /**
      * This property controls which types of shortcuts are checked for conflicts when the keySequence
