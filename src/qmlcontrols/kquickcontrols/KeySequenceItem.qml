@@ -31,8 +31,18 @@ RowLayout {
      * This signal is emitted after the user introduces a new key sequence
      *
      * @since 5.68
+     * @deprecated Use keySequenceModified()
      */
     signal captureFinished()
+
+    /***
+     * Emitted whenever the key sequence is modified by the user, interacting with the component
+     *
+     * Either by interacting capturing a key sequence or pressing the clear button.
+     *
+     * @since 5.99
+     */
+    signal keySequenceModified()
 
     /**
      * Start capturing a key sequence. This equivalent to the user clicking on the main button of the item
@@ -50,6 +60,7 @@ RowLayout {
             }
             mainButton.checked = false;
             root.captureFinished();
+            root.keySequenceModified();
         }
     }
 
@@ -112,8 +123,12 @@ RowLayout {
         id: clearButton
         Layout.fillHeight: true
         Layout.preferredWidth: height
-        onClicked: root.keySequence = helper.fromString()
         visible: root.showClearButton && !helper.isRecording
+        onClicked: {
+            root.keySequence = helper.fromString()
+            root.keySequenceModified();
+            root.captureFinished(); // Not really capturing, but otherwise we cannot track this state, hence apps should use keySequenceModified
+        }
 
         // Just a helper object
         Text {
