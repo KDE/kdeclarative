@@ -8,7 +8,8 @@ import org.kde.private.kquickcontrols 2.0 as KQuickControlsPrivate
 RowLayout {
     id: root
 
-    property alias showClearButton: clearButton.visible
+    property bool showClearButton: true
+    property bool showCancelButton: false /// TODO KF6 default to true
     property alias modifierlessAllowed: helper.modifierlessAllowed
     property alias multiKeyShortcutsAllowed: helper.multiKeyShortcutsAllowed
     // Can't use proper types for QGadgets
@@ -111,6 +112,7 @@ RowLayout {
         Layout.fillHeight: true
         Layout.preferredWidth: height
         onClicked: root.keySequence = helper.fromString()
+        visible: root.showClearButton && !helper.isRecording
 
         hoverEnabled: true
         // icon name determines the direction of the arrow, NOT the direction of the app layout
@@ -121,6 +123,22 @@ RowLayout {
         ToolTip {
             visible: clearButton.hovered
             text: clearButton.Accessible.name
+        }
+    }
+
+    Button {
+        Layout.fillHeight: true
+        Layout.preferredWidth: height
+        onClicked: helper.cancelRecording()
+        visible: root.showCancelButton && helper.isRecording
+
+        icon.name: "dialog-cancel"
+
+        Accessible.name: _tr.i18nc("@info:tooltip", "Cancel Key Sequence Recording")
+
+        ToolTip {
+            visible: parent.hovered
+            text: parent.Accessible.name
         }
     }
 }
