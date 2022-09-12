@@ -116,6 +116,14 @@ RowLayout {
         onClicked: root.keySequence = helper.fromString()
         visible: root.showClearButton && !helper.isRecording
 
+        // Just a helper object
+        Text {
+            id: theText
+            visible: false
+            text: root.keySequence
+        }
+        enabled: theText.text.length > 0
+
         hoverEnabled: true
         // icon name determines the direction of the arrow, NOT the direction of the app layout
         icon.name: Qt.application.layoutDirection === Qt.LeftToRight ? "edit-clear-locationbar-rtl" : "edit-clear-locationbar-ltr"
