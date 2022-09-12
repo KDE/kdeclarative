@@ -97,6 +97,8 @@ RowLayout {
                 helper.window = helper.renderWindow(parent.Window.window)
                 mainButton.forceActiveFocus()
                 helper.startRecording()
+            } else if (helper.isRecording) {
+                helper.cancelRecording()
             }
         }
 
