@@ -226,6 +226,11 @@ T2.ItemDelegate {
 
     QQC2.ToolTip.delay: 1000
     QQC2.ToolTip.timeout: 5000
-    QQC2.ToolTip.visible: hovered && delegate.toolTip.length > 0
-    QQC2.ToolTip.text: toolTip
+    QQC2.ToolTip.visible: hovered && (delegate.toolTip.length > 0 || title.truncated || caption.truncated)
+    QQC2.ToolTip.text: {
+        if (delegate.toolTip.length > 0) {
+            return delegate.toolTip;
+        }
+        return `${title.truncated ? title.text : ""}${caption.truncated ? ("\n" + caption.text) : ""}`;
+    }
 }
