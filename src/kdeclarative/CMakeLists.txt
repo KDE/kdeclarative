@@ -65,7 +65,7 @@ install(FILES ${KDeclarative_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUD
 
 install(TARGETS KF5Declarative
   EXPORT KF5DeclarativeTargets
-  ${KF5_INSTALL_TARGETS_DEFAULT_ARGS}
+  ${KF_INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
 install(FILES

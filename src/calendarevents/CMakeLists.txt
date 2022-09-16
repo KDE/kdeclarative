@@ -16,7 +16,7 @@ set_target_properties(KF5CalendarEvents PROPERTIES VERSION ${KDECLARATIVE_VERSIO
                                                 EXPORT_NAME CalendarEvents
 )
 
-install(TARGETS KF5CalendarEvents EXPORT KF5DeclarativeTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KF5CalendarEvents EXPORT KF5DeclarativeTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ecm_generate_headers(CalendarEvents_CamelCase_HEADERS
   HEADER_NAMES
