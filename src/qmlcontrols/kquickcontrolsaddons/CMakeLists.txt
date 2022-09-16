@@ -1,5 +1,3 @@
-project(kquickcontrolsaddons)
-
 configure_file(config-kquickcontrolsaddons.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kquickcontrolsaddons.h)
 
 set(kquickcontrolsaddons_SRCS

@@ -1,5 +1,3 @@
-project(kwindowsystemplugin)
-
 set(kwindowsystemplugin_SRCS
     kwindowsystemplugin.cpp
     kwindowsystemplugin.h

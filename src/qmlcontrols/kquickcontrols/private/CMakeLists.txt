@@ -1,5 +1,3 @@
-project(kquickcontrolsprivate)
-
 set(kquickcontrolsprivate_SRCS
     keysequencehelper.cpp
     keysequencehelper.h

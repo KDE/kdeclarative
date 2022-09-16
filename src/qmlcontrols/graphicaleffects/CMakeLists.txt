@@ -1,5 +1,3 @@
-project(kgraphicaleffects)
-
 install(FILES
     qmldir
     Lanczos.qml

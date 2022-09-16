@@ -1,5 +1,3 @@
-project(kcmcontrols)
-
 set(kcmcontrols_SRCS
     kcmcontrolsplugin.cpp
     kcmcontrolsplugin.h

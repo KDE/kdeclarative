@@ -1,5 +1,3 @@
-project(draganddrop)
-
 set(declarativedragdrop_SRCS
     DeclarativeDragArea.cpp
     DeclarativeDragArea.h

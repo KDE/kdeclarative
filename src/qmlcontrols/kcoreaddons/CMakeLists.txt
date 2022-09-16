@@ -1,5 +1,3 @@
-project(kcoreaddons)
-
 set(kcoreaddonsplugin_SRCS
     formats.cpp
     formats.h

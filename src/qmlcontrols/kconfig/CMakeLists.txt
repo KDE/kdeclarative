@@ -1,5 +1,3 @@
-project(kconfigplugin)
-
 set(kconfigplugin_SRCS
     kauthorizedproxy.cpp
     kauthorizedproxy.h

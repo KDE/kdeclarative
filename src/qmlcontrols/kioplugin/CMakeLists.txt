@@ -1,5 +1,3 @@
-project(kioplugin)
-
 set(kioplugin_SRCS
     kioplugin.cpp
     kioplugin.h
