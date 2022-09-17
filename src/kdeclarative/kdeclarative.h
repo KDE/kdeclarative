@@ -209,8 +209,8 @@ public:
      * @param engine the engine to setup
      * @sa setupContext(), componentsTarget()
      * @since 5.45
-     * @deprecated Since 5.98, set up the KQuickIconProvider from KIconThemes and the QQmlNetworkAccessManagerFactory creating a KIO::Integration::AccessManager
-     * mnually up with if needed
+     * @deprecated Since 5.98, set the KQuickIconProvider from KIconThemes and the QQmlNetworkAccessManagerFactory creating a KIO::Integration::AccessManager
+     * manually up if needed
      */
     KDECLARATIVE_DEPRECATED_VERSION(5, 98, "See API docs")
     static void setupEngine(QQmlEngine *engine);
