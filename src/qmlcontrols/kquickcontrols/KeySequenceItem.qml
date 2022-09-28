@@ -57,6 +57,8 @@ RowLayout {
         onGotKeySequence: keySequence => {
             if (isKeySequenceAvailable(keySequence)) {
                 root.keySequence = keySequence;
+            } else {
+                root.keySequence = mainButton.previousSequence
             }
             mainButton.checked = false;
             root.captureFinished();
@@ -78,6 +80,7 @@ RowLayout {
         focus: checked
 
         hoverEnabled: true
+        property var previousSequence: ""
 
         text: {
             const keys = helper.isRecording ? helper.currentKeySequence : root.keySequence
@@ -104,6 +107,7 @@ RowLayout {
 
         onCheckedChanged: {
             if (checked) {
+                previousSequence = helper.keySequenceNativeText(root.keySequence)
                 helper.window = helper.renderWindow(parent.Window.window)
                 mainButton.forceActiveFocus()
                 helper.startRecording()
