@@ -8,7 +8,7 @@
 #include <QQmlContext>
 #include <QQuickView>
 
-#include <kdeclarative/kdeclarative.h>
+#include <KLocalizedContext>
 
 #include <qtestcase.h>
 
@@ -19,10 +19,7 @@ int main(int argc, char *argv[])
     QQuickView view;
     QQmlContext *context = view.rootContext();
     context->setContextProperty(QStringLiteral("backgroundColor"), QColor(Qt::yellow));
-
-    KDeclarative::KDeclarative::setupEngine(view.engine());
-    KDeclarative::KDeclarative kdeclarative;
-    kdeclarative.setDeclarativeEngine(view.engine());
+    context->setContextObject(new KLocalizedContext(&view));
 
     view.setSource(QUrl::fromLocalFile(QFINDTESTDATA("test.qml")));
     view.show();

@@ -13,4 +13,5 @@ Dependencies:
     'frameworks/kglobalaccel' : '@same'
 
 Options:
+  cmake-options: "-DBUILD_EXAMPLES=ON"
   test-before-installing: True
