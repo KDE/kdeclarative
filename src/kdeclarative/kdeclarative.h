@@ -52,11 +52,21 @@ class KDeclarativePrivate;
  *     decl.setupContext();
  * @endcode
  *
+ * @deprecated since 5.100.
+ *
+ * To set up translations use KLocalizedContext instead.
+ *
+ * Set the KQuickIconProvider from KIconThemes and the QQmlNetworkAccessManagerFactory creating a KIO::Integration::AccessManager
+ * manually up if needed
+ *
  */
 class KDECLARATIVE_EXPORT KDeclarative
 {
 public:
+#if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 100)
+    KDECLARATIVE_DEPRECATED_VERSION(5, 100, "See class API docs")
     explicit KDeclarative();
+#endif
     ~KDeclarative();
 
     KDeclarative(const KDeclarative &) = delete;
@@ -92,6 +102,7 @@ public:
     void setupContext();
 #endif
 
+#if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 100)
     /**
      * Assign a specific QQmlEngine to be used in this KDeclarative.
      *
@@ -107,6 +118,9 @@ public:
      * @since 5.0
      */
     void setDeclarativeEngine(QQmlEngine *engine);
+#endif
+
+#if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 100)
     /**
      * @return the engine assigned to this KDeclarative.
      *         The engine may be a @c nullptr . No ownership is transferred.
@@ -114,6 +128,7 @@ public:
      * @since 5.0
      */
     QQmlEngine *declarativeEngine() const;
+#endif
 
 #if KDECLARATIVE_ENABLE_DEPRECATED_SINCE(5, 75)
     /**
