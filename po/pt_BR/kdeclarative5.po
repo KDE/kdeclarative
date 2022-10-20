@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: kdeclarative5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-29 00:42+0000\n"
-"PO-Revision-Date: 2022-07-12 11:57-0300\n"
+"PO-Revision-Date: 2022-10-19 15:36-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -106,12 +106,10 @@ msgid "Clear Key Sequence"
 msgstr "Limpar sequencia de teclas"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:165
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear Key Sequence"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
-msgstr "Limpar sequencia de teclas"
+msgstr "Cancelar gravação de sequência de teclas"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
 #, kde-format
