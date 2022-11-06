@@ -36,6 +36,21 @@ Kirigami.ScrollablePage {
 
     readonly property int margins: 6 // Layout_ChildMarginWidth from Breeze
 
+    /**
+     * extraFooterTopPadding: bool
+     * Whether to add extra top padding to an empty footer.  Use the default
+     * value of true for KCMs in System Settings, because otherwise the Apply,
+     * Help, and Defaults buttons provided by System Settings won't have enough
+     * top padding and the button bar will look ugly.
+     * When using this component outside of System Settings where there is no
+     * such restriction, or in System Settings KCMs that don't show Apply, Help,
+     * or Defaults buttons, set it to false.
+     * Default: true
+     *
+     * @since 5.101
+     */
+    property bool extraFooterTopPadding: true
+
     // Context properties are not reliable
     title: (typeof kcm !== "undefined") ? kcm.name : ""
 
@@ -47,26 +62,98 @@ Kirigami.ScrollablePage {
     rightPadding: root.margins
     bottomPadding: root.margins
 
-    children: [
+    header: QtControls.Control {
+        id: headerParent
+        readonly property bool contentVisible: contentItem && contentItem.visible && contentItem.implicitHeight
+        height: contentVisible ? implicitHeight : 0
+        leftPadding: 0
+        topPadding: 0
+        rightPadding: 0
+        bottomPadding: 0
+        // TODO KF6: uncomment these lines. We didn't do it in KF5 times because
+        // it would have regressed CommandOutputKCM in KInfoCenter, which was
+        // created before this padding was added, and added its own. If we add
+        // padding in the base KCM component, CommandOutputKCM will have double
+        // padding and look bad.
+        // leftPadding: root.margins
+        // topPadding: root.margins
+        // rightPadding: root.margins
+        // bottomPadding: root.margins
+
+        // When the page is scrollable, we need to add a line below the header
+        // ourselves to separate it from the view
         Kirigami.Separator {
             z: 999
             anchors {
                 left: parent.left
                 right: parent.right
-                top: parent.top
-                topMargin: root.header && root.header.visible ? root.header.y + root.header.height : 0
+                top: parent.bottom
             }
-            visible: root.flickable.contentHeight > root.flickable.height && !Kirigami.Settings.isMobile
-        },
-        Kirigami.Separator {
-            z: 999
-            anchors {
-                left: parent.left
-                right: parent.right
-                bottom: parent.bottom
-                bottomMargin: root.footer && root.footer.visible ? root.footer.height : 0
-            }
-            visible: root.flickable.contentHeight > root.flickable.height && !Kirigami.Settings.isMobile
+            visible: headerParent.contentVisible || (root.flickable.contentHeight > root.flickable.height && !Kirigami.Settings.isMobile)
         }
-    ]
+    }
+
+    footer: QtControls.Control {
+        id: footerParent
+        readonly property bool contentVisible: contentItem && contentItem.visible && contentItem.implicitHeight
+
+        height: contentVisible ? implicitHeight : (root.extraFooterTopPadding ? root.margins : 0)
+        leftPadding: 0
+        topPadding: 0
+        rightPadding: 0
+        bottomPadding: 0
+        // TODO KF6: uncomment these lines. We didn't do it in KF5 times because
+        // it would have regressed CommandOutputKCM in KInfoCenter, which was
+        // created before this padding was added, and added its own. If we add
+        // padding in the base KCM component, CommandOutputKCM will have double
+        // padding and look bad.
+        // created before this padding was added and added its own.
+        // leftPadding: root.margins
+        // topPadding: root.margins
+        // rightPadding: root.margins
+        // bottomPadding: root.margins
+
+        // When the page is scrollable, we need to add a line above the footer
+        // ourselves to separate it from the view
+        Kirigami.Separator {
+            z: 999
+            anchors {
+                left: parent.left
+                right: parent.right
+                bottom: parent.top
+            }
+            visible:  footerParent.contentVisible || (root.flickable.contentHeight > root.flickable.height && !Kirigami.Settings.isMobile)
+        }
+    }
+
+    Component.onCompleted: {
+        if (footer && footer != footerParent) {
+            var f = footer
+
+            footerParent.contentItem = f
+            footer = footerParent
+            footer.visible = true
+            f.parent = footerParent
+        }
+
+        if (header && header != headerParent) {
+            var h = header
+
+            headerParent.contentItem = h
+            header = headerParent
+            header.visible = true
+            h.parent = headerParent
+        }
+
+        //Search overlaysheets in contentItem, parent to root if found
+        for (let i in contentItem.data) {
+            let child = contentItem.data[i];
+            if (child instanceof Kirigami.OverlaySheet) {
+                if (!child.parent) {
+                    child.parent = root;
+                }
+                root.data.push(child);
+            }
+        }
+    }
 }
