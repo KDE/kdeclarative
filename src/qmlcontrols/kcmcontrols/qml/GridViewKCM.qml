@@ -54,12 +54,12 @@ AbstractKCM {
     framedView: false
 
     implicitWidth: {
-        var width = 0;
+        let width = 0;
 
         // Show three columns at once, every column occupies implicitCellWidth + Units.gridUnit
         width += 3 * (view.implicitCellWidth + Kirigami.Units.gridUnit);
 
-        var scrollBar = scroll.QtControls.ScrollBar.vertical;
+        const scrollBar = scroll.QtControls.ScrollBar.vertical;
         width += scrollBar.width + scrollBar.leftPadding + scrollBar.rightPadding;
 
         width += scroll.leftPadding + scroll.rightPadding

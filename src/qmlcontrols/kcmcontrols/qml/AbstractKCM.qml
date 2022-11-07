@@ -132,7 +132,7 @@ Kirigami.Page {
 
     Component.onCompleted: {
         if (footer && footer != footerParent) {
-            var f = footer
+            let f = footer
 
             footerParent.contentItem = f
             footer = footerParent
@@ -141,7 +141,7 @@ Kirigami.Page {
         }
 
         if (header && header != headerParent) {
-            var h = header
+            let h = header
 
             headerParent.contentItem = h
             header = headerParent
@@ -150,8 +150,8 @@ Kirigami.Page {
         }
 
         //Search overlaysheets in contentItem, parent to root if found
-        for (let i in contentItem.data) {
-            let child = contentItem.data[i];
+        for (const i in contentItem.data) {
+            const child = contentItem.data[i];
             if (child instanceof Kirigami.OverlaySheet) {
                 if (!child.parent) {
                     child.parent = root;

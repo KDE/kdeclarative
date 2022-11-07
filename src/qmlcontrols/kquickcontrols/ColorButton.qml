@@ -71,15 +71,15 @@ QtControls.Button {
         visible: colorDialog.color.a < 1
 
         onPaint: {
-            var ctx = getContext('2d');
+            const ctx = getContext('2d');
 
             ctx.fillStyle = "white";
             ctx.fillRect(0,0, ctx.width, ctx.height)
 
             ctx.fillStyle = "black";
             //in blocks of 16x16 draw two black squares of 8x8 in top left and bottom right
-            for (var j=0;j<width;j+=16) {
-                for (var i=0;i<height;i+=16) {
+            for (let j=0;j<width;j+=16) {
+                for (let i=0;i<height;i+=16) {
                     //top left, bottom right
                     ctx.fillRect(j,i,8,8);
                     ctx.fillRect(j+8,i+8,8,8);
