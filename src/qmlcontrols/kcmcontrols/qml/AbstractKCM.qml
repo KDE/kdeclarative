@@ -48,9 +48,6 @@ Kirigami.Page {
     property bool framedView: true
 
     /**
-     * TODO KF6: remove this property and always have System Settings itself add
-     * appropriate padding above its footer, so individual KCMs don't have to
-     *
      * extraFooterTopPadding: bool
      * Whether to add extra top padding to an empty footer when framedView is
      * false. Use the default value of true for KCMs in System Settings, because
