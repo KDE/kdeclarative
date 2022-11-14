@@ -11,6 +11,13 @@
 #include <QQuickItem>
 #include <QVariant>
 
+#include "../../kdeclarative/kdeclarative_export.h"
+
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
+
+/**
+ * @deprecated since 5.101, use Kirigami.Icon or PlasmaCore.IconItem instead
+ */
 class QIconItem : public QQuickItem
 {
     Q_OBJECT
@@ -70,4 +77,5 @@ private:
     bool m_changed;
 };
 
+#endif
 #endif

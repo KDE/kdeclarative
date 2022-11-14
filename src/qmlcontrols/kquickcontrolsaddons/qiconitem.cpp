@@ -12,6 +12,8 @@
 #include <quickaddons/imagetexturescache.h>
 #include <quickaddons/managedtexturenode.h>
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
+
 Q_GLOBAL_STATIC(ImageTexturesCache, s_iconImageCache)
 
 QIconItem::QIconItem(QQuickItem *parent)
@@ -164,3 +166,4 @@ void QIconItem::geometryChange(const QRectF &newGeometry, const QRectF &oldGeome
     QQuickItem::geometryChange(newGeometry, oldGeometry);
 #endif
 }
+#endif

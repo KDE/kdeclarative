@@ -13,6 +13,10 @@
 #include <QSharedPointer>
 #include <qglobal.h>
 
+#include "../../kdeclarative/kdeclarative_export.h"
+
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
+
 /**
  * @class ManagedTextureNode managedtexturenode.h KQuickAddons/ManagedTextureNode
  *
@@ -41,4 +45,5 @@ private:
     QSharedPointer<QSGTexture> m_texture;
 };
 
+#endif
 #endif

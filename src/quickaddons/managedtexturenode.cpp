@@ -6,6 +6,8 @@
 
 #include "managedtexturenode.h"
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
+
 ManagedTextureNode::ManagedTextureNode()
 {
 }
@@ -15,3 +17,5 @@ void ManagedTextureNode::setTexture(QSharedPointer<QSGTexture> texture)
     m_texture = texture;
     QSGSimpleTextureNode::setTexture(texture.data());
 }
+
+#endif

@@ -25,6 +25,8 @@
 #include "plotter.h"
 #endif
 
+#include "../../kdeclarative/kdeclarative_export.h"
+
 static QObject *kcmshell_singleton_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
     Q_UNUSED(engine);
@@ -39,7 +41,9 @@ void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
 
     qmlRegisterType<QPixmapItem>(uri, 2, 0, "QPixmapItem");
     qmlRegisterType<QImageItem>(uri, 2, 0, "QImageItem");
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
     qmlRegisterType<QIconItem>(uri, 2, 0, "QIconItem");
+#endif
     qmlRegisterType<MouseEventListener>(uri, 2, 0, "MouseEventListener");
     qmlRegisterAnonymousType<KDeclarativeMouseEvent>(uri, 1);
     qmlRegisterAnonymousType<KDeclarativeWheelEvent>(uri, 1);
