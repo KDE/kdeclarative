@@ -9,20 +9,21 @@
 # Johannes Obermayr <johannesobermayr@gmx.de>, 2010.
 # Panagiotis Papadopoulos <pano_90@gmx.net>, 2010.
 # Rolf Eike Beer <kde@opensource.sf-tec.de>, 2012.
+# Frank Steinmetzger <dev-kde@felsenfleischer.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-29 00:42+0000\n"
-"PO-Revision-Date: 2022-07-11 23:45+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"PO-Revision-Date: 2022-11-10 20:58+0100\n"
+"Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -103,12 +104,10 @@ msgid "Clear Key Sequence"
 msgstr "Tastenfolge löschen"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:165
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear Key Sequence"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
-msgstr "Tastenfolge löschen"
+msgstr "Tastenfolgen-Aufnahme abbrechen"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
 #, kde-format
