@@ -28,7 +28,9 @@ ecm_generate_export_header(KF5QuickAddons
 add_library(KF5::QuickAddons ALIAS KF5QuickAddons)
 
 # Apps must include <KQuickAddons/File> or <kquickaddons/file.h>
-target_include_directories(KF5QuickAddons INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative>")
+target_include_directories(KF5QuickAddons INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative>"
+                                          PUBLIC "$<BUILD_INTERFACE:${CMAKE_BINARY_DIR}>" # for kdeclarative/kdeclarative_export.h
+)
 
 target_link_libraries(KF5QuickAddons
   PUBLIC

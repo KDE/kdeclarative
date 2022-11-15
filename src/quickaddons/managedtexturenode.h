@@ -13,7 +13,7 @@
 #include <QSharedPointer>
 #include <qglobal.h>
 
-#include "../../kdeclarative/kdeclarative_export.h"
+#include "kdeclarative/kdeclarative_export.h"
 
 #if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
 
