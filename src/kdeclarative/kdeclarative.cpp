@@ -26,10 +26,12 @@ KDeclarativePrivate::KDeclarativePrivate()
 {
 }
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 100)
 KDeclarative::KDeclarative()
     : d(new KDeclarativePrivate)
 {
 }
+#endif
 
 KDeclarative::~KDeclarative()
 {
@@ -40,6 +42,7 @@ KDeclarative::~KDeclarative()
     delete d;
 }
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 100)
 void KDeclarative::setDeclarativeEngine(QQmlEngine *engine)
 {
     if (d->declarativeEngine.data() == engine) {
@@ -52,6 +55,7 @@ QQmlEngine *KDeclarative::declarativeEngine() const
 {
     return d->declarativeEngine.data();
 }
+#endif
 
 #if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 0)
 void KDeclarative::initialize()
