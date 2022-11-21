@@ -51,6 +51,8 @@ Kirigami.ScrollablePage {
      */
     property bool extraFooterTopPadding: true
 
+    property bool __flickableOverflows: flickable.contentHeight + flickable.topMargin + flickable.bottomMargin > flickable.height
+
     // Context properties are not reliable
     title: (typeof kcm !== "undefined") ? kcm.name : ""
 
@@ -91,7 +93,7 @@ Kirigami.ScrollablePage {
                 right: parent.right
                 top: parent.bottom
             }
-            visible: headerParent.contentVisible || (root.flickable.contentHeight > root.flickable.height && !Kirigami.Settings.isMobile)
+            visible: headerParent.contentVisible || (__flickableOverflows && !Kirigami.Settings.isMobile)
         }
     }
 
@@ -125,7 +127,7 @@ Kirigami.ScrollablePage {
                 right: parent.right
                 bottom: parent.top
             }
-            visible:  footerParent.contentVisible || (root.flickable.contentHeight > root.flickable.height && !Kirigami.Settings.isMobile)
+            visible:  footerParent.contentVisible || (root.__flickableOverflows && !Kirigami.Settings.isMobile)
         }
     }
 
