@@ -12,7 +12,7 @@ RowLayout {
     property bool showCancelButton: false /// TODO KF6 default to true
     property alias modifierlessAllowed: helper.modifierlessAllowed
     property alias multiKeyShortcutsAllowed: helper.multiKeyShortcutsAllowed
-    property var keySequence: helper.currentKeySequence
+    property var keySequence
 
     /**
      * This property controls which types of shortcuts are checked for conflicts when the keySequence
@@ -54,6 +54,7 @@ RowLayout {
 
     KQuickControlsPrivate.KeySequenceHelper {
         id: helper
+        currentKeySequence: root.keySequence
         onGotKeySequence: keySequence => {
             if (isKeySequenceAvailable(keySequence)) {
                 root.keySequence = keySequence;
