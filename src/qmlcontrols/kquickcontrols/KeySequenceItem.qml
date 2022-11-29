@@ -10,6 +10,7 @@ RowLayout {
 
     property bool showClearButton: true
     property bool showCancelButton: false /// TODO KF6 default to true
+    property alias modifierOnlyAllowed: helper.modifierOnlyAllowed
     property alias modifierlessAllowed: helper.modifierlessAllowed
     property alias multiKeyShortcutsAllowed: helper.multiKeyShortcutsAllowed
     property alias keySequence: helper.currentKeySequence

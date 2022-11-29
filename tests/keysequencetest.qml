@@ -8,7 +8,7 @@ RowLayout {
     KeySequenceItem
     {
         id: sequenceItem
-
+        modifierOnlyAllowed: true
     }
     Text
     {
