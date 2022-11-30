@@ -10,6 +10,8 @@
 #include <QObject>
 #include <QString>
 
+#include "kdeclarative/kdeclarative_export.h"
+
 class QMetaMethod;
 class QWindow;
 
@@ -43,18 +45,27 @@ class KWindowSystemProxy : public QObject
 {
     Q_OBJECT
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
     /**
      * @brief The number of the current desktop
      */
     Q_PROPERTY(int currentDesktop READ currentDesktop WRITE setCurrentDesktop NOTIFY currentDesktopChanged)
+#endif
+
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
     /**
      * @brief The name of the current desktop
      */
     Q_PROPERTY(QString currentDesktopName READ currentDesktopName NOTIFY currentDesktopNameChanged)
+#endif
+
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
     /**
      * @brief The number of desktops
      */
     Q_PROPERTY(int numberOfDesktops READ numberOfDesktops NOTIFY numberOfDesktopsChanged)
+#endif
+
     /**
      * @brief Whether "show desktop" is currently active
      */
@@ -86,11 +97,15 @@ public:
     explicit KWindowSystemProxy(QObject *parent = nullptr);
     ~KWindowSystemProxy() override;
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
     int currentDesktop() const;
     void setCurrentDesktop(int desktop);
+#endif
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
     QString currentDesktopName() const;
     int numberOfDesktops() const;
+#endif
 
     bool showingDesktop() const;
     void setShowingDesktop(bool showingDesktop);
@@ -100,11 +115,13 @@ public:
     bool isPlatformX11() const;
     bool isPlatformWayland() const;
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
     /**
      * Test to see if @p window still managed at present.
      * @param window the window to test
      */
     Q_INVOKABLE bool hasWindow(QWindow *window) const;
+#endif
 
     /**
      * Sets window @p window to be the active window.
@@ -119,6 +136,7 @@ public:
      */
     Q_INVOKABLE void forceActivateWindow(QWindow *window, long time = 0);
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
     /**
      * Sets window @p window to be present on all virtual desktops if @p
      * onAllDesktops true. Otherwise the window lives only on one single desktop.
@@ -127,6 +145,9 @@ public:
      * @param onAllDesktops true to show the window on all desktops, false otherwise
      */
     Q_INVOKABLE void setOnAllDesktops(QWindow *window, bool onAllDesktops);
+#endif
+
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
     /**
      * Moves window @p window to desktop @p desktop.
      *
@@ -134,6 +155,9 @@ public:
      * @param desktop the number of the new desktop
      */
     Q_INVOKABLE void setOnDesktop(QWindow *window, int desktop);
+#endif
+
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
     /**
      * Moves window @p window to activities @p activities.
      *
@@ -141,7 +165,9 @@ public:
      * @param activities the list of activity UUIDs
      */
     Q_INVOKABLE void setOnActivities(QWindow *window, const QStringList &activities);
+#endif
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
     /**
      * Returns the name of the specified desktop.
      * @see currentDesktopName
@@ -149,19 +175,34 @@ public:
      * @return the name of the desktop
      **/
     Q_INVOKABLE QString desktopName(int desktop) const;
+#endif
+
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
     /**
      * Sets the name of the specified desktop.
      * @param desktop the number of the desktop
      * @param name the new name for the desktop
      **/
     Q_INVOKABLE void setDesktopName(int desktop, const QString &name);
+#endif
 
 Q_SIGNALS:
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
     void currentDesktopChanged(int desktop);
-    void currentDesktopNameChanged();
+#endif
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
+    void currentDesktopNameChanged();
+#endif
+
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
     void desktopNamesChanged();
+#endif
+
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
     void numberOfDesktopsChanged(int numberOfDesktops);
+#endif
+
     void showingDesktopChanged(bool showingDesktop);
     void compositingActiveChanged(bool compositingActive);
 

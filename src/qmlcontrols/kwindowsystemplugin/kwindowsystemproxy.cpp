@@ -27,10 +27,15 @@ void KWindowSystemProxy::connectNotify(const QMetaMethod &signal)
         return;
     }
 
+    if (signal == QMetaMethod::fromSignal(&KWindowSystemProxy::showingDesktopChanged)) {
+        connect(KWindowSystem::self(), &KWindowSystem::showingDesktopChanged, this, &KWindowSystemProxy::showingDesktopChanged);
+        m_initialized = true;
+    }
+
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
     if (signal == QMetaMethod::fromSignal(&KWindowSystemProxy::currentDesktopChanged)
         || signal == QMetaMethod::fromSignal(&KWindowSystemProxy::desktopNamesChanged)
         || signal == QMetaMethod::fromSignal(&KWindowSystemProxy::numberOfDesktopsChanged)
-        || signal == QMetaMethod::fromSignal(&KWindowSystemProxy::showingDesktopChanged)
         || signal == QMetaMethod::fromSignal(&KWindowSystemProxy::compositingActiveChanged)) {
         connect(KWindowSystem::self(), &KWindowSystem::currentDesktopChanged, this, [this](int currentDesktop) {
             Q_EMIT currentDesktopChanged(currentDesktop);
@@ -43,32 +48,40 @@ void KWindowSystemProxy::connectNotify(const QMetaMethod &signal)
         });
 
         connect(KWindowSystem::self(), &KWindowSystem::numberOfDesktopsChanged, this, &KWindowSystemProxy::numberOfDesktopsChanged);
-        connect(KWindowSystem::self(), &KWindowSystem::showingDesktopChanged, this, &KWindowSystemProxy::showingDesktopChanged);
         connect(KWindowSystem::self(), &KWindowSystem::compositingChanged, this, &KWindowSystemProxy::compositingActiveChanged);
 
         m_initialized = true;
     }
+#endif
 }
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
 int KWindowSystemProxy::currentDesktop() const
 {
     return KWindowSystem::currentDesktop();
 }
+#endif
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
 void KWindowSystemProxy::setCurrentDesktop(int desktop)
 {
     KWindowSystem::setCurrentDesktop(desktop);
 }
+#endif
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
 QString KWindowSystemProxy::currentDesktopName() const
 {
     return KWindowSystem::desktopName(KWindowSystem::currentDesktop());
 }
+#endif
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
 int KWindowSystemProxy::numberOfDesktops() const
 {
     return KWindowSystem::numberOfDesktops();
 }
+#endif
 
 bool KWindowSystemProxy::showingDesktop() const
 {
@@ -95,6 +108,7 @@ bool KWindowSystemProxy::isPlatformWayland() const
     return KWindowSystem::isPlatformWayland();
 }
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
 bool KWindowSystemProxy::hasWindow(QWindow *window) const
 {
     if (!window) {
@@ -103,6 +117,7 @@ bool KWindowSystemProxy::hasWindow(QWindow *window) const
 
     return KWindowSystem::hasWId(window->winId());
 }
+#endif
 
 void KWindowSystemProxy::forceActivateWindow(QWindow *window, long time)
 {
@@ -111,33 +126,43 @@ void KWindowSystemProxy::forceActivateWindow(QWindow *window, long time)
     }
 }
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
 void KWindowSystemProxy::setOnAllDesktops(QWindow *window, bool onAllDesktops)
 {
     if (window) {
         KWindowSystem::setOnAllDesktops(window->winId(), onAllDesktops);
     }
 }
+#endif
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
 void KWindowSystemProxy::setOnDesktop(QWindow *window, int desktop)
 {
     if (window) {
         KWindowSystem::setOnDesktop(window->winId(), desktop);
     }
 }
+#endif
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
 void KWindowSystemProxy::setOnActivities(QWindow *window, const QStringList &activities)
 {
     if (window) {
         KWindowSystem::setOnActivities(window->winId(), activities);
     }
 }
+#endif
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
 QString KWindowSystemProxy::desktopName(int desktop) const
 {
     return KWindowSystem::desktopName(desktop);
 }
+#endif
 
+#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
 void KWindowSystemProxy::setDesktopName(int desktop, const QString &name)
 {
     KWindowSystem::setDesktopName(desktop, name);
 }
+#endif

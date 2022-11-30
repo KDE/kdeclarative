@@ -13,6 +13,8 @@ target_link_libraries(kwindowsystem
         KF5::WindowSystem
 )
 
+target_include_directories(kwindowsystem PRIVATE ${CMAKE_BINARY_DIR})
+
 if(WIN32 AND BUILD_SHARED_LIBS)
     set_target_properties(kwindowsystem PROPERTIES PREFIX "")
 endif()
