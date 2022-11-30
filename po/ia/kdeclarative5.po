@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-29 00:42+0000\n"
-"PO-Revision-Date: 2022-07-15 11:42+0200\n"
+"PO-Revision-Date: 2022-11-29 22:45+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.11.80\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -96,12 +96,10 @@ msgid "Clear Key Sequence"
 msgstr "Clara sequentia de clave"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:165
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear Key Sequence"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
-msgstr "Clara sequentia de clave"
+msgstr "Clara registrar sequentia de clave"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
 #, kde-format
