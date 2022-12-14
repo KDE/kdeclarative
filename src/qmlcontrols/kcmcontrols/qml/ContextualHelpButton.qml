@@ -40,7 +40,6 @@ QQC2.Button {
         toolTip.delay = Kirigami.Units.toolTipDelay;
         toolTipVisible = false;
     }
-    Layout.maximumHeight: parent.height
     QQC2.ToolTip {
         id: toolTip
         implicitWidth: Math.min(21 * Kirigami.Units.gridUnit, root.Window.width) // Wikipedia says anything between 45 and 75 characters per line is acceptable. 21 * Kirigami.Units.gridUnit feels right.
