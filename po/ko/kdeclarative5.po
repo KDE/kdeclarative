@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-29 00:42+0000\n"
+"POT-Creation-Date: 2022-12-16 00:46+0000\n"
 "PO-Revision-Date: 2022-10-03 16:31+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -68,19 +68,19 @@ msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr "현재 색상은 %1입니다."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:89
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:90
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "입력"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:90
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:91
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "없음"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:101
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:102
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
@@ -89,13 +89,13 @@ msgstr ""
 "단추를 클릭한 다음 프로그램에 사용할 단축키를 누르십시오.\n"
 "Ctrl+A를 사용하려면 Ctrl 키를 누르면서 A 키를 누르십시오."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:149
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "키 배열 비우기"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:165
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"

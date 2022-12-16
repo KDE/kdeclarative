@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-29 00:42+0000\n"
+"POT-Creation-Date: 2022-12-16 00:46+0000\n"
 "PO-Revision-Date: 2010-08-13 15:45+0200\n"
 "Last-Translator: Erdal Ronahî <erdal.ronahi@nospam.gmail.com>\n"
 "Language-Team: Kurdish Team http://pckurd.net\n"
@@ -79,19 +79,19 @@ msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:89
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:90
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "Ketan"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:90
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:91
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "Ti yek"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:101
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:102
 #, fuzzy, kde-format
 #| msgid ""
 #| "Click on the button, then enter the shortcut like you would in the "
@@ -104,13 +104,13 @@ msgstr ""
 "Pêl bişkojkê bikin, paşê jî kurterê têkevnê wek we di bernamê de dikin.\n"
 "Mînak ji bo Ctrl+a: Ctrl pêlêkirî bigirin û pêl a bikin."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:149
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:165
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"

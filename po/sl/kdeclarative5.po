@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-29 00:42+0000\n"
+"POT-Creation-Date: 2022-12-16 00:46+0000\n"
 "PO-Revision-Date: 2022-09-16 06:22+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -83,19 +83,19 @@ msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr "Trenutna barva je %1."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:89
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:90
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "Vhod"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:90
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:91
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "Brez"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:101
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:102
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
@@ -104,13 +104,13 @@ msgstr ""
 "Kliknite gumb in nato vnesite bližnjico, kot bi jo v programu.\n"
 "Primer za Ctrl+A: držite pritisnjeno tipko Ctrl in pritisnite tipko A."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:149
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "Počisti zaporedje tipk"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:165
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"

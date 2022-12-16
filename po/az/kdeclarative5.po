@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-29 00:42+0000\n"
+"POT-Creation-Date: 2022-12-16 00:46+0000\n"
 "PO-Revision-Date: 2022-07-01 17:04+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -66,19 +66,19 @@ msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr "Cari rəng: %1."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:89
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:90
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "Daxil et"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:90
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:91
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "Heç biri"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:101
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:102
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
@@ -87,13 +87,13 @@ msgstr ""
 "Bu Düyməyə basın və tətbiqdə istədiyiniz qısa yolu daxil edin\n"
 "Məsələn Ctrl+A: Ctrl basın saxlayın və A sıxın"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:149
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "Klaviatura qısayolunu silin"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:165
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:166
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Clear Key Sequence"

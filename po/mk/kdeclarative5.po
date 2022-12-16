@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-29 00:42+0000\n"
+"POT-Creation-Date: 2022-12-16 00:46+0000\n"
 "PO-Revision-Date: 2010-01-27 10:39+0100\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -82,19 +82,19 @@ msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:89
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:90
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "Внес"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:90
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:91
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "Нема"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:101
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:102
 #, fuzzy, kde-format
 #| msgid ""
 #| "Click on the button, then enter the shortcut like you would in the "
@@ -109,13 +109,13 @@ msgstr ""
 "На пример за „Ctrl+a“: задржете го притиснато копчето „Ctrl“ и притиснете "
 "„a“."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:149
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:165
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
