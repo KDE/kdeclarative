@@ -7,6 +7,7 @@
 #ifndef CALENDAREVENTSPLUGIN_H
 #define CALENDAREVENTSPLUGIN_H
 
+#include <QCalendar>
 #include <QDateTime>
 #include <QMultiHash>
 #include <QObject>
@@ -231,11 +232,21 @@ Q_SIGNALS:
     /**
      * Emitted when the plugin has loaded the alternate dates
      *
+     * @deprecated Since 5.102. Use @c alternateCalendarDateReady(const QHash<QDate, QCalendar::YearMonthDay> &data) instead
      * @param data A hash containing a QDate key from Gregorian calendar
      *             for the alternate date in the value, QDate.
      * @since 5.95
      */
-    void alternateDateReady(const QHash<QDate, QDate> &data);
+    CALENDAREVENTS_DEPRECATED void alternateDateReady(const QHash<QDate, QDate> &data);
+
+    /**
+     * Emitted when the plugin has loaded the alternate dates
+     *
+     * @param data A hash containing a QDate key from Gregorian calendar
+     *             for the alternate date in the value, QDate.
+     * @since 6.0
+     */
+    void alternateCalendarDateReady(const QHash<QDate, QCalendar::YearMonthDay> &data);
 
     /**
      * Emitted when the plugin has loaded the sublabels
