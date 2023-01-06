@@ -27,7 +27,7 @@ QString MimeDataWrapper::html() const
 QUrl MimeDataWrapper::url() const
 {
     if (m_data->hasUrls() && !m_data->urls().isEmpty()) {
-        return m_data->urls().first();
+        return m_data->urls().constFirst();
     }
     return QUrl();
 }

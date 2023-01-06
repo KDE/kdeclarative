@@ -58,7 +58,7 @@ DeclarativeMimeData::DeclarativeMimeData(const QMimeData *copy)
 QUrl DeclarativeMimeData::url() const
 {
     if (this->hasUrls() && !this->urls().isEmpty()) {
-        return QMimeData::urls().first();
+        return QMimeData::urls().constFirst();
     }
     return QUrl();
 }
