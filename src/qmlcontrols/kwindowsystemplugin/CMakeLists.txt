@@ -19,6 +19,14 @@ if(WIN32 AND BUILD_SHARED_LIBS)
     set_target_properties(kwindowsystem PROPERTIES PREFIX "")
 endif()
 
+if (UNIX AND NOT ANDROID AND NOT APPLE)
+    set(HAVE_X11 TRUE)
+else()
+    set(HAVE_X11 FALSE)
+endif()
+
+configure_file(config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
+
 install(TARGETS kwindowsystem DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kwindowsystem)
 
 install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kwindowsystem)

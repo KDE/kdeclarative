@@ -11,6 +11,11 @@
 
 #include <kwindowsystem.h>
 
+#include "config.h"
+#if HAVE_X11
+#include <KX11Extras>
+#endif
+
 KWindowSystemProxy::KWindowSystemProxy(QObject *parent)
     : QObject(parent)
     , m_initialized(false)
@@ -45,7 +50,15 @@ void KWindowSystemProxy::setShowingDesktop(bool showingDesktop)
 
 bool KWindowSystemProxy::compositingActive() const
 {
-    return KWindowSystem::compositingActive();
+#if HAVE_X11
+    if (KWindowSystem::isPlatformX11()) {
+        return KX11Extras::compositingActive();
+    } else {
+        return true;
+    }
+#else
+    return true;
+#endif
 }
 
 bool KWindowSystemProxy::isPlatformX11() const
@@ -61,6 +74,14 @@ bool KWindowSystemProxy::isPlatformWayland() const
 void KWindowSystemProxy::forceActivateWindow(QWindow *window, long time)
 {
     if (window) {
-        KWindowSystem::forceActiveWindow(window->winId(), time);
+#if HAVE_X11
+        if (KWindowSystem::isPlatformX11()) {
+            KX11Extras::forceActiveWindow(window->winId(), time);
+        } else {
+            KWindowSystem::activateWindow(window);
+        }
+#else
+        KWindowSystem::activateWindow(window);
+#endif
     }
 }
