@@ -151,8 +151,8 @@ Kirigami.ScrollablePage {
         }
 
         //Search overlaysheets in contentItem, parent to root if found
-        for (let i in contentItem.data) {
-            let child = contentItem.data[i];
+        for (const i in contentItem.data) {
+            const child = contentItem.data[i];
             if (child instanceof Kirigami.OverlaySheet) {
                 if (!child.parent) {
                     child.parent = root;

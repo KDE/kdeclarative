@@ -131,8 +131,8 @@ Kirigami.Page {
     }
 
     Component.onCompleted: {
-        if (footer && footer != footerParent) {
-            let f = footer
+        if (footer && footer !== footerParent) {
+            const f = footer
 
             footerParent.contentItem = f
             footer = footerParent
@@ -140,8 +140,8 @@ Kirigami.Page {
             f.parent = footerParent
         }
 
-        if (header && header != headerParent) {
-            let h = header
+        if (header && header !== headerParent) {
+            const h = header
 
             headerParent.contentItem = h
             header = headerParent
