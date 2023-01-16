@@ -143,6 +143,10 @@ Kirigami.Page {
         if (header && header !== headerParent) {
             const h = header
 
+            // Revert the effect of repeated onHeaderChanged invocations
+            // during initialization in Page super-type.
+            h.anchors.top = undefined
+
             headerParent.contentItem = h
             header = headerParent
             header.visible = true
