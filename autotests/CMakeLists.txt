@@ -12,6 +12,6 @@ ecm_add_test(columnproxymodeltest.cpp
 ecm_add_test(quickviewsharedengine.cpp
     util.cpp
     TEST_NAME quickviewsharedengine
-    LINK_LIBRARIES Qt${QT_MAJOR_VERSION}::Quick KF5::QuickAddons Qt${QT_MAJOR_VERSION}::Test)
+    LINK_LIBRARIES Qt${QT_MAJOR_VERSION}::Quick KF6::QuickAddons Qt${QT_MAJOR_VERSION}::Test)
 
 

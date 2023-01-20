@@ -9,7 +9,7 @@ add_library(kconfigplugin ${kconfigplugin_SRCS})
 target_link_libraries(kconfigplugin
         Qt${QT_MAJOR_VERSION}::Core
         Qt${QT_MAJOR_VERSION}::Qml
-        KF5::ConfigCore
+        KF6::ConfigCore
 )
 
 if(WIN32 AND BUILD_SHARED_LIBS)

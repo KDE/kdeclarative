@@ -15,9 +15,9 @@ if(NOT ANDROID)
     list(APPEND kdeclarative_SRCS private/kioaccessmanagerfactory.cpp private/kioaccessmanagerfactory_p.h)
 endif()
 
-add_library(KF5Declarative ${kdeclarative_SRCS})
-add_library(KF5::Declarative ALIAS KF5Declarative)
-ecm_generate_export_header(KF5Declarative
+add_library(KF6Declarative ${kdeclarative_SRCS})
+add_library(KF6::Declarative ALIAS KF6Declarative)
+ecm_generate_export_header(KF6Declarative
     EXPORT_FILE_NAME ${KDeclarative_BINARY_DIR}/kdeclarative/kdeclarative_export.h
     BASE_NAME KDeclarative
     GROUP_BASE_NAME KF
@@ -28,23 +28,23 @@ ecm_generate_export_header(KF5Declarative
 )
 
 # Apps must include <KDeclarative/File> or <kdeclarative/file.h>
-target_include_directories(KF5Declarative INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative>")
+target_include_directories(KF6Declarative INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative>")
 
-target_link_libraries(KF5Declarative
+target_link_libraries(KF6Declarative
   PUBLIC
-    KF5::ConfigCore # KCoreConfigSkeleton, in ConfigPropertyMap
+    KF6::ConfigCore # KCoreConfigSkeleton, in ConfigPropertyMap
     Qt${QT_MAJOR_VERSION}::Qml
-    KF5::Package
+    KF6::Package
   PRIVATE
     Qt${QT_MAJOR_VERSION}::Quick  #QQuickImageProvider
-    KF5::I18n       #i18n bindings
-    KF5::KIOWidgets     #KIO::Integration::AccessManager
-    KF5::IconThemes #KIconProvider
+    KF6::I18n       #i18n bindings
+    KF6::KIOWidgets     #KIO::Integration::AccessManager
+    KF6::IconThemes #KIconProvider
 )
 set(KDeclarative_BUILD_INCLUDE_DIRS ${KDeclarative_BINARY_DIR} ${CMAKE_CURRENT_BINARY_DIR})
-target_include_directories(KF5Declarative PUBLIC "$<BUILD_INTERFACE:${KDeclarative_BUILD_INCLUDE_DIRS}>")
+target_include_directories(KF6Declarative PUBLIC "$<BUILD_INTERFACE:${KDeclarative_BUILD_INCLUDE_DIRS}>")
 
-set_target_properties(KF5Declarative
+set_target_properties(KF6Declarative
   PROPERTIES VERSION ${KDECLARATIVE_VERSION}
   SOVERSION ${KDECLARATIVE_SOVERSION}
   EXPORT_NAME Declarative
@@ -63,8 +63,8 @@ ecm_generate_headers(KDeclarative_CamelCase_HEADERS
 )
 install(FILES ${KDeclarative_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative/KDeclarative COMPONENT Devel)
 
-install(TARGETS KF5Declarative
-  EXPORT KF5DeclarativeTargets
+install(TARGETS KF6Declarative
+  EXPORT KF6DeclarativeTargets
   ${KF_INSTALL_TARGETS_DEFAULT_ARGS}
 )
 
@@ -80,5 +80,5 @@ set(KDeclarative_QCH_SOURCES ${KDeclarative_HEADERS} PARENT_SCOPE)
 set(KDeclarative_QCH_INCLUDE_DIRS ${KDeclarative_BUILD_INCLUDE_DIRS} PARENT_SCOPE)
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KDeclarative LIB_NAME KF5Declarative DEPS "qml" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative)
+ecm_generate_pri_file(BASE_NAME KDeclarative LIB_NAME KF6Declarative DEPS "qml" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})

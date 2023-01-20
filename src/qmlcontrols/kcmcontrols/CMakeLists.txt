@@ -13,9 +13,9 @@ target_link_libraries(kcmcontrolsplugin
         Qt${QT_MAJOR_VERSION}::Quick
         Qt${QT_MAJOR_VERSION}::Qml
         Qt${QT_MAJOR_VERSION}::Gui
-        KF5::CoreAddons
-        KF5::QuickAddons
-        KF5::ConfigCore
+        KF6::CoreAddons
+        KF6::QuickAddons
+        KF6::ConfigCore
 )
 
 if(WIN32 AND BUILD_SHARED_LIBS)

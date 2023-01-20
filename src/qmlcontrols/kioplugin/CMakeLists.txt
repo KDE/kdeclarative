@@ -9,8 +9,8 @@ add_library(kio ${kioplugin_SRCS})
 target_link_libraries(kio
         Qt${QT_MAJOR_VERSION}::Core
         Qt${QT_MAJOR_VERSION}::Qml
-        KF5::KIOWidgets
-        KF5::Notifications
+        KF6::KIOWidgets
+        KF6::Notifications
 )
 
 if(WIN32 AND BUILD_SHARED_LIBS)

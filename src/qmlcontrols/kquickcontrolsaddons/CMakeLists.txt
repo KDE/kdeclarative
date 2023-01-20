@@ -35,10 +35,10 @@ target_link_libraries(kquickcontrolsaddonsplugin
         Qt${QT_MAJOR_VERSION}::Quick
         Qt${QT_MAJOR_VERSION}::Qml
         Qt${QT_MAJOR_VERSION}::Gui
-        KF5::IconThemes
-        KF5::KIOWidgets
-        KF5::QuickAddons
-        KF5::ConfigCore)
+        KF6::IconThemes
+        KF6::KIOWidgets
+        KF6::QuickAddons
+        KF6::ConfigCore)
 
 if (HAVE_EPOXY)
     target_sources(kquickcontrolsaddonsplugin PRIVATE plotter.cpp plotter.h)

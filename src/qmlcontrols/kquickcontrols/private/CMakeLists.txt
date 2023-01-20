@@ -14,15 +14,15 @@ target_link_libraries(kquickcontrolsprivateplugin
         Qt${QT_MAJOR_VERSION}::Core
         Qt${QT_MAJOR_VERSION}::Quick
         Qt${QT_MAJOR_VERSION}::Qml
-        KF5::I18n
-        KF5::ConfigGui
-        KF5::GuiAddons
-        KF5::WidgetsAddons
-        KF5::WindowSystem
+        KF6::I18n
+        KF6::ConfigGui
+        KF6::GuiAddons
+        KF6::WidgetsAddons
+        KF6::WindowSystem
         )
 
 if (NOT WIN32)
-    target_link_libraries(kquickcontrolsprivateplugin KF5::GlobalAccel)
+    target_link_libraries(kquickcontrolsprivateplugin KF6::GlobalAccel)
 endif()
 
 if(WIN32 AND BUILD_SHARED_LIBS)

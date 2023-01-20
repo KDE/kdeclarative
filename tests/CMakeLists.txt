@@ -14,7 +14,7 @@ ecm_mark_as_test(kdeclarativetest)
 target_link_libraries(kdeclarativetest
    Qt${QT_MAJOR_VERSION}::Quick
    Qt${QT_MAJOR_VERSION}::Test
-   KF5::I18n
+   KF6::I18n
 )
 
 

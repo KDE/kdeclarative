@@ -22,19 +22,19 @@ include(KDECMakeSettings)
 include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
 
-find_package(KF5Config ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5I18n ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5IconThemes ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5KIO ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5WindowSystem ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5GuiAddons ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5Package ${KF_DEP_VERSION} REQUIRED)
-find_package(KF5Notifications ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6IconThemes ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6KIO ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6WindowSystem ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6GuiAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Package ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Notifications ${KF_DEP_VERSION} REQUIRED)
 
 
 if(NOT WIN32)
-    find_package(KF5GlobalAccel ${KF_DEP_VERSION} REQUIRED)
+    find_package(KF6GlobalAccel ${KF_DEP_VERSION} REQUIRED)
 endif()
 #########################################################################
 
@@ -60,8 +60,8 @@ ecm_setup_version(
   PROJECT
   VARIABLE_PREFIX KDECLARATIVE
   VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kdeclarative_version.h"
-  PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5DeclarativeConfigVersion.cmake"
-  SOVERSION 5)
+  PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF6DeclarativeConfigVersion.cmake"
+  SOVERSION 6)
 
 # Subdirectories
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeclarative5\")
@@ -91,36 +91,36 @@ if (BUILD_TESTING)
 endif()
 
 # Create a Config.cmake and a ConfigVersion.cmake file and install them
-set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Declarative")
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF6Declarative")
 
 if (BUILD_QCH)
     ecm_install_qch_export(
-        TARGETS KF5Declarative_QCH
-        FILE KF5DeclarativeQchTargets.cmake
+        TARGETS KF6Declarative_QCH
+        FILE KF6DeclarativeQchTargets.cmake
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
         COMPONENT Devel
     )
-    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF5DeclarativeQchTargets.cmake\")")
+    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF6DeclarativeQchTargets.cmake\")")
 endif()
 
 configure_package_config_file(
-  "${CMAKE_CURRENT_SOURCE_DIR}/KF5DeclarativeConfig.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5DeclarativeConfig.cmake"
+  "${CMAKE_CURRENT_SOURCE_DIR}/KF6DeclarativeConfig.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF6DeclarativeConfig.cmake"
   INSTALL_DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
 )
 
 install(FILES
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5DeclarativeConfig.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/KF5DeclarativeConfigVersion.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF6DeclarativeConfig.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/KF6DeclarativeConfigVersion.cmake"
   DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
   COMPONENT Devel
 )
 
 install(EXPORT
-  KF5DeclarativeTargets
+  KF6DeclarativeTargets
   DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-  FILE KF5DeclarativeTargets.cmake
-  NAMESPACE KF5::
+  FILE KF6DeclarativeTargets.cmake
+  NAMESPACE KF6::
   COMPONENT Devel
 )
 
@@ -132,19 +132,19 @@ install(FILES
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
-if(KF5Config_FOUND AND KF5I18n_FOUND AND KF5IconThemes_FOUND AND KF5KIO_FOUND)
+if(KF6Config_FOUND AND KF6I18n_FOUND AND KF6IconThemes_FOUND AND KF6KIO_FOUND)
   message("Dependencies for libkdeclarative found: it will be built")
 else()
-  message("In order to build libkdeclarative you need KF5Config, KF5I18n, KF5IconThemes and KF5KIO")
+  message("In order to build libkdeclarative you need KF6Config, KF6I18n, KF6IconThemes and KF6KIO")
 endif()
 
-if(KF5I18n_FOUND AND KF5WidgetsAddons_FOUND AND KF5WindowSystem_FOUND AND KF5KIO_FOUND AND KF5GuiAddons_FOUND)
+if(KF6I18n_FOUND AND KF6WidgetsAddons_FOUND AND KF6WindowSystem_FOUND AND KF6KIO_FOUND AND KF6GuiAddons_FOUND)
   message("Dependencies for KQuickControls found: it will be built")
 else()
-  message("In order to build KQuickControls you need KF5I18n, KF5WidgetsAddons, KF5WindowSystem, KF5GlobalAccel, KF5KIO and KF5GuiAddons")
+  message("In order to build KQuickControls you need KF6I18n, KF6WidgetsAddons, KF6WindowSystem, KF6GlobalAccel, KF6KIO and KF6GuiAddons")
 endif()
 
-if(KF5CoreAddons_FOUND)
+if(KF6CoreAddons_FOUND)
   message("Dependencies for KCoreAddons QML bindings found; it will be built")
 else()
   message("In order to build KCoreAddons QML bindings you need KCoreAddons")

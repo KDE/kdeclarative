@@ -4,19 +4,19 @@ set(calendar-integration_SRCS
     eventdata_p.cpp
 )
 
-add_library(KF5CalendarEvents ${calendar-integration_SRCS})
-generate_export_header(KF5CalendarEvents BASE_NAME CalendarEvents)
-add_library(KF5::CalendarEvents ALIAS KF5CalendarEvents)
+add_library(KF6CalendarEvents ${calendar-integration_SRCS})
+generate_export_header(KF6CalendarEvents BASE_NAME CalendarEvents)
+add_library(KF6::CalendarEvents ALIAS KF6CalendarEvents)
 
-target_link_libraries(KF5CalendarEvents PUBLIC Qt${QT_MAJOR_VERSION}::Core)
+target_link_libraries(KF6CalendarEvents PUBLIC Qt${QT_MAJOR_VERSION}::Core)
 
-target_include_directories(KF5CalendarEvents INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative>")
-set_target_properties(KF5CalendarEvents PROPERTIES VERSION ${KDECLARATIVE_VERSION}
+target_include_directories(KF6CalendarEvents INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative>")
+set_target_properties(KF6CalendarEvents PROPERTIES VERSION ${KDECLARATIVE_VERSION}
                                                 SOVERSION ${KDECLARATIVE_SOVERSION}
                                                 EXPORT_NAME CalendarEvents
 )
 
-install(TARGETS KF5CalendarEvents EXPORT KF5DeclarativeTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KF6CalendarEvents EXPORT KF6DeclarativeTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ecm_generate_headers(CalendarEvents_CamelCase_HEADERS
   HEADER_NAMES

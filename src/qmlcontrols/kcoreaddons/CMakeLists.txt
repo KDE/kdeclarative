@@ -13,7 +13,7 @@ target_link_libraries(kcoreaddonsplugin
         Qt${QT_MAJOR_VERSION}::Core
         Qt${QT_MAJOR_VERSION}::Quick
         Qt${QT_MAJOR_VERSION}::Qml
-        KF5::CoreAddons
+        KF6::CoreAddons
 )
 
 if(WIN32 AND BUILD_SHARED_LIBS)

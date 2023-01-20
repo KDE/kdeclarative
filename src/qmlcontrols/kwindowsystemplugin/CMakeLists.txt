@@ -10,7 +10,7 @@ add_library(kwindowsystem ${kwindowsystemplugin_SRCS})
 target_link_libraries(kwindowsystem
         Qt${QT_MAJOR_VERSION}::Core
         Qt${QT_MAJOR_VERSION}::Qml
-        KF5::WindowSystem
+        KF6::WindowSystem
 )
 
 target_include_directories(kwindowsystem PRIVATE ${CMAKE_BINARY_DIR})

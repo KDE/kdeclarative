@@ -13,8 +13,8 @@ deprecated: false
 release: true
 libraries:
  - qmake: KDeclarative
-   cmake: "KF5::Declarative"
-cmakename: KF5Declarative
+   cmake: "KF6::Declarative"
+cmakename: KF6Declarative
 
 public_lib: true
 group: Frameworks
