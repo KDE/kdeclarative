@@ -19,8 +19,6 @@ set(kquickcontrolsaddons_SRCS
     mimedatabase.h
     mouseeventlistener.cpp
     mouseeventlistener.h
-    qiconitem.cpp
-    qiconitem.h
     qimageitem.cpp
     qimageitem.h
     qpixmapitem.cpp
@@ -36,7 +34,8 @@ target_link_libraries(kquickcontrolsaddonsplugin
         Qt${QT_MAJOR_VERSION}::Qml
         Qt${QT_MAJOR_VERSION}::Gui
         KF6::IconThemes
-        KF6::KIOWidgets
+        KF6::KIOGui
+        KF6::Service
         KF6::QuickAddons
         KF6::ConfigCore)
 

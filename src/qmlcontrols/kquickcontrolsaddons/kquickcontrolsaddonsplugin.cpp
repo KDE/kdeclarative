@@ -17,7 +17,6 @@
 #include "kcmshell.h"
 #include "mimedatabase.h"
 #include "mouseeventlistener.h"
-#include "qiconitem.h"
 #include "qimageitem.h"
 #include "qpixmapitem.h"
 
@@ -41,9 +40,6 @@ void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
 
     qmlRegisterType<QPixmapItem>(uri, 2, 0, "QPixmapItem");
     qmlRegisterType<QImageItem>(uri, 2, 0, "QImageItem");
-#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 101)
-    qmlRegisterType<QIconItem>(uri, 2, 0, "QIconItem");
-#endif
     qmlRegisterType<MouseEventListener>(uri, 2, 0, "MouseEventListener");
     qmlRegisterAnonymousType<KDeclarativeMouseEvent>(uri, 1);
     qmlRegisterAnonymousType<KDeclarativeWheelEvent>(uri, 1);

@@ -1,19 +1,11 @@
 
 set(kdeclarative_SRCS
-    configpropertymap.cpp
-    configpropertymap.h
-    kdeclarative.cpp
-    kdeclarative.h
-    private/kdeclarative_p.h
     qmlobject.cpp
     qmlobject.h
     qmlobjectsharedengine.cpp
     qmlobjectsharedengine.h
 
 )
-if(NOT ANDROID)
-    list(APPEND kdeclarative_SRCS private/kioaccessmanagerfactory.cpp private/kioaccessmanagerfactory_p.h)
-endif()
 
 add_library(KF6Declarative ${kdeclarative_SRCS})
 add_library(KF6::Declarative ALIAS KF6Declarative)
@@ -23,7 +15,7 @@ ecm_generate_export_header(KF6Declarative
     GROUP_BASE_NAME KF
     VERSION ${KF_VERSION}
     DEPRECATED_BASE_VERSION 0
-    DEPRECATION_VERSIONS 5.0 5.45 5.75 5.91 5.95 5.98 5.100
+    DEPRECATION_VERSIONS
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
 )
 
@@ -34,12 +26,9 @@ target_link_libraries(KF6Declarative
   PUBLIC
     KF6::ConfigCore # KCoreConfigSkeleton, in ConfigPropertyMap
     Qt${QT_MAJOR_VERSION}::Qml
-    KF6::Package
   PRIVATE
     Qt${QT_MAJOR_VERSION}::Quick  #QQuickImageProvider
     KF6::I18n       #i18n bindings
-    KF6::KIOWidgets     #KIO::Integration::AccessManager
-    KF6::IconThemes #KIconProvider
 )
 set(KDeclarative_BUILD_INCLUDE_DIRS ${KDeclarative_BINARY_DIR} ${CMAKE_CURRENT_BINARY_DIR})
 target_include_directories(KF6Declarative PUBLIC "$<BUILD_INTERFACE:${KDeclarative_BUILD_INCLUDE_DIRS}>")
@@ -53,10 +42,8 @@ set_target_properties(KF6Declarative
 # Install files
 ecm_generate_headers(KDeclarative_CamelCase_HEADERS
   HEADER_NAMES
-  KDeclarative
   QmlObject
   QmlObjectSharedEngine
-  ConfigPropertyMap
 
   PREFIX KDeclarative
   REQUIRED_HEADERS KDeclarative_HEADERS

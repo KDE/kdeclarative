@@ -5,10 +5,6 @@ set(KF6QuickAddons_LIB_SRCS
     imagetexturescache.h
     managedconfigmodule.cpp
     managedconfigmodule.h
-    managedtexturenode.cpp
-    managedtexturenode.h
-    qtquicksettings.cpp
-    qtquicksettings.h
     quickviewsharedengine.cpp
     quickviewsharedengine.h)
 kconfig_add_kcfg_files(KF6QuickAddons_LIB_SRCS renderersettings.kcfgc)
@@ -40,6 +36,7 @@ target_link_libraries(KF6QuickAddons
     KF6::I18n
     KF6::Declarative
     KF6::ConfigGui
+    KF6::Package
 )
 if (ANDROID)
     target_link_libraries(KF6QuickAddons PRIVATE GLESv3)
@@ -52,22 +49,9 @@ set_target_properties(KF6QuickAddons
 )
 
 # Install files
-#those are deprecated, offered just for compatibility
-ecm_generate_headers(QuickAddons_CamelCase_HEADERS
-  HEADER_NAMES
-  ImageTexturesCache
-  ManagedTextureNode
-  PREFIX QuickAddons
-  REQUIRED_HEADERS QuickAddons_HEADERS
-)
-install(FILES ${QuickAddons_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative/QuickAddons COMPONENT Devel)
-
-# Install files
 ecm_generate_headers(KQuickAddons_CamelCase_HEADERS
   HEADER_NAMES
   ImageTexturesCache
-  ManagedTextureNode
-  QtQuickSettings
   ConfigModule
   ManagedConfigModule
   QuickViewSharedEngine

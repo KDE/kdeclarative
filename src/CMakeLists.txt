@@ -4,10 +4,6 @@ endif()
 
 add_subdirectory(quickaddons)
 add_subdirectory(qmlcontrols)
-if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
-    EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.98.0)
-    add_subdirectory(kpackagelauncherqml)
-endif()
 add_subdirectory(calendarevents)
 
 if(BUILD_QCH)

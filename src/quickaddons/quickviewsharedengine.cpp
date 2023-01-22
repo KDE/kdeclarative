@@ -14,9 +14,6 @@
 #include <KLocalizedString>
 #include <kdeclarative/qmlobjectsharedengine.h>
 
-#include <KPackage/Package>
-#include <KPackage/PackageLoader>
-
 namespace KQuickAddons
 {
 class QuickViewSharedEnginePrivate

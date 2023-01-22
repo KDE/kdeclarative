@@ -8,10 +8,8 @@
 
 #include <QQmlContext>
 #include <QQmlEngine>
-#include <QQmlNetworkAccessManagerFactory>
 
 #include <QDebug>
-#include <kdeclarative.h>
 
 namespace KDeclarative
 {
@@ -39,9 +37,6 @@ public:
     {
         if (!s_engine) {
             s_engine = std::make_shared<QQmlEngine>();
-#if KDECLARATIVE_BUILD_DEPRECATED_SINCE(5, 98)
-            KDeclarative::setupEngine(s_engine.get());
-#endif
         }
         return s_engine;
     }

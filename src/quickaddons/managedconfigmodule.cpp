@@ -28,22 +28,6 @@ public:
     QList<QPointer<KCoreConfigSkeleton>> _skeletons;
 };
 
-#if QUICKADDONS_BUILD_DEPRECATED_SINCE(5, 88)
-ManagedConfigModule::ManagedConfigModule(const KAboutData *aboutData, QObject *parent, const QVariantList &args)
-    : ConfigModule(aboutData, parent, args)
-    , d(new ManagedConfigModulePrivate(this))
-{
-}
-#endif
-
-#if QUICKADDONS_BUILD_DEPRECATED_SINCE(5, 88)
-ManagedConfigModule::ManagedConfigModule(const KPluginMetaData &metaData, QObject *parent, const QVariantList &args)
-    : ConfigModule(metaData, parent, args)
-    , d(new ManagedConfigModulePrivate(this))
-{
-}
-#endif
-
 ManagedConfigModule::ManagedConfigModule(QObject *parent, const QVariantList &args)
     : ConfigModule(parent, args)
     , d(new ManagedConfigModulePrivate(this))
