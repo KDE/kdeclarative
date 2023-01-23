@@ -18,7 +18,7 @@ if(BUILD_QCH)
             ${KDeclarative_QCH_SOURCES}
         MD_MAINPAGE "${CMAKE_SOURCE_DIR}/README.md"
         LINK_QCHS
-            Qt5Qml_QCH
+            Qt6Qml_QCH
             KF6Config_QCH
             KF6Package_QCH
         INCLUDE_DIRS
