@@ -45,7 +45,7 @@ bool FallbackTapHandler::childMouseEventFilter(QQuickItem *item, QEvent *event)
             return QQuickItem::childMouseEventFilter(item, event);
         }
         m_mouseDownItem = item;
-        m_mouseDownPos = me->windowPos();
+        m_mouseDownPos = me->scenePosition();
 
         QPointF mappedPoint = mapFromItem(item, me->pos());
         FallbackTapHandlerMouseEvent eventProxy(me->button(), me->buttons(), me->modifiers(), mappedPoint.x(), mappedPoint.y());
@@ -62,7 +62,7 @@ bool FallbackTapHandler::childMouseEventFilter(QQuickItem *item, QEvent *event)
         FallbackTapHandlerMouseEvent eventProxy(me->button(), me->buttons(), me->modifiers(), mappedPoint.x(), mappedPoint.y());
         Q_EMIT released(&eventProxy);
 
-        if (QPointF(m_mouseDownPos - me->windowPos()).manhattanLength() < QGuiApplication::styleHints()->startDragDistance()) {
+        if (QPointF(m_mouseDownPos - me->scenePosition()).manhattanLength() < QGuiApplication::styleHints()->startDragDistance()) {
             Q_EMIT tapped(&eventProxy);
         }
 
@@ -82,9 +82,9 @@ void FallbackTapHandler::mousePressEvent(QMouseEvent *event)
 
     event->accept();
     m_mouseDownItem = this;
-    m_mouseDownPos = event->windowPos();
+    m_mouseDownPos = event->scenePosition();
 
-    FallbackTapHandlerMouseEvent eventProxy(event->button(), event->buttons(), event->modifiers(), event->x(), event->y());
+    FallbackTapHandlerMouseEvent eventProxy(event->button(), event->buttons(), event->modifiers(), event->position().x(), event->position().y());
     Q_EMIT pressed(&eventProxy);
 }
 
@@ -95,9 +95,9 @@ void FallbackTapHandler::mouseReleaseEvent(QMouseEvent *event)
         return;
     }
 
-    FallbackTapHandlerMouseEvent eventProxy(event->button(), event->buttons(), event->modifiers(), event->x(), event->y());
+    FallbackTapHandlerMouseEvent eventProxy(event->button(), event->buttons(), event->modifiers(), event->position().x(), event->position().y());
 
-    if (QPointF(m_mouseDownPos - event->windowPos()).manhattanLength() < QGuiApplication::styleHints()->startDragDistance()) {
+    if (QPointF(m_mouseDownPos - event->scenePosition()).manhattanLength() < QGuiApplication::styleHints()->startDragDistance()) {
         Q_EMIT tapped(&eventProxy);
     }
 

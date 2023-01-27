@@ -293,7 +293,7 @@ private Q_SLOTS:
     void handleUngrab();
 
 private:
-    static QScreen *screenForGlobalPos(const QPoint &globalPos);
+    static QScreen *screenForGlobalPos(const QPointF &globalPos);
 
     bool m_pressed;
     KDeclarativeMouseEvent *m_pressAndHoldEvent;

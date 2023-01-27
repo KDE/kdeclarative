@@ -10,10 +10,10 @@
 
 DeclarativeDragDropEvent::DeclarativeDragDropEvent(QDropEvent *e, DeclarativeDropArea *parent)
     : QObject(parent)
-    , m_x(e->pos().x())
-    , m_y(e->pos().y())
-    , m_buttons(e->mouseButtons())
-    , m_modifiers(e->keyboardModifiers())
+    , m_x(e->position().x())
+    , m_y(e->position().y())
+    , m_buttons(e->buttons())
+    , m_modifiers(e->modifiers())
     , m_data(nullptr)
     , m_event(e)
 {

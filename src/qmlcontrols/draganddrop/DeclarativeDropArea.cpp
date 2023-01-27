@@ -52,7 +52,7 @@ void DeclarativeDropArea::dragEnterEvent(QDragEnterEvent *event)
         temporaryInhibitParent(true);
     }
 
-    m_oldDragMovePos = event->pos();
+    m_oldDragMovePos = event->position().toPoint();
     setContainsDrag(true);
 }
 
@@ -76,11 +76,11 @@ void DeclarativeDropArea::dragMoveEvent(QDragMoveEvent *event)
     }
     event->accept();
     // if the position we export didn't change, don't generate the move event
-    if (event->pos() == m_oldDragMovePos) {
+    if (event->position() == m_oldDragMovePos) {
         return;
     }
 
-    m_oldDragMovePos = event->pos();
+    m_oldDragMovePos = event->position().toPoint();
     DeclarativeDragDropEvent dde(event, this);
     Q_EMIT dragMove(&dde);
 }

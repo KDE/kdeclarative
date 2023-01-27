@@ -194,7 +194,7 @@ void DeclarativeDragArea::setDefaultAction(Qt::DropAction action)
 void DeclarativeDragArea::mousePressEvent(QMouseEvent *event)
 {
     m_pressAndHoldTimerId = startTimer(QGuiApplication::styleHints()->mousePressAndHoldInterval());
-    m_buttonDownPos = event->screenPos();
+    m_buttonDownPos = event->globalPosition();
     m_draggingJustStarted = true;
     setKeepMouseGrab(true);
 }
@@ -235,7 +235,7 @@ void DeclarativeDragArea::timerEvent(QTimerEvent *event)
 
 void DeclarativeDragArea::mouseMoveEvent(QMouseEvent *event)
 {
-    if (!m_enabled || QLineF(event->screenPos(), m_buttonDownPos).length() < m_startDragDistance) {
+    if (!m_enabled || QLineF(event->globalPosition(), m_buttonDownPos).length() < m_startDragDistance) {
         return;
     }
 
