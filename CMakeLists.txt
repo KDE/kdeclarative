@@ -66,8 +66,8 @@ ecm_setup_version(
 # Subdirectories
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeclarative5\")
 ecm_set_disabled_deprecation_versions(
-    QT 5.15.2
-    KF 5.95
+    QT 6.4.0
+    KF 5.102
 )
 
 ki18n_install(po)

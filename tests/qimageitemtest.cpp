@@ -13,7 +13,6 @@
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-    app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 
     QQuickView view;
     QQmlContext *context = view.rootContext();
