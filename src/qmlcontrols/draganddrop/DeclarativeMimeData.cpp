@@ -120,9 +120,9 @@ void DeclarativeMimeData::setColor(const QColor &color)
 
 void DeclarativeMimeData::setData(const QString &mimeType, const QVariant &data)
 {
-    if (data.type() == QVariant::ByteArray) {
+    if (data.userType() == QMetaType::QByteArray) {
         QMimeData::setData(mimeType, data.toByteArray());
-    } else if (data.canConvert(QVariant::String)) {
+    } else if (data.canConvert<QString>()) {
         QMimeData::setData(mimeType, data.toString().toLatin1());
     }
 }

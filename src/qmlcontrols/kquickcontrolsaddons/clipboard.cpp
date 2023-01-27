@@ -71,24 +71,24 @@ QVariant Clipboard::content() const
 void Clipboard::setContent(const QVariant &content)
 {
     QMimeData *mimeData = new QMimeData;
-    switch (content.type()) {
-    case QVariant::String:
+    switch (content.userType()) {
+    case QMetaType::QString:
         mimeData->setText(content.toString());
         break;
-    case QVariant::Color:
+    case QMetaType::QColor:
         mimeData->setColorData(content.toString());
         break;
-    case QVariant::Pixmap:
-    case QVariant::Image:
+    case QMetaType::QPixmap:
+    case QMetaType::QImage:
         mimeData->setImageData(content);
         break;
     default:
-        if (content.type() == QVariant::List) {
+        if (content.userType() == QMetaType::QVariantList) {
             const QVariantList list = content.toList();
             QList<QUrl> urls;
             bool wasUrlList = true;
             for (const QVariant &url : list) {
-                if (url.type() != QVariant::Url) {
+                if (url.userType() != QMetaType::QUrl) {
                     wasUrlList = false;
                     break;
                 }
@@ -100,7 +100,7 @@ void Clipboard::setContent(const QVariant &content)
             }
         }
 
-        if (content.canConvert(QVariant::String)) {
+        if (content.canConvert<QString>()) {
             mimeData->setText(content.toString());
         } else {
             mimeData->setData(QStringLiteral("application/octet-stream"), content.toByteArray());
