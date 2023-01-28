@@ -7,7 +7,6 @@
 */
 
 #include "kquickcontrolsaddonsplugin.h"
-#include "config-kquickcontrolsaddons.h"
 
 #include "clipboard.h"
 #include "columnproxymodel.h"
@@ -19,10 +18,6 @@
 #include "mouseeventlistener.h"
 #include "qimageitem.h"
 #include "qpixmapitem.h"
-
-#if HAVE_EPOXY
-#include "plotter.h"
-#endif
 
 #include "../../kdeclarative/kdeclarative_export.h"
 
@@ -56,10 +51,6 @@ void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
                                                              QStringLiteral("Cannot create items of type FallbackTapHandlerMouseEvent"));
     qmlRegisterType<FallbackTapHandler>(uri, 2, 1, "FallbackTapHandler");
 
-#if HAVE_EPOXY
-    qmlRegisterType<PlotData>(uri, 2, 0, "PlotData");
-    qmlRegisterType<Plotter>(uri, 2, 0, "Plotter");
-#endif
     qmlRegisterAnonymousType<QAbstractItemModel>(uri, 1);
     qRegisterMetaType<QModelIndex>("QModelIndex");
 }

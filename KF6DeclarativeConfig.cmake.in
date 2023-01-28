@@ -9,10 +9,6 @@ if (NOT @BUILD_SHARED_LIBS@)
     find_dependency(KF6I18n "@KF_DEP_VERSION@")
     find_dependency(KF6KIO "@KF_DEP_VERSION@")
     find_dependency(KF6IconThemes "@KF_DEP_VERSION@")
-
-    if (@HAVE_EPOXY@)
-        find_dependency(epoxy)
-    endif()
 endif()
 
 include("${CMAKE_CURRENT_LIST_DIR}/KF6DeclarativeTargets.cmake")

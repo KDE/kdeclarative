@@ -1,5 +1,3 @@
-configure_file(config-kquickcontrolsaddons.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kquickcontrolsaddons.h)
-
 set(kquickcontrolsaddons_SRCS
     clipboard.cpp
     clipboard.h
@@ -38,11 +36,6 @@ target_link_libraries(kquickcontrolsaddonsplugin
         KF6::Service
         KF6::QuickAddons
         KF6::ConfigCore)
-
-if (HAVE_EPOXY)
-    target_sources(kquickcontrolsaddonsplugin PRIVATE plotter.cpp plotter.h)
-    target_link_libraries(kquickcontrolsaddonsplugin epoxy::epoxy)
-endif()
 
 if(WIN32 AND BUILD_SHARED_LIBS)
     set_target_properties(kquickcontrolsaddonsplugin PROPERTIES PREFIX "")
