@@ -41,7 +41,6 @@ void KCMShell::openSystemSettings(const QString &name, const QStringList &args) 
     // Open in System Settings if it's available
     if (KService::serviceByDesktopName(systemSettings)) {
         job = new KIO::CommandLauncherJob(systemSettings, cmdline);
-        job->setIcon(systemSettings);
         job->setDesktopName(systemSettings);
     } else {
         job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), cmdline);
@@ -60,7 +59,6 @@ void KCMShell::openInfoCenter(const QString &name) const
     // Open in Info Center if it's available
     if (KService::serviceByDesktopName(infoCenterDesktopFile)) {
         job = new KIO::CommandLauncherJob(infoCenterbinary, QStringList(name));
-        job->setIcon(infoCenterbinary);
         job->setDesktopName(infoCenterDesktopFile);
     } else {
         job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), QStringList(name));
