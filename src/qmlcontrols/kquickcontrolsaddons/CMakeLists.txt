@@ -27,10 +27,10 @@ set(kquickcontrolsaddons_SRCS
 add_library(kquickcontrolsaddonsplugin ${kquickcontrolsaddons_SRCS})
 
 target_link_libraries(kquickcontrolsaddonsplugin
-        Qt${QT_MAJOR_VERSION}::Core
-        Qt${QT_MAJOR_VERSION}::Quick
-        Qt${QT_MAJOR_VERSION}::Qml
-        Qt${QT_MAJOR_VERSION}::Gui
+        Qt6::Core
+        Qt6::Quick
+        Qt6::Qml
+        Qt6::Gui
         KF6::IconThemes
         KF6::KIOGui
         KF6::Service

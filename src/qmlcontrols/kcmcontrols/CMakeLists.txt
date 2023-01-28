@@ -9,10 +9,10 @@ set(kcmcontrols_SRCS
 
 add_library(kcmcontrolsplugin ${kcmcontrols_SRCS})
 target_link_libraries(kcmcontrolsplugin
-        Qt${QT_MAJOR_VERSION}::Core
-        Qt${QT_MAJOR_VERSION}::Quick
-        Qt${QT_MAJOR_VERSION}::Qml
-        Qt${QT_MAJOR_VERSION}::Gui
+        Qt6::Core
+        Qt6::Quick
+        Qt6::Qml
+        Qt6::Gui
         KF6::CoreAddons
         KF6::QuickAddons
         KF6::ConfigCore

@@ -8,7 +8,7 @@ add_library(KF6CalendarEvents ${calendar-integration_SRCS})
 generate_export_header(KF6CalendarEvents BASE_NAME CalendarEvents)
 add_library(KF6::CalendarEvents ALIAS KF6CalendarEvents)
 
-target_link_libraries(KF6CalendarEvents PUBLIC Qt${QT_MAJOR_VERSION}::Core)
+target_link_libraries(KF6CalendarEvents PUBLIC Qt6::Core)
 
 target_include_directories(KF6CalendarEvents INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative>")
 set_target_properties(KF6CalendarEvents PROPERTIES VERSION ${KDECLARATIVE_VERSION}

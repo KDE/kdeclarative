@@ -2,16 +2,16 @@ INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/..")
 
 include(ECMAddTests)
 
-find_package(Qt${QT_MAJOR_VERSION}Test REQUIRED)
+find_package(Qt6Test REQUIRED)
 
 ecm_add_test(columnproxymodeltest.cpp
     ../src/qmlcontrols/kquickcontrolsaddons/columnproxymodel.cpp
     TEST_NAME fullmodelaccesstest
-    LINK_LIBRARIES Qt${QT_MAJOR_VERSION}::Gui Qt${QT_MAJOR_VERSION}::Test)
+    LINK_LIBRARIES Qt6::Gui Qt6::Test)
 
 ecm_add_test(quickviewsharedengine.cpp
     util.cpp
     TEST_NAME quickviewsharedengine
-    LINK_LIBRARIES Qt${QT_MAJOR_VERSION}::Quick KF6::QuickAddons Qt${QT_MAJOR_VERSION}::Test)
+    LINK_LIBRARIES Qt6::Quick KF6::QuickAddons Qt6::Test)
 
 

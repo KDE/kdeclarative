@@ -10,9 +10,9 @@ set(kcoreaddonsplugin_SRCS
 
 add_library(kcoreaddonsplugin ${kcoreaddonsplugin_SRCS})
 target_link_libraries(kcoreaddonsplugin
-        Qt${QT_MAJOR_VERSION}::Core
-        Qt${QT_MAJOR_VERSION}::Quick
-        Qt${QT_MAJOR_VERSION}::Qml
+        Qt6::Core
+        Qt6::Quick
+        Qt6::Qml
         KF6::CoreAddons
 )
 

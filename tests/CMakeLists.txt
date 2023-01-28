@@ -1,11 +1,11 @@
 include(ECMMarkAsTest)
 
-find_package(Qt${QT_MAJOR_VERSION}Test REQUIRED)
+find_package(Qt6Test REQUIRED)
 
 add_executable(qimageitemtest qimageitemtest.cpp)
 
 ecm_mark_as_test(qimageitemtest)
 target_link_libraries(qimageitemtest
-   Qt${QT_MAJOR_VERSION}::Quick
-   Qt${QT_MAJOR_VERSION}::Test
+   Qt6::Quick
+   Qt6::Test
 )

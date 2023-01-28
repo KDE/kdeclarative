@@ -8,8 +8,8 @@ set(kwindowsystemplugin_SRCS
 
 add_library(kwindowsystem ${kwindowsystemplugin_SRCS})
 target_link_libraries(kwindowsystem
-        Qt${QT_MAJOR_VERSION}::Core
-        Qt${QT_MAJOR_VERSION}::Qml
+        Qt6::Core
+        Qt6::Qml
         KF6::WindowSystem
 )
 

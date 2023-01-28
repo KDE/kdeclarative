@@ -25,9 +25,9 @@ target_include_directories(KF6Declarative INTERFACE "$<INSTALL_INTERFACE:${KDE_I
 target_link_libraries(KF6Declarative
   PUBLIC
     KF6::ConfigCore # KCoreConfigSkeleton, in ConfigPropertyMap
-    Qt${QT_MAJOR_VERSION}::Qml
+    Qt6::Qml
   PRIVATE
-    Qt${QT_MAJOR_VERSION}::Quick  #QQuickImageProvider
+    Qt6::Quick  #QQuickImageProvider
     KF6::I18n       #i18n bindings
 )
 set(KDeclarative_BUILD_INCLUDE_DIRS ${KDeclarative_BINARY_DIR} ${CMAKE_CURRENT_BINARY_DIR})

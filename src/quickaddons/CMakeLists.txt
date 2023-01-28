@@ -30,7 +30,7 @@ target_include_directories(KF6QuickAddons INTERFACE "$<INSTALL_INTERFACE:${KDE_I
 
 target_link_libraries(KF6QuickAddons
   PUBLIC
-    Qt${QT_MAJOR_VERSION}::Quick
+    Qt6::Quick
     KF6::CoreAddons
   PRIVATE
     KF6::I18n
