@@ -8,7 +8,7 @@
 #ifndef KEYSEQUENCEHELPER_H
 #define KEYSEQUENCEHELPER_H
 
-#include <KeySequenceRecorder>
+#include <KKeySequenceRecorder>
 
 #include <QKeySequence>
 #include <QQuickItem>
@@ -16,7 +16,7 @@
 class KeySequenceHelperPrivate;
 class QQuickWindow;
 
-class KeySequenceHelper : public KeySequenceRecorder
+class KeySequenceHelper : public KKeySequenceRecorder
 {
     Q_OBJECT
 

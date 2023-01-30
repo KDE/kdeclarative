@@ -72,7 +72,7 @@ KeySequenceHelperPrivate::KeySequenceHelperPrivate(KeySequenceHelper *qq)
 }
 
 KeySequenceHelper::KeySequenceHelper(QObject *parent)
-    : KeySequenceRecorder(nullptr, parent)
+    : KKeySequenceRecorder(nullptr, parent)
     , d(new KeySequenceHelperPrivate(this))
 {
 }
