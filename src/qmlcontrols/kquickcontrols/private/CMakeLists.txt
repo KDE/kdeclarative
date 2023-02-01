@@ -18,7 +18,6 @@ target_link_libraries(kquickcontrolsprivateplugin
         KF6::ConfigGui
         KF6::GuiAddons
         KF6::WidgetsAddons
-        KF6::WindowSystem
         )
 
 if (NOT WIN32)
