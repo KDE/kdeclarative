@@ -32,52 +32,43 @@ class ManagedConfigModulePrivate;
  * the module author.
  *
  * To write a config module, you have to create a C++ library
- * and an accompanying QML user interface.
+ * and an accompaning QML user interface.
  * The library must contain a factory function like the following:
  *
  * \code
  * #include <KPluginFactory>
  *
- * K_PLUGIN_FACTORY(MyConfigModuleFactory, registerPlugin<MyConfigModule>() )
+ * K_PLUGIN_CLASS_WITH_JSON(MyConfigModule, "myconfigmodule.json")
  * \endcode
  *
- * The constructor of the ConfigModule then looks like this:
+ * The constructor of the ManagedConfigModule then looks like this:
  * \code
- * YourConfigModule::YourConfigModule( QObject* parent )
- *   : ManagedConfigModule( parent ),
- *     SettingsObject( this )
+ * MyConfigModule::MyConfigModule(QObject* parent, const KPluginMetaData &metaData, const QVariantList &args)
+ *   : ManagedConfigModule(parent, metaData, args)
  * {
- *   KAboutData *about = new KAboutData(
- *     <kcm name>, i18n( "..." ),
- *     KDE_VERSION_STRING, QString(), KAboutLicense::GPL,
- *     i18n( "Copyright 2006 ..." ) );
- *   about->addAuthor( i18n(...) );
- *   setAboutData( about );
  *   .
  *   .
  *   .
  * }
  * \endcode
  *
- * We are assuming here that SettingsObject is a class generated from a kcfg file
- * and that it will be somehow exposed as a constant property to be used from the QML side.
- * It will be automatically discovered by ManagedConfigModule which will update
- * the saveNeeded and defaults inherited properties by itself. Thus by inheriting from
- * this class you shall not try to manage those properties yourselves.
- *
  * The QML part must be in the KPackage format, installed under share/kpackage/kcms.
  * @see KPackage::Package
- * The package must have the same name as the KAboutData componentName, to be installed
+ *
+ * The package must have the same name as the C++ plugin, to be installed
  * by CMake with the command:
- * kpackage_install_package(package kcm_componentName kcms)
- * given "package" is the subdirectory in the source tree where the package sources are
- * located, and "kcm_componentName" is the componentname passed to the KAboutData in the
- * C++ part.
+ * \code
+ * kpackage_install_package(packagedir kcm_componentName kcms)
+ * \endcode
+ * The "packagedir" is the subdirectory in the source tree where the package sources are
+ * located, and "kcm_componentName" is the name of the C++ plugin. Finally "kcms" is the literal string "kcms",
+ * so that the package is
+ * installed as a configuration module (and not some other kind of package).
  * The main config dialog UI will be the file
  * ui/main.qml from the package (or what X-KPackage-MainScript value is in the
  * package metadata desktop file).
  *
- * The QML part can access all the properties of ManagedConfigModule (together with the properties
+ * The QML part can access all the properties of ConfigModule (together with the properties
  * defined in its subclass) by accessing to the global object "kcm", or with the
  * import of "org.kde.kcm 1.0" the ConfigModule attached property.
  *
@@ -100,7 +91,7 @@ class ManagedConfigModulePrivate;
  * }
  * \endcode
  *
- * See https://techbase.kde.org/Development/Tutorials/KCM_HowTo
+ * See https://develop.kde.org/docs/extend/kcm/
  * for more detailed documentation.
  *
  * @since 5.65
