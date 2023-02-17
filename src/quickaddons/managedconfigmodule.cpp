@@ -28,12 +28,6 @@ public:
     QList<QPointer<KCoreConfigSkeleton>> _skeletons;
 };
 
-ManagedConfigModule::ManagedConfigModule(QObject *parent, const QVariantList &args)
-    : ConfigModule(parent, args)
-    , d(new ManagedConfigModulePrivate(this))
-{
-}
-
 ManagedConfigModule::ManagedConfigModule(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args)
     : ConfigModule(parent, metaData, args)
     , d(new ManagedConfigModulePrivate(this))

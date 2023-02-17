@@ -82,12 +82,6 @@ QString ConfigModulePrivate::componentName() const
     }
 }
 
-ConfigModule::ConfigModule(QObject *parent, const QVariantList &)
-    : QObject(parent)
-    , d(new ConfigModulePrivate(this))
-{
-}
-
 ConfigModule::ConfigModule(QObject *parent, const KPluginMetaData &metaData, const QVariantList &)
     : QObject(parent)
     , d(new ConfigModulePrivate(this))
