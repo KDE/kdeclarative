@@ -212,11 +212,17 @@ public:
     const KAboutData *aboutData() const;
 #endif
 
+#if QUICKADDONS_ENABLE_DEPRECATED_SINCE(5, 104)
     /**
      * This sets the KAboutData returned by aboutData()
      * The about data is now owned by ConfigModule.
+     *
+     * @deprecated since 5.104. Use the ConfigModule(QObject *, const KPluginMetaData &, const QVariantList &) constructor.
+     * Then the metaData is taken from the plugin's JSON file.
      */
+    QUICKADDONS_DEPRECATED_VERSION(5, 104, "See API docs.")
     void setAboutData(const KAboutData *about);
+#endif
 
     /**
      * @brief Set if the module's save() method requires authorization to be executed
