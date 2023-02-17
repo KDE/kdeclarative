@@ -7,7 +7,6 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.2 as QtControls
 import org.kde.kirigami 2.14 as Kirigami
-import org.kde.kcm 1.1 as KCM
 
 /**
  * This component is intended to be used as root item for

@@ -6,7 +6,6 @@
 */
 
 import QtQuick 2.8
-import org.kde.kcm 1.3 as KCM
 import org.kde.kcm.private 1.3
 
 /**
