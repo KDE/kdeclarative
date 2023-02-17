@@ -5,11 +5,7 @@
 */
 
 import QtQuick 2.7
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.2 as QtControls
-import org.kde.kirigami 2.2 as Kirigami
 import org.kde.kcm 1.1 as KCM
-import "." as Priv
 
 /**
  * This component is intended to be used as the root item for KCMs that are based upon a list view or another vertical flickable.

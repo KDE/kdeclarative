@@ -19,10 +19,7 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.7 as QQC2
 import QtQuick.Window 2.15
-import QtQuick.Dialogs 1.2 as QtDialogs
 import org.kde.kirigami 2.3 as Kirigami
-import org.kde.kcm 1.0
-
 
 QQC2.Button {
     id: root
