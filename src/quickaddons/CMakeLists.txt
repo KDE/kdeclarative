@@ -1,8 +1,6 @@
 set(KF6QuickAddons_LIB_SRCS
     configmodule.cpp
     configmodule.h
-    imagetexturescache.cpp
-    imagetexturescache.h
     managedconfigmodule.cpp
     managedconfigmodule.h
     quickviewsharedengine.cpp
@@ -51,7 +49,6 @@ set_target_properties(KF6QuickAddons
 # Install files
 ecm_generate_headers(KQuickAddons_CamelCase_HEADERS
   HEADER_NAMES
-  ImageTexturesCache
   ConfigModule
   ManagedConfigModule
   QuickViewSharedEngine
