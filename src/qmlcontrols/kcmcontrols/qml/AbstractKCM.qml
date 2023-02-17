@@ -5,7 +5,7 @@
 */
 
 import QtQuick 2.7
-import QtQuick.Controls 2.2 as QtControls
+import QtQuick.Controls 2.2 as QQC2
 import org.kde.kirigami 2.14 as Kirigami
 
 /**
@@ -71,7 +71,7 @@ Kirigami.Page {
     rightPadding: root.framedView ? root.margins : 0
     bottomPadding: footerParent.contentVisible || !root.framedView ? 0 : root.margins
 
-    header: QtControls.Control {
+    header: QQC2.Control {
         id: headerParent
         readonly property bool contentVisible: contentItem && contentItem.visible && contentItem.implicitHeight
         height: contentVisible ? implicitHeight : 0
@@ -102,7 +102,7 @@ Kirigami.Page {
         color: Kirigami.Theme.backgroundColor
     }
 
-    footer: QtControls.Control {
+    footer: QQC2.Control {
         id: footerParent
         readonly property bool contentVisible: contentItem && contentItem.visible && contentItem.implicitHeight
 

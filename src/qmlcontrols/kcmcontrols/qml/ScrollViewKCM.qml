@@ -5,7 +5,7 @@
 */
 
 import QtQuick 2.7
-import org.kde.kcm 1.1 as KCM
+import org.kde.kcm 1.4 as KCM
 
 /**
  * This component is intended to be used as the root item for KCMs that are based upon a list view or another vertical flickable.
@@ -22,7 +22,7 @@ import org.kde.kcm 1.1 as KCM
  * }
  * @endcode
  */
-AbstractKCM {
+KCM.AbstractKCM {
     id: root
 
     /**
@@ -40,7 +40,7 @@ AbstractKCM {
      */
     framedView: false
 
-    Priv.ScrollView {
+    KCM.ScrollView {
         id: scroll
         anchors.fill: parent
         framedView: root.framedView

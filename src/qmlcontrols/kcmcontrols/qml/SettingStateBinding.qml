@@ -8,7 +8,7 @@ import QtQuick 2.15
 // Deliberately imported after QtQuick to avoid missing restoreMode property in Binding. Fix in Qt 6.
 import QtQml 2.15
 import org.kde.kcm 1.3 as KCM
-import org.kde.kcm.private 1.3
+import org.kde.kcm.private 1.3 as KCMP
 
 /**
  * SettingStateBinding automatically impacts the representation
@@ -86,7 +86,7 @@ Item {
         id: settingState
     }
 
-    SettingHighlighterPrivate {
+    KCMP.SettingHighlighterPrivate {
         id: helper
         defaultIndicatorVisible: root.__defaultsIndicatorsVisible
     }

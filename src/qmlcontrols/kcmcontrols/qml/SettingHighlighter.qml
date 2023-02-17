@@ -6,7 +6,7 @@
 */
 
 import QtQuick 2.8
-import org.kde.kcm.private 1.3
+import org.kde.kcm.private 1.3 as P
 
 /**
  * SettingHighlighter automatically impacts the representation of an item based on
@@ -31,7 +31,7 @@ Item {
      */
     property alias highlight: helper.highlight
 
-    SettingHighlighterPrivate {
+    P.SettingHighlighterPrivate {
         id: helper
         defaultIndicatorVisible: kcm.defaultsIndicatorsVisible
     }

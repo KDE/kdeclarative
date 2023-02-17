@@ -5,7 +5,7 @@
 */
 
 import QtQuick 2.15
-import QtQuick.Controls 2.2 as QtControls
+import QtQuick.Controls 2.2 as QQC2
 import org.kde.kirigami 2.19 as Kirigami
 
 
@@ -25,12 +25,12 @@ GridView {
     QtObject {
         id: internal
         readonly property int availableWidth: scroll.width - internal.scrollBarSpace - 4
-        readonly property int scrollBarSpace: scroll.QtControls.ScrollBar.vertical.width
+        readonly property int scrollBarSpace: scroll.QQC2.ScrollBar.vertical.width
     }
     anchors {
         fill: parent
         margins: 2
-        leftMargin: 2 + (scroll.QtControls.ScrollBar.vertical.visible ? 0 : Math.round(internal.scrollBarSpace / 2))
+        leftMargin: 2 + (scroll.QQC2.ScrollBar.vertical.visible ? 0 : Math.round(internal.scrollBarSpace / 2))
     }
     clip: true
     activeFocusOnTab: true

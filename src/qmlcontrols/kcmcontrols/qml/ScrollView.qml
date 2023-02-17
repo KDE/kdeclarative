@@ -5,7 +5,7 @@
 */
 
 import QtQuick 2.7
-import QtQuick.Controls 2.2 as QtControls
+import QtQuick.Controls 2.2 as QQC2
 import org.kde.kirigami 2.3 as Kirigami
 
 /**
@@ -23,7 +23,7 @@ import org.kde.kirigami 2.3 as Kirigami
  * @endcode
  * @see GridViewKCM
  */
-QtControls.ScrollView {
+QQC2.ScrollView {
     id: scroll
 
     /**
@@ -45,5 +45,5 @@ QtControls.ScrollView {
     Component.onCompleted: scroll.background.visible = scroll.framedView;
 
     
-    QtControls.ScrollBar.horizontal.visible: false
+    QQC2.ScrollBar.horizontal.visible: false
 }

@@ -5,7 +5,7 @@
 */
 
 import QtQuick 2.7
-import QtQuick.Controls 2.2 as QtControls
+import QtQuick.Controls 2.2 as QQC2
 import org.kde.kirigami 2.14 as Kirigami
 
 /**
@@ -63,7 +63,7 @@ Kirigami.ScrollablePage {
     rightPadding: root.margins
     bottomPadding: root.margins
 
-    header: QtControls.Control {
+    header: QQC2.Control {
         id: headerParent
 
         readonly property bool contentVisible: contentItem && contentItem.visible && contentItem.implicitHeight
@@ -96,7 +96,7 @@ Kirigami.ScrollablePage {
         }
     }
 
-    footer: QtControls.Control {
+    footer: QQC2.Control {
         id: footerParent
 
         readonly property bool contentVisible: contentItem && contentItem.visible && contentItem.implicitHeight
