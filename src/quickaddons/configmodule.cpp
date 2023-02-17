@@ -395,11 +395,6 @@ void ConfigModule::defaults()
 {
 }
 
-void ConfigModule::setAboutData(const KAboutData *about)
-{
-    d->_about.reset(about);
-}
-
 void ConfigModule::setRootOnlyMessage(const QString &message)
 {
     if (d->_rootOnlyMessage == message) {
