@@ -114,18 +114,18 @@ public:
      * Base class for all modules which manage automatically some of their state.
      *
      * @param aboutData becomes owned by the ManagedConfigModule
-     * @deprecated since 5.88, use ConfigModule(QObject*, KPluginMetaData, QVariantList)
+     * @deprecated since 5.88, use ManagedConfigModule(QObject*, KPluginMetaData, QVariantList)
      */
-    QUICKADDONS_DEPRECATED_VERSION(5, 88, "Use ConfigModule(QObject*, KPluginMetaData, QVariantList)")
+    QUICKADDONS_DEPRECATED_VERSION(5, 88, "Use ManagedConfigModule(QObject*, KPluginMetaData, QVariantList)")
     explicit ManagedConfigModule(const KAboutData *aboutData, QObject *parent = nullptr, const QVariantList &args = QVariantList());
 #endif
 
 #if QUICKADDONS_ENABLE_DEPRECATED_SINCE(5, 88)
     /**
      * @param metaData description for the plugin: it will generate a KAboutData from that
-     * @deprecated since 5.88, use ConfigModule(QObject*, KPluginMetaData, QVariantList)
+     * @deprecated since 5.88, use ManagedConfigModule(QObject*, KPluginMetaData, QVariantList)
      */
-    QUICKADDONS_DEPRECATED_VERSION(5, 88, "Use ConfigModule(QObject*, KPluginMetaData, QVariantList)")
+    QUICKADDONS_DEPRECATED_VERSION(5, 88, "Use ManagedConfigModule(QObject*, KPluginMetaData, QVariantList)")
     explicit ManagedConfigModule(const KPluginMetaData &metaData, QObject *parent = nullptr, const QVariantList &args = QVariantList());
 #endif
 
