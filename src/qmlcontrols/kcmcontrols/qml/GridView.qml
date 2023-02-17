@@ -38,7 +38,11 @@ QQC2.ScrollView {
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     Kirigami.Theme.inherit: false
 
-    Component.onCompleted: scroll.background.visible = scroll.framedView;
+    Component.onCompleted: {
+        if (background) {
+            background.visible = Qt.binding(() => framedView);
+        }
+    }
 
     P.GridViewInternal {
         id: view
