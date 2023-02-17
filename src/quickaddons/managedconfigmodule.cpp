@@ -44,11 +44,13 @@ ManagedConfigModule::ManagedConfigModule(const KPluginMetaData &metaData, QObjec
 }
 #endif
 
+#if QUICKADDONS_BUILD_DEPRECATED_SINCE(5, 104)
 ManagedConfigModule::ManagedConfigModule(QObject *parent, const QVariantList &args)
     : ConfigModule(parent, args)
     , d(new ManagedConfigModulePrivate(this))
 {
 }
+#endif
 
 ManagedConfigModule::ManagedConfigModule(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args)
     : ConfigModule(parent, metaData, args)

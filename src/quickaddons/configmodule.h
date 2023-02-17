@@ -186,13 +186,18 @@ public:
      */
     explicit ConfigModule(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args = QVariantList());
 
+#if QUICKADDONS_ENABLE_DEPRECATED_SINCE(5, 104)
     /**
      * Base class for all KControlModules.
      *
      * @note do not emit changed signals here, since they are not yet connected
      *       to any slot.
+     *
+     * @deprecated since 5.104, use ConfigModule(QObject*, KPluginMetaData, QVariantList)
      */
+    QUICKADDONS_DEPRECATED_VERSION(5, 104, "Use ConfigModule(QObject*, KPluginMetaData, QVariantList)")
     explicit ConfigModule(QObject *parent = nullptr, const QVariantList &args = QVariantList());
+#endif
 
     /**
      * Destroys the module.
