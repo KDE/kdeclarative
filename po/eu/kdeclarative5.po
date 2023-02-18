@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:46+0000\n"
+"POT-Creation-Date: 2023-02-18 00:54+0000\n"
 "PO-Revision-Date: 2022-09-15 05:35+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -44,13 +44,13 @@ msgstr "KPackage QML aplikazioaren shell"
 msgid "The unique name of the application (mandatory)"
 msgstr "Aplikazioaren izen esklusiboa (nahitaezkoa)"
 
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Contextual Help"
 msgstr "Erakutsi testuinguru-laguntza"
 
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
 #, kde-format
 msgid "No items found"
 msgstr "Ez da elementurik aurkitu"
@@ -167,12 +167,12 @@ msgstr ""
 msgid "Reassign"
 msgstr "Lotu"
 
-#: quickaddons/configmodule.cpp:189
+#: quickaddons/configmodule.cpp:191
 #, kde-format
 msgid "Invalid KPackage '%1'"
 msgstr "KPackage baliogabea '%1'"
 
-#: quickaddons/configmodule.cpp:195
+#: quickaddons/configmodule.cpp:197
 #, kde-format
 msgid "No QML file provided"
 msgstr "Ez da QML fitxategirik hornitu"

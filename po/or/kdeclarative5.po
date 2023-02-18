@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:46+0000\n"
+"POT-Creation-Date: 2023-02-18 00:54+0000\n"
 "PO-Revision-Date: 2009-01-02 17:37+0530\n"
 "Last-Translator: Manoj Kumar Giri <mgiri@redhat.com>\n"
 "Language-Team: Oriya <oriya-it@googlegroups.com>\n"
@@ -44,13 +44,13 @@ msgstr ""
 msgid "The unique name of the application (mandatory)"
 msgstr "ପ୍ରୟୋଗ ଅକ୍ଷରରୂପକୁ ବ୍ୟାଖ୍ୟା କରିଥାଏ"
 
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Contextual Help"
 msgstr ""
 
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
 #, fuzzy, kde-format
 #| msgid "Not found"
 msgid "No items found"
@@ -161,13 +161,13 @@ msgstr ""
 msgid "Reassign"
 msgstr "ପୁନଃ ନିରୂପଣ କରିବା"
 
-#: quickaddons/configmodule.cpp:189
+#: quickaddons/configmodule.cpp:191
 #, fuzzy, kde-format
 #| msgid "invalid flags"
 msgid "Invalid KPackage '%1'"
 msgstr "ଅବୈଧ ଚିହ୍ନକଗୁଡିକ"
 
-#: quickaddons/configmodule.cpp:195
+#: quickaddons/configmodule.cpp:197
 #, kde-format
 msgid "No QML file provided"
 msgstr ""

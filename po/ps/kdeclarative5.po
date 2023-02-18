@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:46+0000\n"
+"POT-Creation-Date: 2023-02-18 00:54+0000\n"
 "PO-Revision-Date: 2008-08-16 16:01-0800\n"
 "Last-Translator: Zabeeh Khan <zabeehkhan@gmail.com>\n"
 "Language-Team: Pashto <pathanisation@googlegroups.com>\n"
@@ -40,13 +40,13 @@ msgstr ""
 msgid "The unique name of the application (mandatory)"
 msgstr "د کاريال ليکبڼه ټاکي"
 
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Contextual Help"
 msgstr ""
 
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
 #, fuzzy, kde-format
 #| msgid "1 match found."
 #| msgid_plural "%1 matches found."
@@ -159,13 +159,13 @@ msgstr ""
 msgid "Reassign"
 msgstr "بياټاکل"
 
-#: quickaddons/configmodule.cpp:189
+#: quickaddons/configmodule.cpp:191
 #, fuzzy, kde-format
 #| msgid "Invalid Filenames"
 msgid "Invalid KPackage '%1'"
 msgstr "ناسم دوتنه نومونه"
 
-#: quickaddons/configmodule.cpp:195
+#: quickaddons/configmodule.cpp:197
 #, kde-format
 msgid "No QML file provided"
 msgstr ""

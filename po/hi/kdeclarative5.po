@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:46+0000\n"
+"POT-Creation-Date: 2023-02-18 00:54+0000\n"
 "PO-Revision-Date: 2022-02-10 11:37+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: Hindi <kde-l10n-hi@kde.org>\n"
@@ -42,13 +42,13 @@ msgstr "केपैकेज क्यूएमएल अनुप्रयो�
 msgid "The unique name of the application (mandatory)"
 msgstr "अनुप्रयोग का अनोखा नाम (अनिवार्य)"
 
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Contextual Help"
 msgstr "प्रासंगिक मदद दिखाएँ"
 
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
 #, fuzzy, kde-format
 #| msgid "Not found"
 msgid "No items found"
@@ -163,12 +163,12 @@ msgstr ""
 msgid "Reassign"
 msgstr "फिर से आबंटित करें"
 
-#: quickaddons/configmodule.cpp:189
+#: quickaddons/configmodule.cpp:191
 #, kde-format
 msgid "Invalid KPackage '%1'"
 msgstr "अवैध केपैकेज '%1'"
 
-#: quickaddons/configmodule.cpp:195
+#: quickaddons/configmodule.cpp:197
 #, kde-format
 msgid "No QML file provided"
 msgstr "कोई क्यूएमएल फ़ाईल उपलब्ध नहीं कराई गई"

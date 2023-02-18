@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:46+0000\n"
+"POT-Creation-Date: 2023-02-18 00:54+0000\n"
 "PO-Revision-Date: 2019-10-19 22:29+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -46,13 +46,13 @@ msgstr "Intérprete de ordes de aplicacións en QML de KPackage"
 msgid "The unique name of the application (mandatory)"
 msgstr "Nome único para a aplicación (obrigatorio)"
 
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Contextual Help"
 msgstr ""
 
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
 #, fuzzy, kde-format
 #| msgid "Not found"
 msgid "No items found"
@@ -180,13 +180,13 @@ msgstr ""
 msgid "Reassign"
 msgstr "Reasignar"
 
-#: quickaddons/configmodule.cpp:189
+#: quickaddons/configmodule.cpp:191
 #, fuzzy, kde-format
 #| msgid "Invalid KPackage"
 msgid "Invalid KPackage '%1'"
 msgstr "KPackage incorrecto"
 
-#: quickaddons/configmodule.cpp:195
+#: quickaddons/configmodule.cpp:197
 #, kde-format
 msgid "No QML file provided"
 msgstr "Non se forneceu un ficheiro de QML"
