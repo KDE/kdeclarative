@@ -66,10 +66,10 @@ Kirigami.Page {
     // Make pages fill the whole view by default
     Kirigami.ColumnView.fillWidth: true
 
+    topPadding: root.framedView && !headerParent.contentVisible ? root.margins : 0
     leftPadding: root.framedView ? root.margins : 0
-    topPadding: headerParent.contentVisible || !root.framedView ? 0 : root.margins
     rightPadding: root.framedView ? root.margins : 0
-    bottomPadding: footerParent.contentVisible || !root.framedView ? 0 : root.margins
+    bottomPadding: root.framedView && !footerParent.contentVisible ? root.margins : 0
 
     header: QQC2.Control {
         id: headerParent
