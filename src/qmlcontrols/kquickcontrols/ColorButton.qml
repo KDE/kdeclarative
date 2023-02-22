@@ -5,8 +5,8 @@
 */
 
 import QtQuick 2.2
-import QtQuick.Controls 1.2 as QtControls
-import QtQuick.Dialogs 1.0 as QtDialogs
+import QtQuick.Controls as QQC2
+import QtQuick.Dialogs as QtDialogs
 
 /**
  * @short A pushbutton to display or allow user selection of a color.
@@ -25,13 +25,13 @@ import QtQuick.Dialogs 1.0 as QtDialogs
  *
  * @inherits QtQuick.Controls.Button
  */
-QtControls.Button {
+QQC2.Button {
     id: colorPicker
 
     /**
      * The user selected color
      */
-    property alias color: colorDialog.color
+    property alias color: colorDialog.selectedColor
 
     /**
      * Title to show in the dialog
@@ -39,15 +39,9 @@ QtControls.Button {
     property alias dialogTitle: colorDialog.title
 
     /**
-     * The color which the user has currently selected whilst the dialog is open
-     * For the color that is set when the dialog is accepted, use the color property.
-     */
-    property alias currentColor: colorDialog.currentColor
-
-    /**
      * Allow the user to configure an alpha value
      */
-    property alias showAlphaChannel: colorDialog.showAlphaChannel
+    property bool showAlphaChannel: true
 
     /**
      * This signal is emitted when the color dialog has been accepted
@@ -68,7 +62,7 @@ QtControls.Button {
     //create a checkerboard background for alpha to be adjusted
     Canvas {
         anchors.fill: colorBlock
-        visible: colorDialog.color.a < 1
+        visible: colorDialog.selectedColor.a < 1
 
         onPaint: {
             const ctx = getContext('2d');
@@ -97,7 +91,7 @@ QtControls.Button {
         width: parent.width - _buttonMarigns*2
 
 
-        color: enabled ? colorDialog.color : disabledPalette.button
+        color: enabled ? colorDialog.selectedColor : disabledPalette.button
 
         SystemPalette {
             id: disabledPalette
@@ -108,6 +102,8 @@ QtControls.Button {
     QtDialogs.ColorDialog {
         id: colorDialog
         onAccepted: colorPicker.accepted(color)
+        parentWindow: colorPicker.Window.window
+        options: colorPicker.showAlphaChannel ? ColorDialog.ShowAlphaChannel : undefined
     }
 
     onClicked: {
