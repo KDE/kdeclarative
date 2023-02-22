@@ -29,7 +29,6 @@ find_package(KF6KIO ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6GuiAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6Package ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6Notifications ${KF_DEP_VERSION} REQUIRED)
 
 
 if(NOT WIN32)

@@ -24,7 +24,6 @@ target_include_directories(KF6Declarative INTERFACE "$<INSTALL_INTERFACE:${KDE_I
 
 target_link_libraries(KF6Declarative
   PUBLIC
-    KF6::ConfigCore # KCoreConfigSkeleton, in ConfigPropertyMap
     Qt6::Qml
   PRIVATE
     Qt6::Quick  #QQuickImageProvider
