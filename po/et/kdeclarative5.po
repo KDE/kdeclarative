@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:46+0000\n"
+"POT-Creation-Date: 2023-03-01 21:29+0000\n"
 "PO-Revision-Date: 2020-01-08 10:59+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -30,23 +30,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "qiilaq69@mail.com"
 
-#: kpackagelauncherqml/main.cpp:30
-#, kde-format
-msgid "KPackage QML application shell"
-msgstr "KPackage'i QML rakenduse kest"
-
-#: kpackagelauncherqml/main.cpp:38
-#, kde-format
-msgid "The unique name of the application (mandatory)"
-msgstr "Rakenduse unikaalne nimi (kohustuslik)"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Contextual Help"
 msgstr ""
 
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
 #, fuzzy, kde-format
 #| msgid "Not found"
 msgid "No items found"
@@ -173,15 +163,21 @@ msgstr ""
 msgid "Reassign"
 msgstr "Asenda"
 
-#: quickaddons/configmodule.cpp:189
+#: quickaddons/configmodule.cpp:158
 #, kde-format
 msgid "Invalid KPackage '%1'"
 msgstr "Vigane KPackage \"%1\""
 
-#: quickaddons/configmodule.cpp:195
+#: quickaddons/configmodule.cpp:164
 #, kde-format
 msgid "No QML file provided"
 msgstr "QML-faili pole antud"
+
+#~ msgid "KPackage QML application shell"
+#~ msgstr "KPackage'i QML rakenduse kest"
+
+#~ msgid "The unique name of the application (mandatory)"
+#~ msgstr "Rakenduse unikaalne nimi (kohustuslik)"
 
 #~ msgid "The key you just pressed is not supported by Qt."
 #~ msgstr "Qt ei toeta klahvi, mida sa praegu vajutasid."

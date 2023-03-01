@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:46+0000\n"
+"POT-Creation-Date: 2023-03-01 21:29+0000\n"
 "PO-Revision-Date: 2011-11-26 15:12+0400\n"
 "Last-Translator: Ainur Shakirov <ainur.shakirov.tt@gmail.com>\n"
 "Language-Team: Tatar <>\n"
@@ -27,24 +27,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ainur.shakirov.tt@gmail.com"
 
-#: kpackagelauncherqml/main.cpp:30
-#, kde-format
-msgid "KPackage QML application shell"
-msgstr ""
-
-#: kpackagelauncherqml/main.cpp:38
-#, fuzzy, kde-format
-#| msgid "defines the application font"
-msgid "The unique name of the application (mandatory)"
-msgstr "кушымтаның хәрефен билгели"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Contextual Help"
 msgstr ""
 
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
 #, fuzzy, kde-format
 #| msgid "Not found"
 msgid "No items found"
@@ -173,16 +162,21 @@ msgstr ""
 msgid "Reassign"
 msgstr "Яңа белән бәйләү"
 
-#: quickaddons/configmodule.cpp:189
+#: quickaddons/configmodule.cpp:158
 #, fuzzy, kde-format
 #| msgid "Invalid item."
 msgid "Invalid KPackage '%1'"
 msgstr "Тотылмаган элемент."
 
-#: quickaddons/configmodule.cpp:195
+#: quickaddons/configmodule.cpp:164
 #, kde-format
 msgid "No QML file provided"
 msgstr ""
+
+#, fuzzy
+#~| msgid "defines the application font"
+#~ msgid "The unique name of the application (mandatory)"
+#~ msgstr "кушымтаның хәрефен билгели"
 
 #~ msgid "The key you just pressed is not supported by Qt."
 #~ msgstr "Басылган төймә Qt коралы белән тотылмый."

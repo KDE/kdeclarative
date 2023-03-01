@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:46+0000\n"
+"POT-Creation-Date: 2023-03-01 21:29+0000\n"
 "PO-Revision-Date: 2006-06-22 16:29+0200\n"
 "Last-Translator: Michel Ludwig <michel.ludwig@kdemail.net>\n"
 "Language-Team: Luxembourgish <kde-i18n-lb@kde.org>\n"
@@ -26,24 +26,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kevin@math.uni-sb.de,miclud@studcs.uni-sb.de"
 
-#: kpackagelauncherqml/main.cpp:30
-#, kde-format
-msgid "KPackage QML application shell"
-msgstr ""
-
-#: kpackagelauncherqml/main.cpp:38
-#, fuzzy, kde-format
-#| msgid "defines the application font"
-msgid "The unique name of the application (mandatory)"
-msgstr "Definéiert d'Schrëft vun der Uwendung"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Contextual Help"
 msgstr ""
 
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
 #, fuzzy, kde-format
 msgid "No items found"
 msgstr "1 Iwwereneestëmmung fonnt."
@@ -158,15 +147,20 @@ msgstr ""
 msgid "Reassign"
 msgstr "Nei zouuerdnen"
 
-#: quickaddons/configmodule.cpp:189
+#: quickaddons/configmodule.cpp:158
 #, fuzzy, kde-format
 msgid "Invalid KPackage '%1'"
 msgstr "Ongültegen Zertifikat!"
 
-#: quickaddons/configmodule.cpp:195
+#: quickaddons/configmodule.cpp:164
 #, kde-format
 msgid "No QML file provided"
 msgstr ""
+
+#, fuzzy
+#~| msgid "defines the application font"
+#~ msgid "The unique name of the application (mandatory)"
+#~ msgstr "Definéiert d'Schrëft vun der Uwendung"
 
 #, fuzzy
 #~| msgid "Untrusted"

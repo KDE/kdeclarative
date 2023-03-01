@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeclarative package.
 #
-# Xəyyam <xxmn77@gmail.com>, 2020, 2021, 2022.
+# Xəyyam <xxmn77@gmail.com>, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:46+0000\n"
-"PO-Revision-Date: 2022-07-01 17:04+0400\n"
+"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"PO-Revision-Date: 2023-02-19 15:56+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -27,23 +27,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xxmn77@gmail.com"
 
-#: kpackagelauncherqml/main.cpp:30
-#, kde-format
-msgid "KPackage QML application shell"
-msgstr "KPackage QML tətbiqi üzlüyü"
-
-#: kpackagelauncherqml/main.cpp:38
-#, kde-format
-msgid "The unique name of the application (mandatory)"
-msgstr "Tətbiqin unikal adı (məcburidir)"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Contextual Help"
 msgstr "Kontekst kömək menyusunu göstərmək"
 
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
 #, kde-format
 msgid "No items found"
 msgstr "Element tapılmadı"
@@ -94,12 +84,10 @@ msgid "Clear Key Sequence"
 msgstr "Klaviatura qısayolunu silin"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:166
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Clear Key Sequence"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
-msgstr "Klaviatura qısayolunu silin"
+msgstr "Düymə ardıcıllığının qeydini ləğv edin"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
 #, kde-format
@@ -159,15 +147,21 @@ msgstr ""
 msgid "Reassign"
 msgstr "Yenisini təyin et"
 
-#: quickaddons/configmodule.cpp:189
+#: quickaddons/configmodule.cpp:158
 #, kde-format
 msgid "Invalid KPackage '%1'"
 msgstr "Xətalı KPackage '%1'"
 
-#: quickaddons/configmodule.cpp:195
+#: quickaddons/configmodule.cpp:164
 #, kde-format
 msgid "No QML file provided"
 msgstr "QML faylı mövcud deyil"
+
+#~ msgid "KPackage QML application shell"
+#~ msgstr "KPackage QML tətbiqi üzlüyü"
+
+#~ msgid "The unique name of the application (mandatory)"
+#~ msgstr "Tətbiqin unikal adı (məcburidir)"
 
 #~ msgid "The key you just pressed is not supported by Qt."
 #~ msgstr "İndici basdığınız düymə Qt tərəfindən dəstəklənmir."

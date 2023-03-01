@@ -1,6 +1,3 @@
-# translation of kdelibs4.po to Belarusian
-# translation of kdelibs4.po to
-#
 # Eugene Zelenko <greendeath@mail.ru>, 2002-2004.
 # Ihar Hrachyshka <ihar.hrachyshka@gmail.com>, 2006.
 # Darafei Praliaskouski <komzpa@licei2.com>, 2007.
@@ -12,12 +9,12 @@
 # kom <me@komzpa.net>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: kdelibs4\n"
+"Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:46+0000\n"
-"PO-Revision-Date: 2009-09-06 15:21+0300\n"
+"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"PO-Revision-Date: 2023-02-23 11:46\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@gmail.com>\n"
-"Language-Team: Belarusian <i18n@mova.org>\n"
+"Language-Team: Belarusian\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,58 +23,50 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
 "%100>=11 && n%100<=14 ? 2 : 3);\n"
+"X-Crowdin-Project: 86ff119b1606fcaa910d6b44fc14b611\n"
+"X-Crowdin-Project-ID: 127\n"
+"X-Crowdin-Language: be\n"
+"X-Crowdin-File: /main/be/kdeclarative/kdeclarative5.po\n"
+"X-Crowdin-File-ID: 7833\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Дарафей Праляскоўскі"
+msgstr "Дарафей Праляскоўскі, Antikruk"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "komzpa@gmail.com"
+msgstr "komzpa@licei2.com, nashtlumach@gmail.com"
 
-#: kpackagelauncherqml/main.cpp:30
-#, kde-format
-msgid "KPackage QML application shell"
-msgstr ""
-
-#: kpackagelauncherqml/main.cpp:38
-#, fuzzy, kde-format
-#| msgid "defines the application font"
-msgid "The unique name of the application (mandatory)"
-msgstr "вызначае шрыфт праграмы"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Contextual Help"
-msgstr ""
+msgstr "Паказаць кантэкстную даведку"
 
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
 #, kde-format
 msgid "No items found"
-msgstr ""
+msgstr "Няма элементаў"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:63
-#, fuzzy, kde-format
-#| msgctxt "left mouse button"
-#| msgid "left button"
+#, kde-format
 msgctxt "@info:whatsthis for a button"
 msgid "Color button"
-msgstr "левая кнопка"
+msgstr "Кнопка колеру"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:65
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
-msgstr ""
+msgstr "Бягучы колер - %1. Гэтая кнопка адкрые дыялогавае акно выбару колеру."
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:66
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
-msgstr ""
+msgstr "Бягучы колер - %1."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:90
 #, kde-format
@@ -97,24 +86,26 @@ msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
+"Націсніце на кнопку, а потым увядзіце спалучэнне клавіш, якое вы хочаце "
+"выкарыстоўваць у праграме.\n"
+"Напрыклад, для Ctrl+A: утрымлівайце клавішу Ctrl і націсніце A."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
-msgstr ""
+msgstr "Ачысціць паслядоўнасць клавіш"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
-msgstr ""
+msgstr "Скасаваць запіс паслядоўнасці клавіш"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
-#, fuzzy, kde-format
-#| msgid "Shortcut"
+#, kde-format
 msgid "Reserved Shortcut"
-msgstr "Скарот"
+msgstr "Зарэзерваванае спалучэнне клавіш"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:120
 #, kde-format
@@ -123,64 +114,68 @@ msgid ""
 "shortcut.\n"
 "Please choose another one."
 msgstr ""
+"Клавіша F12 зарэзерваваная для Windows, таму яе нельга выкарыстоўваць для "
+"глабальнага спалучэння клавіш.\n"
+"Калі ласка, абярыце іншае спалучэнне."
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
 #, kde-format
 msgid "Global Shortcut Shadowing"
-msgstr ""
+msgstr "Перакрыццё глабальнымі спалучэннямі клавіш"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr ""
+"Спалучэнне клавіш \"%1\" перакрываецца наступнымі глабальнымі дзеяннямі:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:149
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:155
-#, fuzzy, kde-format
-#| msgid "Shortcuts"
+#, kde-format
 msgid "Action '%1' in context '%2'\n"
-msgstr "Скароты"
+msgstr "Дзеянне \"%1\" у кантэксце \"%2\"\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
-msgstr ""
+msgstr "Спалучэнне клавіш \"%1\" перакрывае наступныя глабальныя дзеянні:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
-msgstr "Канфліктуе з стандартным скаротам праграмы"
+msgstr "Канфліктуе са стандартным спалучэннем клавіш праграмы"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
-#, fuzzy, kde-format
-#| msgid ""
-#| "The '%1' key combination has already been allocated to the standard "
-#| "action \"%2\" that many applications use.\n"
-#| "You cannot use it for global shortcuts for this reason."
+#, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
 "some applications use.\n"
 "Do you really want to use it as a global shortcut as well?"
 msgstr ""
-"Клавіша '%1' ужо прывязана да стандартнага дзеяння \"%2\", якім карыстаюцца "
-"шмат праграмаў.\n"
-"Вы не можаце пераназначыць яе."
+"Спалучэнне клавіш \"%1\" ужо выкарыстоўваецца для стандартнага дзеяння "
+"\"%2\", якое выкарыстоўваецца ў некаторых праграмах.\n"
+"Сапраўды хочаце выкарыстоўваць гэтае спалучэнне як глабальнае?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
 #, kde-format
 msgid "Reassign"
-msgstr "Пераназначыць"
+msgstr "Перапрызначыць"
 
-#: quickaddons/configmodule.cpp:189
-#, fuzzy, kde-format
-#| msgid "Invalid Filenames"
+#: quickaddons/configmodule.cpp:158
+#, kde-format
 msgid "Invalid KPackage '%1'"
-msgstr "Недапушчальныя назвы файлаў"
+msgstr "Хібны KPackage \"%1\""
 
-#: quickaddons/configmodule.cpp:195
+#: quickaddons/configmodule.cpp:164
 #, kde-format
 msgid "No QML file provided"
-msgstr ""
+msgstr "QML-файл не пададзены"
+
+#~ msgid "KPackage QML application shell"
+#~ msgstr "Абалонка QML-праграмы KPackage"
+
+#~ msgid "The unique name of the application (mandatory)"
+#~ msgstr "Унікальная назва праграмы (абавязкова)"
 
 #, fuzzy
 #~| msgid "Unsorted"

@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:46+0000\n"
+"POT-Creation-Date: 2023-03-01 21:29+0000\n"
 "PO-Revision-Date: 2006-01-04 13:32+0800\n"
 "Last-Translator: Abel Cheung <abel@oaka.org>\n"
 "Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
@@ -52,24 +52,13 @@ msgstr ""
 "ycheng@slat.org,lark@linux.ustc.edu.cn,fundawang@en2china.com,sarahs@redhat."
 "com,jxiong@offtopic.org,acelan@linux.org.tw,stanley18fan0k@yahoo.com.hk"
 
-#: kpackagelauncherqml/main.cpp:30
-#, kde-format
-msgid "KPackage QML application shell"
-msgstr ""
-
-#: kpackagelauncherqml/main.cpp:38
-#, fuzzy, kde-format
-#| msgid "defines the application font"
-msgid "The unique name of the application (mandatory)"
-msgstr "定義應用程式字型。"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Contextual Help"
 msgstr ""
 
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
 #, fuzzy, kde-format
 #| msgid "1 match found."
 #| msgid_plural "%1 matches found."
@@ -186,15 +175,20 @@ msgstr ""
 msgid "Reassign"
 msgstr "重新指定"
 
-#: quickaddons/configmodule.cpp:189
+#: quickaddons/configmodule.cpp:158
 #, fuzzy, kde-format
 msgid "Invalid KPackage '%1'"
 msgstr "不合法的證書！"
 
-#: quickaddons/configmodule.cpp:195
+#: quickaddons/configmodule.cpp:164
 #, kde-format
 msgid "No QML file provided"
 msgstr ""
+
+#, fuzzy
+#~| msgid "defines the application font"
+#~ msgid "The unique name of the application (mandatory)"
+#~ msgstr "定義應用程式字型。"
 
 #, fuzzy
 #~| msgid "Untrusted"

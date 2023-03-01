@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:46+0000\n"
+"POT-Creation-Date: 2023-03-01 21:29+0000\n"
 "PO-Revision-Date: 2011-07-25 07:45+0530\n"
 "Last-Translator: Danishka Navin <danishka@gmail.com>\n"
 "Language-Team: Sinhala <danishka@gmail.com>\n"
@@ -28,24 +28,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "danishka@gmail.com"
 
-#: kpackagelauncherqml/main.cpp:30
-#, kde-format
-msgid "KPackage QML application shell"
-msgstr ""
-
-#: kpackagelauncherqml/main.cpp:38
-#, fuzzy, kde-format
-#| msgid "defines the application font"
-msgid "The unique name of the application (mandatory)"
-msgstr "යෙදුම් අක්‍ෂර දක්වන්න කරන්න"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Contextual Help"
 msgstr ""
 
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
 #, fuzzy, kde-format
 #| msgid "Not found"
 msgid "No items found"
@@ -164,16 +153,21 @@ msgstr ""
 msgid "Reassign"
 msgstr "යළි පැවරීම"
 
-#: quickaddons/configmodule.cpp:189
+#: quickaddons/configmodule.cpp:158
 #, fuzzy, kde-format
 #| msgid "InvalidCA"
 msgid "Invalid KPackage '%1'"
 msgstr "InvalidCA"
 
-#: quickaddons/configmodule.cpp:195
+#: quickaddons/configmodule.cpp:164
 #, kde-format
 msgid "No QML file provided"
 msgstr ""
+
+#, fuzzy
+#~| msgid "defines the application font"
+#~ msgid "The unique name of the application (mandatory)"
+#~ msgstr "යෙදුම් අක්‍ෂර දක්වන්න කරන්න"
 
 #, fuzzy
 #~| msgid "The key you just pressed isn't supported by Qt."

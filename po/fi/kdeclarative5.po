@@ -25,7 +25,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:46+0000\n"
+"POT-Creation-Date: 2023-03-01 21:29+0000\n"
 "PO-Revision-Date: 2022-08-05 11:50+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -47,23 +47,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "lasse.liehu@gmail.com, translator@legisign.org"
 
-#: kpackagelauncherqml/main.cpp:30
-#, kde-format
-msgid "KPackage QML application shell"
-msgstr "KPackagen QML-sovelluskuori"
-
-#: kpackagelauncherqml/main.cpp:38
-#, kde-format
-msgid "The unique name of the application (mandatory)"
-msgstr "Sovelluksen yksilöllinen nimi (pakollinen)"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:62
+#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Contextual Help"
 msgstr "Näytä kontekstiohje"
 
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:79
+#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
 #, kde-format
 msgid "No items found"
 msgstr "Kohteita ei löytynyt"
@@ -183,15 +173,21 @@ msgstr ""
 msgid "Reassign"
 msgstr "Sijoita uudelleen"
 
-#: quickaddons/configmodule.cpp:189
+#: quickaddons/configmodule.cpp:158
 #, kde-format
 msgid "Invalid KPackage '%1'"
 msgstr "Virheellinen KPackage ”%1”"
 
-#: quickaddons/configmodule.cpp:195
+#: quickaddons/configmodule.cpp:164
 #, kde-format
 msgid "No QML file provided"
 msgstr "QML-tiedostoa ei annettu"
+
+#~ msgid "KPackage QML application shell"
+#~ msgstr "KPackagen QML-sovelluskuori"
+
+#~ msgid "The unique name of the application (mandatory)"
+#~ msgstr "Sovelluksen yksilöllinen nimi (pakollinen)"
 
 #~ msgid "The key you just pressed is not supported by Qt."
 #~ msgstr "Qt ei tue painamaasi näppäintä."
