@@ -21,7 +21,6 @@ MouseEventListener::MouseEventListener(QQuickItem *parent)
     , m_pressed(false)
     , m_pressAndHoldEvent(nullptr)
     , m_lastEvent(nullptr)
-    , m_containsMouse(false)
     , m_acceptedButtons(Qt::LeftButton)
 {
     m_pressAndHoldTimer = new QTimer(this);
@@ -91,7 +90,9 @@ void MouseEventListener::hoverEnterEvent(QHoverEvent *event)
     Q_UNUSED(event);
 
     m_containsMouse = true;
-    Q_EMIT containsMouseChanged(true);
+    if (!m_childContainsMouse) {
+        Q_EMIT containsMouseChanged(true);
+    }
 }
 
 void MouseEventListener::hoverLeaveEvent(QHoverEvent *event)
@@ -99,7 +100,9 @@ void MouseEventListener::hoverLeaveEvent(QHoverEvent *event)
     Q_UNUSED(event);
 
     m_containsMouse = false;
-    Q_EMIT containsMouseChanged(false);
+    if (!m_childContainsMouse) {
+        Q_EMIT containsMouseChanged(false);
+    }
 }
 
 void MouseEventListener::hoverMoveEvent(QHoverEvent *event)
@@ -128,7 +131,7 @@ void MouseEventListener::hoverMoveEvent(QHoverEvent *event)
 
 bool MouseEventListener::containsMouse() const
 {
-    return m_containsMouse;
+    return m_containsMouse || m_childContainsMouse;
 }
 
 void MouseEventListener::mousePressEvent(QMouseEvent *me)
@@ -439,6 +442,20 @@ bool MouseEventListener::childMouseEventFilter(QQuickItem *item, QEvent *event)
                                    we->modifiers(),
                                    Qt::Vertical /* HACK, deprecated, remove */);
         Q_EMIT wheelMoved(&dwe);
+        break;
+    }
+    case QEvent::HoverEnter: {
+        m_childContainsMouse = true;
+        if (!m_containsMouse) {
+            Q_EMIT containsMouseChanged(true);
+        }
+        break;
+    }
+    case QEvent::HoverLeave: {
+        m_childContainsMouse = false;
+        if (!m_containsMouse) {
+            Q_EMIT containsMouseChanged(false);
+        }
         break;
     }
     default:

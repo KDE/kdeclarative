@@ -301,7 +301,8 @@ private:
     // Important: used only for comparison. If you will ever need to access this pointer, make it a QWeakPointer
     QEvent *m_lastEvent;
     QTimer *m_pressAndHoldTimer;
-    bool m_containsMouse;
+    bool m_containsMouse = false;
+    bool m_childContainsMouse = false;
     Qt::MouseButtons m_acceptedButtons;
 };
 
