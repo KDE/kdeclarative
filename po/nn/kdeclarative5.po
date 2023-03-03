@@ -163,9 +163,3 @@ msgstr "Ugyldig KPackage «%1»"
 #, kde-format
 msgid "No QML file provided"
 msgstr "Manglar QML-fil"
-
-#~ msgid "KPackage QML application shell"
-#~ msgstr "Skal for KPackage-QML-program"
-
-#~ msgid "The unique name of the application (mandatory)"
-#~ msgstr "Eintydig namn på programmet (obligatorisk)"
