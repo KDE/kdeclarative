@@ -65,13 +65,6 @@ install(TARGETS KF6QuickAddons
 
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/quickaddons_export.h
-  ${QuickAddons_HEADERS}
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative/quickaddons
-  COMPONENT Devel
-)
-
-install(FILES
-  ${CMAKE_CURRENT_BINARY_DIR}/quickaddons_export.h
   ${KQuickAddons_HEADERS}
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative/kquickaddons
   COMPONENT Devel
