@@ -169,9 +169,3 @@ msgstr "KPackage «%1» no vàlid"
 #, kde-format
 msgid "No QML file provided"
 msgstr "No s'ha proporcionat cap fitxer QML"
-
-#~ msgid "KPackage QML application shell"
-#~ msgstr "Intèrpret d'aplicació en QML de KPackage"
-
-#~ msgid "The unique name of the application (mandatory)"
-#~ msgstr "El nom únic de l'aplicació (obligatori)"
