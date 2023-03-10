@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-01 21:29+0000\n"
-"PO-Revision-Date: 2023-01-15 12:17+0100\n"
+"PO-Revision-Date: 2023-03-09 19:35+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
@@ -112,15 +112,17 @@ msgstr ""
 "global snarveg.\n"
 "Vel ein annan snarvegtast."
 
+# Sjå https://mail.kde.org/pipermail/kde-i18n-doc/2023-March/001483.html for forklaring.
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
 #, kde-format
 msgid "Global Shortcut Shadowing"
-msgstr ""
+msgstr "Overstyring av global snøggtast"
 
+# Sjå https://mail.kde.org/pipermail/kde-i18n-doc/2023-March/001483.html for forklaring.
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
-msgstr ""
+msgstr "Snøggtasten «%1» vert overstyrt av desse globale handlingane:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:149
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:155
@@ -128,10 +130,11 @@ msgstr ""
 msgid "Action '%1' in context '%2'\n"
 msgstr "Handlinga «%1» i samanhengen «%2»\n"
 
+# Sjå https://mail.kde.org/pipermail/kde-i18n-doc/2023-March/001483.html for forklaring.
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
-msgstr ""
+msgstr "Snøggtasten «%1» overstyrer desse globale handlingane:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
 #, kde-format
