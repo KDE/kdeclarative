@@ -14,7 +14,6 @@ target_link_libraries(kcmcontrolsplugin
         Qt6::Qml
         Qt6::Gui
         KF6::CoreAddons
-        KF6::QuickAddons
         KF6::ConfigCore
 )
 

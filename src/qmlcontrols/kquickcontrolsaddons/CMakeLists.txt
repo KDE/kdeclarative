@@ -34,7 +34,6 @@ target_link_libraries(kquickcontrolsaddonsplugin
         KF6::IconThemes
         KF6::KIOGui
         KF6::Service
-        KF6::QuickAddons
         KF6::ConfigCore)
 
 if(WIN32 AND BUILD_SHARED_LIBS)

@@ -19,8 +19,6 @@
 #include "qimageitem.h"
 #include "qpixmapitem.h"
 
-#include "../../kdeclarative/kdeclarative_export.h"
-
 static QObject *kcmshell_singleton_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
     Q_UNUSED(engine);

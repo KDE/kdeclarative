@@ -9,9 +9,3 @@ ecm_add_test(columnproxymodeltest.cpp
     TEST_NAME fullmodelaccesstest
     LINK_LIBRARIES Qt6::Gui Qt6::Test)
 
-ecm_add_test(quickviewsharedengine.cpp
-    util.cpp
-    TEST_NAME quickviewsharedengine
-    LINK_LIBRARIES Qt6::Quick KF6::QuickAddons Qt6::Test)
-
-

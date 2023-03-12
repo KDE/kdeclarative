@@ -1,8 +1,3 @@
-if(KF6Config_FOUND AND KF6I18n_FOUND AND KF6IconThemes_FOUND AND KF6KIO_FOUND)
-    add_subdirectory(kdeclarative)
-endif()
-
-add_subdirectory(quickaddons)
 add_subdirectory(qmlcontrols)
 add_subdirectory(calendarevents)
 
