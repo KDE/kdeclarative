@@ -1,8 +1,4 @@
 set(KF6QuickAddons_LIB_SRCS
-    configmodule.cpp
-    configmodule.h
-    managedconfigmodule.cpp
-    managedconfigmodule.h
     quickviewsharedengine.cpp
     quickviewsharedengine.h)
 kconfig_add_kcfg_files(KF6QuickAddons_LIB_SRCS renderersettings.kcfgc)
@@ -49,8 +45,6 @@ set_target_properties(KF6QuickAddons
 # Install files
 ecm_generate_headers(KQuickAddons_CamelCase_HEADERS
   HEADER_NAMES
-  ConfigModule
-  ManagedConfigModule
   QuickViewSharedEngine
 
   PREFIX KQuickAddons
