@@ -165,9 +165,3 @@ msgstr ""
 #, kde-format
 msgid "No QML file provided"
 msgstr ""
-
-#~ msgid "KPackage QML application shell"
-#~ msgstr "KPackage QML programskall"
-
-#~ msgid "The unique name of the application (mandatory)"
-#~ msgstr "Det entydige navnet på programmet (obligatorisk)"
