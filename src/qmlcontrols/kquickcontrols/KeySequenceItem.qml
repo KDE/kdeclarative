@@ -69,7 +69,7 @@ RowLayout {
 
     KQuickControlsPrivate.TranslationContext {
         id: _tr
-        domain: "kdeclarative5"
+        domain: "kdeclarative6"
     }
 
     Button {
