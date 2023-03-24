@@ -6,7 +6,6 @@ Dependencies:
     'frameworks/ki18n' : '@same'
     'frameworks/kiconthemes' : '@same'
     'frameworks/kio' : '@same'
-    'frameworks/kpackage' : '@same'
 
 - 'on': ['Linux', 'FreeBSD']
   'require':
