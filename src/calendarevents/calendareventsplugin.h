@@ -15,8 +15,17 @@
 
 #include "calendarevents_export.h"
 
+/**
+ * The CalendarEvents namespace.
+ */
 namespace CalendarEvents
 {
+
+/**
+ * @class EventData calendareventsplugin.h <CalendarEvents/CalendarEventsPlugin>
+ *
+ * Data about an event.
+ */
 class CALENDAREVENTS_EXPORT EventData
 {
 public:
@@ -165,6 +174,11 @@ private:
     QSharedDataPointer<Private> d;
 };
 
+/**
+ * @class CalendarEventsPlugin calendareventsplugin.h <CalendarEvents/CalendarEventsPlugin>
+ *
+ * Plugin for feeding events to a calendar instance.
+ */
 class CALENDAREVENTS_EXPORT CalendarEventsPlugin : public QObject
 {
     Q_OBJECT
@@ -249,6 +263,8 @@ Q_SIGNALS:
 };
 
 /**
+ * @class ShowEventInterface calendareventsplugin.h <CalendarEvents/CalendarEventsPlugin>
+ *
  * Interface for displaying event details
  *
  * ShowEventInterface is an additional interface the CalendarEventsPlugin
