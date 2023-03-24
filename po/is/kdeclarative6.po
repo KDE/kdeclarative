@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-24 02:07+0000\n"
 "PO-Revision-Date: 2016-04-08 22:57+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
@@ -27,20 +27,6 @@ msgstr ""
 "\n"
 "\n"
 "\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr ""
-"Richard Allen, Logi Ragnarsson, Pjetur G. Hjaltason, Arnar Leósson, Svanur "
-"Pálsson, Sveinn í Felli"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr ""
-"ra@ra.is, logi@logi.org, pjetur@pjetur.net, leosson@frisurf.no, svanur@tern."
-"is, sv1@fellsnet.is"
 
 #: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
@@ -178,16 +164,22 @@ msgstr ""
 msgid "Reassign"
 msgstr "Endurúthluta"
 
-#: quickaddons/configmodule.cpp:158
-#, fuzzy, kde-format
-#| msgid "Invalid item."
-msgid "Invalid KPackage '%1'"
-msgstr "Ógilt atriði"
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr ""
+#~ "Richard Allen, Logi Ragnarsson, Pjetur G. Hjaltason, Arnar Leósson, "
+#~ "Svanur Pálsson, Sveinn í Felli"
 
-#: quickaddons/configmodule.cpp:164
-#, kde-format
-msgid "No QML file provided"
-msgstr ""
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr ""
+#~ "ra@ra.is, logi@logi.org, pjetur@pjetur.net, leosson@frisurf.no, "
+#~ "svanur@tern.is, sv1@fellsnet.is"
+
+#, fuzzy
+#~| msgid "Invalid item."
+#~ msgid "Invalid KPackage '%1'"
+#~ msgstr "Ógilt atriði"
 
 #, fuzzy
 #~| msgid "defines the application font"

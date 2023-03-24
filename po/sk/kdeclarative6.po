@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-24 02:07+0000\n"
 "PO-Revision-Date: 2022-04-15 19:04+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -22,19 +22,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 21.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr ""
-"Stanislav Višňovský,Richard Frič,Michal Gašpar,Jakub Vatrt,Michal Šulek"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr ""
-"visnovsky@kde.org,Richard.Fric@kdemail.net,miguel@portugal.sk,vatrtj@gmail."
-"com,misurel@gmail.com"
 
 #: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
@@ -159,15 +146,22 @@ msgstr ""
 msgid "Reassign"
 msgstr "Znovu priradiť"
 
-#: quickaddons/configmodule.cpp:158
-#, kde-format
-msgid "Invalid KPackage '%1'"
-msgstr "Neplatný KPackage '%1'"
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr ""
+#~ "Stanislav Višňovský,Richard Frič,Michal Gašpar,Jakub Vatrt,Michal Šulek"
 
-#: quickaddons/configmodule.cpp:164
-#, kde-format
-msgid "No QML file provided"
-msgstr "Žiadny QML nebol poskytnutý"
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr ""
+#~ "visnovsky@kde.org,Richard.Fric@kdemail.net,miguel@portugal.sk,"
+#~ "vatrtj@gmail.com,misurel@gmail.com"
+
+#~ msgid "Invalid KPackage '%1'"
+#~ msgstr "Neplatný KPackage '%1'"
+
+#~ msgid "No QML file provided"
+#~ msgstr "Žiadny QML nebol poskytnutý"
 
 #~ msgid "KPackage QML application shell"
 #~ msgstr "Shell KPackage QML aplikácie"

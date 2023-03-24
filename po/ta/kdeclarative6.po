@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-24 02:07+0000\n"
 "PO-Revision-Date: 2022-09-15 19:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -19,16 +19,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.08.1\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "ம. ஸ்ரீ ராமதாஸ்"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "amachu@yavarkkum.org"
 
 #: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
@@ -150,15 +140,19 @@ msgstr ""
 msgid "Reassign"
 msgstr "இதற்கே அமர்த்து"
 
-#: quickaddons/configmodule.cpp:158
-#, kde-format
-msgid "Invalid KPackage '%1'"
-msgstr "செல்லுபடியாகாத KPackage '%1'"
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "ம. ஸ்ரீ ராமதாஸ்"
 
-#: quickaddons/configmodule.cpp:164
-#, kde-format
-msgid "No QML file provided"
-msgstr "QML கோப்பு தரப்படவில்லை"
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "amachu@yavarkkum.org"
+
+#~ msgid "Invalid KPackage '%1'"
+#~ msgstr "செல்லுபடியாகாத KPackage '%1'"
+
+#~ msgid "No QML file provided"
+#~ msgstr "QML கோப்பு தரப்படவில்லை"
 
 #~ msgid "The unique name of the application (mandatory)"
 #~ msgstr "செயலியின் தனிப்பட்ட பெயர் (அவசியம்)"

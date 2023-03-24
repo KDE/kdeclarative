@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-24 02:07+0000\n"
 "PO-Revision-Date: 2022-09-16 09:56+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -25,16 +25,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.08.1\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Vincenzo Reale"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "smart2128vr@gmail.com"
 
 #: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
@@ -160,15 +150,19 @@ msgstr ""
 msgid "Reassign"
 msgstr "Riassegna"
 
-#: quickaddons/configmodule.cpp:158
-#, kde-format
-msgid "Invalid KPackage '%1'"
-msgstr "KPackage «%1» non valido"
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Vincenzo Reale"
 
-#: quickaddons/configmodule.cpp:164
-#, kde-format
-msgid "No QML file provided"
-msgstr "Nessun file QML fornito"
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "smart2128vr@gmail.com"
+
+#~ msgid "Invalid KPackage '%1'"
+#~ msgstr "KPackage «%1» non valido"
+
+#~ msgid "No QML file provided"
+#~ msgstr "Nessun file QML fornito"
 
 #~ msgid "KPackage QML application shell"
 #~ msgstr "Shell applicazione KPackage QML"

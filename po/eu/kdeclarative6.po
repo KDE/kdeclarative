@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-24 02:07+0000\n"
 "PO-Revision-Date: 2022-09-15 05:35+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -23,16 +23,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 22.08.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Marcos,Ion Gaztañaga,Iñigo Salvador Azurmendi"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "marcos@euskalgnu.org,igaztanaga@gmail.com,xalba@ni.eus"
 
 #: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
@@ -157,15 +147,19 @@ msgstr ""
 msgid "Reassign"
 msgstr "Lotu"
 
-#: quickaddons/configmodule.cpp:158
-#, kde-format
-msgid "Invalid KPackage '%1'"
-msgstr "KPackage baliogabea '%1'"
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Marcos,Ion Gaztañaga,Iñigo Salvador Azurmendi"
 
-#: quickaddons/configmodule.cpp:164
-#, kde-format
-msgid "No QML file provided"
-msgstr "Ez da QML fitxategirik hornitu"
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "marcos@euskalgnu.org,igaztanaga@gmail.com,xalba@ni.eus"
+
+#~ msgid "Invalid KPackage '%1'"
+#~ msgstr "KPackage baliogabea '%1'"
+
+#~ msgid "No QML file provided"
+#~ msgstr "Ez da QML fitxategirik hornitu"
 
 #~ msgid "KPackage QML application shell"
 #~ msgstr "KPackage QML aplikazioaren shell"

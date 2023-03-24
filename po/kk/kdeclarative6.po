@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-24 02:07+0000\n"
 "PO-Revision-Date: 2013-11-08 01:24+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -22,18 +22,6 @@ msgstr ""
 "\n"
 "\n"
 "\n"
-
-#
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Сайран Киккарин"
-
-#
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "sairan@computer.org"
 
 #: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
@@ -171,16 +159,20 @@ msgstr ""
 msgid "Reassign"
 msgstr "Ауыстыру"
 
-#: quickaddons/configmodule.cpp:158
-#, fuzzy, kde-format
-#| msgid "Invalid item."
-msgid "Invalid KPackage '%1'"
-msgstr "Жарамсыз нәрсе."
+#
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Сайран Киккарин"
 
-#: quickaddons/configmodule.cpp:164
-#, kde-format
-msgid "No QML file provided"
-msgstr ""
+#
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "sairan@computer.org"
+
+#, fuzzy
+#~| msgid "Invalid item."
+#~ msgid "Invalid KPackage '%1'"
+#~ msgstr "Жарамсыз нәрсе."
 
 #, fuzzy
 #~| msgid "defines the application font"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-24 02:07+0000\n"
 "PO-Revision-Date: 2011-07-25 07:45+0530\n"
 "Last-Translator: Danishka Navin <danishka@gmail.com>\n"
 "Language-Team: Sinhala <danishka@gmail.com>\n"
@@ -17,16 +17,6 @@ msgstr ""
 " \n"
 " \n"
 "X-Generator: Lokalize 1.2\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "ඩනිෂ්ක නවින්"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "danishka@gmail.com"
 
 #: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
@@ -153,16 +143,18 @@ msgstr ""
 msgid "Reassign"
 msgstr "යළි පැවරීම"
 
-#: quickaddons/configmodule.cpp:158
-#, fuzzy, kde-format
-#| msgid "InvalidCA"
-msgid "Invalid KPackage '%1'"
-msgstr "InvalidCA"
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "ඩනිෂ්ක නවින්"
 
-#: quickaddons/configmodule.cpp:164
-#, kde-format
-msgid "No QML file provided"
-msgstr ""
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "danishka@gmail.com"
+
+#, fuzzy
+#~| msgid "InvalidCA"
+#~ msgid "Invalid KPackage '%1'"
+#~ msgstr "InvalidCA"
 
 #, fuzzy
 #~| msgid "defines the application font"

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-24 02:07+0000\n"
 "PO-Revision-Date: 2023-01-05 10:00+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -25,19 +25,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr ""
-"Matthias Peick, Oliver Kellogg, Cindy McKee, Axel Rousseau, Michael Moroni"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr ""
-"matthias@peick.de, okellogg@users.sourceforge.net, cfmckee@gmail.com, "
-"axel@esperanto-jeunes.org, michael.moroni@mailoo.org"
 
 #: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
@@ -154,15 +141,22 @@ msgstr ""
 msgid "Reassign"
 msgstr "Reatribui"
 
-#: quickaddons/configmodule.cpp:158
-#, kde-format
-msgid "Invalid KPackage '%1'"
-msgstr "Nevalida KPackage '%1'"
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr ""
+#~ "Matthias Peick, Oliver Kellogg, Cindy McKee, Axel Rousseau, Michael Moroni"
 
-#: quickaddons/configmodule.cpp:164
-#, kde-format
-msgid "No QML file provided"
-msgstr "Ne provizis QML-dosieron"
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr ""
+#~ "matthias@peick.de, okellogg@users.sourceforge.net, cfmckee@gmail.com, "
+#~ "axel@esperanto-jeunes.org, michael.moroni@mailoo.org"
+
+#~ msgid "Invalid KPackage '%1'"
+#~ msgstr "Nevalida KPackage '%1'"
+
+#~ msgid "No QML file provided"
+#~ msgstr "Ne provizis QML-dosieron"
 
 #~ msgid "The unique name of the application (mandatory)"
 #~ msgstr "La unika nomo de la aplikaĵo (deviga)"

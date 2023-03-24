@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-24 02:07+0000\n"
 "PO-Revision-Date: 2012-06-28 16:40+0430\n"
 "Last-Translator: Mohammad Reza Mirdamadi <mohi@linuxshop.ir>\n"
 "Language-Team: Farsi (Persian) <kde-i18n-fa@kde.org>\n"
@@ -20,18 +20,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.4\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "محمدرضا میردامادی , نازنین کاظمی , محمد ابراهیم محمدی پناه , سعید تقوی"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr ""
-"mohi@linuxshop.ir , kazemi@itland.ir , mebrahim@gmail.com , s.taghavi@gmail."
-"com"
 
 #: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
@@ -153,16 +141,21 @@ msgstr ""
 msgid "Reassign"
 msgstr "انتساب مجدد"
 
-#: quickaddons/configmodule.cpp:158
-#, fuzzy, kde-format
-#| msgid "Invalid Filenames"
-msgid "Invalid KPackage '%1'"
-msgstr "نام پرونده‌های نامعتبر"
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr ""
+#~ "محمدرضا میردامادی , نازنین کاظمی , محمد ابراهیم محمدی پناه , سعید تقوی"
 
-#: quickaddons/configmodule.cpp:164
-#, kde-format
-msgid "No QML file provided"
-msgstr ""
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr ""
+#~ "mohi@linuxshop.ir , kazemi@itland.ir , mebrahim@gmail.com , s."
+#~ "taghavi@gmail.com"
+
+#, fuzzy
+#~| msgid "Invalid Filenames"
+#~ msgid "Invalid KPackage '%1'"
+#~ msgstr "نام پرونده‌های نامعتبر"
 
 #, fuzzy
 #~| msgid "defines the application font"

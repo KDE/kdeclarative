@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-24 02:07+0000\n"
 "PO-Revision-Date: 2022-09-23 09:16+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -111,16 +111,6 @@ msgstr ""
 "X-Generator: Lokalize 22.04.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Michał Rudolf, Artur Chłond, Łukasz Wojniłowicz"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "mrudolf@kdewebdev.org, eugenewolfe@o2.pl, lukasz.wojnilowicz@gmail.com"
 
 #: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
@@ -246,15 +236,20 @@ msgstr ""
 msgid "Reassign"
 msgstr "Przypisz ponownie"
 
-#: quickaddons/configmodule.cpp:158
-#, kde-format
-msgid "Invalid KPackage '%1'"
-msgstr "Nieprawidłowy KPackage '%1'"
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Michał Rudolf, Artur Chłond, Łukasz Wojniłowicz"
 
-#: quickaddons/configmodule.cpp:164
-#, kde-format
-msgid "No QML file provided"
-msgstr "Nie podano pliku QML"
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr ""
+#~ "mrudolf@kdewebdev.org, eugenewolfe@o2.pl, lukasz.wojnilowicz@gmail.com"
+
+#~ msgid "Invalid KPackage '%1'"
+#~ msgstr "Nieprawidłowy KPackage '%1'"
+
+#~ msgid "No QML file provided"
+#~ msgstr "Nie podano pliku QML"
 
 #~ msgid "KPackage QML application shell"
 #~ msgstr "Powłoka aplikacji QML KPackage"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde4libs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-24 02:07+0000\n"
 "PO-Revision-Date: 2012-01-19 00:20-0500\n"
 "Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -14,18 +14,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Launchpad-Export-Date: 2010-11-24 03:19+0000\n"
 "X-Generator: Lokalize 1.2\n"
-
-#, fuzzy, kde-format
-#| msgid "without name"
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "pa emër"
-
-#, fuzzy, kde-format
-#| msgid "without name"
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "pa emër"
 
 #: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
@@ -143,16 +131,22 @@ msgstr ""
 msgid "Reassign"
 msgstr "Ricakto"
 
-#: quickaddons/configmodule.cpp:158
-#, fuzzy, kde-format
-#| msgid "invalid flags"
-msgid "Invalid KPackage '%1'"
-msgstr "flamurë të pavlefshëm"
+#, fuzzy
+#~| msgid "without name"
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "pa emër"
 
-#: quickaddons/configmodule.cpp:164
-#, kde-format
-msgid "No QML file provided"
-msgstr ""
+#, fuzzy
+#~| msgid "without name"
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "pa emër"
+
+#, fuzzy
+#~| msgid "invalid flags"
+#~ msgid "Invalid KPackage '%1'"
+#~ msgstr "flamurë të pavlefshëm"
 
 #, fuzzy
 #~| msgid "defines the application font"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-24 02:07+0000\n"
 "PO-Revision-Date: 2022-09-15 17:52+0100\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -105,16 +105,6 @@ msgstr ""
 "X-POFile-SpellExtra: DQTDECLARATIVEDEBUG QML slot pedro mantê Pocinhas\n"
 "X-POFile-SpellExtra: Reconstrói ii Del iii querê KPackage\n"
 "X-POFile-IgnoreConsistency: Update\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "José Nuno Pires"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "zepires@gmail.com"
 
 #: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
@@ -240,15 +230,19 @@ msgstr ""
 msgid "Reassign"
 msgstr "Atribuir de Novo"
 
-#: quickaddons/configmodule.cpp:158
-#, kde-format
-msgid "Invalid KPackage '%1'"
-msgstr "KPackage Inválido '%1'"
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "José Nuno Pires"
 
-#: quickaddons/configmodule.cpp:164
-#, kde-format
-msgid "No QML file provided"
-msgstr "Não foi indicado nenhum ficheiro QML"
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "zepires@gmail.com"
+
+#~ msgid "Invalid KPackage '%1'"
+#~ msgstr "KPackage Inválido '%1'"
+
+#~ msgid "No QML file provided"
+#~ msgstr "Não foi indicado nenhum ficheiro QML"
 
 #~ msgid "KPackage QML application shell"
 #~ msgstr "Consola de aplicações QML do KPackage"

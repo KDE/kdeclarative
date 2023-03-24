@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-24 02:07+0000\n"
 "PO-Revision-Date: 2022-11-17 12:25+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -34,20 +34,6 @@ msgstr ""
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr ""
-"Григорий Мохин,Николай Шафоростов,Андрей Черепанов,Леонид Кантер,Альберт "
-"Валиев,Олеся Герасименко"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr ""
-"mok@kde.ru,shaforostoff@kde.ru,skull@kde.ru,leon@asplinux.ru,"
-"darkstar@altlinux.ru,translation-team@basealt.ru"
 
 #: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
@@ -170,15 +156,23 @@ msgstr ""
 msgid "Reassign"
 msgstr "Связать с новым"
 
-#: quickaddons/configmodule.cpp:158
-#, kde-format
-msgid "Invalid KPackage '%1'"
-msgstr "Неверный пакет KPackage «%1»"
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr ""
+#~ "Григорий Мохин,Николай Шафоростов,Андрей Черепанов,Леонид Кантер,Альберт "
+#~ "Валиев,Олеся Герасименко"
 
-#: quickaddons/configmodule.cpp:164
-#, kde-format
-msgid "No QML file provided"
-msgstr "Отсутствует файл QML"
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr ""
+#~ "mok@kde.ru,shaforostoff@kde.ru,skull@kde.ru,leon@asplinux.ru,"
+#~ "darkstar@altlinux.ru,translation-team@basealt.ru"
+
+#~ msgid "Invalid KPackage '%1'"
+#~ msgstr "Неверный пакет KPackage «%1»"
+
+#~ msgid "No QML file provided"
+#~ msgstr "Отсутствует файл QML"
 
 # BUGME: can we translate KPackage somehow? --aspotashev
 #~ msgid "KPackage QML application shell"

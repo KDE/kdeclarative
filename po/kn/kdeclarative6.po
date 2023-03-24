@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 21:29+0000\n"
+"POT-Creation-Date: 2023-03-24 02:07+0000\n"
 "PO-Revision-Date: 2010-06-24 18:32+0530\n"
 "Last-Translator: Shankar Prasad <svenkate@redhat.com>\n"
 "Language-Team: kn_IN <kde-i18n-doc@kde.org>\n"
@@ -20,16 +20,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "X-Generator: Lokalize 1.0\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "ಉಮೇಶ್ ರುದ್ರಪಟ್ಟಣ, ಸಿದ್ಧಾರೂಢ ಪಿ ಟಿ, ಶಂಕರ ಪ್ರಸಾದ್ ಎಂ ವಿ"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "umeshrs@gmail.com, siddharudh@gmail.com, svenkate@redhat.com"
 
 #: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
@@ -157,16 +147,18 @@ msgstr ""
 msgid "Reassign"
 msgstr "ಮರುನಿಗದಿಗೊಳಿಸು"
 
-#: quickaddons/configmodule.cpp:158
-#, fuzzy, kde-format
-#| msgid "Invalid item."
-msgid "Invalid KPackage '%1'"
-msgstr "ಅಮಾನ್ಯವಾದ ಅಂಶ."
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "ಉಮೇಶ್ ರುದ್ರಪಟ್ಟಣ, ಸಿದ್ಧಾರೂಢ ಪಿ ಟಿ, ಶಂಕರ ಪ್ರಸಾದ್ ಎಂ ವಿ"
 
-#: quickaddons/configmodule.cpp:164
-#, kde-format
-msgid "No QML file provided"
-msgstr ""
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "umeshrs@gmail.com, siddharudh@gmail.com, svenkate@redhat.com"
+
+#, fuzzy
+#~| msgid "Invalid item."
+#~ msgid "Invalid KPackage '%1'"
+#~ msgstr "ಅಮಾನ್ಯವಾದ ಅಂಶ."
 
 #, fuzzy
 #~| msgid "defines the application font"
