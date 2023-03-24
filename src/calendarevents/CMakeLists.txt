@@ -23,12 +23,12 @@ ecm_generate_headers(CalendarEvents_CamelCase_HEADERS
   CalendarEventsPlugin
 
   PREFIX CalendarEvents
-  REQUIRED_HEADERS calendareventsplugin.h
+  REQUIRED_HEADERS CalendarEvents_HEADERS
 )
 install(FILES ${CalendarEvents_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative/CalendarEvents COMPONENT Devel)
 
 install (FILES
-        calendareventsplugin.h
+        ${CalendarEvents_HEADERS}
 	${CMAKE_CURRENT_BINARY_DIR}/calendarevents_export.h
         DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative/calendarevents COMPONENT Devel
 )
