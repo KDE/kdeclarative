@@ -20,6 +20,7 @@ if(BUILD_QCH)
         SOURCES # using only public headers, to cover only public API
             ${KQuickAddons_QCH_SOURCES}
             ${KDeclarative_QCH_SOURCES}
+            ${CalendarEvents_QCH_SOURCES}
         MD_MAINPAGE "${CMAKE_SOURCE_DIR}/README.md"
         LINK_QCHS
             Qt5Qml_QCH
@@ -28,6 +29,7 @@ if(BUILD_QCH)
         INCLUDE_DIRS
             ${KQuickAddons_QCH_INCLUDE_DIRS}
             ${KDeclarative_QCH_INCLUDE_DIRS}
+            ${CalendarEvents_QCH_INCLUDE_DIRS}
         BLANK_MACROS
             KDECLARATIVE_EXPORT
             KDECLARATIVE_DEPRECATED
@@ -38,6 +40,9 @@ if(BUILD_QCH)
             QUICKADDONS_DEPRECATED
             QUICKADDONS_DEPRECATED_EXPORT
             "QUICKADDONS_DEPRECATED_VERSION(x, y, t)"
+            CALENDAREVENTS_EXPORT
+            "CALENDAREVENTS_DEPRECATED_VERSION(x, y, t)"
+            "CALENDAREVENTS_DEPRECATED_VERSION_BELATED(x, y, xt, yt, t)"
         TAGFILE_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
         QCH_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
         COMPONENT Devel

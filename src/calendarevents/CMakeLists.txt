@@ -32,3 +32,7 @@ install (FILES
 	${CMAKE_CURRENT_BINARY_DIR}/calendarevents_export.h
         DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative/calendarevents COMPONENT Devel
 )
+
+# make available to ecm_add_qch in parent folder
+set(CalendarEvents_QCH_SOURCES ${CalendarEvents_HEADERS} PARENT_SCOPE)
+set(CalendarEvents_QCH_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR} PARENT_SCOPE)
