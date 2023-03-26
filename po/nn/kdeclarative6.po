@@ -146,17 +146,3 @@ msgstr ""
 #, kde-format
 msgid "Reassign"
 msgstr "Tilordna på nytt"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Karl Ove Hufthammer"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "karl@huftis.org"
-
-#~ msgid "Invalid KPackage '%1'"
-#~ msgstr "Ugyldig KPackage «%1»"
-
-#~ msgid "No QML file provided"
-#~ msgstr "Manglar QML-fil"
