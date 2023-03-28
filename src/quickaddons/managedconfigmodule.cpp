@@ -9,7 +9,7 @@
 
 #include <QPointer>
 
-#include <KConfigCore/KCoreConfigSkeleton>
+#include <KCoreConfigSkeleton>
 
 namespace KQuickAddons
 {
