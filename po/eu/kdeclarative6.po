@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-24 02:07+0000\n"
+"POT-Creation-Date: 2023-03-28 02:56+0000\n"
 "PO-Revision-Date: 2022-09-15 05:35+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -35,13 +35,13 @@ msgstr "Erakutsi testuinguru-laguntza"
 msgid "No items found"
 msgstr "Ez da elementurik aurkitu"
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:63
+#: qmlcontrols/kquickcontrols/ColorButton.qml:57
 #, kde-format
 msgctxt "@info:whatsthis for a button"
 msgid "Color button"
 msgstr "Kolore-botoia"
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:65
+#: qmlcontrols/kquickcontrols/ColorButton.qml:59
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
@@ -49,7 +49,7 @@ msgstr ""
 "Uneko kolorea %1 da. Botoi honek kolorea hautatzeko elkarrizketa koadro bat "
 "irekiko du."
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:66
+#: qmlcontrols/kquickcontrols/ColorButton.qml:60
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."

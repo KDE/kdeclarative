@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-24 02:07+0000\n"
+"POT-Creation-Date: 2023-03-28 02:56+0000\n"
 "PO-Revision-Date: 2012-06-27 10:04+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -28,7 +28,7 @@ msgstr ""
 msgid "No items found"
 msgstr "រក​មិនឃើញ"
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:63
+#: qmlcontrols/kquickcontrols/ColorButton.qml:57
 #, fuzzy, kde-format
 #| msgctxt "left mouse button"
 #| msgid "left button"
@@ -36,13 +36,13 @@ msgctxt "@info:whatsthis for a button"
 msgid "Color button"
 msgstr "ប៊ូតុង​ឆ្វេង"
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:65
+#: qmlcontrols/kquickcontrols/ColorButton.qml:59
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:66
+#: qmlcontrols/kquickcontrols/ColorButton.qml:60
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."

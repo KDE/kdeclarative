@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-24 02:07+0000\n"
+"POT-Creation-Date: 2023-03-28 02:56+0000\n"
 "PO-Revision-Date: 2022-10-03 16:31+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -29,20 +29,20 @@ msgstr "문맥 도움말 표시"
 msgid "No items found"
 msgstr "항목 없음"
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:63
+#: qmlcontrols/kquickcontrols/ColorButton.qml:57
 #, kde-format
 msgctxt "@info:whatsthis for a button"
 msgid "Color button"
 msgstr "색상 단추"
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:65
+#: qmlcontrols/kquickcontrols/ColorButton.qml:59
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
 msgstr ""
 "현재 색상은 %1입니다. 이 단추를 클릭하면 색상 선택기 대화 상자를 엽니다."
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:66
+#: qmlcontrols/kquickcontrols/ColorButton.qml:60
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."

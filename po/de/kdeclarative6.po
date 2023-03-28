@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-24 02:07+0000\n"
+"POT-Creation-Date: 2023-03-28 02:56+0000\n"
 "PO-Revision-Date: 2022-11-10 20:58+0100\n"
 "Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -36,19 +36,19 @@ msgstr "Kontexthilfe anzeigen"
 msgid "No items found"
 msgstr "Keine Elemente gefunden"
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:63
+#: qmlcontrols/kquickcontrols/ColorButton.qml:57
 #, kde-format
 msgctxt "@info:whatsthis for a button"
 msgid "Color button"
 msgstr "Farbknopf"
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:65
+#: qmlcontrols/kquickcontrols/ColorButton.qml:59
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
 msgstr "Aktuelle Farbe ist %1. Dieser Knopf öffnet einen Farbauswahldialog."
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:66
+#: qmlcontrols/kquickcontrols/ColorButton.qml:60
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
