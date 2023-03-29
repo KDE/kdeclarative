@@ -7,8 +7,6 @@ set(kquickcontrolsaddons_SRCS
     eventgenerator.h
     fallbacktaphandler.cpp
     fallbacktaphandler.h
-    icondialog.cpp
-    icondialog.h
     kcmshell.cpp
     kcmshell.h
     kquickcontrolsaddonsplugin.cpp

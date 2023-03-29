@@ -12,7 +12,6 @@
 #include "columnproxymodel.h"
 #include "eventgenerator.h"
 #include "fallbacktaphandler.h"
-#include "icondialog.h"
 #include "kcmshell.h"
 #include "mimedatabase.h"
 #include "mouseeventlistener.h"
@@ -40,7 +39,6 @@ void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
     qmlRegisterType<Clipboard>(uri, 2, 0, "Clipboard");
     qmlRegisterType<MimeDatabase>(uri, 2, 0, "MimeDatabase");
     qmlRegisterSingletonType<KCMShell>(uri, 2, 0, "KCMShell", kcmshell_singleton_provider);
-    qmlRegisterType<IconDialog>(uri, 2, 0, "IconDialog");
     qmlRegisterType<EventGenerator>(uri, 2, 0, "EventGenerator");
     qmlRegisterUncreatableType<FallbackTapHandlerMouseEvent>(uri,
                                                              2,
