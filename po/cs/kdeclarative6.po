@@ -140,17 +140,3 @@ msgstr ""
 #, kde-format
 msgid "Reassign"
 msgstr "Přeřadit"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Vít Pelčák"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "vit@pelcak.org"
-
-#~ msgid "Invalid KPackage '%1'"
-#~ msgstr "Neplatný KPackage '%1'"
-
-#~ msgid "No QML file provided"
-#~ msgstr "Nebyl poskytnut soubor QML"
