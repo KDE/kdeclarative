@@ -5,8 +5,16 @@ set(calendar-integration_SRCS
 )
 
 add_library(KF5CalendarEvents ${calendar-integration_SRCS})
-generate_export_header(KF5CalendarEvents BASE_NAME CalendarEvents)
 add_library(KF5::CalendarEvents ALIAS KF5CalendarEvents)
+
+ecm_generate_export_header(KF5CalendarEvents
+    BASE_NAME CalendarEvents
+    GROUP_BASE_NAME KF
+    VERSION ${KF_VERSION}
+    DEPRECATED_BASE_VERSION 0
+    DEPRECATION_VERSIONS 5.106
+    EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
+)
 
 target_link_libraries(KF5CalendarEvents PUBLIC Qt${QT_MAJOR_VERSION}::Core)
 

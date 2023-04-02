@@ -246,21 +246,20 @@ Q_SIGNALS:
     /**
      * Emitted when the plugin has loaded the alternate dates
      *
-     * @deprecated Since 5.102. Use @c alternateCalendarDateReady(const QHash<QDate, QCalendar::YearMonthDay> &data) instead
      * @param data A hash containing a QDate key from Gregorian calendar
      *             for the alternate date in the value, QDate.
      * @since 5.95
      */
-    CALENDAREVENTS_DEPRECATED void alternateDateReady(const QHash<QDate, QDate> &data);
+    void alternateDateReady(const QHash<QDate, QDate> &data);
 
+#if CALENDAREVENTS_ENABLE_DEPRECATED_SINCE(5, 106)
     /**
-     * Emitted when the plugin has loaded the alternate dates
-     *
-     * @param data A hash containing a QDate key from Gregorian calendar
-     *             for the alternate date in the value, QDate.
-     * @since 6.0
+     * @since 5,102
+     * @deprecated Do not use, accidentally added to KF5 API.
      */
+    CALENDAREVENTS_DEPRECATED_VERSION_BELATED(5, 106, 5, 102, "Keep using alternateDateReady(const QHash<QDate, QDate> &data).")
     void alternateCalendarDateReady(const QHash<QDate, QCalendar::YearMonthDay> &data);
+#endif
 
     /**
      * Emitted when the plugin has loaded the sublabels
