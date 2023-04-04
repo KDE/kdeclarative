@@ -5,7 +5,6 @@ set(calendar-integration_SRCS
 )
 
 add_library(KF6CalendarEvents ${calendar-integration_SRCS})
-generate_export_header(KF6CalendarEvents BASE_NAME CalendarEvents)
 add_library(KF6::CalendarEvents ALIAS KF6CalendarEvents)
 
 set_target_properties(KF6CalendarEvents PROPERTIES
@@ -14,9 +13,21 @@ set_target_properties(KF6CalendarEvents PROPERTIES
     EXPORT_NAME CalendarEvents
 )
 
+ecm_generate_export_header(KF6CalendarEvents
+    BASE_NAME CalendarEvents
+    GROUP_BASE_NAME KF
+    VERSION ${KF_VERSION}
+    USE_VERSION_HEADER
+    VERSION_BASE_NAME KDeclarative
+    DEPRECATED_BASE_VERSION 0
+)
+
 target_link_libraries(KF6CalendarEvents PUBLIC Qt6::Core)
 
-target_include_directories(KF6CalendarEvents INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative>")
+target_include_directories(KF6CalendarEvents
+    INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative>"
+    PUBLIC "$<BUILD_INTERFACE:${CMAKE_BINARY_DIR}>" # module version header
+)
 
 install(TARGETS KF6CalendarEvents EXPORT KF6DeclarativeTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
