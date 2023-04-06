@@ -25,7 +25,7 @@ Item {
      */
     property alias target: helper.target
 
-    /***
+    /**
      * highlight: bool
      * Whether the target will be highlighted.
      */
@@ -40,4 +40,3 @@ Item {
         helper.updateTarget();
     }
 }
-
