@@ -139,23 +139,3 @@ msgstr ""
 #, kde-format
 msgid "Reassign"
 msgstr "Прехвърляне"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Ясен Праматаров,Радостин Раднев,Златко Попов"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "yasen@lindeas.com,radnev@yahoo.com,zlatkopopov@fsa-bg.org"
-
-#~ msgid "Invalid KPackage '%1'"
-#~ msgstr "Невалиден KPackage '%1'"
-
-#~ msgid "No QML file provided"
-#~ msgstr "Не е предоставен QML файл"
-
-#~ msgid "KPackage QML application shell"
-#~ msgstr "KPackage QML обвивка на приложението"
-
-#~ msgid "The unique name of the application (mandatory)"
-#~ msgstr "Уникално име на приложението (задължително)"
