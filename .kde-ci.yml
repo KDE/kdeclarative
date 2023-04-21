@@ -2,7 +2,6 @@ Dependencies:
 - 'on': ['Linux', 'FreeBSD', 'Windows', 'macOS']
   'require':
     'frameworks/extra-cmake-modules': '@same'
-    'frameworks/kconfig' : '@same'
     'frameworks/ki18n' : '@same'
     'frameworks/kiconthemes' : '@same'
     'frameworks/kio' : '@same'

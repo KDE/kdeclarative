@@ -12,6 +12,3 @@ if(KF6CoreAddons_FOUND)
     add_subdirectory(kcoreaddons)
 endif()
 
-if (KF6Config_FOUND)
-    add_subdirectory(kconfig)
-endif()

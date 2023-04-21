@@ -22,7 +22,6 @@ include(KDECMakeSettings)
 include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
 
-find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6IconThemes ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6KIO ${KF_DEP_VERSION} REQUIRED)
