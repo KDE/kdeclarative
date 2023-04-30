@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2018 Marco Martin <mart@kde.org>
+    SPDX-FileCopyrightText: 2023 ivan tkachenko <me@ratijas.tk>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -42,8 +43,11 @@ QQC2.ScrollView {
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     Kirigami.Theme.inherit: false
 
-    Component.onCompleted: scroll.background.visible = scroll.framedView;
+    Component.onCompleted: {
+        if (background) {
+            background.visible = Qt.binding(() => framedView);
+        }
+    }
 
-    
     QQC2.ScrollBar.horizontal.visible: false
 }
