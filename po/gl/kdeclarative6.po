@@ -1,7 +1,6 @@
 # translation of kdelibs4.po to galician
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # mvillarino <mvillarino@users.sourceforge.net>, 2007, 2008, 2009.
 # Marce Villarino <mvillarino@kde-espana.es>, 2008, 2009.
 # marce villarino <mvillarino@users.sourceforge.net>, 2009.
@@ -10,13 +9,14 @@
 # Xosé <xosecalvo@gmail.com>, 2010.
 # Marce Villarino <mvillarino@kde-espana.es>, 2011, 2012, 2013, 2014.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015.
-# Adrian Chaves <adrian@chaves.io>, 2018, 2019.
+# Adrian Chaves <adrian@chaves.io>, 2018, 2019, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-28 02:56+0000\n"
-"PO-Revision-Date: 2019-10-19 22:29+0200\n"
+"PO-Revision-Date: 2023-04-30 10:26+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -24,39 +24,36 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.11.70\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Contextual Help"
-msgstr ""
+msgstr "Mostrar a axuda contextual"
 
 #: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
-#, fuzzy, kde-format
-#| msgid "Not found"
+#, kde-format
 msgid "No items found"
-msgstr "Non se atopou"
+msgstr "Non se atopou ningún elemento"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:57
-#, fuzzy, kde-format
-#| msgctxt "left mouse button"
-#| msgid "left button"
+#, kde-format
 msgctxt "@info:whatsthis for a button"
 msgid "Color button"
-msgstr "botón esquerdo"
+msgstr "Colorar o botón"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:59
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
-msgstr ""
+msgstr "A cor actual é %1. Este botón abrirá un diálogo de selector de cores."
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:60
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
-msgstr ""
+msgstr "A cor actual é %1."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:90
 #, kde-format
@@ -83,13 +80,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
-msgstr ""
+msgstr "Borrar a secuencia de teclas"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
-msgstr ""
+msgstr "Cancelar a gravación da secuencia de teclas"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
 #, kde-format
@@ -111,33 +108,27 @@ msgstr ""
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
 #, kde-format
 msgid "Global Shortcut Shadowing"
-msgstr ""
+msgstr "Conflitos de atallos globais"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
-#, fuzzy, kde-format
-#| msgid ""
-#| "The '%1' key combination is registered by application %2 for action %3:"
+#, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr ""
-"A combinación de teclas «%1» está rexistrada polo programa %2 para a acción "
-"%3:"
+"A combinación de teclas «%1» ignórase en favor das seguintes accións "
+"globais:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:149
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:155
-#, fuzzy, kde-format
-#| msgid "In context '%1' for action '%2'\n"
+#, kde-format
 msgid "Action '%1' in context '%2'\n"
-msgstr "No contexto «%1» para a acción «%2»\n"
+msgstr "Acción «%1» no contexto «%2»\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
-#, fuzzy, kde-format
-#| msgid ""
-#| "The '%1' key combination is registered by application %2.\n"
-#| "%3"
+#, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr ""
-"A combinación de teclas «%1» está rexistrada polo programa %2.\n"
-"%3"
+"A combinación de teclas «%1» fai que se ignoren as seguintes accións "
+"globais:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
 #, kde-format
