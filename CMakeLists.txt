@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 
 set(KF_VERSION "5.240.0") # handled by release scripts
 set(KF_DEP_VERSION "5.240.0") # handled by release scripts
+set(REQUIRED_QT_VERSION 6.4.0)
 project(KDeclarative VERSION ${KF_VERSION})
 
 # Dependencies
@@ -12,19 +13,20 @@ feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKA
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
-set(REQUIRED_QT_VERSION 6.4.0)
-
 include(KDEInstallDirs)
-find_package(Qt6 ${REQUIRED_QT_VERSION} NO_MODULE REQUIRED Qml Quick Gui)
-
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
+include(ECMGenerateExportHeader)
+include(ECMSetupVersion)
+include(ECMGenerateHeaders)
+include(CMakePackageConfigHelpers)
+include(ECMAddQch)
 
+find_package(Qt6 ${REQUIRED_QT_VERSION} NO_MODULE REQUIRED Qml Quick Gui)
 find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6IconThemes ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6KIO ${KF_DEP_VERSION} REQUIRED)
+find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6GuiAddons ${KF_DEP_VERSION} REQUIRED)
 
@@ -32,17 +34,6 @@ find_package(KF6GuiAddons ${KF_DEP_VERSION} REQUIRED)
 if(NOT WIN32)
     find_package(KF6GlobalAccel ${KF_DEP_VERSION} REQUIRED)
 endif()
-#########################################################################
-
-#add_definitions(-Wno-deprecated)
-
-# Includes
-
-include(ECMGenerateExportHeader)
-include(ECMSetupVersion)
-include(ECMGenerateHeaders)
-include(CMakePackageConfigHelpers)
-include(ECMAddQch)
 
 set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
 
@@ -115,24 +106,5 @@ install(FILES
 )
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
-
-if(KF6Config_FOUND AND KF6I18n_FOUND AND KF6IconThemes_FOUND AND KF6KIO_FOUND)
-  message("Dependencies for libkdeclarative found: it will be built")
-else()
-  message("In order to build libkdeclarative you need KF6Config, KF6I18n, KF6IconThemes and KF6KIO")
-endif()
-
-if(KF6I18n_FOUND AND KF6WidgetsAddons_FOUND AND KF6KIO_FOUND AND KF6GuiAddons_FOUND)
-  message("Dependencies for KQuickControls found: it will be built")
-else()
-  message("In order to build KQuickControls you need KF6I18n, KF6WidgetsAddons, KF6GlobalAccel, KF6KIO and KF6GuiAddons")
-endif()
-
-if(KF6CoreAddons_FOUND)
-  message("Dependencies for KCoreAddons QML bindings found; it will be built")
-else()
-  message("In order to build KCoreAddons QML bindings you need KCoreAddons")
-endif()
-
 
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)

@@ -3,8 +3,9 @@ Dependencies:
   'require':
     'frameworks/extra-cmake-modules': '@same'
     'frameworks/ki18n' : '@same'
-    'frameworks/kiconthemes' : '@same'
-    'frameworks/kio' : '@same'
+    'frameworks/kconfig' : '@same'
+    'frameworks/kwidgetsaddons' : '@same'
+    'frameworks/kguiaddons' : '@same'
 
 - 'on': ['Linux', 'FreeBSD']
   'require':

@@ -11,14 +11,14 @@ set(kquickcontrolsprivate_SRCS
 add_library(kquickcontrolsprivateplugin ${kquickcontrolsprivate_SRCS})
 
 target_link_libraries(kquickcontrolsprivateplugin
-        Qt6::Core
-        Qt6::Quick
-        Qt6::Qml
-        KF6::I18n
-        KF6::ConfigGui
-        KF6::GuiAddons
-        KF6::WidgetsAddons
-        )
+    Qt6::Core
+    Qt6::Quick
+    Qt6::Qml
+    KF6::I18n
+    KF6::ConfigGui
+    KF6::GuiAddons
+    KF6::WidgetsAddons
+)
 
 if (NOT WIN32)
     target_link_libraries(kquickcontrolsprivateplugin KF6::GlobalAccel)

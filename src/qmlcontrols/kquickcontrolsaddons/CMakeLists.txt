@@ -17,20 +17,17 @@ set(kquickcontrolsaddons_SRCS
     qimageitem.h
     qpixmapitem.cpp
     qpixmapitem.h
-
 )
 
 add_library(kquickcontrolsaddonsplugin ${kquickcontrolsaddons_SRCS})
 
 target_link_libraries(kquickcontrolsaddonsplugin
-        Qt6::Core
-        Qt6::Quick
-        Qt6::Qml
-        Qt6::Gui
-        KF6::IconThemes
-        KF6::KIOGui
-        KF6::Service
-        KF6::ConfigCore)
+    Qt6::Core
+    Qt6::Quick
+    Qt6::Qml
+    Qt6::Gui
+    KF6::ConfigCore
+)
 
 if(WIN32 AND BUILD_SHARED_LIBS)
     set_target_properties(kquickcontrolsaddonsplugin PROPERTIES PREFIX "")
