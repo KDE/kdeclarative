@@ -7,8 +7,6 @@ set(kquickcontrolsaddons_SRCS
     eventgenerator.h
     fallbacktaphandler.cpp
     fallbacktaphandler.h
-    kcmshell.cpp
-    kcmshell.h
     kquickcontrolsaddonsplugin.cpp
     kquickcontrolsaddonsplugin.h
     mimedatabase.cpp
