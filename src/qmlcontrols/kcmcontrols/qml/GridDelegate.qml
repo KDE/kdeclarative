@@ -166,9 +166,9 @@ T2.ItemDelegate {
 
                         onClicked: modelData.trigger()
 
-                        QQC2.ToolTip {
-                            text: parent.text
-                        }
+                        QQC2.ToolTip.text: text
+                        QQC2.ToolTip.visible: (Kirigami.Settings.tabletMode ? pressed : hovered) && (text !== "")
+                        QQC2.ToolTip.delay: Kirigami.Settings.tabletMode ? Qt.styleHints.mousePressAndHoldInterval : Kirigami.Units.toolTipDelay
                     }
                 }
             }
