@@ -77,9 +77,10 @@ T2.ItemDelegate {
             delegate: QQC2.MenuItem {
                 text: modelData.text || modelData.tooltip
                 icon.name: modelData.icon.name
-                onTriggered: modelData.trigger()
                 enabled: modelData.enabled
                 visible: modelData.visible
+
+                onTriggered: modelData.trigger()
             }
         }
     }
@@ -88,7 +89,7 @@ T2.ItemDelegate {
         id: thumbnail
         anchors {
            centerIn: parent
-           verticalCenterOffset: Math.ceil(-labelLayout.height/2)
+           verticalCenterOffset: Math.ceil(-labelLayout.height / 2)
         }
         width: Kirigami.Settings.isMobile ? delegate.width - Kirigami.Units.gridUnit : Math.min(delegate.GridView.view.implicitCellWidth, delegate.width - Kirigami.Units.gridUnit)
         height: Kirigami.Settings.isMobile ? Math.round((delegate.width - Kirigami.Units.gridUnit) / 1.6)
@@ -122,7 +123,8 @@ T2.ItemDelegate {
 
         Rectangle {
             id: thumbnailArea
-            radius: Kirigami.Units.smallSpacing/2
+
+            radius: Kirigami.Units.smallSpacing / 2
             anchors {
                 fill: parent
                 margins: Kirigami.Units.smallSpacing
@@ -135,7 +137,7 @@ T2.ItemDelegate {
                 visible: !delegate.thumbnailAvailable
                 anchors.centerIn: parent
                 width: Kirigami.Units.iconSizes.large
-                height: width
+                height: Kirigami.Units.iconSizes.large
                 source: typeof pluginName === "string" && pluginName === "None" ? "edit-none" : "view-preview"
             }
 
@@ -177,6 +179,7 @@ T2.ItemDelegate {
 
     ColumnLayout {
         id: labelLayout
+
         spacing: 0
         height: Kirigami.Units.gridUnit * 2
         anchors {
@@ -198,6 +201,7 @@ T2.ItemDelegate {
         }
         QQC2.Label {
             id: caption
+
             Layout.fillWidth: true
             horizontalAlignment: Text.AlignHCenter
             visible: delegate.subtitle.length > 0
@@ -229,6 +233,13 @@ T2.ItemDelegate {
         if (delegate.toolTip.length > 0) {
             return delegate.toolTip;
         }
-        return `${title.truncated ? title.text : ""}${caption.truncated ? ("\n" + caption.text) : ""}`;
+        const parts = [];
+        if (title.truncated) {
+            parts.push(title.text);
+        }
+        if (caption.truncated) {
+            parts.push(caption.text);
+        }
+        return parts.join("\n");
     }
 }
