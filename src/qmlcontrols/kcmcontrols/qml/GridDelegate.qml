@@ -76,7 +76,7 @@ T2.ItemDelegate {
             model: delegate.actions
             delegate: QQC2.MenuItem {
                 text: modelData.text || modelData.tooltip
-                icon.name: modelData.iconName
+                icon.name: modelData.icon.name
                 onTriggered: modelData.trigger()
                 enabled: modelData.enabled
                 visible: modelData.visible
@@ -155,7 +155,7 @@ T2.ItemDelegate {
                 Repeater {
                     model: delegate.actions
                     delegate: QQC2.Button {
-                        icon.name: modelData.iconName
+                        icon.name: modelData.icon.name
                         text: modelData.text || modelData.tooltip
                         display: QQC2.AbstractButton.IconOnly
 
