@@ -46,11 +46,11 @@ T2.ItemDelegate {
     property bool thumbnailAvailable: false
 
     /**
-     * actions: list<Action>
+     * actions: list<Kirigami.Action>
      * A list of extra actions for the thumbnails. They will be shown as
      * icons on the bottom-right corner of the thumbnail on mouse over
      */
-    property list<QtObject> actions
+    property list<Kirigami.Action> actions
 
     width: GridView.view.cellWidth
     height: GridView.view.cellHeight
@@ -75,6 +75,8 @@ T2.ItemDelegate {
         Repeater {
             model: delegate.actions
             delegate: QQC2.MenuItem {
+                required property Kirigami.Action modelData
+
                 text: modelData.text || modelData.tooltip
                 icon.name: modelData.icon.name
                 enabled: modelData.enabled
@@ -157,6 +159,8 @@ T2.ItemDelegate {
                 Repeater {
                     model: delegate.actions
                     delegate: QQC2.Button {
+                        required property Kirigami.Action modelData
+
                         icon.name: modelData.icon.name
                         text: modelData.text || modelData.tooltip
                         display: QQC2.AbstractButton.IconOnly
