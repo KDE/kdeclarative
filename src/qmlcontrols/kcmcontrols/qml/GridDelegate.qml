@@ -150,6 +150,7 @@ T2.ItemDelegate {
                     bottom: parent.bottom
                     bottomMargin: Kirigami.Units.smallSpacing
                 }
+                spacing: Kirigami.Units.smallSpacing
 
                 // Always show above thumbnail content
                 z: 9999
