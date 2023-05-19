@@ -154,7 +154,7 @@ T2.ItemDelegate {
                 // Always show above thumbnail content
                 z: 9999
 
-                visible: children.length > 0 && (Kirigami.Settings.isMobile || delegate.hovered || delegate.GridView.isCurrentItem)
+                visible: delegate.actions.length > 0 && (Kirigami.Settings.isMobile || delegate.hovered || delegate.GridView.isCurrentItem)
 
                 Repeater {
                     model: delegate.actions
