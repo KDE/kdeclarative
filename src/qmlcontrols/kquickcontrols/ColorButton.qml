@@ -103,7 +103,7 @@ QQC2.Button {
         id: colorDialog
         onAccepted: colorPicker.accepted(color)
         parentWindow: colorPicker.Window.window
-        options: colorPicker.showAlphaChannel ? ColorDialog.ShowAlphaChannel : undefined
+        options: colorPicker.showAlphaChannel ? QtDialogs.ColorDialog.ShowAlphaChannel : undefined
     }
 
     onClicked: {
