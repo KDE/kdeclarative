@@ -1,10 +1,10 @@
 # translation of kdeclarative5.pot to Esperanto
-# Esperantaj mesaĝoj por "kdelibs"
+# Esperantaj mesaĝoj por "kdeclarative"
 # Copyright (C) 1998,2002, 2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
 # Wolfram Diestel <wolfram@steloj.de>, 1998.
 # Heiko Evermann <heiko@evermann.de>, 2002, 2003.
 # Matthias Peick <matthias@peick.de>, 2004, 2005.
-# Oliver Kellogg <okellogg@users.sourceforge.net>,2007.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2007, 2023.
 # Cindy McKee <cfmckee@gmail.com>, 2007, 2008.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
 # Michael Moroni <michael.moroni@mailoo.org>, 2012.
@@ -13,7 +13,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: kdelibs4\n"
+"Project-Id-Version: kdeclarative\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-18 00:54+0000\n"
 "PO-Revision-Date: 2023-01-05 10:00+0100\n"
@@ -42,7 +42,7 @@ msgstr ""
 #: kpackagelauncherqml/main.cpp:30
 #, kde-format
 msgid "KPackage QML application shell"
-msgstr ""
+msgstr "KPackage QML-aplika ŝelo"
 
 #: kpackagelauncherqml/main.cpp:38
 #, kde-format
@@ -96,18 +96,20 @@ msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
+"Alklaku la butonon, tiam enigu la fulmoklavon kiel vi farus en la programo.\n"
+"Ekzemplo por Ctrl+A: tenu la stirklavon kaj premu A."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
-msgstr ""
+msgstr "Viŝi klavsinsekvon"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
-msgstr ""
+msgstr "Nuligi klavsinsekvan registradon"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
 #, kde-format
@@ -121,16 +123,18 @@ msgid ""
 "shortcut.\n"
 "Please choose another one."
 msgstr ""
+"La klavo F12 etsas rezervita sur Vindozo, sekve ne povas uziĝi por ĉiea "
+"ŝparvojo."
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
 #, kde-format
 msgid "Global Shortcut Shadowing"
-msgstr ""
+msgstr "Ombrigo de ĉieaj ŝparvojoj"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
-msgstr ""
+msgstr "La klavkombino '%1' estas ombrigata per sekvantaj ĉieaj agoj:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:149
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:155
@@ -141,7 +145,7 @@ msgstr "Ago '%1' en kunteksto '%2'\n"
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
-msgstr ""
+msgstr "La klavkombino '%1' ombrigas la sekvantajn ĉieajn agojn:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
 #, kde-format
