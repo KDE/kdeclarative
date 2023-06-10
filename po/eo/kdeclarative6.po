@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 02:56+0000\n"
+"POT-Creation-Date: 2023-06-10 02:08+0000\n"
 "PO-Revision-Date: 2023-04-07 00:35+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -25,17 +25,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Contextual Help"
-msgstr "Montri Kuntekstan Helpon"
-
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
-#, kde-format
-msgid "No items found"
-msgstr "Neniuj eroj troveblas"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:57
 #, kde-format
@@ -145,3 +134,10 @@ msgstr ""
 #, kde-format
 msgid "Reassign"
 msgstr "Reatribui"
+
+#~ msgctxt "@action:button"
+#~ msgid "Show Contextual Help"
+#~ msgstr "Montri Kuntekstan Helpon"
+
+#~ msgid "No items found"
+#~ msgstr "Neniuj eroj troveblas"

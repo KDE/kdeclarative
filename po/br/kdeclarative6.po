@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4-1.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 02:56+0000\n"
+"POT-Creation-Date: 2023-06-10 02:08+0000\n"
 "PO-Revision-Date: 2007-10-15 22:19+0200\n"
 "Last-Translator: Jañ-Mai Drapier <jan-mai.drapier@mail.dotcom.fr>\n"
 "Language-Team: Brezhoneg <Suav.Icb@wanadoo.fr>\n"
@@ -17,18 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Contextual Help"
-msgstr ""
-
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
-#, fuzzy, kde-format
-#| msgid "No keys were found."
-msgid "No items found"
-msgstr "N'eus alc'hwez kavet ebet."
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:57
 #, fuzzy, kde-format
@@ -140,6 +128,11 @@ msgstr ""
 #, fuzzy, kde-format
 msgid "Reassign"
 msgstr "Rusianeg"
+
+#, fuzzy
+#~| msgid "No keys were found."
+#~ msgid "No items found"
+#~ msgstr "N'eus alc'hwez kavet ebet."
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"

@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 02:56+0000\n"
+"POT-Creation-Date: 2023-06-10 02:08+0000\n"
 "PO-Revision-Date: 2005-01-28 17:54+0000\n"
 "Last-Translator: Kevin Donnelly <kevin@dotmon.com>\n"
 "Language-Team: Cymraeg\n"
@@ -29,19 +29,6 @@ msgstr ""
 "X-Generator: KBabel 1.9\n"
 "\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Contextual Help"
-msgstr ""
-
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
-#, fuzzy, kde-format
-#| msgid "1 match found."
-#| msgid_plural "%1 matches found."
-msgid "No items found"
-msgstr "Canfuwyd %1 o gydweddiadau. "
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:57
 #, kde-format
@@ -153,6 +140,12 @@ msgstr ""
 #, fuzzy, kde-format
 msgid "Reassign"
 msgstr "Rwsieg"
+
+#, fuzzy
+#~| msgid "1 match found."
+#~| msgid_plural "%1 matches found."
+#~ msgid "No items found"
+#~ msgstr "Canfuwyd %1 o gydweddiadau. "
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"

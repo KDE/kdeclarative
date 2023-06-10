@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 02:56+0000\n"
+"POT-Creation-Date: 2023-06-10 02:08+0000\n"
 "PO-Revision-Date: 2022-07-14 14:28+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -21,17 +21,6 @@ msgstr ""
 "X-Generator: Lokalize 22.08.1\n"
 "X-Language: cs_CZ\n"
 "X-Source-Language: en_US\n"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Contextual Help"
-msgstr "Zobrazit kontextovou nápovědu"
-
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
-#, kde-format
-msgid "No items found"
-msgstr "Nenalezeny žádné položky"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:57
 #, kde-format
@@ -140,3 +129,10 @@ msgstr ""
 #, kde-format
 msgid "Reassign"
 msgstr "Přeřadit"
+
+#~ msgctxt "@action:button"
+#~ msgid "Show Contextual Help"
+#~ msgstr "Zobrazit kontextovou nápovědu"
+
+#~ msgid "No items found"
+#~ msgstr "Nenalezeny žádné položky"

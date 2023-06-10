@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 02:56+0000\n"
+"POT-Creation-Date: 2023-06-10 02:08+0000\n"
 "PO-Revision-Date: 2021-05-03 15:50+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -18,18 +18,6 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
 "X-Generator: Lokalize 19.12.3\n"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Contextual Help"
-msgstr "Arată ajutor contextual"
-
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
-#, fuzzy, kde-format
-#| msgid "Not found"
-msgid "No items found"
-msgstr "Nu a fost găsită"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:57
 #, fuzzy, kde-format
@@ -152,6 +140,15 @@ msgstr ""
 #, kde-format
 msgid "Reassign"
 msgstr "Reatribuie"
+
+#~ msgctxt "@action:button"
+#~ msgid "Show Contextual Help"
+#~ msgstr "Arată ajutor contextual"
+
+#, fuzzy
+#~| msgid "Not found"
+#~ msgid "No items found"
+#~ msgstr "Nu a fost găsită"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"

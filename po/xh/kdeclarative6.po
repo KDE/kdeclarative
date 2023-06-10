@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 02:56+0000\n"
+"POT-Creation-Date: 2023-06-10 02:08+0000\n"
 "PO-Revision-Date: 2002-12-13 17:20SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -22,17 +22,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.0beta2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Contextual Help"
-msgstr ""
-
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
-#, fuzzy, kde-format
-msgid "No items found"
-msgstr "utelekiso olunye olufumanekileyo"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:57
 #, kde-format
@@ -139,6 +128,10 @@ msgstr ""
 #, fuzzy, kde-format
 msgid "Reassign"
 msgstr "Isirashiya"
+
+#, fuzzy
+#~ msgid "No items found"
+#~ msgstr "utelekiso olunye olufumanekileyo"
 
 #, fuzzy
 #~ msgctxt "NAME OF TRANSLATORS"

@@ -25,7 +25,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 02:56+0000\n"
+"POT-Creation-Date: 2023-06-10 02:08+0000\n"
 "PO-Revision-Date: 2023-02-23 20:00+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -36,17 +36,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.12.2\n"
 "X-POT-Import-Date: 2013-01-13 20:43:21+0000\n"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Contextual Help"
-msgstr "Näytä kontekstiohje"
-
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
-#, kde-format
-msgid "No items found"
-msgstr "Kohteita ei löytynyt"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:57
 #, kde-format
@@ -160,6 +149,13 @@ msgstr ""
 #, kde-format
 msgid "Reassign"
 msgstr "Sijoita uudelleen"
+
+#~ msgctxt "@action:button"
+#~ msgid "Show Contextual Help"
+#~ msgstr "Näytä kontekstiohje"
+
+#~ msgid "No items found"
+#~ msgstr "Kohteita ei löytynyt"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"

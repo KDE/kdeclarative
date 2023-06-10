@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 02:56+0000\n"
+"POT-Creation-Date: 2023-06-10 02:08+0000\n"
 "PO-Revision-Date: 2013-09-08 07:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -17,18 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.5.5\n"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Contextual Help"
-msgstr ""
-
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
-#, fuzzy, kde-format
-#| msgid "Not found"
-msgid "No items found"
-msgstr "تېپىلمىدى"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:57
 #, fuzzy, kde-format
@@ -154,6 +142,11 @@ msgstr ""
 #, kde-format
 msgid "Reassign"
 msgstr "قايتا تەقسىملە"
+
+#, fuzzy
+#~| msgid "Not found"
+#~ msgid "No items found"
+#~ msgstr "تېپىلمىدى"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"

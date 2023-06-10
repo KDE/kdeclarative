@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 02:56+0000\n"
+"POT-Creation-Date: 2023-06-10 02:08+0000\n"
 "PO-Revision-Date: 2022-10-19 15:36-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -27,17 +27,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 21.12.3\n"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Contextual Help"
-msgstr "Mostrar ajuda contextual"
-
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
-#, kde-format
-msgid "No items found"
-msgstr "Nenhum item encontrado"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:57
 #, kde-format
@@ -149,6 +138,13 @@ msgstr ""
 #, kde-format
 msgid "Reassign"
 msgstr "Reatribuir"
+
+#~ msgctxt "@action:button"
+#~ msgid "Show Contextual Help"
+#~ msgstr "Mostrar ajuda contextual"
+
+#~ msgid "No items found"
+#~ msgstr "Nenhum item encontrado"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"

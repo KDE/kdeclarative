@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 02:56+0000\n"
+"POT-Creation-Date: 2023-06-10 02:08+0000\n"
 "PO-Revision-Date: 2023-05-22 13:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -16,17 +16,6 @@ msgstr ""
 "X-Crowdin-Language: zh-CN\n"
 "X-Crowdin-File: /kf6-trunk/messages/kdeclarative/kdeclarative6.pot\n"
 "X-Crowdin-File-ID: 42735\n"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Contextual Help"
-msgstr "显示相关帮助"
-
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
-#, kde-format
-msgid "No items found"
-msgstr "未找到项目"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:57
 #, kde-format
@@ -134,3 +123,10 @@ msgstr ""
 #, kde-format
 msgid "Reassign"
 msgstr "重新分配"
+
+#~ msgctxt "@action:button"
+#~ msgid "Show Contextual Help"
+#~ msgstr "显示相关帮助"
+
+#~ msgid "No items found"
+#~ msgstr "未找到项目"

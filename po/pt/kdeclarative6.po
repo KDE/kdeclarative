@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 02:56+0000\n"
+"POT-Creation-Date: 2023-06-10 02:08+0000\n"
 "PO-Revision-Date: 2022-09-15 17:52+0100\n"
 "Last-Translator: José Nuno Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -105,17 +105,6 @@ msgstr ""
 "X-POFile-SpellExtra: DQTDECLARATIVEDEBUG QML slot pedro mantê Pocinhas\n"
 "X-POFile-SpellExtra: Reconstrói ii Del iii querê KPackage\n"
 "X-POFile-IgnoreConsistency: Update\n"
-
-#: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Contextual Help"
-msgstr "Mostrar a Ajuda de Contexto"
-
-#: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
-#, kde-format
-msgid "No items found"
-msgstr "Nenhum item encontrado"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:57
 #, kde-format
@@ -229,6 +218,13 @@ msgstr ""
 #, kde-format
 msgid "Reassign"
 msgstr "Atribuir de Novo"
+
+#~ msgctxt "@action:button"
+#~ msgid "Show Contextual Help"
+#~ msgstr "Mostrar a Ajuda de Contexto"
+
+#~ msgid "No items found"
+#~ msgstr "Nenhum item encontrado"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
