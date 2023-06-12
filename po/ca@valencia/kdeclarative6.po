@@ -138,24 +138,3 @@ msgstr ""
 #, kde-format
 msgid "Reassign"
 msgstr "Reassigna"
-
-#~ msgctxt "@action:button"
-#~ msgid "Show Contextual Help"
-#~ msgstr "Mostra l'ajuda contextual"
-
-#~ msgid "No items found"
-#~ msgstr "No s'ha trobat cap element"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Sebastià Pla i Sanz"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "sps@sastia.com"
-
-#~ msgid "Invalid KPackage '%1'"
-#~ msgstr "KPackage «%1» no vàlid"
-
-#~ msgid "No QML file provided"
-#~ msgstr "No s'ha proporcionat cap fitxer QML"
