@@ -129,10 +129,3 @@ msgstr ""
 #, kde-format
 msgid "Reassign"
 msgstr "Přeřadit"
-
-#~ msgctxt "@action:button"
-#~ msgid "Show Contextual Help"
-#~ msgstr "Zobrazit kontextovou nápovědu"
-
-#~ msgid "No items found"
-#~ msgstr "Nenalezeny žádné položky"
