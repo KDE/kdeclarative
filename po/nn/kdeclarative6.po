@@ -135,10 +135,3 @@ msgstr ""
 #, kde-format
 msgid "Reassign"
 msgstr "Tilordna på nytt"
-
-#~ msgctxt "@action:button"
-#~ msgid "Show Contextual Help"
-#~ msgstr "Vis emnehjelp"
-
-#~ msgid "No items found"
-#~ msgstr "Fann ingen element"
