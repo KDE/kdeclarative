@@ -6,7 +6,7 @@
 
 #include "kquickcontrolsprivateplugin.h"
 
-#include <QtQml>
+#include <QQmlEngine>
 
 #include "keysequencehelper.h"
 #include "translationcontext.h"
