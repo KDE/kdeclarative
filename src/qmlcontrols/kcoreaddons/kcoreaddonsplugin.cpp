@@ -7,7 +7,7 @@
 
 #include "kcoreaddonsplugin.h"
 
-#include <QtQml>
+#include <QQmlEngine>
 
 #include "formats.h"
 #include "kuserproxy.h"

@@ -7,7 +7,7 @@
 #include "kconfigplugin.h"
 
 #include <KAuthorized>
-#include <QtQml>
+#include <QQmlEngine>
 
 #include "kauthorizedproxy.h"
 

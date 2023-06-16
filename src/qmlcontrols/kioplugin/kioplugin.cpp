@@ -6,7 +6,7 @@
 
 #include "kioplugin.h"
 
-#include <QtQml>
+#include <QQmlEngine>
 
 #include "krunproxy.h"
 
