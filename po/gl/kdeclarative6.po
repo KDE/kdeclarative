@@ -90,8 +90,8 @@ msgid ""
 "shortcut.\n"
 "Please choose another one."
 msgstr ""
-"A tecla F12 está reservada en Windows polo que non se pode empregar como "
-"atallo global.\n"
+"A tecla F12 está reservada en Windows polo que non se pode usar como atallo "
+"global.\n"
 "Escolla outro."
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
