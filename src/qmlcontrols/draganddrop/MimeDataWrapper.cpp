@@ -76,3 +76,5 @@ QMimeData *MimeDataWrapper::mimeData() const
 {
     return const_cast<QMimeData *>(m_data);
 }
+
+#include "moc_MimeDataWrapper.cpp"

@@ -153,3 +153,5 @@ QList<QQuickItem *> EventGenerator::allChildItemsRecursive(QQuickItem *parentIte
 
     return itemList;
 }
+
+#include "moc_eventgenerator.cpp"

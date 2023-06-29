@@ -53,3 +53,5 @@ DeclarativeMimeData *DeclarativeDragDropEvent::mimeData()
     }
     return m_data.data();
 }
+
+#include "moc_DeclarativeDragDropEvent.cpp"

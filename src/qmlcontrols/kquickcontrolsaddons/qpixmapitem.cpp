@@ -191,3 +191,5 @@ void QPixmapItem::geometryChange(const QRectF &newGeometry, const QRectF &oldGeo
     QQuickPaintedItem::geometryChange(newGeometry, oldGeometry);
     updatePaintedRect();
 }
+
+#include "moc_qpixmapitem.cpp"

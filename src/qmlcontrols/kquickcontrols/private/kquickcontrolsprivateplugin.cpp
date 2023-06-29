@@ -20,3 +20,5 @@ void KQuickControlsPrivatePlugin::registerTypes(const char *uri)
     // values as for example "ShortcutType.StandardShortcuts" from qml
     qmlRegisterUncreatableType<KeySequenceHelper>("org.kde.kquickcontrols", 2, 0, "ShortcutType", QStringLiteral("This is just to allow accessing the enum"));
 }
+
+#include "moc_kquickcontrolsprivateplugin.cpp"

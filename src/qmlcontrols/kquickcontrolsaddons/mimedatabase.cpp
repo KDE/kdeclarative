@@ -40,3 +40,5 @@ QJsonObject MimeDatabase::mimeTypeForName(const QString &name) const
     }
     return mimetypeToJsonObject(type);
 }
+
+#include "moc_mimedatabase.cpp"

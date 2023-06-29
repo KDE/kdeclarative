@@ -76,3 +76,5 @@ void ColumnProxyModelTest::testSet()
     listify.setData(changeIndex, QVariant::fromValue(newString), Qt::DisplayRole);
     QCOMPARE(changeIndex.data(Qt::DisplayRole).toString(), newString);
 }
+
+#include "moc_columnproxymodeltest.cpp"

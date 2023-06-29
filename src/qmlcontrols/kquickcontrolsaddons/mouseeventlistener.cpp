@@ -502,3 +502,5 @@ void MouseEventListener::handleUngrab()
         Q_EMIT canceled();
     }
 }
+
+#include "moc_mouseeventlistener.cpp"

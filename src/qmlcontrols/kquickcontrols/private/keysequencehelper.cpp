@@ -230,3 +230,5 @@ QWindow *KeySequenceHelper::renderWindow(QQuickWindow *quickWindow)
     }
     return window;
 }
+
+#include "moc_keysequencehelper.cpp"
