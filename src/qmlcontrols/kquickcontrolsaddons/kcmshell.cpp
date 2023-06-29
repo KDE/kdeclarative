@@ -73,3 +73,5 @@ QStringList KCMShell::authorize(const QStringList &menuIds) const
 {
     return KAuthorized::authorizeControlModules(menuIds);
 }
+
+#include "moc_kcmshell.cpp"

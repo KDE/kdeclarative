@@ -18,3 +18,5 @@ void KCMControlsPlugin::registerTypes(const char *uri)
     qmlRegisterType<SettingStateProxy>(uri, 1, 3, "SettingStateProxy");
     qmlRegisterType<SettingHighlighterPrivate>("org.kde.kcm.private", 1, 3, "SettingHighlighterPrivate");
 }
+
+#include "moc_kcmcontrolsplugin.cpp"

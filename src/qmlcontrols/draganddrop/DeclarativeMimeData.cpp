@@ -152,3 +152,5 @@ QByteArray DeclarativeMimeData::getDataAsByteArray(const QString &format)
 {
     return data(format);
 }
+
+#include "moc_DeclarativeMimeData.cpp"

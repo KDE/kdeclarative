@@ -265,3 +265,5 @@ QString TranslationContext::i18ncp(const QString &context,
 
     return trMessage.toString();
 }
+
+#include "moc_translationcontext.cpp"

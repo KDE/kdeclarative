@@ -956,3 +956,5 @@ void Plotter::normalizeData()
         m_mutex.unlock();
     }
 }
+
+#include "moc_plotter.cpp"

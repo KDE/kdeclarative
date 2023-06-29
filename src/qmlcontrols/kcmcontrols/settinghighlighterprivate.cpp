@@ -126,3 +126,5 @@ void SettingHighlighterPrivate::updateTarget()
         m_styleTarget->polish();
     }
 }
+
+#include "moc_settinghighlighterprivate.cpp"

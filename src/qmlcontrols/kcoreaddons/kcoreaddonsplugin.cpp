@@ -33,3 +33,5 @@ void KCoreAddonsPlugin::registerTypes(const char *uri)
 
     qmlRegisterType<KUserProxy>(uri, 1, 0, "KUser");
 }
+
+#include "moc_kcoreaddonsplugin.cpp"

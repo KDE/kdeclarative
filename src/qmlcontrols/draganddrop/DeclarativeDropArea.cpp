@@ -146,3 +146,5 @@ bool DeclarativeDropArea::containsDrag() const
 {
     return m_containsDrag;
 }
+
+#include "moc_DeclarativeDropArea.cpp"

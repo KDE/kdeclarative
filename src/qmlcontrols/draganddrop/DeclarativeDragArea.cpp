@@ -366,3 +366,5 @@ void DeclarativeDragArea::startDrag(const QImage &image)
 
     ungrabMouse();
 }
+
+#include "moc_DeclarativeDragArea.cpp"

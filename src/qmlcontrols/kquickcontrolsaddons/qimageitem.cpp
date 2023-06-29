@@ -202,3 +202,5 @@ void QImageItem::geometryChange(const QRectF &newGeometry, const QRectF &oldGeom
 #endif
     updatePaintedRect();
 }
+
+#include "moc_qimageitem.cpp"

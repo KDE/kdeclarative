@@ -166,3 +166,5 @@ void KWindowSystemProxy::setDesktopName(int desktop, const QString &name)
     KWindowSystem::setDesktopName(desktop, name);
 }
 #endif
+
+#include "moc_kwindowsystemproxy.cpp"

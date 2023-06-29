@@ -67,3 +67,5 @@ void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
     qmlRegisterAnonymousType<QAbstractItemModel>(uri, 1);
     qRegisterMetaType<QModelIndex>("QModelIndex");
 }
+
+#include "moc_kquickcontrolsaddonsplugin.cpp"

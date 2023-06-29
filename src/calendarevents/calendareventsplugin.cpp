@@ -20,3 +20,5 @@ CalendarEventsPlugin::~CalendarEventsPlugin()
 ShowEventInterface::~ShowEventInterface() = default;
 
 }
+
+#include "moc_calendareventsplugin.cpp"

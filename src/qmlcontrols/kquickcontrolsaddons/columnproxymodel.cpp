@@ -213,3 +213,5 @@ bool ColumnProxyModel::setData(const QModelIndex &index, const QVariant &value, 
 {
     return m_sourceModel && m_sourceModel->setData(sourceIndex(index), value, role);
 }
+
+#include "moc_columnproxymodel.cpp"

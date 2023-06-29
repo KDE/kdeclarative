@@ -23,3 +23,5 @@ void DragAndDropPlugin::registerTypes(const char *uri)
     qmlRegisterUncreatableType<DeclarativeDragDropEvent>(uri, 2, 0, "DragDropEvent", QStringLiteral("DragDropEvent cannot be created from QML."));
     qmlRegisterUncreatableType<MimeDataWrapper>(uri, 2, 0, "MimeDataWrapper", QStringLiteral("DragDropEvent cannot be created from QML."));
 }
+
+#include "moc_draganddropplugin.cpp"

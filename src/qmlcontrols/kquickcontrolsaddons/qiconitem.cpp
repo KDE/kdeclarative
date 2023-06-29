@@ -166,4 +166,7 @@ void QIconItem::geometryChange(const QRectF &newGeometry, const QRectF &oldGeome
     QQuickItem::geometryChange(newGeometry, oldGeometry);
 #endif
 }
+
+#include "moc_qiconitem.cpp"
+
 #endif

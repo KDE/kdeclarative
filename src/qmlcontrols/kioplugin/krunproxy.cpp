@@ -60,3 +60,5 @@ bool KRunProxy::openService(const QString &serviceName)
     }
     return false;
 }
+
+#include "moc_krunproxy.cpp"

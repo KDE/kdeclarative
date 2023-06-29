@@ -26,3 +26,5 @@ bool KAuthorizedProxy::authorizeAction(const QString &action) const
 {
     return KAuthorized::authorizeAction(action);
 }
+
+#include "moc_kauthorizedproxy.cpp"

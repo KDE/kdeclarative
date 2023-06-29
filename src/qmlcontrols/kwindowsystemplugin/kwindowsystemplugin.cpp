@@ -16,3 +16,5 @@ void KWindowSystemPlugin::registerTypes(const char *uri)
 
     qmlRegisterType<KWindowSystemProxy>(uri, 1, 0, "KWindowSystem");
 }
+
+#include "moc_kwindowsystemplugin.cpp"

@@ -170,3 +170,5 @@ bool IconDialog::eventFilter(QObject *watched, QEvent *event)
 
     return false;
 }
+
+#include "moc_icondialog.cpp"

@@ -120,3 +120,5 @@ void SettingStateProxy::connectSetting()
     connect(m_configObject, changedSignal, this, updateStateSlot);
     connect(m_configObject, &KCoreConfigSkeleton::configChanged, this, &SettingStateProxy::updateState);
 }
+
+#include "moc_settingstateproxy.cpp"

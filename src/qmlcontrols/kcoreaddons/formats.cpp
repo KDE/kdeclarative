@@ -46,3 +46,5 @@ QString Formats::formatRelativeDateTime(const QDateTime &dateTime, QLocale::Form
 {
     return m_format.formatRelativeDateTime(dateTime, format);
 }
+
+#include "moc_formats.cpp"

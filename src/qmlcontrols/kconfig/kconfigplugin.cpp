@@ -32,3 +32,5 @@ void KConfigPlugin::registerTypes(const char *uri)
         return proxy;
     });
 }
+
+#include "moc_kconfigplugin.cpp"

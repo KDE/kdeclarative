@@ -16,3 +16,5 @@ void KioPlugin::registerTypes(const char *uri)
 
     qmlRegisterType<KRunProxy>(uri, 1, 0, "KRun");
 }
+
+#include "moc_kioplugin.cpp"
