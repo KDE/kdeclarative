@@ -1,7 +1,6 @@
-#version 120
-
 /*
     SPDX-FileCopyrightText: 2021 Arjen Hiemstra <ahiemstra@heimr.nl>
+    SPDX-FileCopyrightText: 2023 Mike Noe <noeerover@gmail.com>
 
     Hyllian's lanczos windowed-jinc 2-lobe sharper 3D with anti-ringing Shader
 
@@ -26,45 +25,50 @@
     THE SOFTWARE.
 */
 
-uniform sampler2D source;
-uniform highp vec2 targetSize;
+#version 440
 
-uniform highp float windowSinc;
-uniform highp float sinc;
+layout(location = 0) in vec2 texcoord;
+layout(location = 0) out vec4 fragColor;
 
-uniform highp float antiRingingStrength;
-uniform highp float resolution;
+layout(std140, binding = 0) uniform buf {
+    mat4 qt_Matrix;
+    float qt_Opacity;
 
-uniform highp float qt_Opacity;
+    vec2 targetSize;
+    float windowSinc;
+    float sinc;
+    float antiRingingStrength;
+    float resolution;
+} ubuf;
 
-varying highp vec2 qt_TexCoord0;
+layout(binding = 1) uniform sampler2D source;
 
 // A=0.5, B=0.825 is the best jinc approximation for x<2.5. if B=1.0, it's a lanczos filter.
 // Increase A to get more blur. Decrease it to get a sharper picture.
 // B = 0.825 to get rid of dithering. Increase B to get a fine sharpness, though dithering returns.
 
-#define wa (windowSinc * pi)
-#define wb (sinc * pi)
+#define wa (ubuf.windowSinc * pi)
+#define wb (ubuf.sinc * pi)
 
-const highp float pi = 3.1415926535897932384626433832795;
-const highp vec3 dtt = vec3(65536.0, 255.0, 1.0);
+const float pi = 3.1415926535897932384626433832795;
+const vec3 dtt = vec3(65536.0, 255.0, 1.0);
 
-highp vec4 reduce4(highp vec3 A, highp vec3 B, highp vec3 C, highp vec3 D)
+vec4 reduce4(vec3 A, vec3 B, vec3 C, vec3 D)
 {
     return dtt * mat4x3(A, B, C, D);
 }
 
-highp vec3 min4(highp vec3 a, highp vec3 b, highp vec3 c, highp vec3 d)
+vec3 min4(vec3 a, vec3 b, vec3 c, vec3 d)
 {
     return min(a, min(b, min(c, d)));
 }
 
-highp vec3 max4(highp vec3 a, highp vec3 b, highp vec3 c, highp vec3 d)
+vec3 max4(vec3 a, vec3 b, vec3 c, vec3 d)
 {
     return max(a, max(b, max(c, d)));
 }
 
-highp vec4 lanczos(highp vec4 x)
+vec4 lanczos(vec4 x)
 {
     return (x == vec4(0.0)) ?  vec4(wa * wb) : sin(x * wa) * sin(x * wb) / (x * x);
 }
@@ -73,19 +77,19 @@ void main()
 {
     // Discard any pixels that are outside the bounds of the texture.
     // This prevents artifacts when the texture doesn't have a full-alpha border.
-    if (any(lessThan(qt_TexCoord0, vec2(0.0))) || any(greaterThan(qt_TexCoord0, vec2(1.0)))) {
+    if (any(lessThan(texcoord, vec2(0.0))) || any(greaterThan(texcoord, vec2(1.0)))) {
         discard;
     }
 
-    highp vec2 dx = vec2(1.0, 0.0);
-    highp vec2 dy = vec2(0.0, 1.0);
+    vec2 dx = vec2(1.0, 0.0);
+    vec2 dy = vec2(0.0, 1.0);
 
-    highp vec2 pixelCoord = qt_TexCoord0 * targetSize / resolution;
-    highp vec2 texel = (floor(pixelCoord) + vec2(0.5, 0.5)) * resolution / targetSize;
+    vec2 pixelCoord = texcoord * ubuf.targetSize / ubuf.resolution;
+    vec2 texel = (floor(pixelCoord) + vec2(0.5, 0.5)) * ubuf.resolution / ubuf.targetSize;
 
-    highp vec2 texelCenter = (floor(pixelCoord - vec2(0.5, 0.5)) + vec2(0.5, 0.5));
+    vec2 texelCenter = (floor(pixelCoord - vec2(0.5, 0.5)) + vec2(0.5, 0.5));
 
-    highp mat4 weights;
+    mat4 weights;
     weights[0] = lanczos(vec4(distance(pixelCoord, texelCenter - dx - dy),
                               distance(pixelCoord, texelCenter - dy),
                               distance(pixelCoord, texelCenter + dx - dy),
@@ -103,46 +107,46 @@ void main()
                               distance(pixelCoord, texelCenter + dx + 2.0 * dy),
                               distance(pixelCoord, texelCenter + 2.0 * dx + 2.0 * dy)));
 
-    dx = dx * resolution / targetSize;
-    dy = dy * resolution / targetSize;
-    texelCenter = texelCenter * resolution / targetSize;
+    dx = dx * ubuf.resolution / ubuf.targetSize;
+    dy = dy * ubuf.resolution / ubuf.targetSize;
+    texelCenter = texelCenter * ubuf.resolution / ubuf.targetSize;
 
     // reading the texels
-    highp vec3 color = texture2D(source, qt_TexCoord0).xyz;
+    vec3 color = texture(source, texcoord).xyz;
 
-    highp vec3 c00 = texture2D(source, texelCenter - dx - dy).xyz;
-    highp vec3 c10 = texture2D(source, texelCenter - dy).xyz;
-    highp vec3 c20 = texture2D(source, texelCenter + dx - dy).xyz;
-    highp vec3 c30 = texture2D(source, texelCenter + 2.0 * dx - dy).xyz;
-    highp vec3 c01 = texture2D(source, texelCenter - dx).xyz;
-    highp vec3 c11 = texture2D(source, texelCenter).xyz;
-    highp vec3 c21 = texture2D(source, texelCenter + dx).xyz;
-    highp vec3 c31 = texture2D(source, texelCenter + 2.0 * dx).xyz;
-    highp vec3 c02 = texture2D(source, texelCenter - dx + dy).xyz;
-    highp vec3 c12 = texture2D(source, texelCenter + dy).xyz;
-    highp vec3 c22 = texture2D(source, texelCenter + dx + dy).xyz;
-    highp vec3 c32 = texture2D(source, texelCenter + 2.0 * dx + dy).xyz;
-    highp vec3 c03 = texture2D(source, texelCenter - dx + 2.0 * dy).xyz;
-    highp vec3 c13 = texture2D(source, texelCenter + 2.0 * dy).xyz;
-    highp vec3 c23 = texture2D(source, texelCenter + dx + 2.0 * dy).xyz;
-    highp vec3 c33 = texture2D(source, texelCenter + 2.0 * dx + 2.0 * dy).xyz;
+    vec3 c00 = texture(source, texelCenter - dx - dy).xyz;
+    vec3 c10 = texture(source, texelCenter - dy).xyz;
+    vec3 c20 = texture(source, texelCenter + dx - dy).xyz;
+    vec3 c30 = texture(source, texelCenter + 2.0 * dx - dy).xyz;
+    vec3 c01 = texture(source, texelCenter - dx).xyz;
+    vec3 c11 = texture(source, texelCenter).xyz;
+    vec3 c21 = texture(source, texelCenter + dx).xyz;
+    vec3 c31 = texture(source, texelCenter + 2.0 * dx).xyz;
+    vec3 c02 = texture(source, texelCenter - dx + dy).xyz;
+    vec3 c12 = texture(source, texelCenter + dy).xyz;
+    vec3 c22 = texture(source, texelCenter + dx + dy).xyz;
+    vec3 c32 = texture(source, texelCenter + 2.0 * dx + dy).xyz;
+    vec3 c03 = texture(source, texelCenter - dx + 2.0 * dy).xyz;
+    vec3 c13 = texture(source, texelCenter + 2.0 * dy).xyz;
+    vec3 c23 = texture(source, texelCenter + dx + 2.0 * dy).xyz;
+    vec3 c33 = texture(source, texelCenter + 2.0 * dx + 2.0 * dy).xyz;
 
-    highp vec3 F6 = texture2D(source, texel + dx + 0.25 * dx + 0.25 * dy).xyz;
-    highp vec3 F7 = texture2D(source, texel + dx + 0.25 * dx - 0.25 * dy).xyz;
-    highp vec3 F8 = texture2D(source, texel + dx - 0.25 * dx - 0.25 * dy).xyz;
-    highp vec3 F9 = texture2D(source, texel + dx - 0.25 * dx + 0.25 * dy).xyz;
+    vec3 F6 = texture(source, texel + dx + 0.25 * dx + 0.25 * dy).xyz;
+    vec3 F7 = texture(source, texel + dx + 0.25 * dx - 0.25 * dy).xyz;
+    vec3 F8 = texture(source, texel + dx - 0.25 * dx - 0.25 * dy).xyz;
+    vec3 F9 = texture(source, texel + dx - 0.25 * dx + 0.25 * dy).xyz;
 
-    highp vec3 H6 = texture2D(source, texel + 0.25 * dx + 0.25 * dy + dy).xyz;
-    highp vec3 H7 = texture2D(source, texel + 0.25 * dx - 0.25 * dy + dy).xyz;
-    highp vec3 H8 = texture2D(source, texel - 0.25 * dx - 0.25 * dy + dy).xyz;
-    highp vec3 H9 = texture2D(source, texel - 0.25 * dx + 0.25 * dy + dy).xyz;
+    vec3 H6 = texture(source, texel + 0.25 * dx + 0.25 * dy + dy).xyz;
+    vec3 H7 = texture(source, texel + 0.25 * dx - 0.25 * dy + dy).xyz;
+    vec3 H8 = texture(source, texel - 0.25 * dx - 0.25 * dy + dy).xyz;
+    vec3 H9 = texture(source, texel - 0.25 * dx + 0.25 * dy + dy).xyz;
 
-    highp vec4 f0 = reduce4(F6, F7, F8, F9);
-    highp vec4 h0 = reduce4(H6, H7, H8, H9);
+    vec4 f0 = reduce4(F6, F7, F8, F9);
+    vec4 h0 = reduce4(H6, H7, H8, H9);
 
     //  Get min/max samples
-    highp vec3 min_sample = min4(c11, c21, c12, c22);
-    highp vec3 max_sample = max4(c11, c21, c12, c22);
+    vec3 min_sample = min4(c11, c21, c12, c22);
+    vec3 max_sample = max4(c11, c21, c12, c22);
 
     color = weights[0] * transpose(mat4x3(c00, c10, c20, c30));
     color += weights[1] * transpose(mat4x3(c01, c11, c21, c31));
@@ -151,11 +155,11 @@ void main()
     color = color / dot(vec4(1.0) * weights, vec4(1.0));
 
     // Anti-ringing
-    highp vec3 aux = color;
+    vec3 aux = color;
     color = clamp(color, min_sample, max_sample);
 
-    color = mix(aux, color, antiRingingStrength);
+    color = mix(aux, color, ubuf.antiRingingStrength);
 
-    highp float alpha = texture2D(source, qt_TexCoord0).a * qt_Opacity;
-    gl_FragColor = vec4(color, alpha);
+    float alpha = texture(source, texcoord).a * ubuf.qt_Opacity;
+    fragColor = vec4(color, alpha);
 }

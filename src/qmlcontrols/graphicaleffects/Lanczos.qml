@@ -4,7 +4,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-import QtQuick 2.15
+import QtQuick
 
 /**
  * A ShaderEffect that makes use of the Lanczos resampling method for scaling textures.
@@ -61,6 +61,6 @@ ShaderEffect {
      */
     property real resolution: 0.98;
 
-    vertexShader: Qt.resolvedUrl("preserveaspect.vert")
-    fragmentShader: Qt.resolvedUrl("lanczos2sharp.frag")
+    vertexShader: Qt.resolvedUrl(":/shaders/preserveaspect.vert.qsb")
+    fragmentShader: Qt.resolvedUrl(":/shaders/lanczos2sharp.frag.qsb")
 }
