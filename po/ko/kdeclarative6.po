@@ -109,7 +109,7 @@ msgstr "'%1' 키 조합은 다음 전역 동작을 덮어씁니다:\n"
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
-msgstr "표준 프로그램 단축키와 충돌"
+msgstr "표준 앱 단축키와 충돌"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
@@ -118,8 +118,7 @@ msgid ""
 "some applications use.\n"
 "Do you really want to use it as a global shortcut as well?"
 msgstr ""
-"'%1' 키 조합은 많은 프로그램이 사용하는 \"%2\" 표준 동작에 할당되어 있습니"
-"다.\n"
+"'%1' 키 조합은 많은 앱이 사용하는 \"%2\" 표준 동작에 할당되어 있습니다.\n"
 "그래도 전역 단축키로 사용하시겠습니까?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
