@@ -300,11 +300,7 @@ public:
     /**
      * True when the module has something changed and needs save.
      */
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    bool needsSave() const;
-#else
     bool needsSave();
-#endif
 
     /**
      * Set this property to true when the user sets the state of the module
@@ -315,11 +311,7 @@ public:
     /**
      * True when the module state represents the default settings.
      */
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    bool representsDefaults() const;
-#else
     bool representsDefaults();
-#endif
 
     /**
      * Sets the buttons to display.
