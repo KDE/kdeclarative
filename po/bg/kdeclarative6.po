@@ -128,10 +128,3 @@ msgstr ""
 #, kde-format
 msgid "Reassign"
 msgstr "Прехвърляне"
-
-#~ msgctxt "@action:button"
-#~ msgid "Show Contextual Help"
-#~ msgstr "Показване на контекстна помощ"
-
-#~ msgid "No items found"
-#~ msgstr "Няма отрити елементи"
