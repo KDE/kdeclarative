@@ -1,4 +1,6 @@
-set(kquickcontrolsaddons_SRCS
+ecm_add_qml_module(kquickcontrolsaddonsplugin URI org.kde.kquickcontrolsaddons VERSION 2.0)
+
+target_sources(kquickcontrolsaddonsplugin PRIVATE
     clipboard.cpp
     clipboard.h
     columnproxymodel.cpp
@@ -19,9 +21,7 @@ set(kquickcontrolsaddons_SRCS
     qpixmapitem.h
 )
 
-add_library(kquickcontrolsaddonsplugin ${kquickcontrolsaddons_SRCS})
-
-target_link_libraries(kquickcontrolsaddonsplugin
+target_link_libraries(kquickcontrolsaddonsplugin PRIVATE
     Qt6::Core
     Qt6::Quick
     Qt6::Qml
@@ -29,10 +29,4 @@ target_link_libraries(kquickcontrolsaddonsplugin
     KF6::ConfigCore
 )
 
-if(WIN32 AND BUILD_SHARED_LIBS)
-    set_target_properties(kquickcontrolsaddonsplugin PROPERTIES PREFIX "")
-endif()
-
-install(TARGETS kquickcontrolsaddonsplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kquickcontrolsaddons)
-
-install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kquickcontrolsaddons)
+ecm_finalize_qml_module(kquickcontrolsaddonsplugin)
