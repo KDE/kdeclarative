@@ -1,4 +1,6 @@
-set(declarativedragdrop_SRCS
+ecm_add_qml_module(draganddropplugin URI org.kde.draganddrop VERSION 2.0)
+
+target_sources(draganddropplugin PRIVATE
     DeclarativeDragArea.cpp
     DeclarativeDragArea.h
     DeclarativeDragDropEvent.cpp
@@ -13,18 +15,11 @@ set(declarativedragdrop_SRCS
     MimeDataWrapper.h
 )
 
-add_library(draganddropplugin ${declarativedragdrop_SRCS})
-target_link_libraries(draganddropplugin
+target_link_libraries(draganddropplugin PRIVATE
     Qt6::Core
     Qt6::Quick
     Qt6::Qml
     Qt6::Gui
 )
 
-if(WIN32 AND BUILD_SHARED_LIBS)
-    set_target_properties(draganddropplugin PROPERTIES PREFIX "")
-endif()
-
-install(TARGETS draganddropplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/draganddrop)
-
-install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/draganddrop)
+ecm_finalize_qml_module(draganddropplugin)
