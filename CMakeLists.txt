@@ -21,6 +21,7 @@ include(ECMDeprecationSettings)
 include(ECMGenerateExportHeader)
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
+include(ECMQmlModule)
 include(CMakePackageConfigHelpers)
 include(ECMAddQch)
 
