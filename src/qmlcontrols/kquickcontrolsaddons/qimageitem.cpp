@@ -11,7 +11,6 @@
 
 QImageItem::QImageItem(QQuickItem *parent)
     : QQuickPaintedItem(parent)
-    , m_smooth(false)
     , m_fillMode(QImageItem::Stretch)
 {
     setFlag(ItemHasContents, true);
@@ -43,20 +42,6 @@ QImage QImageItem::image() const
 void QImageItem::resetImage()
 {
     setImage(QImage());
-}
-
-void QImageItem::setSmooth(const bool smooth)
-{
-    if (smooth == m_smooth) {
-        return;
-    }
-    m_smooth = smooth;
-    update();
-}
-
-bool QImageItem::smooth() const
-{
-    return m_smooth;
 }
 
 int QImageItem::nativeWidth() const
@@ -92,8 +77,8 @@ void QImageItem::paint(QPainter *painter)
         return;
     }
     painter->save();
-    painter->setRenderHint(QPainter::Antialiasing, m_smooth);
-    painter->setRenderHint(QPainter::SmoothPixmapTransform, m_smooth);
+    painter->setRenderHint(QPainter::Antialiasing, smooth());
+    painter->setRenderHint(QPainter::SmoothPixmapTransform, smooth());
 
     if (m_fillMode == TileVertically) {
         painter->scale(width() / (qreal)m_image.width(), 1);
