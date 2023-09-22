@@ -7,8 +7,6 @@ target_sources(kquickcontrolsaddonsplugin PRIVATE
     eventgenerator.h
     kquickcontrolsaddonsplugin.cpp
     kquickcontrolsaddonsplugin.h
-    mimedatabase.cpp
-    mimedatabase.h
     mouseeventlistener.cpp
     mouseeventlistener.h
     qimageitem.cpp
