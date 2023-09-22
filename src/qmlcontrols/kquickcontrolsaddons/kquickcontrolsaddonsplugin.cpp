@@ -11,7 +11,6 @@
 #include "clipboard.h"
 #include "columnproxymodel.h"
 #include "eventgenerator.h"
-#include "fallbacktaphandler.h"
 #include "mimedatabase.h"
 #include "mouseeventlistener.h"
 #include "qimageitem.h"
@@ -30,12 +29,6 @@ void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
     qmlRegisterType<Clipboard>(uri, 2, 0, "Clipboard");
     qmlRegisterType<MimeDatabase>(uri, 2, 0, "MimeDatabase");
     qmlRegisterType<EventGenerator>(uri, 2, 0, "EventGenerator");
-    qmlRegisterUncreatableType<FallbackTapHandlerMouseEvent>(uri,
-                                                             2,
-                                                             1,
-                                                             "FallbackTapHandlerMouseEvent",
-                                                             QStringLiteral("Cannot create items of type FallbackTapHandlerMouseEvent"));
-    qmlRegisterType<FallbackTapHandler>(uri, 2, 1, "FallbackTapHandler");
 
     qmlRegisterAnonymousType<QAbstractItemModel>(uri, 1);
     qRegisterMetaType<QModelIndex>("QModelIndex");

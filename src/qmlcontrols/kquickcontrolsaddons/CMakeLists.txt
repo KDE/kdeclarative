@@ -7,8 +7,6 @@ target_sources(kquickcontrolsaddonsplugin PRIVATE
     columnproxymodel.h
     eventgenerator.cpp
     eventgenerator.h
-    fallbacktaphandler.cpp
-    fallbacktaphandler.h
     kquickcontrolsaddonsplugin.cpp
     kquickcontrolsaddonsplugin.h
     mimedatabase.cpp
