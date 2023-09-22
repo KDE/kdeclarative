@@ -9,7 +9,6 @@
 #include "kquickcontrolsaddonsplugin.h"
 
 #include "clipboard.h"
-#include "columnproxymodel.h"
 #include "eventgenerator.h"
 #include "mimedatabase.h"
 #include "mouseeventlistener.h"
@@ -25,13 +24,9 @@ void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
     qmlRegisterType<MouseEventListener>(uri, 2, 0, "MouseEventListener");
     qmlRegisterAnonymousType<KDeclarativeMouseEvent>(uri, 1);
     qmlRegisterAnonymousType<KDeclarativeWheelEvent>(uri, 1);
-    qmlRegisterType<ColumnProxyModel>(uri, 2, 0, "ColumnProxyModel");
     qmlRegisterType<Clipboard>(uri, 2, 0, "Clipboard");
     qmlRegisterType<MimeDatabase>(uri, 2, 0, "MimeDatabase");
     qmlRegisterType<EventGenerator>(uri, 2, 0, "EventGenerator");
-
-    qmlRegisterAnonymousType<QAbstractItemModel>(uri, 1);
-    qRegisterMetaType<QModelIndex>("QModelIndex");
 }
 
 #include "moc_kquickcontrolsaddonsplugin.cpp"

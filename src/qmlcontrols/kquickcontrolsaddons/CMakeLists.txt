@@ -3,8 +3,6 @@ ecm_add_qml_module(kquickcontrolsaddonsplugin URI org.kde.kquickcontrolsaddons V
 target_sources(kquickcontrolsaddonsplugin PRIVATE
     clipboard.cpp
     clipboard.h
-    columnproxymodel.cpp
-    columnproxymodel.h
     eventgenerator.cpp
     eventgenerator.h
     kquickcontrolsaddonsplugin.cpp
