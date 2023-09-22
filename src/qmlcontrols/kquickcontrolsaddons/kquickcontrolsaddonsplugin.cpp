@@ -9,7 +9,6 @@
 #include "kquickcontrolsaddonsplugin.h"
 
 #include "clipboard.h"
-#include "eventgenerator.h"
 #include "mouseeventlistener.h"
 #include "qimageitem.h"
 #include "qpixmapitem.h"
@@ -24,7 +23,6 @@ void KQuickControlsAddonsPlugin::registerTypes(const char *uri)
     qmlRegisterAnonymousType<KDeclarativeMouseEvent>(uri, 1);
     qmlRegisterAnonymousType<KDeclarativeWheelEvent>(uri, 1);
     qmlRegisterType<Clipboard>(uri, 2, 0, "Clipboard");
-    qmlRegisterType<EventGenerator>(uri, 2, 0, "EventGenerator");
 }
 
 #include "moc_kquickcontrolsaddonsplugin.cpp"
