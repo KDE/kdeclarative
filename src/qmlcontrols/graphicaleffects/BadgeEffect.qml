@@ -16,5 +16,5 @@ ShaderEffect {
     required property var mask
 
     supportsAtlasTextures: true
-    fragmentShader: Qt.resolvedUrl(":/shaders/badge.frag.qsb")
+    fragmentShader: Qt.resolvedUrl(":/qt/qml/org/kde/graphicaleffects/shaders/badge.frag.qsb")
 }
