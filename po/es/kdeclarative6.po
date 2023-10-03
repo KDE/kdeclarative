@@ -5,7 +5,7 @@
 # Pablo de Vicente <vicente@oan.es>, 2000-2002,2003, 2004.
 # Pablo de Vicente <vicnte@oan.es>, 2003.
 # Pablo de Vicente <p.devicente@wanadoo.es>, 2004, 2005.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2005, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2019, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2005, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2019, 2020, 2021, 2022, 2023 Eloy Cuadra <ecuadra@eloihr.net>
 # Pablo de Vicente <pablo.devicente@gmail.com>, 2005, 2006, 2007.
 # Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007.
 # Jaime Robles <jaime@kde.org>, 2007.
@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-10 02:08+0000\n"
-"PO-Revision-Date: 2022-09-15 18:08+0200\n"
+"PO-Revision-Date: 2023-10-02 20:43+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "First-Translator: Boris Wesslowski <Boris@Wesslowski.com>\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 23.08.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:57
@@ -63,8 +63,8 @@ msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
-"Pulse sobre el botón e introduzca a continuación el acceso rápido que desee "
-"para el programa.\n"
+"Pulse sobre el botón e introduzca a continuación el atajo de teclado que "
+"desee para el programa.\n"
 "Ejemplo para «Ctrl+A»: mantenga pulsada la tecla «Ctrl» y luego pulse «A»."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:150
@@ -82,7 +82,7 @@ msgstr "Cancelar la grabación de la secuencia de teclas"
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
 #, kde-format
 msgid "Reserved Shortcut"
-msgstr "Acceso rápido reservado"
+msgstr "Atajo de teclado reservado"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:120
 #, kde-format
@@ -91,14 +91,14 @@ msgid ""
 "shortcut.\n"
 "Please choose another one."
 msgstr ""
-"La tecla F12 está reservada en Windows y no se puede usar como acceso rápido "
-"global.\n"
+"La tecla F12 está reservada en Windows y no se puede usar como atajo de "
+"teclado global.\n"
 "Seleccione otra tecla."
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
 #, kde-format
 msgid "Global Shortcut Shadowing"
-msgstr "Ocultación de accesos rápidos globales"
+msgstr "Ocultación de atajos de teclado globales"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
 #, kde-format
@@ -122,7 +122,7 @@ msgstr ""
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
-msgstr "Conflicto con el acceso rápido de la aplicación estándar"
+msgstr "Conflicto con el atajo de teclado estándar de la aplicación"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
@@ -132,8 +132,8 @@ msgid ""
 "Do you really want to use it as a global shortcut as well?"
 msgstr ""
 "La combinación de teclas «%1» ya está asignada a la acción estándar «%2», "
-"que es usada por algunas aplicaciones.\n"
-"¿Realmente quiere usarla también como acceso rápido global?"
+"que usan algunas aplicaciones.\n"
+"¿Realmente quiere usarla también como atajo de teclado global?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
 #, kde-format
