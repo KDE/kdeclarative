@@ -14,6 +14,7 @@
 class QPixmapItem : public QQuickPaintedItem
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(QPixmap pixmap READ pixmap WRITE setPixmap NOTIFY pixmapChanged RESET resetPixmap)
     Q_PROPERTY(int nativeWidth READ nativeWidth NOTIFY nativeWidthChanged)

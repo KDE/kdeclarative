@@ -1,10 +1,8 @@
-ecm_add_qml_module(kquickcontrolsaddonsplugin URI org.kde.kquickcontrolsaddons VERSION 2.0)
+ecm_add_qml_module(kquickcontrolsaddonsplugin URI org.kde.kquickcontrolsaddons VERSION 2.0 GENERATE_PLUGIN_SOURCE)
 
 target_sources(kquickcontrolsaddonsplugin PRIVATE
     clipboard.cpp
     clipboard.h
-    kquickcontrolsaddonsplugin.cpp
-    kquickcontrolsaddonsplugin.h
     mouseeventlistener.cpp
     mouseeventlistener.h
     qimageitem.cpp

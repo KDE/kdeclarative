@@ -21,6 +21,8 @@
 class KDeclarativeMouseEvent : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_ANONYMOUS
     Q_PROPERTY(int x READ x)
     Q_PROPERTY(int y READ y)
     Q_PROPERTY(int screenX READ screenX)
@@ -132,6 +134,8 @@ private:
 class KDeclarativeWheelEvent : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_ANONYMOUS
     Q_PROPERTY(int x READ x CONSTANT)
     Q_PROPERTY(int y READ y CONSTANT)
     Q_PROPERTY(int screenX READ screenX CONSTANT)
@@ -222,6 +226,7 @@ private:
 class MouseEventListener : public QQuickItem
 {
     Q_OBJECT
+    QML_ELEMENT
     /**
      * This property holds whether hover events are handled.
      * By default hover events are disabled

@@ -9,6 +9,7 @@
 
 #include <QClipboard>
 #include <QVariant>
+#include <qqmlregistration.h>
 
 class ClipboardPrivate;
 
@@ -36,6 +37,7 @@ class ClipboardPrivate;
 class Clipboard : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
     /**
      * Controls the state this object will be monitoring and extracting its contents from.
      */
