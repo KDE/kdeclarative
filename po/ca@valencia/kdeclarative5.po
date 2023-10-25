@@ -95,7 +95,7 @@ msgid ""
 msgstr ""
 "Cliqueu en el botó, llavors introduïu la drecera com ho faríeu en el "
 "programa.\n"
-"Exemple per a «Ctrl+a»: manteniu premuda la tecla «Ctrl» mentre premeu la "
+"Exemple per a «Ctrl+A»: manteniu premuda la tecla «Ctrl» mentre premeu la "
 "«A»."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:150
@@ -178,4 +178,4 @@ msgstr "KPackage «%1» no vàlid"
 #: quickaddons/configmodule.cpp:197
 #, kde-format
 msgid "No QML file provided"
-msgstr "No s'ha proporcionat cap fitxer QML"
+msgstr "No s'ha proporcionat cap fitxer en QML"
