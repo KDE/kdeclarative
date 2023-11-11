@@ -21,7 +21,7 @@
 #include <KMessageBox>
 #include <KStandardShortcut>
 
-#ifndef Q_OS_WIN
+#if !defined(Q_OS_WIN) && !defined(Q_OS_DARWIN)
 #include <KGlobalAccel>
 #include <KGlobalShortcutInfo>
 #endif
@@ -123,7 +123,7 @@ bool KeySequenceHelperPrivate::conflictWithGlobalShortcuts(const QKeySequence &k
         KMessageBox::error(nullptr, message, title);
     }
     return false;
-#else
+#elif !defined(Q_OS_DARWIN)
     if (!(checkAgainstShortcutTypes & KeySequenceHelper::GlobalShortcuts)) {
         return false;
     }
@@ -171,6 +171,8 @@ bool KeySequenceHelperPrivate::conflictWithGlobalShortcuts(const QKeySequence &k
     // most likely the first action that is done in the slot
     // listening to keySequenceChanged().
     KGlobalAccel::stealShortcutSystemwide(keySequence);
+    return false;
+#else
     return false;
 #endif
 }

@@ -32,7 +32,7 @@ find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6GuiAddons ${KF_DEP_VERSION} REQUIRED)
 
 
-if(NOT WIN32)
+if(NOT WIN32 AND NOT APPLE)
     find_package(KF6GlobalAccel ${KF_DEP_VERSION} REQUIRED)
 endif()
 
