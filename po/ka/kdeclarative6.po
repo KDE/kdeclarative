@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
 "PO-Revision-Date: 2022-09-15 08:37+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -107,12 +107,12 @@ msgstr "ქმედება \"%1' '%2'-ის კონტექსტში\n
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr "ღილაკების კომბინაცია '%1' შემდეგ გლობალურ ქმედებებს გადაჩრდილავს:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "კონფლიქტი პროგრამის სტანდარტულ მალსახმობთან"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -122,7 +122,7 @@ msgstr ""
 "კლავიშების ბმული %1 უკვე გამოიყენება \"%2\" სტანდარტული ქმედებისთვის.\n"
 "გადმოვამისამართო იგი ახალ ქმედებაზე?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, kde-format
 msgid "Reassign"
 msgstr "მალსახმობის თავიდან მინიჭება"

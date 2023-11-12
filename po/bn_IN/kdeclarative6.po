@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
 "PO-Revision-Date: 2009-12-28 14:35+0530\n"
 "Last-Translator: Runa Bhattacharjee <runab@redhat.com>\n"
 "Language-Team: Bengali INDIA <anubad@lists.ankur.org.in>\n"
@@ -106,12 +106,12 @@ msgstr "'%1' শর্ট-কাট, '%2' কর্মের জন্য নি
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "অ্যাপ্লিকেশনের প্রমিত শর্ট-কাটের সাথে দ্বন্দ্ব"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -119,7 +119,7 @@ msgid ""
 "Do you really want to use it as a global shortcut as well?"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, kde-format
 msgid "Reassign"
 msgstr "পুনরায় নির্ধারণ"

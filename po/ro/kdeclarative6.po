@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
 "PO-Revision-Date: 2021-05-03 15:50+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -120,12 +120,12 @@ msgstr ""
 "Combinația de taste „%1” este înregistrată de aplicația %2.\n"
 "%3"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "Conflict cu un accelerator standard de aplicație"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -136,7 +136,7 @@ msgstr ""
 "care o folosesc unele aplicații.\n"
 "Sigur doriți să o utilizați și pe aceasta ca globală?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, kde-format
 msgid "Reassign"
 msgstr "Reatribuie"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
 "PO-Revision-Date: 2022-11-10 20:58+0100\n"
 "Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -118,12 +118,12 @@ msgid "The '%1' key combination shadows following global actions:\n"
 msgstr ""
 "Die Tastenkombination „%1“ überschreibt die folgenden globalen Aktionen:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "Konflikt mit Standard-Kurzbefehl des Programms"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -134,7 +134,7 @@ msgstr ""
 "die von einigen Anwendungen benutzt wird.\n"
 "Möchten Sie sie wirklich als globales Tastenkürzel verwenden?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, kde-format
 msgid "Reassign"
 msgstr "Neu zuordnen"

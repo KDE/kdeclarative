@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
 "PO-Revision-Date: 2012-06-28 16:40+0430\n"
 "Last-Translator: Mohammad Reza Mirdamadi <mohi@linuxshop.ir>\n"
 "Language-Team: Farsi (Persian) <kde-i18n-fa@kde.org>\n"
@@ -107,12 +107,12 @@ msgstr "میان‌بر '%1' برای عمل '%2'\n"
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "ناسازگاری با میان‌بر کاربرد استاندارد"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, fuzzy, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -123,7 +123,7 @@ msgstr ""
 "می‌کنند، اختصاص یافته است.\n"
 "نمی‌توانید آن را برای میان‌برهای سراسری برای این نشست استفاده کنید."
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, kde-format
 msgid "Reassign"
 msgstr "انتساب مجدد"

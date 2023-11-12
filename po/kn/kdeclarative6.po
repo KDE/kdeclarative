@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
 "PO-Revision-Date: 2010-06-24 18:32+0530\n"
 "Last-Translator: Shankar Prasad <svenkate@redhat.com>\n"
 "Language-Team: kn_IN <kde-i18n-doc@kde.org>\n"
@@ -114,12 +114,12 @@ msgstr ""
 "'%1' ಕೀಲಿಕೈ ಸಂಯೋಜನೆ %2 ಅನ್ವಯದದಿಂದ ನಮೂದುಗೊಂಡಿದೆ.\n"
 "%3"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "ಮಾನಕ (standard) ಅನ್ವಯಿಕ ಸಮೀಪಮಾರ್ಗಗಳೊಡನೆ ಕಲಹ"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -130,7 +130,7 @@ msgstr ""
 "ಈಗಾಗಲೇ ನಿಗದಿಗೊಳಿಸಲಾಗೆದೆ.\n"
 "ನೀವು ನಿಜಕ್ಕೂ ಇದನ್ನು ಸಾರ್ವತ್ರಿಕ ಸಮೀಪಮಾರ್ಗವಾಗಿ ಬಳಸಲಿಚ್ಛಿಸುವಿರೇನು?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, kde-format
 msgid "Reassign"
 msgstr "ಮರುನಿಗದಿಗೊಳಿಸು"

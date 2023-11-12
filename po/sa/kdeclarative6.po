@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
 "PO-Revision-Date: 2023-10-01 01:12+0530\n"
 "Last-Translator: \n"
 "Language-Team: Sanskrit\n"
@@ -106,12 +106,12 @@ msgstr "'%2' सन्दर्भे '%1' क्रिया ।\n"
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr "'%1' कीलसंयोजनं वैश्विकक्रियाणां अनुसरणं करोति:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "मानक-अनुप्रयोग-संक्षिप्तमार्ग-सहितं द्वन्द्वः"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -121,7 +121,7 @@ msgstr ""
 "'%1' कीलसंयोजनं मानकक्रियायाः \"%2\" कृते अपि उपयुज्यते यत् केचन अनुप्रयोगाः उपयुञ्जते ।\n"
 "किं भवान् वास्तवमेव तस्य उपयोगं वैश्विकसंक्षिप्तमार्ग रूपेण अपि कर्तुम् इच्छति?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, kde-format
 msgid "Reassign"
 msgstr "पुनः नियुक्ति"

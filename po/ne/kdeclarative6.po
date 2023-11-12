@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
 "PO-Revision-Date: 2007-11-05 15:41+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -110,12 +110,12 @@ msgstr "सर्टकट"
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "मानक अनुप्रयोग सर्टकटसँग द्वन्द्व"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, fuzzy, kde-format
 #| msgid ""
 #| "The '%1' key combination has already been allocated to the standard "
@@ -129,7 +129,7 @@ msgstr ""
 "'%1' कुञ्जी संयोजन \"%2\" मानक कार्यमा पहिल्यै बाँडफाँट गरिएको छ ।\n"
 "तपाईँ हालको कार्यबाट यसलाई फेरि मानाङ्कन गर्न चाहनुहुन्छ ?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, kde-format
 msgid "Reassign"
 msgstr "फेरि मानाङ्कन गर्नुहोस्"

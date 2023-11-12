@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
 "PO-Revision-Date: 2012-07-16 14:27+0530\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: American English <kde-translation@bengalinux.org>\n"
@@ -110,12 +110,12 @@ msgstr ""
 " '%1' মূখ্য সম্মিলন অ্যাপলিকেশন %2এর মধ্যে নিবন্ধন করা হয়।\n"
 "%3"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "স্ট্যাণ্ডার্ড অ্যাপলিকেশন শর্টকাটের সঙ্গে বিরোধ"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, fuzzy, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -126,7 +126,7 @@ msgstr ""
 "ব্যবহার করো।\n"
 "আপনি কি ভাল হিসেবে একটি সার্বিক শর্টকাট হিসেবে এইটি ব্যবহার করতে সত্যি চাও?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, fuzzy, kde-format
 msgid "Reassign"
 msgstr "Reassign"

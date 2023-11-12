@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
 "PO-Revision-Date: 2011-07-25 07:45+0530\n"
 "Last-Translator: Danishka Navin <danishka@gmail.com>\n"
 "Language-Team: Sinhala <danishka@gmail.com>\n"
@@ -111,12 +111,12 @@ msgstr ""
 "'%1' යතුරු සංයෝජනය %2 වැඩසටහන මඟින් ලියාපදිංවි කර ඇත.\n"
 "%3"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "සම්මත වැඩසටහන් කෙටි මඟ සමඟ ගැටේ"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -126,7 +126,7 @@ msgstr ""
 "'%1' යතුරු සංයෝජනය සමහර වැඩසටහන් භාවිතා කරන \"%2\" සම්මත ක්‍රියාව සඳහාද භාවිතා කරයි.\n"
 "ඔබට ඇත්ත වශයෙන්ම එය ලෝකව්‍යාප්ත කෙටි මඟක් වශයෙනුත් භාවිතා කිරීමට අවශ්‍යද?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, kde-format
 msgid "Reassign"
 msgstr "යළි පැවරීම"

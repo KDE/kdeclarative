@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
 "PO-Revision-Date: 2012-06-27 10:04+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -117,12 +117,12 @@ msgstr ""
 "បន្សំ​គ្រាប់ចុច '%1' ត្រូវ​បាន​ចុះឈ្មោះ​ដោយ​កម្មវិធី %2 ។\n"
 "%3"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "ប៉ះទង្គិច​ជាមួយ​នឹង​ផ្លូវកាត់​កម្មវិធី​ស្តង់ដា"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -132,7 +132,7 @@ msgstr ""
 "បន្សំ​គ្រាប់​ចុច '%1' ក៏​ត្រូវ​កំពុង​ត្រូវ​បាន​ប្រើ​សម្រាប់​សកម្មភាព​ស្តង់ដារ \"%2\" ដែល​កម្មវិធី​មួយ​ចំនួន​ប្រើ ។\n"
 "តើ​អ្នក​ពិត​ជា​ចង់​ប្រើ​វា​ជា​ផ្លូវកាត់​សកល​ដែរ​ឬ ?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, kde-format
 msgid "Reassign"
 msgstr "ផ្ដល់ឡើង​វិញ"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
 "PO-Revision-Date: 2022-09-15 19:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -108,12 +108,12 @@ msgstr "'%2' என்பதில் '%1' என்ற செயல்\n"
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr "'%1' என்ற விசைக்கூட்டு, பின்வரும் பொது சுருக்குவழிகளுடன் முரண்படுகிறது:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "வழக்கமான செயலிச் சுருக்கு வழியுடன் முரண்பாடு"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -124,7 +124,7 @@ msgstr ""
 "பயன்படுத்தப்படும்.\n"
 "இதைப் பொது சுருக்குவழியாகவும் பயன்படுத்த வேண்டுமா?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, kde-format
 msgid "Reassign"
 msgstr "இதற்கே அமர்த்து"

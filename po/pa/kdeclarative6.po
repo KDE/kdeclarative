@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
 "PO-Revision-Date: 2014-03-16 23:21-0500\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>\n"
@@ -119,12 +119,12 @@ msgstr ""
 "'%1' ਕੀ ਕੰਬੀਨੇਸ਼ਨ ਐਪਲੀਕੇਸ਼ਨ '%2' ਵਲੋਂ ਰਜਿਸਟਰ ਹੈ।\n"
 "%3"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "ਸਟੈਂਡਰਡ ਐਪਲੀਕੇਸ਼ਨ ਸ਼ਾਰਟਕੱਟਾਂ ਨਾਲ ਟਕਰਾਅ ਹੋ ਰਿਹਾ ਹੈ।"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -135,7 +135,7 @@ msgstr ""
 "ਕੁਝ ਐਪਲੀਕੇਸ਼ਨਾਂ ਵਰਤਦੀਆਂ ਹਨ।\n"
 "ਕੀ ਤੁਸੀਂ ਇਸ ਨੂੰ ਗਲੋਬਲ ਸ਼ਾਰਟਕੱਟ ਲਈ ਇਹ ਵਰਤਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, kde-format
 msgid "Reassign"
 msgstr "ਮੁੜ-ਜਾਰੀ"

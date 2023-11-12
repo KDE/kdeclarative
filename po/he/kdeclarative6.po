@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
 "PO-Revision-Date: 2023-10-02 11:27+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -121,12 +121,12 @@ msgstr "הפעולה ‚%1’ בהקשר ‚%2’\n"
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr "צירוף המקשים ‚%1’ מאפיל על הפעולות הכלליות הבאות:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "סתירה עם קיצור מקשים רגיל של יישום"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -136,7 +136,7 @@ msgstr ""
 "צירוף המקשים ‚%1’ משמש גם לפעולה הרגילה „%2” בה משתמשים חלק מהיישומים.\n"
 "להשתמש בו גם כמקש קיצור כללי?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, kde-format
 msgid "Reassign"
 msgstr "שיוך מחדש"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
 "PO-Revision-Date: 2022-09-15 10:49+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -118,12 +118,12 @@ msgstr "Acció «%1» en el context «%2»\n"
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr "La combinació de tecles «%1» ombreja les accions globals següents:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "Conflicte amb una drecera estàndard d'aplicació"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -134,7 +134,7 @@ msgstr ""
 "utilitzen algunes aplicacions.\n"
 "Segur que també voleu utilitzar-la com a drecera global?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, kde-format
 msgid "Reassign"
 msgstr "Reassigna"

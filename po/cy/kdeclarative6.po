@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
 "PO-Revision-Date: 2005-01-28 17:54+0000\n"
 "Last-Translator: Kevin Donnelly <kevin@dotmon.com>\n"
 "Language-Team: Cymraeg\n"
@@ -120,12 +120,12 @@ msgstr "Gwybodaeth gynnwys: %1\n"
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "Croestyniad efo Byrlwybr Cymhwysiad Arferol"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, fuzzy, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -136,7 +136,7 @@ msgstr ""
 "\"%2\".\n"
 "Ydych eisiau ei ail-neilltuo o'r weithred yna i'r un gyfredol?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, fuzzy, kde-format
 msgid "Reassign"
 msgstr "Rwsieg"

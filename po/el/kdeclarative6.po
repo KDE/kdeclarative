@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
 "PO-Revision-Date: 2021-06-13 13:07+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -124,12 +124,12 @@ msgid "The '%1' key combination shadows following global actions:\n"
 msgstr ""
 "Ο συνδυασμός πλήκτρων '%1' επισκιάζει τις ακόλουθες γενικές ενέργειες:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "Σύγκρουση με πρότυπη συντόμευση εφαρμογής"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -140,7 +140,7 @@ msgstr ""
 "%2 » η οποία είναι σε χρήση από διάφορες εφαρμογές.\n"
 "Επιθυμείτε πραγματικά τη χρήση της ως καθολική συντόμευση επίσης;"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, kde-format
 msgid "Reassign"
 msgstr "Επανάθεση"

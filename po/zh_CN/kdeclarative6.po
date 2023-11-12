@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 02:08+0000\n"
-"PO-Revision-Date: 2023-10-21 13:51\n"
+"POT-Creation-Date: 2023-11-12 01:36+0000\n"
+"PO-Revision-Date: 2023-11-11 07:19\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -104,12 +104,12 @@ msgstr "操作“%1”，位于语境“%2”\n"
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr "组合键“%1”遮蔽了以下全局操作：\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "与标准程序快捷键冲突"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -119,7 +119,7 @@ msgstr ""
 "按键组合“%1”与某些程序使用的标准操作“%2”快捷键相同。\n"
 "您仍然想要将它用作全局快捷键吗？"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
 #, kde-format
 msgid "Reassign"
 msgstr "重新分配"
