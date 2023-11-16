@@ -168,7 +168,7 @@ msgstr ""
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
 #, kde-format
 msgid "Reassign"
-msgstr "Reassigna"
+msgstr "Torna a assignar"
 
 #: quickaddons/configmodule.cpp:191
 #, kde-format
