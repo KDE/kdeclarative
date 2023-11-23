@@ -54,7 +54,7 @@ ecm_setup_version(
 # Subdirectories
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeclarative6\")
 ecm_set_disabled_deprecation_versions(
-    QT 6.4.0
+    QT 6.5.0
     KF 5.102
 )
 
