@@ -4,9 +4,9 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-import QtQuick 2.8
+import QtQuick 2.15
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.2 as QQC2
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Templates 2.2 as T2
 
 import org.kde.kirigami 2.12 as Kirigami
@@ -187,6 +187,7 @@ T2.ItemDelegate {
             text: delegate.text
             elide: Text.ElideRight
             font.bold: delegate.GridView.isCurrentItem
+            textFormat: Text.PlainText
         }
         QQC2.Label {
             id: caption
@@ -198,6 +199,7 @@ T2.ItemDelegate {
             font.pointSize: Kirigami.Theme.smallFont.pointSize
             font.bold: delegate.GridView.isCurrentItem
             elide: Text.ElideRight
+            textFormat: Text.PlainText
         }
 
         Rectangle {
