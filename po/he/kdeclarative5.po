@@ -17,19 +17,20 @@
 # Meni Livne <livne@kde.org>, 2007.
 # tahmar1900 <tahmar1900@gmail.com>, 2008, 2009.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:24+0000\n"
-"PO-Revision-Date: 2017-05-16 06:49-0400\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2024-02-07 08:49+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -45,41 +46,41 @@ msgstr "kde-l10n-he@kde.org"
 #: kpackagelauncherqml/main.cpp:30
 #, kde-format
 msgid "KPackage QML application shell"
-msgstr ""
+msgstr "יישום QML KPackage לסביבת מעטפת"
 
 #: kpackagelauncherqml/main.cpp:38
-#, fuzzy, kde-format
+#, kde-format
 msgid "The unique name of the application (mandatory)"
-msgstr "מגדיר את הגופן של התכנית"
+msgstr "השם הייחודי של היישום (חובה)"
 
 #: qmlcontrols/kcmcontrols/qml/ContextualHelpButton.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Contextual Help"
-msgstr ""
+msgstr "הצגת עזרה בהקשר"
 
 #: qmlcontrols/kcmcontrols/qml/private/GridViewInternal.qml:78
 #, kde-format
 msgid "No items found"
-msgstr ""
+msgstr "לא נמצאו פריטים"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:63
 #, kde-format
 msgctxt "@info:whatsthis for a button"
 msgid "Color button"
-msgstr ""
+msgstr "כפתור צבע"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:65
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
-msgstr ""
+msgstr "הצבע הנוכחי הוא %1. הכפתור הזה יפתח חלונית ברירת צבע."
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:66
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
-msgstr ""
+msgstr "הצבע הנוכחי הוא %1."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:90
 #, kde-format
@@ -94,25 +95,25 @@ msgid "None"
 msgstr "ללא"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:102
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
-"לחץ על הכפתור, ואז תוכל ליצור קיצור מקשים לשימוש בתוכנית.\n"
-"דוגמא: לקיצור Ctrl+a: לחץ על המקש Ctrl ועל המקש a"
+"יש ללחוץ על הכפתור ואז להקליד את מקשי הקיצור המועדפים עליך לתוכנית.\n"
+"לדוגמה Ctrl+A: להחזיק את Ctrl ואז ללחוץ על A."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
-msgstr ""
+msgstr "פינוי רצף מקשים"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
-msgstr ""
+msgstr "ביטול הקלטת רצף מקשים"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
 #, kde-format
@@ -126,34 +127,34 @@ msgid ""
 "shortcut.\n"
 "Please choose another one."
 msgstr ""
-"מקש ה-F12 הוא מקש שמור בWindows, ולכן אינו יכול לשמש כמקש קיצור גלובלי.אנא "
+"מקש ה־F12 הוא מקש שמור ב־Windows, לכן אינו יכול לשמש כמקש קיצור כללי. נא "
 "לבחור מקש אחר."
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
 #, kde-format
 msgid "Global Shortcut Shadowing"
-msgstr ""
+msgstr "האפלת קיצורי מקשים כלליים"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
-msgstr ""
+msgstr "צירוף המקשים ‚%1’ מואפל על ידי הפעולות הכלליות הבאות:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:149
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:155
 #, kde-format
 msgid "Action '%1' in context '%2'\n"
-msgstr ""
+msgstr "הפעולה ‚%1’ בהקשר ‚%2’\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
-msgstr ""
+msgstr "צירוף המקשים ‚%1’ מאפיל על הפעולות הכלליות הבאות:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
-msgstr "התנגשות עם קיצור סטנדרטי של ישומים"
+msgstr "סתירה עם קיצור יישום תקני"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
@@ -162,24 +163,23 @@ msgid ""
 "some applications use.\n"
 "Do you really want to use it as a global shortcut as well?"
 msgstr ""
-"שילוב המקשים \"%1\" כבר הוקצה לפעולה הסטנדרטית \"%2\", בה משתמשות תוכניות "
-"רבות.\n"
-"מסיבה זו אין באפשרותך להשתמש בו עבור קיצורים גלובליים."
+"צירוף המקשים ‚%1’ כבר הוקצה לפעולה התקנית „%2”, בה משתמשים יישומיםרבים.\n"
+"להשתמש בו כקיצור מקשים כללי בנוסף?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
 #, kde-format
 msgid "Reassign"
-msgstr "שייך מחדש"
+msgstr "הקצאה מחדש"
 
 #: quickaddons/configmodule.cpp:191
 #, kde-format
 msgid "Invalid KPackage '%1'"
-msgstr ""
+msgstr "חבילת ה־KPackage‏ ‚%1’ שגויה"
 
 #: quickaddons/configmodule.cpp:197
 #, kde-format
 msgid "No QML file provided"
-msgstr ""
+msgstr "לא סופק קובץ QML."
 
 #~ msgid "The key you just pressed is not supported by Qt."
 #~ msgstr "המקש שלחצת אינו נתמך על ידי Qt."
