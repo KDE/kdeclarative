@@ -136,7 +136,7 @@ void QPixmapItem::updatePaintedRect()
 
         scaled.scale(boundingRect().size(), Qt::KeepAspectRatio);
         destRect = QRectF(QPoint(0, 0), scaled);
-        destRect.moveCenter(boundingRect().center().toPoint());
+        destRect.moveCenter(boundingRect().center());
 
         break;
     }
@@ -145,7 +145,7 @@ void QPixmapItem::updatePaintedRect()
 
         scaled.scale(boundingRect().size(), Qt::KeepAspectRatioByExpanding);
         destRect = QRectF(QPoint(0, 0), scaled);
-        destRect.moveCenter(boundingRect().center().toPoint());
+        destRect.moveCenter(boundingRect().center());
         break;
     }
     case TileVertically: {
