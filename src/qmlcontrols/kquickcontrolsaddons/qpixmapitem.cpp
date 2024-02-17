@@ -8,6 +8,7 @@
 #include "qpixmapitem.h"
 
 #include <QPainter>
+#include <QQuickWindow>
 
 QPixmapItem::QPixmapItem(QQuickItem *parent)
     : QQuickPaintedItem(parent)
@@ -129,39 +130,44 @@ void QPixmapItem::updatePaintedRect()
     QRectF sourceRect = m_paintedRect;
 
     QRectF destRect;
+    QRectF bounds = boundingRect();
+
+    auto posAdjusted = [this](const QPointF point) {
+        const auto effectiveDpr = window()->effectiveDevicePixelRatio();
+        QPointF globalPixelPos = mapToScene(point) * effectiveDpr;
+        QPointF posAdjust = QPointF(globalPixelPos.x() - std::round(globalPixelPos.x()), globalPixelPos.y() - std::round(globalPixelPos.y())) / effectiveDpr;
+        return (point - posAdjust);
+    };
 
     switch (m_fillMode) {
     case PreserveAspectFit: {
         QSizeF scaled = m_pixmap.size();
-
         scaled.scale(boundingRect().size(), Qt::KeepAspectRatio);
         destRect = QRectF(QPoint(0, 0), scaled);
-        destRect.moveCenter(boundingRect().center().toPoint());
-
+        destRect.moveCenter(posAdjusted(bounds.center()));
         break;
     }
     case PreserveAspectCrop: {
         QSizeF scaled = m_pixmap.size();
-
         scaled.scale(boundingRect().size(), Qt::KeepAspectRatioByExpanding);
         destRect = QRectF(QPoint(0, 0), scaled);
-        destRect.moveCenter(boundingRect().center().toPoint());
+        destRect.moveCenter(posAdjusted(bounds.center()));
         break;
     }
     case TileVertically: {
-        destRect = boundingRect().toRect();
+        destRect = bounds.toRect();
         destRect.setWidth(destRect.width() / (width() / (qreal)m_pixmap.width()));
         break;
     }
     case TileHorizontally: {
-        destRect = boundingRect().toRect();
+        destRect = bounds.toRect();
         destRect.setHeight(destRect.height() / (height() / (qreal)m_pixmap.height()));
         break;
     }
     case Stretch:
     case Tile:
     default:
-        destRect = boundingRect().toRect();
+        destRect = bounds.toRect();
     }
 
     if (destRect != sourceRect) {
