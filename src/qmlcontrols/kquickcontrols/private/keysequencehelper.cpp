@@ -218,7 +218,14 @@ bool KeySequenceHelper::keySequenceIsEmpty(const QKeySequence &keySequence)
 
 QString KeySequenceHelper::keySequenceNativeText(const QKeySequence &keySequence)
 {
-    return keySequence.toString(QKeySequence::NativeText);
+    const QString keySequenceText = keySequence.toString(QKeySequence::NativeText);
+
+    const bool singleKey = keySequence.count() == 1 && keySequence[0].keyboardModifiers() == Qt::NoModifier;
+    if (singleKey) {
+        return i18nc("%1 is a single-key keyboard shortcut", "\"%1\" key", keySequenceText);
+    }
+
+    return keySequenceText;
 }
 
 QWindow *KeySequenceHelper::renderWindow(QQuickWindow *quickWindow)
