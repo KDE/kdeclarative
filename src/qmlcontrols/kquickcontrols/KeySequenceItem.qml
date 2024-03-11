@@ -27,7 +27,7 @@ RowLayout {
      */
     property alias checkForConflictsAgainst: helper.checkAgainstShortcutTypes
 
-    property var __previousSequence: ""
+    property string __previousSequence: ""
 
     /**
      * This signal is emitted after the user introduces a new key sequence
@@ -131,7 +131,7 @@ RowLayout {
         Layout.preferredWidth: height
         visible: root.showClearButton && !helper.isRecording
         onClicked: {
-            root.keySequence = helper.fromString()
+            root.keySequence = "";
             root.keySequenceModified();
             root.captureFinished(); // Not really capturing, but otherwise we cannot track this state, hence apps should use keySequenceModified
         }

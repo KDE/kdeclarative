@@ -206,11 +206,6 @@ bool KeySequenceHelperPrivate::stealStandardShortcut(KStandardShortcut::Standard
     return true;
 }
 
-QKeySequence KeySequenceHelper::fromString(const QString &str)
-{
-    return QKeySequence::fromString(str, QKeySequence::NativeText);
-}
-
 bool KeySequenceHelper::keySequenceIsEmpty(const QKeySequence &keySequence)
 {
     return keySequence.isEmpty();
