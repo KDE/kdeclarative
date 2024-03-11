@@ -136,13 +136,7 @@ RowLayout {
             root.captureFinished(); // Not really capturing, but otherwise we cannot track this state, hence apps should use keySequenceModified
         }
 
-        // Just a helper object
-        Text {
-            id: theText
-            visible: false
-            text: root.keySequence
-        }
-        enabled: theText.text.length > 0
+        enabled: !helper.keySequenceIsEmpty(helper.currentKeySequence)
 
         hoverEnabled: true
         // icon name determines the direction of the arrow, NOT the direction of the app layout
