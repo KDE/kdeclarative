@@ -57,10 +57,7 @@ RowLayout {
     KQuickControlsPrivate.KeySequenceHelper {
         id: helper
         onGotKeySequence: keySequence => {
-            if (isKeySequenceAvailable(keySequence)) {
-                // Note: this branch is a pointless no-op
-                currentKeySequence = keySequence;
-            } else {
+            if (!isKeySequenceAvailable(keySequence)) {
                 currentKeySequence = root.__previousSequence;
             }
             mainButton.checked = false;
