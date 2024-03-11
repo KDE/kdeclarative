@@ -27,6 +27,8 @@ RowLayout {
      */
     property alias checkForConflictsAgainst: helper.checkAgainstShortcutTypes
 
+    property var __previousSequence: ""
+
     /**
      * This signal is emitted after the user introduces a new key sequence
      *
@@ -59,7 +61,7 @@ RowLayout {
                 // Note: this branch is a pointless no-op
                 currentKeySequence = keySequence;
             } else {
-                currentKeySequence = mainButton.previousSequence;
+                currentKeySequence = root.__previousSequence;
             }
             mainButton.checked = false;
             root.captureFinished();
@@ -81,7 +83,6 @@ RowLayout {
         focus: checked
 
         hoverEnabled: true
-        property var previousSequence: ""
 
         text: {
             const keys = helper.isRecording ? helper.currentKeySequence : root.keySequence
@@ -108,7 +109,7 @@ RowLayout {
 
         onCheckedChanged: {
             if (checked) {
-                previousSequence = helper.keySequenceNativeText(root.keySequence)
+                root.__previousSequence = helper.keySequenceNativeText(root.keySequence)
                 helper.window = helper.renderWindow(parent.Window.window)
                 mainButton.forceActiveFocus()
                 helper.startRecording()
