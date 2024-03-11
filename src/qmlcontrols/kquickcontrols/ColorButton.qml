@@ -4,7 +4,7 @@
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
 
-import QtQuick 2.2
+import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Dialogs as QtDialogs
 
@@ -15,10 +15,9 @@ import QtQuick.Dialogs as QtDialogs
  *
  * Example usage:
  * @code
- * import org.kde.kquickcontrols 2.0
+ * import org.kde.kquickcontrols
  *
  * ColorButton {
- *   [...]
  *   onColorChanged: console.log(color)
  * }
  * @endcode
@@ -26,7 +25,7 @@ import QtQuick.Dialogs as QtDialogs
  * @inherits QtQuick.Controls.Button
  */
 QQC2.Button {
-    id: colorPicker
+    id: root
 
     /**
      * The user selected color
@@ -52,14 +51,14 @@ QQC2.Button {
 
     readonly property real _buttonMarigns: 4 // same as QStyles. Remove if we can get this provided by the QQC theme
 
-    implicitWidth: 40 + _buttonMarigns*2 //to perfectly clone kcolorbutton from kwidgetaddons
+    implicitWidth: 40 + _buttonMarigns * 2 // to perfectly clone kcolorbutton from kwidgetaddons
 
     Accessible.name: i18nc("@info:whatsthis for a button", "Color button")
-    Accessible.description: enabled ?
-        i18nc("@info:whatsthis for a button of current color code %1", "Current color is %1. This button will open a color chooser dialog.", color)
+    Accessible.description: enabled
+      ? i18nc("@info:whatsthis for a button of current color code %1", "Current color is %1. This button will open a color chooser dialog.", color)
       : i18nc("@info:whatsthis for a button of current color code %1", "Current color is %1.", color)
 
-    //create a checkerboard background for alpha to be adjusted
+    // create a checkerboard background for alpha to be adjusted
     Canvas {
         anchors.fill: colorBlock
         visible: colorDialog.selectedColor.a < 1
@@ -68,28 +67,26 @@ QQC2.Button {
             const ctx = getContext('2d');
 
             ctx.fillStyle = "white";
-            ctx.fillRect(0,0, ctx.width, ctx.height)
+            ctx.fillRect(0,0, ctx.width, ctx.height);
 
             ctx.fillStyle = "black";
-            //in blocks of 16x16 draw two black squares of 8x8 in top left and bottom right
-            for (let j=0;j<width;j+=16) {
-                for (let i=0;i<height;i+=16) {
-                    //top left, bottom right
-                    ctx.fillRect(j,i,8,8);
-                    ctx.fillRect(j+8,i+8,8,8);
+            // in blocks of 16x16 draw two black squares of 8x8 in top left and bottom right
+            for (let j = 0; j < width; j += 16) {
+                for (let i = 0; i < height; i += 16) {
+                    // top left, bottom right
+                    ctx.fillRect(j, i, 8, 8);
+                    ctx.fillRect(j + 8, i + 8, 8, 8);
                 }
             }
         }
-
     }
 
     Rectangle {
         id: colorBlock
 
         anchors.centerIn: parent
-        height: parent.height - _buttonMarigns*2
-        width: parent.width - _buttonMarigns*2
-
+        height: parent.height - _buttonMarigns * 2
+        width: parent.width - _buttonMarigns * 2
 
         color: enabled ? colorDialog.selectedColor : disabledPalette.button
 
@@ -101,12 +98,12 @@ QQC2.Button {
 
     QtDialogs.ColorDialog {
         id: colorDialog
-        onAccepted: colorPicker.accepted(color)
-        parentWindow: colorPicker.Window.window
-        options: colorPicker.showAlphaChannel ? QtDialogs.ColorDialog.ShowAlphaChannel : undefined
+        onAccepted: root.accepted(color)
+        parentWindow: root.Window.window
+        options: root.showAlphaChannel ? QtDialogs.ColorDialog.ShowAlphaChannel : undefined
     }
 
     onClicked: {
-        colorDialog.open()
+        colorDialog.open();
     }
 }

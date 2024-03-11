@@ -1,9 +1,8 @@
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtQuick.Layouts 1.15
-import QtQuick.Window 2.15
+import QtQuick
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
 
-import org.kde.private.kquickcontrols 2.0 as KQuickControlsPrivate
+import org.kde.private.kquickcontrols as KQuickControlsPrivate
 
 RowLayout {
     id: root
@@ -50,16 +49,17 @@ RowLayout {
      * @since 5.70
      */
     function startCapturing() {
-        mainButton.checked = true
+        mainButton.checked = true;
     }
 
     KQuickControlsPrivate.KeySequenceHelper {
         id: helper
         onGotKeySequence: keySequence => {
             if (isKeySequenceAvailable(keySequence)) {
-                root.keySequence = keySequence;
+                // Note: this branch is a pointless no-op
+                currentKeySequence = keySequence;
             } else {
-                root.keySequence = mainButton.previousSequence
+                currentKeySequence = mainButton.previousSequence;
             }
             mainButton.checked = false;
             root.captureFinished();
@@ -72,7 +72,7 @@ RowLayout {
         domain: "kdeclarative6"
     }
 
-    Button {
+    QQC2.Button {
         id: mainButton
 
         icon.name: "configure"
@@ -101,7 +101,7 @@ RowLayout {
 
         Accessible.description: _tr.i18n("Click on the button, then enter the shortcut like you would in the program.\nExample for Ctrl+A: hold the Ctrl key and press A.")
 
-        ToolTip {
+        QQC2.ToolTip {
             visible: mainButton.hovered
             text: mainButton.Accessible.description
         }
@@ -124,7 +124,7 @@ RowLayout {
         }
     }
 
-    Button {
+    QQC2.Button {
         id: clearButton
         Layout.fillHeight: true
         Layout.preferredWidth: height
@@ -149,13 +149,13 @@ RowLayout {
 
         Accessible.name: _tr.i18nc("@info:tooltip", "Clear Key Sequence")
 
-        ToolTip {
+        QQC2.ToolTip {
             visible: clearButton.hovered
             text: clearButton.Accessible.name
         }
     }
 
-    Button {
+    QQC2.Button {
         Layout.fillHeight: true
         Layout.preferredWidth: height
         onClicked: helper.cancelRecording()
@@ -165,7 +165,7 @@ RowLayout {
 
         Accessible.name: _tr.i18nc("@info:tooltip", "Cancel Key Sequence Recording")
 
-        ToolTip {
+        QQC2.ToolTip {
             visible: parent.hovered
             text: parent.Accessible.name
         }
