@@ -85,8 +85,8 @@ RowLayout {
         hoverEnabled: true
 
         text: {
-            const keys = helper.isRecording ? helper.currentKeySequence : root.keySequence
-            const text = helper.keySequenceIsEmpty(keys)
+            const keySequence = helper.currentKeySequence;
+            const text = helper.keySequenceIsEmpty(keySequence)
                 ? (helper.isRecording
                     ? _tr.i18nc("What the user inputs now will be taken as the new shortcut", "Input")
                     : _tr.i18nc("No shortcut defined", "None"))
@@ -95,9 +95,9 @@ RowLayout {
                 // will be displayed by the button as a single ampersand, or
                 // else shortcuts with the actual ampersand character will
                 // appear to be partially empty.
-                : helper.keySequenceNativeText(keys).replace('&', '&&');
+                : helper.keySequenceNativeText(keySequence).replace('&', '&&');
             // These spaces are intentional
-            return " " + text + (helper.isRecording ? " ... " : " ")
+            return " " + text + (helper.isRecording ? " ... " : " ");
         }
 
         Accessible.description: _tr.i18n("Click on the button, then enter the shortcut like you would in the program.\nExample for Ctrl+A: hold the Ctrl key and press A.")
