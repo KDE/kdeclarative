@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-12 01:36+0000\n"
+"POT-Creation-Date: 2024-03-14 00:35+0000\n"
 "PO-Revision-Date: 2002-12-13 17:20SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -23,52 +23,52 @@ msgstr ""
 "X-Generator: KBabel 1.0beta2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:57
+#: qmlcontrols/kquickcontrols/ColorButton.qml:56
 #, kde-format
 msgctxt "@info:whatsthis for a button"
 msgid "Color button"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:59
+#: qmlcontrols/kquickcontrols/ColorButton.qml:58
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:60
+#: qmlcontrols/kquickcontrols/ColorButton.qml:59
 #, fuzzy, kde-format
 #| msgid "Curr&ent actions:"
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr "Iintshukumo za&ngoku:"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:90
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:88
 #, fuzzy, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "&Igalelo Elisuka"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:91
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:89
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "Akukho nanye"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:102
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:100
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:150
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:142
 #, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "inkonzo ye telnet"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:166
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:158
 #, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
