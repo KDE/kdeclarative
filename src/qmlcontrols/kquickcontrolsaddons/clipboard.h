@@ -19,8 +19,8 @@ class ClipboardPrivate;
  * Offers a simple wrapper to interact with QClipboard from QtQuick.
  *
  * ```
- * import QtQuick 2.5
- * import org.kde.kquickcontrolsaddons 2.0 as KQuickControlsAddons
+ * import QtQuick
+ * import org.kde.kquickcontrolsaddons as KQuickControlsAddons
  * Text {
  *     text: "lorem ipsum"
  *
