@@ -1,4 +1,4 @@
-ecm_add_qml_module(kquickcontrolsaddonsplugin URI org.kde.kquickcontrolsaddons VERSION 2.0 GENERATE_PLUGIN_SOURCE)
+ecm_add_qml_module(kquickcontrolsaddonsplugin URI org.kde.kquickcontrolsaddons VERSION 2.0 DEPENDENCIES QtQuick GENERATE_PLUGIN_SOURCE)
 
 target_sources(kquickcontrolsaddonsplugin PRIVATE
     clipboard.cpp
