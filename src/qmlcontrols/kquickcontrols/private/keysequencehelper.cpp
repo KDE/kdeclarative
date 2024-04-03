@@ -18,8 +18,11 @@
 #include <QQuickWindow>
 
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <KStandardShortcut>
+
+#ifndef Q_OS_ANDROID
+#include <KMessageBox>
+#endif
 
 #include <config-kdeclarative.h>
 #if HAVE_KGLOBALACCEL
@@ -193,6 +196,7 @@ bool KeySequenceHelperPrivate::conflictWithStandardShortcuts(const QKeySequence 
 
 bool KeySequenceHelperPrivate::stealStandardShortcut(KStandardShortcut::StandardShortcut std, const QKeySequence &seq)
 {
+#ifndef Q_OS_ANDROID
     QString title = i18n("Conflict with Standard Application Shortcut");
     QString message = i18n(
         "The '%1' key combination is also used for the standard action "
@@ -205,6 +209,9 @@ bool KeySequenceHelperPrivate::stealStandardShortcut(KStandardShortcut::Standard
         return false;
     }
     return true;
+#else
+    return false;
+#endif
 }
 
 bool KeySequenceHelper::keySequenceIsEmpty(const QKeySequence &keySequence)

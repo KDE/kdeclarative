@@ -28,7 +28,6 @@ include(ECMAddQch)
 find_package(Qt6 ${REQUIRED_QT_VERSION} NO_MODULE REQUIRED Qml Quick Gui)
 find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
-find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6GuiAddons ${KF_DEP_VERSION} REQUIRED)
 
 
@@ -37,6 +36,10 @@ if(NOT WIN32 AND NOT APPLE AND NOT ANDROID)
     set(HAVE_KGLOBALACCEL TRUE)
 else()
     set(HAVE_KGLOBALACCEL FALSE)
+endif()
+
+if (NOT ANDROID)
+  find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 endif()
 
 configure_file(config-kdeclarative.h.in ${CMAKE_BINARY_DIR}/config-kdeclarative.h)

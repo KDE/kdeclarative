@@ -17,13 +17,16 @@ target_link_libraries(kquickcontrolsprivateplugin
     KF6::I18n
     KF6::ConfigGui
     KF6::GuiAddons
-    KF6::WidgetsAddons
 )
 
 target_include_directories(kquickcontrolsprivateplugin PRIVATE ${CMAKE_BINARY_DIR})
 
 if (HAVE_KGLOBALACCEL)
     target_link_libraries(kquickcontrolsprivateplugin KF6::GlobalAccel)
+endif()
+
+if (NOT ANDROID)
+    target_link_libraries(kquickcontrolsprivateplugin KF6::WidgetsAddons)
 endif()
 
 if(WIN32 AND BUILD_SHARED_LIBS)
