@@ -20,7 +20,7 @@ target_link_libraries(kquickcontrolsprivateplugin
     KF6::WidgetsAddons
 )
 
-if (NOT WIN32 AND NOT APPLE)
+if (HAVE_KGLOBALACCEL)
     target_link_libraries(kquickcontrolsprivateplugin KF6::GlobalAccel)
 endif()
 

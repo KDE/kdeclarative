@@ -32,8 +32,11 @@ find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6GuiAddons ${KF_DEP_VERSION} REQUIRED)
 
 
-if(NOT WIN32 AND NOT APPLE)
+if(NOT WIN32 AND NOT APPLE AND NOT ANDROID)
     find_package(KF6GlobalAccel ${KF_DEP_VERSION} REQUIRED)
+    set(HAVE_KGLOBALACCEL TRUE)
+else()
+    set(HAVE_KGLOBALACCEL FALSE)
 endif()
 
 set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
