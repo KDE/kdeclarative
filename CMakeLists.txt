@@ -39,6 +39,8 @@ else()
     set(HAVE_KGLOBALACCEL FALSE)
 endif()
 
+configure_file(config-kdeclarative.h.in ${CMAKE_BINARY_DIR}/config-kdeclarative.h)
+
 set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
 
 option(BUILD_EXAMPLES "Build and install examples." OFF)

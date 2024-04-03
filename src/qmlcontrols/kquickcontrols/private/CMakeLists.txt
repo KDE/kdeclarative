@@ -20,6 +20,8 @@ target_link_libraries(kquickcontrolsprivateplugin
     KF6::WidgetsAddons
 )
 
+target_include_directories(kquickcontrolsprivateplugin PRIVATE ${CMAKE_BINARY_DIR})
+
 if (HAVE_KGLOBALACCEL)
     target_link_libraries(kquickcontrolsprivateplugin KF6::GlobalAccel)
 endif()

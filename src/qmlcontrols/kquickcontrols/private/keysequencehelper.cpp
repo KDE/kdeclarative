@@ -21,7 +21,8 @@
 #include <KMessageBox>
 #include <KStandardShortcut>
 
-#if !defined(Q_OS_WIN) && !defined(Q_OS_DARWIN)
+#include <config-kdeclarative.h>
+#if HAVE_KGLOBALACCEL
 #include <KGlobalAccel>
 #include <KGlobalShortcutInfo>
 #endif
@@ -123,7 +124,7 @@ bool KeySequenceHelperPrivate::conflictWithGlobalShortcuts(const QKeySequence &k
         KMessageBox::error(nullptr, message, title);
     }
     return false;
-#elif !defined(Q_OS_DARWIN)
+#elif HAVE_KGLOBALACCEL
     if (!(checkAgainstShortcutTypes & KeySequenceHelper::GlobalShortcuts)) {
         return false;
     }
