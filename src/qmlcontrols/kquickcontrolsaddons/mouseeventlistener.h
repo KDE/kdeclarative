@@ -21,7 +21,6 @@
 class KDeclarativeMouseEvent : public QObject
 {
     Q_OBJECT
-    QML_ELEMENT
     QML_ANONYMOUS
     Q_PROPERTY(int x READ x)
     Q_PROPERTY(int y READ y)
@@ -134,7 +133,6 @@ private:
 class KDeclarativeWheelEvent : public QObject
 {
     Q_OBJECT
-    QML_ELEMENT
     QML_ANONYMOUS
     Q_PROPERTY(int x READ x CONSTANT)
     Q_PROPERTY(int y READ y CONSTANT)
