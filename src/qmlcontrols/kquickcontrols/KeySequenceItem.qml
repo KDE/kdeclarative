@@ -159,11 +159,6 @@ RowLayout {
         }
     }
 
-    KQuickControlsPrivate.TranslationContext {
-        id: _tr
-        domain: "kdeclarative6"
-    }
-
     QQC2.Button {
         id: mainButton
 
@@ -180,8 +175,8 @@ RowLayout {
             const keySequence = helper.currentKeySequence;
             const text = helper.keySequenceIsEmpty(keySequence)
                 ? (helper.isRecording
-                    ? _tr.i18nc("What the user inputs now will be taken as the new shortcut", "Input")
-                    : _tr.i18nc("No shortcut defined", "None"))
+                    ? i18ndc("kdeclarative6", "What the user inputs now will be taken as the new shortcut", "Input")
+                    : i18ndc("kdeclarative6", "No shortcut defined", "None"))
                 // Single ampersand gets interpreted by the button as a mnemonic
                 // and removed; replace it with a double ampersand so that it
                 // will be displayed by the button as a single ampersand, or
@@ -192,7 +187,7 @@ RowLayout {
             return " " + text + (helper.isRecording ? " ... " : " ");
         }
 
-        Accessible.description: _tr.i18n("Click on the button, then enter the shortcut like you would in the program.\nExample for Ctrl+A: hold the Ctrl key and press A.")
+        Accessible.description: i18nd("kdeclarative6", "Click on the button, then enter the shortcut like you would in the program.\nExample for Ctrl+A: hold the Ctrl key and press A.")
         Accessible.role: Accessible.Button
 
         QQC2.ToolTip {
@@ -235,7 +230,7 @@ RowLayout {
         // icon name determines the direction of the arrow, NOT the direction of the app layout
         icon.name: Qt.application.layoutDirection === Qt.LeftToRight ? "edit-clear-locationbar-rtl" : "edit-clear-locationbar-ltr"
 
-        Accessible.name: _tr.i18nc("@info:tooltip", "Clear Key Sequence")
+        Accessible.name: i18ndc("kdeclarative6", "@info:tooltip", "Clear Key Sequence")
 
         QQC2.ToolTip {
             visible: clearButton.hovered
@@ -251,7 +246,7 @@ RowLayout {
 
         icon.name: "dialog-cancel"
 
-        Accessible.name: _tr.i18nc("@info:tooltip", "Cancel Key Sequence Recording")
+        Accessible.name: i18ndc("kdeclarative6", "@info:tooltip", "Cancel Key Sequence Recording")
 
         QQC2.ToolTip {
             visible: parent.hovered

@@ -58,10 +58,10 @@ QQC2.Button {
 
     implicitWidth: 40 + _buttonMarigns * 2 // to perfectly clone kcolorbutton from kwidgetaddons
 
-    Accessible.name: i18nc("@info:whatsthis for a button", "Color button")
+    Accessible.name: i18ndc("kdeclarative6", "@info:whatsthis for a button", "Color button")
     Accessible.description: enabled
-      ? i18nc("@info:whatsthis for a button of current color code %1", "Current color is %1. This button will open a color chooser dialog.", color)
-      : i18nc("@info:whatsthis for a button of current color code %1", "Current color is %1.", color)
+      ? i18ndc("kdeclarative6", "@info:whatsthis for a button of current color code %1", "Current color is %1. This button will open a color chooser dialog.", color)
+      : i18ndc("kdeclarative6", "@info:whatsthis for a button of current color code %1", "Current color is %1.", color)
 
     // create a checkerboard background for alpha to be adjusted
     Canvas {
