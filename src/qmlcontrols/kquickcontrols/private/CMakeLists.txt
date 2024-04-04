@@ -3,9 +3,6 @@ set(kquickcontrolsprivate_SRCS
     keysequencehelper.h
     kquickcontrolsprivateplugin.cpp
     kquickcontrolsprivateplugin.h
-    translationcontext.cpp
-    translationcontext.h
-
 )
 
 add_library(kquickcontrolsprivateplugin ${kquickcontrolsprivate_SRCS})
