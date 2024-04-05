@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 00:35+0000\n"
+"POT-Creation-Date: 2024-04-05 00:35+0000\n"
 "PO-Revision-Date: 2023-04-30 10:26+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -77,13 +77,13 @@ msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
 msgstr "Cancelar a gravación da secuencia de teclas"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:122
 #, kde-format
 msgid "Reserved Shortcut"
 msgstr "Atallo reservado"
 
 # skip-rule: PT-2010-window
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:120
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:124
 #, kde-format
 msgid ""
 "The F12 key is reserved on Windows, so cannot be used for a global "
@@ -94,37 +94,37 @@ msgstr ""
 "global.\n"
 "Escolla outro."
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:148
 #, kde-format
 msgid "Global Shortcut Shadowing"
 msgstr "Conflitos de atallos globais"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:151
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr ""
 "A combinación de teclas «%1» ignórase en favor das seguintes accións "
 "globais:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:149
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:155
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:159
 #, kde-format
 msgid "Action '%1' in context '%2'\n"
 msgstr "Acción «%1» no contexto «%2»\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:157
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr ""
 "A combinación de teclas «%1» fai que se ignoren as seguintes accións "
 "globais:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:200
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "Conflito cun atallo estándar de aplicación"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:202
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -135,7 +135,7 @@ msgstr ""
 "usan algunhas aplicacións.\n"
 "Seguro que quere usala tamén como atallo global?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:208
 #, kde-format
 msgid "Reassign"
 msgstr "Reasignar"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 00:35+0000\n"
+"POT-Creation-Date: 2024-04-05 00:35+0000\n"
 "PO-Revision-Date: 2022-02-10 11:37+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: Hindi <kde-l10n-hi@kde.org>\n"
@@ -73,12 +73,12 @@ msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:122
 #, kde-format
 msgid "Reserved Shortcut"
 msgstr "आरक्षित शॉर्टकट"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:120
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:124
 #, kde-format
 msgid ""
 "The F12 key is reserved on Windows, so cannot be used for a global "
@@ -89,33 +89,33 @@ msgstr ""
 "सकता।\n"
 "कृपया कोइ अन्य शार्टकट चुनें।"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:148
 #, kde-format
 msgid "Global Shortcut Shadowing"
 msgstr "वैश्विक शॉर्टकट छायांकन"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:151
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr "'%1' कुंजी संयोजन निम्नलिखित वैश्विक क्रियाओं द्वारा छायांकित है:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:149
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:155
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:159
 #, kde-format
 msgid "Action '%1' in context '%2'\n"
 msgstr "क्रिया '%1' संदर्भ में '%2'\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:157
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr "'%1' कुंजी संयोजन इन वैश्विक क्रियाओं के बाद छायांकित :\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:200
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "मानक अनुप्रयोग शॉर्टकट के परस्पर विरोध में है"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:202
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -126,7 +126,7 @@ msgstr ""
 "इस्तेमाल किया जाती है।\n"
 "क्या आप इसे वैश्विक शॉर्टकट के रूप में भी सम्बद्ध करना चाहते हैं?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:208
 #, kde-format
 msgid "Reassign"
 msgstr "फिर से आबंटित करें"

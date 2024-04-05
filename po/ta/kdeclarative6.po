@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 00:35+0000\n"
+"POT-Creation-Date: 2024-04-05 00:35+0000\n"
 "PO-Revision-Date: 2022-09-15 19:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -72,12 +72,12 @@ msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
 msgstr "விசைக்கூட்டை பதிவு செய்வதை கைவிடு"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:122
 #, kde-format
 msgid "Reserved Shortcut"
 msgstr "ஒதுக்கப்பட்டுள்ள சுருக்குவழி"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:120
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:124
 #, kde-format
 msgid ""
 "The F12 key is reserved on Windows, so cannot be used for a global "
@@ -87,33 +87,33 @@ msgstr ""
 "F12 விண்டோஸில் ஒதுக்கப்பட்டுள்ளதால், பொதுவான சுருக்கு வழியாக அதை பயன்படுத்த முடியாது.\n"
 "வேறொன்றை தேர்வு செய்யுங்கள்."
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:148
 #, kde-format
 msgid "Global Shortcut Shadowing"
 msgstr "பொதுவான சுருக்குவழியுடன் முரண்பாடு"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:151
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr "'%1' என்ற விசைக்கூட்டு, பின்வரும் பொது சுருக்குவழிகளுடன் முரண்படுகிறது:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:149
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:155
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:159
 #, kde-format
 msgid "Action '%1' in context '%2'\n"
 msgstr "'%2' என்பதில் '%1' என்ற செயல்\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:157
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr "'%1' என்ற விசைக்கூட்டு, பின்வரும் பொது சுருக்குவழிகளுடன் முரண்படுகிறது:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:200
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "வழக்கமான செயலிச் சுருக்கு வழியுடன் முரண்பாடு"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:202
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -124,7 +124,7 @@ msgstr ""
 "பயன்படுத்தப்படும்.\n"
 "இதைப் பொது சுருக்குவழியாகவும் பயன்படுத்த வேண்டுமா?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:208
 #, kde-format
 msgid "Reassign"
 msgstr "இதற்கே அமர்த்து"

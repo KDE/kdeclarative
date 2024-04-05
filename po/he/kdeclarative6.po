@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 00:35+0000\n"
+"POT-Creation-Date: 2024-04-05 00:35+0000\n"
 "PO-Revision-Date: 2023-10-02 11:27+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -85,12 +85,12 @@ msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
 msgstr "ביטול הקלטת רצף מקשים"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:122
 #, kde-format
 msgid "Reserved Shortcut"
 msgstr "קיצורי מקשים שמורים"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:120
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:124
 #, kde-format
 msgid ""
 "The F12 key is reserved on Windows, so cannot be used for a global "
@@ -100,33 +100,33 @@ msgstr ""
 "מקש ה־F12 הוא מקש שמור ב־Windows, ולכן אינו יכול לשמש כמקש קיצור כללי.\n"
 "נא לבחור במקש אחר."
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:148
 #, kde-format
 msgid "Global Shortcut Shadowing"
 msgstr "האפלת קיצורי מקשים כלליים"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:151
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr "צירוף המקשים ‚%1’ מואפל על ידי הפעולות הכלליות הבאות:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:149
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:155
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:159
 #, kde-format
 msgid "Action '%1' in context '%2'\n"
 msgstr "הפעולה ‚%1’ בהקשר ‚%2’\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:157
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr "צירוף המקשים ‚%1’ מאפיל על הפעולות הכלליות הבאות:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:200
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "סתירה עם קיצור מקשים רגיל של יישום"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:202
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -136,7 +136,7 @@ msgstr ""
 "צירוף המקשים ‚%1’ משמש גם לפעולה הרגילה „%2” בה משתמשים חלק מהיישומים.\n"
 "להשתמש בו גם כמקש קיצור כללי?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:208
 #, kde-format
 msgid "Reassign"
 msgstr "שיוך מחדש"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 00:35+0000\n"
+"POT-Creation-Date: 2024-04-05 00:35+0000\n"
 "PO-Revision-Date: 2009-02-12 23:29-0600\n"
 "Last-Translator: Reşat SABIQ <tilde.birlik@gmail.com>\n"
 "Language-Team: Qırımtatarca (Qırım Türkçesi)\n"
@@ -69,13 +69,13 @@ msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:122
 #, fuzzy, kde-format
 #| msgid "New Web Shortcut"
 msgid "Reserved Shortcut"
 msgstr "Yañı İnternet Qısqa-yolu"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:120
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:124
 #, kde-format
 msgid ""
 "The F12 key is reserved on Windows, so cannot be used for a global "
@@ -83,34 +83,34 @@ msgid ""
 "Please choose another one."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:148
 #, kde-format
 msgid "Global Shortcut Shadowing"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:147
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:151
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:149
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:155
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:159
 #, fuzzy, kde-format
 #| msgid "Shortcut(s) '%1' for action '%2'\n"
 msgid "Action '%1' in context '%2'\n"
 msgstr "'%2' ameli içün '%1' qısqa-yolları\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:157
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:200
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "Standart Uyğulama Qısqa-yolunen Çatışma"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:197
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:202
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -121,7 +121,7 @@ msgstr ""
 "içün de qullanılır.\n"
 "Onı kerçekten de umumiy qısqa-yol olaraq ta qullanmağa isteysiñizmi?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:203
+#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:208
 #, kde-format
 msgid "Reassign"
 msgstr "Kene-tayinle"
