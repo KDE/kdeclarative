@@ -7,19 +7,20 @@
 # Pjetur G. Hjaltason <pjetur@pjetur.net>, 2003.
 # Arnar Leósson <leosson@frisurf.no>, 2003, 2005.
 # Sveinn í Felli <sveinki@nett.is>, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2016.
+# SPDX-FileCopyrightText: 2024 Gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-05 00:35+0000\n"
-"PO-Revision-Date: 2016-04-08 22:57+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2024-05-06 12:13+0000\n"
+"Last-Translator: Gummi <gudmundure@gmail.com>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
@@ -29,24 +30,22 @@ msgstr ""
 "\n"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:56
-#, fuzzy, kde-format
-#| msgctxt "left mouse button"
-#| msgid "left button"
+#, kde-format
 msgctxt "@info:whatsthis for a button"
 msgid "Color button"
-msgstr "vinstri músarhnappur"
+msgstr "Litahnappur"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:58
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
-msgstr ""
+msgstr "Núverandi litur er %1. Þessi hnappur opnar litavalglugga."
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:59
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
-msgstr ""
+msgstr "Núverandi litur er %1."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:88
 #, kde-format
@@ -58,33 +57,29 @@ msgstr "Inntak"
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
-msgstr "Engin"
+msgstr "Ekkert"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:100
-#, fuzzy, kde-format
-#| msgid ""
-#| "Click on the button, then enter the shortcut like you would in the "
-#| "program.\n"
-#| "Example for Ctrl+a: hold the Ctrl key and press a."
+#, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
-"Smelltu á hnappinn, settu síðan inn flýtilykilinn sem þú vilt nota í "
+"Smelltu á hnappinn og sláðu svo inn flýtilykilinn sem þú vilt nota í "
 "forritinu.\n"
-"Til dæmis Ctrl+a: halda niðri 'Ctrl' lyklinum og ýta á 'a'."
+"Til dæmis Ctrl+A: haltu niðri Ctrl-lyklinum og ýttu á 'A'."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:142
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
-msgstr ""
+msgstr "Hreinsa lyklarunu"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:158
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
-msgstr ""
+msgstr "Hætta við að skrá á lyklarunu"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:122
 #, kde-format
@@ -98,43 +93,35 @@ msgid ""
 "shortcut.\n"
 "Please choose another one."
 msgstr ""
-"F12 lykillinn er frátekinn í Windows og er ekki hægt að nota sem víðværan "
-"flýtilykil.\n"
+"F12-lykillinn er frátekinn í Windows og er ekki hægt að nota sem "
+"altækanflýtilykil.\n"
 "Veldu einhvern annan."
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:148
 #, kde-format
 msgid "Global Shortcut Shadowing"
-msgstr ""
+msgstr "Spegluna á altækum flýtilyklum"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:151
-#, fuzzy, kde-format
-#| msgid ""
-#| "The '%1' key combination is registered by application %2 for action %3:"
+#, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
-msgstr "Lyklasamsetningin '%1' er skráð af forritinu %2 fyrir aðgerðina %3:"
+msgstr "Lyklasamsetningin '%1' er spegluð í eftirfarandi altækum aðgerðum:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:159
-#, fuzzy, kde-format
-#| msgid "In context '%1' for action '%2'\n"
+#, kde-format
 msgid "Action '%1' in context '%2'\n"
-msgstr "Í samhengi '%1' fyrir aðgerð '%2'\n"
+msgstr "Aðgerð '%1' í samhengi við '%2'\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:157
-#, fuzzy, kde-format
-#| msgid ""
-#| "The '%1' key combination is registered by application %2.\n"
-#| "%3"
+#, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
-msgstr ""
-"Lyklasamsetningin '%1' er skráð af forritinu %2.\n"
-"%3"
+msgstr "Lyklasamsetningin '%1' speglar eftirfarandi altækar aðgerðir:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:200
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
-msgstr "Árekstur við staðlaða fýtilykla forrita"
+msgstr "Árekstur við staðlaða flýtilykla forrita"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:202
 #, kde-format
@@ -143,9 +130,9 @@ msgid ""
 "some applications use.\n"
 "Do you really want to use it as a global shortcut as well?"
 msgstr ""
-"Lyklasamsetningin '%1' er nú þegar í notkun fyrir stöðluðu aðgerðina \"%2\" "
-"sem mörg forrit nota.\n"
-"Vilt þú í alvörunni nota hana jafnframt sem víðværan flýtilykil?"
+"Lyklasamsetningin '%1' er nú þegar notuð fyrir stöðluðu aðgerðina \"%2\" sem "
+"mörg forrit nota.\n"
+"Viltu samt nota hana jafnframt sem altækan flýtilykil?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:208
 #, kde-format
