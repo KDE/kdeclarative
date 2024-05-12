@@ -7,7 +7,6 @@ platforms:
     - name: Windows
     - name: macOS
     - name: Android
-      note: The supported remote URLs depend on the set of KIO workers installed at runtime.
 portingAid: false
 deprecated: false
 release: true
