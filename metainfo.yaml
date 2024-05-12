@@ -1,5 +1,5 @@
 description: Provides integration of QML and KDE Frameworks
-tier: 3
+tier: 2
 type: functional
 platforms:
     - name: Linux
@@ -17,4 +17,4 @@ cmakename: KF6Declarative
 
 public_lib: true
 group: Frameworks
-subgroup: Tier 3
+subgroup: Tier 2
