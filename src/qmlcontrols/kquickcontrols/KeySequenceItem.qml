@@ -54,6 +54,12 @@ RowLayout {
         mainButton.checked = true;
     }
 
+    // A layout like RowLayout would automatically and implicitly fillHeight
+    // if placed inside a ColumnLayout, so an explicit binding should prevent
+    // that behavior. On the contrary, filling width wouldn't hurt, although
+    // it doesn't make much sense, as this component is not really adaptive.
+    Layout.fillHeight: false
+
     KQuickControlsPrivate.KeySequenceHelper {
         id: helper
         onGotKeySequence: keySequence => {
@@ -73,6 +79,8 @@ RowLayout {
 
     QQC2.Button {
         id: mainButton
+
+        Layout.fillHeight: true
 
         icon.name: "configure"
 
