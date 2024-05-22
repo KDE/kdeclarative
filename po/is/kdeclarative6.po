@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:35+0000\n"
+"POT-Creation-Date: 2024-05-22 00:36+0000\n"
 "PO-Revision-Date: 2024-05-06 12:13+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -47,19 +47,19 @@ msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr "Núverandi litur er %1."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:88
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:96
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "Inntak"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:89
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:97
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "Ekkert"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:100
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:108
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
@@ -69,13 +69,13 @@ msgstr ""
 "forritinu.\n"
 "Til dæmis Ctrl+A: haltu niðri Ctrl-lyklinum og ýttu á 'A'."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:142
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "Hreinsa lyklarunu"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:158
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
