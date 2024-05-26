@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:36+0000\n"
-"PO-Revision-Date: 2020-01-11 23:54+0200\n"
+"PO-Revision-Date: 2024-05-25 13:58+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -22,25 +22,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:56
 #, kde-format
 msgctxt "@info:whatsthis for a button"
 msgid "Color button"
-msgstr ""
+msgstr "Spalvos mygtukas"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:58
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
 msgstr ""
+"Dabartinė spalva yra %1. Šis mygtukas atvers spalvos parinkiklio dialogą."
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:59
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
-msgstr ""
+msgstr "Dabartinė spalva yra %1."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:96
 #, kde-format
@@ -60,26 +61,27 @@ msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
-"Spustelėkite ant mygtuko, tada įveskite klavišų kombinaciją taip, tarsi "
-"būtumėte programoje.\n"
-"Pavyzdžiui kombinacijai Vald+A: laikykite Vald klavišą ir paspauskite A."
+"Spustelėkite ant mygtuko, tada paspauskite spartųjį klavišą taip, kaip "
+"spaustumėte jį programoje.\n"
+"Pavyzdžiui, kombinacijai Vald+A: laikykite nuspaustą Vald klavišą ir "
+"paspauskite A."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:150
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
-msgstr ""
+msgstr "Išvalyti klavišų seką"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
-msgstr ""
+msgstr "Atsisakyti klavišų sekos įrašymą"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:122
 #, kde-format
 msgid "Reserved Shortcut"
-msgstr "Rezervuota klavišų kombinacija"
+msgstr "Rezervuotas spartusis klavišas"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:124
 #, kde-format
@@ -88,35 +90,35 @@ msgid ""
 "shortcut.\n"
 "Please choose another one."
 msgstr ""
-"F12 klavišas yra rezervuotas Windows sistemoje, taigi negali būti naudojamas "
-"visuotine klavišų kombinacija.\n"
-"Prašome pasirinkti kitą."
+"F12 klavišas yra rezervuotas „Windows“ sistemoje, todėl negali būti "
+"naudojamas visuotiniems spartiesiems klavišams.\n"
+"Pasirinkite kitą."
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:148
 #, kde-format
 msgid "Global Shortcut Shadowing"
-msgstr ""
+msgstr "Visuotinio sparčiojo klavišo uždengimas"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:151
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
-msgstr ""
+msgstr "Klavišų kombinaciją „%1“ uždengia šie visuotiniai veiksmai:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:159
 #, kde-format
 msgid "Action '%1' in context '%2'\n"
-msgstr ""
+msgstr "Veiksmas „%1“, esantis „%2“ kontekste\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:157
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
-msgstr ""
+msgstr "Klavišų kombinacija „%1“ uždengia šiuos visuotinius veiksmus:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:200
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
-msgstr "Konfliktas su standartine programos klavišų kombinacija"
+msgstr "Konfliktas su programos standartiniu sparčiuoju klavišu"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:202
 #, kde-format
