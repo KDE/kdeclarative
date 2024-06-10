@@ -33,8 +33,6 @@ RowLayout {
      */
     property alias checkForConflictsAgainst: helper.checkAgainstShortcutTypes
 
-    property string __previousSequence: ""
-
     /**
      * This signal is emitted after the user introduces a new key sequence
      *
@@ -68,13 +66,34 @@ RowLayout {
 
     KQuickControlsPrivate.KeySequenceHelper {
         id: helper
+
         onGotKeySequence: keySequence => {
-            if (!isKeySequenceAvailable(keySequence)) {
-                currentKeySequence = root.__previousSequence;
-            }
-            mainButton.checked = false;
-            root.captureFinished();
-            root.keySequenceModified();
+            validator.validateSequence(keySequence)
+        }
+    }
+
+    KQuickControlsPrivate.KeySequenceValidator {
+        id: validator
+
+        validateTypes: helper.checkAgainstShortcutTypes
+
+        onError: (title, message) => {
+            errorDialog.title = title
+            errorDialog.message = message
+            errorDialog.open()
+        }
+
+        onQuestion: (title, message) => {
+            questionDialog.title = title
+            questionDialog.message = message
+            questionDialog.open()
+        }
+
+        onFinished: keySequence => {
+            helper.updateKeySequence(keySequence)
+            mainButton.checked = false
+            root.captureFinished()
+            root.keySequenceModified()
         }
     }
 
@@ -120,7 +139,7 @@ RowLayout {
 
         onCheckedChanged: {
             if (checked) {
-                root.__previousSequence = helper.keySequenceNativeText(root.keySequence)
+                validator.currentKeySequence = root.keySequence
                 helper.window = helper.renderWindow(parent.Window.window)
                 mainButton.forceActiveFocus()
                 helper.startRecording()
@@ -174,6 +193,40 @@ RowLayout {
         QQC2.ToolTip {
             visible: parent.hovered
             text: parent.Accessible.name
+        }
+    }
+
+    QQC2.Dialog {
+        id: errorDialog
+
+        property string message
+
+        parent: QQC2.Overlay.overlay
+        anchors.centerIn: parent
+        modal: true
+
+        contentItem: QQC2.Label {
+            text: errorDialog.message
+            wrapMode: QQC2.Label.Wrap
+        }
+    }
+
+    QQC2.Dialog {
+        id: questionDialog
+
+        property string message
+
+        parent: QQC2.Overlay.overlay
+        anchors.centerIn: parent
+        modal: true
+        standardButtons: QQC2.Dialog.Yes | QQC2.Dialog.No
+
+        onAccepted: validator.accept()
+        onRejected: validator.reject()
+
+        contentItem: QQC2.Label {
+            text: questionDialog.message
+            wrapMode: QQC2.Label.Wrap
         }
     }
 }

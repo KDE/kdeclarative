@@ -101,6 +101,17 @@ bool KeySequenceHelper::isKeySequenceAvailable(const QKeySequence &keySequence) 
     return !conflict;
 }
 
+void KeySequenceHelper::updateKeySequence(const QKeySequence &keySequence)
+{
+#if HAVE_KGLOBALACCEL
+    if (d->checkAgainstShortcutTypes.testFlag(GlobalShortcuts)) {
+        KGlobalAccel::stealShortcutSystemwide(keySequence);
+    }
+#endif
+
+    setCurrentKeySequence(keySequence);
+}
+
 KeySequenceHelper::ShortcutTypes KeySequenceHelper::checkAgainstShortcutTypes()
 {
     return d->checkAgainstShortcutTypes;
