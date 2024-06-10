@@ -43,6 +43,7 @@ public:
     ~KeySequenceHelper() override;
 
     Q_INVOKABLE bool isKeySequenceAvailable(const QKeySequence &keySequence) const;
+    Q_INVOKABLE void updateKeySequence(const QKeySequence &keySequence);
 
     ShortcutTypes checkAgainstShortcutTypes();
     void setCheckAgainstShortcutTypes(ShortcutTypes types);
