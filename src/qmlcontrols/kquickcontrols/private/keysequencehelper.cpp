@@ -1,5 +1,5 @@
 /*
-    SPDX-FileCopyrightText: 2020 David Redondo <davidedmundson@kde.org>
+    SPDX-FileCopyrightText: 2020 David Redondo <kde@david-redondo.de>
     SPDX-FileCopyrightText: 2014 David Edmundson <davidedmundson@kde.org>
     SPDX-FileCopyrightText: 1998 Mark Donohoe <donohoe@kde.org>
     SPDX-FileCopyrightText: 2001 Ellis Whitehead <ellis@kde.org>

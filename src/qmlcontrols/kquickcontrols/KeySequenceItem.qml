@@ -1,3 +1,9 @@
+// SPDX-FileCopyright: 2014 David Edmundson <kde@davidedmundson.co.uk
+// SPDX-FileCopyright: 2020 David Redondo <kde@david-redondo.de
+// SPDX-FileCopyright: 2022 Aleix Pol <aleixpol@kde.org>
+// SPDX-FileCopyright: 2024 ivan tkachenko <me@ratijas.tk>
+// SPDX-License-Identifier: LGPL-2.1-or-later
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
