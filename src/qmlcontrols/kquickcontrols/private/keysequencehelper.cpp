@@ -20,6 +20,10 @@
 #include <KLocalizedString>
 #include <KStandardShortcut>
 
+#ifndef Q_OS_ANDROID
+#include <KMessageDialog>
+#endif
+
 #include <config-kdeclarative.h>
 #if HAVE_KGLOBALACCEL
 #include <KGlobalAccel>
@@ -64,6 +68,41 @@ void KeySequenceHelper::updateKeySequence(const QKeySequence &keySequence)
 #endif
 
     setCurrentKeySequence(keySequence);
+}
+
+void KeySequenceHelper::showErrorDialog(const QString &title, const QString &text)
+{
+#ifndef Q_OS_ANDROID
+    auto dialog = new KMessageDialog(KMessageDialog::Error, text);
+    dialog->setCaption(title);
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
+    dialog->setWindowModality(Qt::WindowModal);
+    dialog->show();
+#endif
+}
+
+void KeySequenceHelper::showQuestionDialog(const QString &title, const QString &text)
+{
+#ifndef Q_OS_ANDROID
+    auto dialog = new KMessageDialog(KMessageDialog::QuestionTwoActions, text);
+    dialog->setCaption(title);
+    dialog->setButtons(KStandardGuiItem::cont(), KStandardGuiItem::cancel());
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
+    dialog->setWindowModality(Qt::WindowModal);
+    connect(dialog, &KMessageDialog::finished, this, [this](int result) {
+        switch (result) {
+        case KMessageDialog::PrimaryAction:
+            Q_EMIT questionDialogAccepted();
+            break;
+        case KMessageDialog::SecondaryAction:
+            Q_EMIT questionDialogRejected();
+            break;
+        }
+    });
+    dialog->show();
+#else
+    Q_EMIT questionDialogAccepted();
+#endif
 }
 
 KeySequenceHelper::ShortcutTypes KeySequenceHelper::checkAgainstShortcutTypes()

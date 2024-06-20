@@ -44,6 +44,9 @@ public:
 
     Q_INVOKABLE void updateKeySequence(const QKeySequence &keySequence);
 
+    Q_INVOKABLE void showQuestionDialog(const QString &title, const QString &text);
+    Q_INVOKABLE void showErrorDialog(const QString &title, const QString &text);
+
     ShortcutTypes checkAgainstShortcutTypes();
     void setCheckAgainstShortcutTypes(ShortcutTypes types);
 
@@ -53,6 +56,8 @@ public:
 
 Q_SIGNALS:
     void checkAgainstShortcutTypesChanged();
+    void questionDialogAccepted();
+    void questionDialogRejected();
 
 private:
     friend class KeySequenceHelperPrivate;
