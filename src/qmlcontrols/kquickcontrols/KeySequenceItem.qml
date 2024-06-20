@@ -70,6 +70,9 @@ RowLayout {
         onGotKeySequence: keySequence => {
             validator.validateSequence(keySequence)
         }
+
+        onQuestionDialogAccepted: validator.accept()
+        onQuestionDialogRejected: validator.reject()
     }
 
     KQuickControlsPrivate.KeySequenceValidator {
@@ -78,15 +81,11 @@ RowLayout {
         validateTypes: helper.checkAgainstShortcutTypes
 
         onError: (title, message) => {
-            errorDialog.title = title
-            errorDialog.message = message
-            errorDialog.open()
+            helper.showErrorDialog(title, message)
         }
 
         onQuestion: (title, message) => {
-            questionDialog.title = title
-            questionDialog.message = message
-            questionDialog.open()
+            helper.showQuestionDialog(title, message)
         }
 
         onFinished: keySequence => {
@@ -193,40 +192,6 @@ RowLayout {
         QQC2.ToolTip {
             visible: parent.hovered
             text: parent.Accessible.name
-        }
-    }
-
-    QQC2.Dialog {
-        id: errorDialog
-
-        property string message
-
-        parent: QQC2.Overlay.overlay
-        anchors.centerIn: parent
-        modal: true
-
-        contentItem: QQC2.Label {
-            text: errorDialog.message
-            wrapMode: QQC2.Label.Wrap
-        }
-    }
-
-    QQC2.Dialog {
-        id: questionDialog
-
-        property string message
-
-        parent: QQC2.Overlay.overlay
-        anchors.centerIn: parent
-        modal: true
-        standardButtons: QQC2.Dialog.Yes | QQC2.Dialog.No
-
-        onAccepted: validator.accept()
-        onRejected: validator.reject()
-
-        contentItem: QQC2.Label {
-            text: questionDialog.message
-            wrapMode: QQC2.Label.Wrap
         }
     }
 }
