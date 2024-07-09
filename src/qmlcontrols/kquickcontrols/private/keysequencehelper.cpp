@@ -224,6 +224,16 @@ QString KeySequenceHelper::keySequenceNativeText(const QKeySequence &keySequence
     return keySequence.toString(QKeySequence::NativeText);
 }
 
+bool KeySequenceHelper::inputSequenceIsEmpty(const KInputSequence &keySequence)
+{
+    return keySequence.isEmpty();
+}
+
+QString KeySequenceHelper::inputSequenceNativeText(const KInputSequence &keySequence)
+{
+    return keySequence.toString(QKeySequence::NativeText);
+}
+
 QWindow *KeySequenceHelper::renderWindow(QQuickWindow *quickWindow)
 {
     QWindow *renderWindow = QQuickRenderControl::renderWindowFor(quickWindow);

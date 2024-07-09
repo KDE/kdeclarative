@@ -49,6 +49,8 @@ public:
 
     Q_INVOKABLE static bool keySequenceIsEmpty(const QKeySequence &keySequence);
     Q_INVOKABLE static QString keySequenceNativeText(const QKeySequence &keySequence);
+    Q_INVOKABLE static bool inputSequenceIsEmpty(const KInputSequence &keySequence);
+    Q_INVOKABLE static QString inputSequenceNativeText(const KInputSequence &keySequence);
     Q_INVOKABLE static QWindow *renderWindow(QQuickWindow *quickWindow);
 
 Q_SIGNALS:

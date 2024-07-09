@@ -18,7 +18,9 @@ RowLayout {
     property alias modifierOnlyAllowed: helper.modifierOnlyAllowed
     property alias modifierlessAllowed: helper.modifierlessAllowed
     property alias multiKeyShortcutsAllowed: helper.multiKeyShortcutsAllowed
+    property alias extraInputAllowed: helper.extraInputAllowed
     property alias keySequence: helper.currentKeySequence
+    property alias inputSequence: helper.currentInputSequence
 
     /**
      * This property controls which types of shortcuts are checked for conflicts when the keySequence
@@ -76,6 +78,11 @@ RowLayout {
             root.captureFinished();
             root.keySequenceModified();
         }
+        onGotInputSequence: inputSequence => {
+            mainButton.checked = false;
+            root.captureFinished();
+            root.keySequenceModified();
+        }
     }
 
     KQuickControlsPrivate.TranslationContext {
@@ -96,8 +103,10 @@ RowLayout {
         hoverEnabled: true
 
         text: {
-            const keySequence = helper.currentKeySequence;
-            const text = helper.keySequenceIsEmpty(keySequence)
+            const sequence = root.extraInputAllowed ? helper.currentInputSequence : helper.currentKeySequence;
+            const keyEmpty = root.extraInputAllowed ? helper.inputSequenceIsEmpty(sequence) : helper.keySequenceIsEmpty(sequence);
+            const keyNativeText = root.extraInputAllowed ? helper.inputSequenceNativeText(sequence) : helper.keySequenceNativeText(sequence);
+            const text = keyEmpty
                 ? (helper.isRecording
                     ? _tr.i18nc("What the user inputs now will be taken as the new shortcut", "Input")
                     : _tr.i18nc("No shortcut defined", "None"))
@@ -106,7 +115,7 @@ RowLayout {
                 // will be displayed by the button as a single ampersand, or
                 // else shortcuts with the actual ampersand character will
                 // appear to be partially empty.
-                : helper.keySequenceNativeText(keySequence).replace('&', '&&');
+                : keyNativeText.replace('&', '&&');
             // These spaces are intentional
             return " " + text + (helper.isRecording ? " ... " : " ");
         }
@@ -120,7 +129,7 @@ RowLayout {
 
         onCheckedChanged: {
             if (checked) {
-                root.__previousSequence = helper.keySequenceNativeText(root.keySequence)
+                root.__previousSequence = root.extraInputAllowed ? helper.inputSequenceNativeText(root.inputSequence) : helper.keySequenceNativeText(root.keySequence);
                 helper.window = helper.renderWindow(parent.Window.window)
                 mainButton.forceActiveFocus()
                 helper.startRecording()
@@ -147,7 +156,10 @@ RowLayout {
             root.captureFinished(); // Not really capturing, but otherwise we cannot track this state, hence apps should use keySequenceModified
         }
 
-        enabled: !helper.keySequenceIsEmpty(helper.currentKeySequence)
+        enabled: {
+            const sequence = root.extraInputAllowed ? helper.currentInputSequence : helper.currentKeySequence;
+            return root.extraInputAllowed ? !helper.inputSequenceIsEmpty(sequence) : !helper.keySequenceIsEmpty(sequence);
+        }
 
         hoverEnabled: true
         // icon name determines the direction of the arrow, NOT the direction of the app layout
