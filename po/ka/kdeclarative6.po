@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:36+0000\n"
+"POT-Creation-Date: 2024-07-11 00:36+0000\n"
 "PO-Revision-Date: 2022-09-15 08:37+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -36,19 +36,19 @@ msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr "მიმდინარე ფერია %1."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:102
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:120
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "შეტანის ფაილი"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:103
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:121
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "არაა"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:114
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:132
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
@@ -57,24 +57,24 @@ msgstr ""
 "დააჭირეთ ღილაკს და და შეიყვანეთ მალსახმობი, როგორც პროგრამაში.\n"
 "მაგალითად Ctrl+A: დააჭირეთ Ctrl-ს და A-ს."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:156
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "ღილაკების მიმდევრობის გასუფთავება"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:172
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:190
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
 msgstr "ღილაკების მიმდევრობის ჩაწერის გაუქმება"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:122
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:116
 #, kde-format
 msgid "Reserved Shortcut"
 msgstr "დარეზერვებულია მალსახმობი"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:124
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:118
 #, kde-format
 msgid ""
 "The F12 key is reserved on Windows, so cannot be used for a global "
@@ -85,34 +85,64 @@ msgstr ""
 "აკრძალულია.\n"
 "გამოიყენეთ სხვა."
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:148
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:140
 #, kde-format
 msgid "Global Shortcut Shadowing"
 msgstr "გლობალური მალსახმობის გადაჩრდილვა"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:151
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:143
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr ""
 "ღილაკების კომბინაცია '%1' შემდეგი გლობალური ქმედებებითაა გადაჩრდილული:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:159
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:145
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:151
 #, kde-format
 msgid "Action '%1' in context '%2'\n"
 msgstr "ქმედება \"%1' '%2'-ის კონტექსტში\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:157
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:149
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr "ღილაკების კომბინაცია '%1' შემდეგ გლობალურ ქმედებებს გადაჩრდილავს:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:200
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:160
+#, kde-format
+msgctxt "@dialog:title"
+msgid "Found Conflict"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
+#, kde-format
+msgid ""
+"Shortcut '%1' is already assigned to action '%2' of %3.\n"
+"Do you want to reassign it?"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
+#, fuzzy, kde-format
+#| msgid "The '%1' key combination shadows following global actions:\n"
+msgid "Shortcut '%1' is already assigned to the following actions:\n"
+msgstr "ღილაკების კომბინაცია '%1' შემდეგ გლობალურ ქმედებებს გადაჩრდილავს:\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:172
+#, fuzzy, kde-format
+#| msgid "Action '%1' in context '%2'\n"
+msgid "Action '%1' of %2\n"
+msgstr "ქმედება \"%1' '%2'-ის კონტექსტში\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:174
+#, kde-format
+msgid "Do you want to reassign it?"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:190
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "კონფლიქტი პროგრამის სტანდარტულ მალსახმობთან"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:202
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:192
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -122,10 +152,8 @@ msgstr ""
 "კლავიშების ბმული %1 უკვე გამოიყენება \"%2\" სტანდარტული ქმედებისთვის.\n"
 "გადმოვამისამართო იგი ახალ ქმედებაზე?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:208
-#, kde-format
-msgid "Reassign"
-msgstr "მალსახმობის თავიდან მინიჭება"
+#~ msgid "Reassign"
+#~ msgstr "მალსახმობის თავიდან მინიჭება"
 
 #~ msgctxt "@action:button"
 #~ msgid "Show Contextual Help"

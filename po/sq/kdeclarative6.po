@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde4libs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:36+0000\n"
+"POT-Creation-Date: 2024-07-11 00:36+0000\n"
 "PO-Revision-Date: 2012-01-19 00:20-0500\n"
 "Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -35,44 +35,44 @@ msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:102
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:120
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "Hyrja"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:103
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:121
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "Asnjë"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:114
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:132
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:156
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:172
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:190
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:122
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:116
 #, fuzzy, kde-format
 #| msgid "Create Web Shortcut"
 msgid "Reserved Shortcut"
 msgstr "Krijo Shkurtore Web-i"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:124
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:118
 #, kde-format
 msgid ""
 "The F12 key is reserved on Windows, so cannot be used for a global "
@@ -80,33 +80,63 @@ msgid ""
 "Please choose another one."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:148
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:140
 #, kde-format
 msgid "Global Shortcut Shadowing"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:151
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:143
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:159
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:145
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:151
 #, kde-format
 msgid "Action '%1' in context '%2'\n"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:157
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:149
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:200
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:160
+#, fuzzy, kde-format
+#| msgid "Shortcut conflict"
+msgctxt "@dialog:title"
+msgid "Found Conflict"
+msgstr "Konflikt shkurtoresh"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
+#, kde-format
+msgid ""
+"Shortcut '%1' is already assigned to action '%2' of %3.\n"
+"Do you want to reassign it?"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
+#, kde-format
+msgid "Shortcut '%1' is already assigned to the following actions:\n"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:172
+#, kde-format
+msgid "Action '%1' of %2\n"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:174
+#, fuzzy, kde-format
+#| msgid "Do you want to store this password?"
+msgid "Do you want to reassign it?"
+msgstr "Dëshironi ta ruajni këtë fjalëkalim?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:190
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "Konflike me Shkurtoren e Programit Standart"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:202
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:192
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -114,10 +144,8 @@ msgid ""
 "Do you really want to use it as a global shortcut as well?"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:208
-#, kde-format
-msgid "Reassign"
-msgstr "Ricakto"
+#~ msgid "Reassign"
+#~ msgstr "Ricakto"
 
 #, fuzzy
 #~| msgid "Not found"
@@ -5682,14 +5710,6 @@ msgstr "Ricakto"
 #~ msgstr[0] "Konflikt me Shkurtoren Globale"
 #~ msgstr[1] "Konflikt me Shkurtoren Globale"
 
-#, fuzzy
-#~| msgid "Shortcut conflict"
-#~ msgctxt "%1 is the number of conflicts"
-#~ msgid "Shortcut Conflict"
-#~ msgid_plural "Shortcut Conflicts"
-#~ msgstr[0] "Konflikt shkurtoresh"
-#~ msgstr[1] "Konflikt shkurtoresh"
-
 #~ msgid "Shortcut conflict"
 #~ msgstr "Konflikt shkurtoresh"
 
@@ -7018,9 +7038,6 @@ msgstr "Ricakto"
 
 #~ msgid "Opt&ions"
 #~ msgstr "Ops&ionet"
-
-#~ msgid "Do you want to store this password?"
-#~ msgstr "Dëshironi ta ruajni këtë fjalëkalim?"
 
 #, fuzzy
 #~| msgid "Do you want to restart search from the end?"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:36+0000\n"
+"POT-Creation-Date: 2024-07-11 00:36+0000\n"
 "PO-Revision-Date: 2013-01-31 01:08+0400\n"
 "Last-Translator: Davit <nikdavnik@mail.ru>\n"
 "Language-Team: Armenian Language: hy\n"
@@ -41,19 +41,19 @@ msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:102
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:120
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "Հիմա"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:103
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:121
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "Ընտրված չէ"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:114
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:132
 #, fuzzy, kde-format
 #| msgid ""
 #| "Click on the button, then enter the shortcut like you would in the "
@@ -67,24 +67,24 @@ msgstr ""
 "Օրինակ ` Ctrl+A  կոճակների կոմբինացիայի համար սեղմած պահեք  Ctrl կոճակը և "
 "սեղմեք  A։"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:156
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:172
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:190
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:122
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:116
 #, kde-format
 msgid "Reserved Shortcut"
 msgstr "Պահեստավորված կոճակների համադրություն"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:124
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:118
 #, kde-format
 msgid ""
 "The F12 key is reserved on Windows, so cannot be used for a global "
@@ -95,26 +95,26 @@ msgstr ""
 "կոճակների գլոբալ կոմբինացիաներում:\n"
 "Ընտրեք կոճակների այլ կոմբինացիա:"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:148
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:140
 #, kde-format
 msgid "Global Shortcut Shadowing"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:151
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:143
 #, fuzzy, kde-format
 #| msgid ""
 #| "The '%1' key combination is registered by application %2 for action %3:"
 msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr "Կոճակ «%1» արդեն նշված է ծրագրում %2,  %3 գործողության համար:"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:159
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:145
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:151
 #, fuzzy, kde-format
 #| msgid "In context '%1' for action '%2'\n"
 msgid "Action '%1' in context '%2'\n"
 msgstr "Համատեքստ «%1»,  «%2» գործողության համար\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:157
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:149
 #, fuzzy, kde-format
 #| msgid ""
 #| "The '%1' key combination is registered by application %2.\n"
@@ -124,12 +124,53 @@ msgstr ""
 "Կոճակ «%1» արդեն նշված է %2 ծրագրում\n"
 "%3"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:200
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:160
+#, fuzzy, kde-format
+#| msgctxt "%1 is the number of conflicts"
+#| msgid "Shortcut Conflict"
+#| msgid_plural "Shortcut Conflicts"
+msgctxt "@dialog:title"
+msgid "Found Conflict"
+msgstr "Կոճակների համադրության կոնֆլիկտ"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
+#, kde-format
+msgid ""
+"Shortcut '%1' is already assigned to action '%2' of %3.\n"
+"Do you want to reassign it?"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 is the number of conflicts (hidden), %2 is the key sequence of the "
+#| "shortcut that is problematic"
+#| msgid "The shortcut '%2' conflicts with the following key combination:\n"
+#| msgid_plural ""
+#| "The shortcut '%2' conflicts with the following key combinations:\n"
+msgid "Shortcut '%1' is already assigned to the following actions:\n"
+msgstr ""
+"Կոճակների համադրություն «%2» չի աշխատում հետևյալ կոճակների համադրություն "
+"հետ:\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:172
+#, fuzzy, kde-format
+#| msgid "In context '%1' for action '%2'\n"
+msgid "Action '%1' of %2\n"
+msgstr "Համատեքստ «%1»,  «%2» գործողության համար\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:174
+#, fuzzy, kde-format
+#| msgid "Do you want to store this password?"
+msgid "Do you want to reassign it?"
+msgstr "Պահպանե՞լ ծածկագիրը"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:190
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "Կոնֆլիկտ ծրագրի ստանդարտ կոճակի հետ"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:202
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:192
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -140,10 +181,8 @@ msgstr ""
 "օգտագործվում է մի շարք ծրագրերում։\n"
 "Ուզու՞մ եք օգտագործել այս կոմբինացիան որպես գլոբալ։"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:208
-#, kde-format
-msgid "Reassign"
-msgstr "Կապել նորի հետ"
+#~ msgid "Reassign"
+#~ msgstr "Կապել նորի հետ"
 
 #, fuzzy
 #~| msgid "Not found"
@@ -6308,25 +6347,6 @@ msgstr "Կապել նորի հետ"
 #~ msgid "Shortcut '%1' in Application %2 for action %3\n"
 #~ msgstr "Կոճակների համադրություն «%1» ծրագիր %2 գործողություն «%3»\n"
 
-#~ msgctxt ""
-#~ "%1 is the number of conflicts (hidden), %2 is the key sequence of the "
-#~ "shortcut that is problematic"
-#~ msgid "The shortcut '%2' conflicts with the following key combination:\n"
-#~ msgid_plural ""
-#~ "The shortcut '%2' conflicts with the following key combinations:\n"
-#~ msgstr[0] ""
-#~ "Կոճակների համադրություն «%2» չի աշխատում հետևյալ կոճակների համադրություն "
-#~ "հետ:\n"
-#~ msgstr[1] ""
-#~ "Կոճակների համադրություն «%2» չի աշխատում հետևյալ կոճակների համադրություն "
-#~ "հետ:\n"
-#~ msgstr[2] ""
-#~ "Կոճակների համադրություն «%2» չի աշխատում հետևյալ կոճակների համադրություն "
-#~ "հետ:\n"
-#~ msgstr[3] ""
-#~ "Կոճակների համադրություն «%2» չի աշխատում հետևյալ կոճակների համադրություն "
-#~ "հետ:\n"
-
 #~ msgctxt "%1 is the number of shortcuts with which there is a conflict"
 #~ msgid "Conflict with Registered Global Shortcut"
 #~ msgid_plural "Conflict with Registered Global Shortcuts"
@@ -6334,14 +6354,6 @@ msgstr "Կապել նորի հետ"
 #~ msgstr[1] "Կոնֆլիկտ կոճակների գլոբալ համադրության հետ"
 #~ msgstr[2] "Կոնֆլիկտ կոճակների գլոբալ համադրության հետ"
 #~ msgstr[3] "Կոնֆլիկտ կոճակների գլոբալ համադրության հետ"
-
-#~ msgctxt "%1 is the number of conflicts"
-#~ msgid "Shortcut Conflict"
-#~ msgid_plural "Shortcut Conflicts"
-#~ msgstr[0] "Կոճակների համադրության կոնֆլիկտ"
-#~ msgstr[1] "Կոճակների համադրության կոնֆլիկտ"
-#~ msgstr[2] "Կոճակների համադրության կոնֆլիկտ"
-#~ msgstr[3] "Կոճակների համադրության կոնֆլիկտ"
 
 #~ msgid "Shortcut '%1' for action '%2'\n"
 #~ msgstr "Կոճակների համադրություն «%1» գործողություն «%2»\n"
@@ -7897,9 +7909,6 @@ msgstr "Կապել նորի հետ"
 
 #~ msgid "Opt&ions"
 #~ msgstr "&Պարամետրեր"
-
-#~ msgid "Do you want to store this password?"
-#~ msgstr "Պահպանե՞լ ծածկագիրը"
 
 #~ msgid "Do you want to store this password for %1?"
 #~ msgstr "Պահպանե՞լ գաղտնաբառը %1 համար"

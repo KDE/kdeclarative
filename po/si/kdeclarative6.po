@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:36+0000\n"
+"POT-Creation-Date: 2024-07-11 00:36+0000\n"
 "PO-Revision-Date: 2011-07-25 07:45+0530\n"
 "Last-Translator: Danishka Navin <danishka@gmail.com>\n"
 "Language-Team: Sinhala <danishka@gmail.com>\n"
@@ -38,43 +38,43 @@ msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:102
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:120
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "ප්‍රධානය"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:103
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:121
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "කිසිවක් නැත"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:114
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:132
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:156
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:172
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:190
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:122
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:116
 #, kde-format
 msgid "Reserved Shortcut"
 msgstr "වෙන් කළ කෙටි මාර්‍ගය"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:124
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:118
 #, kde-format
 msgid ""
 "The F12 key is reserved on Windows, so cannot be used for a global "
@@ -82,26 +82,26 @@ msgid ""
 "Please choose another one."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:148
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:140
 #, kde-format
 msgid "Global Shortcut Shadowing"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:151
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:143
 #, fuzzy, kde-format
 #| msgid ""
 #| "The '%1' key combination is registered by application %2 for action %3:"
 msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr "'%1' යතුරු සංයෝජනය %2 වැඩසටහනේ %3 ක්‍රියාව සඳහා ලියාපදිංවි කර ඇත:"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:159
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:145
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:151
 #, fuzzy, kde-format
 #| msgid "In context '%1' for action '%2'\n"
 msgid "Action '%1' in context '%2'\n"
 msgstr "'%2' ක්‍රියාව සඳහා '%1' සන්දර්භයේ\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:157
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:149
 #, fuzzy, kde-format
 #| msgid ""
 #| "The '%1' key combination is registered by application %2.\n"
@@ -111,12 +111,46 @@ msgstr ""
 "'%1' යතුරු සංයෝජනය %2 වැඩසටහන මඟින් ලියාපදිංවි කර ඇත.\n"
 "%3"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:200
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:160
+#, fuzzy, kde-format
+#| msgctxt "%1 is the number of conflicts"
+#| msgid "Shortcut Conflict"
+#| msgid_plural "Shortcut Conflicts"
+msgctxt "@dialog:title"
+msgid "Found Conflict"
+msgstr "කෙටි මඟ ගැටුම"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
+#, kde-format
+msgid ""
+"Shortcut '%1' is already assigned to action '%2' of %3.\n"
+"Do you want to reassign it?"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
+#, fuzzy, kde-format
+#| msgid "The shortcut '%1' conflicts with the following key combinations:\n"
+msgid "Shortcut '%1' is already assigned to the following actions:\n"
+msgstr "'%1' කෙටි මඟ පහත යතුරු සංයෝජනය සමඟ ගැටේ:\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:172
+#, fuzzy, kde-format
+#| msgid "In context '%1' for action '%2'\n"
+msgid "Action '%1' of %2\n"
+msgstr "'%2' ක්‍රියාව සඳහා '%1' සන්දර්භයේ\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:174
+#, fuzzy, kde-format
+#| msgid "Do you want to store this password?"
+msgid "Do you want to reassign it?"
+msgstr "ඔබට මෙම රහස්පදය සුරැකීමට අවශ්‍ය ද?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:190
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "සම්මත වැඩසටහන් කෙටි මඟ සමඟ ගැටේ"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:202
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:192
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -126,10 +160,8 @@ msgstr ""
 "'%1' යතුරු සංයෝජනය සමහර වැඩසටහන් භාවිතා කරන \"%2\" සම්මත ක්‍රියාව සඳහාද භාවිතා කරයි.\n"
 "ඔබට ඇත්ත වශයෙන්ම එය ලෝකව්‍යාප්ත කෙටි මඟක් වශයෙනුත් භාවිතා කිරීමට අවශ්‍යද?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:208
-#, kde-format
-msgid "Reassign"
-msgstr "යළි පැවරීම"
+#~ msgid "Reassign"
+#~ msgstr "යළි පැවරීම"
 
 #, fuzzy
 #~| msgid "Not found"
@@ -6248,29 +6280,12 @@ msgstr "යළි පැවරීම"
 #~ msgstr "%2 වැඩසටහනේ %3 ක්‍රියාව සඳහා '%1' කෙටි මඟ\n"
 
 #, fuzzy
-#~| msgid "The shortcut '%1' conflicts with the following key combinations:\n"
-#~ msgctxt ""
-#~ "%1 is the number of conflicts (hidden), %2 is the key sequence of the "
-#~ "shortcut that is problematic"
-#~ msgid "The shortcut '%2' conflicts with the following key combination:\n"
-#~ msgid_plural ""
-#~ "The shortcut '%2' conflicts with the following key combinations:\n"
-#~ msgstr[0] "'%1' කෙටි මඟ පහත යතුරු සංයෝජනය සමඟ ගැටේ:\n"
-#~ msgstr[1] "'%1' කෙටි මඟ පහත යතුරු සංයෝජනය සමඟ ගැටේ:\n"
-
-#, fuzzy
 #~| msgid "Conflict With Registered Global Shortcut"
 #~ msgctxt "%1 is the number of shortcuts with which there is a conflict"
 #~ msgid "Conflict with Registered Global Shortcut"
 #~ msgid_plural "Conflict with Registered Global Shortcuts"
 #~ msgstr[0] "ලියාපදිංචි කළ ලෝකව්‍යාප්ත කෙටි මං සමඟ ගැටේ"
 #~ msgstr[1] "ලියාපදිංචි කළ ලෝකව්‍යාප්ත කෙටි මං සමඟ ගැටේ"
-
-#~ msgctxt "%1 is the number of conflicts"
-#~ msgid "Shortcut Conflict"
-#~ msgid_plural "Shortcut Conflicts"
-#~ msgstr[0] "කෙටි මඟ ගැටුම"
-#~ msgstr[1] "කෙටි මඟ ගැටේ"
 
 #, fuzzy
 #~| msgid "Shortcut(s) '%1' for action '%2'\n"
@@ -7861,9 +7876,6 @@ msgstr "යළි පැවරීම"
 
 #~ msgid "Opt&ions"
 #~ msgstr "විකල්ප (&i)"
-
-#~ msgid "Do you want to store this password?"
-#~ msgstr "ඔබට මෙම රහස්පදය සුරැකීමට අවශ්‍ය ද?"
 
 #~ msgid "Do you want to store this password for %1?"
 #~ msgstr "ඔබට %1 සඳහා මෙම රහස්පදය සුරැකීමට අවශ්‍ය ද?"

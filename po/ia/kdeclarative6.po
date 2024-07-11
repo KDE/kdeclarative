@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:36+0000\n"
+"POT-Creation-Date: 2024-07-11 00:36+0000\n"
 "PO-Revision-Date: 2022-11-29 22:45+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -36,19 +36,19 @@ msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr "Color currente es %1."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:102
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:120
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "Ingresso"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:103
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:121
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "Nulle"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:114
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:132
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
@@ -58,24 +58,24 @@ msgstr ""
 "programma\n"
 "Exemplo per CTRL+A: tu pressa le clave CTRL e pressa A."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:156
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "Clara sequentia de clave"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:172
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:190
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
 msgstr "Clara registrar sequentia de clave"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:122
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:116
 #, kde-format
 msgid "Reserved Shortcut"
 msgstr "Via breve reservate"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:124
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:118
 #, kde-format
 msgid ""
 "The F12 key is reserved on Windows, so cannot be used for a global "
@@ -86,36 +86,75 @@ msgstr ""
 "global.\n"
 "Pro favor tu selectiona un altere."
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:148
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:140
 #, kde-format
 msgid "Global Shortcut Shadowing"
 msgstr "Umbrar de Vias Breve Global"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:151
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:143
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr ""
 "Le combination de clave '%1' es umbrate per le sequente actiones global:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:159
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:145
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:151
 #, kde-format
 msgid "Action '%1' in context '%2'\n"
 msgstr "Action '%1' in contexto '%2'\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:157
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:149
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr "Le combination de clave '%1' umbra sequente actiones global:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:200
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:160
+#, fuzzy, kde-format
+#| msgctxt "%1 is the number of conflicts"
+#| msgid "Shortcut Conflict"
+#| msgid_plural "Shortcut Conflicts"
+msgctxt "@dialog:title"
+msgid "Found Conflict"
+msgstr "Conflicto de Via Breve"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
+#, kde-format
+msgid ""
+"Shortcut '%1' is already assigned to action '%2' of %3.\n"
+"Do you want to reassign it?"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 is the number of conflicts (hidden), %2 is the key sequence of the "
+#| "shortcut that is problematic"
+#| msgid "The shortcut '%2' conflicts with the following key combination:\n"
+#| msgid_plural ""
+#| "The shortcut '%2' conflicts with the following key combinations:\n"
+msgid "Shortcut '%1' is already assigned to the following actions:\n"
+msgstr "Le Via Breve '%2' conflige con le sequente combination clave:\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:172
+#, fuzzy, kde-format
+#| msgid "Action '%1' in context '%2'\n"
+msgid "Action '%1' of %2\n"
+msgstr "Action '%1' in contexto '%2'\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:174
+#, fuzzy, kde-format
+#| msgid "Do you want to store this password?"
+msgid "Do you want to reassign it?"
+msgstr "Tu vole immagazinar iste contrasigno?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:190
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr ""
 "Conflicto con Standard Application Shortcut (Via Breve de application "
 "standard)"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:202
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:192
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -126,10 +165,8 @@ msgstr ""
 "que alicun applicationes usa.\n"
 "Etiam tu vole realmente usar lo como via breve global?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:208
-#, kde-format
-msgid "Reassign"
-msgstr "Reassigna"
+#~ msgid "Reassign"
+#~ msgstr "Reassigna"
 
 #~ msgctxt "@action:button"
 #~ msgid "Show Contextual Help"
@@ -6357,27 +6394,11 @@ msgstr "Reassigna"
 #~ msgid "Shortcut '%1' in Application %2 for action %3\n"
 #~ msgstr "Via Breve '%1' in Application %2 per action %3\n"
 
-#~ msgctxt ""
-#~ "%1 is the number of conflicts (hidden), %2 is the key sequence of the "
-#~ "shortcut that is problematic"
-#~ msgid "The shortcut '%2' conflicts with the following key combination:\n"
-#~ msgid_plural ""
-#~ "The shortcut '%2' conflicts with the following key combinations:\n"
-#~ msgstr[0] "Le Via Breve '%2' conflige con le sequente combination clave:\n"
-#~ msgstr[1] ""
-#~ "Le Via Breve '%2' conflige con le sequente combinationes clave:\n"
-
 #~ msgctxt "%1 is the number of shortcuts with which there is a conflict"
 #~ msgid "Conflict with Registered Global Shortcut"
 #~ msgid_plural "Conflict with Registered Global Shortcuts"
 #~ msgstr[0] "Conflige con le Via Breve Global Registrate"
 #~ msgstr[1] "Conflige con le Vias Breve Global Registrate"
-
-#~ msgctxt "%1 is the number of conflicts"
-#~ msgid "Shortcut Conflict"
-#~ msgid_plural "Shortcut Conflicts"
-#~ msgstr[0] "Conflicto de Via Breve"
-#~ msgstr[1] "Conflictos de Via Breve"
 
 #~ msgid "Shortcut '%1' for action '%2'\n"
 #~ msgstr "Via Breve '%1' per action '%2'\n"
@@ -7952,9 +7973,6 @@ msgstr "Reassigna"
 
 #~ msgid "Opt&ions"
 #~ msgstr "Opt&iones"
-
-#~ msgid "Do you want to store this password?"
-#~ msgstr "Tu vole immagazinar iste contrasigno?"
 
 #~ msgid "Do you want to store this password for %1?"
 #~ msgstr "Tu vole immagazinar iste contrasigno per %1?"

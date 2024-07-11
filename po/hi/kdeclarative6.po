@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:36+0000\n"
+"POT-Creation-Date: 2024-07-11 00:36+0000\n"
 "PO-Revision-Date: 2022-02-10 11:37+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: Hindi <kde-l10n-hi@kde.org>\n"
@@ -40,19 +40,19 @@ msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr "वर्तमान रंग %1 है।"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:102
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:120
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "इनपुट"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:103
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:121
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "कुछ नहीं"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:114
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:132
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
@@ -61,24 +61,24 @@ msgstr ""
 "बटन पर क्लिक करें, फिर शॉर्टकट दर्ज करें जैसे आप अनुप्रयोग में आम तौर पर करतें हैं।\n"
 " उदाहरण के तौर पर, Ctrl+A के लिए: Ctrl कुंजी दबाए रखें और A दबाएं।"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:156
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:172
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:190
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:122
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:116
 #, kde-format
 msgid "Reserved Shortcut"
 msgstr "आरक्षित शॉर्टकट"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:124
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:118
 #, kde-format
 msgid ""
 "The F12 key is reserved on Windows, so cannot be used for a global "
@@ -89,33 +89,67 @@ msgstr ""
 "सकता।\n"
 "कृपया कोइ अन्य शार्टकट चुनें।"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:148
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:140
 #, kde-format
 msgid "Global Shortcut Shadowing"
 msgstr "वैश्विक शॉर्टकट छायांकन"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:151
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:143
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr "'%1' कुंजी संयोजन निम्नलिखित वैश्विक क्रियाओं द्वारा छायांकित है:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:159
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:145
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:151
 #, kde-format
 msgid "Action '%1' in context '%2'\n"
 msgstr "क्रिया '%1' संदर्भ में '%2'\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:157
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:149
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr "'%1' कुंजी संयोजन इन वैश्विक क्रियाओं के बाद छायांकित :\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:200
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:160
+#, fuzzy, kde-format
+#| msgctxt "%1 is the number of conflicts"
+#| msgid "Shortcut Conflict"
+#| msgid_plural "Shortcut Conflicts"
+msgctxt "@dialog:title"
+msgid "Found Conflict"
+msgstr "शॉर्टकट कॉन्फ्लिक्ट"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
+#, kde-format
+msgid ""
+"Shortcut '%1' is already assigned to action '%2' of %3.\n"
+"Do you want to reassign it?"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
+#, fuzzy, kde-format
+#| msgid "The '%1' key combination shadows following global actions:\n"
+msgid "Shortcut '%1' is already assigned to the following actions:\n"
+msgstr "'%1' कुंजी संयोजन इन वैश्विक क्रियाओं के बाद छायांकित :\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:172
+#, fuzzy, kde-format
+#| msgid "Action '%1' in context '%2'\n"
+msgid "Action '%1' of %2\n"
+msgstr "क्रिया '%1' संदर्भ में '%2'\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:174
+#, fuzzy, kde-format
+#| msgid "Do you want to store this password?"
+msgid "Do you want to reassign it?"
+msgstr "क्या आप इस शब्दकूट को सहेजना चाहते हैं?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:190
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "मानक अनुप्रयोग शॉर्टकट के परस्पर विरोध में है"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:202
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:192
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -126,10 +160,8 @@ msgstr ""
 "इस्तेमाल किया जाती है।\n"
 "क्या आप इसे वैश्विक शॉर्टकट के रूप में भी सम्बद्ध करना चाहते हैं?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:208
-#, kde-format
-msgid "Reassign"
-msgstr "फिर से आबंटित करें"
+#~ msgid "Reassign"
+#~ msgstr "फिर से आबंटित करें"
 
 #~ msgctxt "@action:button"
 #~ msgid "Show Contextual Help"
@@ -5744,12 +5776,6 @@ msgstr "फिर से आबंटित करें"
 #~ msgstr[0] "ग्लोबल शॉर्टकट के परस्पर विरोध में है"
 #~ msgstr[1] "ग्लोबल शॉर्टकटस के परस्पर विरोध में है"
 
-#~ msgctxt "%1 is the number of conflicts"
-#~ msgid "Shortcut Conflict"
-#~ msgid_plural "Shortcut Conflicts"
-#~ msgstr[0] "शॉर्टकट कॉन्फ्लिक्ट"
-#~ msgstr[1] "शॉर्टकट कॉन्फ्लिक्ट"
-
 #~ msgid "Shortcut conflict"
 #~ msgstr "शॉर्टकट कॉन्फ्लिक्ट"
 
@@ -7118,9 +7144,6 @@ msgstr "फिर से आबंटित करें"
 
 #~ msgid "Opt&ions"
 #~ msgstr "विकल्प (&i)"
-
-#~ msgid "Do you want to store this password?"
-#~ msgstr "क्या आप इस शब्दकूट को सहेजना चाहते हैं?"
 
 #~ msgid "Do you want to store this password for %1?"
 #~ msgstr "क्या आप %1 का पासवर्ड सहेजना चाहते हैं"

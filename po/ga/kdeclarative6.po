@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-30 00:36+0000\n"
+"POT-Creation-Date: 2024-07-11 00:36+0000\n"
 "PO-Revision-Date: 2004-12-14 09:11-0600\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -41,19 +41,19 @@ msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr "Suíomh reatha"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:102
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:120
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "Ionchur"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:103
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:121
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "Gan aicearra"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:114
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:132
 #, fuzzy, kde-format
 #| msgid ""
 #| "Click on the button, then enter the shortcut like you would in the "
@@ -68,24 +68,24 @@ msgstr ""
 "Mar shampla, le haghaidh Ctrl+a: coinnigh an eochair Ctrl síos agus brúigh "
 "'a'."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:156
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:174
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:172
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:190
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:122
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:116
 #, kde-format
 msgid "Reserved Shortcut"
 msgstr "Aicearra In Áirithe"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:124
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:118
 #, kde-format
 msgid ""
 "The F12 key is reserved on Windows, so cannot be used for a global "
@@ -96,12 +96,12 @@ msgstr ""
 "úsáid mar aicearra comhchoiteann.\n"
 "Roghnaigh ceann eile."
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:148
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:140
 #, kde-format
 msgid "Global Shortcut Shadowing"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:151
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:143
 #, fuzzy, kde-format
 #| msgid ""
 #| "The '%1' key combination is registered by application %2 for action %3:"
@@ -109,14 +109,14 @@ msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr ""
 "Tá teaglaim eochracha '%1' cláraithe leis an ngníomh %3 ag feidhmchlár %2:"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:153
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:159
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:145
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:151
 #, fuzzy, kde-format
 #| msgid "In context '%1' for action '%2'\n"
 msgid "Action '%1' in context '%2'\n"
 msgstr "I gcomhthéacs '%1' le haghaidh ghníomh '%2'\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:157
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:149
 #, fuzzy, kde-format
 #| msgid ""
 #| "The '%1' key combination is registered by application %2.\n"
@@ -126,12 +126,51 @@ msgstr ""
 "Tá teaglaim eochracha '%1' cláraithe ag feidhmchlár %2.\n"
 "%3"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:200
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:160
+#, fuzzy, kde-format
+#| msgctxt "%1 is the number of conflicts"
+#| msgid "Shortcut Conflict"
+#| msgid_plural "Shortcut Conflicts"
+msgctxt "@dialog:title"
+msgid "Found Conflict"
+msgstr "Coinbhleacht idir Aicearraí"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
+#, kde-format
+msgid ""
+"Shortcut '%1' is already assigned to action '%2' of %3.\n"
+"Do you want to reassign it?"
+msgstr ""
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 is the number of conflicts (hidden), %2 is the key sequence of the "
+#| "shortcut that is problematic"
+#| msgid "The shortcut '%2' conflicts with the following key combination:\n"
+#| msgid_plural ""
+#| "The shortcut '%2' conflicts with the following key combinations:\n"
+msgid "Shortcut '%1' is already assigned to the following actions:\n"
+msgstr "Tagann aicearra '%2' salach ar na teaglamaí eochracha seo a leanas:\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:172
+#, fuzzy, kde-format
+#| msgid "In context '%1' for action '%2'\n"
+msgid "Action '%1' of %2\n"
+msgstr "I gcomhthéacs '%1' le haghaidh ghníomh '%2'\n"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:174
+#, fuzzy, kde-format
+#| msgid "Do you want to store this password?"
+msgid "Do you want to reassign it?"
+msgstr "An bhfuil tú fonn ort an focal faire seo a stóráil?"
+
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:190
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "Coimhlint le hAicearra Feidhmchláir Chaighdeánaithe"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:202
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:192
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
@@ -143,10 +182,8 @@ msgstr ""
 "An bhfuil tú cinnte gur mian leat é a úsáid mar aicearra comhchoiteann "
 "freisin?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:208
-#, kde-format
-msgid "Reassign"
-msgstr "Athshann"
+#~ msgid "Reassign"
+#~ msgstr "Athshann"
 
 #, fuzzy
 #~| msgid "Not found"
@@ -6461,23 +6498,6 @@ msgstr "Athshann"
 #~ msgid "Shortcut '%1' in Application %2 for action %3\n"
 #~ msgstr "Aicearra '%1' i bhFeidhmchlár %2 do ghníomh %3\n"
 
-#~ msgctxt ""
-#~ "%1 is the number of conflicts (hidden), %2 is the key sequence of the "
-#~ "shortcut that is problematic"
-#~ msgid "The shortcut '%2' conflicts with the following key combination:\n"
-#~ msgid_plural ""
-#~ "The shortcut '%2' conflicts with the following key combinations:\n"
-#~ msgstr[0] ""
-#~ "Tagann aicearra '%2' salach ar na teaglamaí eochracha seo a leanas:\n"
-#~ msgstr[1] ""
-#~ "Tagann aicearra '%2' salach ar na teaglamaí eochracha seo a leanas:\n"
-#~ msgstr[2] ""
-#~ "Tagann aicearra '%2' salach ar na teaglamaí eochracha seo a leanas:\n"
-#~ msgstr[3] ""
-#~ "Tagann aicearra '%2' salach ar na teaglamaí eochracha seo a leanas:\n"
-#~ msgstr[4] ""
-#~ "Tagann aicearra '%2' salach ar na teaglamaí eochracha seo a leanas:\n"
-
 #~ msgctxt "%1 is the number of shortcuts with which there is a conflict"
 #~ msgid "Conflict with Registered Global Shortcut"
 #~ msgid_plural "Conflict with Registered Global Shortcuts"
@@ -6486,15 +6506,6 @@ msgstr "Athshann"
 #~ msgstr[2] "Coimhlint le hAicearraí Comhchoiteanna Cláraithe"
 #~ msgstr[3] "Coimhlint le hAicearraí Comhchoiteanna Cláraithe"
 #~ msgstr[4] "Coimhlint le hAicearraí Comhchoiteanna Cláraithe"
-
-#~ msgctxt "%1 is the number of conflicts"
-#~ msgid "Shortcut Conflict"
-#~ msgid_plural "Shortcut Conflicts"
-#~ msgstr[0] "Coinbhleacht idir Aicearraí"
-#~ msgstr[1] "Coinbhleachtaí idir Aicearraí"
-#~ msgstr[2] "Coinbhleachtaí idir Aicearraí"
-#~ msgstr[3] "Coinbhleachtaí idir Aicearraí"
-#~ msgstr[4] "Coinbhleachtaí idir Aicearraí"
 
 #~ msgid "Shortcut '%1' for action '%2'\n"
 #~ msgstr "Aicearra '%1' do ghníomh '%2'\n"
@@ -8091,9 +8102,6 @@ msgstr "Athshann"
 
 #~ msgid "Opt&ions"
 #~ msgstr "&Roghanna"
-
-#~ msgid "Do you want to store this password?"
-#~ msgstr "An bhfuil tú fonn ort an focal faire seo a stóráil?"
 
 #~ msgid "Do you want to store this password for %1?"
 #~ msgstr "An bhfuil fonn ort an focal faire a stóráil le haghaidh %1?"
