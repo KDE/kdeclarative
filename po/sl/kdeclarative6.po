@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-11 00:36+0000\n"
-"PO-Revision-Date: 2022-09-16 06:22+0200\n"
+"PO-Revision-Date: 2024-07-11 06:01+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -28,7 +28,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:56
 #, kde-format
@@ -122,7 +122,7 @@ msgstr "Kombinacija tipk »%1« zasenči naslednja globalna dejanja:\n"
 #, kde-format
 msgctxt "@dialog:title"
 msgid "Found Conflict"
-msgstr ""
+msgstr "Najden spor"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
 #, kde-format
@@ -130,23 +130,23 @@ msgid ""
 "Shortcut '%1' is already assigned to action '%2' of %3.\n"
 "Do you want to reassign it?"
 msgstr ""
+"Bližnjica '%1' je že dodeljena dejanju '%2' od %3.\n"
+"Ali jo želite znova dodeliti?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
-#, fuzzy, kde-format
-#| msgid "The '%1' key combination shadows following global actions:\n"
+#, kde-format
 msgid "Shortcut '%1' is already assigned to the following actions:\n"
-msgstr "Kombinacija tipk »%1« zasenči naslednja globalna dejanja:\n"
+msgstr "Bližnjica '%1' je že dodeljena naslednjim dejanjem:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:172
-#, fuzzy, kde-format
-#| msgid "Action '%1' in context '%2'\n"
+#, kde-format
 msgid "Action '%1' of %2\n"
-msgstr "Dejanje '%1' v kontekstu '%2'\n"
+msgstr "Dejanje '%1' od '%2'\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:174
 #, kde-format
 msgid "Do you want to reassign it?"
-msgstr ""
+msgstr "Ali jo želite znova dodeliti?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:190
 #, kde-format

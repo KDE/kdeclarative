@@ -5,7 +5,7 @@
 # Pablo de Vicente <vicente@oan.es>, 2000-2002,2003, 2004.
 # Pablo de Vicente <vicnte@oan.es>, 2003.
 # Pablo de Vicente <p.devicente@wanadoo.es>, 2004, 2005.
-# SPDX-FileCopyrightText: 2005, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2019, 2020, 2021, 2022, 2023 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2005, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2019, 2020, 2021, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
 # Pablo de Vicente <pablo.devicente@gmail.com>, 2005, 2006, 2007.
 # Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007.
 # Jaime Robles <jaime@kde.org>, 2007.
@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-11 00:36+0000\n"
-"PO-Revision-Date: 2023-10-02 20:43+0200\n"
+"PO-Revision-Date: 2024-07-11 15:14+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "First-Translator: Boris Wesslowski <Boris@Wesslowski.com>\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:56
@@ -120,13 +120,10 @@ msgstr ""
 "La combinación de teclas «%1» oculta a las siguientes acciones globales:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:160
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of conflicts"
-#| msgid "Shortcut Conflict"
-#| msgid_plural "Shortcut Conflicts"
+#, kde-format
 msgctxt "@dialog:title"
 msgid "Found Conflict"
-msgstr "Conflicto de acceso rápido"
+msgstr "Conflicto encontrado"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
 #, kde-format
@@ -134,31 +131,23 @@ msgid ""
 "Shortcut '%1' is already assigned to action '%2' of %3.\n"
 "Do you want to reassign it?"
 msgstr ""
+"El atajo de teclado «%1» ya está asignado a la acción «%2» de %3.\n"
+"¿Quiere reasignarlo?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is the number of conflicts (hidden), %2 is the key sequence of the "
-#| "shortcut that is problematic"
-#| msgid "The shortcut '%2' conflicts with the following key combination:\n"
-#| msgid_plural ""
-#| "The shortcut '%2' conflicts with the following key combinations:\n"
+#, kde-format
 msgid "Shortcut '%1' is already assigned to the following actions:\n"
-msgstr ""
-"El acceso rápido «%2» está en conflicto con la siguiente combinación de "
-"teclas:\n"
+msgstr "El atajo de teclado «%1» ya está asignado a las siguientes acciones:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:172
-#, fuzzy, kde-format
-#| msgid "Action '%1' in context '%2'\n"
+#, kde-format
 msgid "Action '%1' of %2\n"
-msgstr "Acción «%1» en el contexto «%2»\n"
+msgstr "Acción «%1» de %2\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:174
-#, fuzzy, kde-format
-#| msgid "Do you want to store this password?"
+#, kde-format
 msgid "Do you want to reassign it?"
-msgstr "¿Desea almacenar esta contraseña?"
+msgstr "¿Quiere reasignarlo?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:190
 #, kde-format

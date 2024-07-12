@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# g.sora <g.sora@tiscali.it>, 2010, 2011, 2012, 2013, 2014, 2017, 2019, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2017, 2019, 2020, 2021, 2022, 2024 g.sora <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-11 00:36+0000\n"
-"PO-Revision-Date: 2022-11-29 22:45+0100\n"
+"PO-Revision-Date: 2024-07-11 11:38+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.11.80\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:56
 #, kde-format
@@ -109,13 +109,10 @@ msgid "The '%1' key combination shadows following global actions:\n"
 msgstr "Le combination de clave '%1' umbra sequente actiones global:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:160
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of conflicts"
-#| msgid "Shortcut Conflict"
-#| msgid_plural "Shortcut Conflicts"
+#, kde-format
 msgctxt "@dialog:title"
 msgid "Found Conflict"
-msgstr "Conflicto de Via Breve"
+msgstr "Trovate conflicto "
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
 #, kde-format
@@ -123,29 +120,23 @@ msgid ""
 "Shortcut '%1' is already assigned to action '%2' of %3.\n"
 "Do you want to reassign it?"
 msgstr ""
+"Via breve %1 es ja assignate al action '%2' de %3 \n"
+"Tu vole reassignar lo?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is the number of conflicts (hidden), %2 is the key sequence of the "
-#| "shortcut that is problematic"
-#| msgid "The shortcut '%2' conflicts with the following key combination:\n"
-#| msgid_plural ""
-#| "The shortcut '%2' conflicts with the following key combinations:\n"
+#, kde-format
 msgid "Shortcut '%1' is already assigned to the following actions:\n"
-msgstr "Le Via Breve '%2' conflige con le sequente combination clave:\n"
+msgstr "Via Breve '%1' jam es assignate al sequente actiones:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:172
-#, fuzzy, kde-format
-#| msgid "Action '%1' in context '%2'\n"
+#, kde-format
 msgid "Action '%1' of %2\n"
-msgstr "Action '%1' in contexto '%2'\n"
+msgstr "Action '%1' de %2\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:174
-#, fuzzy, kde-format
-#| msgid "Do you want to store this password?"
+#, kde-format
 msgid "Do you want to reassign it?"
-msgstr "Tu vole immagazinar iste contrasigno?"
+msgstr "Tu vole reassignar lo?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:190
 #, kde-format
