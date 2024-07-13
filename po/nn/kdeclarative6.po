@@ -160,6 +160,3 @@ msgstr ""
 "Tastekombinasjonen «%1» er alt i bruk for standardhandlinga «%2», som nokre "
 "program brukar.\n"
 "Er du sikker på at du likevel vil bruka han som ein global snarveg?"
-
-#~ msgid "Reassign"
-#~ msgstr "Tilordna på nytt"

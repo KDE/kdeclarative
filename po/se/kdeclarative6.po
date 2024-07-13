@@ -152,6 +152,3 @@ msgstr ""
 "«%1» boallokombinašuvdna geavahuvvo juo standárdan «%2»-doibmii . Máŋga "
 "prográmma geavahit dan juo.\n"
 "Háliidatgo duođas geavahit dán globála njuolggobálggisin?"
-
-#~ msgid "Reassign"
-#~ msgstr "Bija ođđasit"

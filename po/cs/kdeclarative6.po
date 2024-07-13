@@ -1,7 +1,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Lukáš Tinkl <lukas@kde.org>, 2010, 2011, 2012.
-# Vít Pelčák <vit@pelcak.org>, 2011, 2012, 2013, 2014, 2015, 2019, 2020.
+# SPDX-FileCopyrightText: 2011, 2012, 2013, 2014, 2015, 2019, 2020, 2024 Vít Pelčák <vit@pelcak.org>
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
 # Vit Pelcak <vit@pelcak.org>, 2021, 2022.
 #
@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-11 00:36+0000\n"
-"PO-Revision-Date: 2022-07-14 14:28+0200\n"
-"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"PO-Revision-Date: 2024-07-12 11:47+0200\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 "X-Language: cs_CZ\n"
 "X-Source-Language: en_US\n"
 
@@ -113,7 +113,7 @@ msgstr ""
 #, kde-format
 msgctxt "@dialog:title"
 msgid "Found Conflict"
-msgstr ""
+msgstr "Nalezen konflikt"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
 #, kde-format
@@ -121,22 +121,23 @@ msgid ""
 "Shortcut '%1' is already assigned to action '%2' of %3.\n"
 "Do you want to reassign it?"
 msgstr ""
+"Zkratka '%1' je již přiřazena činnosti '%2' of %3.\n"
+"Chcete ji přeřadit?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
 #, kde-format
 msgid "Shortcut '%1' is already assigned to the following actions:\n"
-msgstr ""
+msgstr "Zkratka '%1' už je přiřazena pro následující činnosti:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:172
-#, fuzzy, kde-format
-#| msgid "Action '%1' in context '%2'\n"
+#, kde-format
 msgid "Action '%1' of %2\n"
-msgstr "Činnost '%1' v kontextu '%2'\n"
+msgstr "Činnost '%1' v %2\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:174
 #, kde-format
 msgid "Do you want to reassign it?"
-msgstr ""
+msgstr "Přejete si ji přeřadit?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:190
 #, kde-format
@@ -153,6 +154,3 @@ msgstr ""
 "Klávesová kombinace '%1' již byla přiřazena standardní činnosti \"%2\", "
 "kterou mnoho aplikací využívá.\n"
 "Opravdu si ji přejete použít jako globální klávesovou zkratku?"
-
-#~ msgid "Reassign"
-#~ msgstr "Přeřadit"
