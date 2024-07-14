@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-11 00:36+0000\n"
-"PO-Revision-Date: 2024-07-12 22:08+0200\n"
+"PO-Revision-Date: 2024-07-13 10:51+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -118,7 +118,7 @@ msgstr "La klavkombino '%1' ombras la sekvontan ĉiean agon:\n"
 #, kde-format
 msgctxt "@dialog:title"
 msgid "Found Conflict"
-msgstr ""
+msgstr "Trovis Konflikton"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
 #, kde-format
@@ -126,6 +126,8 @@ msgid ""
 "Shortcut '%1' is already assigned to action '%2' of %3.\n"
 "Do you want to reassign it?"
 msgstr ""
+"Klavkombino '%1' jam estas asignita al ago '%2' el %3.\n"
+"Ĉu vi volas reasigni ĝin?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
 #, kde-format
