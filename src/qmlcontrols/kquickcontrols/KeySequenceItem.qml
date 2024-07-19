@@ -130,6 +130,7 @@ RowLayout {
         }
 
         Accessible.description: _tr.i18n("Click on the button, then enter the shortcut like you would in the program.\nExample for Ctrl+A: hold the Ctrl key and press A.")
+        Accessible.role: Accessible.Button
 
         QQC2.ToolTip {
             visible: mainButton.hovered
