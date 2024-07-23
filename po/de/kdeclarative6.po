@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-11 00:36+0000\n"
+"POT-Creation-Date: 2024-07-23 00:37+0000\n"
 "PO-Revision-Date: 2022-11-10 20:58+0100\n"
 "Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -66,13 +66,13 @@ msgstr ""
 "Beispielsweise für Strg+A: Halten Sie die Strg-Taste gedrückt und drücken "
 "Sie dann „A“."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:174
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:175
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "Tastenfolge löschen"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:190
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:191
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"

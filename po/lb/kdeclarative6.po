@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-11 00:36+0000\n"
+"POT-Creation-Date: 2024-07-23 00:37+0000\n"
 "PO-Revision-Date: 2006-06-22 16:29+0200\n"
 "Last-Translator: Michel Ludwig <michel.ludwig@kdemail.net>\n"
 "Language-Team: Luxembourgish <kde-i18n-lb@kde.org>\n"
@@ -56,14 +56,14 @@ msgid ""
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:174
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:175
 #, fuzzy, kde-format
 #| msgid "Clear Search"
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "Sicht eidelmaachen"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:190
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:191
 #, fuzzy, kde-format
 #| msgid "Clear Search"
 msgctxt "@info:tooltip"

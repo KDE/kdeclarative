@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-11 00:36+0000\n"
+"POT-Creation-Date: 2024-07-23 00:37+0000\n"
 "PO-Revision-Date: 2022-09-15 19:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -60,13 +60,13 @@ msgstr ""
 "எடுத்துக்காட்டாக, Ctrl+A என்பதை அமைக்க: Ctrl விசையை அழுத்தியப்படியே A விசையை "
 "அழுத்துங்கள்."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:174
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:175
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "விசைக்கூட்டை நீக்கு"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:190
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:191
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"

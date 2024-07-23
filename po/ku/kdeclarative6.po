@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-11 00:36+0000\n"
+"POT-Creation-Date: 2024-07-23 00:37+0000\n"
 "PO-Revision-Date: 2010-08-13 15:45+0200\n"
 "Last-Translator: Erdal Ronahî <erdal.ronahi@nospam.gmail.com>\n"
 "Language-Team: Kurdish Team http://pckurd.net\n"
@@ -71,13 +71,13 @@ msgstr ""
 "Pêl bişkojkê bikin, paşê jî kurterê têkevnê wek we di bernamê de dikin.\n"
 "Mînak ji bo Ctrl+a: Ctrl pêlêkirî bigirin û pêl a bikin."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:174
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:175
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:190
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:191
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"

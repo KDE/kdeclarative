@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-11 00:36+0000\n"
+"POT-Creation-Date: 2024-07-23 00:37+0000\n"
 "PO-Revision-Date: 2023-10-01 01:12+0530\n"
 "Last-Translator: \n"
 "Language-Team: Sanskrit\n"
@@ -58,13 +58,13 @@ msgstr ""
 "गण्ड नुदन्तु, ततः कार्यक्रमे इव संक्षिप्तमार्गः प्रविशन्तु ।\n"
 "Ctrl+A कृते उदाहरणम् : Ctrl कीलं धारयित्वा A नुदन्तु ।."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:174
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:175
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "स्वच्छ कुञ्जी क्रमः"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:190
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:191
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
