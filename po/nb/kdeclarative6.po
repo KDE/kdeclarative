@@ -157,6 +157,3 @@ msgstr ""
 "Tastekombinasjonen «%1» er allerede i bruk for standardhandlinga «%2» som "
 "mange programmer bruker.\n"
 "Er du sikker på at du vil bruke den som en  global snarvei også?"
-
-#~ msgid "Reassign"
-#~ msgstr "Tilordne på nytt"
