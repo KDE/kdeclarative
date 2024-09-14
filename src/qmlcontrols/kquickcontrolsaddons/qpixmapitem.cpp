@@ -133,7 +133,11 @@ void QPixmapItem::updatePaintedRect()
     QRectF bounds = boundingRect();
 
     auto posAdjusted = [this](const QPointF point) {
-        const auto effectiveDpr = window()->effectiveDevicePixelRatio();
+        auto w = window();
+        if (!w) {
+            return point;
+        }
+        const auto effectiveDpr = w->effectiveDevicePixelRatio();
         QPointF globalPixelPos = mapToScene(point) * effectiveDpr;
         QPointF posAdjust = QPointF(globalPixelPos.x() - std::round(globalPixelPos.x()), globalPixelPos.y() - std::round(globalPixelPos.y())) / effectiveDpr;
         return (point - posAdjust);
