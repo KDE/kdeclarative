@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-23 00:37+0000\n"
-"PO-Revision-Date: 2024-01-27 12:54+0200\n"
-"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
+"PO-Revision-Date: 2024-10-08 16:54+0300\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 "X-Launchpad-Export-Date: 2007-11-22 17:44+0000\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:56
 #, kde-format
@@ -62,7 +62,7 @@ msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
-"Nospiediet pogu, tad ievadiet īsceļu, kuru vēlaties lietot programmā.\n"
+"Nospiediet pogu, tad ievadiet saīsni, kuru vēlaties lietot programmā.\n"
 "Piemēram, lai nospiestu „Ctrl+A“: turiet nospiestu „Ctrl“ taustiņu un tad "
 "nospiediet „A“."
 
@@ -81,7 +81,7 @@ msgstr "Atcelt taustiņu secības ierakstīšanu"
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:116
 #, kde-format
 msgid "Reserved Shortcut"
-msgstr "Rezervērts īsceļš"
+msgstr "Rezervērta saīsne"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:118
 #, kde-format
@@ -91,7 +91,7 @@ msgid ""
 "Please choose another one."
 msgstr ""
 "F12 taustiņš ir rezervēts „Windows“ operētājsistēmā, tāpēc to nevar izmantot "
-"kā globālu īsceļu.\n"
+"kā globālu saīsni.\n"
 "Izvēlieties citu taustiņu."
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:140
@@ -116,13 +116,10 @@ msgid "The '%1' key combination shadows following global actions:\n"
 msgstr "Taustiņu kombinācija „%1“ ēno šīs globālās darbības:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:160
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of conflicts"
-#| msgid "Shortcut Conflict"
-#| msgid_plural "Shortcut Conflicts"
+#, kde-format
 msgctxt "@dialog:title"
 msgid "Found Conflict"
-msgstr "Īsceļu konflikts"
+msgstr "Atrasts konflikts"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
 #, kde-format
@@ -130,34 +127,28 @@ msgid ""
 "Shortcut '%1' is already assigned to action '%2' of %3.\n"
 "Do you want to reassign it?"
 msgstr ""
+"Saīsnei „%1“ ir jau piešķirta darbība „%2“, ko nodrošina „%3“.\n"
+"Vai vēlaties tai piešķirt jaunu darbību?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is the number of conflicts (hidden), %2 is the key sequence of the "
-#| "shortcut that is problematic"
-#| msgid "The shortcut '%2' conflicts with the following key combination:\n"
-#| msgid_plural ""
-#| "The shortcut '%2' conflicts with the following key combinations:\n"
+#, kde-format
 msgid "Shortcut '%1' is already assigned to the following actions:\n"
-msgstr "Īsceļš '%2' konfliktē ar šo taustiņu kombināciju:\n"
+msgstr "Saīsne „%1“ jau ir piešķirta darbībām:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:172
-#, fuzzy, kde-format
-#| msgid "Action '%1' in context '%2'\n"
+#, kde-format
 msgid "Action '%1' of %2\n"
-msgstr "„%1“ darbība „%2“ kontekstā \n"
+msgstr "„%1“ darbība no „%2“\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:174
-#, fuzzy, kde-format
-#| msgid "Do you want to store this password?"
+#, kde-format
 msgid "Do you want to reassign it?"
-msgstr "Vai vēlaties saglabāt paroli?"
+msgstr "Vai vēlaties to piešķirt no jauna?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:190
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
-msgstr "Konflikts ar standarta programmu īsceļu"
+msgstr "Konflikts ar standarta programmu saīsni"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:192
 #, kde-format
@@ -168,7 +159,7 @@ msgid ""
 msgstr ""
 "Taustiņu kombinācija „%1“ jau ir piešķirta standarta darbībai „%2“, ko lieto "
 "daudzas programmas.\n"
-"Vai tiešām vēlaties to izmantot arī kā globālo īsceļu?"
+"Vai tiešām vēlaties to izmantot arī kā globālo saīsni?"
 
 #~ msgid "Reassign"
 #~ msgstr "Piešķirt"
