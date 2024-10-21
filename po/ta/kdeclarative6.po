@@ -4,13 +4,13 @@
 # Sivakumar Shanmugasundaram <sshanmu@yahoo.com>, 2000.
 # Thuraiappah Vaseeharan <t_vasee@yahoo.com>, 2000-2001.
 # ம. ஸ்ரீ ராமதாஸ் | Sri Ramadoss M <amachu@yavarkkum.org>, 2007-2012.
-# Kishore G <kishore96@gmail.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2024 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-23 00:37+0000\n"
-"PO-Revision-Date: 2022-09-15 19:36+0530\n"
+"PO-Revision-Date: 2024-10-20 16:19+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:56
 #, kde-format
@@ -109,13 +109,10 @@ msgid "The '%1' key combination shadows following global actions:\n"
 msgstr "'%1' என்ற விசைக்கூட்டு, பின்வரும் பொது சுருக்குவழிகளுடன் முரண்படுகிறது:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:160
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of conflicts"
-#| msgid "Shortcut Conflict"
-#| msgid_plural "Shortcut Conflicts"
+#, kde-format
 msgctxt "@dialog:title"
 msgid "Found Conflict"
-msgstr "சுருக்குவழி சிக்கல்"
+msgstr "முரண்பாடு கண்டுபிடிக்கப்பட்டது"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
 #, kde-format
@@ -123,29 +120,23 @@ msgid ""
 "Shortcut '%1' is already assigned to action '%2' of %3.\n"
 "Do you want to reassign it?"
 msgstr ""
+"'%1' என்ற சுருக்குவழி, %3-யின் '%2' செயலுக்கு ஏற்கனவே நியமிக்கப்பட்டுள்ளது.\n"
+"நியமனத்தை மாற்ற வேண்டுமா?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is the number of conflicts (hidden), %2 is the key sequence of the "
-#| "shortcut that is problematic"
-#| msgid "The shortcut '%2' conflicts with the following key combination:\n"
-#| msgid_plural ""
-#| "The shortcut '%2' conflicts with the following key combinations:\n"
+#, kde-format
 msgid "Shortcut '%1' is already assigned to the following actions:\n"
-msgstr "கீழ்க்காணும் விசைக் கூட்டோடு '%2 சுருக்கு வழி முரண்படுகிறது':\n"
+msgstr "'%1' என்ற சுருக்குவழி, பின்வரும் செயல்களுக்கு ஏற்கனவே நியமிக்கப்பட்டுள்ளது:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:172
-#, fuzzy, kde-format
-#| msgid "Action '%1' in context '%2'\n"
+#, kde-format
 msgid "Action '%1' of %2\n"
 msgstr "'%2' என்பதில் '%1' என்ற செயல்\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:174
-#, fuzzy, kde-format
-#| msgid "Do you want to store this password?"
+#, kde-format
 msgid "Do you want to reassign it?"
-msgstr "இக்கடவுச் சொல்லை உண்மையாகவே சேமிக்கலாமா?"
+msgstr "நியமனத்தை மாற்ற வேண்டுமா?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:190
 #, kde-format
