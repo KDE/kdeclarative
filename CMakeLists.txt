@@ -24,6 +24,7 @@ include(ECMGenerateHeaders)
 include(ECMQmlModule)
 include(CMakePackageConfigHelpers)
 include(ECMAddQch)
+include(ECMGenerateQDoc)
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} NO_MODULE REQUIRED Qml Quick Gui)
 find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
