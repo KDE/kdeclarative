@@ -17,66 +17,87 @@
 class QQmlComponent;
 class QQuickItemGrabResult;
 
+/*!
+ * \qmltype DeclarativeDragArea
+ * \inqmlmodule org.kde.draganddrop
+ */
 class DeclarativeDragArea : public QQuickItem
 {
     Q_OBJECT
 
-    /**
+    /*!
+     * \qmlproperty QQuickItem* DeclarativeDragArea::delegate
      * The delegate is the item that will be displayed next to the mouse cursor during the drag and drop operation.
      * It usually consists of a large, semi-transparent icon representing the data being dragged.
      */
     Q_PROPERTY(QQuickItem *delegate READ delegate WRITE setDelegate NOTIFY delegateChanged RESET resetDelegate)
 
-    /**
+    /*!
+     * \qmlproperty QQuickItem* DeclarativeDragArea::source
      * The QML element that is the source of the resulting drag and drop operation. This can be defined to any item, and will
      * be available to the DropArea as event.data.source
      */
     Q_PROPERTY(QQuickItem *source READ source WRITE setSource NOTIFY sourceChanged RESET resetSource)
 
     // TODO: to be implemented
+    /*!
+     * \qmlproperty QQuickItem* DeclarativeDragArea::target
+     */
     Q_PROPERTY(QQuickItem *target READ source NOTIFY targetChanged)
 
-    /**
+    /*!
+     * \qmlproperty DeclarativeMimeData* DeclarativeDragArea::mimedata
      * the mime data of the drag operation
-     * @see DeclarativeMimeData
+     * \sa DeclarativeMimeData
      */
     Q_PROPERTY(DeclarativeMimeData *mimeData READ mimeData CONSTANT)
 
-    /**
+    /*!
+     * \qmlproperty bool DeclarativeDragArea::enabled
      * If false no drag operation will be generate
      */
     Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY enabledChanged) // TODO: Should call setAcceptDrops()
 
-    /**
-     * Supported operations, a combination of
-     *  Qt.CopyAction
-     *  Qt.MoveAction
-     *  Qt.LinkAction
-     *  Qt.ActionMask
-     *  Qt.IgnoreAction
-     *  Qt.TargetMoveAction
+    /*!
+     * \qmlproperty Qt::DropActions DeclarativeDragArea::supportedActions
+     * Supported operations, a combination of:
+     * \value Qt.CopyAction
+     * \value Qt.MoveAction
+     * \value Qt.LinkAction
+     * \value Qt.ActionMask
+     * \value Qt.IgnoreAction
+     * \value Qt.TargetMoveAction
      */
     Q_PROPERTY(Qt::DropActions supportedActions READ supportedActions WRITE setSupportedActions NOTIFY supportedActionsChanged)
 
-    /**
+    /*!
+     * \qmlproperty Qt::DropAction DeclarativeDragArea::defaultAction
+     *
      * The default action will be performed during a drag when no modificators are pressed.
      */
     Q_PROPERTY(Qt::DropAction defaultAction READ defaultAction WRITE setDefaultAction NOTIFY defaultActionChanged)
 
-    /**
+    /*!
+     * \qmlproperty int DeclarativeDragArea::startDragDistance
      * distance in pixel after which a drag event will get started
      */
     Q_PROPERTY(int startDragDistance READ startDragDistance WRITE setStartDragDistance NOTIFY startDragDistanceChanged)
 
-    /**
-     * an image to be used as delegate. if present overrides the delegate property. in can be either a QImage or a QIcon
+    /*!
+     * \qmlproperty QVariant DeclarativeDragArea::delegateImage
+     * \brief An image to be used as delegate.
+     *
+     * If present, it overrides the delegate property.
+     *
+     * It can be either a QImage or a QIcon.
      */
     Q_PROPERTY(QVariant delegateImage READ delegateImage WRITE setDelegateImage NOTIFY delegateImageChanged)
 
-    /**
+    /*!
+     * \qmlproperty bool DeclarativeDragArea::dragActive
      * Whether a drag currently originates from this drag area.
      *
-     * @since 5.19
+     * \since 5.19
      */
     Q_PROPERTY(bool dragActive READ dragActive NOTIFY dragActiveChanged)
 
@@ -114,17 +135,29 @@ public:
     DeclarativeMimeData *mimeData() const;
 
 Q_SIGNALS:
+    /*! \qmlsignal DeclarativeDragArea::agStarted() */
     void dragStarted();
+    /*! \qmlsignal DeclarativeDragArea::delegateChanged() */
     void delegateChanged();
+    /*! \qmlsignal DeclarativeDragArea::dragActiveChanged() */
     void dragActiveChanged();
+    /*! \qmlsignal DeclarativeDragArea::sourceChanged() */
     void sourceChanged();
+    /*! \qmlsignal DeclarativeDragArea::targetChanged() */
     void targetChanged();
+    /*! \qmlsignal DeclarativeDragArea::dataChanged() */
     void dataChanged();
+    /*! \qmlsignal DeclarativeDragArea::enabledChanged() */
     void enabledChanged();
+    /*! \qmlsignal DeclarativeDragArea::drop(int action) */
     void drop(int action);
+    /*! \qmlsignal DeclarativeDragArea::supportedActionsChanged() */
     void supportedActionsChanged();
+    /*! \qmlsignal DeclarativeDragArea::defaultActionChanged() */
     void defaultActionChanged();
+    /*! \qmlsignal DeclarativeDragArea::startDragDistanceChanged() */
     void startDragDistanceChanged();
+    /*! \qmlsignal DeclarativeDragArea::delegateImageChanged() */
     void delegateImageChanged();
 
 protected:
