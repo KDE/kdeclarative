@@ -1,0 +1,11 @@
+include($KDE_DOCS/global/qt-module-defaults.qdocconf)
+
+project = DragAndDrop
+description = Stuff
+
+documentationinheaders = true
+
+headerdirs = .
+sourcedirs = .
+
+depends = qtcore qtquick qtquickcontrols
