@@ -7,31 +7,12 @@
 
 #include "DeclarativeMimeData.h"
 
-/*!
-    \qmlclass MimeData DeclarativeMimeData
-
-    This is a wrapper class around QMimeData, with a few extensions to provide better support for in-qml drag & drops.
-*/
-
 DeclarativeMimeData::DeclarativeMimeData()
     : QMimeData()
     , m_source(nullptr)
 {
 }
 
-/*!
-    \internal
-    \class DeclarativeMimeData
-
-    Creates a new DeclarativeMimeData by cloning the QMimeData passed as parameter.
-    This is useful for two reasons :
-        - In DragArea, we want to clone our "working copy" of the DeclarativeMimeData instance, as Qt will automatically
-        delete it after the drag and drop operation.
-        - In the drop events, the QMimeData is const, and we have troubles passing const to QML. So we clone it to
-        remove the "constness"
-
-    This method will try to cast the QMimeData to DeclarativeMimeData, and will clone our extensions to QMimeData as well
-*/
 DeclarativeMimeData::DeclarativeMimeData(const QMimeData *copy)
     : QMimeData()
     , m_source(nullptr)
@@ -49,12 +30,6 @@ DeclarativeMimeData::DeclarativeMimeData(const QMimeData *copy)
     }
 }
 
-/*!
-    \qmlproperty url MimeData::url
-
-    Returns the first URL from the urls property of QMimeData
-    TODO: We should use QDeclarativeListProperty<QUrls> to return the whole list instead of only the first element.
-*/
 QUrl DeclarativeMimeData::url() const
 {
     if (this->hasUrls() && !this->urls().isEmpty()) {
@@ -127,15 +102,6 @@ void DeclarativeMimeData::setData(const QString &mimeType, const QVariant &data)
     }
 }
 
-/*!
-  \qmlproperty item MimeData::source
-
-  Setting source to any existing qml item will enable the receiver of the drag and drop operation to know in which item
-  the operation originated.
-
-  In the case of inter-application drag and drop operations, the source will not be available, and will be 0.
-  Be sure to test it in your QML code, before using it, or it will generate errors in the console.
-*/
 QQuickItem *DeclarativeMimeData::source() const
 {
     return m_source;
