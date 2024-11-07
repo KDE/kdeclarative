@@ -8,8 +8,11 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Dialogs as QtDialogs
 
-/**
- * @short A pushbutton to display or allow user selection of a color.
+/*!
+ * \qmltype ColorButton
+ * \inqmlmodule org.kde.kquickcontrols
+ *
+ * \brief A pushbutton to display or allow user selection of a color.
  *
  * This widget can be used to display or allow user selection of a color.
  *

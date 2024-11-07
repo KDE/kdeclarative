@@ -4,3 +4,6 @@ install(FILES ColorButton.qml DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kquickco
 
 add_subdirectory(private)
 
+add_library(kquickcontrolsdocumentationdummy OBJECT)
+
+ecm_generate_qdoc(kquickcontrolsdocumentationdummy kquickcontrols.qdocconf)
