@@ -18,26 +18,26 @@ class QObject;
  * \inqmlmodule org.kde.draganddrop
  * Exposes a const QMimeData instance
  *
- * In contrast to DeclarativeMimeData, doesn't create a copy of the QMimeData instance
+ * In contrast to MimeData, doesn't create a copy of the QMimeData instance
  */
 class MimeDataWrapper : public QObject
 {
     Q_OBJECT
 
     /*!
-     * \qmlproperty QString MimeDataWrapper::text
+     * \qmlproperty string MimeDataWrapper::text
      * A plain text (MIME type text/plain) representation of the data.
      */
     Q_PROPERTY(QString text READ text CONSTANT)
 
     /*!
-     * \qmlproperty QString MimeDataWrapper::html
+     * \qmlproperty string MimeDataWrapper::html
      * A string if the data stored in the object is HTML (MIME type text/html); otherwise returns an empty string.
      */
     Q_PROPERTY(QString html READ html CONSTANT)
 
     /*!
-     * \qmlproperty QUrl MimeDataWrapper::url
+     * \qmlproperty url MimeDataWrapper::url
      * Url contained in the mimedata
      */
     Q_PROPERTY(QUrl url READ url CONSTANT)
@@ -50,19 +50,19 @@ class MimeDataWrapper : public QObject
     Q_PROPERTY(QJsonArray urls READ urls CONSTANT)
 
     /*!
-     * \qmlproperty QVariant MimeDataWrapper::color
+     * \qmlproperty var MimeDataWrapper::color
      * A color if the data stored in the object represents a color (MIME type application/x-color); otherwise QVariant().
      */
     Q_PROPERTY(QVariant color READ color CONSTANT)
 
     /*!
-     * \qmlproperty QVariant MimeDataWrapper::source
+     * \qmlproperty var MimeDataWrapper::source
      * The graphical item on the scene that started the drag event. It may be null.
      */
     Q_PROPERTY(QVariant source READ source CONSTANT)
 
     /*!
-     * \qmlproperty QStringList MimeDataWrapper::formats
+     * \qmlproperty list<string> MimeDataWrapper::formats
      * Mimetypes provided by the mime data instance
      *
      * \sa QMimeData::formats
@@ -84,21 +84,21 @@ class MimeDataWrapper : public QObject
 public:
     MimeDataWrapper(const QMimeData *data, QObject *parent);
 
-    /*! \qmlmethod QString MimeDataWrapper::text() */
+    /*! \qmlmethod string MimeDataWrapper::text() */
     QString text() const;
-    /*! \qmlmethod QString MimeDataWrapper::html() */
+    /*! \qmlmethod string MimeDataWrapper::html() */
     QString html() const;
-    /*! \qmlmethod QUrl MimeDataWrapper::url() */
+    /*! \qmlmethod url MimeDataWrapper::url() */
     QUrl url() const;
     /*! \qmlmethod QJsonArray MimeDataWrapper::urls() */
     QJsonArray urls() const;
     /*! \qmlmethod bool MimeDataWrapper::hasUrls() */
     bool hasUrls() const;
-    /*! \qmlmethod QVariant MimeDataWrapper::color() */
+    /*! \qmlmethod var MimeDataWrapper::color() */
     QVariant color() const;
-    /*! \qmlmethod QStringList MimeDataWrapper::formats() */
+    /*! \qmlmethod list<string> MimeDataWrapper::formats() */
     QStringList formats() const;
-    /*! \qmlmethod QVariant MimeDataWrapper::source() */
+    /*! \qmlmethod var MimeDataWrapper::source() */
     QVariant source() const;
     /*! \qmlmethod QMimeData* MimeDataWrapper::mimeData() */
     QMimeData *mimeData() const;
