@@ -9,46 +9,46 @@ import QtQuick.Controls as QQC2
 import QtQuick.Dialogs as QtDialogs
 
 /*!
- * \qmltype ColorButton
- * \inqmlmodule org.kde.kquickcontrols
- *
- * \brief A pushbutton to display or allow user selection of a color.
- *
- * This widget can be used to display or allow user selection of a color.
- *
- * Example usage:
- * @code
- * import org.kde.kquickcontrols
- *
- * ColorButton {
- *   onColorChanged: console.log(color)
- * }
- * @endcode
- *
- * @inherits QtQuick.Controls.Button
+   \qmltype ColorButton
+   \inqmlmodule org.kde.kquickcontrols
+
+   \brief A pushbutton to display or allow user selection of a color.
+
+   This widget can be used to display or allow user selection of a color.
+
+   Example usage:
+   \qml
+   import org.kde.kquickcontrols
+
+   ColorButton {
+     onColorChanged: console.log(color)
+   }
+   \endqml
+
+   \inherits QtQuick.Controls.Button
  */
 QQC2.Button {
     id: root
 
-    /**
-     * The user selected color
+    /*!
+       \brief The user-selected color.
      */
     property alias color: colorDialog.selectedColor
 
-    /**
-     * Title to show in the dialog
+    /*!
+       \brief Title to show in the dialog.
      */
     property alias dialogTitle: colorDialog.title
 
-    /**
-     * Allow the user to configure an alpha value
+    /*!
+       \brief Allow the user to configure an alpha value.
      */
     property bool showAlphaChannel: true
 
-    /**
-     * This signal is emitted when the color dialog has been accepted
-     *
-     * @since 5.61
+    /*!
+       \brief This signal is emitted when the \a color dialog has been accepted.
+
+       \since 5.61
      */
     signal accepted(color color)
 
