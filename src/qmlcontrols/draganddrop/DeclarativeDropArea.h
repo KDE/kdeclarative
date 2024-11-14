@@ -13,7 +13,7 @@
 class DeclarativeDragDropEvent;
 
 /*!
- * \qmltype DeclarativeDropArea
+ * \qmltype DropArea
  * \inqmlmodule org.kde.draganddrop
  */
 class DeclarativeDropArea : public QQuickItem
@@ -21,18 +21,18 @@ class DeclarativeDropArea : public QQuickItem
     Q_OBJECT
 
     /*!
-     * \qmlproperty bool DeclarativeDropArea::enabled
+     * \qmlproperty bool DropArea::enabled
      * If false the area will receive no drop events
      */
     Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY enabledChanged)
 
     /*!
-     * \qmlproperty bool DeclarativeDropArea::preventStealing
+     * \qmlproperty bool DropArea::preventStealing
      */
     Q_PROPERTY(bool preventStealing READ preventStealing WRITE setPreventStealing NOTIFY preventStealingChanged)
 
     /*!
-     * \qmlproperty bool DeclarativeDropArea::containsDrag
+     * \qmlproperty bool DropArea::containsDrag
      */
     Q_PROPERTY(bool containsDrag READ containsDrag NOTIFY containsDragChanged)
 
@@ -47,45 +47,45 @@ public:
 
 Q_SIGNALS:
     /*!
-     * \qmlsignal DeclarativeDropArea::dragEnter(DeclarativeDragDropEvent *event)
+     * \qmlsignal DropArea::dragEnter(DeclarativeDragDropEvent *event)
      * Emitted when the mouse cursor dragging something enters in the drag area
      * \a event description of the dragged content
-     * \sa DeclarativeDragDropEvent
+     * \sa DragDropEvent
      */
     void dragEnter(DeclarativeDragDropEvent *event);
 
     /*!
-     * \qmlsignal DeclarativeDropArea::dragLeave(DeclarativeDragDropEvent *event)
+     * \qmlsignal DropArea::dragLeave(DeclarativeDragDropEvent *event)
      * Emitted when the mouse cursor dragging something leaves the drag area
      * \a event description of the dragged content
-     * \sa DeclarativeDragDropEvent
+     * \sa DragDropEvent
      */
     void dragLeave(DeclarativeDragDropEvent *event);
 
     /*!
-     * \qmlsignal DeclarativeDropArea::dragMove(DeclarativeDragDropEvent *event)
+     * \qmlsignal DropArea::dragMove(DeclarativeDragDropEvent *event)
      * Emitted when the mouse cursor dragging something moves over the drag area
      * \a event description of the dragged content
-     * \sa DeclarativeDragDropEvent
+     * \sa DragDropEvent
      */
     void dragMove(DeclarativeDragDropEvent *event);
 
     /*!
-     * \qmlsignal DeclarativeDropArea::drop(DeclarativeDragDropEvent *event)
+     * \qmlsignal DropArea::drop(DeclarativeDragDropEvent *event)
      * Emitted when the user drops something in the area
      * \a event description of the dragged content
-     * \sa DeclarativeDragDropEvent
+     * \sa DragDropEvent
      */
     void drop(DeclarativeDragDropEvent *event);
 
     // Notifiers
-    /*! \qmlsignal DeclarativeDropArea::enabledChanged() */
+    /*! \qmlsignal DropArea::enabledChanged() */
     void enabledChanged();
 
-    /*! \qmlsignal DeclarativeDropArea::preventStealingChanged() */
+    /*! \qmlsignal DropArea::preventStealingChanged() */
     void preventStealingChanged();
 
-    /*! \qmlsignal DeclarativeDropArea::containsDragChanged(bool contained) */
+    /*! \qmlsignal DropArea::containsDragChanged(bool contained) */
     void containsDragChanged(bool contained);
 
 protected:
