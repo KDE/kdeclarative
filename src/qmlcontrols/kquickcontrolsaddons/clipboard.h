@@ -20,7 +20,7 @@ class ClipboardPrivate;
  *
  * Offers a simple wrapper to interact with QClipboard from QtQuick.
  *
- * \code
+ * \qml
  * import QtQuick
  * import org.kde.kquickcontrolsaddons as KQuickControlsAddons
  * Text {
@@ -34,7 +34,7 @@ class ClipboardPrivate;
  *         onClicked: clipboard.content = parent.text
  *     }
  * }
- * \endcode
+ * \endqml
  */
 class Clipboard : public QObject
 {
@@ -47,13 +47,13 @@ class Clipboard : public QObject
     Q_PROPERTY(QClipboard::Mode mode READ mode WRITE setMode NOTIFY modeChanged)
 
     /*!
-     * \qmlproperty QVariant Clipboard::content
+     * \qmlproperty var Clipboard::content
      * \brief Provides the contents currently in the clipboard and lets modify them.
      */
     Q_PROPERTY(QVariant content READ content WRITE setContent NOTIFY contentChanged)
 
     /*!
-     * \qmlproperty QStringList Clipboard::formats
+     * \qmlproperty list<string> Clipboard::formats
      * \brief Figure out the nature of the contents in the clipboard as mimetype strings.
      */
     Q_PROPERTY(QStringList formats READ formats NOTIFY contentChanged)
