@@ -6,8 +6,10 @@
 
 import QtQuick
 
-/**
- * Uses the badge overlay shader to display on an Item
+/*!
+   \qmltype BadgeEffect
+   \inqmlmodule org.kde.graphicaleffects
+   \brief Uses the badge overlay shader to display on an Item.
  */
 
 ShaderEffect {
