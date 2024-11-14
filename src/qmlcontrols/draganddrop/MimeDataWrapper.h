@@ -84,23 +84,14 @@ class MimeDataWrapper : public QObject
 public:
     MimeDataWrapper(const QMimeData *data, QObject *parent);
 
-    /*! \qmlmethod string MimeDataWrapper::text() */
     QString text() const;
-    /*! \qmlmethod string MimeDataWrapper::html() */
     QString html() const;
-    /*! \qmlmethod url MimeDataWrapper::url() */
     QUrl url() const;
-    /*! \qmlmethod QJsonArray MimeDataWrapper::urls() */
     QJsonArray urls() const;
-    /*! \qmlmethod bool MimeDataWrapper::hasUrls() */
     bool hasUrls() const;
-    /*! \qmlmethod var MimeDataWrapper::color() */
     QVariant color() const;
-    /*! \qmlmethod list<string> MimeDataWrapper::formats() */
     QStringList formats() const;
-    /*! \qmlmethod var MimeDataWrapper::source() */
     QVariant source() const;
-    /*! \qmlmethod QMimeData* MimeDataWrapper::mimeData() */
     QMimeData *mimeData() const;
 
     /*! \qmlmethod QByteArray MimeDataWrapper::getDataAsByteArray(const QString &format) */
