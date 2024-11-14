@@ -13,7 +13,7 @@
 #include <QObject>
 
 /*!
- * \qmltype DeclarativeDragDropEvent
+ * \qmltype DragDropEvent
  * \inqmlmodule org.kde.draganddrop
  */
 class DeclarativeDragDropEvent : public QObject
@@ -21,19 +21,19 @@ class DeclarativeDragDropEvent : public QObject
     Q_OBJECT
 
     /*!
-     * \qmlproperty int DeclarativeDragDropEvent::x
+     * \qmlproperty int DragDropEvent::x
      * The mouse X position of the event relative to the DropArea that is receiving the event.
      */
     Q_PROPERTY(int x READ x)
 
     /*!
-     * \qmlproperty int DeclarativeDragDropEvent::y
+     * \qmlproperty int DragDropEvent::y
      * The mouse Y position of the event relative to the DropArea that is receiving the event.
      */
     Q_PROPERTY(int y READ y)
 
     /*!
-     * \qmlproperty int DeclarativeDragDropEvent::buttons
+     * \qmlproperty int DragDropEvent::buttons
      * The pressed mouse buttons.
      * A combination of:
      * \value Qt.NoButton    The button state does not refer to any button (see QMouseEvent::button()).
@@ -47,7 +47,7 @@ class DeclarativeDragDropEvent : public QObject
     Q_PROPERTY(int buttons READ buttons)
 
     /*!
-     * \qmlproperty int DeclarativeDragDropEvent::modifiers
+     * \qmlproperty int DragDropEvent::modifiers
      * Pressed keyboard modifiers, a combination of:
      * \value Qt.NoModifier    No modifier key is pressed.
      * \value Qt.ShiftModifier    A Shift key on the keyboard is pressed.
@@ -60,14 +60,14 @@ class DeclarativeDragDropEvent : public QObject
     Q_PROPERTY(int modifiers READ modifiers)
 
     /*!
-     * \qmlproperty int* DeclarativeDragDropEvent::mimeData
+     * \qmlproperty MimeData DragDropEvent::mimeData
      * The mime data of this operation
-     * \sa DeclarativeMimeData
+     * \sa MimeData
      */
     Q_PROPERTY(DeclarativeMimeData *mimeData READ mimeData)
 
     /*!
-     * \qmlproperty Qt::DropActions DeclarativeDragDropEvent::possibleActions
+     * \qmlproperty Qt::DropActions DragDropEvent::possibleActions
      * The possible kinds of action that can be done in the drop,
      * a combination of:
      * \value Qt.CopyAction
@@ -90,7 +90,7 @@ class DeclarativeDragDropEvent : public QObject
     Q_PROPERTY(Qt::DropActions possibleActions READ possibleActions)
 
     /*!
-     * \qmlproperty Qt::DropAction DeclarativeDragDropEvent::proposedAction
+     * \qmlproperty Qt::DropAction DragDropEvent::proposedAction
      * Default action
      * \sa possibleActions
      */
