@@ -15,7 +15,7 @@
 #include <QUrl>
 
 /*!
- * \qmltype DeclarativeMimeData
+ * \qmltype MimeData
  * \inqmlmodule org.kde.draganddrop
  *
  * \brief This is a wrapper class around QMimeData with a few extensions
@@ -27,39 +27,39 @@ class DeclarativeMimeData : public QMimeData
     Q_OBJECT
 
     /*!
-     * \qmlproperty QString DeclarativeMimeData::text
+     * \qmlproperty string MimeData::text
      * A plain text (MIME type text/plain) representation of the data.
      */
     Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged)
 
     /*!
-     * \qmlproperty QString DeclarativeMimeData::html
+     * \qmlproperty string MimeData::html
      * A string if the data stored in the object is HTML (MIME type text/html); otherwise returns an empty string.
      */
     Q_PROPERTY(QString html READ html WRITE setHtml NOTIFY htmlChanged)
 
     /// TODO: We should use QDeclarativeListProperty<QUrls> to return the whole list instead of only the first element.
     /*!
-     * \qmlproperty QUrl DeclarativeMimeData::url
+     * \qmlproperty url MimeData::url
      * The first URL from the urls property of QMimeData.
      */
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY urlChanged)
 
     /*!
-     * \qmlproperty QJsonArray DeclarativeMimeData::urls
+     * \qmlproperty QJsonArray MimeData::urls
      * A list of URLs contained within the MIME data object.
      * URLs correspond to the MIME type text/uri-list.
      */
     Q_PROPERTY(QJsonArray urls READ urls WRITE setUrls NOTIFY urlsChanged)
 
     /*!
-     * \qmlproperty QColor DeclarativeMimeData::color
+     * \qmlproperty color MimeData::color
      * A color if the data stored in the object represents a color (MIME type application/x-color); otherwise QColor().
      */
     Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
 
     /*!
-     * \qmlproperty QQuickItem* DeclarativeMimeData::source
+     * \qmlproperty Item MimeData::source
      * The graphical item on the scene that started the drag event. It may be null.
      *
      * Setting source to any existing qml item will enable the receiver of the drag and drop operation to know in which item
@@ -72,30 +72,30 @@ class DeclarativeMimeData : public QMimeData
     Q_PROPERTY(QQuickItem *source READ source WRITE setSource NOTIFY sourceChanged)
 
     /*!
-     * \qmlproperty bool DeclarativeMimeData::hasUrls
+     * \qmlproperty bool MimeData::hasUrls
      * \sa QMimeData::hasUrls
      */
     Q_PROPERTY(bool hasUrls READ hasUrls NOTIFY urlsChanged)
     // TODO: Image property
 
     /*!
-     * \qmlproperty QStringList DeclarativeMimeData::formats
+     * \qmlproperty list<string> MimeData::formats
      * \sa QMimeData::formats
      */
     Q_PROPERTY(QStringList formats READ formats)
 public:
     DeclarativeMimeData();
     /*!
-     * \brief Creates a new DeclarativeMimeData by cloning the QMimeData
+     * \brief Creates a new MimeData by cloning the QMimeData
      * passed as parameter.
      *
      * This is useful for two reasons :
-     *        - In DragArea, we want to clone our "working copy" of the DeclarativeMimeData instance, as Qt will automatically
+     *        - In DragArea, we want to clone our "working copy" of the MimeData instance, as Qt will automatically
      *        delete it after the drag and drop operation.
      *        - In the drop events, the QMimeData is const, and we have troubles passing const to QML. So we clone it to
      *        remove the "constness"
      *
-     * This method will try to cast the QMimeData to DeclarativeMimeData, and will clone our extensions to QMimeData as well
+     * This method will try to cast the QMimeData to MimeData, and will clone our extensions to QMimeData as well
      */
     DeclarativeMimeData(const QMimeData *copy);
 
@@ -124,17 +124,17 @@ public:
     */
 
 Q_SIGNALS:
-    /*! \qmlsignal DeclarativeMimeData::textChanged */
+    /*! \qmlsignal MimeData::textChanged */
     void textChanged(); // FIXME not being used
-    /*! \qmlsignal DeclarativeMimeData::htmlChanged */
+    /*! \qmlsignal MimeData::htmlChanged */
     void htmlChanged(); // FIXME not being used
-    /*! \qmlsignal DeclarativeMimeData::urlChanged */
+    /*! \qmlsignal MimeData::urlChanged */
     void urlChanged();
-    /*! \qmlsignal DeclarativeMimeData::urlsChanged */
+    /*! \qmlsignal MimeData::urlsChanged */
     void urlsChanged();
-    /*! \qmlsignal DeclarativeMimeData::colorChanged */
+    /*! \qmlsignal MimeData::colorChanged */
     void colorChanged();
-    /*! \qmlsignal DeclarativeMimeData::sourceChanged */
+    /*! \qmlsignal MimeData::sourceChanged */
     void sourceChanged();
 
 private:
