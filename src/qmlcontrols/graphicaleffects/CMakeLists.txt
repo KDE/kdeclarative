@@ -8,6 +8,8 @@ ecm_add_qml_module(graphicaleffects URI org.kde.graphicaleffects
     GENERATE_PLUGIN_SOURCE
 )
 
+ecm_generate_qdoc(graphicaleffects graphicaleffects.qdocconf)
+
 qt_add_shaders(graphicaleffects "graphicaleffects_shaders"
     BATCHABLE
     PRECOMPILE
