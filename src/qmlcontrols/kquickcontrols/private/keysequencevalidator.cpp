@@ -40,12 +40,12 @@ void KeySequenceValidator::setCurrentKeySequence(const QKeySequence &sequence)
     Q_EMIT currentKeySequenceChanged();
 }
 
-KeySequenceHelper::ShortcutTypes KeySequenceValidator::validateTypes() const
+KeySequenceEnums::ShortcutTypes KeySequenceValidator::validateTypes() const
 {
     return m_validateTypes;
 }
 
-void KeySequenceValidator::setValidateTypes(KeySequenceHelper::ShortcutTypes types)
+void KeySequenceValidator::setValidateTypes(KeySequenceEnums::ShortcutTypes types)
 {
     if (m_validateTypes == types) {
         return;
@@ -58,7 +58,7 @@ void KeySequenceValidator::setValidateTypes(KeySequenceHelper::ShortcutTypes typ
 void KeySequenceValidator::validateSequence(const QKeySequence &keySequence)
 {
     ValidationResult result = ValidationResult::Accept;
-    if (m_validateTypes & KeySequenceHelper::GlobalShortcuts) {
+    if (m_validateTypes & KeySequenceEnums::GlobalShortcuts) {
         result = validateGlobalShortcut(keySequence);
     }
 
@@ -71,7 +71,7 @@ void KeySequenceValidator::validateSequence(const QKeySequence &keySequence)
         return;
     }
 
-    if (m_validateTypes & KeySequenceHelper::StandardShortcuts) {
+    if (m_validateTypes & KeySequenceEnums::StandardShortcuts) {
         result = validateStandardShortcut(keySequence);
     }
 
@@ -90,7 +90,7 @@ void KeySequenceValidator::accept()
     ValidationResult result = ValidationResult::Accept;
     if (m_validateGlobalPending) {
         m_validateGlobalPending = false;
-        if (m_validateTypes & KeySequenceHelper::StandardShortcuts) {
+        if (m_validateTypes & KeySequenceEnums::StandardShortcuts) {
             result = validateStandardShortcut(keySequence);
         }
     }

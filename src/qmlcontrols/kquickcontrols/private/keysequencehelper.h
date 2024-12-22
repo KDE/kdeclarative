@@ -13,25 +13,20 @@
 #include <QKeySequence>
 #include <QQuickItem>
 
+#include "enums.h"
+
 class KeySequenceHelperPrivate;
 class QQuickWindow;
 
 class KeySequenceHelper : public KKeySequenceRecorder
 {
     Q_OBJECT
+    QML_ELEMENT
 
-    Q_PROPERTY(
-        ShortcutTypes checkAgainstShortcutTypes READ checkAgainstShortcutTypes WRITE setCheckAgainstShortcutTypes NOTIFY checkAgainstShortcutTypesChanged)
+    Q_PROPERTY(KeySequenceEnums::ShortcutTypes checkAgainstShortcutTypes READ checkAgainstShortcutTypes WRITE setCheckAgainstShortcutTypes NOTIFY
+                   checkAgainstShortcutTypesChanged)
 
 public:
-    enum ShortcutType {
-        None = 0x00, //!< No checking for conflicts
-        StandardShortcuts = 0x01, //!< Check against standard shortcuts. @see KStandardShortcut
-        GlobalShortcuts = 0x02, //!< Check against global shortcuts. @see KGlobalAccel
-    };
-    Q_DECLARE_FLAGS(ShortcutTypes, ShortcutType)
-    Q_FLAG(ShortcutTypes)
-
     /**
      * Constructor.
      */
@@ -47,8 +42,8 @@ public:
     Q_INVOKABLE void showQuestionDialog(const QString &title, const QString &text);
     Q_INVOKABLE void showErrorDialog(const QString &title, const QString &text);
 
-    ShortcutTypes checkAgainstShortcutTypes();
-    void setCheckAgainstShortcutTypes(ShortcutTypes types);
+    KeySequenceEnums::ShortcutTypes checkAgainstShortcutTypes();
+    void setCheckAgainstShortcutTypes(KeySequenceEnums::ShortcutTypes types);
 
     Q_INVOKABLE static bool keySequenceIsEmpty(const QKeySequence &keySequence);
     Q_INVOKABLE static QString keySequenceNativeText(const QKeySequence &keySequence);
@@ -65,7 +60,5 @@ private:
 
     Q_DISABLE_COPY(KeySequenceHelper)
 };
-
-Q_DECLARE_OPERATORS_FOR_FLAGS(KeySequenceHelper::ShortcutTypes)
 
 #endif // KEYSEQUENCEHELPER_H

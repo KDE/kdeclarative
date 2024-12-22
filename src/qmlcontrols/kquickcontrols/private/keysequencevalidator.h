@@ -18,8 +18,9 @@
 class KeySequenceValidator : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
     Q_PROPERTY(QKeySequence currentKeySequence READ currentKeySequence WRITE setCurrentKeySequence NOTIFY currentKeySequenceChanged)
-    Q_PROPERTY(KeySequenceHelper::ShortcutTypes validateTypes READ validateTypes WRITE setValidateTypes NOTIFY validateTypesChanged)
+    Q_PROPERTY(KeySequenceEnums::ShortcutTypes validateTypes READ validateTypes WRITE setValidateTypes NOTIFY validateTypesChanged)
 
 public:
     /**
@@ -31,8 +32,8 @@ public:
     void setCurrentKeySequence(const QKeySequence &sequence);
     Q_SIGNAL void currentKeySequenceChanged();
 
-    KeySequenceHelper::ShortcutTypes validateTypes() const;
-    void setValidateTypes(KeySequenceHelper::ShortcutTypes types);
+    KeySequenceEnums::ShortcutTypes validateTypes() const;
+    void setValidateTypes(KeySequenceEnums::ShortcutTypes types);
     Q_SIGNAL void validateTypesChanged();
 
     Q_INVOKABLE void validateSequence(const QKeySequence &keySequence);
@@ -53,7 +54,7 @@ private:
     ValidationResult validateGlobalShortcut(const QKeySequence &keySequence);
     ValidationResult validateStandardShortcut(const QKeySequence &keySequence);
 
-    KeySequenceHelper::ShortcutTypes m_validateTypes = KeySequenceHelper::GlobalShortcuts | KeySequenceHelper::StandardShortcuts;
+    KeySequenceEnums::ShortcutTypes m_validateTypes = KeySequenceEnums::GlobalShortcuts | KeySequenceEnums::StandardShortcuts;
     QKeySequence m_currentKeySequence;
     QKeySequence m_pendingKeySequence;
     bool m_validateGlobalPending = false;

@@ -39,12 +39,12 @@ public:
     KeySequenceHelper *const q;
 
     //! Check the key sequence against KStandardShortcut::find()
-    KeySequenceHelper::ShortcutTypes checkAgainstShortcutTypes;
+    KeySequenceEnums::ShortcutTypes checkAgainstShortcutTypes;
 };
 
 KeySequenceHelperPrivate::KeySequenceHelperPrivate(KeySequenceHelper *qq)
     : q(qq)
-    , checkAgainstShortcutTypes(KeySequenceHelper::StandardShortcuts | KeySequenceHelper::GlobalShortcuts)
+    , checkAgainstShortcutTypes(KeySequenceEnums::StandardShortcuts | KeySequenceEnums::GlobalShortcuts)
 {
 }
 
@@ -62,7 +62,7 @@ KeySequenceHelper::~KeySequenceHelper()
 void KeySequenceHelper::updateKeySequence(const QKeySequence &keySequence)
 {
 #if HAVE_KGLOBALACCEL
-    if (d->checkAgainstShortcutTypes.testFlag(GlobalShortcuts)) {
+    if (d->checkAgainstShortcutTypes.testFlag(KeySequenceEnums::GlobalShortcuts)) {
         KGlobalAccel::stealShortcutSystemwide(keySequence);
     }
 #endif
@@ -112,12 +112,12 @@ void KeySequenceHelper::showQuestionDialog(const QString &title, const QString &
 #endif
 }
 
-KeySequenceHelper::ShortcutTypes KeySequenceHelper::checkAgainstShortcutTypes()
+KeySequenceEnums::ShortcutTypes KeySequenceHelper::checkAgainstShortcutTypes()
 {
     return d->checkAgainstShortcutTypes;
 }
 
-void KeySequenceHelper::setCheckAgainstShortcutTypes(KeySequenceHelper::ShortcutTypes types)
+void KeySequenceHelper::setCheckAgainstShortcutTypes(KeySequenceEnums::ShortcutTypes types)
 {
     if (d->checkAgainstShortcutTypes != types) {
         d->checkAgainstShortcutTypes = types;

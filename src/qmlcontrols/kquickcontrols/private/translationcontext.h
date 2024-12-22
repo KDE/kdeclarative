@@ -9,9 +9,12 @@
 
 #include <QObject>
 
+#include <qqmlregistration.h>
+
 class TranslationContext : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
     Q_PROPERTY(QString domain READ domain WRITE setDomain NOTIFY domainChanged)
 
 public:

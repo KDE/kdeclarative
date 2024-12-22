@@ -1,17 +1,29 @@
-set(kquickcontrolsprivate_SRCS
+add_library(kquickcontrolsprivate)
+
+generate_export_header(kquickcontrolsprivate)
+
+ecm_add_qml_module(kquickcontrolsprivate URI "org.kde.private.kquickcontrols" VERSION 2.0 GENERATE_PLUGIN_SOURCE)
+
+qt_extract_metatypes(kquickcontrolsprivate)
+
+set_target_properties(kquickcontrolsprivate PROPERTIES
+    VERSION     ${PROJECT_VERSION}
+    SOVERSION   0
+)
+
+target_sources(kquickcontrolsprivate PRIVATE
     keysequencehelper.cpp
     keysequencehelper.h
     keysequencevalidator.cpp
     keysequencevalidator.h
-    kquickcontrolsprivateplugin.cpp
-    kquickcontrolsprivateplugin.h
     translationcontext.cpp
     translationcontext.h
+    enums.cpp
+    enums.h
 )
 
-add_library(kquickcontrolsprivateplugin ${kquickcontrolsprivate_SRCS})
-
-target_link_libraries(kquickcontrolsprivateplugin
+target_link_libraries(kquickcontrolsprivate
+    PRIVATE
     Qt6::Core
     Qt6::Quick
     Qt6::Qml
@@ -20,20 +32,16 @@ target_link_libraries(kquickcontrolsprivateplugin
     KF6::GuiAddons
 )
 
-target_include_directories(kquickcontrolsprivateplugin PRIVATE ${CMAKE_BINARY_DIR})
+target_include_directories(kquickcontrolsprivate PRIVATE ${CMAKE_BINARY_DIR})
 
 if (HAVE_KGLOBALACCEL)
-    target_link_libraries(kquickcontrolsprivateplugin KF6::GlobalAccel)
+    target_link_libraries(kquickcontrolsprivate PRIVATE KF6::GlobalAccel)
 endif()
 
 if (NOT ANDROID)
-    target_link_libraries(kquickcontrolsprivateplugin KF6::WidgetsAddons)
+    target_link_libraries(kquickcontrolsprivate PRIVATE KF6::WidgetsAddons)
 endif()
 
-if(WIN32 AND BUILD_SHARED_LIBS)
-    set_target_properties(kquickcontrolsprivateplugin PROPERTIES PREFIX "")
-endif()
+ecm_finalize_qml_module(kquickcontrolsprivate)
 
-install(TARGETS kquickcontrolsprivateplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/private/kquickcontrols)
-
-install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/private/kquickcontrols)
+install(TARGETS kquickcontrolsprivate DESTINATION ${KDE_INSTALL_LIBDIR})
