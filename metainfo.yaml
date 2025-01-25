@@ -11,7 +11,7 @@ portingAid: false
 deprecated: false
 release: true
 libraries:
- - cmake: "KF6::Declarative"
+    - cmake: "KF6::Declarative"
 cmakename: KF6Declarative
 
 public_lib: true
