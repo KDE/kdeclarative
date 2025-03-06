@@ -98,6 +98,11 @@ void KeySequenceValidator::accept()
     if (result == ValidationResult::Reject) {
         Q_EMIT finished(m_currentKeySequence);
     } else if (result == ValidationResult::Accept) {
+#if HAVE_KGLOBALACCEL
+        if (m_validateTypes & KeySequenceEnums::GlobalShortcuts) {
+            KGlobalAccel::stealShortcutSystemwide(keySequence);
+        }
+#endif
         Q_EMIT finished(keySequence);
     }
 }

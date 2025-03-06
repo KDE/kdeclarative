@@ -61,12 +61,6 @@ KeySequenceHelper::~KeySequenceHelper()
 
 void KeySequenceHelper::updateKeySequence(const QKeySequence &keySequence)
 {
-#if HAVE_KGLOBALACCEL
-    if (d->checkAgainstShortcutTypes.testFlag(KeySequenceEnums::GlobalShortcuts)) {
-        KGlobalAccel::stealShortcutSystemwide(keySequence);
-    }
-#endif
-
     setCurrentKeySequence(keySequence);
 }
 
