@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-23 00:37+0000\n"
+"POT-Creation-Date: 2025-03-08 00:40+0000\n"
 "PO-Revision-Date: 2010-09-24 15:44+0530\n"
 "Last-Translator: Rajesh Ranjan <rranjan@redhat.com>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -71,13 +71,13 @@ msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:116
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:121
 #, fuzzy, kde-format
 #| msgid "Shortcut"
 msgid "Reserved Shortcut"
 msgstr "शार्टकट"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:118
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:123
 #, kde-format
 msgid ""
 "The F12 key is reserved on Windows, so cannot be used for a global "
@@ -85,18 +85,18 @@ msgid ""
 "Please choose another one."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:140
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:145
 #, kde-format
 msgid "Global Shortcut Shadowing"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:143
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:148
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:145
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:151
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:150
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:156
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not find 'kdemain' in '%1'.\n"
@@ -106,31 +106,31 @@ msgstr ""
 " 'केडीइ-मेन'  '%1' पर नहि भेटल.\n"
 "%2"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:149
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:154
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:160
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
 #, fuzzy, kde-format
 #| msgid "Shortcut conflict"
 msgctxt "@dialog:title"
 msgid "Found Conflict"
 msgstr "शार्टकट कॉन्फ्लिक्ट"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
 #, kde-format
 msgid ""
 "Shortcut '%1' is already assigned to action '%2' of %3.\n"
 "Do you want to reassign it?"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:175
 #, kde-format
 msgid "Shortcut '%1' is already assigned to the following actions:\n"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:172
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:177
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not find 'kdemain' in '%1'.\n"
@@ -140,18 +140,18 @@ msgstr ""
 " 'केडीइ-मेन'  '%1' पर नहि भेटल.\n"
 "%2"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:174
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:179
 #, fuzzy, kde-format
 #| msgid "Do you want to restart search from the end?"
 msgid "Do you want to reassign it?"
 msgstr "की अहाँ अंत सँ फिनु सँ  खोज प्रारंभ कएनाइ चाहैत छी?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:190
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "प्रामाणिक अनुप्रयोग शार्टकट केर परस्पर विरोध मे अछि"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:192
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:197
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "

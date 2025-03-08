@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-23 00:37+0000\n"
+"POT-Creation-Date: 2025-03-08 00:40+0000\n"
 "PO-Revision-Date: 2013-12-21 17:26+0000\n"
 "Last-Translator: Ademovic Saudin <sademovic1@etf.unsa.ba>\n"
 "Language-Team: bosanski <bs@li.org>\n"
@@ -85,12 +85,12 @@ msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:116
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:121
 #, kde-format
 msgid "Reserved Shortcut"
 msgstr "Rezervisana prečica"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:118
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:123
 #, kde-format
 msgid ""
 "The F12 key is reserved on Windows, so cannot be used for a global "
@@ -101,12 +101,12 @@ msgstr ""
 "prečica.\n"
 "Izaberite neku drugu."
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:140
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:145
 #, kde-format
 msgid "Global Shortcut Shadowing"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:143
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:148
 #, fuzzy, kde-format
 #| msgid ""
 #| "The '%1' key combination is registered by application %2 for action %3:"
@@ -114,15 +114,15 @@ msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr "Kombinaciju tastera %1 registruje program %2 za radnju „%3“:"
 
 # >> Appended as list items to the following message.
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:145
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:151
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:150
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:156
 #, fuzzy, kde-format
 #| msgid "In context '%1' for action '%2'\n"
 msgid "Action '%1' in context '%2'\n"
 msgstr "u kontekstu „%1“ za radnju „%2“\n"
 
 # >> %3 is an assembly of list items for the previous message
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:149
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:154
 #, fuzzy, kde-format
 #| msgid ""
 #| "The '%1' key combination is registered by application %2.\n"
@@ -132,7 +132,7 @@ msgstr ""
 "Kombinaciju tastera %1 registruje program %2:\n"
 "%3"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:160
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
 #, fuzzy, kde-format
 #| msgctxt "%1 is the number of conflicts"
 #| msgid "Shortcut Conflict"
@@ -141,14 +141,14 @@ msgctxt "@dialog:title"
 msgid "Found Conflict"
 msgstr "Sukob prečica"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
 #, kde-format
 msgid ""
 "Shortcut '%1' is already assigned to action '%2' of %3.\n"
 "Do you want to reassign it?"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:175
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "%1 is the number of conflicts (hidden), %2 is the key sequence of the "
@@ -160,24 +160,24 @@ msgid "Shortcut '%1' is already assigned to the following actions:\n"
 msgstr "Prečica '%2' u sukobu je s narednom kombinacijom tastera:\n"
 
 # >> Appended as list items to the following message.
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:172
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:177
 #, fuzzy, kde-format
 #| msgid "In context '%1' for action '%2'\n"
 msgid "Action '%1' of %2\n"
 msgstr "u kontekstu „%1“ za radnju „%2“\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:174
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:179
 #, fuzzy, kde-format
 #| msgid "Do you want to store this password?"
 msgid "Do you want to reassign it?"
 msgstr "Želite li da skladištite ovu lozinku?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:190
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "Sukob sa standardnom programskom prečicom"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:192
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:197
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "

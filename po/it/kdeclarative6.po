@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-23 00:37+0000\n"
+"POT-Creation-Date: 2025-03-08 00:40+0000\n"
 "PO-Revision-Date: 2024-07-13 02:19+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -80,12 +80,12 @@ msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
 msgstr "Annulla la registrazione della sequenza di tasti"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:116
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:121
 #, kde-format
 msgid "Reserved Shortcut"
 msgstr "Scorciatoia riservata"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:118
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:123
 #, kde-format
 msgid ""
 "The F12 key is reserved on Windows, so cannot be used for a global "
@@ -96,35 +96,35 @@ msgstr ""
 "scorciatoia globale.\n"
 "Scegline un altro."
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:140
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:145
 #, kde-format
 msgid "Global Shortcut Shadowing"
 msgstr "Oscuramento delle scorciatoie globali"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:143
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:148
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr ""
 "La combinazione di tasti «%1» è oscurata dalle seguenti azioni globali:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:145
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:151
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:150
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:156
 #, kde-format
 msgid "Action '%1' in context '%2'\n"
 msgstr "Azione «%1» nel contesto «%2»\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:149
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:154
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
 msgstr "La combinazione di tasti «%1» oscura le seguenti azioni globali:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:160
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
 #, kde-format
 msgctxt "@dialog:title"
 msgid "Found Conflict"
 msgstr "Conflitto trovato"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
 #, kde-format
 msgid ""
 "Shortcut '%1' is already assigned to action '%2' of %3.\n"
@@ -133,27 +133,27 @@ msgstr ""
 "La scorciatoia «%1» è già assegnata all'azione «%2» di %3.\n"
 "Vuoi riassegnarla?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:175
 #, kde-format
 msgid "Shortcut '%1' is already assigned to the following actions:\n"
 msgstr "La scorciatoia «%1» è già assegnata alle seguenti azioni:\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:172
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:177
 #, kde-format
 msgid "Action '%1' of %2\n"
 msgstr "Azione «%1» of %2\n"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:174
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:179
 #, kde-format
 msgid "Do you want to reassign it?"
 msgstr "Vuoi riassegnarla?"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:190
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
 msgstr "Conflitto con una scorciatoia standard delle applicazioni"
 
-#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:192
+#: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:197
 #, kde-format
 msgid ""
 "The '%1' key combination is also used for the standard action \"%2\" that "
