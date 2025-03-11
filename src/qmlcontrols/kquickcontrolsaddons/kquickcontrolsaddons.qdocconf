@@ -1,0 +1,11 @@
+include($KDE_DOCS/global/qt-module-defaults.qdocconf)
+
+project = KQuickControlsAddons
+description = Extensions to Qt Quick Controls
+
+documentationinheaders = true
+
+headerdirs += .
+sourcedirs += .
+
+depends = kde qtcore qtquick qtquickcontrols

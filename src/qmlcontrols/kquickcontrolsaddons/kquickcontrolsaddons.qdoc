@@ -1,0 +1,6 @@
+/*!
+    \qmlmodule org.kde.kquickcontrols.addons
+    \ingroup modules
+    \title KQuickControlsAddons QML Types
+    \brief Extensions to Qt Quick Controls.
+*/

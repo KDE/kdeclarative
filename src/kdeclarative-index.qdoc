@@ -1,0 +1,16 @@
+/*!
+    \page kdeclarative-index.html
+    \title KDeclarative
+
+    Provides integration of QML and KDE Frameworks
+
+    \section1 API Reference
+
+    \list
+        \li \l{KQuickControls QML Types}
+        \li \l{KQuickControlsAddons QML Types}
+        \li \l{GraphicalEffects QML Types}
+        \li \l{DragAndDrop QML Types}
+        \li \l{CalendarEvents C++ Classes}
+    \endlist
+*/

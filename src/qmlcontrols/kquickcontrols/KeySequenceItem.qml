@@ -10,49 +10,86 @@ import QtQuick.Layouts
 
 import org.kde.private.kquickcontrols as KQuickControlsPrivate
 
+/*!
+   \qmltype KeySequenceItem
+   \inqmlmodule org.kde.kquickcontrols
+ */
 RowLayout {
     id: root
 
+    /*!
+      \qmlproperty bool KeySequenceItem::showClearButton
+     */
     property bool showClearButton: true
+
+    /*!
+      \qmlproperty bool KeySequenceItem::showCancelButton
+     */
     property bool showCancelButton: false /// TODO KF6 default to true
+
+    /*!
+      \qmlproperty bool KeySequenceItem::modifierOnlyAllowed
+     */
     property alias modifierOnlyAllowed: helper.modifierOnlyAllowed
+
+    /*!
+      \qmlproperty bool KeySequenceItem::modifierlessAllowed
+     */
     property alias modifierlessAllowed: helper.modifierlessAllowed
-    property alias multiKeyShortcutsAllowed: helper.multiKeyShortcutsAllowed
+
+    /*!
+      \qmlproperty bool KeySequenceItem::modifierlessAllowed
+     */
+    property alias multiKeyShortcutsAllowed: helper.modifierlessAllowed
+
+    /*!
+      \qmlproperty keySequence KeySequenceItem::currentKeySequence
+     */
     property alias keySequence: helper.currentKeySequence
 
-    /**
-     * This property controls which types of shortcuts are checked for conflicts when the keySequence
-     * is set. If a conflict is detected, a messagebox will be shown asking the user to confirm their
-     * input. Valid values are combinations of the following flags:
-     *   - @p ShortcutType.None Do not check for conflicts.
-     *   - @p ShortcutType.StandardShortcuts Check against standard shortcuts. @see KStandardshortcut
-     *   - @p ShortcutType.GlobalShortcuts Check against global shortcuts. @see KGlobalAccel
-     *
-     * The default is `ShortcutType.GlobalShortcuts | ShortcutType.StandardShortcut`
-     * @since 5.74
+    /*!
+       \qmlproperty enumeration KeySequenceItem::checkForConflictsAgainst
+       \brief Controls which types of shortcuts are checked for conflicts when the keySequence is set.
+
+       If a conflict is detected, a messagebox will be shown asking the user to confirm their
+       input. Valid values are combinations of the following flags:
+       \value ShortcutType.None
+              Do not check for conflicts.
+       \value ShortcutType.StandardShortcuts
+              Check against standard shortcuts.
+              \sa KStandardShortcut
+       \value ShortcutType.GlobalShortcuts
+              Check against global shortcuts.
+              \sa KGlobalAccel
+
+       The default is \c {ShortcutType.GlobalShortcuts | ShortcutType.StandardShortcut}.
+       \since 5.74
      */
     property alias checkForConflictsAgainst: helper.checkAgainstShortcutTypes
 
-    /**
-     * This signal is emitted after the user introduces a new key sequence
-     *
-     * @since 5.68
-     * @deprecated Use keySequenceModified()
+    /*!
+       \qmlsignal KeySequenceItem::captureFinished
+       \brief Emitted after the user introduces a new key sequence.
+
+       \since 5.68
+       \deprecated Use keySequenceModified() instead.
      */
     signal captureFinished()
 
-    /***
-     * Emitted whenever the key sequence is modified by the user, interacting with the component
-     *
-     * Either by interacting capturing a key sequence or pressing the clear button.
-     *
-     * @since 5.99
+    /*!
+       \brief Emitted whenever the key sequence is modified by the user, interacting with the component.
+
+       Either by interacting capturing a key sequence or pressing the clear button.
+
+       \since 5.99
      */
     signal keySequenceModified()
 
-    /**
-     * Start capturing a key sequence. This equivalent to the user clicking on the main button of the item
-     * @since 5.70
+    /*!
+       \brief Start capturing a key sequence.
+
+       This is equivalent to the user clicking on the main button of the item.
+       \since 5.70
      */
     function startCapturing() {
         mainButton.checked = true;

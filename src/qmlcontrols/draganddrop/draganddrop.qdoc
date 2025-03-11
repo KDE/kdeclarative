@@ -1,0 +1,6 @@
+/*!
+    \qmlmodule org.kde.draganddrop
+    \ingroup modules
+    \title DragAndDrop QML Types
+    \brief QML helpers for Drag and Drop.
+*/

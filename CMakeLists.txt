@@ -23,7 +23,7 @@ include(ECMSetupVersion)
 include(ECMGenerateHeaders)
 include(ECMQmlModule)
 include(CMakePackageConfigHelpers)
-include(ECMAddQch)
+include(ECMGenerateQDoc)
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} NO_MODULE REQUIRED Qml Quick Gui)
 find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
@@ -47,9 +47,6 @@ configure_file(config-kdeclarative.h.in ${CMAKE_BINARY_DIR}/config-kdeclarative.
 set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
 
 option(BUILD_EXAMPLES "Build and install examples." OFF)
-option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
-add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
-
 
 # ECM setup
 ecm_setup_version(
@@ -75,16 +72,6 @@ endif()
 
 # Create a Config.cmake and a ConfigVersion.cmake file and install them
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF6Declarative")
-
-if (BUILD_QCH)
-    ecm_install_qch_export(
-        TARGETS KF6Declarative_QCH
-        FILE KF6DeclarativeQchTargets.cmake
-        DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-        COMPONENT Devel
-    )
-    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF6DeclarativeQchTargets.cmake\")")
-endif()
 
 configure_package_config_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/KF6DeclarativeConfig.cmake.in"

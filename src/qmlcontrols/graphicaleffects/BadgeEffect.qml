@@ -6,13 +6,21 @@
 
 import QtQuick
 
-/**
- * Uses the badge overlay shader to display on an Item
+/*!
+   \qmltype BadgeEffect
+   \inqmlmodule org.kde.graphicaleffects
+   \brief Uses the badge overlay shader to display on an Item.
  */
-
 ShaderEffect {
 
+    /*!
+     *
+     */
     required property var source
+
+    /*!
+     *
+     */
     required property var mask
 
     supportsAtlasTextures: true

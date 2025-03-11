@@ -38,6 +38,9 @@ ecm_generate_headers(CalendarEvents_CamelCase_HEADERS
   PREFIX CalendarEvents
   REQUIRED_HEADERS CalendarEvents_HEADERS
 )
+
+ecm_generate_qdoc(KF6CalendarEvents calendarevents.qdocconf)
+
 install(FILES ${CalendarEvents_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative/CalendarEvents COMPONENT Devel)
 
 install (FILES
@@ -45,7 +48,3 @@ install (FILES
 	${CMAKE_CURRENT_BINARY_DIR}/calendarevents_export.h
         DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KDeclarative/calendarevents COMPONENT Devel
 )
-
-# make available to ecm_add_qch in parent folder
-set(CalendarEvents_QCH_SOURCES ${CalendarEvents_HEADERS} PARENT_SCOPE)
-set(CalendarEvents_QCH_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR} PARENT_SCOPE)

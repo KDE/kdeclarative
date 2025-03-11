@@ -11,28 +11,56 @@
 #include <QImage>
 #include <QQuickPaintedItem>
 
+/*!
+ * \qmltype QImageItem
+ * \inqmlmodule org.kde.kquickcontrols.addons
+ */
 class QImageItem : public QQuickPaintedItem
 {
     Q_OBJECT
     QML_ELEMENT
 
+    /*! \qmlproperty QImage QImageItem::image */
     Q_PROPERTY(QImage image READ image WRITE setImage NOTIFY imageChanged RESET resetImage)
+    /*! \qmlproperty int QImageItem::nativeWidth */
     Q_PROPERTY(int nativeWidth READ nativeWidth NOTIFY nativeWidthChanged)
+    /*! \qmlproperty int QImageItem::nativeHeight */
     Q_PROPERTY(int nativeHeight READ nativeHeight NOTIFY nativeHeightChanged)
+    /*! \qmlproperty int QImageItem::paintedWidth */
     Q_PROPERTY(int paintedWidth READ paintedWidth NOTIFY paintedWidthChanged)
+    /*! \qmlproperty int QImageItem::paintedHeight */
     Q_PROPERTY(int paintedHeight READ paintedHeight NOTIFY paintedHeightChanged)
+    /*! \qmlproperty FillMode QImageItem::fillMode
+     *
+     * \value Stretch
+     *        The image is scaled to fit.
+     * \value PreserveAspectFit
+     *        the image is scaled uniformly to fit without cropping.
+     * \value PreserveAspectCrop
+     *        The image is scaled uniformly to fill, cropping if necessary.
+     * \value Tile
+     *        The image is duplicated horizontally and vertically.
+     * \value TileVertically
+     *        The image is stretched horizontally and tiled vertically.
+     * \value TileHorizontally
+     *        The image is stretched vertically and tiled horizontally.
+     * \value [since 5.96] Pad
+     *        The image is not transformed.
+     *
+     */
     Q_PROPERTY(FillMode fillMode READ fillMode WRITE setFillMode NOTIFY fillModeChanged)
+    /*! \qmlproperty bool QImageItem::null */
     Q_PROPERTY(bool null READ isNull NOTIFY nullChanged)
 
 public:
     enum FillMode {
-        Stretch, // the image is scaled to fit
-        PreserveAspectFit, // the image is scaled uniformly to fit without cropping
-        PreserveAspectCrop, // the image is scaled uniformly to fill, cropping if necessary
-        Tile, // the image is duplicated horizontally and vertically
-        TileVertically, // the image is stretched horizontally and tiled vertically
-        TileHorizontally, // the image is stretched vertically and tiled horizontally
-        Pad, /**< the image is not transformed @since 5.96 **/
+        Stretch,
+        PreserveAspectFit,
+        PreserveAspectCrop,
+        Tile,
+        TileVertically,
+        TileHorizontally,
+        Pad,
     };
     Q_ENUM(FillMode)
 
@@ -57,12 +85,19 @@ public:
     bool isNull() const;
 
 Q_SIGNALS:
+    /*! \qmlsignal QImageItem::nativeWidthChanged() */
     void nativeWidthChanged();
+    /*! \qmlsignal QImageItem::nativeHeightChanged() */
     void nativeHeightChanged();
+    /*! \qmlsignal QImageItem::fillModeChanged() */
     void fillModeChanged();
+    /*! \qmlsignal QImageItem::imageChanged() */
     void imageChanged();
+    /*! \qmlsignal QImageItem::nullChanged() */
     void nullChanged();
+    /*! \qmlsignal QImageItem::paintedWidthChanged() */
     void paintedWidthChanged();
+    /*! \qmlsignal QImageItem::paintedHeightChanged() */
     void paintedHeightChanged();
 
 protected:

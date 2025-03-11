@@ -1,5 +1,7 @@
 ecm_add_qml_module(draganddropplugin URI org.kde.draganddrop VERSION 2.0 DEPENDENCIES QtQuick GENERATE_PLUGIN_SOURCE)
 
+ecm_generate_qdoc(draganddropplugin draganddrop.qdocconf)
+
 target_sources(draganddropplugin PRIVATE
     DeclarativeDragArea.cpp
     DeclarativeDragArea.h
