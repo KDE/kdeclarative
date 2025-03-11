@@ -1,0 +1,9 @@
+/*!
+    \module CalendarEvents
+    \title CalendarEvents C++ Classes
+    \ingroup modules
+    \cmakepackage KF6
+    \cmakecomponent CalendarEvents
+
+    \brief Plugin System for Calendar Events
+*/

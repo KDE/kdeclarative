@@ -1,0 +1,11 @@
+include($KDE_DOCS/global/qt-module-defaults.qdocconf)
+
+project = DragAndDrop
+description = QML helpers for Drag and Drop
+
+documentationinheaders = true
+
+headerdirs += .
+sourcedirs += .
+
+depends = kde qtcore qtquick qtquickcontrols

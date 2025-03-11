@@ -1,0 +1,30 @@
+include($KDE_DOCS/global/qt-module-defaults.qdocconf)
+
+project = CalendarEvents
+description = Plugin System for Calendar Events
+
+documentationinheaders = true
+
+headerdirs += .
+sourcedirs += .
+
+outputformats = HTML
+
+depends += \
+    kde \
+    qtcore \
+    qtgui
+
+qhp.projects            = CalendarEvents
+
+qhp.CalendarEvents.file                = calendarevents.qhp
+qhp.CalendarEvents.namespace           = org.kde.calendarevents.$QT_VERSION_TAG
+qhp.CalendarEvents.virtualFolder       = calendarevents
+qhp.CalendarEvents.indexTitle          = CalendarEvents
+qhp.CalendarEvents.indexRoot           =
+
+qhp.CalendarEvents.subprojects         = classes
+qhp.CalendarEvents.subprojects.classes.title = C++ Classes
+qhp.CalendarEvents.subprojects.classes.indexTitle = CalendarEvents C++ Classes
+qhp.CalendarEvents.subprojects.classes.selectors = class fake:headerfile
+qhp.CalendarEvents.subprojects.classes.sortPages = true

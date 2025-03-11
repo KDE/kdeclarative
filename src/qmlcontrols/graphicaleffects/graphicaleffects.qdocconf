@@ -1,0 +1,11 @@
+include($KDE_DOCS/global/qt-module-defaults.qdocconf)
+
+project = GraphicalEffects
+description = Graphical Effects
+
+documentationinheaders = true
+
+headerdirs += .
+sourcedirs += .
+
+depends = kde qtcore qtquick qtquickcontrols

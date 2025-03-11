@@ -10,27 +10,42 @@
 
 #include <QQuickItem>
 
-/**
- * This item spies on mouse events from all child objects including child MouseAreas regardless
- * of whether the child MouseArea propagates events. It does not accept the event.
+/*!
+ * \qmltype KDeclarativeMouseEvent
+ * \inqmlmodule org.kde.kquickcontrols.addons
  *
- * In addition unlike MouseArea events include the mouse position in global coordinates and provides
+ * \brief This item spies on mouse events from all child objects
+ * including child MouseAreas regardless
+ * of whether the child MouseArea propagates events.
+ * It does not accept the event.
+ *
+ * In addition unlike MouseArea events include the mouse position
+ * in global coordinates and provides
  * the screen the mouse is in.
  */
-
 class KDeclarativeMouseEvent : public QObject
 {
     Q_OBJECT
     QML_ANONYMOUS
+    /*! \qmlproperty bool KDeclarativeMouseEvent::x */
     Q_PROPERTY(int x READ x)
+    /*! \qmlproperty bool KDeclarativeMouseEvent::y */
     Q_PROPERTY(int y READ y)
+    /*! \qmlproperty bool KDeclarativeMouseEvent::screenX */
     Q_PROPERTY(int screenX READ screenX)
+    /*! \qmlproperty bool KDeclarativeMouseEvent::screenY */
     Q_PROPERTY(int screenY READ screenY)
+    /*! \qmlproperty bool KDeclarativeMouseEvent::button */
     Q_PROPERTY(int button READ button)
+    /*! \qmlproperty Qt::MouseButtons KDeclarativeMouseEvent::buttons */
     Q_PROPERTY(Qt::MouseButtons buttons READ buttons)
+    /*! \qmlproperty Qt::KeyboardModifiers KDeclarativeMouseEvent::modifiers */
     Q_PROPERTY(Qt::KeyboardModifiers modifiers READ modifiers)
+    /*! \qmlproperty QScreen KDeclarativeMouseEvent::screen */
     Q_PROPERTY(QScreen *screen READ screen CONSTANT)
+    /*! \qmlproperty bool KDeclarativeMouseEvent::accepted */
     Q_PROPERTY(bool accepted READ isAccepted WRITE setAccepted NOTIFY acceptedChanged)
+    /*! \qmlproperty int KDeclarativeMouseEvent::source */
     Q_PROPERTY(int source READ source)
 
 public:
@@ -115,6 +130,7 @@ public:
     }
 
 Q_SIGNALS:
+    /*! \qmlsignal KDeclarativeMouseEvent::acceptedChanged() */
     void acceptedChanged();
 
 private:
@@ -130,20 +146,38 @@ private:
     int m_source;
 };
 
+/*!
+ * \qmltype KDeclarativeWheelEvent
+ * \inqmlmodule org.kde.kquickcontrols.addons
+ */
 class KDeclarativeWheelEvent : public QObject
 {
     Q_OBJECT
     QML_ANONYMOUS
+    /*! \qmlproperty int KDeclarativeWheelEvent::x */
     Q_PROPERTY(int x READ x CONSTANT)
+    /*! \qmlproperty int KDeclarativeWheelEvent::y */
     Q_PROPERTY(int y READ y CONSTANT)
+    /*! \qmlproperty int KDeclarativeWheelEvent::screenX */
     Q_PROPERTY(int screenX READ screenX CONSTANT)
+    /*! \qmlproperty int KDeclarativeWheelEvent::screenY */
     Q_PROPERTY(int screenY READ screenY CONSTANT)
+    /*! \qmlproperty int KDeclarativeWheelEvent::deltaX */
     Q_PROPERTY(int deltaX READ deltaX CONSTANT)
+    /*! \qmlproperty int KDeclarativeWheelEvent::deltaY */
     Q_PROPERTY(int deltaY READ deltaY CONSTANT)
-    Q_PROPERTY(int delta READ deltaY CONSTANT) // deprecated in favor of deltaY. TODO KF6: remove
+    /*! \qmlproperty int KDeclarativeWheelEvent::delta
+     *  \deprecated Use deltaY instead.
+     */
+    Q_PROPERTY(int delta READ deltaY CONSTANT)
+    /*! \qmlproperty Qt::MouseButtons KDeclarativeWheelEvent::buttons */
     Q_PROPERTY(Qt::MouseButtons buttons READ buttons CONSTANT)
+    /*! \qmlproperty Qt::KeyboardModifiers KDeclarativeWheelEvent::modifiers */
     Q_PROPERTY(Qt::KeyboardModifiers modifiers READ modifiers CONSTANT)
-    Q_PROPERTY(Qt::Orientation orientation READ orientation CONSTANT) // deprecated. TODO KF6: remove
+    /*! \qmlproperty Qt::Orientation KDeclarativeWheelEvent::orientation
+     *  \deprecated
+     */
+    Q_PROPERTY(Qt::Orientation orientation READ orientation CONSTANT)
 
 public:
     KDeclarativeWheelEvent(QPointF pos,
@@ -221,31 +255,40 @@ private:
     Qt::Orientation m_orientation;
 };
 
+/*!
+ * \qmltype MouseEventListener
+ * \inqmlmodule org.kde.kquickcontrols.addons
+ */
 class MouseEventListener : public QQuickItem
 {
     Q_OBJECT
     QML_ELEMENT
-    /**
+    /*!
+     * \qmlproperty bool MouseEventListener::hoverEnabled
      * This property holds whether hover events are handled.
      * By default hover events are disabled
      */
     Q_PROPERTY(bool hoverEnabled READ hoverEnabled WRITE setHoverEnabled NOTIFY hoverEnabledChanged)
 
-    /**
+    /*!
+     * \qmlproperty bool MouseEventListener::containsMouse
      * True if this MouseEventListener or any of its children contains the mouse cursor:
      * this property will change only when the mouse button is pressed if hoverEnabled is false.
      */
     Q_PROPERTY(bool containsMouse READ containsMouse NOTIFY containsMouseChanged)
 
+    /*! \qmlproperty Qt::MouseButtons MouseEventListener::acceptedButtons */
     Q_PROPERTY(Qt::MouseButtons acceptedButtons READ acceptedButtons WRITE setAcceptedButtons NOTIFY acceptedButtonsChanged)
 
-    /**
+    /*!
+     * \qmlproperty Qt::CursorShape MouseEventListener::cursorShape
      * This property holds the cursor shape for this mouse area.
      * Note that on platforms that do not display a mouse cursor this may have no effect.
      */
     Q_PROPERTY(Qt::CursorShape cursorShape READ cursorShape WRITE setCursorShape RESET unsetCursor NOTIFY cursorShapeChanged)
 
-    /**
+    /*!
+     * \qmlproperty bool MouseEventListener::pressed
      * True if the mouse is pressed in the item or any of its children
      */
     Q_PROPERTY(bool pressed READ isPressed NOTIFY pressedChanged)
@@ -278,17 +321,29 @@ protected:
     void touchUngrabEvent() override;
 
 Q_SIGNALS:
+    /*! \qmlsignal MouseEventListener::pressed(KDeclarativeMouseEventmouse) */
     void pressed(KDeclarativeMouseEvent *mouse);
+    /*! \qmlsignal MouseEventListener::positionChanged(KDeclarativeMouseEvent mouse) */
     void positionChanged(KDeclarativeMouseEvent *mouse);
+    /*! \qmlsignal MouseEventListener::released(KDeclarativeMouseEvent mouse) */
     void released(KDeclarativeMouseEvent *mouse);
+    /*! \qmlsignal MouseEventListener::clicked(KDeclarativeMouseEvent mouse) */
     void clicked(KDeclarativeMouseEvent *mouse);
+    /*! \qmlsignal MouseEventListener::pressAndHold(KDeclarativeMouseEvent *mouse) */
     void pressAndHold(KDeclarativeMouseEvent *mouse);
+    /*! \qmlsignal MouseEventListener::wheelMoved(KDeclarativeWheelEvent wheel) */
     void wheelMoved(KDeclarativeWheelEvent *wheel);
+    /*! \qmlsignal MouseEventListener::containsMouseChanged(bool containsMouseChanged) */
     void containsMouseChanged(bool containsMouseChanged);
+    /*! \qmlsignal MouseEventListener::hoverEnabledChanged(bool hoverEnabled) */
     void hoverEnabledChanged(bool hoverEnabled);
+    /*! \qmlsignal MouseEventListener::acceptedButtonsChanged() */
     void acceptedButtonsChanged();
+    /*! \qmlsignal MouseEventListener::cursorShapeChanged() */
     void cursorShapeChanged();
+    /*! \qmlsignal MouseEventListener::pressedChanged() */
     void pressedChanged();
+    /*! \qmlsignal MouseEventListener::canceled() */
     void canceled();
 
 private Q_SLOTS:

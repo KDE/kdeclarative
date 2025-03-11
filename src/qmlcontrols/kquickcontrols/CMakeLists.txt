@@ -10,3 +10,5 @@ ecm_finalize_qml_module(kquickcontrols)
 
 
 target_link_libraries(kquickcontrols PRIVATE kquickcontrolsprivate)
+
+ecm_generate_qdoc(kquickcontrols kquickcontrols.qdocconf)
