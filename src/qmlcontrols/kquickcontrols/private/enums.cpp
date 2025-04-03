@@ -5,3 +5,5 @@
 */
 
 #include "enums.h"
+
+#include "moc_enums.cpp"
