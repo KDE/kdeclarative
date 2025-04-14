@@ -15,6 +15,8 @@
 class DeclarativeDragDropEvent : public QObject
 {
     Q_OBJECT
+    QML_NAMED_ELEMENT(DragDropEvent)
+    QML_UNCREATABLE("DragDropEvent cannot be created from QML.")
 
     /**
      * The mouse X position of the event relative to the DropArea that is receiving the event.
