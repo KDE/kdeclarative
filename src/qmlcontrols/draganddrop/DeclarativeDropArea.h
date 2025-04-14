@@ -15,6 +15,7 @@ class DeclarativeDragDropEvent;
 class DeclarativeDropArea : public QQuickItem
 {
     Q_OBJECT
+    QML_NAMED_ELEMENT(DropArea)
 
     /**
      * If false the area will receive no drop events

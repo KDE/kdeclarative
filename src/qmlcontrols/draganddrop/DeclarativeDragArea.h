@@ -20,6 +20,7 @@ class QQuickItemGrabResult;
 class DeclarativeDragArea : public QQuickItem
 {
     Q_OBJECT
+    QML_NAMED_ELEMENT(DragArea)
 
     /**
      * The delegate is the item that will be displayed next to the mouse cursor during the drag and drop operation.

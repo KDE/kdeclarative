@@ -10,6 +10,7 @@
 #include <QJsonArray>
 #include <QObject>
 #include <QString>
+#include <qqmlregistration.h>
 
 class QMimeData;
 class QObject;
@@ -21,6 +22,8 @@ class QObject;
 class MimeDataWrapper : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("MimeDataWrapper cannot be created from QML.")
 
     /**
      * A plain text (MIME type text/plain) representation of the data.

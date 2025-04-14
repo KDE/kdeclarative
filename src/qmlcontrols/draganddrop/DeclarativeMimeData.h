@@ -14,9 +14,17 @@
 #include <QQuickItem>
 #include <QUrl>
 
+struct MimeDataForign {
+    Q_GADGET
+    QML_ANONYMOUS
+    QML_FOREIGN(QMimeData)
+};
+
 class DeclarativeMimeData : public QMimeData
 {
     Q_OBJECT
+    QML_NAMED_ELEMENT(MimeData)
+    QML_UNCREATABLE("MimeData cannot be created from QML.")
 
     /**
      * A plain text (MIME type text/plain) representation of the data.
