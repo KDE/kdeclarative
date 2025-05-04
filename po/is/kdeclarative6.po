@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-08 00:40+0000\n"
+"POT-Creation-Date: 2025-05-04 00:39+0000\n"
 "PO-Revision-Date: 2024-05-06 12:13+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -29,37 +29,37 @@ msgstr ""
 "\n"
 "\n"
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:56
+#: qmlcontrols/kquickcontrols/ColorButton.qml:61
 #, kde-format
 msgctxt "@info:whatsthis for a button"
 msgid "Color button"
 msgstr "Litahnappur"
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:58
+#: qmlcontrols/kquickcontrols/ColorButton.qml:63
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
 msgstr "Núverandi litur er %1. Þessi hnappur opnar litavalglugga."
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:59
+#: qmlcontrols/kquickcontrols/ColorButton.qml:64
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr "Núverandi litur er %1."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:120
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:157
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "Inntak"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:121
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:158
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "Ekkert"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:132
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:169
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
@@ -69,13 +69,13 @@ msgstr ""
 "forritinu.\n"
 "Til dæmis Ctrl+A: haltu niðri Ctrl-lyklinum og ýttu á 'A'."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:175
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:212
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "Hreinsa lyklarunu"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:191
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:228
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"

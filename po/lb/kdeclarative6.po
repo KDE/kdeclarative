@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-08 00:40+0000\n"
+"POT-Creation-Date: 2025-05-04 00:39+0000\n"
 "PO-Revision-Date: 2006-06-22 16:29+0200\n"
 "Last-Translator: Michel Ludwig <michel.ludwig@kdemail.net>\n"
 "Language-Team: Luxembourgish <kde-i18n-lb@kde.org>\n"
@@ -16,54 +16,54 @@ msgstr ""
 "X-Generator: KBabel 1.11.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:56
+#: qmlcontrols/kquickcontrols/ColorButton.qml:61
 #, kde-format
 msgctxt "@info:whatsthis for a button"
 msgid "Color button"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:58
+#: qmlcontrols/kquickcontrols/ColorButton.qml:63
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:59
+#: qmlcontrols/kquickcontrols/ColorButton.qml:64
 #, fuzzy, kde-format
 #| msgid "Curr&ent actions:"
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr "Ug&ewisen Aktiounen:"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:120
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:157
 #, fuzzy, kde-format
 #| msgid "Input file"
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "Quelldatei"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:121
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:158
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "Keng"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:132
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:169
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:175
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:212
 #, fuzzy, kde-format
 #| msgid "Clear Search"
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "Sicht eidelmaachen"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:191
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:228
 #, fuzzy, kde-format
 #| msgid "Clear Search"
 msgctxt "@info:tooltip"
