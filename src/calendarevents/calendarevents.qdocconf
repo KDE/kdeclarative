@@ -10,6 +10,8 @@ sourcedirs += .
 
 outputformats = HTML
 
+navigation.landingpage = "KDeclarative"
+
 depends += \
     kde \
     qtcore \
