@@ -13,7 +13,11 @@ outputformats = HTML
 depends += \
     kde \
     qtcore \
-    qtgui
+    qtgui \
+    draganddrop \
+    graphicaleffects \
+    kquickcontrols \
+    kquickcontrolsaddons
 
 qhp.projects            = CalendarEvents
 

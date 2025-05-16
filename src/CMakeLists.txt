@@ -1,6 +1,2 @@
 add_subdirectory(qmlcontrols)
 add_subdirectory(calendarevents)
-
-add_library(kdeclarativedocumentationdummy OBJECT)
-
-ecm_generate_qdoc(kdeclarativedocumentationdummy kdeclarative.qdocconf)
