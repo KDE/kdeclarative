@@ -11,3 +11,17 @@ sourcedirs += .
 navigation.landingpage = "KDeclarative"
 
 depends = kde qtcore qtquick qtquickcontrols
+
+qhp.projects            = KQuickControlsAddons
+
+qhp.KQuickControlsAddons.file                = kquickcontrolsaddons.qhp
+qhp.KQuickControlsAddons.namespace           = org.kde.kquickcontrolsaddons.$QT_VERSION_TAG
+qhp.KQuickControlsAddons.virtualFolder       = kquickcontrolsaddons
+qhp.KQuickControlsAddons.indexTitle          = KQuickControlsAddons
+qhp.KQuickControlsAddons.indexRoot           =
+
+qhp.KQuickControlsAddons.subprojects         = qmltypes
+qhp.KQuickControlsAddons.subprojects.qmltypes.title = QML Types
+qhp.KQuickControlsAddons.subprojects.qmltypes.indexTitle = KQuickControlsAddons QML Types
+qhp.KQuickControlsAddons.subprojects.qmltypes.selectors = qmltype
+qhp.KQuickControlsAddons.subprojects.qmltypes.sortPages = true

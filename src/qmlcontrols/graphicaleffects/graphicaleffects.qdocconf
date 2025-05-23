@@ -11,3 +11,17 @@ sourcedirs += .
 navigation.landingpage = "KDeclarative"
 
 depends = kde qtcore qtquick qtquickcontrols
+
+qhp.projects            = GraphicalEffects
+
+qhp.GraphicalEffects.file                = graphicaleffects.qhp
+qhp.GraphicalEffects.namespace           = org.kde.graphicaleffects.$QT_VERSION_TAG
+qhp.GraphicalEffects.virtualFolder       = graphicaleffects
+qhp.GraphicalEffects.indexTitle          = GraphicalEffects
+qhp.GraphicalEffects.indexRoot           =
+
+qhp.GraphicalEffects.subprojects         = qmltypes
+qhp.GraphicalEffects.subprojects.qmltypes.title = QML Types
+qhp.GraphicalEffects.subprojects.qmltypes.indexTitle = GraphicalEffects QML Types
+qhp.GraphicalEffects.subprojects.qmltypes.selectors = qmltype
+qhp.GraphicalEffects.subprojects.qmltypes.sortPages = true

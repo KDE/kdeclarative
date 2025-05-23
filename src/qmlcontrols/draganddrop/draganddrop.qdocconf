@@ -11,3 +11,17 @@ sourcedirs += .
 navigation.landingpage = "KDeclarative"
 
 depends = kde qtcore qtquick qtquickcontrols
+
+qhp.projects            = DragAndDrop
+
+qhp.DragAndDrop.file                = draganddrop.qhp
+qhp.DragAndDrop.namespace           = org.kde.draganddrop.$QT_VERSION_TAG
+qhp.DragAndDrop.virtualFolder       = draganddrop
+qhp.DragAndDrop.indexTitle          = DragAndDrop
+qhp.DragAndDrop.indexRoot           =
+
+qhp.DragAndDrop.subprojects         = qmltypes
+qhp.DragAndDrop.subprojects.qmltypes.title = QML Types
+qhp.DragAndDrop.subprojects.qmltypes.indexTitle = DragAndDrop QML Types
+qhp.DragAndDrop.subprojects.qmltypes.selectors = qmltype
+qhp.DragAndDrop.subprojects.qmltypes.sortPages = true
