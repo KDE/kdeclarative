@@ -25,3 +25,5 @@ qhp.KQuickControlsAddons.subprojects.qmltypes.title = QML Types
 qhp.KQuickControlsAddons.subprojects.qmltypes.indexTitle = KQuickControlsAddons QML Types
 qhp.KQuickControlsAddons.subprojects.qmltypes.selectors = qmltype
 qhp.KQuickControlsAddons.subprojects.qmltypes.sortPages = true
+
+tagfile = kquickcontrolsaddons.tags

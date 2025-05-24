@@ -25,3 +25,5 @@ qhp.GraphicalEffects.subprojects.qmltypes.title = QML Types
 qhp.GraphicalEffects.subprojects.qmltypes.indexTitle = GraphicalEffects QML Types
 qhp.GraphicalEffects.subprojects.qmltypes.selectors = qmltype
 qhp.GraphicalEffects.subprojects.qmltypes.sortPages = true
+
+tagfile = graphicaleffects.tags

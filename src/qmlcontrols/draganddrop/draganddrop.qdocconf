@@ -25,3 +25,5 @@ qhp.DragAndDrop.subprojects.qmltypes.title = QML Types
 qhp.DragAndDrop.subprojects.qmltypes.indexTitle = DragAndDrop QML Types
 qhp.DragAndDrop.subprojects.qmltypes.selectors = qmltype
 qhp.DragAndDrop.subprojects.qmltypes.sortPages = true
+
+tagfile = draganddrop.tags

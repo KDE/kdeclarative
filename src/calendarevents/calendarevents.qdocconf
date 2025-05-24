@@ -34,3 +34,5 @@ qhp.CalendarEvents.subprojects.classes.title = C++ Classes
 qhp.CalendarEvents.subprojects.classes.indexTitle = CalendarEvents C++ Classes
 qhp.CalendarEvents.subprojects.classes.selectors = class fake:headerfile
 qhp.CalendarEvents.subprojects.classes.sortPages = true
+
+tagfile = calendarevents.tags
