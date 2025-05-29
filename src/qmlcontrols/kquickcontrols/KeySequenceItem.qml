@@ -29,13 +29,39 @@ RowLayout {
 
     /*!
       \qmlproperty bool KeySequenceItem::modifierOnlyAllowed
+      \deprecated[6.16] Use patterns instead.
      */
+    @Deprecated { reason: "Use patterns instead" }
     property alias modifierOnlyAllowed: helper.modifierOnlyAllowed
 
     /*!
       \qmlproperty bool KeySequenceItem::modifierlessAllowed
+      \deprecated[6.16] Use patterns instead.
      */
+    @Deprecated { reason: "Use patterns instead" }
     property alias modifierlessAllowed: helper.modifierlessAllowed
+
+    /*!
+      \qmlproperty enumeration KeySequenceItem::patterns
+      \brief Specifies what components the recorded shortcut must have, for
+      example whether the shortcut must contain only modifier keys (Modifier) or
+      modifiers keys and a normal key (ModifierAndKey).
+
+      The patterns property can contain one or more recording patterns. For
+      example, if the recorder accepts both normal and modifier only shortcuts,
+      e.g. Modifier | ModifierAndKey. Valid values are combinations of the
+      following flags:
+      \value ShortcutPattern.Modifier
+             The recorded shortcut must contain one or more modifier keys (Meta, Shift, Ctrl, or Alt).
+      \value ShortcutPattern.Key
+             The recorded shortcut must contain only one regular key, e.g. "A".
+      \value ShortcutPattern.ModifierAndKey
+             The recorded shortcut must contain one or more modifier keys followed by a regular key, e.g. Meta+A.
+
+      The default is \c ShortcutPattern.ModifierAndKey.
+      \since 6.16
+     */
+    property alias patterns: helper.patterns
 
     /*!
       \qmlproperty bool KeySequenceItem::modifierlessAllowed
