@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-04 00:39+0000\n"
+"POT-Creation-Date: 2025-06-12 00:39+0000\n"
 "PO-Revision-Date: 2017-09-28 17:57+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -39,19 +39,19 @@ msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:157
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:183
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "unesite..."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:158
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:184
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "nijedna"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:169
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:195
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
@@ -60,13 +60,13 @@ msgstr ""
 "Kliknite na dugme, pa unesite prečicu kao što biste u programu.\n"
 "Primer za Ctrl+A: držite taster Ctrl i pritisnite A."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:212
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:238
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:228
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:254
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"

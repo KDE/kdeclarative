@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-04 00:39+0000\n"
+"POT-Creation-Date: 2025-06-12 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -35,19 +35,19 @@ msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr "当前颜色是 %1。"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:157
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:183
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "输入"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:158
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:184
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "无"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:169
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:195
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
@@ -56,13 +56,13 @@ msgstr ""
 "点击此按钮，然后按照您在程序中的操作方式按下要使用的快捷键。\n"
 "例如：Ctrl+A 就是按住 Ctrl 键不放并按下 A 键。"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:212
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:238
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "清除按键/按键组合序列"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:228
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:254
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"

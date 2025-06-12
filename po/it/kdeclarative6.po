@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-04 00:39+0000\n"
+"POT-Creation-Date: 2025-06-12 00:39+0000\n"
 "PO-Revision-Date: 2024-07-13 02:19+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -46,19 +46,19 @@ msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr "Il colore attuale è %1."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:157
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:183
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "Immissione"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:158
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:184
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "Nessuna"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:169
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:195
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
@@ -68,13 +68,13 @@ msgstr ""
 "programma.\n"
 "Esempio per Ctrl+A: tieni premuto il tasto Ctrl e premi A."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:212
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:238
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "Cancella la sequenza di tasti"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:228
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:254
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"

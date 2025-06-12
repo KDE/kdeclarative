@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-04 00:39+0000\n"
+"POT-Creation-Date: 2025-06-12 00:39+0000\n"
 "PO-Revision-Date: 2025-05-12 14:12+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -44,19 +44,19 @@ msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr "El color actual es %1."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:157
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:183
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "Entrada"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:158
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:184
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "Ninguna"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:169
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:195
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
@@ -66,13 +66,13 @@ msgstr ""
 "desee para el programa.\n"
 "Ejemplo para «Ctrl+A»: mantenga pulsada la tecla «Ctrl» y luego pulse «A»."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:212
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:238
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "Borrar la secuencia de teclas"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:228
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:254
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
