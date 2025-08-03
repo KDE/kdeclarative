@@ -17,20 +17,20 @@
 # Meni Livne <livne@kde.org>, 2007.
 # tahmar1900 <tahmar1900@gmail.com>, 2008, 2009.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
-# SPDX-FileCopyrightText: 2023, 2024 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-12 00:39+0000\n"
-"PO-Revision-Date: 2024-07-11 08:15+0300\n"
+"PO-Revision-Date: 2025-08-02 21:21+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 25.04.3\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -97,18 +97,18 @@ msgid ""
 "shortcut.\n"
 "Please choose another one."
 msgstr ""
-"מקש ה־F12 הוא מקש שמור ב־Windows, ולכן אינו יכול לשמש כמקש קיצור כללי.\n"
+"המקש F12 הוא מקש שמור ב־Windows, ולכן אינו יכול לשמש כמקש קיצור מקיף.\n"
 "נא לבחור במקש אחר."
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:145
 #, kde-format
 msgid "Global Shortcut Shadowing"
-msgstr "האפלת קיצורי מקשים כלליים"
+msgstr "האפלת קיצורי מקשים מקיפים"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:148
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
-msgstr "צירוף המקשים ‚%1’ מואפל על ידי הפעולות הכלליות הבאות:\n"
+msgstr "צירוף המקשים ‚%1’ מואפל על ידי הפעולות המקיפות הבאות:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:150
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:156
@@ -119,7 +119,7 @@ msgstr "הפעולה ‚%1’ בהקשר ‚%2’\n"
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:154
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
-msgstr "צירוף המקשים ‚%1’ מאפיל על הפעולות הכלליות הבאות:\n"
+msgstr "צירוף המקשים ‚%1’ מאפיל על הפעולות המקיפות הבאות:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
 #, kde-format
@@ -163,8 +163,8 @@ msgid ""
 "some applications use.\n"
 "Do you really want to use it as a global shortcut as well?"
 msgstr ""
-"צירוף המקשים ‚%1’ משמש גם לפעולה הרגילה „%2” בה משתמשים חלק מהיישומים.\n"
-"להשתמש בו גם כמקש קיצור כללי?"
+"צירוף המקשים ‚‏%1‏’ משמש גם לפעולה הרגילה „%2” בה משתמשים חלק מהיישומים.\n"
+"להשתמש בו גם כמקש קיצור מקיף?"
 
 #~ msgid "Reassign"
 #~ msgstr "שיוך מחדש"
