@@ -108,7 +108,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
-msgstr "امسح تسلسل المفاتيح"
+msgstr "امحُ تسلسل المفاتيح"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:166
 #, kde-format
