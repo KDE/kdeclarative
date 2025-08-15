@@ -132,13 +132,13 @@ msgid ""
 "Shortcut '%1' is already assigned to action '%2' of %3.\n"
 "Do you want to reassign it?"
 msgstr ""
-"عُين الاختصار '%1' بالفعل إلى  '%2' من إجراءات %3. \n"
+"عُين الاختصار '%1' فعلًا إلى  '%2' من إجراءات %3. \n"
 "هل تريد إعادة تعيينه؟"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:175
 #, kde-format
 msgid "Shortcut '%1' is already assigned to the following actions:\n"
-msgstr "عُين الاختصار '%1' بالفعل للإجراءات التالية:\n"
+msgstr "عُين الاختصار '%1' فعلًا للإجراءات التالية:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:177
 #, kde-format
