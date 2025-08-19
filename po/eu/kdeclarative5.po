@@ -2,7 +2,7 @@
 # Copyright (C) 1999-2017, Free Software Foundation, Inc.
 # Copyright (C) 2018-2022, This file is copyright:
 # This file is distributed under the same license as the kdeclarative package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2025 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Marcos <marcos@euskalgnu.org>, 2002,2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010.
@@ -14,14 +14,14 @@ msgstr ""
 "Project-Id-Version: kdeclarative5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:24+0000\n"
-"PO-Revision-Date: 2022-09-15 05:35+0200\n"
+"PO-Revision-Date: 2025-08-18 13:06+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 25.08.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -79,7 +79,7 @@ msgstr "Uneko kolorea %1 da."
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
-msgstr "Egin tekla konbinazioa"
+msgstr "Sarrera"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:91
 #, kde-format
@@ -93,9 +93,9 @@ msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
-"Klik egin botoian, ondoren sartu lasterbidea programan egingo zenukeen "
+"Botoian klik egin, ondoren sartu lasterbidea programan egingo zenukeen "
 "moduan.\n"
-"Adibidez Ktrl+A: sakatuta mantendu Ktrl tekla eta sakatu A."
+"Adibidez Ktrl+A: Ktrl tekla sakatuta mantendu eta A sakatu."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:150
 #, kde-format
@@ -112,7 +112,7 @@ msgstr "Utzi tekla sekuentzia grabatzeari"
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
 #, kde-format
 msgid "Reserved Shortcut"
-msgstr "Lasterbide erreserbatua"
+msgstr "Erreserbatutako lasterbidea"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:120
 #, kde-format
@@ -121,7 +121,7 @@ msgid ""
 "shortcut.\n"
 "Please choose another one."
 msgstr ""
-"F12 tekla erreserbatuta dago Windows-en, beraz ezin da erabili lasterbide "
+"F12 tekla Windows-en erreserbatuta dago, beraz ezin da erabili lasterbide "
 "orokor gisa.\n"
 "Mesedez hautatu beste bat."
 
@@ -149,7 +149,7 @@ msgstr "'%1' tekla konbinazioak itzal egiten die ondoko ekintza globalei:\n"
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:193
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
-msgstr "Aplikazioaren lasterbide estandarrekin gatazkan"
+msgstr "Aplikazioaren lasterbide estandarrekin gatazka"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:195
 #, kde-format
@@ -158,14 +158,14 @@ msgid ""
 "some applications use.\n"
 "Do you really want to use it as a global shortcut as well?"
 msgstr ""
-"'%1' tekla-konbinazioa \"%2\" ekintza estandarrekin erabiltzen da. Aplikazio "
-"askok erabiltzen dute tekla-konbinazio hau.\n"
-"Benetan erabili nahi duzu laster-tekla orokor gisa?"
+"'%1' tekla-konbinazioa aplikazio batzuek erabiltzen duten \"%2\" ekintza "
+"estandarrerako ere erabiltzen da.\n"
+"Benetan erabili nahi duzu ere lasterbide global gisa?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
 #, kde-format
 msgid "Reassign"
-msgstr "Lotu"
+msgstr "Berresleitu"
 
 #: quickaddons/configmodule.cpp:191
 #, kde-format
