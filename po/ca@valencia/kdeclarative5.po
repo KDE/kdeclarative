@@ -124,7 +124,7 @@ msgid ""
 msgstr ""
 "La tecla «F12» està reservada a Windows, no es pot utilitzar com a drecera "
 "global.\n"
-"Seleccioneu-ne una altra."
+"Trieu-ne una altra."
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:144
 #, kde-format
