@@ -8,7 +8,7 @@ RowLayout {
     KeySequenceItem
     {
         id: sequenceItem
-        patterns: ShortcutPattern.Modifier | ShortcutPattern.Key
+        patterns: ShortcutPattern.Modifier | ShortcutPattern.ModifierAndKey
     }
     Text
     {

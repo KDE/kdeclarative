@@ -64,9 +64,9 @@ RowLayout {
     property alias patterns: helper.patterns
 
     /*!
-      \qmlproperty bool KeySequenceItem::modifierlessAllowed
+      \qmlproperty bool KeySequenceItem::multiKeyShortcutsAllowed
      */
-    property alias multiKeyShortcutsAllowed: helper.modifierlessAllowed
+    property alias multiKeyShortcutsAllowed: helper.multiKeyShortcutsAllowed
 
     /*!
       \qmlproperty keySequence KeySequenceItem::currentKeySequence
