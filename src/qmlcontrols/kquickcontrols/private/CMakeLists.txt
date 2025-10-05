@@ -44,4 +44,4 @@ endif()
 
 ecm_finalize_qml_module(kquickcontrolsprivate)
 
-install(TARGETS kquickcontrolsprivate DESTINATION ${KDE_INSTALL_LIBDIR} LIBRARY NAMELINK_SKIP)
+install(TARGETS kquickcontrolsprivate ${KF_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
