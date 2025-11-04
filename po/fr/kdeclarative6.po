@@ -48,7 +48,7 @@ msgstr "Bouton de couleur"
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
 msgstr ""
-"La couleur courante est %1. Ce bouton ouvrira une boîte de dialogue de "
+"La couleur courante est %1. Ce bouton ouvrira une boite de dialogue de "
 "sélecteur de couleurs."
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:64
