@@ -278,18 +278,24 @@ bool DeclarativeDragArea::childMouseEventFilter(QQuickItem *item, QEvent *event)
     switch (event->type()) {
     case QEvent::MouseButtonPress: {
         QMouseEvent *me = static_cast<QMouseEvent *>(event);
-        // qDebug() << "press in dragarea";
-        mousePressEvent(me);
+        if (me->buttons() & acceptedMouseButtons()) {
+            // qDebug() << "press in dragarea";
+            mousePressEvent(me);
+        }
         break;
     }
     case QEvent::MouseMove: {
         QMouseEvent *me = static_cast<QMouseEvent *>(event);
-        // qDebug() << "move in dragarea";
-        mouseMoveEvent(me);
+        if (me->buttons() & acceptedMouseButtons()) {
+            // qDebug() << "move in dragarea";
+            mouseMoveEvent(me);
+        }
         break;
     }
     case QEvent::MouseButtonRelease: {
         QMouseEvent *me = static_cast<QMouseEvent *>(event);
+        // This event must accept all mouse buttons, because when the
+        // mouse is released me->buttons() will be Qt::NoButton.
         // qDebug() << "release in dragarea";
         mouseReleaseEvent(me);
         break;
