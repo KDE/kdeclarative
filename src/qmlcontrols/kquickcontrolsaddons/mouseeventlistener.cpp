@@ -491,6 +491,15 @@ void MouseEventListener::touchUngrabEvent()
     QQuickItem::touchUngrabEvent();
 }
 
+void MouseEventListener::itemChange(QQuickItem::ItemChange change, const QQuickItem::ItemChangeData &value)
+{
+    if ((change == QQuickItem::ItemVisibleHasChanged || change == QQuickItem::ItemEnabledHasChanged) && !value.boolValue) {
+        handleUngrab();
+    }
+
+    QQuickItem::itemChange(change, value);
+}
+
 void MouseEventListener::handleUngrab()
 {
     if (m_pressed) {

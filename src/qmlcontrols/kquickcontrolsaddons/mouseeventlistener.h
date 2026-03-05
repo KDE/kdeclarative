@@ -319,6 +319,7 @@ protected:
     bool childMouseEventFilter(QQuickItem *item, QEvent *event) override;
     void mouseUngrabEvent() override;
     void touchUngrabEvent() override;
+    void itemChange(QQuickItem::ItemChange change, const QQuickItem::ItemChangeData &value) override;
 
 Q_SIGNALS:
     /*! \qmlsignal MouseEventListener::pressed(KDeclarativeMouseEventmouse) */
