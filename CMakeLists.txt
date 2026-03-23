@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.27)
 
 set(KF_VERSION "6.25.0") # handled by release scripts
 set(KF_DEP_VERSION "6.24.0") # handled by release scripts
-set(REQUIRED_QT_VERSION 6.8.0)
+set(REQUIRED_QT_VERSION 6.9.0)
 project(KDeclarative VERSION ${KF_VERSION})
 
 # Dependencies
