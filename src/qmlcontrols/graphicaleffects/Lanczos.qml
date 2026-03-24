@@ -63,6 +63,6 @@ ShaderEffect {
      */
     property real resolution: 0.98;
 
-    vertexShader: Qt.resolvedUrl(":/shaders/preserveaspect.vert.qsb")
-    fragmentShader: Qt.resolvedUrl(":/shaders/lanczos2sharp.frag.qsb")
+    vertexShader: "qrc:/shaders/preserveaspect.vert.qsb"
+    fragmentShader: "qrc:/shaders/lanczos2sharp.frag.qsb"
 }
