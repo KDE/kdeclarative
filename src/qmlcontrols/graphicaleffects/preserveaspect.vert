@@ -22,15 +22,15 @@ layout(std140, binding = 0) uniform buf {
 
     vec2 sourceSize;
     vec2 targetSize;
-} ubuf;
+} vbuf;
 
 void main() {
-    float scale = min(ubuf.targetSize.x / ubuf.sourceSize.x, ubuf.targetSize.y / ubuf.sourceSize.y);
+    float scale = min(vbuf.targetSize.x / vbuf.sourceSize.x, vbuf.targetSize.y / vbuf.sourceSize.y);
 
-    vec2 newSize = ubuf.sourceSize * scale;
-    vec2 newOffset = (ubuf.targetSize - newSize) / 2.0;
+    vec2 newSize = vbuf.sourceSize * scale;
+    vec2 newOffset = (vbuf.targetSize - newSize) / 2.0;
     vec2 uvOffset = (1.0 / newSize) * newOffset;
 
-    coord = -uvOffset + (ubuf.targetSize / newSize) * texcoord;
-    gl_Position = ubuf.qt_Matrix * position;
+    coord = -uvOffset + (vbuf.targetSize / newSize) * texcoord;
+    gl_Position = vbuf.qt_Matrix * position;
 }
