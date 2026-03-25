@@ -27,7 +27,7 @@
 
 #version 440
 
-layout(location = 0) in vec2 texcoord;
+layout(location = 0) in vec2 coord;
 layout(location = 0) out vec4 fragColor;
 
 layout(std140, binding = 0) uniform buf {
@@ -77,14 +77,14 @@ void main()
 {
     // Discard any pixels that are outside the bounds of the texture.
     // This prevents artifacts when the texture doesn't have a full-alpha border.
-    if (any(lessThan(texcoord, vec2(0.0))) || any(greaterThan(texcoord, vec2(1.0)))) {
+    if (any(lessThan(coord, vec2(0.0))) || any(greaterThan(coord, vec2(1.0)))) {
         discard;
     }
 
     vec2 dx = vec2(1.0, 0.0);
     vec2 dy = vec2(0.0, 1.0);
 
-    vec2 pixelCoord = texcoord * ubuf.targetSize / ubuf.resolution;
+    vec2 pixelCoord = coord * ubuf.targetSize / ubuf.resolution;
     vec2 texel = (floor(pixelCoord) + vec2(0.5, 0.5)) * ubuf.resolution / ubuf.targetSize;
 
     vec2 texelCenter = (floor(pixelCoord - vec2(0.5, 0.5)) + vec2(0.5, 0.5));
@@ -112,7 +112,7 @@ void main()
     texelCenter = texelCenter * ubuf.resolution / ubuf.targetSize;
 
     // reading the texels
-    vec3 color = texture(source, texcoord).xyz;
+    vec3 color = texture(source, coord).xyz;
 
     vec3 c00 = texture(source, texelCenter - dx - dy).xyz;
     vec3 c10 = texture(source, texelCenter - dy).xyz;
@@ -160,6 +160,6 @@ void main()
 
     color = mix(aux, color, ubuf.antiRingingStrength);
 
-    float alpha = texture(source, texcoord).a * ubuf.qt_Opacity;
+    float alpha = texture(source, coord).a * ubuf.qt_Opacity;
     fragColor = vec4(color, alpha);
 }
