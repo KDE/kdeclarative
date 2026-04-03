@@ -10,7 +10,7 @@ ecm_add_qml_module(graphicaleffects URI org.kde.graphicaleffects
 
 ecm_generate_qdoc(graphicaleffects graphicaleffects.qdocconf)
 
-qt_add_shaders(graphicaleffects "graphicaleffects_shaders"
+qt6_add_shaders(graphicaleffects "graphicaleffects_shaders"
     BATCHABLE
     PRECOMPILE
     OPTIMIZED
