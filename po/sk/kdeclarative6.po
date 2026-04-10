@@ -74,7 +74,7 @@ msgstr "Clear Key Sequence"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
-msgstr ""
+msgstr "Zrušiť zaznamenávanie sekvencie klávesov"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:121
 #, kde-format
@@ -126,11 +126,13 @@ msgid ""
 "Shortcut '%1' is already assigned to action '%2' of %3.\n"
 "Do you want to reassign it?"
 msgstr ""
+"Shortcut '%1' is already assigned to action '%2' of %3.\n"
+"Do you want to reassign it?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:175
 #, kde-format
 msgid "Shortcut '%1' is already assigned to the following actions:\n"
-msgstr ""
+msgstr "Shortcut '%1' is already assigned to the following actions:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:177
 #, kde-format
