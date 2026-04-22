@@ -8,35 +8,33 @@ msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2013-09-08 07:05+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2026-04-15 13:32-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 3.9\n"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:61
-#, fuzzy, kde-format
-#| msgctxt "left mouse button"
-#| msgid "left button"
+#, kde-format
 msgctxt "@info:whatsthis for a button"
 msgid "Color button"
-msgstr "سول توپچا"
+msgstr "رەڭ توپچىسى"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:63
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
-msgstr ""
+msgstr "نۆۋەتتىكى رەڭ %1. بۇ توپچە رەڭ تاللىغۇچ سۆزلەشكۈدە ئېچىلىدۇ."
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:64
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
-msgstr ""
+msgstr "نۆۋەتتىكى رەڭ: %1."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:183
 #, kde-format
@@ -51,29 +49,25 @@ msgid "None"
 msgstr "يوق"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:195
-#, fuzzy, kde-format
-#| msgid ""
-#| "Click on the button, then enter the shortcut like you would in the "
-#| "program.\n"
-#| "Example for Ctrl+a: hold the Ctrl key and press a."
+#, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
-"بۇ توپچىنى چېكىپ، ئاندىن بۇ پروگراممىغا تېزلەتمە كىرگۈزۈڭ.\n"
-"مەسىلەن، Ctrl+a يەنى Ctrl كۇنۇپكىسىنى بېسىپ تۇرۇپ ئاندىن a كۇنۇپكا بېسىلىدۇ."
+"توپچىنى چېكىپ، ئاندىن بۇ پىروگراممىغا تېزلەتمە كىرگۈزۈلىدۇ.\n"
+"مەسىلەن، Ctrl+A يەنى Ctrl كۇنۇپكىسىنى بېسىپ تۇرۇپ ئاندىن A كۇنۇپكا بېسىلىدۇ."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:238
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
-msgstr ""
+msgstr "كۇنۇپكا بېسىلىشىنى تازىلايدۇ"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:254
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
-msgstr ""
+msgstr "كۇنۇپكا بېسىلىشىنى خاتىرىلەشتىن ۋاز كېچىدۇ"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:121
 #, kde-format
@@ -94,42 +88,29 @@ msgstr ""
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:145
 #, kde-format
 msgid "Global Shortcut Shadowing"
-msgstr ""
+msgstr "ئومۇمىيەت تېزلەتمە قاپلاش"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:148
-#, fuzzy, kde-format
-#| msgid ""
-#| "The '%1' key combination is registered by application %2 for action %3:"
+#, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
-msgstr ""
-"بىرىكمە كۇنۇپكا '%1' ئاللىقاچان پروگرامما %2 نىڭدا ھەرىكەت %3 ئۈچۈن "
-"خەتلىتىلگەن:"
+msgstr "«%1» بىرىكمە كۇنۇپكىنى تۆۋەندىكى ئومۇمىيەت مەشغۇلاتى قاپلىۋەتتى:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:150
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:156
-#, fuzzy, kde-format
-#| msgid "In context '%1' for action '%2'\n"
+#, kde-format
 msgid "Action '%1' in context '%2'\n"
-msgstr "'%2' مەشغۇلاتنىڭ ئىچكى مەزمۇنى '%1'\n"
+msgstr "«%2» مەزمۇندىكى «%1» مەشغۇلات\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:154
-#, fuzzy, kde-format
-#| msgid ""
-#| "The '%1' key combination is registered by application %2.\n"
-#| "%3"
+#, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
-msgstr ""
-"بىرىكمە كۇنۇپكا '%1' ئاللىقاچان پروگرامما %2 نىڭدا خەتلىتىلگەن.\n"
-"%3"
+msgstr "«%1» بىرىكمە كۇنۇپكا تۆۋەندىكى ئومۇمىيەت مەشغۇلاتىنى قاپلىۋەتتى:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of conflicts"
-#| msgid "Shortcut Conflict"
-#| msgid_plural "Shortcut Conflicts"
+#, kde-format
 msgctxt "@dialog:title"
 msgid "Found Conflict"
-msgstr "تېزلەتمە توقۇنۇشى"
+msgstr "توقۇنۇش بايقالدى"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
 #, kde-format
@@ -137,34 +118,28 @@ msgid ""
 "Shortcut '%1' is already assigned to action '%2' of %3.\n"
 "Do you want to reassign it?"
 msgstr ""
+"«%1» تېزلەتمە %3 دىكى «%2» مەشغۇلاتقا تەقسىملەنگەن.\n"
+"بۇ تېزلەتمىنى قايتا تەقسىملەمسىز؟"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:175
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is the number of conflicts (hidden), %2 is the key sequence of the "
-#| "shortcut that is problematic"
-#| msgid "The shortcut '%2' conflicts with the following key combination:\n"
-#| msgid_plural ""
-#| "The shortcut '%2' conflicts with the following key combinations:\n"
+#, kde-format
 msgid "Shortcut '%1' is already assigned to the following actions:\n"
-msgstr "تېزلەتمە '%2' تۆۋەندىكى تېزلەتمە بىلەن توقۇنۇشۇپ قالدى:\n"
+msgstr "«%1» تېزلەتمە تۆۋەندىكى مەشغۇلاتقا تەقسىملەنگەن:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:177
-#, fuzzy, kde-format
-#| msgid "In context '%1' for action '%2'\n"
+#, kde-format
 msgid "Action '%1' of %2\n"
-msgstr "'%2' مەشغۇلاتنىڭ ئىچكى مەزمۇنى '%1'\n"
+msgstr "%2 نىڭ «%1» مەشغۇلاتى\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:179
-#, fuzzy, kde-format
-#| msgid "Do you want to store this password?"
+#, kde-format
 msgid "Do you want to reassign it?"
-msgstr "بۇ ئىمنى ساقلامسىز؟"
+msgstr "ئۇنى قايتا تەقسىملەمسىز؟"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
-msgstr "پروگراممىنىڭ ئۆلچەملىك تېزلەتمىسى بىلەن توقۇنۇشۇپ قالدى"
+msgstr "پىروگراممىنىڭ ئۆلچەملىك تېزلەتمىسى بىلەن توقۇنۇشۇپ قالدى"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:197
 #, kde-format
@@ -173,14 +148,13 @@ msgid ""
 "some applications use.\n"
 "Do you really want to use it as a global shortcut as well?"
 msgstr ""
-"بىرىكمە كۇنۇپكا '%1' بىر قانچە پروگراممىلاردا ئۆلچەملىك مەشغۇلات \"%2\" "
-"ئۈچۈن بېكىتىلگەن\n"
-"بۇنى راستلا ئومۇمىيەت تېزلەتمە سۈپىتىدە ئىشلىتەمسىز؟"
+"«%1» بىرىكمە كۇنۇپكا بەزى پىروگراممىدا «%2» ئۆلچەملىك مەشغۇلات ئۈچۈن "
+"بېكىتىلگەن.\n"
+"بۇنى راستتىنلا ئومۇمىيەت تېزلەتمە سۈپىتىدە ئىشلىتەمسىز؟"
 
 #~ msgid "Reassign"
 #~ msgstr "قايتا تەقسىملە"
 
-#, fuzzy
 #~| msgid "Not found"
 #~ msgid "No items found"
 #~ msgstr "تېپىلمىدى"
@@ -193,12 +167,10 @@ msgstr ""
 #~ msgid "Your emails"
 #~ msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
 
-#, fuzzy
 #~| msgid "Invalid item."
 #~ msgid "Invalid KPackage '%1'"
 #~ msgstr "ئىناۋەتسىز تۈر."
 
-#, fuzzy
 #~| msgid "defines the application font"
 #~ msgid "The unique name of the application (mandatory)"
 #~ msgstr "پروگرامما خەت نۇسخا بەلگىلەش"
@@ -209,7 +181,6 @@ msgstr ""
 #~ msgid "Unsupported Key"
 #~ msgstr "ئىشلەتكىلى بولمايدىغان كۇنۇپكا"
 
-#, fuzzy
 #~| msgctxt "No shortcut defined"
 #~| msgid "None"
 #~ msgid "None"
@@ -233,13 +204,11 @@ msgstr ""
 #~ msgid "Delete"
 #~ msgstr "ئۆچۈر"
 
-#, fuzzy
 #~| msgctxt "@action"
 #~| msgid "Clear"
 #~ msgid "Clear"
 #~ msgstr "تازىلا"
 
-#, fuzzy
 #~| msgctxt "@action"
 #~| msgid "Select All"
 #~ msgid "Select All"
@@ -3910,7 +3879,6 @@ msgstr ""
 #~ msgid "Supply a username and password below."
 #~ msgstr "تۆۋەندە ئىشلەتكۈچى ئاتى ۋە ئىم تەمىنلەيدۇ."
 
-#, fuzzy
 #~| msgid "&Keep password"
 #~ msgid "Use this password:"
 #~ msgstr "ئىمنى ساقلا(&K)"
