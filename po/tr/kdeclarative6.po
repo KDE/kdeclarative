@@ -17,13 +17,13 @@
 # Serdar SOYTETİR <tulliana@gmail.com>, 2010, 2012.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2014.
 # Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2024-07-11 14:44+0300\n"
+"PO-Revision-Date: 2026-05-02 18:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -31,7 +31,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:61
 #, kde-format
@@ -134,13 +134,13 @@ msgid ""
 "Shortcut '%1' is already assigned to action '%2' of %3.\n"
 "Do you want to reassign it?"
 msgstr ""
-"“%1” kısayolu, halihazırda %3 uygulamasının “%2” eylemine atanmış.\n"
+"“%1” kısayolu, hâlihazırda %3 uygulamasının “%2” eylemine atanmış.\n"
 "Onu yeniden atamak istiyor musunuz?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:175
 #, kde-format
 msgid "Shortcut '%1' is already assigned to the following actions:\n"
-msgstr "“%1” kısayolu, halihazırda aşağıdaki eylemlere atanmış:\n"
+msgstr "“%1” kısayolu, hâlihazırda aşağıdaki eylemlere atanmış:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:177
 #, kde-format
@@ -164,7 +164,7 @@ msgid ""
 "some applications use.\n"
 "Do you really want to use it as a global shortcut as well?"
 msgstr ""
-"“%1” düğme kombinasyonu halihazırda bazı uygulamaların kullandığı “%2” "
+"“%1” düğme kombinasyonu hâlihazırda bazı uygulamaların kullandığı “%2” "
 "standart eylemi için kullanılıyor.\n"
 "Bunu global kısayol olarak da kullanmayı gerçekten istiyor musunuz?"
 
