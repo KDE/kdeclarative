@@ -16,8 +16,6 @@ target_sources(kquickcontrolsprivate PRIVATE
     keysequencehelper.h
     keysequencevalidator.cpp
     keysequencevalidator.h
-    translationcontext.cpp
-    translationcontext.h
     enums.cpp
     enums.h
 )

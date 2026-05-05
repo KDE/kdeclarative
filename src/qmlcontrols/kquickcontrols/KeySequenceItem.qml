@@ -9,6 +9,7 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.private.kquickcontrols as KQuickControlsPrivate
+import org.kde.ki18n
 
 /*!
    \qmltype KeySequenceItem
@@ -159,9 +160,9 @@ RowLayout {
         }
     }
 
-    KQuickControlsPrivate.TranslationContext {
+    KI18nContext {
         id: _tr
-        domain: "kdeclarative6"
+        translationDomain: "kdeclarative6"
     }
 
     QQC2.Button {

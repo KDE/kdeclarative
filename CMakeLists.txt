@@ -24,6 +24,7 @@ include(ECMGenerateHeaders)
 include(ECMQmlModule)
 include(CMakePackageConfigHelpers)
 include(ECMGenerateQDoc)
+include(ECMFindQmlModule)
 
 find_package(Qt6 ${REQUIRED_QT_VERSION} NO_MODULE REQUIRED Qml Quick Gui)
 find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
@@ -41,6 +42,8 @@ endif()
 if (NOT ANDROID)
   find_package(KF6WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 endif()
+
+ecm_find_qmlmodule(org.kde.ki18n REQUIRED)
 
 configure_file(config-kdeclarative.h.in ${CMAKE_BINARY_DIR}/config-kdeclarative.h)
 
