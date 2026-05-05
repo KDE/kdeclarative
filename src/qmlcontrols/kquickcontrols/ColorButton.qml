@@ -96,8 +96,8 @@ QQC2.Button {
         id: colorBlock
 
         anchors.centerIn: parent
-        height: parent.height - _buttonMarigns * 2
-        width: parent.width - _buttonMarigns * 2
+        height: parent.height - root._buttonMarigns * 2
+        width: parent.width - root._buttonMarigns * 2
 
         color: enabled ? colorDialog.selectedColor : disabledPalette.button
 
