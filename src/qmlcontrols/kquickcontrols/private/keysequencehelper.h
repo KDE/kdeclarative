@@ -23,8 +23,7 @@ class KeySequenceHelper : public KKeySequenceRecorder
     Q_OBJECT
     QML_ELEMENT
 
-    Q_PROPERTY(KeySequenceEnums::ShortcutTypes checkAgainstShortcutTypes READ checkAgainstShortcutTypes WRITE setCheckAgainstShortcutTypes NOTIFY
-                   checkAgainstShortcutTypesChanged)
+    Q_PROPERTY(int checkAgainstShortcutTypes READ checkAgainstShortcutTypes WRITE setCheckAgainstShortcutTypes NOTIFY checkAgainstShortcutTypesChanged)
 
 public:
     /**
@@ -42,8 +41,8 @@ public:
     Q_INVOKABLE void showQuestionDialog(const QString &title, const QString &text);
     Q_INVOKABLE void showErrorDialog(const QString &title, const QString &text);
 
-    KeySequenceEnums::ShortcutTypes checkAgainstShortcutTypes();
-    void setCheckAgainstShortcutTypes(KeySequenceEnums::ShortcutTypes types);
+    int checkAgainstShortcutTypes();
+    void setCheckAgainstShortcutTypes(int types);
 
     Q_INVOKABLE static bool keySequenceIsEmpty(const QKeySequence &keySequence);
     Q_INVOKABLE static QString keySequenceNativeText(const QKeySequence &keySequence);

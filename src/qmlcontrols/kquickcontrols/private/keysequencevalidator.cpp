@@ -40,18 +40,18 @@ void KeySequenceValidator::setCurrentKeySequence(const QKeySequence &sequence)
     Q_EMIT currentKeySequenceChanged();
 }
 
-KeySequenceEnums::ShortcutTypes KeySequenceValidator::validateTypes() const
+int KeySequenceValidator::validateTypes() const
 {
     return m_validateTypes;
 }
 
-void KeySequenceValidator::setValidateTypes(KeySequenceEnums::ShortcutTypes types)
+void KeySequenceValidator::setValidateTypes(int types)
 {
-    if (m_validateTypes == types) {
+    if (m_validateTypes == (KeySequenceEnums::ShortcutTypes)types) {
         return;
     }
 
-    m_validateTypes = types;
+    m_validateTypes = (KeySequenceEnums::ShortcutTypes)types;
     Q_EMIT validateTypesChanged();
 }
 

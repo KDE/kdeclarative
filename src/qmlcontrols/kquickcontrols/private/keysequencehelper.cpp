@@ -106,15 +106,15 @@ void KeySequenceHelper::showQuestionDialog(const QString &title, const QString &
 #endif
 }
 
-KeySequenceEnums::ShortcutTypes KeySequenceHelper::checkAgainstShortcutTypes()
+int KeySequenceHelper::checkAgainstShortcutTypes()
 {
     return d->checkAgainstShortcutTypes;
 }
 
-void KeySequenceHelper::setCheckAgainstShortcutTypes(KeySequenceEnums::ShortcutTypes types)
+void KeySequenceHelper::setCheckAgainstShortcutTypes(int types)
 {
-    if (d->checkAgainstShortcutTypes != types) {
-        d->checkAgainstShortcutTypes = types;
+    if (d->checkAgainstShortcutTypes != (KeySequenceEnums::ShortcutTypes)types) {
+        d->checkAgainstShortcutTypes = (KeySequenceEnums::ShortcutTypes)types;
     }
     Q_EMIT checkAgainstShortcutTypesChanged();
 }

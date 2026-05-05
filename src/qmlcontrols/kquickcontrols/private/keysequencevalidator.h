@@ -20,7 +20,7 @@ class KeySequenceValidator : public QObject
     Q_OBJECT
     QML_ELEMENT
     Q_PROPERTY(QKeySequence currentKeySequence READ currentKeySequence WRITE setCurrentKeySequence NOTIFY currentKeySequenceChanged)
-    Q_PROPERTY(KeySequenceEnums::ShortcutTypes validateTypes READ validateTypes WRITE setValidateTypes NOTIFY validateTypesChanged)
+    Q_PROPERTY(int validateTypes READ validateTypes WRITE setValidateTypes NOTIFY validateTypesChanged)
 
 public:
     /**
@@ -32,8 +32,8 @@ public:
     void setCurrentKeySequence(const QKeySequence &sequence);
     Q_SIGNAL void currentKeySequenceChanged();
 
-    KeySequenceEnums::ShortcutTypes validateTypes() const;
-    void setValidateTypes(KeySequenceEnums::ShortcutTypes types);
+    int validateTypes() const;
+    void setValidateTypes(int types);
     Q_SIGNAL void validateTypesChanged();
 
     Q_INVOKABLE void validateSequence(const QKeySequence &keySequence);
