@@ -15,6 +15,13 @@
 
 #include "keysequencehelper.h"
 
+class KeySequenceForeign
+{
+    Q_GADGET
+    QML_ANONYMOUS
+    QML_FOREIGN(QKeySequence)
+};
+
 class KeySequenceValidator : public QObject
 {
     Q_OBJECT
