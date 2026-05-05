@@ -245,6 +245,7 @@ RowLayout {
     }
 
     QQC2.Button {
+        id: cancelButton
         Layout.fillHeight: true
         Layout.preferredWidth: height
         onClicked: helper.cancelRecording()
@@ -255,7 +256,7 @@ RowLayout {
         Accessible.name: _tr.i18nc("@info:tooltip", "Cancel Key Sequence Recording")
 
         QQC2.ToolTip {
-            visible: parent.hovered
+            visible: cancelButton.hovered
             text: parent.Accessible.name
         }
     }
