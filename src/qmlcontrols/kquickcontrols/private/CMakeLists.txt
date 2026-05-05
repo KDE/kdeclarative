@@ -2,7 +2,7 @@ add_library(kquickcontrolsprivate)
 
 generate_export_header(kquickcontrolsprivate)
 
-ecm_add_qml_module(kquickcontrolsprivate URI "org.kde.private.kquickcontrols" VERSION 2.0 GENERATE_PLUGIN_SOURCE)
+ecm_add_qml_module(kquickcontrolsprivate URI "org.kde.private.kquickcontrols" VERSION 2.0 GENERATE_PLUGIN_SOURCE DEPENDENCIES QtQuick)
 
 qt_extract_metatypes(kquickcontrolsprivate)
 
