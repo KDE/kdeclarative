@@ -13,7 +13,7 @@
 #include <QObject>
 #include <QQuickItem>
 
-#include "keysequencehelper.h"
+#include "enums.h"
 
 class KeySequenceForeign
 {
