@@ -109,7 +109,7 @@ QQC2.Button {
 
     QtDialogs.ColorDialog {
         id: colorDialog
-        onAccepted: root.accepted(color)
+        onAccepted: root.accepted(selectedColor)
         parentWindow: root.Window.window
         options: root.showAlphaChannel ? QtDialogs.ColorDialog.ShowAlphaChannel : undefined
     }
