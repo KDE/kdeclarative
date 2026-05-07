@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-05-07 00:40+0000\n"
 "PO-Revision-Date: 2005-01-28 17:54+0000\n"
 "Last-Translator: Kevin Donnelly <kevin@dotmon.com>\n"
 "Language-Team: Cymraeg\n"
@@ -30,54 +30,54 @@ msgstr ""
 "\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:61
+#: qmlcontrols/kquickcontrols/ColorButton.qml:67
 #, kde-format
 msgctxt "@info:whatsthis for a button"
 msgid "Color button"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:63
+#: qmlcontrols/kquickcontrols/ColorButton.qml:69
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:64
+#: qmlcontrols/kquickcontrols/ColorButton.qml:70
 #, fuzzy, kde-format
 #| msgid "Curr&ent actions:"
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr "Gweith&rediadau cyfredol:"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:183
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:184
 #, fuzzy, kde-format
 #| msgid "Input file"
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "Ffeil fewnbwn"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:184
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:185
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "Dim"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:195
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:196
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:238
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:239
 #, fuzzy, kde-format
 #| msgid "Clear Search"
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "Gwagu'r Chwiliad"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:254
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:256
 #, fuzzy, kde-format
 #| msgid "Clear Search"
 msgctxt "@info:tooltip"

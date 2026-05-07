@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-05-07 00:40+0000\n"
 "PO-Revision-Date: 2024-08-15 05:51+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -28,37 +28,37 @@ msgstr ""
 "X-Generator: Lokalize 24.04.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:61
+#: qmlcontrols/kquickcontrols/ColorButton.qml:67
 #, kde-format
 msgctxt "@info:whatsthis for a button"
 msgid "Color button"
 msgstr "色彩按鈕"
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:63
+#: qmlcontrols/kquickcontrols/ColorButton.qml:69
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
 msgstr "目前色彩是 %1。這個按鈕會開啟一個色彩選擇對話框。"
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:64
+#: qmlcontrols/kquickcontrols/ColorButton.qml:70
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr "目前色彩是 %1。"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:183
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:184
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "輸入"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:184
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:185
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "無"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:195
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:196
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
@@ -67,13 +67,13 @@ msgstr ""
 "點擊此按鍵，並輸入您要在程式裡做的動作。\n"
 "例如 Ctrl+A：按住 Ctrl 鍵並按 A。"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:238
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:239
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr "清除按鍵"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:254
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:256
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"

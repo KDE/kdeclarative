@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:49+0000\n"
+"POT-Creation-Date: 2026-05-07 00:40+0000\n"
 "PO-Revision-Date: 2016-04-30 12:50+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig\n"
@@ -19,37 +19,37 @@ msgstr ""
 "X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: kde\n"
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:61
+#: qmlcontrols/kquickcontrols/ColorButton.qml:67
 #, kde-format
 msgctxt "@info:whatsthis for a button"
 msgid "Color button"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:63
+#: qmlcontrols/kquickcontrols/ColorButton.qml:69
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/ColorButton.qml:64
+#: qmlcontrols/kquickcontrols/ColorButton.qml:70
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:183
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:184
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
 msgstr "Ion-chur"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:184
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:185
 #, kde-format
 msgctxt "No shortcut defined"
 msgid "None"
 msgstr "Chan eil gin"
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:195
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:196
 #, kde-format
 msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
@@ -60,13 +60,13 @@ msgstr ""
 "Ball-eisimpleir airson \"Ctrl+A\": cum an iuchair \"Ctrl\" sìos agus brùth "
 "air \"A\"."
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:238
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:239
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
 msgstr ""
 
-#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:254
+#: qmlcontrols/kquickcontrols/KeySequenceItem.qml:256
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
