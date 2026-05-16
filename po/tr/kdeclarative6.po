@@ -17,13 +17,13 @@
 # Serdar SOYTETİR <tulliana@gmail.com>, 2010, 2012.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2014.
 # Kaan Ozdincer <kaanozdincer@gmail.com>, 2014.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2026 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022-2024, 2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdelibs4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-07 00:40+0000\n"
-"PO-Revision-Date: 2026-05-02 18:52+0300\n"
+"PO-Revision-Date: 2026-05-15 13:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -31,7 +31,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:67
 #, kde-format
@@ -69,8 +69,9 @@ msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
-"Düğmeye tıklayın, ardından kısayol düğmelerine basın.\n"
-"Kontrol+A örneği için: Kontrol düğmesine basılı tutun ve A düğmesine basın."
+"Düğmeye tıklayın, daha sonra programlamak istediğiniz kısayolu girin.\n"
+"Kontrol+A örneği için: Kontrol düğmesini basılı tutun ve sonrasında A’ya "
+"basın."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:239
 #, kde-format
@@ -96,7 +97,7 @@ msgid ""
 "shortcut.\n"
 "Please choose another one."
 msgstr ""
-"F12 kısayolu Windows üzerinde önceden atanmış olduğundan genel kısayol "
+"F12 kısayolu Windows üzerinde önceden atanmış olduğundan global kısayol "
 "olarak kullanılamaz.\n"
 "Lütfen başka bir düğme seçin."
 
@@ -109,13 +110,13 @@ msgstr "Global Kısayol Gölgeleme"
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
 msgstr ""
-"“%1” düğme kombinasyonu, aşağıdaki global eylemler tarafından gölgelendi:\n"
+"“%1” düğme kombinasyonu, aşağıdaki global eylemler tarafından gölgeleniyor:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:150
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:156
 #, kde-format
 msgid "Action '%1' in context '%2'\n"
-msgstr "“%2” bağlamında “%1” eylemi\n"
+msgstr "“%2” bağlamındaki “%1” eylemi\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:154
 #, kde-format
