@@ -23,6 +23,7 @@ public:
         endDateTime = other.endDateTime;
         title = other.title;
         description = other.description;
+        location = other.location;
         uid = other.uid;
         eventColor = other.eventColor;
         type = other.type;
@@ -36,6 +37,7 @@ public:
     QDateTime endDateTime; // End of the event
     QString title; // Title of the event
     QString description; // Additional info of the event
+    QString location; // Physical location of the event
     QString uid; // An internal event id, useful mostly just for the eventModified/Removed signals
     QString eventColor; // Optional color of the event in the HTML hex format, eg. #AARRGGBB or #RRGGBB
     EventType type; // Type of the event
@@ -129,6 +131,16 @@ QString EventData::description() const
 void EventData::setDescription(const QString &description)
 {
     d->description = description;
+}
+
+QString EventData::location() const
+{
+    return d->location;
+}
+
+void EventData::setLocation(const QString &location)
+{
+    d->location = location;
 }
 
 QString EventData::uid() const

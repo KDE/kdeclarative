@@ -137,6 +137,21 @@ public:
     void setDescription(const QString &description);
 
     /*!
+     * Event location (physical place)
+     *
+     * \since 6.27
+     */
+    QString location() const;
+
+    /*!
+     * Sets the event location
+     *
+     * \a location The location string
+     * \since 6.27
+     */
+    void setLocation(const QString &location);
+
+    /*!
      * Type of the current event, eg. a holiday, an event or a todo item
      */
     EventType type() const;
