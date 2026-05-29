@@ -22,6 +22,11 @@ layout(std140, binding = 0) uniform buf {
 
     vec2 sourceSize;
     vec2 targetSize;
+
+    float windowSinc;
+    float sinc;
+    float antiRingingStrength;
+    float resolution;
 } ubuf;
 
 void main() {
