@@ -34,6 +34,7 @@ layout(std140, binding = 0) uniform buf {
     mat4 qt_Matrix;
     float qt_Opacity;
 
+    vec2 sourceSize;
     vec2 targetSize;
     float windowSinc;
     float sinc;
