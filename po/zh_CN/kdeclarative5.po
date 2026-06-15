@@ -84,7 +84,7 @@ msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
-"单击此按钮，然后输入要在该程序中使用的快捷方式。\n"
+"单击此按钮，然后输入要在该程序中使用的快捷键。\n"
 "比如 Ctrl+A 就是按住 Ctrl 键不放并按下 A 键。"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:150
@@ -102,7 +102,7 @@ msgstr "取消按键/按键组合序列录制"
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:118
 #, kde-format
 msgid "Reserved Shortcut"
-msgstr "保留快捷方式"
+msgstr "系统保留的快捷键"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:120
 #, kde-format
