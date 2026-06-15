@@ -71,7 +71,7 @@ msgstr "取消按键/按键组合序列录制"
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:121
 #, kde-format
 msgid "Reserved Shortcut"
-msgstr "系统保留的快捷方式"
+msgstr "系统保留的快捷键"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:123
 #, kde-format
