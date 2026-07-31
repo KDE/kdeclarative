@@ -162,7 +162,7 @@ msgid ""
 "Do you really want to use it as a global shortcut as well?"
 msgstr ""
 "Die Tastenkombination „%1“ ist bereits der Standard-Aktion „%2“ zugeordnet, "
-"die von einigen Anwendungen benutzt wird.\n"
+"die von einigen Anwendungen verwendet wird.\n"
 "Möchten Sie sie wirklich als globales Tastenkürzel verwenden?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencehelper.cpp:201
