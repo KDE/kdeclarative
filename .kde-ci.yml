@@ -20,3 +20,4 @@ Options:
  require-passing-tests-on: ['@all']
  run-qmllint: true
  enable-lsan: True
+ run-installed-library-check-on: ['@all']
