@@ -58,7 +58,7 @@ msgstr "Текущий цвет — %1."
 #, kde-format
 msgctxt "What the user inputs now will be taken as the new shortcut"
 msgid "Input"
-msgstr "Сейчас"
+msgstr "Ввод"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:185
 #, kde-format
@@ -72,8 +72,8 @@ msgid ""
 "Click on the button, then enter the shortcut like you would in the program.\n"
 "Example for Ctrl+A: hold the Ctrl key and press A."
 msgstr ""
-"Нажмите на кнопке и введите комбинацию клавиш.\n"
-"Например, для комбинации клавиш Ctrl+A зажмите клавишу Ctrl и нажмите A."
+"Нажмите кнопку и введите комбинацию клавиш.\n"
+"Например, для комбинации клавиш Ctrl+A удерживайте клавишу Ctrl и нажмите A."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:239
 #, kde-format
@@ -157,7 +157,7 @@ msgstr "Переназначить её?"
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:195
 #, kde-format
 msgid "Conflict with Standard Application Shortcut"
-msgstr "Конфликт со стандартной клавишей приложения"
+msgstr "Конфликт со стандартной комбинацией клавиш приложения"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:197
 #, kde-format
@@ -167,7 +167,7 @@ msgid ""
 "Do you really want to use it as a global shortcut as well?"
 msgstr ""
 "Комбинация клавиш «%1» уже связана со стандартным действием «%2», "
-"используемым во многих программах.\n"
+"используемым в некоторых приложениях.\n"
 "Действительно использовать эту комбинацию как глобальную?"
 
 #~ msgid "Reassign"
