@@ -3,13 +3,14 @@
 # Toplica Tanaskovic <toptan@kde.org.yu>, 2003, 2004, 2005.
 # Chusslove Illich <caslav.ilic@gmx.net>, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2017.
 # Dalibor Djuric <daliborddjuric@gmail.com>, 2009, 2010, 2011.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeclarative5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-07 00:40+0000\n"
-"PO-Revision-Date: 2017-09-28 17:57+0200\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-06 08:03+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavian\n"
 "MIME-Version: 1.0\n"
@@ -25,19 +26,19 @@ msgstr ""
 #, kde-format
 msgctxt "@info:whatsthis for a button"
 msgid "Color button"
-msgstr ""
+msgstr "Дугме боје"
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:69
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1. This button will open a color chooser dialog."
-msgstr ""
+msgstr "Текућа боја је %1. Ово дугме отвара дијалог бирача боја."
 
 #: qmlcontrols/kquickcontrols/ColorButton.qml:70
 #, kde-format
 msgctxt "@info:whatsthis for a button of current color code %1"
 msgid "Current color is %1."
-msgstr ""
+msgstr "Текућа боја је %1."
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:184
 #, kde-format
@@ -64,13 +65,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Clear Key Sequence"
-msgstr ""
+msgstr "Очисти комбинацију тастера"
 
 #: qmlcontrols/kquickcontrols/KeySequenceItem.qml:256
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cancel Key Sequence Recording"
-msgstr ""
+msgstr "Откажи снимање комбинације тастера"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:121
 #, kde-format
@@ -91,29 +92,29 @@ msgstr ""
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:145
 #, kde-format
 msgid "Global Shortcut Shadowing"
-msgstr ""
+msgstr "Засјењивање глобалних пречица"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:148
 #, kde-format
 msgid "The '%1' key combination is shadowed by following global actions:\n"
-msgstr ""
+msgstr "Комбинацију тастера %1 засјењују сљедеће глобалне радње:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:150
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:156
 #, kde-format
 msgid "Action '%1' in context '%2'\n"
-msgstr ""
+msgstr "Радња „%1“ у контексту „%2“\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:154
 #, kde-format
 msgid "The '%1' key combination shadows following global actions:\n"
-msgstr ""
+msgstr "Комбинација тастера %1 засјењује сљедеће глобалне радње:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:165
 #, kde-format
 msgctxt "@dialog:title"
 msgid "Found Conflict"
-msgstr ""
+msgstr "Нађен сукоб"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:170
 #, kde-format
@@ -121,21 +122,23 @@ msgid ""
 "Shortcut '%1' is already assigned to action '%2' of %3.\n"
 "Do you want to reassign it?"
 msgstr ""
+"Пречица %1 је већ додијељена радњи „%2“ програма %3.\n"
+"Желите ли да је поново додијелите?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:175
 #, kde-format
 msgid "Shortcut '%1' is already assigned to the following actions:\n"
-msgstr ""
+msgstr "Пречица %1 је већ додијељена сљедећим радњама:\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:177
 #, kde-format
 msgid "Action '%1' of %2\n"
-msgstr ""
+msgstr "Радња „%1“ програма %2\n"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:179
 #, kde-format
 msgid "Do you want to reassign it?"
-msgstr ""
+msgstr "Желите ли да је поново додијелите?"
 
 #: qmlcontrols/kquickcontrols/private/keysequencevalidator.cpp:195
 #, kde-format
@@ -152,26 +155,3 @@ msgstr ""
 "Комбинација тастера %1 већ је додијељена стандардној радњи „%2“, коју "
 "користе неки програми.\n"
 "Желите ли заиста да је користите и као глобалну пречицу?"
-
-#~ msgid "Reassign"
-#~ msgstr "Поново додијели"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Часлав Илић"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "caslav.ilic@gmx.net"
-
-#~ msgid "KPackage QML application shell"
-#~ msgstr "КуМЛ програмска шкољка за KPackage"
-
-#~ msgid "The unique name of the application (mandatory)"
-#~ msgstr "Јединствено име програма (обавезно)"
-
-#~ msgid "The key you just pressed is not supported by Qt."
-#~ msgstr "КуТ не подржава тастер који сте управо притиснули."
-
-#~ msgid "Unsupported Key"
-#~ msgstr "Неподржани тастер"
