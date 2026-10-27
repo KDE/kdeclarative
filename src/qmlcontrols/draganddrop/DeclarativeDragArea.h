@@ -57,7 +57,11 @@ class DeclarativeDragArea : public QQuickItem
      * \qmlproperty bool DragArea::enabled
      * If false no drag operation will be generate
      */
+#if QT_VERSION >= QT_VERSION_CHECK(6, 11, 0)
+    Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY enabledChanged OVERRIDE) // TODO: Should call setAcceptDrops()
+#else
     Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY enabledChanged) // TODO: Should call setAcceptDrops()
+#endif
 
     /*!
      * \qmlproperty Qt::DropActions DragArea::supportedActions

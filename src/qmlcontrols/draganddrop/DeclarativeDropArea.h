@@ -25,7 +25,11 @@ class DeclarativeDropArea : public QQuickItem
      * \qmlproperty bool DropArea::enabled
      * If false the area will receive no drop events
      */
+#if QT_VERSION >= QT_VERSION_CHECK(6, 11, 0)
+    Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY enabledChanged OVERRIDE)
+#else
     Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY enabledChanged)
+#endif
 
     /*!
      * \qmlproperty bool DropArea::preventStealing
