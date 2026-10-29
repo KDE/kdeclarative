@@ -15,7 +15,7 @@ class ClipboardPrivate;
 
 /*!
  * \qmltype Clipboard
- * \inqmlmodule org.kde.kquickcontrols.addons
+ * \inqmlmodule org.kde.kquickcontrolsaddons
  * \brief Wrapper for QClipboard.
  *
  * Offers a simple wrapper to interact with QClipboard from QtQuick.

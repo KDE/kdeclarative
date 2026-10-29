@@ -12,7 +12,7 @@
 
 /*!
  * \qmltype KDeclarativeMouseEvent
- * \inqmlmodule org.kde.kquickcontrols.addons
+ * \inqmlmodule org.kde.kquickcontrolsaddons
  *
  * \brief This item spies on mouse events from all child objects
  * including child MouseAreas regardless
@@ -148,7 +148,7 @@ private:
 
 /*!
  * \qmltype KDeclarativeWheelEvent
- * \inqmlmodule org.kde.kquickcontrols.addons
+ * \inqmlmodule org.kde.kquickcontrolsaddons
  */
 class KDeclarativeWheelEvent : public QObject
 {
@@ -257,7 +257,7 @@ private:
 
 /*!
  * \qmltype MouseEventListener
- * \inqmlmodule org.kde.kquickcontrols.addons
+ * \inqmlmodule org.kde.kquickcontrolsaddons
  */
 class MouseEventListener : public QQuickItem
 {

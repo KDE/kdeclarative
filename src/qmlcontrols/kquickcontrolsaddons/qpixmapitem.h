@@ -13,7 +13,7 @@
 
 /*!
  * \qmltype QPixMapItem
- * \inqmlmodule org.kde.kquickcontrols.addons
+ * \inqmlmodule org.kde.kquickcontrolsaddons
  */
 class QPixmapItem : public QQuickPaintedItem
 {
