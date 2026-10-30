@@ -11,8 +11,6 @@
 #include <QVariant>
 #include <qqmlregistration.h>
 
-class ClipboardPrivate;
-
 /*!
  * \qmltype Clipboard
  * \inqmlmodule org.kde.kquickcontrols.addons
