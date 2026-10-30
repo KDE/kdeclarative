@@ -14,7 +14,6 @@
 #include <QQuickItem>
 #include <QSharedPointer>
 
-class QQmlComponent;
 class QQuickItemGrabResult;
 
 /*!
