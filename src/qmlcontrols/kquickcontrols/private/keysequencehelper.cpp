@@ -72,6 +72,10 @@ void KeySequenceHelper::showErrorDialog(const QString &title, const QString &tex
     dialog->setCaption(title);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->setWindowModality(Qt::WindowModal);
+    if (window()) {
+        dialog->winId(); // so it creates the windowHandle()
+        dialog->windowHandle()->setTransientParent(window());
+    }
     connect(dialog, &KMessageDialog::finished, this, [this]() {
         Q_EMIT questionDialogRejected();
     });
@@ -88,6 +92,10 @@ void KeySequenceHelper::showQuestionDialog(const QString &title, const QString &
     dialog->setButtons(KStandardGuiItem::cont(), KStandardGuiItem::cancel());
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->setWindowModality(Qt::WindowModal);
+    if (window()) {
+        dialog->winId(); // so it creates the windowHandle()
+        dialog->windowHandle()->setTransientParent(window());
+    }
     connect(dialog, &KMessageDialog::finished, this, [this](int result) {
         switch (result) {
         case KMessageDialog::PrimaryAction:
