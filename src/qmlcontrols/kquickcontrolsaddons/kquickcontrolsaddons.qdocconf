@@ -10,7 +10,7 @@ sourcedirs += .
 
 navigation.landingpage = "KDeclarative"
 
-depends = kde qtcore qtquick qtquickcontrols
+depends += kde qtcore qtquick qtquickcontrols
 
 qhp.projects            = KQuickControlsAddons
 
